@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Paragraph.Core\Paragraph.Core.csproj" />
+      <ProjectReference Include="..\Paragraph.Persistence\Paragraph.Persistence.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -31,7 +31,7 @@ app.UseStaticFiles();
 
 app.UseHangfireDashboard(builder.Configuration.GetSection("HangfireSettings:PathMach").Value, new DashboardOptions
 {
-    AppPath = builder.Configuration.GetSection("HangfireSettings:AppPath").Value, //The path for the Back To Site link. Set to null in order to hide the Back To  Site link.
+    AppPath = builder.Configuration.GetSection("HangfireSettings:AppPath").Value,
     DashboardTitle = builder.Configuration.GetSection("HangfireSettings:DashboardTitle").Value,
     Authorization = new[]
     {

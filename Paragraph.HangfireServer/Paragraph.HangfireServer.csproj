@@ -16,6 +16,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Paragraph.Core\Paragraph.Core.csproj" />
       <ProjectReference Include="..\Paragraph.Persistence\Paragraph.Persistence.csproj" />
+      <ProjectReference Include="..\Paragraph.Services\Paragraph.Services.csproj" />
     </ItemGroup>
 
 </Project>

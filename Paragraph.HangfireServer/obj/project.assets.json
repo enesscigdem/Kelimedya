@@ -1293,6 +1293,20 @@
         "runtime": {
           "bin/placeholder/Paragraph.Persistence.dll": {}
         }
+      },
+      "Paragraph.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Paragraph.Core": "1.0.0",
+          "Paragraph.Persistence": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Paragraph.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Paragraph.Services.dll": {}
+        }
       }
     }
   },
@@ -3366,6 +3380,11 @@
       "type": "project",
       "path": "../Paragraph.Persistence/Paragraph.Persistence.csproj",
       "msbuildProject": "../Paragraph.Persistence/Paragraph.Persistence.csproj"
+    },
+    "Paragraph.Services/1.0.0": {
+      "type": "project",
+      "path": "../Paragraph.Services/Paragraph.Services.csproj",
+      "msbuildProject": "../Paragraph.Services/Paragraph.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3374,7 +3393,8 @@
       "Hangfire.Core >= 1.8.15",
       "Hangfire.SqlServer >= 1.8.15",
       "Paragraph.Core >= 1.0.0",
-      "Paragraph.Persistence >= 1.0.0"
+      "Paragraph.Persistence >= 1.0.0",
+      "Paragraph.Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3407,6 +3427,9 @@
             },
             "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj": {
               "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj"
+            },
+            "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj": {
+              "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj"
             }
           }
         }

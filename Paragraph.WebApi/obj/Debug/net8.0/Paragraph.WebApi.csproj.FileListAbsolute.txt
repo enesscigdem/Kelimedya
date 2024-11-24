@@ -32,3 +32,9 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/Paragraph.WebApi.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/Paragraph.WebApi.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/ref/Paragraph.WebApi.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Paragraph.Core.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Paragraph.Core.pdb

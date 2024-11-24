@@ -1,0 +1,16 @@
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/bin/Debug/net8.0/Paragraph.Persistence.deps.json
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/bin/Debug/net8.0/Paragraph.Persistence.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/bin/Debug/net8.0/Paragraph.Persistence.pdb
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/bin/Debug/net8.0/Paragraph.Core.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/bin/Debug/net8.0/Paragraph.Core.pdb
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.csproj.AssemblyReference.cache
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.AssemblyInfoInputs.cache
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.AssemblyInfo.cs
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.csproj.CoreCompileInputs.cache
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.sourcelink.json
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragrap.F320BA16.Up2Date
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/refint/Paragraph.Persistence.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/Paragraph.Persistence.pdb
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/Debug/net8.0/ref/Paragraph.Persistence.dll

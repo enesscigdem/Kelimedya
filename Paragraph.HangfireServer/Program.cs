@@ -12,6 +12,7 @@ using Paragraph.Core.Interfaces.Business;
 using Paragraph.HangfireServer;
 using Paragraph.HangfireServer.Services;
 using Paragraph.Persistence;
+using Paragraph.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,18 +25,11 @@ builder.Services.AddHangfire(configuration => configuration
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ParagraphDbContext>(options =>
-{
-    options.UseSqlServer(connectionString, y => y.UseNetTopologySuite());
-});
+    options.UseSqlServer(connectionString));
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<AppSettings>>()?.Value);
 
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<MailSettings>>()?.Value);
-
-builder.Services.Configure<ImageConfig>(builder.Configuration.GetSection("ImageConfig"));
-builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<ImageConfig>>()?.Value);
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();

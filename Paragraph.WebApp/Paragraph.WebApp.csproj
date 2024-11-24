@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\theme\tabler\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="wwwroot\theme\tabler\dist\.DS_Store" />
+      <Content Include="wwwroot\theme\tabler\static\.DS_Store" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Paragraph.Core\Paragraph.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
+    </ItemGroup>
+
+</Project>

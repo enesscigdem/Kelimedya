@@ -1,0 +1,6 @@
+@Paragraph.WebApi_HostAddress = http://localhost:5103
+
+GET {{Paragraph.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

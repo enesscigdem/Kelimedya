@@ -12,8 +12,6 @@ namespace Paragraph.Core.IdentityEntities
 
         public int? CompanyId { get; set; }
         //public virtual Company Company { get; set; }
-
-        public string Code { get; set; }
         
         public bool? AdminApproved { get; set; }
         public bool IsActive { get; set; } = true;

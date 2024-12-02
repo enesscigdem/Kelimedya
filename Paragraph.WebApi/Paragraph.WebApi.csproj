@@ -13,6 +13,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Paragraph.Core\Paragraph.Core.csproj" />
+      <ProjectReference Include="..\Paragraph.Services\Paragraph.Services.csproj" />
+      <ProjectReference Include="..\Paragraph.WebApp\Paragraph.WebApp.csproj" />
     </ItemGroup>
 
 </Project>

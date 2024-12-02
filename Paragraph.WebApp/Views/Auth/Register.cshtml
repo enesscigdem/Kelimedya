@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Paragraph.Core
+@model Paragraph.WebApp.Models.RegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Kayıt Ol - Paragraph</title>
+    <!-- CSS dosyaları -->
+    <link href="~/theme/tabler/dist/css/tabler.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
+    <link href="~/theme/tabler/dist/css/tabler-flags.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
+    <link href="~/theme/tabler/dist/css/tabler-payments.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
+    <link href="~/theme/tabler/dist/css/tabler-vendors.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
+    <link href="~/theme/tabler/dist/css/demo.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
+    <style>
+        @@import url('https://rsms.me/inter/inter.css');
+        :root {
+            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
+        body {
+            font-feature-settings: "cv03", "cv04", "cv11";
+        }
+    </style>
+</head>
+<body class="d-flex flex-column">
+    <script src="~/theme/tabler/dist/js/demo-theme.min.js?@AppSettings.ContentVersion"></script>
+    <div class="page page-center">
+        <div class="container container-tight py-4">
+            <div class="text-center mb-4">
+                <a href="." class="navbar-brand navbar-brand-autodark">
+                    <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                </a>
+            </div>
+            <form asp-action="Register" asp-controller="Auth" method="post" class="card card-md">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Yeni hesap oluştur</h2>
+                    <div class="mb-3">
+                        <label asp-for="UserName" class="form-label"></label>
+                        <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adınızı girin" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="E-postanızı girin" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Şifrenizi girin" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Adınızı girin" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Surname" class="form-label"></label>
+                        <input asp-for="Surname" class="form-control" placeholder="Soyadınızı girin" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary w-100">Yeni hesap oluştur</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Başarılı',
+                    text: '@TempData["SuccessMessage"]',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            </text>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hata',
+                    text: '@TempData["ErrorMessage"]',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            </text>
+        }
+    </script>
+</body>
+</html>

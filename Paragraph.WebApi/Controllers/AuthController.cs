@@ -15,7 +15,8 @@ namespace Paragraph.WebAPI.Controllers
         private readonly SignInManager<CustomUser> _signInManager;
         private readonly UserManager<CustomUser> _userManager;
 
-        public AuthController(IAuthService authService, SignInManager<CustomUser> signInManager, UserManager<CustomUser> userManager)
+        public AuthController(IAuthService authService, SignInManager<CustomUser> signInManager,
+            UserManager<CustomUser> userManager)
         {
             _authService = authService;
             _signInManager = signInManager;
@@ -63,7 +64,9 @@ namespace Paragraph.WebAPI.Controllers
                 return Unauthorized("Geçersiz e-posta veya şifre.");
 
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
-            return result.Succeeded ? Ok(new { UserId = user.Id, Message = "Giriş başarılı." }) : Unauthorized("Geçersiz e-posta veya şifre.");
+            return result.Succeeded
+                ? Ok(new { UserId = user.Id, Message = "Giriş başarılı." })
+                : Unauthorized("Geçersiz e-posta veya şifre.");
         }
 
         [HttpPost("forgot-password")]

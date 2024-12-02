@@ -23,7 +23,6 @@ public class ParagraphDbContext : IdentityDbContext<CustomUser, CustomRole, int>
     }
 
     // public virtual DbSet<Language> Languages { get; set; }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
     }

@@ -8,7 +8,6 @@ public class DateTimeService : IDateTimeService
     {
         return DateTime.Now;
     }
-
     public DateTime UtcNow()
     {
         return DateTime.UtcNow;

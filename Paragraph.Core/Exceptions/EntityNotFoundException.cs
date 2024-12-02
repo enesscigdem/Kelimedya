@@ -12,11 +12,9 @@
         public EntityNotFoundException(string message) : base(message)
         {
         }
-
         public EntityNotFoundException(string message, Exception inner) : base(message, inner)
         {
         }
-
         public EntityNotFoundException(string entityName, int key) : this(
             $"Specified entity can not found. Entity: {entityName} PrimaryKay: {key}")
         {

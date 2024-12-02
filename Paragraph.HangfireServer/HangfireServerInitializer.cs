@@ -28,11 +28,10 @@ public static class HangfireServerInitializer
             TimeZone = TimeZoneInfo.Local,
             MisfireHandling = MisfireHandlingMode.Relaxed
         };
-        
+
         /*recurringJobManager.AddOrUpdate<IReservationReminder>(JOBNAMES.RESERVATION_PAYMENT_REMINDER,
             QUEUENAMES.RECURRING,
             x => x.CheckUnpaidReservationsAndFireRemindersForAgencies(), "0 7 * * *", options);*/
-
         return app;
     }
 }

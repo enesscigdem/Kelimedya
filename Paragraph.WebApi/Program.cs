@@ -9,32 +9,27 @@ using Paragraph.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 
-// Add Identity services
 builder.Services.AddIdentity<CustomUser, CustomRole>(options =>
 {
-    // Şifre kuralları
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 6;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
 
-    // Kilitleme kuralları
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
 
-    // Kullanıcı kuralları
     options.User.RequireUniqueEmail = true;
 })
-.AddEntityFrameworkStores<ParagraphDbContext>() // EF Core üzerinden Identity işlemleri
+.AddEntityFrameworkStores<ParagraphDbContext>()
 .AddDefaultTokenProviders();
 
 // Add Application Services
-builder.Services.AddScoped<IAuthService, AuthService>(); // IAuthService ve implementasyonu
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 // Add DbContext
@@ -47,7 +42,6 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// CORS Policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -60,7 +54,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -69,10 +62,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// CORS middleware
 app.UseCors("AllowAll");
 
-// Authentication & Authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 

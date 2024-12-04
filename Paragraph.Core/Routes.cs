@@ -2,8 +2,11 @@ namespace Paragraph.Core
 {
     public static class Routes
     {
-        public const string Api = "/api";
-        public const string Auth = "/auth";
-        public const string Admin = "/admin";
+        public static class Auth
+        {
+            public const string Base = "api/auth";
+            public const string Register = "register";
+            public const string Login = "login";
+        }
     }
 }

@@ -499,3 +499,8 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Paragraph.Services.dll
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Paragraph.HangfireServer.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Paragraph.Services.pdb
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll

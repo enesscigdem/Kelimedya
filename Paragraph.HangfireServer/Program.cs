@@ -44,7 +44,7 @@ builder.Services.AddControllersWithViews();
 // Add the processing server as IHostedService
 builder.Services.AddHangfireServer(options =>
 {
-    options.Queues = new[] { QUEUENAMES.RECURRING, QUEUENAMES.SMS, QUEUENAMES.MAIL, QUEUENAMES.DEFAULT };
+    options.Queues = new[] { Queuenames.RECURRING, Queuenames.SMS, Queuenames.MAIL, Queuenames.DEFAULT };
 });
 
 
@@ -69,4 +69,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+await app.RunAsync();

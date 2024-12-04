@@ -8,6 +8,8 @@ using Paragraph.Core;
 
 namespace Paragraph.WebApp.Controllers
 {
+    [Route("auth")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class AuthController : Controller
     {
         private readonly HttpClient _httpClient;
@@ -19,80 +21,58 @@ namespace Paragraph.WebApp.Controllers
             _apiUrl = appSettings.Value.ApiUrl;
         }
 
-        [HttpGet]
+        [HttpGet("register")]
         public IActionResult Register()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+                return Json(new { success = false, message = "Tüm alanları doldurun." });
 
             var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/register", model);
             if (!response.IsSuccessStatusCode)
-            {
-                ModelState.AddModelError(string.Empty, "Kayıt işlemi başarısız oldu.");
-                return View(model);
-            }
+                return Json(new { success = false, message = "Kayıt işlemi başarısız oldu." });
 
-            TempData["SuccessMessage"] = "Kayıt başarılı! Lütfen giriş yapın.";
-            return RedirectToAction("Login");
+            return Json(new { success = true, message = "Kayıt başarılı! Lütfen giriş yapın." });
         }
 
-        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+                return Json(new { success = false, message = "Tüm alanları doldurun." });
 
             var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/login", model);
             if (!response.IsSuccessStatusCode)
+                return Json(new { success = false, message = "Geçersiz giriş bilgileri." });
+
+            var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
+            if (result == null || string.IsNullOrEmpty(result.Token))
+                return Json(new { success = false, message = "Giriş sırasında bir sorun oluştu." });
+
+            Response.Cookies.Append("AuthToken", result.Token, new CookieOptions
             {
-                ModelState.AddModelError(string.Empty, "Geçersiz giriş bilgileri.");
-                return View(model);
-            }
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddHours(2)
+            });
 
-            var result = await response.Content.ReadFromJsonAsync<LoginViewModel>();
-            TempData["SuccessMessage"] = "Giriş başarılı!";
-            return RedirectToAction("Index", "Home");
+            return Json(new { success = true, message = "Giriş başarılı!" });
         }
+    }
 
-        [HttpGet]
-        public IActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/forgot-password", model);
-            if (!response.IsSuccessStatusCode)
-            {
-                ModelState.AddModelError(string.Empty, "E-posta bulunamadı veya işlem başarısız.");
-                return View(model);
-            }
-
-            TempData["SuccessMessage"] = "Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.";
-            return RedirectToAction("Login");
-        }
+    public class TokenResponse
+    {
+        public string Token { get; set; }
     }
 }

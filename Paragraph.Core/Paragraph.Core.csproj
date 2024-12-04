@@ -7,10 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="DtoObjects\" />
       <Folder Include="Entities\" />
-      <Folder Include="Mappings\" />
-      <Folder Include="Utilities\" />
     </ItemGroup>
 
     <ItemGroup>

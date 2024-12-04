@@ -1820,12 +1820,10 @@
       },
       "Paragraph.WebApp/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.OpenApi": "8.0.8",
           "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.0",
           "Paragraph.Core": "1.0.0",
           "Paragraph.HangfireServer": "1.0.0",
-          "Paragraph.Persistence": "1.0.0",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Paragraph.Persistence": "1.0.0"
         },
         "runtime": {
           "Paragraph.WebApp.dll": {

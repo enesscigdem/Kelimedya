@@ -15,8 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container
 builder.Services.AddControllers();
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];
+connectionString += $"Password={dbPassword}";
+
 builder.Services.AddDbContext<ParagraphDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddIdentity<CustomUser, CustomRole>(options =>
 {

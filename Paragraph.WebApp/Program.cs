@@ -15,6 +15,8 @@ builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<AppSettings>>()?.Va
 builder.Services.AddHttpClient();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];
+connectionString += $"Password={dbPassword}";
 
 builder.Services.AddDbContext<ParagraphDbContext>(options =>
     options.UseSqlServer(connectionString));

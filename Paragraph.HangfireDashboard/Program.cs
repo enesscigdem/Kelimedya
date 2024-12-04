@@ -51,4 +51,4 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
     endpoints.MapHangfireDashboard();
 });
-app.Run();
+await app.RunAsync();

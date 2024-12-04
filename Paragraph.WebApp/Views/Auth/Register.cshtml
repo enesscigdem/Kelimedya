@@ -1,11 +1,8 @@
-﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
-@using Paragraph.Core
-@model Paragraph.WebApp.Models.RegisterViewModel
-
-@{
+﻿@{
     Layout = null;
 }
-
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Paragraph.Core
 <!doctype html>
 <html lang="tr">
 <head>
@@ -13,93 +10,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Kayıt Ol - Paragraph</title>
-    <!-- CSS dosyaları -->
     <link href="~/theme/tabler/dist/css/tabler.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/tabler-flags.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/tabler-payments.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/tabler-vendors.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/demo.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <style>
-        @@import url('https://rsms.me/inter/inter.css');
-        :root {
-            --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-        }
-        body {
-            font-feature-settings: "cv03", "cv04", "cv11";
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 </head>
 <body class="d-flex flex-column">
-    <script src="~/theme/tabler/dist/js/demo-theme.min.js?@AppSettings.ContentVersion"></script>
-    <div class="page page-center">
-        <div class="container container-tight py-4">
-            <div class="text-center mb-4">
-                <a href="." class="navbar-brand navbar-brand-autodark">
-                    <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
-                </a>
-            </div>
-            <form asp-action="Register" asp-controller="Auth" method="post" class="card card-md">
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Yeni hesap oluştur</h2>
-                    <div class="mb-3">
-                        <label asp-for="UserName" class="form-label"></label>
-                        <input asp-for="UserName" class="form-control" placeholder="Kullanıcı adınızı girin" />
-                        <span asp-validation-for="UserName" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Email" class="form-label"></label>
-                        <input asp-for="Email" type="email" class="form-control" placeholder="E-postanızı girin" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Password" class="form-label"></label>
-                        <input asp-for="Password" type="password" class="form-control" placeholder="Şifrenizi girin" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Name" class="form-label"></label>
-                        <input asp-for="Name" class="form-control" placeholder="Adınızı girin" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Surname" class="form-label"></label>
-                        <input asp-for="Surname" class="form-control" placeholder="Soyadınızı girin" />
-                        <span asp-validation-for="Surname" class="text-danger"></span>
-                    </div>
-                    <div class="form-footer">
-                        <button type="submit" class="btn btn-primary w-100">Yeni hesap oluştur</button>
-                    </div>
+<div class="page page-center">
+    <div class="container container-tight py-4">
+        <div class="text-center mb-4">
+            <a href="/" class="navbar-brand navbar-brand-autodark">
+                <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+            </a>
+        </div>
+        <form id="registerForm" class="card card-md">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Yeni hesap oluştur</h2>
+                <div class="mb-3">
+                    <label for="UserName" class="form-label">Kullanıcı Adı</label>
+                    <input id="UserName" name="UserName" class="form-control" placeholder="Kullanıcı adınızı girin"/>
+                    <span class="text-danger" id="UserNameError"></span>
                 </div>
-            </form>
+                <div class="mb-3">
+                    <label for="Email" class="form-label">E-posta</label>
+                    <input id="Email" name="Email" type="email" class="form-control" placeholder="E-postanızı girin"/>
+                    <span class="text-danger" id="EmailError"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Şifre</label>
+                    <input id="Password" name="Password" type="password" class="form-control" placeholder="Şifrenizi girin"/>
+                    <span class="text-danger" id="PasswordError"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Ad</label>
+                    <input id="Name" name="Name" class="form-control" placeholder="Adınızı girin"/>
+                    <span class="text-danger" id="NameError"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="Surname" class="form-label">Soyad</label>
+                    <input id="Surname" name="Surname" class="form-control" placeholder="Soyadınızı girin"/>
+                    <span class="text-danger" id="SurnameError"></span>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary w-100">Yeni hesap oluştur</button>
+                </div>
+            </div>
+        </form>
+        <div class="text-center text-secondary mt-3">
+            Zaten bir hesabınız var mı? <a href="/auth/login" tabindex="-1">Giriş Yap</a>
         </div>
     </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#registerForm').on('submit', function (e) {
+            e.preventDefault();
+            const data = {
+                userName: $('#UserName').val(),
+                email: $('#Email').val(),
+                password: $('#Password').val(),
+                name: $('#Name').val(),
+                surname: $('#Surname').val()
+            };
 
-    <script>
-        @if (TempData["SuccessMessage"] != null)
-        {
-            <text>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Başarılı',
-                    text: '@TempData["SuccessMessage"]',
-                    timer: 3000,
-                    showConfirmButton: false
-                });
-            </text>
-        }
+            $('.text-danger').text(''); // Clear previous errors
 
-        @if (TempData["ErrorMessage"] != null)
-        {
-            <text>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Hata',
-                    text: '@TempData["ErrorMessage"]',
-                    timer: 3000,
-                    showConfirmButton: false
-                });
-            </text>
-        }
-    </script>
+            let isValid = true;
+            if (!data.userName) { $('#UserNameError').text('Kullanıcı adı zorunludur.'); isValid = false; }
+            if (!data.email) { $('#EmailError').text('E-posta adresi zorunludur.'); isValid = false; }
+            if (!data.password || data.password.length < 6) { $('#PasswordError').text('Şifre en az 6 karakter olmalıdır.'); isValid = false; }
+            if (!data.name) { $('#NameError').text('Ad zorunludur.'); isValid = false; }
+            if (!data.surname) { $('#SurnameError').text('Soyad zorunludur.'); isValid = false; }
+            if (!isValid) return;
+
+            $.ajax({
+                url: '/auth/register',
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: function (response) {
+                    toastr.success(response.message, "Başarılı!");
+                    setTimeout(() => window.location.href = '/auth/login', 2000);
+                },
+                error: function (xhr) {
+                    toastr.error(xhr.responseJSON?.message || "Kayıt işlemi sırasında bir hata oluştu.", "Hata");
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

@@ -7,7 +7,7 @@ namespace Paragraph.HangfireServer.Services
     {
         public int GetUserId()
         {
-            return CONSTANTS.HANGFIRE_USER_ID;
+            return Constants.HANGFIRE_USER_ID;
         }
         public string GetEmail()
         {

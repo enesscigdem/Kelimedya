@@ -469,3 +469,4 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Paragraph.WebApp.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Paragraph.HangfireServer.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Paragraph.Persistence.pdb
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll

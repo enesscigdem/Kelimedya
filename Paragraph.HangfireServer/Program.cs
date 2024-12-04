@@ -24,6 +24,9 @@ builder.Services.AddHangfire(configuration => configuration
     .UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireConnection")));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];
+connectionString += $"Password={dbPassword}";
+
 builder.Services.AddDbContext<ParagraphDbContext>(options =>
     options.UseSqlServer(connectionString));
 

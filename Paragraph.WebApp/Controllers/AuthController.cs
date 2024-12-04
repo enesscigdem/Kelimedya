@@ -8,7 +8,6 @@ using Paragraph.Core;
 
 namespace Paragraph.WebApp.Controllers
 {
-    [Route("auth")]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class AuthController : Controller
     {
@@ -21,13 +20,13 @@ namespace Paragraph.WebApp.Controllers
             _apiUrl = appSettings.Value.ApiUrl;
         }
 
-        [HttpGet("register")]
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -40,24 +39,25 @@ namespace Paragraph.WebApp.Controllers
             return Json(new { success = true, message = "Kayıt başarılı! Lütfen giriş yapın." });
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost("login")]
+        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid)
-                return Json(new { success = false, message = "Tüm alanları doldurun." });
+                return BadRequest(new { success = false, message = "Tüm alanları doldurun." });
 
             var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/login", model);
             if (!response.IsSuccessStatusCode)
-                return Json(new { success = false, message = "Geçersiz giriş bilgileri." });
+                return Unauthorized(new { success = false, message = "Geçersiz giriş bilgileri." });
 
             var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
             if (result == null || string.IsNullOrEmpty(result.Token))
-                return Json(new { success = false, message = "Giriş sırasında bir sorun oluştu." });
+                return StatusCode(500, new { success = false, message = "Giriş sırasında bir sorun oluştu." });
 
             Response.Cookies.Append("AuthToken", result.Token, new CookieOptions
             {
@@ -67,8 +67,9 @@ namespace Paragraph.WebApp.Controllers
                 Expires = DateTime.UtcNow.AddHours(2)
             });
 
-            return Json(new { success = true, message = "Giriş başarılı!" });
+            return Ok(new { success = true, message = "Giriş başarılı!" });
         }
+
     }
 
     public class TokenResponse

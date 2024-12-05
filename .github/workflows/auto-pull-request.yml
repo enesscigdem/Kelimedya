@@ -3,7 +3,7 @@ name: Auto Pull Request
 on:
   push:
     branches:
-      - '*' # Tüm branch'ler için çalışır.
+      - '*'
 
 jobs:
   create-pull-request:

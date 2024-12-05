@@ -3,7 +3,7 @@ name: Auto Pull Request
 on:
   push:
     branches:
-      - '*' # Tüm branch'ler için çalışır. Belirli branch'ler için "master" gibi değer ekleyebilirsiniz.
+      - '*' # Tüm branch'ler için çalışır.
 
 jobs:
   create-pull-request:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Git
         run: |
@@ -22,8 +24,8 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Automated Pull Request from GitHub Actions"
-          branch: ${{ github.ref_name }} # Mevcut branch
+          commit-message: "Automated Pull Request from ${{ github.ref_name }}"
+          branch: ${{ github.ref_name }}
           base: master # Hedef branch
           title: "Automated Pull Request for ${{ github.ref_name }}"
           body: "This is an automated pull request created by GitHub Actions."

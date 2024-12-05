@@ -63,6 +63,7 @@ namespace Paragraph.Services.Implementations
         private string GenerateJwtToken(CustomUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
+          
             var key = Environment.GetEnvironmentVariable("JWT_KEY") ??
                       throw new ArgumentNullException("JWT_KEY environment variable is not set.");
 

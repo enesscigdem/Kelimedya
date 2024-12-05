@@ -63,12 +63,10 @@ namespace Paragraph.Services.Implementations
         private string GenerateJwtToken(CustomUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-          
-           
+
             var key = Environment.GetEnvironmentVariable("JWT_KEY") ??
                       throw new ArgumentNullException("JWT_KEY environment variable is not set.");
 
-            
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var tokenDescriptor = new SecurityTokenDescriptor
             {

@@ -12,13 +12,11 @@ namespace Paragraph.WebApp.Controllers
     public class AuthController(HttpClient httpClient, IOptions<AppSettings> appSettings) : Controller
     {
         private readonly string _apiUrl = appSettings.Value.ApiUrl;
-
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {

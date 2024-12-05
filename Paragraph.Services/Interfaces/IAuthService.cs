@@ -8,6 +8,7 @@ namespace Paragraph.Services.Interfaces
         Task<AuthResult> RegisterAsync(RegisterDto dto);
         Task<string> LoginAsync(string email, string password);
     }
+
     public class AuthResult
     {
         public bool Success { get; set; }

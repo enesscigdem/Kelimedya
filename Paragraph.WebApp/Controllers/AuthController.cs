@@ -1,56 +1,34 @@
 using Microsoft.AspNetCore.Mvc;
-using Paragraph.WebApp.Models;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
-using Paragraph.Core;
+using Paragraph.Core.DTOs;
 
 namespace Paragraph.WebApp.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
-    public class AuthController(HttpClient httpClient, IOptions<AppSettings> appSettings) : Controller
+    public class AuthController(HttpClient httpClient) : Controller
     {
-        private readonly string _apiUrl = appSettings.Value.ApiUrl;
         [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
-        {
-            if (!ModelState.IsValid)
-                return Json(new { success = false, message = "Tüm alanları doldurun." });
-
-            var response = await httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/register", model);
-            if (!response.IsSuccessStatusCode)
-                return Json(new { success = false, message = "Kayıt işlemi başarısız oldu." });
-
-            return Json(new { success = true, message = "Kayıt başarılı! Lütfen giriş yapın." });
-        }
-
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(new { success = false, message = "Tüm alanları doldurun." });
 
-            var response = await httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/login", model);
+            var response = await httpClient.PostAsJsonAsync("api/auth/login", dto);
+
             if (!response.IsSuccessStatusCode)
                 return Unauthorized(new { success = false, message = "Geçersiz giriş bilgileri." });
 
-            var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
-            if (result == null || string.IsNullOrEmpty(result.Token))
+            var token = await response.Content.ReadFromJsonAsync<TokenResponseDto>();
+
+            if (string.IsNullOrEmpty(token?.Token))
                 return StatusCode(500, new { success = false, message = "Giriş sırasında bir sorun oluştu." });
 
-            Response.Cookies.Append("AuthToken", result.Token, new CookieOptions
+            Response.Cookies.Append("AuthToken", token.Token, new CookieOptions
             {
                 HttpOnly = true,
                 Secure = true,
@@ -61,10 +39,24 @@ namespace Paragraph.WebApp.Controllers
             return Ok(new { success = true, message = "Giriş başarılı!" });
         }
 
-    }
+        [HttpGet]
+        public IActionResult Register() => View();
 
-    public class TokenResponse
-    {
-        public string Token { get; set; }
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] RegisterDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(new { success = false, message = "Tüm alanları doldurun." });
+
+            var response = await httpClient.PostAsJsonAsync("api/auth/register", dto);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                return Json(new { success = false, message = errorMessage });
+            }
+
+            return Json(new { success = true, message = "Kayıt başarılı! Lütfen giriş yapın." });
+        }
     }
 }

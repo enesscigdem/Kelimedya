@@ -29,3 +29,4 @@ jobs:
           base: master # Hedef branch
           title: "Automated Pull Request for ${{ github.ref_name }}"
           body: "This is an automated pull request created by GitHub Actions."
+          always-create-pr: true

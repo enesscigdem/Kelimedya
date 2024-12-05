@@ -1,33 +1,25 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using Paragraph.Core.IdentityEntities;
-using Paragraph.Services.Interfaces;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Paragraph.Core.DTOs;
+using Paragraph.Core.IdentityEntities;
+using Paragraph.Services.Interfaces;
 
 namespace Paragraph.Services.Implementations
 {
-    public class AuthService : IAuthService
+    public class AuthService(UserManager<CustomUser> userManager, IConfiguration configuration)
+        : IAuthService
     {
-        private readonly UserManager<CustomUser> _userManager;
-        private readonly IConfiguration _configuration;
-
-        public AuthService(UserManager<CustomUser> userManager, IConfiguration configuration)
+        public async Task<AuthResultDto> RegisterAsync(RegisterDto dto)
         {
-            _userManager = userManager;
-            _configuration = configuration;
-        }
-
-        public async Task<AuthResult> RegisterAsync(RegisterDto dto)
-        {
-            var existingUser = await _userManager.FindByEmailAsync(dto.Email);
+            var existingUser = await userManager.FindByEmailAsync(dto.Email);
             if (existingUser != null)
-                return new AuthResult { Success = false, Message = "Bu e-posta zaten kullanılıyor." };
+                return new AuthResultDto { Success = false, Message = "Bu e-posta zaten kullanılıyor." };
 
             var newUser = new CustomUser
             {
@@ -39,22 +31,22 @@ namespace Paragraph.Services.Implementations
                 CreatedAt = DateTime.UtcNow
             };
 
-            var result = await _userManager.CreateAsync(newUser, dto.Password);
+            var result = await userManager.CreateAsync(newUser, dto.Password);
 
             if (!result.Succeeded)
-                return new AuthResult
+                return new AuthResultDto
                 {
                     Success = false,
                     Message = "Kullanıcı oluşturulamadı: " + string.Join(", ", result.Errors)
                 };
 
-            return new AuthResult { Success = true, Message = "Kayıt başarılı!" };
+            return new AuthResultDto { Success = true, Message = "Kayıt başarılı!" };
         }
 
-        public async Task<string> LoginAsync(string email, string password)
+        public async Task<string> LoginAsync(LoginDto dto)
         {
-            var user = await _userManager.FindByEmailAsync(email);
-            if (user == null || !await _userManager.CheckPasswordAsync(user, password))
+            var user = await userManager.FindByEmailAsync(dto.Email);
+            if (user == null || !await userManager.CheckPasswordAsync(user, dto.Password))
                 return null;
 
             return GenerateJwtToken(user);
@@ -63,23 +55,17 @@ namespace Paragraph.Services.Implementations
         private string GenerateJwtToken(CustomUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-
-            var key = Environment.GetEnvironmentVariable("JWT_KEY") ??
-                      throw new ArgumentNullException("JWT_KEY environment variable is not set.");
-
-            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var key = Encoding.UTF8.GetBytes(configuration["JWT:Key"] ?? throw new ArgumentNullException("JWT:Key is not configured."));
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Email, user.Email)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
-                Issuer = _configuration["JWT:Issuer"],
-                Audience = _configuration["JWT:Audience"],
-                SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256Signature)
+                Issuer = configuration["JWT:Issuer"],
+                Audience = configuration["JWT:Audience"],
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

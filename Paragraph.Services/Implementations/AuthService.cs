@@ -66,6 +66,7 @@ namespace Paragraph.Services.Implementations
             var key = Environment.GetEnvironmentVariable("JWT_KEY") ??
                       throw new ArgumentNullException("JWT_KEY environment variable is not set.");
 
+            
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var tokenDescriptor = new SecurityTokenDescriptor
             {

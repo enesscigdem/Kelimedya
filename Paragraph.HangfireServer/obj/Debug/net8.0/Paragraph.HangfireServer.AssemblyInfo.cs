@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Paragraph.HangfireServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f22e19e1c10764225f930b70e1dab96fffc34a45")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4394ca9a8801abd227270751bbfd8715f71e7311")]
 [assembly: System.Reflection.AssemblyProductAttribute("Paragraph.HangfireServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Paragraph.HangfireServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

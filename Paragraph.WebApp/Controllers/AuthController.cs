@@ -9,16 +9,9 @@ using Paragraph.Core;
 namespace Paragraph.WebApp.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
-    public class AuthController : Controller
+    public class AuthController(HttpClient httpClient, IOptions<AppSettings> appSettings) : Controller
     {
-        private readonly HttpClient _httpClient;
-        private readonly string _apiUrl;
-
-        public AuthController(HttpClient httpClient, IOptions<AppSettings> appSettings)
-        {
-            _httpClient = httpClient;
-            _apiUrl = appSettings.Value.ApiUrl;
-        }
+        private readonly string _apiUrl = appSettings.Value.ApiUrl;
 
         [HttpGet]
         public IActionResult Register()
@@ -32,7 +25,7 @@ namespace Paragraph.WebApp.Controllers
             if (!ModelState.IsValid)
                 return Json(new { success = false, message = "Tüm alanları doldurun." });
 
-            var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/register", model);
+            var response = await httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/register", model);
             if (!response.IsSuccessStatusCode)
                 return Json(new { success = false, message = "Kayıt işlemi başarısız oldu." });
 
@@ -51,7 +44,7 @@ namespace Paragraph.WebApp.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(new { success = false, message = "Tüm alanları doldurun." });
 
-            var response = await _httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/login", model);
+            var response = await httpClient.PostAsJsonAsync($"{_apiUrl}/api/auth/login", model);
             if (!response.IsSuccessStatusCode)
                 return Unauthorized(new { success = false, message = "Geçersiz giriş bilgileri." });
 

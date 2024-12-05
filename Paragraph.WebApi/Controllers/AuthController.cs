@@ -9,15 +9,8 @@ namespace Paragraph.WebAPI.Controllers
 {
     [Route(Routes.Auth.Base)]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController(IAuthService authService) : ControllerBase
     {
-        private readonly IAuthService _authService;
-
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
-
         [HttpPost(Routes.Auth.Register)]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
@@ -33,7 +26,7 @@ namespace Paragraph.WebAPI.Controllers
                 Surname = model.Surname
             };
 
-            var result = await _authService.RegisterAsync(dto);
+            var result = await authService.RegisterAsync(dto);
 
             if (!result.Success)
                 return BadRequest(new { Message = result.Message });
@@ -47,7 +40,7 @@ namespace Paragraph.WebAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var token = await _authService.LoginAsync(model.Email, model.Password);
+            var token = await authService.LoginAsync(model.Email, model.Password);
             if (string.IsNullOrEmpty(token))
                 return Unauthorized(new { Message = "Geçersiz e-posta veya şifre." });
 

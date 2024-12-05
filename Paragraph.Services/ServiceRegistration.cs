@@ -14,7 +14,6 @@ namespace Paragraph.Services
         {
             services.AddScoped<IParagraphDbContext, ParagraphDbContext>();
 
-            services.AddScoped<IAccountService, AccountService>();
             return services;
         }
     }

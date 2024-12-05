@@ -63,12 +63,8 @@ namespace Paragraph.Services.Implementations
         private string GenerateJwtToken(CustomUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = _configuration["JWT:Secret"];
-
-            if (string.IsNullOrEmpty(key))
-            {
-                throw new ArgumentNullException(nameof(key), "JWT Secret key is missing or empty in configuration.");
-            }
+            var key = Environment.GetEnvironmentVariable("JWT_KEY") ??
+                      throw new ArgumentNullException("JWT_KEY environment variable is not set.");
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -88,6 +84,5 @@ namespace Paragraph.Services.Implementations
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
-
     }
 }

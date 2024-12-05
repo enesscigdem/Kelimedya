@@ -1,7 +1,7 @@
 name: Auto Merge and Analyze
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
 
 jobs:
@@ -10,17 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Repo'yu klonla
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. .NET ve SonarQube için gerekli ortamı kur
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.0
 
-      # 3. SonarQube tarayıcıyı çalıştır
       - name: Install dotnet-sonarscanner
         run: dotnet tool install --global dotnet-sonarscanner
 
@@ -40,13 +37,11 @@ jobs:
           dotnet build --configuration Release
           dotnet-sonarscanner end /d:sonar.login=${{ secrets.SONAR_TOKEN }}
 
-      # 4. Otomatik PR onayla
       - name: Approve Pull Request
         uses: hmarr/auto-approve-action@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 5. PR'yi otomatik olarak birleştir
       - name: Auto Merge
         uses: actions/github-script@v6
         with:

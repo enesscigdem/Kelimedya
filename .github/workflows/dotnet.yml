@@ -13,24 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Repo'yu klonla
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # .NET SDK'yı yükle
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0
 
-    # Projeyi restore et
     - name: Restore dependencies
       run: dotnet restore
 
-    # Projeyi build et
     - name: Build
       run: dotnet build --no-restore --configuration Release
 
-    # Testleri çalıştır
     - name: Run tests
       run: dotnet test --no-build --configuration Release

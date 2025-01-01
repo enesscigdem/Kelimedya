@@ -184,6 +184,21 @@
           }
         }
       },
+      "Hangfire.Dashboard.Basic.Authentication/7.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.AspNetCore": "1.7.34",
+          "Hangfire.Core": "1.7.34",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Primitives": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/HangfireBasicAuthenticationFilter.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/HangfireBasicAuthenticationFilter.dll": {}
+        }
+      },
       "Hangfire.NetCore/1.8.15": {
         "type": "package",
         "dependencies": {
@@ -2358,6 +2373,22 @@
           "bin/placeholder/Paragraph.Core.dll": {}
         }
       },
+      "Paragraph.HangfireDashboard/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Hangfire.AspNetCore": "1.8.15",
+          "Hangfire.Core": "1.8.15",
+          "Hangfire.Dashboard.Basic.Authentication": "7.0.1",
+          "Hangfire.SqlServer": "1.8.15"
+        },
+        "compile": {
+          "bin/placeholder/Paragraph.HangfireDashboard.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Paragraph.HangfireDashboard.dll": {}
+        }
+      },
       "Paragraph.HangfireServer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2611,6 +2642,18 @@
         "lib/netstandard2.0/tr-TR/Hangfire.Core.resources.dll",
         "lib/netstandard2.0/zh-TW/Hangfire.Core.resources.dll",
         "lib/netstandard2.0/zh/Hangfire.Core.resources.dll"
+      ]
+    },
+    "Hangfire.Dashboard.Basic.Authentication/7.0.1": {
+      "sha512": "SsWDM/FcgNOiZaG9RbOZzg9ZbAw2NJUzZY2V4ChnGaHFI3yT7CXE+LB9EshqE/MX/jT55QTtmnZ2JYy6atSJWA==",
+      "type": "package",
+      "path": "hangfire.dashboard.basic.authentication/7.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "hangfire.dashboard.basic.authentication.7.0.1.nupkg.sha512",
+        "hangfire.dashboard.basic.authentication.nuspec",
+        "lib/net7.0/HangfireBasicAuthenticationFilter.dll"
       ]
     },
     "Hangfire.NetCore/1.8.15": {
@@ -5906,6 +5949,11 @@
       "path": "../Paragraph.Core/Paragraph.Core.csproj",
       "msbuildProject": "../Paragraph.Core/Paragraph.Core.csproj"
     },
+    "Paragraph.HangfireDashboard/1.0.0": {
+      "type": "project",
+      "path": "../Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj",
+      "msbuildProject": "../Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj"
+    },
     "Paragraph.HangfireServer/1.0.0": {
       "type": "project",
       "path": "../Paragraph.HangfireServer/Paragraph.HangfireServer.csproj",
@@ -5927,8 +5975,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation >= 8.0.0",
       "Paragraph.Core >= 1.0.0",
-      "Paragraph.HangfireServer >= 1.0.0",
-      "Paragraph.Persistence >= 1.0.0"
+      "Paragraph.HangfireDashboard >= 1.0.0",
+      "Paragraph.HangfireServer >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5959,11 +6007,11 @@
             "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj": {
               "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj"
             },
+            "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj": {
+              "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj"
+            },
             "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj": {
               "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj"
-            },
-            "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj"
             }
           }
         }

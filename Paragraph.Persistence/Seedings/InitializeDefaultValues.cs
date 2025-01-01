@@ -14,6 +14,7 @@ namespace Paragraph.Persistence.Seedings
                 await roleManager.CreateAsync(new CustomRole() { Name = RoleNames.Admin });
                 await roleManager.CreateAsync(new CustomRole() { Name = RoleNames.Teacher });
                 await roleManager.CreateAsync(new CustomRole() { Name = RoleNames.Student });
+                await roleManager.CreateAsync(new CustomRole() { Name = RoleNames.User });
             }
 
             if (!userManager.Users.Any())

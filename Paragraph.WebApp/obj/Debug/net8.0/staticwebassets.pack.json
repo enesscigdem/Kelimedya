@@ -253,10 +253,6 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
-      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/dist/.DS_Store",
-      "PackagePath": "staticwebassets/theme/tabler/dist/.DS_Store"
-    },
-    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/dist/css/demo.css",
       "PackagePath": "staticwebassets/theme/tabler/dist/css/demo.css"
     },
@@ -3289,10 +3285,6 @@
       "PackagePath": "staticwebassets/theme/tabler/dist/libs/tom-select/dist/js/tom-select.popular.min.js.map"
     },
     {
-      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/static/.DS_Store",
-      "PackagePath": "staticwebassets/theme/tabler/static/.DS_Store"
-    },
-    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/static/avatars/000f.jpg",
       "PackagePath": "staticwebassets/theme/tabler/static/avatars/000f.jpg"
     },
@@ -6207,10 +6199,6 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/static/tracks/ff2381a011d29cefb3804436ed29f60b4faa63d6.jpg",
       "PackagePath": "staticwebassets/theme/tabler/static/tracks/ff2381a011d29cefb3804436ed29f60b4faa63d6.jpg"
-    },
-    {
-      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/.DS_Store",
-      "PackagePath": "staticwebassets/theme/web_UI/assets/.DS_Store"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/animate.css",

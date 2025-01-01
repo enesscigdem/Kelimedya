@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UuGL0Wu8v6Cu3lVMI3q5gvxD+qtmTijBoAsBDSmjimGkHZ7WzPNOaIVChZyx1U3sU054vQkRjCaEP1eAnodDZw==",
+  "dgSpecHash": "9w9rfhvIuQZ+EWZYRWxyGSw02l2uU+DiZLCxwd97lluXcbPmKehNUTmw2tHxYN3jZitl7tZZiX4f5jYv9taPlg==",
   "success": true,
   "projectFilePath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Paragraph.WebApp.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "/Users/enescigdem/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/hangfire.aspnetcore/1.8.15/hangfire.aspnetcore.1.8.15.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/hangfire.core/1.8.15/hangfire.core.1.8.15.nupkg.sha512",
+    "/Users/enescigdem/.nuget/packages/hangfire.dashboard.basic.authentication/7.0.1/hangfire.dashboard.basic.authentication.7.0.1.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/hangfire.netcore/1.8.15/hangfire.netcore.1.8.15.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/hangfire.sqlserver/1.8.15/hangfire.sqlserver.1.8.15.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",

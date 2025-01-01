@@ -39,9 +39,8 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
           "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.0",
           "Paragraph.Core": "1.0.0",
+          "Paragraph.HangfireDashboard": "1.0.0",
           "Paragraph.HangfireServer": "1.0.0",
-          "Paragraph.Persistence": "1.0.0",
-          "Paragraph.Core.Reference": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "8.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "8.0.0.0",
           "Microsoft.AspNetCore.Authentication.BearerToken": "8.0.0.0",
@@ -520,6 +519,23 @@
         },
         "compile": {
           "lib/netstandard2.0/Hangfire.Core.dll": {}
+        }
+      },
+      "Hangfire.Dashboard.Basic.Authentication/7.0.1": {
+        "dependencies": {
+          "Hangfire.AspNetCore": "1.8.15",
+          "Hangfire.Core": "1.8.15",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/HangfireBasicAuthenticationFilter.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/net7.0/HangfireBasicAuthenticationFilter.dll": {}
         }
       },
       "Hangfire.NetCore/1.8.15": {
@@ -1906,6 +1922,37 @@
           }
         }
       },
+      "Paragraph.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0"
+        },
+        "runtime": {
+          "Paragraph.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "Paragraph.Core.dll": {}
+        }
+      },
+      "Paragraph.HangfireDashboard/1.0.0": {
+        "dependencies": {
+          "Hangfire.AspNetCore": "1.8.15",
+          "Hangfire.Core": "1.8.15",
+          "Hangfire.Dashboard.Basic.Authentication": "7.0.1",
+          "Hangfire.SqlServer": "1.8.15"
+        },
+        "runtime": {
+          "Paragraph.HangfireDashboard.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "Paragraph.HangfireDashboard.dll": {}
+        }
+      },
       "Paragraph.HangfireServer/1.0.0": {
         "dependencies": {
           "Hangfire.AspNetCore": "1.8.15",
@@ -1955,17 +2002,6 @@
         },
         "compile": {
           "Paragraph.Services.dll": {}
-        }
-      },
-      "Paragraph.Core.Reference/1.0.0.0": {
-        "runtime": {
-          "Paragraph.Core.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "Paragraph.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/8.0.0.0": {
@@ -3773,12 +3809,6 @@
           "WindowsBase.dll": {}
         },
         "compileOnly": true
-      },
-      "Paragraph.Core/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0"
-        },
-        "compileOnly": true
       }
     }
   },
@@ -3843,6 +3873,13 @@
       "sha512": "sha512-+w8gT6CFH4jicVEsJ8WlMRJMNV2MG52JNtvKoXPFHFs6nkDTND6iDeCjydyHgp+85lZPRXc+s9/vkxD2vbPrLg==",
       "path": "hangfire.core/1.8.15",
       "hashPath": "hangfire.core.1.8.15.nupkg.sha512"
+    },
+    "Hangfire.Dashboard.Basic.Authentication/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SsWDM/FcgNOiZaG9RbOZzg9ZbAw2NJUzZY2V4ChnGaHFI3yT7CXE+LB9EshqE/MX/jT55QTtmnZ2JYy6atSJWA==",
+      "path": "hangfire.dashboard.basic.authentication/7.0.1",
+      "hashPath": "hangfire.dashboard.basic.authentication.7.0.1.nupkg.sha512"
     },
     "Hangfire.NetCore/1.8.15": {
       "type": "package",
@@ -4649,6 +4686,16 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
+    "Paragraph.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Paragraph.HangfireDashboard/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Paragraph.HangfireServer/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -4661,11 +4708,6 @@
     },
     "Paragraph.Services/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Paragraph.Core.Reference/1.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
@@ -6171,11 +6213,6 @@
     },
     "WindowsBase/4.0.0.0": {
       "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Paragraph.Core/1.0.0": {
-      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

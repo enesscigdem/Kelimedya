@@ -1,9 +1,3 @@
-/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.csproj.AssemblyReference.cache
-/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.GeneratedMSBuildEditorConfig.editorconfig
-/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.AssemblyInfoInputs.cache
-/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.AssemblyInfo.cs
-/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.csproj.CoreCompileInputs.cache
-/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.sourcelink.json
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Paragraph.Services.deps.json
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Paragraph.Services.dll
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Paragraph.Services.pdb
@@ -11,6 +5,12 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Paragraph.Persistence.dll
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Paragraph.Core.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Paragraph.Persistence.pdb
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.csproj.AssemblyReference.cache
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.AssemblyInfoInputs.cache
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.AssemblyInfo.cs
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.csproj.CoreCompileInputs.cache
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.sourcelink.json
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragrap.CB38F778.Up2Date
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.dll
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/refint/Paragraph.Services.dll

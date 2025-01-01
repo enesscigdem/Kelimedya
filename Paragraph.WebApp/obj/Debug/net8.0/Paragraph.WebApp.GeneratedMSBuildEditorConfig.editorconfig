@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Admin/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Student/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9EYXNoYm9hcmQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Teacher/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvVGVhY2hlci9WaWV3cy9EYXNoYm9hcmQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

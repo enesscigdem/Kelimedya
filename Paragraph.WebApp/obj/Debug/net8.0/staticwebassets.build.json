@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qAp6JDX3KR3Wu+ku2iU3xuaxphz37YnkB6KOq07v9NQ=",
+  "Hash": "WCizpR7v4DnWL/x6Nre7cXewcbKrylSl2g/H0Y0ZpBM=",
   "Source": "Paragraph.WebApp",
   "BasePath": "_content/Paragraph.WebApp",
   "Mode": "Default",
@@ -1231,25 +1231,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
-    },
-    {
-      "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/dist/.DS_Store",
-      "SourceId": "Paragraph.WebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/",
-      "BasePath": "_content/Paragraph.WebApp",
-      "RelativePath": "theme/tabler/dist/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/theme/tabler/dist/.DS_Store"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/dist/css/demo.css",
@@ -15654,25 +15635,6 @@
       "OriginalItemSpec": "wwwroot/theme/tabler/dist/libs/tom-select/dist/js/tom-select.popular.min.js.map"
     },
     {
-      "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/static/.DS_Store",
-      "SourceId": "Paragraph.WebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/",
-      "BasePath": "_content/Paragraph.WebApp",
-      "RelativePath": "theme/tabler/static/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/theme/tabler/static/.DS_Store"
-    },
-    {
       "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/static/avatars/000f.jpg",
       "SourceId": "Paragraph.WebApp",
       "SourceType": "Discovered",
@@ -29522,25 +29484,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/theme/tabler/static/tracks/ff2381a011d29cefb3804436ed29f60b4faa63d6.jpg"
-    },
-    {
-      "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/.DS_Store",
-      "SourceId": "Paragraph.WebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/",
-      "BasePath": "_content/Paragraph.WebApp",
-      "RelativePath": "theme/web_UI/assets/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/theme/web_UI/assets/.DS_Store"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/animate.css",

@@ -31,6 +31,7 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("MyTested.AspNetCore.Mvc.ViewComponents.Results")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("MyTested.AspNetCore.Mvc.ViewData")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("MyTested.AspNetCore.Mvc.ViewFeatures")]
+[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Paragraph.HangfireDashboard")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Paragraph.HangfireServer")]
 
 // MSBuild WriteCodeFragment sınıfı tarafından oluşturuldu.

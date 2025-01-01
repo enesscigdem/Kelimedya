@@ -4,23 +4,83 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>Paragraph.WebApp</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\theme\tabler\" />
-      <Folder Include="wwwroot\theme\web_UI\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="wwwroot\theme\tabler\dist\.DS_Store" />
-      <Content Include="wwwroot\theme\tabler\static\.DS_Store" />
-      <Content Include="wwwroot\theme\web_UI\assets\.DS_Store" />
+      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Paragraph.Core\Paragraph.Core.csproj" />
+      <ProjectReference Include="..\Paragraph.HangfireDashboard\Paragraph.HangfireDashboard.csproj" />
       <ProjectReference Include="..\Paragraph.HangfireServer\Paragraph.HangfireServer.csproj" />
-      <ProjectReference Include="..\Paragraph.Persistence\Paragraph.Persistence.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -29,219 +89,6 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="Paragraph.Core">
-        <HintPath>bin\Debug\net8.0\Paragraph.Core.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_icon_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_img_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_img_2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_img_circle_text.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_img_circle_text_border.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_img_circle_text_icon.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\about_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\avatar_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\course_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\course_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\course_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\course_thumb_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\course_thumb_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\course_thumb_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_img.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_6.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_7.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\cta_shape_8.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_img.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_6.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\faq_shape_7.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\funfact_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\funfact_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\funfact_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\funfact_icon_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_img_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_img_2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_img_3.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_img_4.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_10.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_6.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_7.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_8.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\hero_shape_9.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\newsletter_img_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\newsletter_img_2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\post_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\post_2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\post_3.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\post_4.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\team_masking.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\team_shape.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\team_shape.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\testimonial_bg.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\testimonial_img_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\testimonial_img_2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\testimonial_img_3.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_4\testimonial_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\about_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\about_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\about_img_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\about_img_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\about_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\about_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\achievement_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\achievement_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\achievement_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\achievement_icon_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\cart_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_10.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_11.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_12.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_6.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_7.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_8.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\category_icon_9.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\certificate_thumb.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_10.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_11.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_12.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_13.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_14.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_15.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_4.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_5.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_6.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_7.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_8.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\course_thumb_9.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\cta_img.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_6.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\feature_icon_7.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\funfact_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\funfact_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\funfact_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\funfact_icon_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\hero_img_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\hero_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\hero_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\hero_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\hero_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\img_box_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\instructor_img_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\instructure_shape_1.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\instructure_shape_2.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\instructure_shape_3.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\instructure_shape_4.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\post_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\post_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\post_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\pricing_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\pricing_icon_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\pricing_icon_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\review_img.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\sign.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\team_member_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\team_member_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\team_member_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\team_member_4.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\testimonial_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_3\video_bg.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\about_icon_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\about_img_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\about_img_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\contact_bg.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\course_thumb_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\course_thumb_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\course_thumb_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_img.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_img_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_1.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_6.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_7.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\hero_shape_8.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\img_number_box_number_bg.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\post_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\post_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\post_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\team_member_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\team_member_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\team_member_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\team_member_4.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\home_6\why_chose_us_thumb.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\author_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\author_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\author_3.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\blog_details_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\blog_details_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\contact_img.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\error.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\faq_bg_1.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\faq_bg_2.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\login.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\page_heading_bg.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\page_heading_shape_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\page_heading_shape_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\page_heading_shape_5.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\team_details.png" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\others\video_thumb.jpg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\book.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\calendar.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\calendar_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\call.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\cart.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\cloud.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\computer.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\envlop.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\love.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\menu-square.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\search.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\search_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\trial.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\user.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\user_2.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\user_3.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\user_4.svg" />
-      <_ContentIncludedByDefault Remove="wwwroot\theme\web_UI\assets\img\icons\world.svg" />
     </ItemGroup>
 
 </Project>

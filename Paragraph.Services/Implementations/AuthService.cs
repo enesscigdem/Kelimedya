@@ -119,14 +119,16 @@ namespace Paragraph.Services.Implementations
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Email),
+                new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Role, role)
             };
+            
+            var identity = new ClaimsIdentity(claims, "Jwt");
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddHours(2),
+                Subject = identity,
+                Expires = DateTime.UtcNow.AddDays(1),
                 Issuer = _configuration["JWT:Issuer"],
                 Audience = _configuration["JWT:Audience"],
                 SigningCredentials = new SigningCredentials(

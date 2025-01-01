@@ -47,7 +47,7 @@ namespace Paragraph.WebApp.Controllers
                 HttpOnly = true,
                 Secure = true,
                 SameSite = SameSiteMode.Strict,
-                Expires = DateTime.UtcNow.AddHours(2)
+                Expires = DateTime.UtcNow.AddDays(2)
             });
 
             var redirectUrl = GetRedirectUrlByRole(tokenResponse.Role);
@@ -75,6 +75,13 @@ namespace Paragraph.WebApp.Controllers
             }
 
             return Ok(new { success = true, message = "Kayıt başarılı! Lütfen giriş yapın." });
+        }
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("AuthToken");
+
+            return RedirectToAction("Login", "Auth");
         }
 
         private string GetRedirectUrlByRole(string role)

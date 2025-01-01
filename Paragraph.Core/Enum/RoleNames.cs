@@ -2,9 +2,9 @@
 {
     public static class RoleNames
     {
-        public const string Admin = "ADMINISTRATOR";
-        public const string Teacher = "TEACHER";
-        public const string Student = "STUDENT";
-        public const string User = "USER";
+        public const string Admin = "Admin";
+        public const string Teacher = "Teacher";
+        public const string Student = "Student";
+        public const string User = "User";
     }
 }

@@ -45,6 +45,9 @@ builder.Services.AddAuthentication(options =>
     })
     .AddJwtBearer(options =>
     {
+        var jwtSettings = builder.Configuration.GetSection("JWT");
+        var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
+    
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -56,11 +59,20 @@ builder.Services.AddAuthentication(options =>
             IssuerSigningKey = new SymmetricSecurityKey(key),
             ClockSkew = TimeSpan.Zero
         };
+    
         options.Events = new JwtBearerEvents
         {
             OnMessageReceived = context =>
             {
-                context.Token = context.HttpContext.Request.Cookies["AuthToken"];
+                if (context.Request.Cookies.ContainsKey("AuthToken"))
+                {
+                    context.Token = context.Request.Cookies["AuthToken"];
+                }
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token doğrulandı!");
                 return Task.CompletedTask;
             }
         };
@@ -92,6 +104,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
+
 app.UseAuthentication();
 app.UseAuthorization();
 

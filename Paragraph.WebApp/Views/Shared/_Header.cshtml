@@ -99,35 +99,46 @@
                 <div class="td_main_header_right">
                     <div class="td_hero_toolbox_wrap">
                         <ul class="td_mp_0 td_hero_toolbox">
-                            <li>
-                                <a asp-controller="Home" asp-action="Cart" class="td_circle_btn td_center">
-                                    <img src="~/theme/web_UI/assets/img/home_5/cart.svg" alt="">
-                                    <span class="td_circle_btn_label">0</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a asp-controller="Auth" asp-action="Login"
-                                   class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
-                                    <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
-                                    <span>Giriş Yap</span>
-                                </a>
-                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <!-- Kullanıcı oturumu açık -->
+                                <li>
+                                    <a asp-controller="Account" asp-action="Profile"
+                                       class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                        <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                        <span>Bilgilerim</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <form asp-controller="Auth" asp-action="Logout" method="post" style="display: inline;">
+                                        <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
+                                            <span class="td_btn_in td_white_color td_accent_bg">
+                                                <span>Çıkış Yap</span>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <!-- Kullanıcı oturumu kapalı -->
+                                <li>
+                                    <a asp-controller="Auth" asp-action="Login"
+                                       class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                        <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                        <span>Giriş Yap</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Auth" asp-action="Register"
+                                       class="td_btn td_style_1 td_radius_10 td_medium td_with_shadow">
+                                        <span class="td_btn_in td_white_color td_accent_bg">
+                                            <span>Kayıt Ol</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            }
                         </ul>
-                        <a asp-controller="Auth" asp-action="Register" class="td_btn td_style_1 td_radius_10 td_medium td_with_shadow">
-                            <span
-                                class="td_btn_in td_white_color td_accent_bg">
-                                <span>Kayıt Ol</span>
-                                <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor"
-                                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path
-                                        d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                        </a>
                     </div>
                 </div>
             </div>

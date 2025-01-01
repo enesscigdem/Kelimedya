@@ -1,120 +1,130 @@
 ﻿@{
-    Layout = null;
+    Layout = "_Layout"; 
 }
-@using Microsoft.AspNetCore.Mvc.TagHelpers
-@using Paragraph.Core
-<!doctype html>
-<html lang="tr">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Giriş Yap - Paragraph</title>
-    <link href="~/theme/tabler/dist/css/tabler.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-</head>
-<body class=" d-flex flex-column">
-<script src="theme/tabler/dist/js/demo-theme.min.js?@AppSettings.ContentVersion"></script>
-<div class="page page-center">
-    <div class="container container-normal py-4">
-        <div class="row align-items-center g-4">
-            <div class="col-lg">
-                <div class="container-tight">
-                    <div class="text-center mb-4">
-                        <a href="." class="navbar-brand navbar-brand-autodark">
-                            <img src="~/theme/tabler/static/logo.svg" height="36" alt="">
-                        </a>
-                    </div>
-                    <div class="card card-md">
-                        <div class="card-body">
-                            <h2 class="h2 text-center mb-4">Hesabınıza giriş yapın</h2>
+
+<main>
+    <section>
+        <div class="td_height_120 td_height_lg_80"></div>
+        <div class="container">
+            <div class="row td_gap_y_40">
+                <div class="col-lg-6">
+                    <div class="td_form_card td_style_1 td_radius_10 td_gray_bg_5">
+                        <div class="td_form_card_in">
+                            <h2 class="td_fs_36 td_mb_20">Giriş Yap</h2>
+                            <hr>
+                            <div class="td_height_30 td_height_lg_30"></div>
                             <form id="loginForm">
-                                <div class="card-body">
-                                    <h2 class="card-title text-center mb-4">Hesabınıza giriş yapın</h2>
-                                    <div class="mb-3">
-                                        <label for="Email" class="form-label">E-posta</label>
-                                        <input id="Email" name="Email" type="email" class="form-control" placeholder="E-postanızı girin"/>
-                                        <span class="text-danger" id="EmailError"></span>
+                                <input type="email" id="Email" class="td_form_field td_mb_10 td_medium td_white_bg"
+                                       placeholder="E-posta Adresin *" />
+                                <span class="text-danger" id="EmailError"></span>
+
+                                <input type="password" id="Password" class="td_form_field td_mb_10 td_medium td_white_bg"
+                                       placeholder="Şifren *" />
+                                <span class="text-danger" id="PasswordError"></span>
+
+                                <div class="td_form_card_text_2 td_mb_50">
+                                    <div>
+                                        <a href="#" class="td_semibold td_accent_color">Şifreni mi unuttun?</a>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="Password" class="form-label">Şifre</label>
-                                        <input id="Password" name="Password" type="password" class="form-control" placeholder="Şifrenizi girin"/>
-                                        <span class="text-danger" id="PasswordError"></span>
+                                    <div class="td_accent_color">
+                                        <div class="td_custom_checkbox">
+                                            <input type="checkbox" id="remember" />
+                                            <label for="remember">Beni Hatırla</label>
+                                        </div>
                                     </div>
-                                    <div class="form-footer">
-                                        <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                                </div>
+
+                                <div class="td_form_card_bottom td_mb_25">
+                                    <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
+                                        <span class="td_btn_in td_white_color td_accent_bg">
+                                            <span>Giriş Yap</span>
+                                        </span>
+                                    </button>
+
+                                    <p class="td_fs_20 mb-0 td_medium td_heading_color">veya</p>
+
+                                    <div class="td_form_social td_fs_20">
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-apple"></i>
+                                        </a>
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-google"></i>
+                                        </a>
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="hr-text">veya</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <a href="#" class="btn w-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
-                                        </svg>
-                                        Github ile giriş yap
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn w-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z"/>
-                                        </svg>
-                                        Twitter ile giriş yap
-                                    </a>
-                                </div>
-                            </div>
+
+                            <p class="td_form_card_text td_fs_20 td_medium td_heading_color mb-0">
+                                Hesabın yok mu?
+                                <a asp-controller="Auth" asp-action="Register">Kayıt Ol</a>
+                            </p>
                         </div>
                     </div>
-                    <div class="text-center text-secondary mt-3">
-                        Henüz bir hesabınız yok mu? <a asp-controller="Auth" asp-action="Register" tabindex="-1">Kaydol</a>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="td_sign_thumb">
+                        <img src="~/theme/web_UI/assets/img/home_5/login.jpg" alt="" class="w-100 td_radius_10">
+                        @* <img src="~/theme/tabler/static/illustrations/undraw_secure_login_pdn4.svg" alt="" class="w-100 td_radius_10"> *@
                     </div>
                 </div>
             </div>
-            <div class="col-lg d-none d-lg-block">
-                <img src="~/theme/tabler/static/illustrations/undraw_secure_login_pdn4.svg" height="300" class="d-block mx-auto" alt="">
-            </div>
         </div>
-    </div>
-</div>
+        <div class="td_height_120 td_height_lg_80"></div>
+    </section>
+</main>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#loginForm').on('submit', function (e) {
+                e.preventDefault();
 
-</body>
-<script src="~/theme/tabler/dist/js/tabler.min.js?@AppSettings.ContentVersion" defer></script>
-<script src="~/theme/tabler/dist/js/demo.min.js?@AppSettings.ContentVersion" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#loginForm').on('submit', function (e) {
-            e.preventDefault();
-            const data = {
-                email: $('#Email').val(),
-                password: $('#Password').val()
-            };
+                const data = {
+                    email: $('#Email').val(),
+                    password: $('#Password').val()
+                };
 
-            $('.text-danger').text('');
-            
-            if (!data.email) $('#EmailError').text('E-posta zorunludur.');
-            if (!data.password) $('#PasswordError').text('Şifre zorunludur.');
-            if (!data.email || !data.password) return;
+                $('.text-danger').text('');
+                $('#loginForm .td_form_field').removeClass('input-error');
 
-            $.ajax({
-                url: '/Auth/Login',
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json',
-                success: function (response) {
-                    toastr.success(response.message, "Başarılı!");
-                    setTimeout(() => window.location.href = '/', 2000);
-                },
-                error: function (xhr) {
-                    toastr.error(xhr.responseJSON?.message || "Giriş sırasında bir hata oluştu.", "Hata");
+                let isValid = true;
+                if (!data.email) {
+                    $('#EmailError').text('E-posta zorunludur.');
+                    $('#Email').addClass('input-error');
+                    isValid = false;
                 }
+                if (!data.password) {
+                    $('#PasswordError').text('Şifre zorunludur.');
+                    $('#Password').addClass('input-error');
+                    isValid = false;
+                }
+                if (!isValid) {
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Auth/Login',
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function (response) {
+                        if (response.success) {
+                            showIziToastSuccess(response.message);
+
+                            setTimeout(() => window.location.href = '/', 2000);
+                        } else {
+                            showIziToastError(response.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        const errMessage = xhr.responseJSON?.message || "Beklenmeyen bir hata oluştu.";
+                        showIziToastError(errMessage);
+                    }
+                });
             });
         });
-    });
-</script>
-</html>
+    </script>
+}

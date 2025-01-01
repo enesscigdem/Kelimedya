@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace Paragraph.WebApp.Models
+namespace Paragraph.Core.Models
 {
     public class LoginViewModel
     {

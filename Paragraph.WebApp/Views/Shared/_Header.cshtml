@@ -1,0 +1,138 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="smskSoft">
+
+    <link rel="icon" href="~/theme/web_UI/~/theme/web_UI/assets/uploads/app/favicon.png">
+
+    <title>Anasayfa | Paragraph</title>
+
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/slick.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/odometer.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/animate.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/style.css">
+</head>
+
+<body class="td_theme_2">
+<div class="td_preloader">
+    <div class="td_preloader_in">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<header class="td_site_header td_style_1 td_sticky_header td_medium td_heading_color">
+    <div class="td_main_header">
+        <div class="container">
+            <div class="td_main_header_in">
+                <div class="td_main_header_left">
+                    <a class="td_site_branding" asp-controller="Home" asp-action="Index">
+                        <img src="~/theme/web_UI/assets/img/home_5/logo_v2.svg" alt="Paragraph">
+                    </a>
+                </div>
+                <div class="td_main_header_center">
+                    <nav class="td_nav">
+                        <div class="td_nav_list_wrap">
+                            <div class="td_nav_list_wrap_in">
+                                <ul class="td_nav_list">
+                                    <!-- not childeren -->
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a asp-controller="Home" asp-action="About">Hakkımızda</a>
+                                        <ul>
+                                            <li>
+                                                <a href="who-are-we.html">Biz Kimiz</a>
+                                            </li>
+                                            <li>
+                                                <a href="mission.html">Misyonumuz</a>
+                                            </li>
+                                            <li>
+                                                <a href="vision.html">Vizyonumuz</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a asp-controller="Home" asp-action="Products">Ürünlerimiz</a>
+                                        <ul>
+                                            <li>
+                                                <a href="product-detail.html">Ürün #1</a>
+                                            </li>
+                                            <li>
+                                                <a href="product-detail.html">Ürün #2</a>
+                                            </li>
+                                            <li>
+                                                <a href="product-detail.html">Ürün #3</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a asp-controller="Home" asp-action="Contact">İletişim</a>
+                                        <ul>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="Contact">İletişim Bilgilerimiz</a>
+                                            </li>
+                                            <li>
+                                                <a href="for-families.html">Aileler İçin</a>
+                                            </li>
+                                            <li>
+                                                <a href="for-schools.html">Okullar İçin</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="td_main_header_right">
+                    <div class="td_hero_toolbox_wrap">
+                        <ul class="td_mp_0 td_hero_toolbox">
+                            <li>
+                                <a asp-controller="Home" asp-action="Cart" class="td_circle_btn td_center">
+                                    <img src="~/theme/web_UI/assets/img/home_5/cart.svg" alt="">
+                                    <span class="td_circle_btn_label">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Auth" asp-action="Login"
+                                   class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                    <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                    <span>Giriş Yap</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <a asp-controller="Auth" asp-action="Register" class="td_btn td_style_1 td_radius_10 td_medium td_with_shadow">
+                            <span
+                                class="td_btn_in td_white_color td_accent_bg">
+                                <span>Kayıt Ol</span>
+                                <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor"
+                                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path
+                                        d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

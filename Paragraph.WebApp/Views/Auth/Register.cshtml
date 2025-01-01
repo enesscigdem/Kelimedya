@@ -1,103 +1,134 @@
 ﻿@{
-    Layout = null;
+    Layout = "_Layout";
 }
-@using Microsoft.AspNetCore.Mvc.TagHelpers
-@using Paragraph.Core
-<!doctype html>
-<html lang="tr">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Kayıt Ol - Paragraph</title>
-    <link href="~/theme/tabler/dist/css/tabler.min.css?@AppSettings.ContentVersion" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-</head>
-<body class="d-flex flex-column">
-<div class="page page-center">
-    <div class="container container-tight py-4">
-        <div class="text-center mb-4">
-            <a href="/" class="navbar-brand navbar-brand-autodark">
-                <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
-            </a>
-        </div>
-        <form id="registerForm" class="card card-md">
-            <div class="card-body">
-                <h2 class="card-title text-center mb-4">Yeni hesap oluştur</h2>
-                <div class="mb-3">
-                    <label for="UserName" class="form-label">Kullanıcı Adı</label>
-                    <input id="UserName" name="UserName" class="form-control" placeholder="Kullanıcı adınızı girin"/>
-                    <span class="text-danger" id="UserNameError"></span>
+
+<main>
+    <section>
+        <div class="td_height_120 td_height_lg_80"></div>
+        <div class="container">
+            <div class="row td_gap_y_40">
+                <div class="col-lg-6">
+                    <div class="td_sign_thumb">
+                        <img src="~/theme/web_UI/assets/img/home_5/login.jpg" alt="" class="w-100 td_radius_10">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="Email" class="form-label">E-posta</label>
-                    <input id="Email" name="Email" type="email" class="form-control" placeholder="E-postanızı girin"/>
-                    <span class="text-danger" id="EmailError"></span>
-                </div>
-                <div class="mb-3">
-                    <label for="Password" class="form-label">Şifre</label>
-                    <input id="Password" name="Password" type="password" class="form-control" placeholder="Şifrenizi girin"/>
-                    <span class="text-danger" id="PasswordError"></span>
-                </div>
-                <div class="mb-3">
-                    <label for="Name" class="form-label">Ad</label>
-                    <input id="Name" name="Name" class="form-control" placeholder="Adınızı girin"/>
-                    <span class="text-danger" id="NameError"></span>
-                </div>
-                <div class="mb-3">
-                    <label for="Surname" class="form-label">Soyad</label>
-                    <input id="Surname" name="Surname" class="form-control" placeholder="Soyadınızı girin"/>
-                    <span class="text-danger" id="SurnameError"></span>
-                </div>
-                <div class="form-footer">
-                    <button type="submit" class="btn btn-primary w-100">Yeni hesap oluştur</button>
+                <div class="col-lg-6">
+                    <div class="td_form_card td_style_1 td_radius_10 td_gray_bg_5">
+                        <div class="td_form_card_in">
+                            <h2 class="td_fs_36 td_mb_20">Kayıt Ol</h2>
+                            <hr>
+                            <div class="td_height_30 td_height_lg_30"></div>
+                            <form id="registerForm">
+                                <input type="text" id="UserName" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Kullanıcı Adı *">
+                                <span class="text-danger" id="UserNameError"></span>
+                                
+                                <input type="email" id="Email" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Eposta Adresin *">
+                                <span class="text-danger" id="EmailError"></span>
+                                
+                                <input type="password" id="Password" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Şifren *">
+                                <span class="text-danger" id="PasswordError"></span>
+                                
+                                <input type="text" id="Name" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Adınız *">
+                                <span class="text-danger" id="NameError"></span>
+                                
+                                <input type="text" id="Surname" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Soyadınız *">
+                                <span class="text-danger" id="SurnameError"></span>
+                                
+                                <div class="td_form_card_bottom td_mb_25">
+                                    <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
+                                        <span class="td_btn_in td_white_color td_accent_bg">
+                                            <span>Kayıt Ol</span>
+                                        </span>
+                                    </button>
+                                    <p class="td_fs_20 mb-0 td_medium td_heading_color">veya</p>
+                                    <div class="td_form_social td_fs_20">
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-apple"></i>
+                                        </a>
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-google"></i>
+                                        </a>
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="td_form_card_text td_fs_20 td_medium td_heading_color mb-0">Hesabın var mı?
+                                <a asp-controller="Auth" asp-action="Login">Giriş Yap</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
-        <div class="text-center text-secondary mt-3">
-            Zaten bir hesabınız var mı? <a href="/auth/login" tabindex="-1">Giriş Yap</a>
         </div>
-    </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#registerForm').on('submit', function (e) {
-            e.preventDefault();
-            const data = {
-                userName: $('#UserName').val(),
-                email: $('#Email').val(),
-                password: $('#Password').val(),
-                name: $('#Name').val(),
-                surname: $('#Surname').val()
-            };
+        <div class="td_height_120 td_height_lg_80"></div>
+    </section>
+</main>
 
-            $('.text-danger').text(''); // Clear previous errors
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#registerForm').on('submit', function (e) {
+                e.preventDefault();
+                const data = {
+                    userName: $('#UserName').val(),
+                    email: $('#Email').val(),
+                    password: $('#Password').val(),
+                    name: $('#Name').val(),
+                    surname: $('#Surname').val()
+                };
 
-            let isValid = true;
-            if (!data.userName) { $('#UserNameError').text('Kullanıcı adı zorunludur.'); isValid = false; }
-            if (!data.email) { $('#EmailError').text('E-posta adresi zorunludur.'); isValid = false; }
-            if (!data.password || data.password.length < 6) { $('#PasswordError').text('Şifre en az 6 karakter olmalıdır.'); isValid = false; }
-            if (!data.name) { $('#NameError').text('Ad zorunludur.'); isValid = false; }
-            if (!data.surname) { $('#SurnameError').text('Soyad zorunludur.'); isValid = false; }
-            if (!isValid) return;
+                $('.text-danger').text('');
+                $('#registerForm .td_form_field').removeClass('input-error');
 
-            $.ajax({
-                url: '/Auth/Register',
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json',
-                success: function (response) {
-                    toastr.success(response.message, "Başarılı!");
-                    setTimeout(() => window.location.href = '/auth/login', 2000);
-                },
-                error: function (xhr) {
-                    toastr.error(xhr.responseJSON?.message || "Kayıt işlemi sırasında bir hata oluştu.", "Hata");
+                let isValid = true;
+                if (!data.userName) { 
+                    $('#UserNameError').text('Kullanıcı adı zorunludur.'); 
+                    $('#UserName').addClass('input-error');
+                    isValid = false; 
                 }
+                if (!data.email) { 
+                    $('#EmailError').text('E-posta adresi zorunludur.'); 
+                    $('#Email').addClass('input-error');
+                    isValid = false; 
+                }
+                if (!data.password || data.password.length < 6) { 
+                    $('#PasswordError').text('Şifre en az 6 karakter olmalıdır.'); 
+                    $('#Password').addClass('input-error');
+                    isValid = false; 
+                }
+                if (!data.name) { 
+                    $('#NameError').text('Ad zorunludur.'); 
+                    $('#Name').addClass('input-error');
+                    isValid = false; 
+                }
+                if (!data.surname) { 
+                    $('#SurnameError').text('Soyad zorunludur.'); 
+                    $('#Surname').addClass('input-error');
+                    isValid = false; 
+                }
+                if (!isValid) return;
+
+                 $.ajax({
+                        url: '/Auth/Register',
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        success: function (response) {
+                            if (response.success) {
+                                showIziToastSuccess(response.message);
+                                setTimeout(() => window.location.href = '/auth/login', 2000);
+                            } else {
+                                showIziToastError(response.message);
+                            }
+                        },
+                        error: function (xhr) {
+                            const errMessage = xhr.responseJSON?.message || "Beklenmeyen bir hata oluştu.";
+                            showIziToastError(errMessage);
+                        }
+                    });
             });
         });
-    });
-</script>
-</body>
-</html>
+    </script>
+}

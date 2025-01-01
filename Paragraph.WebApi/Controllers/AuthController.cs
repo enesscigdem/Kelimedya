@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Paragraph.Services.Interfaces;
-using Paragraph.Core.DTOs;
 using System.Threading.Tasks;
+using Paragraph.Core.Models;
 
 namespace Paragraph.WebAPI.Controllers
 {

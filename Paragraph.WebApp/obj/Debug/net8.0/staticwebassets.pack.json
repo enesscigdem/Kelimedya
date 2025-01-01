@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets/Paragraph.WebApp.bundle.scp.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/iziToastCustom.css",
+      "PackagePath": "staticwebassets/css/iziToastCustom.css"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/js/CustomIziToast.js",
+      "PackagePath": "staticwebassets/js/CustomIziToast.js"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/js/site.js",
@@ -6199,6 +6207,590 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/tabler/static/tracks/ff2381a011d29cefb3804436ed29f60b4faa63d6.jpg",
       "PackagePath": "staticwebassets/theme/tabler/static/tracks/ff2381a011d29cefb3804436ed29f60b4faa63d6.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/.DS_Store",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/.DS_Store"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/animate.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/animate.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/fontawesome.min.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/fontawesome.min.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/jquery-ui.min.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/jquery-ui.min.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/light-gallerr.min.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/light-gallerr.min.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/odometer.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/odometer.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/slick.min.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/slick.min.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/style.css",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/style.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/css/style.css.map",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/css/style.css.map"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-Bold.otf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-Bold.otf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-BoldItalic.otf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-BoldItalic.otf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-Italic.otf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-Italic.otf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-Regular.otf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/adobe-garamond-pro/AGaramondPro-Regular.otf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularABold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularABold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularABoldItalic.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularABoldItalic.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularAItalic.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularAItalic.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularALight.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularALight.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularALightItalic.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularALightItalic.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularAMedium.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularAMedium.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularAMediumItalic.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularAMediumItalic.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularARegular.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularARegular.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularASemiBold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularASemiBold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularASemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/euclid-circular-a/EuclidCircularASemiBoldItalic.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-brands-400.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-brands-400.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-brands-400.woff2",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-brands-400.woff2"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-regular-400.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-regular-400.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-regular-400.woff2",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-regular-400.woff2"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-solid-900.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-solid-900.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-solid-900.woff2",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-solid-900.woff2"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-v4compatibility.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-v4compatibility.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fa-v4compatibility.woff2",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/Fredoka-VariableFont_wdth,wght.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/Fredoka-VariableFont_wdth,wght.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/OFL.txt",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/OFL.txt"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/README.txt",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/README.txt"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Bold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Bold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Light.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Light.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Medium.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Medium.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Regular.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka-Regular.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka-SemiBold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka-SemiBold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Bold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Bold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Light.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Light.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Medium.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Medium.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Regular.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-Regular.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-SemiBold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Condensed-SemiBold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Bold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Bold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Light.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Light.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Medium.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Medium.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Regular.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-Regular.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-SemiBold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_Expanded-SemiBold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Bold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Bold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Light.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Light.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Medium.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Medium.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Regular.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-Regular.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-SemiBold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiCondensed-SemiBold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Bold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Bold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Light.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Light.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Medium.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Medium.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Regular.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-Regular.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-SemiBold.ttf",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/fonts/fredoka/static/Fredoka_SemiExpanded-SemiBold.ttf"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_img_1.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_img_1.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_img_2.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_img_2.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_shape_2.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_shape_2.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/campur_life_1.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/campur_life_1.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/campur_life_2.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/campur_life_2.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/campur_life_3.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/campur_life_3.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/campur_life_4.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/campur_life_4.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/cart.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/cart.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_3.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_3.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_4.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_4.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_5.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_5.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_6.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_6.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_7.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_7.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/category_img_8.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/category_img_8.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_img.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_img.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_shape_1.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_shape_1.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_shape_2.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_shape_2.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_shape_3.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_shape_3.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_shape_4.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_shape_4.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_shape_1.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_shape_1.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_shape_2.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_shape_2.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_thumb_1.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_thumb_1.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_thumb_2.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_thumb_2.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_thumb_3.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_thumb_3.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_thumb_4.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_thumb_4.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_thumb_5.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_thumb_5.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/course_thumb_6.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/course_thumb_6.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/cta_img.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/cta_img.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/faq_shape_1.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/faq_shape_1.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/faq_shape_2.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/faq_shape_2.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/faq_shape_5.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/faq_shape_5.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/footer_logo_v2.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/footer_logo_v2.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_3.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_3.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_4.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_4.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_shape_5.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_shape_5.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/logo_v2.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/logo_v2.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/page_heading_bg.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/page_heading_bg.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/post_1.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/post_1.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/post_2.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/post_2.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/post_3.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/post_3.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/team_member_1.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/team_member_1.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/team_member_2.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/team_member_2.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/team_member_3.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/team_member_3.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/team_member_4.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/team_member_4.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/testimonial_img_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/testimonial_img_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/testimonial_shape_1.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/testimonial_shape_1.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/video_bg.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/video_bg.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/video_block.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/video_block.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/gsap.min.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/gsap.min.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/jquery-3.7.1.min.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/jquery-3.7.1.min.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/jquery-ui.min.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/jquery-ui.min.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/jquery.slick.min.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/jquery.slick.min.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/light-gallery.min.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/light-gallery.min.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/main.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/main.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/odometer.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/odometer.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/js/wow.min.js",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/js/wow.min.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_footer.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_footer.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_general.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_general.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_header.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_header.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_preloader.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_preloader.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_sidebar.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_sidebar.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_slider.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_slider.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_spacing.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_spacing.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/common/_video-modal.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/common/_video-modal.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/default/_animation.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/default/_animation.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/default/_fonts.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/default/_fonts.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/default/_typography.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/default/_typography.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/default/_variable.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/default/_variable.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_about.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_about.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_card.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_card.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_contact.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_contact.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_cta.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_cta.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_features.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_features.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_hero.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_hero.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_iconbox.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_iconbox.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_newsletter.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_newsletter.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_post.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_post.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_pricing_plan.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_pricing_plan.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_team.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_team.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/shortcode/_testimonial.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/shortcode/_testimonial.scss"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/style.scss",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/sass/style.scss"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",

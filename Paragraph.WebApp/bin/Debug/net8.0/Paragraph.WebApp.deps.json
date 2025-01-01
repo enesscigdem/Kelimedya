@@ -41,6 +41,7 @@
           "Paragraph.Core": "1.0.0",
           "Paragraph.HangfireServer": "1.0.0",
           "Paragraph.Persistence": "1.0.0",
+          "Paragraph.Core.Reference": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "8.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "8.0.0.0",
           "Microsoft.AspNetCore.Authentication.BearerToken": "8.0.0.0",
@@ -1905,20 +1906,6 @@
           }
         }
       },
-      "Paragraph.Core/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0"
-        },
-        "runtime": {
-          "Paragraph.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "Paragraph.Core.dll": {}
-        }
-      },
       "Paragraph.HangfireServer/1.0.0": {
         "dependencies": {
           "Hangfire.AspNetCore": "1.8.15",
@@ -1968,6 +1955,17 @@
         },
         "compile": {
           "Paragraph.Services.dll": {}
+        }
+      },
+      "Paragraph.Core.Reference/1.0.0.0": {
+        "runtime": {
+          "Paragraph.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "Paragraph.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/8.0.0.0": {
@@ -3775,6 +3773,12 @@
           "WindowsBase.dll": {}
         },
         "compileOnly": true
+      },
+      "Paragraph.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0"
+        },
+        "compileOnly": true
       }
     }
   },
@@ -4645,11 +4649,6 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Paragraph.Core/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Paragraph.HangfireServer/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -4662,6 +4661,11 @@
     },
     "Paragraph.Services/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Paragraph.Core.Reference/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
@@ -6167,6 +6171,11 @@
     },
     "WindowsBase/4.0.0.0": {
       "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Paragraph.Core/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

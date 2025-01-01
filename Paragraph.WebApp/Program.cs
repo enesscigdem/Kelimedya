@@ -11,7 +11,11 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<AppSettings>>()?.Value);
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("DefaultApi", (provider, client) =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    client.BaseAddress = new Uri(configuration["AppSettings:ApiUrl"]);
+});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];
@@ -37,6 +41,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Auth}/{action=Login}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 await app.RunAsync();

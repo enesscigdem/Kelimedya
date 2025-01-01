@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Paragraph.Core.DTOs;
 using Paragraph.Core.IdentityEntities;
+using Paragraph.Core.Models;
 using Paragraph.Services.Interfaces;
 
 namespace Paragraph.Services.Implementations
@@ -15,11 +15,11 @@ namespace Paragraph.Services.Implementations
     public class AuthService(UserManager<CustomUser> userManager, IConfiguration configuration)
         : IAuthService
     {
-        public async Task<AuthResultDto> RegisterAsync(RegisterDto dto)
+        public async Task<AuthResultViewModel> RegisterAsync(RegisterDto dto)
         {
             var existingUser = await userManager.FindByEmailAsync(dto.Email);
             if (existingUser != null)
-                return new AuthResultDto { Success = false, Message = "Bu e-posta zaten kullanılıyor." };
+                return new AuthResultViewModel { Success = false, Message = "Bu e-posta zaten kullanılıyor." };
 
             var newUser = new CustomUser
             {
@@ -34,13 +34,14 @@ namespace Paragraph.Services.Implementations
             var result = await userManager.CreateAsync(newUser, dto.Password);
 
             if (!result.Succeeded)
-                return new AuthResultDto
+                return new AuthResultViewModel
                 {
                     Success = false,
-                    Message = "Kullanıcı oluşturulamadı: " + string.Join(", ", result.Errors)
+                    Message = "Kullanıcı oluşturulamadı.",
+                    Errors = result.Errors.Select(e => e.Description).ToList()
                 };
 
-            return new AuthResultDto { Success = true, Message = "Kayıt başarılı!" };
+            return new AuthResultViewModel { Success = true, Message = "Kayıt başarılı!" };
         }
 
         public async Task<string> LoginAsync(LoginDto dto)
@@ -55,7 +56,14 @@ namespace Paragraph.Services.Implementations
         private string GenerateJwtToken(CustomUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(configuration["JWT:Key"] ?? throw new ArgumentNullException("JWT:Key is not configured."));
+    
+            var jwtSecret = configuration["JWT:Secret"];
+            if (string.IsNullOrEmpty(jwtSecret))
+            {
+                throw new ArgumentNullException("JWT:Secret is not configured.");
+            }
+
+            var key = Encoding.UTF8.GetBytes(jwtSecret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]

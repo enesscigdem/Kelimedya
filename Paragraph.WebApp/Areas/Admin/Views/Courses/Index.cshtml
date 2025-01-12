@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Eğitimler";
+}
+
+<h2>Eğitim Listesi</h2>
+<div class="card">
+    <div class="card-body">
+        <p>Mevcut kurların yönetimi. A1, A2, B1 vb.</p>
+        <a class="btn btn-primary">Yeni Kur Ekle</a>
+        <!-- Tablo -->
+        <table class="table mt-3">
+            <thead>
+                <tr><th>Kur</th><th>Açıklama</th><th></th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A1 (Başlangıç)</td>
+                    <td>Temel kelime ve cümle yapıları</td>
+                    <td><button class="btn btn-warning btn-sm">Düzenle</button></td>
+                </tr>
+                <!-- ... -->
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Çıkış Yap";
+}
+
+<div class="container-xl">
+    <div class="alert alert-info mt-3">
+        <strong>Çıkış Yap</strong><br/>
+        Admin panelinden çıkmak üzeresiniz. Emin misiniz?
+    </div>
+    <form method="post" asp-area="Admin" asp-controller="Logout" asp-action="Index">
+        <button type="submit" class="btn btn-danger">Çıkış Yap</button>
+        <a href="~/Areas/Admin/Home/Index" class="btn btn-secondary">Vazgeç</a>
+    </form>
+</div>

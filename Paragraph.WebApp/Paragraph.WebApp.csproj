@@ -92,4 +92,9 @@
       <PackageReference Include="MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Views\Categories\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Courses\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

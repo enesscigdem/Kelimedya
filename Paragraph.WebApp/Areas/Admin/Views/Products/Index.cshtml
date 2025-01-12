@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Ürünler";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Ürün Listesi
+                </h2>
+            </div>
+            <div class="col-auto ms-auto">
+                <a asp-area="Admin" asp-controller="Products" asp-action="Create" class="btn btn-primary">
+                    Yeni Ürün Ekle
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Ürünler</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table card-table table-vcenter">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ürün Adı</th>
+                            <th>Fiyat</th>
+                            <th>Stok</th>
+                            <th class="w-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Kelime Kartları A1</td>
+                            <td>99.99 TL</td>
+                            <td>120</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-warning">Düzenle</a>
+                                    <a class="btn btn-sm btn-danger">Sil</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- ... -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

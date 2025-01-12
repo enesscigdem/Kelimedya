@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kullanıcılar";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Kullanıcı Listesi
+                </h2>
+            </div>
+            <div class="col-auto ms-auto">
+                <a asp-area="Admin" asp-controller="Users" asp-action="Create" class="btn btn-primary">
+                    Yeni Kullanıcı Ekle
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+
+        <!-- Örnek arama formu -->
+        <form method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Kullanıcı adı ara..."/>
+                <button type="submit" class="btn btn-primary">Ara</button>
+            </div>
+        </form>
+
+        <!-- Kullanıcı Tablosu -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kullanıcılar</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table card-table table-vcenter">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>E-posta</th>
+                            <th>Rol</th>
+                            <th class="w-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @* Örnek veri döngüsü *@
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>user@i</td>
+                                <td>user@i@@example.com</td>
+                                <td>Admin</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@i" class="btn btn-sm btn-warning">Düzenle</a>
+                                        <a asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@i" class="btn btn-sm btn-danger">Sil</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <p class="text-muted">Toplam 5 kullanıcı gösteriliyor.</p>
+            </div>
+        </div>
+    </div>
+</div>

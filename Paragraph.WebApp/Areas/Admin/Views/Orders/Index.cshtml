@@ -1,0 +1,36 @@
+﻿<!-- Index.cshtml -->
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Siparişler";
+}
+<div class="card">
+    <div class="card-header"><h3 class="card-title">Sipariş Listesi</h3></div>
+    <div class="table-responsive">
+        <table class="table card-table table-vcenter">
+            <thead>
+                <tr>
+                    <th>Sipariş No</th>
+                    <th>Müşteri Adı</th>
+                    <th>Tarih</th>
+                    <th>Tutar</th>
+                    <th class="w-1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- for / foreach sipariş -->
+                <tr>
+                    <td>ORD-001</td>
+                    <td>Ahmet Yılmaz</td>
+                    <td>2025-01-01</td>
+                    <td>250.00 TL</td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-warning">Düzenle</a>
+                            <a class="btn btn-sm btn-danger">Sil</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

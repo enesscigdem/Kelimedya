@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Satış Grafiği";
+}
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Satış Grafiği
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Son Dönem Satış Eğrisi</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart-sales" class="chart-lg"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // ApexCharts vb. ile çizim
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: 300,
+                    toolbar: { show: false }
+                },
+                series: [
+                    { name: "Satış", data: [10, 15, 9, 18, 12, 24, 20] }
+                ],
+                xaxis: {
+                    categories: ['Ocak', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem']
+                }
+            };
+            var chart = new ApexCharts(document.querySelector("#chart-sales"), options);
+            chart.render();
+        });
+    </script>
+}

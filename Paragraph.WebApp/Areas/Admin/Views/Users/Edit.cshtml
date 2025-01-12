@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kullanıcı Düzenle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Kullanıcı Düzenle
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+
+        <div class="card">
+            <div class="card-body">
+                <form asp-area="Admin" asp-controller="Users" asp-action="Edit" method="post">
+                    @* User Id *@
+                    <input type="hidden" name="Id" value="@ViewBag.Id" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Kullanıcı Adı</label>
+                        <input type="text" name="UserName" value="@ViewBag.UserName" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">E-posta</label>
+                        <input type="email" name="Email" value="@ViewBag.Email" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Rol</label>
+                        <select name="Role" class="form-select">
+                            <option value="Admin" selected>Admin</option>
+                            <option value="Teacher">Öğretmen</option>
+                            <option value="Student">Öğrenci</option>
+                        </select>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button class="btn btn-primary" type="submit">Güncelle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

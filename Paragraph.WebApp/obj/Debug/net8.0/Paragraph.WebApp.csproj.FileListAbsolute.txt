@@ -508,3 +508,4 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/obj/Debug/net8.0/Paragraph.WebApp.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/obj/Debug/net8.0/ref/Paragraph.WebApp.dll
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/obj/Debug/net8.0/scopedcss/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css

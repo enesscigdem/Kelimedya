@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Rol Düzenle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Rol Düzenle
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form asp-area="Admin" asp-controller="Roles" asp-action="Edit" method="post">
+                    <input type="hidden" name="Id" value="@ViewBag.Id" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Rol Adı</label>
+                        <input type="text" name="RoleName" value="@ViewBag.RoleName" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea name="Description" class="form-control">@ViewBag.Description</textarea>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button class="btn btn-primary" type="submit">Güncelle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

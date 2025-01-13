@@ -2,23 +2,94 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Ayarlar";
 }
-<h2>Site Ayarları</h2>
 
-<form method="post">
-    <div class="mb-3">
-        <label class="form-label">Site Adı</label>
-        <input type="text" class="form-control" name="SiteName" value="Dil Eğitimi Sitesi" />
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Ayarlar</h2>
+        <div class="text-muted mt-1">
+            Sistem genel ayarlarını buradan yönetebilirsiniz.
+        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Logo URL</label>
-        <input type="text" class="form-control" name="LogoUrl" value="/images/logo.png"/>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs" data-bs-toggle="tabs">
+                    <li class="nav-item">
+                        <a href="#general" class="nav-link active" data-bs-toggle="tab">Genel Ayarlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#email" class="nav-link" data-bs-toggle="tab">E-posta Ayarları</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#security" class="nav-link" data-bs-toggle="tab">Güvenlik</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3">
+                    <!-- Genel Ayarlar -->
+                    <div class="tab-pane active" id="general">
+                        <form method="post" asp-action="SaveGeneralSettings">
+                            <div class="mb-3">
+                                <label class="form-label">Site Adı</label>
+                                <input type="text" class="form-control" name="SiteName" value="MySite" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Logo URL</label>
+                                <input type="text" class="form-control" name="LogoUrl" />
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- E-posta Ayarları -->
+                    <div class="tab-pane" id="email">
+                        <form method="post" asp-action="SaveEmailSettings">
+                            <div class="mb-3">
+                                <label class="form-label">SMTP Sunucu</label>
+                                <input type="text" class="form-control" name="SmtpServer" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">SMTP Port</label>
+                                <input type="number" class="form-control" name="SmtpPort" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" name="SmtpUser" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Şifre</label>
+                                <input type="password" class="form-control" name="SmtpPassword" />
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Güvenlik -->
+                    <div class="tab-pane" id="security">
+                        <form method="post" asp-action="SaveSecuritySettings">
+                            <div class="mb-3">
+                                <label class="form-label">Şifre Min. Uzunluk</label>
+                                <input type="number" class="form-control" name="PasswordMinLength" value="8" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">2FA Zorunlu mu?</label>
+                                <select class="form-select" name="Require2FA">
+                                    <option value="false">Hayır</option>
+                                    <option value="true">Evet</option>
+                                </select>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /tab-content -->
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Tema Rengi</label>
-        <select class="form-select" name="ThemeColor">
-            <option value="light" selected>Light</option>
-            <option value="dark">Dark</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Kaydet</button>
-</form>
+</div>

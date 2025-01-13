@@ -1,74 +1,271 @@
 ﻿@{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Kullanıcılar";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+    ViewData["Title"] = "Kullanıcı Listesi";
 }
 
+<!-- Sayfa Başlığı -->
 <div class="page-header d-print-none">
     <div class="container-xl">
-        <div class="row align-items-center">
+        <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title">
+                    <!-- Kullanıcılar İkonu -->
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         class="icon icon-tabler icon-tabler-users me-1 text-primary" 
+                         width="28" height="28" viewBox="0 0 24 24" stroke-width="2" 
+                         stroke="currentColor" fill="none" stroke-linecap="round" 
+                         stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7a4 4 0 1 1 6 0a4 4 0 1 1 -6 0" />
+                      <path d="M17 11l2 2l4 -4" />
+                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                    </svg>
                     Kullanıcı Listesi
                 </h2>
+                <div class="text-muted mt-1">
+                    Sistemde kayıtlı tüm kullanıcıları buradan yönetebilirsiniz.
+                </div>
             </div>
-            <div class="col-auto ms-auto">
-                <a asp-area="Admin" asp-controller="Users" asp-action="Create" class="btn btn-primary">
-                    Yeni Kullanıcı Ekle
+            <div class="col-auto ms-auto d-print-none">
+                <a asp-area="Admin" asp-controller="Users" asp-action="Create"
+                   class="btn btn-primary d-none d-sm-inline-block">
+                    <!-- Kullanıcı Ekle Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus me-1" 
+                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
+                         stroke="currentColor" fill="none" stroke-linecap="round" 
+                         stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M8 7a4 4 0 1 1 8 0a4 4 0 1 1 -8 0" />
+                      <path d="M16 19h6" />
+                      <path d="M19 16v6" />
+                      <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                    </svg>
+                    Yeni Kullanıcı
                 </a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="page-body">
+<!-- Hızlı İstatistik Kartları -->
+<div class="page-body pt-1">
     <div class="container-xl">
-
-        <!-- Örnek arama formu -->
-        <form method="get" class="mb-3">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Kullanıcı adı ara..."/>
-                <button type="submit" class="btn btn-primary">Ara</button>
+        <div class="row row-cards">
+            <!-- Admin Kartı -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Admin Sayısı</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-primary">12</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+            <!-- Teacher Kartı -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Öğretmen Sayısı</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-blue">45</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Student Kartı -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Öğrenci Sayısı</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-green">300+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Toplam Kullanıcı Kartı -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Toplam Kullanıcı</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-orange">357</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<!-- İçerik Alanı -->
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <!-- Filtreleme / Arama Alanı -->
+        <div class="row mb-3">
+            <div class="col-12 col-lg-4">
+                <form method="get" class="mb-2">
+                    <div class="input-icon">
+                        <span class="input-icon-addon">
+                            <!-- Search icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" 
+                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
+                                 stroke="currentColor" fill="none" stroke-linecap="round" 
+                                 stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M10 10a7 7 0 1 0 7 7" />
+                              <path d="M21 21l-6 -6" />
+                            </svg>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Kullanıcı adı/e-posta ara…" />
+                    </div>
+                </form>
+            </div>
+            <!-- Ek Filtreler (örnek) -->
+            <div class="col-12 col-lg-8 text-end">
+                <div class="btn-group">
+                    <button class="btn btn-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter me-1"
+                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                             stroke="currentColor" fill="none" stroke-linecap="round"
+                             stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M5.5 5h13" />
+                          <path d="M7 10h9" />
+                          <path d="M8.5 15h5" />
+                        </svg>
+                        Filtre
+                    </button>
+                    <button class="btn btn-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-sort me-1" 
+                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
+                             stroke="currentColor" fill="none" stroke-linecap="round" 
+                             stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M3 9l4 -4l4 4m-4 -4v14" />
+                          <path d="M21 15l-4 4l-4 -4m4 4v-14" />
+                        </svg>
+                        Sırala
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <!-- Kullanıcı Tablosu -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Kullanıcılar</h3>
+                <h3 class="card-title">Kayıtlı Kullanıcılar</h3>
             </div>
             <div class="table-responsive">
-                <table class="table card-table table-vcenter">
-                    <thead>
+                <table class="table card-table table-vcenter table-hover">
+                    <thead class="table-dark">
                         <tr>
-                            <th>#</th>
+                            <th>Ad Soyad</th>
                             <th>Kullanıcı Adı</th>
                             <th>E-posta</th>
                             <th>Rol</th>
-                            <th class="w-1"></th>
+                            <th>Kayıt Tarihi</th>
+                            <th class="w-1 text-end">İşlemler</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @* Örnek veri döngüsü *@
-                        @for (int i = 1; i <= 5; i++)
+                        @for (int i = 1; i <= 10; i++)
                         {
+                            string role = (i % 3 == 0 ? "Admin" : (i % 2 == 0 ? "Teacher" : "Student"));
                             <tr>
-                                <td>@i</td>
-                                <td>user@i</td>
-                                <td>user@i@@example.com</td>
-                                <td>Admin</td>
+                                <td>Ad Soyad @i</td>
+                                <td>user{i}</td>
+                                <td>user{i}@@example.com</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@i" class="btn btn-sm btn-warning">Düzenle</a>
-                                        <a asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@i" class="btn btn-sm btn-danger">Sil</a>
+                                    @if(role == "Admin") {
+                                        <span class="badge bg-red-lt text-red">
+                                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                                 class="icon icon-tabler icon-tabler-star me-1" 
+                                                 width="16" height="16" 
+                                                 viewBox="0 0 24 24" stroke-width="2" 
+                                                 stroke="currentColor" fill="none" 
+                                                 stroke-linecap="round" stroke-linejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                              <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867
+                                                       l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1
+                                                       l-5 4.867l1.179 6.873z" />
+                                            </svg>
+                                            Admin
+                                        </span>
+                                    } else if(role == "Teacher") {
+                                        <span class="badge bg-blue-lt text-blue">
+                                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                                 class="icon icon-tabler icon-tabler-chalkboard me-1" 
+                                                 width="16" height="16" 
+                                                 viewBox="0 0 24 24" stroke-width="2" 
+                                                 stroke="currentColor" fill="none" 
+                                                 stroke-linecap="round" stroke-linejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                              <path d="M4 3h16v13h-4l-4 5l-4 -5h-4z" />
+                                              <path d="M7 7h1" />
+                                              <path d="M12 7h1" />
+                                              <path d="M15 7h2" />
+                                            </svg>
+                                            Teacher
+                                        </span>
+                                    } else {
+                                        <span class="badge bg-green-lt text-green">
+                                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                                 class="icon icon-tabler icon-tabler-graduation-cap me-1" 
+                                                 width="16" height="16" 
+                                                 viewBox="0 0 24 24" stroke-width="2" 
+                                                 stroke="currentColor" fill="none" 
+                                                 stroke-linecap="round" stroke-linejoin="round">
+                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                              <path d="M3 7l9 -4l9 4l-9 4l-9 -4v6" />
+                                              <path d="M9 10v4c0 1.38 2.686 2.5 6 2.5s6 -1.12 6 -2.5v-4" />
+                                              <path d="M9 10l9 -4" />
+                                            </svg>
+                                            Student
+                                        </span>
+                                    }
+                                </td>
+                                <td>12/09/2023</td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <!-- Düzenle Butonu (Yeşil) -->
+                                        <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@i"
+                                           class="btn btn-success d-flex align-items-center me-1" title="Düzenle">
+                                            <!-- Düzenle Icon -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" 
+                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                                                 stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M8 18h4" />
+                                                <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z" />
+                                            </svg>
+                                            Düzenle
+                                        </a>
+
+                                        <!-- Sil Butonu (Kırmızı) -->
+                                        <a asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@i"
+                                           class="btn btn-danger d-flex align-items-center" title="Sil">
+                                            <!-- Sil Icon -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" 
+                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" 
+                                                 stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 7h16" />
+                                                <path d="M10 11v6" />
+                                                <path d="M14 11v6" />
+                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                <path d="M9 7v-2a1 1 0 0 1 1 -1h4 
+                                                         a1 1 0 0 1 1 1v2" />
+                                            </svg>
+                                            Sil
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
-            </div>
-            <div class="card-footer">
-                <p class="text-muted">Toplam 5 kullanıcı gösteriliyor.</p>
             </div>
         </div>
     </div>

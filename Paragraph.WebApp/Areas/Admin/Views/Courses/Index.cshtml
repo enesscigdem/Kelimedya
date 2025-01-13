@@ -3,24 +3,128 @@
     ViewData["Title"] = "Eğitimler";
 }
 
-<h2>Eğitim Listesi</h2>
-<div class="card">
-    <div class="card-body">
+<!-- Sayfa Başlığı -->
+<div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        <h2 class="page-title">
+          Eğitim Listesi
+        </h2>
+        <div class="text-muted mt-1">
+          Mevcut kurların yönetimi; A1, A2, B1 vb. eğitim seviyelerini görüntüleyip düzenleyebilirsiniz.
+        </div>
+      </div>
+      <div class="col-auto ms-auto d-print-none">
+        <a class="btn btn-primary" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               class="icon icon-tabler icon-tabler-circle-plus me-1" 
+               width="24" height="24" viewBox="0 0 24 24" 
+               stroke-width="2" stroke="currentColor" 
+               fill="none" stroke-linecap="round" 
+               stroke-linejoin="round">
+            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+            <circle cx="12" cy="12" r="9" />
+            <line x1="9" y1="12" x2="15" y2="12" />
+            <line x1="12" y1="9" x2="12" y2="15" />
+          </svg>
+          Yeni Kur Ekle
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Arama / Filtre Alanı -->
+<div class="page-body pt-1">
+  <div class="container-xl">
+    <div class="row mb-3">
+      <div class="col-12 col-lg-4">
+        <form method="get" class="mb-2">
+          <div class="input-icon">
+            <span class="input-icon-addon">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                   class="icon icon-tabler icon-tabler-search" 
+                   width="24" height="24" viewBox="0 0 24 24" 
+                   stroke-width="2" stroke="currentColor" 
+                   fill="none" stroke-linecap="round" 
+                   stroke-linejoin="round">
+                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                <path d="M10 10a7 7 0 1 0 7 7" />
+                <path d="M21 21l-6 -6" />
+              </svg>
+            </span>
+            <input type="text" name="search" class="form-control" placeholder="Eğitim ara…" />
+          </div>
+        </form>
+      </div>
+      <div class="col-12 col-lg-8 text-end">
+        <div class="btn-group">
+          <button class="btn btn-white">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 class="icon icon-tabler icon-tabler-filter me-1" 
+                 width="24" height="24" viewBox="0 0 24 24" 
+                 stroke-width="2" stroke="currentColor" 
+                 fill="none" stroke-linecap="round" 
+                 stroke-linejoin="round">
+              <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+              <path d="M5.5 5h13" />
+              <path d="M7 10h9" />
+              <path d="M8.5 15h5" />
+            </svg>
+            Filtre
+          </button>
+          <button class="btn btn-white">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 class="icon icon-tabler icon-tabler-arrows-sort me-1" 
+                 width="24" height="24" viewBox="0 0 24 24" 
+                 stroke-width="2" stroke="currentColor" 
+                 fill="none" stroke-linecap="round" 
+                 stroke-linejoin="round">
+              <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+              <path d="M3 9l4 -4l4 4m-4 -4v14" />
+              <path d="M21 15l-4 4l-4 -4m4 4v-14" />
+            </svg>
+            Sırala
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Eğitimler Tablosu -->
+<div class="page-body pt-2">
+  <div class="container-xl">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Eğitim Listesi</h3>
+      </div>
+      <div class="card-body">
         <p>Mevcut kurların yönetimi. A1, A2, B1 vb.</p>
-        <a class="btn btn-primary">Yeni Kur Ekle</a>
         <!-- Tablo -->
-        <table class="table mt-3">
-            <thead>
-                <tr><th>Kur</th><th>Açıklama</th><th></th></tr>
+        <div class="table-responsive">
+          <table class="table card-table mt-3">
+            <thead class="table-dark">
+              <tr>
+                <th>Kur</th>
+                <th>Açıklama</th>
+                <th class="w-1 text-end">İşlemler</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>A1 (Başlangıç)</td>
-                    <td>Temel kelime ve cümle yapıları</td>
-                    <td><button class="btn btn-warning btn-sm">Düzenle</button></td>
-                </tr>
-                <!-- ... -->
+              <tr>
+                <td>A1 (Başlangıç)</td>
+                <td>Temel kelime ve cümle yapıları</td>
+                <td class="text-end">
+                  <button class="btn btn-warning btn-sm">Düzenle</button>
+                </td>
+              </tr>
+              <!-- Diğer satırlar dinamik olarak eklenebilir -->
             </tbody>
-        </table>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

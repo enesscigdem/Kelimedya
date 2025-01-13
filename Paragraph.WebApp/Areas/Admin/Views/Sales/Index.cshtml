@@ -2,49 +2,48 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Satış Grafiği";
 }
+
 <div class="page-header d-print-none">
     <div class="container-xl">
-        <div class="row align-items-center">
-            <div class="col">
-                <h2 class="page-title">
-                    Satış Grafiği
-                </h2>
-            </div>
+        <h2 class="page-title">Satış Grafiği</h2>
+        <div class="text-muted mt-1">
+            Son 6 ayın satış verileri
         </div>
     </div>
 </div>
+
 <div class="page-body">
     <div class="container-xl">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Son Dönem Satış Eğrisi</h3>
+                <h3 class="card-title">Aylık Satış Verileri</h3>
             </div>
             <div class="card-body">
-                <div id="chart-sales" class="chart-lg"></div>
+                <div id="chart-sales" style="height: 350px;"></div>
             </div>
         </div>
     </div>
 </div>
 
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // ApexCharts vb. ile çizim
-            var options = {
-                chart: {
-                    type: 'line',
-                    height: 300,
-                    toolbar: { show: false }
-                },
-                series: [
-                    { name: "Satış", data: [10, 15, 9, 18, 12, 24, 20] }
-                ],
-                xaxis: {
-                    categories: ['Ocak', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem']
-                }
-            };
-            var chart = new ApexCharts(document.querySelector("#chart-sales"), options);
-            chart.render();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        var options = {
+          chart: {
+            type: 'line',
+            height: 350
+          },
+          series: [{
+            name: 'Satış',
+            data: [20, 45, 35, 50, 49, 60]
+          }],
+          xaxis: {
+            categories: ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran']
+          }
+        }
+        var chart = new ApexCharts(document.querySelector("#chart-sales"), options);
+        chart.render();
+      });
     </script>
 }

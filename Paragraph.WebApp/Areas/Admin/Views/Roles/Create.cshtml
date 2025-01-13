@@ -5,32 +5,43 @@
 
 <div class="page-header d-print-none">
     <div class="container-xl">
-        <div class="row align-items-center">
+        <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title">
                     Yeni Rol Ekle
                 </h2>
+                <div class="text-muted mt-1">
+                    Sisteme yeni bir rol eklemek için formu doldurun
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="page-body">
+<div class="page-body pt-2">
     <div class="container-xl">
         <div class="card">
             <div class="card-body">
-                <form asp-area="Admin" asp-controller="Roles" asp-action="Create" method="post">
+                <form method="post" asp-area="Admin" asp-controller="Roles" asp-action="Create">
+                    <!-- Rol Adı -->
                     <div class="mb-3">
                         <label class="form-label">Rol Adı</label>
-                        <input type="text" name="RoleName" class="form-control" required />
+                        <input type="text" class="form-control" name="Name" placeholder="Rol adı" />
                     </div>
+                    <!-- Rol Açıklaması -->
                     <div class="mb-3">
                         <label class="form-label">Açıklama</label>
-                        <textarea name="Description" class="form-control"></textarea>
+                        <textarea class="form-control" name="Description" rows="3"
+                                  placeholder="Rol açıklaması"></textarea>
                     </div>
                     <div class="card-footer text-end">
-                        <button class="btn btn-secondary" type="reset">Temizle</button>
-                        <button class="btn btn-primary" type="submit">Kaydet</button>
+                        <button type="submit" class="btn btn-primary">
+                            Kaydet
+                        </button>
+                        <a asp-area="Admin" asp-controller="Roles" asp-action="Index"
+                           class="btn btn-link link-secondary">
+                            Vazgeç
+                        </a>
                     </div>
                 </form>
             </div>

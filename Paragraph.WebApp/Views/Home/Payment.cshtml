@@ -1,0 +1,145 @@
+﻿@model Paragraph.WebApp.Models.PaymentModel
+
+@{
+    ViewData["Title"] = "Ödeme";
+}
+<section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
+    <div class="container">
+        <div class="td_page_heading_in">
+            <h1 class="td_white_color td_fs_48 td_mb_10">Ödeme</h1>
+            <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
+                <li class="breadcrumb-item">
+                    <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active">Ödeme</li>
+            </ol>
+        </div>
+    </div>
+    <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
+    <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
+    <div class="td_page_heading_shape_3 position-absolute">
+        <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="">
+    </div>
+    <div class="td_page_heading_shape_4 position-absolute">
+        <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="">
+    </div>
+    <div class="td_page_heading_shape_5 position-absolute">
+        <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="">
+    </div>
+    <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
+</section>
+<div class="td_height_120 td_height_lg_80"></div>
+<div class="container">
+    <div class="row td_row_reverse_lg td_gap_y_40">
+        <div class="col-xl-7 col-lg-8">
+            <h3 class="td_mb_20 td_fs_24 td_semibold">İletişim bilgileri</h3>
+            <p class="td_fs_14 td_mb_20">Bu e-postayı size siparişinizle ilgili ayrıntıları ve güncellemeleri göndermek için kullanacağız.</p>
+            <input type="text" class="td_form_field_2 td_mb_27" placeholder="Email adresi">
+            <h3 class="td_fs_18 td_mb_12">Fatura adresi</h3>
+            <p class="td_fs_14 td_mb_20">Ödeme yönteminizle eşleşen fatura adresini girin.</p>
+            <div class="row td_mb_10 td_row_gap_16">
+                <div class="col-md-6">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="İsim">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Soyisim">
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Adres">
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Apartman, il, ilçe">
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Ülke/Şehir">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Şehir">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Uyruk">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Posta Kodu">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="td_form_field_2 td_mb_16" placeholder="Telefon Numarası (opsiyonel)">
+                </div>
+            </div>
+            <h3 class="td_fs_18 td_mb_14">Ödeme seçenekleri</h3>
+            <div class="td_mb_40">
+                <ul class="td_payment_list td_mp_0">
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="payment" id="bank" checked>
+                            <label class="form-check-label" for="bank">Doğrudan banka transferi</label>
+                        </div>
+                        <p class="mb-0">Ödemenizi doğrudan banka hesabımıza yapın. Lütfen ödeme referansı olarak Sipariş Kimliğinizi kullanın. Para hesabımıza geçene kadar siparişiniz gönderilmeyecektir.</p>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="payment" id="check_payments">
+                            <label class="form-check-label" for="check_payments">Çek ödemeleri</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="payment" id="cash_on_delivery">
+                            <label class="form-check-label" for="cash_on_delivery">Teslimatta nakit</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="td_custom_checkbox_2 td_mb_20 td_heading_color">
+                <input type="checkbox">
+                <span>Siparişinize bir not ekleyin</span>
+            </div>
+            <p class="td_heading_color td_opacity_8 td_mb_20">Satın alma işleminize devam ederek Hüküm ve Koşullarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz</p>
+            <hr class="td_mb_25">
+            <div class="row align-items-center td_row_reverse_lg td_gap_y_20">
+                <div class="col-lg-6 text-center-lg">
+                    <a href="cart.html" class="td_text_btn_2 td_heading_color">
+                        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.0004 5.24687H3.80039L7.50039 1.54688L6.50039 0.546875L0.900391 6.04688L6.50039 11.5469L7.50039 10.5469L3.80039 6.84688H17.0004V5.24687Z" fill="currentColor"/>
+                        </svg>
+                        Sepete Geri Dön
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <button class="td_btn td_style_1 td_radius_30 td_medium w-100">
+                        <span class="td_btn_in td_white_color td_accent_bg">
+                            <span>Sipariş Verin</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 offset-xl-1">
+            <div class="td_order_summary_card">
+                <p class="mb-0">Order summary</p>
+                <div class="td_order_summary_card_info td_fs_14">
+                    <div class="td_order_summary_card_thumb">
+                        <img src="~/theme/web_UI/assets/img/home_1/course_thumb_1.jpg" alt="">
+                        <span>1</span>
+                    </div>
+                    <div>
+                        <p class="td_mb_5">IELTS Admission <br>$99.00</p>
+                        <p class="mb-0">printer took ar galley offer type year anddey scrambled make type aewer specimen book bethas</p>
+                    </div>
+                </div>
+                <ul class="td_order_summary_card_list td_mp_0">
+                    <li class="td_heading_color">Bir kupon ekleyin</li>
+                    <li>
+                        <span>Ara Toplam</span>
+                        <span class="td_bold">$99.34</span>
+                    </li>
+                    <li class="td_fs_18 td_bold td_heading_color">
+                        <span>Toplam</span>
+                        <span>$99.34</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="td_height_120 td_height_lg_80"></div>

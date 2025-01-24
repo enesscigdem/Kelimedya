@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kurslarım";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Kurslarım</h2>
+        <div class="text-muted mt-1">
+            Kayıt olduğunuz veya devam ettiğiniz kurlar
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <!-- Örnek kart -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">A1 (Başlangıç)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Temel seviye İngilizce konuları. Başlangıç seviyesi.</p>
+                        <!-- İlerleme Gösterge -->
+                        <div class="mb-2">
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-green" style="width: 40%"></div>
+                            </div>
+                            <small>%40 tamamlandı</small>
+                        </div>
+                        <!-- Devam Et Butonu -->
+                        <a href="#" class="btn btn-primary d-flex align-items-center">
+                            <!-- Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="icon me-1" width="20" height="20"
+                                 viewBox="0 0 24 24" stroke-width="2"
+                                 stroke="currentColor" fill="none" stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                                <path d="M13 7l5 5l-5 5m5 -5h-8
+                                         a4 4 0 1 1 0 -8h1"/>
+                            </svg>
+                            Devam Et
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Başka kurs kartları -->
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">A2 (Temel)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Bir seviye ileri konular, biraz daha kapsamlı.</p>
+                        <div class="mb-2">
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-green" style="width: 10%"></div>
+                            </div>
+                            <small>%10 tamamlandı</small>
+                        </div>
+                        <a href="#" class="btn btn-primary d-flex align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="icon me-1" width="20" height="20"
+                                 viewBox="0 0 24 24" stroke-width="2"
+                                 stroke="currentColor" fill="none" stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                                <path d="M13 7l5 5l-5 5m5 -5h-8
+                                         a4 4 0 1 1 0 -8h1"/>
+                            </svg>
+                            Devam Et
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Diğer kurslar... -->
+        </div>
+    </div>
+</div>

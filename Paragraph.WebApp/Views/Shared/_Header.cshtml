@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<header class="td_site_header td_style_1 td_sticky_header td_medium td_heading_color">
+<header class="td_site_header td_style_1 td_sticky_header td_medium td_heading_color td_gescout_sticky td_gescout_show">
     <div class="td_main_header">
         <div class="container">
             <div class="td_main_header_in">
@@ -53,29 +53,18 @@
                                         <a asp-controller="Home" asp-action="About">Hakkımızda</a>
                                         <ul>
                                             <li>
-                                                <a href="who-are-we.html">Biz Kimiz</a>
+                                                <a asp-controller="Home" asp-action="WhoAreWe">Biz Kimiz</a>
                                             </li>
                                             <li>
-                                                <a href="mission.html">Misyonumuz</a>
+                                                <a asp-controller="Home" asp-action="Mission">Misyonumuz</a>
                                             </li>
                                             <li>
-                                                <a href="vision.html">Vizyonumuz</a>
+                                                <a asp-controller="Home" asp-action="Vision">Vizyonumuz</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li>
                                         <a asp-controller="Home" asp-action="Products">Ürünlerimiz</a>
-                                        <ul>
-                                            <li>
-                                                <a href="product-detail.html">Ürün #1</a>
-                                            </li>
-                                            <li>
-                                                <a href="product-detail.html">Ürün #2</a>
-                                            </li>
-                                            <li>
-                                                <a href="product-detail.html">Ürün #3</a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a asp-controller="Home" asp-action="Contact">İletişim</a>
@@ -84,10 +73,10 @@
                                                 <a asp-controller="Home" asp-action="Contact">İletişim Bilgilerimiz</a>
                                             </li>
                                             <li>
-                                                <a href="for-families.html">Aileler İçin</a>
+                                                <a asp-controller="Home" asp-action="ContactFamilies">Aileler İçin</a>
                                             </li>
                                             <li>
-                                                <a href="for-schools.html">Okullar İçin</a>
+                                                <a asp-controller="Home" asp-action="ContactSchools">Okullar İçin</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -98,6 +87,10 @@
                 </div>
                 <div class="td_main_header_right">
                     <div class="td_hero_toolbox_wrap">
+                        <a asp-controller="Home" asp-action="Cart" class="td_circle_btn td_center" type="button">
+                            <img src="~/theme/web_UI/assets/img/home_5/cart.svg" alt="">
+                            <span class="td_circle_btn_label">0</span>
+                        </a>
                         <ul class="td_mp_0 td_hero_toolbox">
                             @if (User.Identity.IsAuthenticated)
                             {

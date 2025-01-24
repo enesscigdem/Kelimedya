@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<main>
+    <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
+        <div class="container">
+            <div class="td_page_heading_in">
+                <h1 class="td_white_color td_fs_48 td_mb_10">Aileler İçin İletişim</h1>
+                <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                    </li>
+                    <li class="breadcrumb-item active">Aileler İçin İletişim</li>
+                </ol>
+            </div>
+        </div>
+        <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
+        <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
+        <div class="td_page_heading_shape_3 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="">
+        </div>
+        <div class="td_page_heading_shape_4 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="">
+        </div>
+        <div class="td_page_heading_shape_5 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="">
+        </div>
+        <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
+    </section>
+
+    <!-- İçerik Bölümü -->
+    <section>
+        <div class="td_height_120 td_height_lg_80"></div>
+        <div class="container">
+            <div class="row td_gap_y_50">
+                <div class="col-lg-8">
+                    <div class="td_contact_form">
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["Success"]
+                            </div>
+                        }
+
+                        <form asp-action="ContactFamilies" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="text" class="td_form_field_2 td_mb_16" placeholder="İsminiz">
+                            <input type="text" class="td_form_field_2 td_mb_16" placeholder="E-Posta Adresiniz">
+                            <textarea rows="5" class="td_form_field_2 td_mb_16" placeholder="Mesajınız" required></textarea>
+
+                            <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
+                                <span class="td_btn_in td_white_color td_accent_bg">
+                                    <span>Gönder</span>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 ms-5">
+                    <div class="td_contact_info">
+                        <div class="td_section_heading td_style_2 td_mb_20">
+                            <h2 class="td_contact_info_title td_fs_36 mb-0">Ofis Adresimiz</h2>
+                        </div>
+                        <div>
+                            <h2 class="td_fs_24 td_semibold td_mb_20">Ofis Adı</h2>
+                            <p class="td_fs_18 td_heading_color td_medium td_mb_10">Ofis Adresi</p>
+                            <p class="td_fs_18 td_heading_color td_medium td_mb_10 td_opacity_7">
+                                <a href="tel:+90">+90</a>
+                            </p>
+                            <p class="td_fs_18 td_heading_color td_medium mb-0 td_opacity_7">
+                                <a href="mailto:info@gmail.com">info@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="td_height_120 td_height_lg_80"></div>
+    </section>
+</main>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

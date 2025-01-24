@@ -1,5 +1,101 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Teacher Dashboard";
 }
 
-öğretmen paneli
+<!-- Sayfa Başlığı -->
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Öğretmen Paneli - Dashboard</h2>
+        <div class="text-muted mt-1">
+            Genel bakış ekranı
+        </div>
+    </div>
+</div>
+
+<!-- İstatistik Kartlar -->
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <!-- Toplam Öğrenci -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Toplam Öğrenci</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-blue">45</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aktif Kurslar -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Aktif Kurslar</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-green">5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Yeni Katılım -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Yeni Katılım</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-orange">2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bekleyen İşler -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="subheader">Bekleyen İş</div>
+                        <div class="ms-auto lh-1">
+                            <span class="h2 mb-0 text-red">3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Son Aktiviteler -->
+        <div class="row row-cards mt-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Son Aktiviteler</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table card-table table-vcenter">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Öğrenci</th>
+                                    <th>Aktivite</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ali Veli</td>
+                                    <td>A1 Kur Testini Tamamladı</td>
+                                    <td>2025-01-20</td>
+                                </tr>
+                                <tr>
+                                    <td>Ayşe Yılmaz</td>
+                                    <td>B1 Kur Ödevi Gönderildi</td>
+                                    <td>2025-01-19</td>
+                                </tr>
+                                <!-- ... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Profilim";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Profilim</h2>
+        <div class="text-muted mt-1">
+            Kişisel bilgilerinizi düzenleyin.
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Bilgiler</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Ad Soyad</label>
+                                <input type="text" class="form-control" value="Öğrenci Adı" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">E-posta</label>
+                                <input type="email" class="form-control" value="student@example.com" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Şifre</label>
+                                <input type="password" class="form-control" />
+                            </div>
+                            <button class="btn btn-primary" type="submit">Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- İsterseniz ek bilgileri ayrı kartta tutabilirsiniz -->
+        </div>
+    </div>
+</div>

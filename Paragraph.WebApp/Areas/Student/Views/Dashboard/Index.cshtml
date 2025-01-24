@@ -1,5 +1,81 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Öğrenci Dashboard";
 }
 
-öğrenci paneli
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Öğrenci Paneli - Dashboard</h2>
+        <div class="text-muted mt-1">
+            Genel bakış ekranı
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="subheader">Tamamlanan Kurs</div>
+                    <div class="ms-auto lh-1">
+                      <span class="h2 mb-0 text-green">2</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="subheader">Devam Eden Kurs</div>
+                    <div class="ms-auto lh-1">
+                      <span class="h2 mb-0 text-blue">3</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- Başka istatistik kartları -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card card-sm">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="subheader">Kelime Kartlarım</div>
+                    <div class="ms-auto lh-1">
+                      <span class="h2 mb-0 text-orange">128</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Örnek tablo/aktivite alanı -->
+        <div class="row row-cards mt-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Son Ders Aktiviteleri</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table card-table table-vcenter">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Kurs Adı</th>
+                                    <th>Durum</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A1 (Başlangıç)</td>
+                                    <td>Ders 3 Tamamlandı</td>
+                                    <td>2025-01-20</td>
+                                </tr>
+                                <!-- ... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

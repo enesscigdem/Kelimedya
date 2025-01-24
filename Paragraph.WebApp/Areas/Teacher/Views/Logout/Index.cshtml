@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Çıkış Yap";
+}
+
+<div class="container-xl">
+    <div class="alert alert-info mt-3">
+        <strong>Çıkış Yap</strong><br/>
+        Panelden çıkmak üzeresiniz. Emin misiniz?
+    </div>
+    <form method="post" asp-area="Teacher" asp-controller="Logout" asp-action="IndexPost">
+        <button type="submit" class="btn btn-danger">Çıkış Yap</button>
+        <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+    </form>
+</div>

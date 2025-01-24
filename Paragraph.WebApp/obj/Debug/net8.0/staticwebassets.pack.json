@@ -6605,6 +6605,18 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/page_heading_bg.jpg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/img/home_5/post_1.jpg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/post_1.jpg"
     },

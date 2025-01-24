@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Paragraph.HangfireDashboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cea977d9e23947a64c5f225524d2b9e13126019")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca739748d466f3cd1c94b992edd025936e340ede")]
 [assembly: System.Reflection.AssemblyProductAttribute("Paragraph.HangfireDashboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Paragraph.HangfireDashboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

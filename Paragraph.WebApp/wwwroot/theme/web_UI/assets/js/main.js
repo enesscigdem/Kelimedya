@@ -121,12 +121,6 @@
     $window.scroll(function () {
       var windowTop = $window.scrollTop();
 
-      if (windowTop >= headerHeight) {
-        $header.addClass('td_gescout_sticky');
-      } else {
-        $header.removeClass('td_gescout_sticky');
-        $header.removeClass('td_gescout_show');
-      }
 
       if ($header.hasClass('td_gescout_sticky')) {
         if (windowTop < lastScrollTop) {

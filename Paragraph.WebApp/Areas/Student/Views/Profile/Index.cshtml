@@ -3,43 +3,102 @@
     ViewData["Title"] = "Profilim";
 }
 
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <h2 class="page-title">Profilim</h2>
-        <div class="text-muted mt-1">
-            Kişisel bilgilerinizi düzenleyin.
-        </div>
-    </div>
-</div>
+<style>
+    body {
+        background-color: #fefefe;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #333;
+    }
+    .profile-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+    }
+    .profile-hero {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .profile-sub {
+        font-size: 1.1rem;
+        color: #777;
+        margin-bottom: 2rem;
+    }
+    .circle-decor {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #ffc2c2;
+        z-index: -1;
+        opacity: 0.4;
+    }
+    .circle-decor:nth-child(1) {
+        top: -30px;
+        right: 20%;
+    }
+    .circle-decor:nth-child(2) {
+        bottom: -30px;
+        left: 15%;
+        background: #ffded2;
+    }
 
-<div class="page-body">
-    <div class="container-xl">
-        <div class="row row-cards">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Bilgiler</h3>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">Ad Soyad</label>
-                                <input type="text" class="form-control" value="Öğrenci Adı" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">E-posta</label>
-                                <input type="email" class="form-control" value="student@example.com" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Şifre</label>
-                                <input type="password" class="form-control" />
-                            </div>
-                            <button class="btn btn-primary" type="submit">Kaydet</button>
-                        </form>
-                    </div>
-                </div>
+    .profile-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        padding: 1.5rem;
+    }
+    .profile-card h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #f05232;
+        margin-bottom: 1rem;
+    }
+    .form-label {
+        font-weight: 600;
+    }
+    .btn-primary {
+        background-color: #f05232;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        text-decoration: none;
+    }
+    .btn-primary:hover {
+        background-color: #d74322;
+    }
+</style>
+
+<div class="profile-container">
+    <div class="circle-decor"></div>
+    <div class="circle-decor"></div>
+
+    <div class="profile-hero">Profilim</div>
+    <div class="profile-sub">Kişisel bilgilerinizi düzenleyin.</div>
+
+    <div class="profile-card">
+        <h3>Bilgiler</h3>
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Ad Soyad</label>
+                <input type="text" class="form-control" value="Öğrenci Adı" />
             </div>
-            <!-- İsterseniz ek bilgileri ayrı kartta tutabilirsiniz -->
-        </div>
+            <div class="mb-3">
+                <label class="form-label">E-posta</label>
+                <input type="email" class="form-control" value="student@example.com" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Şifre</label>
+                <input type="password" class="form-control" />
+            </div>
+            <button class="btn-primary" type="submit">Kaydet</button>
+        </form>
     </div>
+    <!-- Ek kartlar / bilgiler isterseniz benzer blokları ekleyebilirsiniz -->
 </div>

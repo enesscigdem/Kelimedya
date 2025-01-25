@@ -3,13 +3,59 @@
     ViewData["Title"] = "Çıkış Yap";
 }
 
-<div class="container-xl">
-    <div class="alert alert-info mt-3">
-        <strong>Çıkış Yap</strong><br/>
+<style>
+    .logout-container {
+        max-width: 600px;
+        margin: 2rem auto;
+        background: #fff;
+        border-left: 5px solid #c8a800;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        padding: 2rem;
+        text-align: center;
+    }
+    .logout-title {
+        font-size: 1.6rem;
+        color: #c0392b;
+        margin-bottom: 1rem;
+    }
+    .logout-desc {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 2rem;
+    }
+    .gold-btn {
+        background: #c8a800;
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        margin-right: 0.5rem;
+        font-weight: 500;
+    }
+    .gold-btn:hover {
+        background: #b08f00;
+    }
+    .grey-btn {
+        background: #7f8c8d;
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        font-weight: 500;
+    }
+    .grey-btn:hover {
+        background: #707a7b;
+    }
+</style>
+
+<div class="logout-container">
+    <div class="logout-title">Çıkış Yap</div>
+    <div class="logout-desc">
         Panelden çıkmak üzeresiniz. Emin misiniz?
     </div>
     <form method="post" asp-area="Teacher" asp-controller="Logout" asp-action="IndexPost">
-        <button type="submit" class="btn btn-danger">Çıkış Yap</button>
-        <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+        <button type="submit" class="gold-btn">Çıkış Yap</button>
+        <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index" class="grey-btn">Vazgeç</a>
     </form>
 </div>

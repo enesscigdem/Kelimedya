@@ -10,5 +10,13 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
         {
             return View();
         }
+        public IActionResult AdamAsmaca()
+        {
+            return View();
+        }
+        public IActionResult KelimeBulmaca()
+        {
+            return View();
+        }
     }
 }

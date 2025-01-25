@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc;
 
-namespace Paragraph.WebApp.Areas.Teacher.Controllers
-{
-    [Area("Teacher")]
-    [ApiExplorerSettings(IgnoreApi = true)]
-    public class ReportsController : Controller
+    namespace Paragraph.WebApp.Areas.Teacher.Controllers
     {
-        public IActionResult Index()
+        [Area("Teacher")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public class ReportsController : Controller
         {
-            return View();
+            public IActionResult Index()
+            {
+                return View();
+            }
         }
     }
-}

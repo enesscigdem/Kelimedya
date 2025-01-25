@@ -3,80 +3,124 @@
     ViewData["Title"] = "Kurslarım";
 }
 
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <h2 class="page-title">Kurslarım</h2>
-        <div class="text-muted mt-1">
-            Kayıt olduğunuz veya devam ettiğiniz kurlar
-        </div>
-    </div>
-</div>
+<style>
+    .courses-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+    }
+    .courses-hero {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #f05232;
+    }
+    .courses-sub {
+        font-size: 1.1rem;
+        color: #777;
+        margin-bottom: 2rem;
+    }
 
-<div class="page-body pt-2">
-    <div class="container-xl">
-        <div class="row row-cards">
-            <!-- Örnek kart -->
-            <div class="col-sm-6 col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">A1 (Başlangıç)</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Temel seviye İngilizce konuları. Başlangıç seviyesi.</p>
-                        <!-- İlerleme Gösterge -->
-                        <div class="mb-2">
-                            <div class="progress progress-sm">
-                                <div class="progress-bar bg-green" style="width: 40%"></div>
-                            </div>
-                            <small>%40 tamamlandı</small>
-                        </div>
-                        <!-- Devam Et Butonu -->
-                        <a href="#" class="btn btn-primary d-flex align-items-center">
-                            <!-- Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 class="icon me-1" width="20" height="20"
-                                 viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none" stroke-linecap="round"
-                                 stroke-linejoin="round">
-                                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                <path d="M13 7l5 5l-5 5m5 -5h-8
-                                         a4 4 0 1 1 0 -8h1"/>
-                            </svg>
-                            Devam Et
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Başka kurs kartları -->
-            <div class="col-sm-6 col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">A2 (Temel)</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Bir seviye ileri konular, biraz daha kapsamlı.</p>
-                        <div class="mb-2">
-                            <div class="progress progress-sm">
-                                <div class="progress-bar bg-green" style="width: 10%"></div>
-                            </div>
-                            <small>%10 tamamlandı</small>
-                        </div>
-                        <a href="#" class="btn btn-primary d-flex align-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 class="icon me-1" width="20" height="20"
-                                 viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none" stroke-linecap="round"
-                                 stroke-linejoin="round">
-                                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                <path d="M13 7l5 5l-5 5m5 -5h-8
-                                         a4 4 0 1 1 0 -8h1"/>
-                            </svg>
-                            Devam Et
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Diğer kurslar... -->
+    .circle-decor {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.4;
+        z-index: -1;
+    }
+    .circle-decor:nth-child(1) {
+        top: -30px;
+        right: 15%;
+        width: 130px; height: 130px;
+        background: #ffded2;
+    }
+    .circle-decor:nth-child(2) {
+        bottom: -30px;
+        left: 10%;
+        width: 150px; height: 150px;
+        background: #ffc2c2;
+    }
+
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+        gap: 1.5rem;
+    }
+    .course-block {
+        background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%);
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        padding: 1.5rem;
+        position: relative;
+    }
+    .course-block h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.4rem;
+        color: #c94a2c;
+    }
+    .course-block p {
+        color: #555;
+        margin-bottom: 1rem;
+    }
+
+    .simple-btn {
+        background-color: #f05232;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        text-decoration: none;
+    }
+    .simple-btn:hover {
+        background-color: #d74322;
+    }
+</style>
+
+<div class="courses-container">
+    <div class="circle-decor"></div>
+    <div class="circle-decor"></div>
+
+    <div class="courses-hero">Kurslarım</div>
+    <div class="courses-sub">Buradan kayıtlı veya yeni başlayacağınız kursları yönetebilirsiniz.</div>
+
+    <!-- Örnek Araçlar (Arama / Filtre) -->
+    <div style="margin-bottom:1rem; display:flex; gap:1rem;">
+        <input type="text" class="form-control" placeholder="Kurs ara…" style="max-width:250px;" />
+        <button class="simple-btn">Filtre</button>
+        <button class="simple-btn">Sırala</button>
+        <a href="#" class="simple-btn" style="margin-left:auto;">
+            Kurs Kaydı
+        </a>
+    </div>
+
+    <div class="courses-grid">
+        <!-- Kurs 1 -->
+        <div class="course-block">
+            <h3>A1 (Başlangıç)</h3>
+            <p>En temel seviye İngilizce konuları. 10 adet kelime kartı içerir.</p>
+            <a class="simple-btn"
+                    asp-controller="MyCourses"
+                    asp-action="CoursePlay"
+                    asp-route-id="1"
+                    asp-route-level="A1">
+                Kursa Başla
+            </a>
         </div>
+        <!-- Kurs 2 -->
+        <div class="course-block">
+            <h3>A2 (Temel)</h3>
+            <p>Bir seviye ileri konular. 10 yeni kelime ve 1 sürpriz oyun.</p>
+            <a class="simple-btn"
+                    asp-controller="MyCourses"
+                    asp-action="CoursePlay"
+                    asp-route-id="2"
+                    asp-route-level="A2">
+                Devam Et
+            </a>
+        </div>
+        <!-- Diğer kurslar... -->
     </div>
 </div>

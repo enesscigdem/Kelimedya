@@ -1,101 +1,238 @@
 ﻿@{
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Teacher Dashboard";
+    ViewData["Title"] = "Öğretmen Paneli - Ultra Dashboard";
 }
 
-<!-- Sayfa Başlığı -->
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <h2 class="page-title">Öğretmen Paneli - Dashboard</h2>
-        <div class="text-muted mt-1">
-            Genel bakış ekranı
+<style>
+    .teacher-dashboard {
+        margin-top: 2rem;
+    }
+
+    /* Üst kısım - degrade / altın doku hissi */
+    .corp-hero {
+        background: linear-gradient(135deg, #1e2a44, #2f3b5d);
+        border-radius: 12px;
+        padding: 2rem;
+        color: #fff;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        margin-bottom: 2rem;
+        position: relative;
+    }
+    .corp-hero h1 {
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: 0.5px;
+    }
+    .corp-hero p {
+        margin-top: 0.5rem;
+        opacity: 0.85;
+    }
+
+    /* Kart (istatistik) */
+    .gold-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.2s ease;
+        border-left: 5px solid #c8a800; /* altın şerit */
+    }
+    .gold-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .gold-title {
+        font-size: 1.1rem;
+        color: #2f3b5d;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+    }
+    .gold-value {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #c8a800;
+    }
+    .gold-desc {
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    /* Tablolar */
+    .corp-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .corp-table thead {
+        background: #2f3b5d;
+        color: #fff;
+    }
+    .corp-table thead th {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        padding: 0.75rem;
+    }
+    .corp-table tbody td {
+        border-bottom: 1px solid #eee;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        color: #444;
+    }
+    .corp-table tbody tr:hover td {
+        background-color: #fafafa;
+    }
+
+    .badge-green {
+        color: #27ae60;
+        font-weight: 600;
+    }
+    .badge-orange {
+        color: #e67e22;
+        font-weight: 600;
+    }
+
+    /* Buton stili */
+    .gold-btn {
+        background: #c8a800;
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .gold-btn:hover {
+        background: #b08f00;
+    }
+
+    .chart-container {
+        min-height: 250px;
+        margin-top: 1rem;
+    }
+</style>
+
+<div class="teacher-dashboard container-xl">
+    <!-- Hero -->
+    <div class="corp-hero">
+        <h1>Öğretmen Paneli</h1>
+        <p>Hoş Geldin, <strong>Ayşe Hocam</strong>! Bugün 2 yeni öğrenci kaydı var.</p>
+    </div>
+
+    <!-- 4 İstatistik Kartı -->
+    <div class="row">
+        <div class="col-sm-6 col-lg-3">
+            <div class="gold-card">
+                <div class="gold-title">Toplam Öğrenci</div>
+                <div class="gold-value">45</div>
+                <div class="gold-desc">Aktif kayıtlı</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="gold-card">
+                <div class="gold-title">Aktif Kurslar</div>
+                <div class="gold-value" style="color:#27ae60;">5</div>
+                <div class="gold-desc">Devam eden programlar</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="gold-card">
+                <div class="gold-title">Yeni Katılım</div>
+                <div class="gold-value" style="color:#f39c12;">2</div>
+                <div class="gold-desc">Bugün eklenen öğrenci</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="gold-card">
+                <div class="gold-title">Bekleyen İş</div>
+                <div class="gold-value" style="color:#e74c3c;">3</div>
+                <div class="gold-desc">Onay gereken ödev/sınav</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Son Aktiviteler & Grafik -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="gold-card">
+                <div class="gold-title">Son Aktiviteler</div>
+                <table class="corp-table mt-3">
+                    <thead>
+                        <tr>
+                            <th>Öğrenci</th>
+                            <th>Aktivite</th>
+                            <th>Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ali Veli</td>
+                            <td><span class="badge-green">A1 Kur Testini Tamamladı</span></td>
+                            <td>2025-01-20</td>
+                        </tr>
+                        <tr>
+                            <td>Ayşe Yılmaz</td>
+                            <td><span class="badge-orange">B2 Kur Ödevi Gönderildi</span></td>
+                            <td>2025-01-19</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-end mt-3">
+                    <button class="gold-btn">Tüm Aktiviteler</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="gold-card">
+                <div class="gold-title">Kurs Katılım Grafiği</div>
+                <div class="chart-container" id="chart-participation"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- İki Blok: Öğrenci Başarı & Duyurular -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="gold-card">
+                <div class="gold-title">Öğrenci Başarı Analizi</div>
+                <p class="gold-desc">Ayrıntılı raporlar için Raporlar sekmesine göz atın.</p>
+                <ul style="list-style:none; padding-left:0;">
+                    <li>A1 Ortalaması: <span class="badge-green">%78</span></li>
+                    <li>B1 Ortalaması: <span class="badge-orange">%65</span></li>
+                    <li>B2 Ortalaması: %60</li>
+                </ul>
+                <div class="mt-2">
+                    <button class="gold-btn">Raporlara Git</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="gold-card">
+                <div class="gold-title">Duyurular / Ödev Atamaları</div>
+                <p class="gold-desc">Yeni ödev veya duyuru eklemek için tıklayınız.</p>
+                <button class="gold-btn">Yeni Duyuru</button>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- İstatistik Kartlar -->
-<div class="page-body">
-    <div class="container-xl">
-        <div class="row row-cards">
-            <!-- Toplam Öğrenci -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Toplam Öğrenci</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-blue">45</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Aktif Kurslar -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Aktif Kurslar</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-green">5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Yeni Katılım -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Yeni Katılım</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-orange">2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Bekleyen İşler -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Bekleyen İş</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-red">3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Son Aktiviteler -->
-        <div class="row row-cards mt-3">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Son Aktiviteler</h3>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table card-table table-vcenter">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th>Öğrenci</th>
-                                    <th>Aktivite</th>
-                                    <th>Tarih</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ali Veli</td>
-                                    <td>A1 Kur Testini Tamamladı</td>
-                                    <td>2025-01-20</td>
-                                </tr>
-                                <tr>
-                                    <td>Ayşe Yılmaz</td>
-                                    <td>B1 Kur Ödevi Gönderildi</td>
-                                    <td>2025-01-19</td>
-                                </tr>
-                                <!-- ... -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> 
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var options = {
+          chart: { type: 'donut', height: 250 },
+          series: [45, 5, 2, 3],
+          labels: ['Öğrenci', 'Aktif Kurs', 'Yeni Katılım', 'Bekleyen İş'],
+          colors: ['#c8a800', '#27ae60', '#f39c12', '#e74c3c']
+        };
+        var chart = new ApexCharts(document.querySelector("#chart-participation"), options);
+        chart.render();
+      });
+    </script>
+}

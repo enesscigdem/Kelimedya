@@ -1,0 +1,390 @@
+﻿@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kelime Kartları - Çocuklar İçin Mükemmel Tasarım";
+}
+
+<style>
+    /* Sayfa Arkaplan, Dalga Efekti */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        background: #fbf4f2;
+    }
+
+    .wave-header {
+        position: relative;
+        width: 100%;
+        height: 220px;
+        background: linear-gradient(120deg, #ffd1d9 0%, #ffbfbf 100%);
+        overflow: hidden;
+    }
+    .wave-header svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .oynatici-container {
+        max-width: 900px;
+        margin: -90px auto 0 auto; /* dalga alanından yukarı çıksın */
+        position: relative;
+        z-index: 10;
+    }
+
+    /* İlerleme Çubuğu (Üst) */
+    .ilerleme-kapsayici {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    .ilerleme-arka {
+        width: 80%;
+        height: 12px;
+        background: #eee;
+        border-radius: 6px;
+        position: relative;
+        overflow: hidden;
+    }
+    .ilerleme-dolgu {
+        width: 0; /* JS ile belirlenecek */
+        height: 100%;
+        background: #f05a71;
+        transition: width 0.4s ease;
+    }
+
+    /* Kart Alanı - Büyük */
+    .kart-sahne {
+        position: relative;
+        width: 100%;
+        height: 500px; /* daha büyük */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        background: #ffffff;
+    }
+
+    /* Kart (mutlaka konum:absolute; ) */
+    .kelime-karti {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        text-align: center;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: inset 0 0 30px rgba(0,0,0,0.03);
+        opacity: 0;
+        transform: translateX(100%);
+        transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Aktif Kart */
+    .kelime-karti.aktif {
+        opacity: 1;
+        transform: translateX(0);
+        z-index: 2;
+    }
+    /* Çıkarken sola kay */
+    .kelime-karti.cikis-sola {
+        transform: translateX(-100%) !important;
+        opacity: 0 !important;
+    }
+
+    /* Kart İçeriği */
+    .kart-baslik {
+        font-size: 1rem;
+        color: #999;
+        margin-bottom: 0.5rem;
+    }
+    .kart-emoji {
+        width: 130px;
+        height: 130px;
+        background: #ffe5e0;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: #d84d70;
+    }
+    .kelime {
+        font-size: 2.2rem;
+        color: #f05a71;
+        margin-bottom: 0.5rem;
+    }
+    .cumle {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 1rem;
+        max-width: 80%;
+    }
+    .es-anlam {
+        font-size: 0.9rem;
+        color: #777;
+        font-style: italic;
+    }
+
+    /* Butonlar */
+    .buton-sira {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .btn-basit {
+        background-color: #f05a71;
+        color: #fff;
+        padding: 0.7rem 1.4rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        text-decoration: none;
+    }
+    .btn-basit:hover {
+        background-color: #dc425e;
+    }
+
+    .btn-bitir {
+        background-color: #4caf50;
+    }
+    .btn-bitir:hover {
+        background-color: #43a047;
+    }
+</style>
+
+<!-- Dalga Alanı -->
+<div class="wave-header">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+      <path d="M0.00,49.98 C254.36,124.54 307.37,-18.66 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+            style="stroke: none; fill:#fff;">
+      </path>
+    </svg>
+</div>
+
+<div class="oynatici-container">
+    <!-- İlerleme Göstergesi -->
+    <div class="ilerleme-kapsayici">
+        <div class="ilerleme-arka">
+            <div class="ilerleme-dolgu" id="ilerlemeDolgu"></div>
+        </div>
+    </div>
+
+    <!-- Kart Sahnesi -->
+    <div class="kart-sahne" id="kartSahne">
+        <!-- 10 kart örneği -->
+        <div class="kelime-karti" id="kart0">
+            <div class="kart-baslik">Kart 1 / 10</div>
+            <div class="kart-emoji">🍎</div>
+            <div class="kelime">Elma</div>
+            <div class="cumle">Her sabah bir elma yerim.</div>
+            <div class="es-anlam">Yakın Anlam: <b>Malus domestica</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart1">
+            <div class="kart-baslik">Kart 2 / 10</div>
+            <div class="kart-emoji">🍌</div>
+            <div class="kelime">Muz</div>
+            <div class="cumle">Maymunlar muzu çok sever.</div>
+            <div class="es-anlam">Benzer Kelimeler: <b>Musa sapientum</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart2">
+            <div class="kart-baslik">Kart 3 / 10</div>
+            <div class="kart-emoji">🍉</div>
+            <div class="kelime">Karpuz</div>
+            <div class="cumle">Yaz aylarında karpuz serinletir.</div>
+            <div class="es-anlam">Benzer Kelimeler: <b>Serin meyve</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart3">
+            <div class="kart-baslik">Kart 4 / 10</div>
+            <div class="kart-emoji">🥕</div>
+            <div class="kelime">Havuç</div>
+            <div class="cumle">Havuç göz sağlığına iyi gelir.</div>
+            <div class="es-anlam">Yakın Anlam: <b>Carrot</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart4">
+            <div class="kart-baslik">Kart 5 / 10</div>
+            <div class="kart-emoji">🍓</div>
+            <div class="kelime">Çilek</div>
+            <div class="cumle">Çilekler tatlı ve sulu olur.</div>
+            <div class="es-anlam">Yakın Anlam: <b>Fragaria</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart5">
+            <div class="kart-baslik">Kart 6 / 10</div>
+            <div class="kart-emoji">🍒</div>
+            <div class="kelime">Kiraz</div>
+            <div class="cumle">Yazın kiraz yemek çok keyifli.</div>
+            <div class="es-anlam">Benzer Kelimeler: <b>Vişne (farklı tat)</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart6">
+            <div class="kart-baslik">Kart 7 / 10</div>
+            <div class="kart-emoji">🥒</div>
+            <div class="kelime">Salatalık</div>
+            <div class="cumle">Salatalık ferah bir atıştırmalıktır.</div>
+            <div class="es-anlam">Benzer Kelimeler: <b>Hıyar</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart7">
+            <div class="kart-baslik">Kart 8 / 10</div>
+            <div class="kart-emoji">🍊</div>
+            <div class="kelime">Portakal</div>
+            <div class="cumle">Portakal bol C vitamini içerir.</div>
+            <div class="es-anlam">Yakın Anlam: <b>Turunç</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart8">
+            <div class="kart-baslik">Kart 9 / 10</div>
+            <div class="kart-emoji">🍑</div>
+            <div class="kelime">Şeftali</div>
+            <div class="cumle">Yumuşak ve sulu şeftalileri çok severim.</div>
+            <div class="es-anlam">Benzer Kelimeler: <b>Nektarin</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit" onclick="sonrakiKelime()">Sonraki</button>
+            </div>
+        </div>
+
+        <div class="kelime-karti" id="kart9">
+            <div class="kart-baslik">Kart 10 / 10</div>
+            <div class="kart-emoji">📚</div>
+            <div class="kelime">Kütüphane</div>
+            <div class="cumle">Kütüphaneden kitap ödünç alabilirsin.</div>
+            <div class="es-anlam">Benzer Kelimeler: <b>Kitaplık</b></div>
+            <div class="buton-sira">
+                <button class="btn-basit" onclick="oncekiKelime()">Önceki</button>
+                <button class="btn-basit btn-bitir" onclick="dersiBitir()">Dersi Bitir</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+<script>
+let mevcutIndex = 0;
+let toplamKart = 10;
+let kartlar = [];
+
+function kartlariHazirla() {
+    for(let i = 0; i < toplamKart; i++){
+        let el = document.getElementById("kart"+i);
+        if(el) kartlar.push(el);
+    }
+    if(kartlar[0]) {
+        kartlar[0].classList.add("aktif");
+        ilerlemeyiGuncelle(0);
+    }
+}
+
+/* Kartı göster */
+function kartiGoster(yeniIndex, direction="left") {
+    // Mevcut kartı kapat
+    if(kartlar[mevcutIndex]) {
+        kartlar[mevcutIndex].classList.remove("aktif");
+        kartlar[mevcutIndex].classList.add("cikis-sola");
+        setTimeout(()=>{
+            kartlar[mevcutIndex].classList.remove("cikis-sola");
+        },700);
+    }
+    // Yeni kart
+    kartlar[yeniIndex].classList.add("aktif");
+    ilerlemeyiGuncelle(yeniIndex);
+}
+
+function ilerlemeyiGuncelle(idx) {
+    let yuzde = ((idx+1) / toplamKart) * 100;
+    document.getElementById("ilerlemeDolgu").style.width = yuzde + "%";
+}
+
+/* Sonraki */
+function sonrakiKelime() {
+    // 5. kart => rastgele oyun
+    if(mevcutIndex === 4) {
+        rastgeleOyunAc();
+        return;
+    }
+    if(mevcutIndex < toplamKart - 1) {
+        mevcutIndex++;
+        kartiGoster(mevcutIndex);
+    }
+}
+
+/* Önceki */
+function oncekiKelime() {
+    if(mevcutIndex > 0) {
+        mevcutIndex--;
+        kartiGoster(mevcutIndex);
+    }
+}
+
+/* Rastgele Oyun (AdamAsmaca %50, KelimeBulmaca %50) */
+function rastgeleOyunAc(){
+    let rasgele = Math.random();
+    if(rasgele < 0.5) {
+        // Adam asmaca
+        window.location = '@Url.Action("AdamAsmaca","Games", new { area="Student", ReturnToCourse=true })';
+    } else {
+        // Kelime bulmaca
+        window.location = '@Url.Action("KelimeBulmaca","Games", new { area="Student", ReturnToCourse=true })';
+    }
+}
+
+/* Dersi Bitir */
+function dersiBitir() {
+    alert("Tebrikler, ders bitti!");
+    window.location = '@Url.Action("Index","MyCourses", new { area="Student" })';
+}
+
+/* Sayfa yüklenince */
+document.addEventListener("DOMContentLoaded", function(){
+    kartlariHazirla();
+});
+</script>
+}

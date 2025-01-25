@@ -3,43 +3,59 @@
     ViewData["Title"] = "Profilim";
 }
 
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <h2 class="page-title">Profilim</h2>
-        <div class="text-muted mt-1">
-            Kişisel bilgilerinizi düzenleyin.
-        </div>
-    </div>
-</div>
+<style>
+    .profile-wrapper {
+        margin-top: 2rem;
+    }
+    .profile-card {
+        background: #fff;
+        border-left: 5px solid #c8a800;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        padding: 2rem;
+        position: relative;
+    }
+    .profile-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #2f3b5d;
+    }
+    .form-label {
+        font-weight: 600;
+    }
+    .gold-btn {
+        background: #c8a800;
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+    .gold-btn:hover {
+        background: #b08f00;
+    }
+</style>
 
 <div class="page-body">
-    <div class="container-xl">
-        <div class="row row-cards">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Kişisel Bilgiler</h3>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">Ad Soyad</label>
-                                <input type="text" class="form-control" value="Öğretmen Adı" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">E-posta</label>
-                                <input type="email" class="form-control" value="teacher@example.com" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Şifre</label>
-                                <input type="password" class="form-control" />
-                            </div>
-                            <button class="btn btn-primary" type="submit">Kaydet</button>
-                        </form>
-                    </div>
+    <div class="container-xl profile-wrapper">
+        <div class="profile-card">
+            <div class="profile-title">Kişisel Bilgiler</div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Ad Soyad</label>
+                    <input type="text" class="form-control" value="Öğretmen Adı" />
                 </div>
-            </div>
-            <!-- İsterseniz yanına başka kartlar vs. koyabilirsiniz -->
+                <div class="mb-3">
+                    <label class="form-label">E-posta</label>
+                    <input type="email" class="form-control" value="teacher@example.com" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Şifre</label>
+                    <input type="password" class="form-control" />
+                </div>
+                <button class="gold-btn" type="submit">Kaydet</button>
+            </form>
         </div>
     </div>
 </div>

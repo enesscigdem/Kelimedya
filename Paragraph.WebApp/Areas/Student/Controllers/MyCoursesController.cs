@@ -10,5 +10,9 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
         {
             return View();
         }
+        public IActionResult CoursePlay()
+        {
+            return View();
+        }
     }
 }

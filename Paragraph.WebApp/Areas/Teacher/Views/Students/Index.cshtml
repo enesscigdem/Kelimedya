@@ -1,155 +1,186 @@
 ﻿@{
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Öğrenci Yönetimi";
+    ViewData["Title"] = "Öğrenciler";
 }
 
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <h2 class="page-title">Öğrenciler</h2>
-        <div class="text-muted mt-1">
-            Öğrencilerinizi buradan görüntüleyip yönetebilirsiniz.
+<style>
+    .students-container {
+        margin-top: 1rem;
+    }
+    .students-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    .students-title {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #2f3b5d;
+    }
+    .students-sub {
+        color: #777;
+        font-size: 0.95rem;
+    }
+    .gold-btn {
+        background: #c8a800;
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        font-weight: 500;
+    }
+    .gold-btn:hover {
+        background: #b08f00;
+    }
+
+    /* İstatistik kutuları */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .stats-box {
+        background: #fff;
+        border-left: 5px solid #c8a800;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        padding: 1rem;
+        text-align: center;
+    }
+    .stats-box .subheader {
+        font-size: 0.8rem;
+        color: #999;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+    }
+    .stats-box .number {
+        font-size: 2rem;
+        color: #c8a800;
+        margin: 0;
+    }
+
+    /* Filtre / Arama */
+    .tools-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+
+    /* Tablo */
+    .students-table-wrap {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        overflow: hidden;
+    }
+    .students-table-wrap .card-header {
+        background: #ecf0f1;
+        border-radius: 10px 10px 0 0;
+    }
+    .students-table-wrap table thead {
+        background: #2f3b5d;
+        color: #fff;
+    }
+    .students-table-wrap table thead th {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+</style>
+
+<div class="students-container container-xl">
+    <div class="students-header">
+        <div>
+            <h2 class="students-title">Öğrenciler</h2>
+            <div class="students-sub">Öğrencilerinizi buradan görüntüleyip yönetebilirsiniz.</div>
         </div>
     </div>
-</div>
 
-<div class="page-body pt-2">
-    <div class="container-xl">
-        <!-- Kartlarla mini istatistik -->
-        <div class="row row-cards">
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Toplam Öğrenci</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-blue">45</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Başka istatistik kartları -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Mezun Olanlar</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-green">10</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- İstatistik Kartları -->
+    <div class="stats-row">
+        <div class="stats-box">
+            <div class="subheader">Toplam Öğrenci</div>
+            <div class="number">45</div>
         </div>
-
-        <!-- Arama / Tablo -->
-        <div class="row mb-3 mt-3">
-            <div class="col-12 col-lg-4">
-                <form>
-                    <div class="input-icon">
-                        <span class="input-icon-addon">
-                            <!-- Arama Iconu -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M10 10a7 7 0 1 0 7 7"/>
-                                <path d="M21 21l-6 -6"/>
-                            </svg>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Öğrenci ara…"/>
-                    </div>
-                </form>
-            </div>
+        <div class="stats-box">
+            <div class="subheader">Mezun Olanlar</div>
+            <div class="number" style="color:#27ae60;">10</div>
         </div>
+    </div>
 
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Tüm Öğrenciler</h3>
+    <!-- Filtre / Arama Alanı -->
+    <div class="tools-row">
+        <form style="max-width:300px;">
+            <div class="input-icon">
+                <span class="input-icon-addon">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         class="icon icon-tabler icon-tabler-search"
+                         width="24" height="24" viewBox="0 0 24 24"
+                         stroke-width="2" stroke="currentColor"
+                         fill="none" stroke-linecap="round"
+                         stroke-linejoin="round">
+                      <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                      <path d="M10 10a7 7 0 1 0 7 7"/>
+                      <path d="M21 21l-6 -6"/>
+                    </svg>
+                </span>
+                <input type="text" class="form-control" placeholder="Öğrenci ara…" />
             </div>
-            <div class="table-responsive">
-                <table class="table card-table table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Öğrenci Adı</th>
-                            <th>E-posta</th>
-                            <th>Kayıt Tarihi</th>
-                            <th>Kur</th>
-                            <th class="w-1 text-end">İşlemler</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ali Yılmaz</td>
-                            <td>ali@example.com</td>
-                            <td>2025-01-15</td>
-                            <td>A1</td>
-                            <td class="text-end">
-                                <div class="btn-group" role="group">
-                                    <a asp-area="Teacher"
-                                       asp-controller="Students"
-                                       asp-action="Details"
-                                       asp-route-id="1"
-                                       class="btn btn-primary d-flex align-items-center me-1"
-                                       title="Detay">
-                                        <!-- Detay Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon me-1" width="20" height="20"
-                                             viewBox="0 0 24 24" stroke-width="2"
-                                             stroke="currentColor" fill="none" stroke-linecap="round"
-                                             stroke-linejoin="round">
-                                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                            <circle cx="12" cy="12" r="2"/>
-                                            <path d="M22 12c-2 -5 -7 -9 -10 -9s-8 4 -10 9
-                                                     c2 5 7 9 10 9s8 -4 10 -9"/>
-                                        </svg>
-                                        Detay
-                                    </a>
-                                    <a asp-area="Teacher"
-                                       asp-controller="Students"
-                                       asp-action="Edit"
-                                       asp-route-id="1"
-                                       class="btn btn-success d-flex align-items-center me-1"
-                                       title="Düzenle">
-                                        <!-- Düzenle Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon me-1" width="20" height="20"
-                                             viewBox="0 0 24 24" stroke-width="2"
-                                             stroke="currentColor" fill="none" stroke-linecap="round"
-                                             stroke-linejoin="round">
-                                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                            <path d="M8 18h4"/>
-                                            <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z"/>
-                                        </svg>
-                                        Düzenle
-                                    </a>
-                                    <a asp-area="Teacher"
-                                       asp-controller="Students"
-                                       asp-action="Delete"
-                                       asp-route-id="1"
-                                       class="btn btn-danger d-flex align-items-center"
-                                       title="Sil">
-                                        <!-- Sil Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon me-1" width="20" height="20"
-                                             viewBox="0 0 24 24" stroke-width="2"
-                                             stroke="currentColor" fill="none" stroke-linecap="round"
-                                             stroke-linejoin="round">
-                                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                            <path d="M4 7h16"/>
-                                            <path d="M10 11v6"/>
-                                            <path d="M14 11v6"/>
-                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8
-                                                     a2 2 0 0 0 2 -2l1 -12"/>
-                                            <path d="M9 7v-2a1 1 0 0 1 1 -1h4
-                                                     a1 1 0 0 1 1 1v2"/>
-                                        </svg>
-                                        Sil
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Diğer öğrenciler -->
-                    </tbody>
-                </table>
-            </div>
+        </form>
+        <div style="flex:1; text-align:right;">
+            <button class="gold-btn me-1">Filtre</button>
+            <button class="gold-btn">Sırala</button>
+        </div>
+    </div>
+
+    <!-- Öğrenci Tablosu -->
+    <div class="students-table-wrap">
+        <div class="card-header">
+            <h3 class="card-title">Tüm Öğrenciler</h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table card-table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Öğrenci Adı</th>
+                        <th>E-posta</th>
+                        <th>Kayıt Tarihi</th>
+                        <th>Kur</th>
+                        <th class="w-1 text-end">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ali Yılmaz</td>
+                        <td>ali@example.com</td>
+                        <td>2025-01-15</td>
+                        <td>A1</td>
+                        <td class="text-end">
+                            <div class="btn-group">
+                                <a href="/Teacher/Students/Details/1"
+                                   class="gold-btn me-1"
+                                   style="background:#2980b9;">
+                                   Detay
+                                </a>
+                                <a href="/Teacher/Students/Edit/1"
+                                   class="gold-btn me-1"
+                                   style="background:#27ae60;">
+                                   Düzenle
+                                </a>
+                                <a href="/Teacher/Students/Delete/1"
+                                   class="gold-btn"
+                                   style="background:#e74c3c;">
+                                   Sil
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Diğer öğrenciler... -->
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

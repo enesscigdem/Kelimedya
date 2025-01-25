@@ -6,7 +6,6 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class CategoriesController : Controller
     {
-        
         public IActionResult Index()
         {
             return View();

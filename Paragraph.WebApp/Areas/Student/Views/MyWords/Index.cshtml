@@ -1,276 +1,372 @@
-﻿<style>
-    body {
-        background-color: #f8f9fa;
-        font-family: 'Josefin Sans', sans-serif;
-        color: #333;
-    }
-    .words-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-        position: relative;
-    }
-    .words-hero {
-        font-size: 2.8rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #2c3e50;
-        text-align: center;
-    }
-    .words-sub {
-        font-size: 1.2rem;
-        color: #777;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
+﻿@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kelime Kartlarım - Ultra Profesyonel Tasarım";
+}
 
-    /* Dekoratif daireler */
-    .circle-decor {
-        position: absolute;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        background: rgba(240, 82, 50, 0.1);
-        z-index: -1;
-        opacity: 0.6;
-        filter: blur(20px);
-    }
-    .circle-decor:nth-child(1) {
-        top: -50px;
-        left: 70%;
-    }
-    .circle-decor:nth-child(2) {
-        bottom: -60px;
-        left: 10%;
-        background: rgba(76, 175, 80, 0.1);
-    }
+<style>
+/* Gövde (arka plan): pastel degrade, animasyonlu dalga hissi */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #2c3e50;
+    background: linear-gradient(120deg, #fefefe 0%, #ffe5e0 100%);
+    animation: bodyAnim 15s infinite alternate ease-in-out;
+}
+/* Ana kapsayıcı */
+.words-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    position: relative;
+}
 
-    /* İstatistik kartları */
-    .stats-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-    }
-    .stat-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-        padding: 1.5rem;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-    }
-    .stat-card .subheader {
-        font-size: 0.9rem;
-        color: #999;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-    }
-    .stat-card .h2 {
-        font-size: 2.2rem;
-        margin: 0;
-        color: #f05232;
-    }
-    .stat-card .h2.green {
-        color: #4caf50;
-    }
-    .stat-card .h2.orange {
-        color: #ff9800;
-    }
+/* Dekoratif daireler: hafif pulsing */
+.pulse-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: pulseAnim 5s infinite alternate ease-in-out;
+    filter: blur(30px);
+    z-index: -1;
+}
+@@keyframes pulseAnim {
+    0% { transform: scale(0.8); }
+    100% { transform: scale(1.2); }
+}
+.pulse-circle:nth-child(1) {
+    width: 220px; height: 220px;
+    top: -60px; right: 10%;
+    background: rgba(240, 82, 50, 0.2);
+}
+.pulse-circle:nth-child(2) {
+    width: 180px; height: 180px;
+    bottom: -50px; left: 15%;
+    background: rgba(76, 175, 80, 0.2);
+    animation-delay: 2s;
+}
 
-    /* Araçlar: Arama, Filtre, Yeni Kart */
-    .tools {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        align-items: center;
-    }
-    .tools input {
-        flex: 1;
-        max-width: 300px;
-        padding: 0.8rem 1.2rem;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .tools input:focus {
-        border-color: #f05232;
-        box-shadow: 0 0 0 3px rgba(240, 82, 50, 0.1);
-        outline: none;
-    }
-    .simple-btn {
-        background-color: #f05232;
-        color: #fff;
-        padding: 0.8rem 1.5rem;
-        border-radius: 12px;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        transition: background 0.3s ease, transform 0.3s ease;
-        text-decoration: none;
-    }
-    .simple-btn:hover {
-        background-color: #d74322;
-        transform: translateY(-2px);
-    }
-    .simple-btn.secondary {
-        background-color: #4caf50;
-    }
-    .simple-btn.secondary:hover {
-        background-color: #43a047;
-    }
+/* Başlıklar */
+.words-hero {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #ff5b5b;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+.words-sub {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+}
 
-    /* Kelime Kartları Grid (3D Flip) */
-    .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 2rem;
-    }
-    .word-card {
-        perspective: 1000px;
-        position: relative;
-    }
-    .word-card-inner {
-        width: 100%;
-        height: 300px;
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-        transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-        transform-style: preserve-3d;
-        position: relative;
-    }
-    .word-card:hover .word-card-inner {
-        transform: rotateY(180deg);
-    }
+/* İstatistik kartları */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.stat-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+.stat-card .subheader {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+}
+.stat-card .h2 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: #f05232;
+}
+.stat-card .h2.green {
+    color: #4caf50;
+}
+.stat-card .h2.orange {
+    color: #ff9800;
+}
 
-    .word-card-front,
-    .word-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 16px;
-        backface-visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5rem;
-    }
-    .word-card-front {
-        background: linear-gradient(135deg, #ffe5e0 0%, #ffd9bf 100%);
-    }
-    .front-word {
-        font-size: 2rem;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    .front-info {
-        font-size: 0.9rem;
-        color: #666;
-        background: rgba(255, 255, 255, 0.5);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-    }
+/* Araçlar: Arama, Filtre, Sırala, Yeni Kart */
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+.tools input[type="text"] {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+.tools input[type="text"]:focus {
+    border-color: #ff5b5b;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.15);
+    outline: none;
+}
+.ultra-btn {
+    background: linear-gradient(135deg, #ff5b5b, #f05232);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+}
+.ultra-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.ultra-btn.secondary {
+    background: linear-gradient(135deg, #64dd17, #4caf50) !important;
+}
 
-    .word-card-back {
-        background: #fff;
-        transform: rotateY(180deg);
-    }
-    .back-meaning {
-        font-size: 1.6rem;
-        color: #4caf50;
-        margin-bottom: 1rem;
-        position: relative;
-    }
-    .back-meaning::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50px;
-        height: 2px;
-        background: #4caf50;
-        opacity: 0.3;
-    }
-    .back-sentence {
-        font-size: 0.95rem;
-        color: #555;
-        text-align: center;
-        line-height: 1.5;
-    }
+/* Kartlar: 3D flip + ek detay */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+.word-card {
+    perspective: 1000px;
+    position: relative;
+    height: 350px; /* Biraz daha uzun */
+}
+.word-card-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
+    transform-style: preserve-3d;
+    position: relative;
+}
+.word-card:hover .word-card-inner {
+    transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.card-front {
+    background: linear-gradient(135deg, #ffe5e0, #ffd9bf);
+}
+.card-back {
+    background: #fff;
+    transform: rotateY(180deg);
+}
+/* ÖN YÜZ */
+.card-front .word-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.card-front .word-category {
+    font-size: 0.85rem;
+    color: #555;
+    background: rgba(255,255,255,0.4);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.card-front .progress-badge {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #f05232;
+    background: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+/* ARKA YÜZ */
+.card-back .meaning {
+    font-size: 1.5rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.card-back .meaning::after {
+    content: "";
+    position: absolute;
+    width: 50px; height: 2px;
+    background: #4caf50; opacity: 0.3;
+    left: 50%; bottom: -8px;
+    transform: translateX(-50%);
+}
+.card-back .example {
+    font-size: 0.95rem;
+    color: #777;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+.card-back .synonyms {
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive ayarlar */
+@@media(max-width: 768px) {
+    .word-card { height: 320px; }
+    .word-card-inner { padding: 1rem; }
+    .card-front .word-title { font-size: 1.6rem; }
+    .cards-grid { gap: 1.5rem; }
+}
 </style>
 
 <div class="words-container">
-    <div class="circle-decor"></div>
-    <div class="circle-decor"></div>
+    <!-- Pulsing Daireler -->
+    <div class="pulse-circle"></div>
+    <div class="pulse-circle"></div>
 
-    <!-- Başlık & Açıklama -->
-    <div class="words-hero">Kelime Kartlarım</div>
-    <div class="words-sub">Kartları çevirerek anlamını ve cümle içinde kullanımını görebilirsiniz.</div>
+    <!-- Başlık & Alt Açıklama -->
+    <h1 class="words-hero">Kelime Kartlarım</h1>
+    <div class="words-sub">
+        Yeni kelimeler ekleyerek ezberini güçlendirebilirsin. Kartları çevirerek anlamları ve örnek cümleleri keşfet!
+    </div>
 
     <!-- İstatistik Kartları -->
     <div class="stats-row">
         <div class="stat-card">
             <div class="subheader">Toplam Kart</div>
-            <div class="h2">128</div>
+            <div class="h2">150</div>
         </div>
         <div class="stat-card">
             <div class="subheader">Ezberlenen</div>
-            <div class="h2 green">58</div>
+            <div class="h2 green">70</div>
         </div>
         <div class="stat-card">
             <div class="subheader">Bugün Çalışılan</div>
-            <div class="h2 orange">12</div>
+            <div class="h2 orange">15</div>
         </div>
     </div>
 
-    <!-- Araçlar: Arama, Filtre, Yeni Kart -->
+    <!-- Araçlar: Arama / Filtre / Sırala / Yeni Kart -->
     <div class="tools">
         <input type="text" placeholder="Kelime ara…" />
-        <button class="simple-btn">Filtre</button>
-        <button class="simple-btn">Sırala</button>
-        <a href="#" class="simple-btn secondary" style="margin-left:auto;">
+        <button class="ultra-btn">Filtre</button>
+        <button class="ultra-btn">Sırala</button>
+        <a href="#" class="ultra-btn secondary" style="margin-left:auto;">
             Yeni Kart Ekle
         </a>
     </div>
 
-    <!-- Kelime Kartları Grid (3D Flip) -->
+    <!-- Kartlar Grid -->
     <div class="cards-grid">
-        <!-- Örnek 1 -->
+        <!-- Kart Örneği 1 -->
         <div class="word-card">
             <div class="word-card-inner">
-                <div class="word-card-front">
-                    <div class="front-word">Apple</div>
-                    <div class="front-info">Meyveler</div>
+                <!-- Ön Yüz -->
+                <div class="card-front">
+                    <div class="word-title">Elma</div>
+                    <div class="word-category">Meyve</div>
+                    <div class="progress-badge">Ezber: %40</div>
                 </div>
-                <div class="word-card-back">
-                    <div class="back-meaning">Elma</div>
-                    <div class="back-sentence">“I eat an apple every morning.”</div>
+                <!-- Arka Yüz -->
+                <div class="card-back">
+                    <div class="meaning">Tatlı kırmızı meyve</div>
+                    <div class="example">
+                        “Her sabah bir elma yemek sağlıklı bir alışkanlıktır.”
+                    </div>
+                    <div class="synonyms">
+                        Eş Anlam: <strong>Malus domestica</strong>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Örnek 2 -->
+
+        <!-- Kart Örneği 2 -->
         <div class="word-card">
             <div class="word-card-inner">
-                <div class="word-card-front">
-                    <div class="front-word">Banana</div>
-                    <div class="front-info">Meyveler</div>
+                <div class="card-front">
+                    <div class="word-title">Muz</div>
+                    <div class="word-category">Meyve</div>
+                    <div class="progress-badge">Ezber: %60</div>
                 </div>
-                <div class="word-card-back">
-                    <div class="back-meaning">Muz</div>
-                    <div class="back-sentence">“Monkeys love bananas!”</div>
+                <div class="card-back">
+                    <div class="meaning">Sarı kabuklu meyve</div>
+                    <div class="example">
+                        “Maymunlar en çok muzu seviyor.”
+                    </div>
+                    <div class="synonyms">
+                        Benzer: <strong>Musa sapientum</strong>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Daha fazla kart... -->
+
+        <!-- Kart Örneği 3 -->
+        <div class="word-card">
+            <div class="word-card-inner">
+                <div class="card-front">
+                    <div class="word-title">Kedi</div>
+                    <div class="word-category">Hayvan</div>
+                    <div class="progress-badge">Ezber: %80</div>
+                </div>
+                <div class="card-back">
+                    <div class="meaning">Evcil memeli hayvan</div>
+                    <div class="example">
+                        “Kediler, sessiz adımlarla avlanır.”
+                    </div>
+                    <div class="synonyms">
+                        Eş Anlam: <strong>Felis catus</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kart Örneği 4 -->
+        <div class="word-card">
+            <div class="word-card-inner">
+                <div class="card-front">
+                    <div class="word-title">Çiçek</div>
+                    <div class="word-category">Doğa</div>
+                    <div class="progress-badge">Ezber: %20</div>
+                </div>
+                <div class="card-back">
+                    <div class="meaning">Renkli bitki bölümü</div>
+                    <div class="example">
+                        “Bahçedeki çiçekler bahar geldiğinde açıyor.”
+                    </div>
+                    <div class="synonyms">
+                        Diğer: <strong>Flora</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daha fazla kart eklenebilir... -->
     </div>
 </div>

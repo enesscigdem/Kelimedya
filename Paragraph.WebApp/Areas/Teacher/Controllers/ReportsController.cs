@@ -10,5 +10,9 @@
             {
                 return View();
             }
+            public IActionResult PerformanceReports()
+            {
+                return View();
+            }
         }
     }

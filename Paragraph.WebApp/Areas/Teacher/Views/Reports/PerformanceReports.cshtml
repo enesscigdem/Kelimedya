@@ -1,0 +1,161 @@
+﻿@{
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Performans Raporları";
+}
+
+<style>
+    .performance-page {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    .perf-header {
+        margin-bottom: 1.5rem;
+    }
+    .perf-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2b4055;
+        margin: 0;
+    }
+    .perf-sub {
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    .perf-card {
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-left: 6px solid var(--color-accent);
+    }
+    .perf-card h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #2b4055;
+        margin-bottom: 1rem;
+    }
+    .chart-container {
+        min-height: 280px;
+        margin-bottom: 1rem;
+    }
+    .perf-table {
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .perf-table thead {
+        background: #2b4055;
+        color: #fff;
+    }
+    .perf-table tbody tr:hover {
+        background: #fafafa;
+    }
+    .btn-detail {
+        background: var(--color-accent);
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .btn-detail:hover {
+        background: #d68910;
+    }
+</style>
+
+<div class="performance-page container-xl">
+    <div class="perf-header">
+        <h2 class="perf-title">Performans Raporları</h2>
+        <p class="perf-sub">Öğrencilerin kur bazlı veya proje bazlı performanslarını inceleyebilirsiniz.</p>
+    </div>
+
+    <!-- A1 Kur Performansı -->
+    <div class="perf-card">
+        <h3>A1 Kur Performansı</h3>
+        <div class="chart-container" id="chart-a1"></div>
+        <div class="table-responsive perf-table">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Öğrenci</th>
+                        <th>Puan</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ali Yılmaz</td>
+                        <td>82</td>
+                        <td><span style="color:#27ae60; font-weight:600;">Geçti</span></td>
+                    </tr>
+                    <tr>
+                        <td>Ada Karadağ</td>
+                        <td>56</td>
+                        <td><span style="color:#e74c3c; font-weight:600;">Kaldı</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn-detail mt-3">Detaylı Görüntüle</button>
+    </div>
+
+    <!-- B2 Kur Performansı -->
+    <div class="perf-card">
+        <h3>B2 Kur Performansı</h3>
+        <div class="chart-container" id="chart-b2"></div>
+        <div class="table-responsive perf-table">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Öğrenci</th>
+                        <th>Puan</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mehmet Aydın</td>
+                        <td>75</td>
+                        <td><span style="color:#27ae60; font-weight:600;">Geçti</span></td>
+                    </tr>
+                    <tr>
+                        <td>Merve Doğan</td>
+                        <td>65</td>
+                        <td><span style="color:#e67e22; font-weight:600;">Ek Çalışma</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn-detail mt-3">Detaylı Görüntüle</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // A1 Chart
+            var optionsA1 = {
+                chart: { type: 'bar', height: 280 },
+                series: [{ name: 'Puan', data: [82, 56, 70, 64, 90] }],
+                xaxis: { categories: ['Ali', 'Ada', 'Emre', 'Zeynep', 'Veli'] },
+                colors: ['#3498db']
+            };
+            var chartA1 = new ApexCharts(document.querySelector("#chart-a1"), optionsA1);
+            chartA1.render();
+
+            // B2 Chart
+            var optionsB2 = {
+                chart: { type: 'bar', height: 280 },
+                series: [{ name: 'Puan', data: [75, 65, 50, 88, 79] }],
+                xaxis: { categories: ['Mehmet', 'Merve', 'Seda', 'Burak', 'Selin'] },
+                colors: ['#f39c12']
+            };
+            var chartB2 = new ApexCharts(document.querySelector("#chart-b2"), optionsB2);
+            chartB2.render();
+        });
+    </script>
+}

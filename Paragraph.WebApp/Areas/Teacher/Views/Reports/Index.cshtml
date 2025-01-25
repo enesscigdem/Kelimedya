@@ -1,11 +1,12 @@
 ﻿@{
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Raporlar";
+    ViewData["Title"] = "Öğrenci Raporları";
 }
 
 <style>
-    .reports-wrapper {
+    .reports-section {
         margin-top: 1rem;
+        margin-bottom: 2rem;
     }
     .reports-header {
         display: flex;
@@ -14,128 +15,115 @@
         margin-bottom: 1.5rem;
     }
     .reports-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2b4055;
         margin: 0;
-        color: #2f3b5d;
     }
     .reports-sub {
         color: #777;
-        font-size: 0.95rem;
-    }
-    .gold-btn {
-        background: #c8a800;
-        border: none;
-        color: #fff;
-        padding: 0.6rem 1.2rem;
-        border-radius: 6px;
-        font-weight: 500;
-    }
-    .gold-btn:hover {
-        background: #b08f00;
+        font-size: 0.9rem;
     }
 
-    /* Stat Cards */
-    .reports-stats {
+    /* İstatistik Kartları */
+    .report-stats {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
         gap: 1rem;
         margin-bottom: 2rem;
     }
-    .reports-stat {
+    .report-stat {
         background: #fff;
-        border-left: 5px solid #c8a800;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        border-left: 6px solid var(--color-accent);
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         padding: 1rem;
         text-align: center;
     }
-    .reports-stat .subheader {
+    .report-subheader {
         font-size: 0.8rem;
         color: #999;
         text-transform: uppercase;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.3rem;
     }
-    .reports-stat .number {
+    .report-number {
         font-size: 2rem;
-        color: #c8a800;
+        color: var(--color-accent);
+        font-weight: 700;
         margin: 0;
     }
 
+    /* Buton */
+    .btn-action {
+        background: var(--color-accent);
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        font-weight: 600;
+        margin-right: 0.4rem;
+        transition: 0.3s;
+    }
+    .btn-action:hover {
+        background: #d68910;
+    }
+
     /* Rapor Tablosu */
-    .reports-table-wrap {
+    .report-table-wrap {
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         overflow: hidden;
     }
-    .reports-table-wrap .card-header {
+    .report-table-wrap .card-header {
         background: #ecf0f1;
-        border-radius: 10px 10px 0 0;
+        border-radius: 6px 6px 0 0;
+        padding: 1rem;
     }
-    .reports-table-wrap table thead {
-        background: #2f3b5d;
+    .report-table-wrap table thead {
+        background: #2b4055;
         color: #fff;
     }
-    .reports-table-wrap table thead th {
-        text-transform: uppercase;
+    .report-table-wrap table tbody tr:hover {
+        background: #fafafa;
+    }
+    .btn-small {
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        color: #fff;
         font-size: 0.8rem;
-        letter-spacing: 0.5px;
+        margin-right: 0.2rem;
     }
 </style>
 
-<div class="reports-wrapper container-xl">
+<div class="reports-section container-xl">
     <div class="reports-header">
         <div>
-            <h2 class="reports-title">Raporlar</h2>
-            <div class="reports-sub">Öğrenci performans raporlarını düzenleyin ve yönetin.</div>
+            <h2 class="reports-title">Öğrenci Raporları</h2>
+            <div class="reports-sub">Sınıf bazlı veya kur bazlı öğrenci raporlarını inceleyin.</div>
+        </div>
+        <div>
+            <!-- Örnek: Rapor Ekle butonu -->
+            <button class="btn-action">Yeni Rapor Ekle</button>
         </div>
     </div>
 
     <!-- İstatistik Kartları -->
-    <div class="reports-stats">
-        <div class="reports-stat">
-            <div class="subheader">Toplam Rapor</div>
-            <h2 class="number">8</h2>
+    <div class="report-stats">
+        <div class="report-stat">
+            <div class="report-subheader">Toplam Rapor</div>
+            <h2 class="report-number">12</h2>
         </div>
-        <div class="reports-stat">
-            <div class="subheader">Yeni Rapor</div>
-            <h2 class="number">2</h2>
-        </div>
-        <!-- Diğer stat kutuları -->
-    </div>
-
-    <!-- Filtre / Arama -->
-    <div class="d-flex flex-wrap mb-3">
-        <div style="flex: 1;">
-            <form method="get" class="mb-2" style="max-width: 300px;">
-                <div class="input-icon">
-                    <span class="input-icon-addon">
-                        <!-- Search Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="icon icon-tabler icon-tabler-search"
-                             width="24" height="24"
-                             viewBox="0 0 24 24" stroke-width="2"
-                             stroke="currentColor" fill="none"
-                             stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                          <path d="M10 10a7 7 0 1 0 7 7"/>
-                          <path d="M21 21l-6 -6"/>
-                        </svg>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Rapor ara…" />
-                </div>
-            </form>
-        </div>
-        <div style="text-align: right;">
-            <button class="gold-btn me-1">Filtre</button>
-            <button class="gold-btn">Sırala</button>
+        <div class="report-stat">
+            <div class="report-subheader">Bekleyen Onay</div>
+            <h2 class="report-number" style="color:#e74c3c;">2</h2>
         </div>
     </div>
 
-    <!-- Rapor Listesi -->
-    <div class="reports-table-wrap">
+    <!-- Tablo Listesi -->
+    <div class="report-table-wrap">
         <div class="card-header">
-            <h3 class="card-title">Mevcut Raporlar</h3>
+            <h3 class="card-title" style="margin:0;">Tüm Raporlar</h3>
         </div>
         <div class="table-responsive">
             <table class="table card-table table-hover mb-0">
@@ -148,20 +136,26 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>A1 Grup Sınav Sonuçları</td>
-                        <td>2025-01-18</td>
+                        <td>A1 Yazılı Sınav Sonuçları</td>
+                        <td>2025-02-01</td>
                         <td class="text-end">
                             <div class="btn-group">
-                                <a href="/Teacher/Reports/Edit/1" class="gold-btn me-1" style="background:#27ae60;">
-                                    Düzenle
-                                </a>
-                                <a href="/Teacher/Reports/Delete/1" class="gold-btn" style="background:#e74c3c;">
-                                    Sil
-                                </a>
+                                <a href="#" class="btn-small" style="background:#27ae60;">İncele</a>
+                                <a href="#" class="btn-small" style="background:#c0392b;">Sil</a>
                             </div>
                         </td>
                     </tr>
-                    <!-- Diğer raporlar -->
+                    <tr>
+                        <td>B2 Proje Değerlendirmeleri</td>
+                        <td>2025-01-28</td>
+                        <td class="text-end">
+                            <div class="btn-group">
+                                <a href="#" class="btn-small" style="background:#27ae60;">İncele</a>
+                                <a href="#" class="btn-small" style="background:#c0392b;">Sil</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Daha fazla örnek -->
                 </tbody>
             </table>
         </div>

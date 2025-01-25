@@ -4,37 +4,27 @@
 }
 
 <style>
-    .students-container {
+    .students-page {
         margin-top: 1rem;
+        margin-bottom: 2rem;
     }
     .students-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1.5rem;
+        flex-wrap: wrap;
     }
     .students-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2b4055;
         margin: 0;
-        color: #2f3b5d;
     }
     .students-sub {
         color: #777;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
-    .gold-btn {
-        background: #c8a800;
-        border: none;
-        color: #fff;
-        padding: 0.6rem 1.2rem;
-        border-radius: 6px;
-        font-weight: 500;
-    }
-    .gold-btn:hover {
-        background: #b08f00;
-    }
-
-    /* İstatistik kutuları */
     .stats-row {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
@@ -43,59 +33,83 @@
     }
     .stats-box {
         background: #fff;
-        border-left: 5px solid #c8a800;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        border-left: 6px solid var(--color-accent);
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
         padding: 1rem;
         text-align: center;
     }
     .stats-box .subheader {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: #999;
-        margin-bottom: 0.2rem;
         text-transform: uppercase;
+        margin-bottom: 0.3rem;
     }
     .stats-box .number {
         font-size: 2rem;
-        color: #c8a800;
+        color: var(--color-accent);
         margin: 0;
+        font-weight: 700;
     }
 
-    /* Filtre / Arama */
+    /* Araç çubuğu */
     .tools-row {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
         margin-bottom: 1rem;
     }
+    .btn-tool {
+        background: var(--color-accent);
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .btn-tool:hover {
+        background: #d68910;
+    }
 
-    /* Tablo */
-    .students-table-wrap {
+    /* Öğrenci Tablosu */
+    .table-wrap {
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
         overflow: hidden;
     }
-    .students-table-wrap .card-header {
+    .table-wrap .card-header {
         background: #ecf0f1;
-        border-radius: 10px 10px 0 0;
+        border-radius: 6px 6px 0 0;
+        padding: 1rem;
     }
-    .students-table-wrap table thead {
-        background: #2f3b5d;
+    .table-wrap table thead {
+        background: #2b4055;
         color: #fff;
     }
-    .students-table-wrap table thead th {
+    .table-wrap table thead th {
         text-transform: uppercase;
         font-size: 0.8rem;
         letter-spacing: 0.5px;
     }
+    .table-wrap table tbody tr:hover {
+        background: #fafafa;
+    }
+    .btn-small {
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 0.8rem;
+        margin-right: 0.2rem;
+    }
 </style>
 
-<div class="students-container container-xl">
+<div class="students-page container-xl">
     <div class="students-header">
         <div>
             <h2 class="students-title">Öğrenciler</h2>
-            <div class="students-sub">Öğrencilerinizi buradan görüntüleyip yönetebilirsiniz.</div>
+            <div class="students-sub">Tüm öğrencileri görüntüleyin ve yönetin.</div>
         </div>
     </div>
 
@@ -103,43 +117,43 @@
     <div class="stats-row">
         <div class="stats-box">
             <div class="subheader">Toplam Öğrenci</div>
-            <div class="number">45</div>
+            <div class="number">64</div>
         </div>
         <div class="stats-box">
             <div class="subheader">Mezun Olanlar</div>
-            <div class="number" style="color:#27ae60;">10</div>
+            <div class="number" style="color:#27ae60;">12</div>
         </div>
     </div>
 
-    <!-- Filtre / Arama Alanı -->
+    <!-- Filtre / Arama Araçları -->
     <div class="tools-row">
         <form style="max-width:300px;">
             <div class="input-icon">
                 <span class="input-icon-addon">
+                    <!-- Search Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg"
                          class="icon icon-tabler icon-tabler-search"
-                         width="24" height="24" viewBox="0 0 24 24"
-                         stroke-width="2" stroke="currentColor"
-                         fill="none" stroke-linecap="round"
-                         stroke-linejoin="round">
-                      <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                      <path d="M10 10a7 7 0 1 0 7 7"/>
-                      <path d="M21 21l-6 -6"/>
+                         width="24" height="24"
+                         viewBox="0 0 24 24" stroke-width="2"
+                         stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="10" cy="10" r="7"/>
+                      <line x1="21" y1="21" x2="15" y2="15"/>
                     </svg>
                 </span>
-                <input type="text" class="form-control" placeholder="Öğrenci ara…" />
+                <input type="text" class="form-control" placeholder="Öğrenci ara…"/>
             </div>
         </form>
         <div style="flex:1; text-align:right;">
-            <button class="gold-btn me-1">Filtre</button>
-            <button class="gold-btn">Sırala</button>
+            <button class="btn-tool">Filtre</button>
+            <button class="btn-tool">Sırala</button>
         </div>
     </div>
 
     <!-- Öğrenci Tablosu -->
-    <div class="students-table-wrap">
+    <div class="table-wrap">
         <div class="card-header">
-            <h3 class="card-title">Tüm Öğrenciler</h3>
+            <h3 class="card-title" style="margin:0;">Tüm Öğrenciler</h3>
         </div>
         <div class="table-responsive">
             <table class="table card-table table-hover mb-0">
@@ -148,7 +162,7 @@
                         <th>Öğrenci Adı</th>
                         <th>E-posta</th>
                         <th>Kayıt Tarihi</th>
-                        <th>Kur</th>
+                        <th>Kurs Düzeyi</th>
                         <th class="w-1 text-end">İşlemler</th>
                     </tr>
                 </thead>
@@ -156,29 +170,17 @@
                     <tr>
                         <td>Ali Yılmaz</td>
                         <td>ali@example.com</td>
-                        <td>2025-01-15</td>
-                        <td>A1</td>
+                        <td>2025-02-05</td>
+                        <td>A2</td>
                         <td class="text-end">
                             <div class="btn-group">
-                                <a href="/Teacher/Students/Details/1"
-                                   class="gold-btn me-1"
-                                   style="background:#2980b9;">
-                                   Detay
-                                </a>
-                                <a href="/Teacher/Students/Edit/1"
-                                   class="gold-btn me-1"
-                                   style="background:#27ae60;">
-                                   Düzenle
-                                </a>
-                                <a href="/Teacher/Students/Delete/1"
-                                   class="gold-btn"
-                                   style="background:#e74c3c;">
-                                   Sil
-                                </a>
+                                <a href="#" class="btn-small" style="background:#2980b9;">Detay</a>
+                                <a href="#" class="btn-small" style="background:#27ae60;">Düzenle</a>
+                                <a href="#" class="btn-small" style="background:#e74c3c;">Sil</a>
                             </div>
                         </td>
                     </tr>
-                    <!-- Diğer öğrenciler... -->
+                    <!-- Daha fazla satır -->
                 </tbody>
             </table>
         </div>

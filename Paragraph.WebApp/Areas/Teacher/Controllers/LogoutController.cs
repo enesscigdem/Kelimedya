@@ -10,5 +10,12 @@ namespace Paragraph.WebApp.Areas.Teacher.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("AuthToken");
+
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
     }
 }

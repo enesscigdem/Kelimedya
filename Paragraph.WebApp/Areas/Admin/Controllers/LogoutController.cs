@@ -10,5 +10,12 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("AuthToken");
+
+            return RedirectToAction("Login", "Auth");
+        }
     }
 }

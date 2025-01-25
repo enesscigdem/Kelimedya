@@ -4,19 +4,20 @@
 }
 
 <style>
-    .logout-container {
-        max-width: 600px;
-        margin: 2rem auto;
+    .logout-wrapper {
+        max-width: 500px;
+        margin: 3rem auto;
         background: #fff;
-        border-left: 5px solid #c8a800;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        border-left: 6px solid var(--color-accent);
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
         padding: 2rem;
         text-align: center;
     }
     .logout-title {
-        font-size: 1.6rem;
-        color: #c0392b;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-accent);
         margin-bottom: 1rem;
     }
     .logout-desc {
@@ -24,38 +25,40 @@
         color: #555;
         margin-bottom: 2rem;
     }
-    .gold-btn {
-        background: #c8a800;
+    .btn-yes {
+        background: var(--color-accent);
         border: none;
         color: #fff;
-        padding: 0.6rem 1.2rem;
+        padding: 0.7rem 1.4rem;
         border-radius: 6px;
         margin-right: 0.5rem;
-        font-weight: 500;
+        font-weight: 600;
+        transition: 0.3s;
     }
-    .gold-btn:hover {
-        background: #b08f00;
+    .btn-yes:hover {
+        background: #d68910;
     }
-    .grey-btn {
+    .btn-no {
         background: #7f8c8d;
         border: none;
         color: #fff;
-        padding: 0.6rem 1.2rem;
+        padding: 0.7rem 1.4rem;
         border-radius: 6px;
         font-weight: 500;
+        transition: 0.3s;
     }
-    .grey-btn:hover {
+    .btn-no:hover {
         background: #707a7b;
     }
 </style>
 
-<div class="logout-container">
+<div class="logout-wrapper">
     <div class="logout-title">Çıkış Yap</div>
     <div class="logout-desc">
         Panelden çıkmak üzeresiniz. Emin misiniz?
     </div>
-    <form method="post" asp-area="Teacher" asp-controller="Logout" asp-action="IndexPost">
-        <button type="submit" class="gold-btn">Çıkış Yap</button>
-        <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index" class="grey-btn">Vazgeç</a>
+    <form method="post" asp-area="Teacher" asp-controller="Logout" asp-action="Logout">
+        <button type="submit" class="btn-yes">Evet, Çıkış</button>
+        <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index" class="btn-no">Vazgeç</a>
     </form>
 </div>

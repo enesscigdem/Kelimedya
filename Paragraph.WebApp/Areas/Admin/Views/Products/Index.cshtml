@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.ProductViewModel>
+
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
     ViewData["Title"] = "Ürün Listesi";
 }
@@ -57,40 +59,7 @@
                     <div class="card-body d-flex align-items-center">
                         <div class="subheader">Toplam Ürün</div>
                         <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-orange">150</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Satılan Ürün Kartı -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Satılan Ürün</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-green">75</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Kategori Sayısı Kartı -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Kategori</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-blue">20</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Yeni Ürün Eklenme Kartı -->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Yeni Eklenen Ürün</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-red">5</span>
+                            <span class="h2 mb-0 text-orange">@Model.Count()</span>
                         </div>
                     </div>
                 </div>
@@ -113,9 +82,9 @@
                                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
                                  stroke="currentColor" fill="none" stroke-linecap="round" 
                                  stroke-linejoin="round">
-                              <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                              <path d="M10 10a7 7 0 1 0 7 7" />
-                              <path d="M21 21l-6 -6" />
+                                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                                <path d="M10 10a7 7 0 1 0 7 7" />
+                                <path d="M21 21l-6 -6" />
                             </svg>
                         </span>
                         <input type="text" name="search" class="form-control" placeholder="Ürün adı ara…"/>
@@ -131,10 +100,10 @@
                              height="24" viewBox="0 0 24 24" stroke-width="2" 
                              stroke="currentColor" fill="none" stroke-linecap="round" 
                              stroke-linejoin="round">
-                          <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                          <path d="M5.5 5h13" />
-                          <path d="M7 10h9" />
-                          <path d="M8.5 15h5" />
+                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                            <path d="M5.5 5h13" />
+                            <path d="M7 10h9" />
+                            <path d="M8.5 15h5" />
                         </svg>
                         Filtre
                     </button>
@@ -144,9 +113,9 @@
                              width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
                              stroke="currentColor" fill="none" stroke-linecap="round" 
                              stroke-linejoin="round">
-                          <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                          <path d="M3 9l4 -4l4 4m-4 -4v14" />
-                          <path d="M21 15l-4 4l-4 -4m4 4v-14" />
+                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                            <path d="M3 9l4 -4l4 4m-4 -4v14" />
+                            <path d="M21 15l-4 4l-4 -4m4 4v-14" />
                         </svg>
                         Sırala
                     </button>
@@ -162,59 +131,51 @@
             <div class="table-responsive">
                 <table class="table card-table table-hover">
                     <thead class="table-dark">
-                        <tr>
-                            <th>Ürün Adı</th>
-                            <th>Kategori</th>
-                            <th>Fiyat</th>
-                            <th>Stok</th>
-                            <th class="w-1 text-end">İşlemler</th>
-                        </tr>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Fiyat</th>
+                        <th class="w-1 text-end">İşlemler</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @for(int i = 1; i <= 5; i++)
-                        {
-                            <tr>
-                                <td>Ürün @i</td>
-                                <td>Kategori @i</td>
-                                <td>@($"{i * 100} TL")</td>
-                                <td>@(i * 10)</td>
-                                <td class="text-end">
-                                    <div class="btn-group" role="group">
-                                        <a asp-area="Admin" asp-controller="Products" asp-action="Edit" 
-                                           asp-route-id="@i" class="btn btn-success me-1 d-flex align-items-center" title="Düzenle">
-                                            <!-- Düzenle Icon -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" 
-                                                 class="icon me-1" width="20" height="20" 
-                                                 viewBox="0 0 24 24" stroke-width="2" 
-                                                 stroke="currentColor" fill="none" stroke-linecap="round" 
-                                                 stroke-linejoin="round">
-                                               <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                               <path d="M8 18h4" />
-                                               <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z" />
-                                            </svg>
-                                            Düzenle
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="Products" asp-action="Delete" 
-                                           asp-route-id="@i" class="btn btn-danger d-flex align-items-center" title="Sil">
-                                            <!-- Sil Icon -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" 
-                                                 class="icon me-1" width="20" height="20" 
-                                                 viewBox="0 0 24 24" stroke-width="2" 
-                                                 stroke="currentColor" fill="none" stroke-linecap="round" 
-                                                 stroke-linejoin="round">
-                                               <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                               <path d="M4 7h16" />
-                                               <path d="M10 11v6" />
-                                               <path d="M14 11v6" />
-                                               <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                               <path d="M9 7v-2a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2" />
-                                            </svg>
-                                            Sil
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
+                    @foreach(var product in Model)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@($"{product.Price} TL")</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group">
+                                    <a asp-area="Admin" asp-controller="Products" asp-action="Edit" 
+                                       asp-route-id="@product.Id" class="btn btn-success me-1 d-flex align-items-center" title="Düzenle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" 
+                                             class="icon me-1" width="20" height="20"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M8 18h4" />
+                                            <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z" />
+                                        </svg>
+                                        Düzenle
+                                    </a>
+                                    <a asp-area="Admin" asp-controller="Products" asp-action="Delete" 
+                                       asp-route-id="@product.Id" class="btn btn-danger d-flex align-items-center delete-btn" title="Sil">
+                                        <svg xmlns="http://www.w3.org/2000/svg" 
+                                             class="icon me-1" width="20" height="20"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M4 7h16" />
+                                            <path d="M10 11v6" />
+                                            <path d="M14 11v6" />
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                            <path d="M9 7v-2a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2" />
+                                        </svg>
+                                        Sil
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>

@@ -16,3 +16,9 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/refint/Paragraph.Services.dll
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/Paragraph.Services.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/Debug/net8.0/ref/Paragraph.Services.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Microsoft.Extensions.Http.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll

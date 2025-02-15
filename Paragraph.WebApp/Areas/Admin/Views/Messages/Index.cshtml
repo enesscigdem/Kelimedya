@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.MessageViewModel>
+
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Mesajlar";
 }
@@ -8,9 +10,7 @@
   <div class="container-xl">
     <div class="row g-2 align-items-center">
       <div class="col">
-        <h2 class="page-title">
-          Mesajlar
-        </h2>
+        <h2 class="page-title">Mesajlar</h2>
         <div class="text-muted mt-1">
           Gelen kutunuzdaki mesajları görüntüleyip, detaylarını okuyabilirsiniz.
         </div>
@@ -30,15 +30,10 @@
         <form method="get" class="mb-2">
           <div class="input-icon">
             <span class="input-icon-addon">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                   class="icon icon-tabler icon-tabler-search" 
-                   width="24" height="24" viewBox="0 0 24 24" 
-                   stroke-width="2" stroke="currentColor" 
-                   fill="none" stroke-linecap="round" 
-                   stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                <path d="M10 10a7 7 0 1 0 7 7" />
-                <path d="M21 21l-6 -6" />
+                <path d="M10 10a7 7 0 1 0 7 7"/>
+                <path d="M21 21l-6 -6"/>
               </svg>
             </span>
             <input type="text" name="search" class="form-control" placeholder="Mesaj ara…" />
@@ -48,29 +43,19 @@
       <div class="col-12 col-lg-8 text-end">
         <div class="btn-group">
           <button class="btn btn-white">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                 class="icon icon-tabler icon-tabler-filter me-1" 
-                 width="24" height="24" viewBox="0 0 24 24" 
-                 stroke-width="2" stroke="currentColor" 
-                 fill="none" stroke-linecap="round" 
-                 stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-              <path d="M5.5 5h13" />
-              <path d="M7 10h9" />
-              <path d="M8.5 15h5" />
+              <path d="M5.5 5h13"/>
+              <path d="M7 10h9"/>
+              <path d="M8.5 15h5"/>
             </svg>
             Filtre
           </button>
           <button class="btn btn-white">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                 class="icon icon-tabler icon-tabler-arrows-sort me-1" 
-                 width="24" height="24" viewBox="0 0 24 24" 
-                 stroke-width="2" stroke="currentColor" 
-                 fill="none" stroke-linecap="round" 
-                 stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-sort me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-              <path d="M3 9l4 -4l4 4m-4 -4v14" />
-              <path d="M21 15l-4 4l-4 -4m4 4v-14" />
+              <path d="M3 9l4 -4l4 4m-4 -4v14"/>
+              <path d="M21 15l-4 4l-4 -4m4 4v-14"/>
             </svg>
             Sırala
           </button>
@@ -98,15 +83,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>info@example.com</td>
-              <td>Yeni Üyelik Talebi</td>
-              <td>2025-01-01</td>
-              <td class="text-end">
-                <a class="btn btn-sm btn-info" href="#">Oku</a>
-              </td>
-            </tr>
-            <!-- Diğer mesaj satırları dinamik olarak eklenecek -->
+            @foreach(var message in Model)
+            {
+                <tr>
+                    <td>@message.FromEmail</td>
+                    <td>@message.Subject</td>
+                    <td>@message.CreatedAt.ToString("yyyy-MM-dd")</td>
+                    <td class="text-end">
+                        <a class="btn btn-primary me-1 d-flex align-items-center" asp-action="Details" asp-route-id="@message.Id">Oku</a>
+                    </td>
+                </tr>
+            }
           </tbody>
         </table>
       </div>

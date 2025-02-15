@@ -7,6 +7,7 @@ using Paragraph.Persistence;
 using Paragraph.Services.Implementations;
 using Paragraph.Services.Interfaces;
 using System.Text;
+using Paragraph.Core.Entities;
 using Paragraph.Core.Interfaces.Business;
 using Paragraph.HangfireServer.Services;
 

@@ -1,5 +1,7 @@
-﻿@{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+﻿@model Paragraph.WebApp.Areas.Admin.Models.ProductViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Ürün Düzenle";
 }
 
@@ -14,33 +16,33 @@
 
 <div class="page-body pt-2">
     <div class="container-xl">
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+        {
+            <div class="alert alert-danger" role="alert">
+                @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+            </div>
+        }
         <div class="card">
             <div class="card-body">
                 <form method="post" asp-action="Edit">
-                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <input type="hidden" asp-for="Id"/>
                     <!-- Ürün Adı -->
                     <div class="mb-3">
                         <label class="form-label">Ürün Adı</label>
-                        <input type="text" class="form-control" name="Name" value="@Model.Name"/>
-                    </div>
-                    <!-- Kategori -->
-                    <div class="mb-3">
-                        <label class="form-label">Kategori</label>
-                        <select class="form-select" name="CategoryId">
-                            <option value="">Seçiniz</option>
-                            <option value="1" selected="@((Model.CategoryId == 1) ? "selected" : "")">Kategori 1</option>
-                            <option value="2" selected="@((Model.CategoryId == 2) ? "selected" : "")">Kategori 2</option>
-                        </select>
+                        <input type="text" class="form-control" asp-for="Name"/>
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <!-- Fiyat -->
                     <div class="mb-3">
                         <label class="form-label">Fiyat</label>
-                        <input type="number" step="0.01" class="form-control" name="Price" value="@Model.Price" />
+                        <input type="number" step="0.01" class="form-control" asp-for="Price"/>
+                        <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <!-- Açıklama (TinyMCE) -->
                     <div class="mb-3">
                         <label class="form-label">Açıklama</label>
-                        <textarea id="tinymceEditDescription" class="form-control" name="Description" rows="5">@Model.Description</textarea>
+                        <textarea id="tinymceEditDescription" class="form-control" asp-for="Description" rows="5"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
@@ -67,9 +69,9 @@
               'insertdatetime media table paste code help wordcount'
             ],
             toolbar: 'undo redo | formatselect | ' +
-                'bold italic backcolor | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help',
+                     'bold italic backcolor | alignleft aligncenter ' +
+                     'alignright alignjustify | bullist numlist outdent indent | ' +
+                     'removeformat | help',
             content_style: 'body { font-family:Inter, sans-serif; font-size:14px }'
         });
     });

@@ -7,6 +7,8 @@ using Paragraph.Core.Interfaces.Business;
 using Paragraph.HangfireServer.Services;
 using Paragraph.Persistence;
 using System.Text;
+using Paragraph.Services.Implementations;
+using Paragraph.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,6 +62,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+builder.Services.AddScoped<IWidgetService, WidgetService>();
 
 var app = builder.Build();
 

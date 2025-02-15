@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Paragraph.Core.BaseModels;
 
 namespace Paragraph.Core.IdentityEntities
 {
-    public class CustomUser : IdentityUser<int>
+    public class CustomUser : IdentityUser<int>, IIsDeletedEntity
     {
         public string? Name { get; set; }
         public string? Surname { get; set; }
@@ -15,5 +16,6 @@ namespace Paragraph.Core.IdentityEntities
         
         public bool? AdminApproved { get; set; }
         public bool IsActive { get; set; } = true;
+        public bool IsDeleted { get; set; }
     }
 }

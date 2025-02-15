@@ -1,30 +1,38 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Paragraph.Services.Interfaces
+@inject IWidgetService WidgetService
+@{
     Layout = "_Layout";
 }
 <main>
-    <section class="td_hero td_style_5 td_center td_hobble"
-             style="background: linear-gradient(45deg, #89c2d9, #cbeef3)">
+    <section class="td_hero td_style_5 td_center td_hobble" style="background: linear-gradient(45deg, #89c2d9, #cbeef3)">
         <div class="container">
-            <div class="td_hero_text wow fadeInRight animated" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s;">
-                <p class="td_hero_subtitle_up td_fs_18 text-uppercase td_spacing_1 td_medium td_mb_20">Kelime Hazinesi Projesi</p>
-                <h1 class="td_hero_title td_fs_52 td_mb_30">Türkçe Kelime Hazinenizi Geliştirmeye Hazır Olun!</h1>
-                <p class="td_hero_subtitle td_fs_18 td_heading_color td_opacity_8 td_mb_40">Görsel öğrenme ve oyun temelli eğitimle Türkçe kelime dağarcığınızı zenginleştirin. Okuduğunu anlama becerilerinizi artırın ve eğlenerek öğrenin.</p>
+            <div class="td_hero_text wow fadeInRight animated" data-wow-duration="1s" data-wow-delay="0.4s">
+                <p class="td_hero_subtitle_up td_fs_18 text-uppercase td_spacing_1 td_medium td_mb_20">
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Hero_Subtitle"))
+                </p>
+                <h1 class="td_hero_title td_fs_52 td_mb_30">
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Slider_Title"))
+                </h1>
+                <p class="td_hero_subtitle td_fs_18 td_heading_color td_opacity_8 td_mb_40">
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Slider_Text"))
+                </p>
                 <div class="td_newsletter td_style_1">
                     <form action="#" class="td_newsletter_form">
-                        <input type="email" class="td_newsletter_input" placeholder="E-posta adresinizi girin">
+                        <input type="email" class="td_newsletter_input" placeholder="@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Newsletter_Placeholder"))">
                         <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium td_fs_18">
                             <span class="td_btn_in td_white_color td_accent_bg">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_34_3978)">
-                                    <path d="M19.8102 18.9119L14.6466 13.8308C15.9988 12.3616 16.8296 10.4187 16.8296 8.28068C16.8289 3.7071 13.0618 0 8.41447 0C3.76713 0 0 3.7071 0 8.28068C0 12.8543 3.76713 16.5614 8.41447 16.5614C10.4224 16.5614 12.2641 15.8668 13.7107 14.7122L18.8944 19.8134C19.147 20.0622 19.5571 20.0622 19.8096 19.8134C20.0628 19.5646 20.0628 19.1607 19.8102 18.9119ZM8.41447 15.2873C4.48231 15.2873 1.29468 12.1504 1.29468 8.28068C1.29468 4.41101 4.48231 1.27403 8.41447 1.27403C12.3467 1.27403 15.5343 4.41101 15.5343 8.28068C15.5343 12.1504 12.3467 15.2873 8.41447 15.2873Z" fill="currentColor"></path>
+                                        <path d="M19.8102 18.9119L14.6466 13.8308C15.9988 12.3616 16.8296 10.4187 16.8296 8.28068C16.8289 3.7071 13.0618 0 8.41447 0C3.76713 0 0 3.7071 0 8.28068C0 12.8543 3.76713 16.5614 8.41447 16.5614C10.4224 16.5614 12.2641 15.8668 13.7107 14.7122L18.8944 19.8134C19.147 20.0622 19.5571 20.0622 19.8096 19.8134C20.0628 19.5646 20.0628 19.1607 19.8102 18.9119ZM8.41447 15.2873C4.48231 15.2873 1.29468 12.1504 1.29468 8.28068C1.29468 4.41101 4.48231 1.27403 8.41447 1.27403C12.3467 1.27403 15.5343 4.41101 15.5343 8.28068C15.5343 12.1504 12.3467 15.2873 8.41447 15.2873Z" fill="currentColor"></path>
                                     </g>
                                     <defs>
-                                    <clipPath id="clip0_34_3978">
-                                    <rect width="20" height="20" fill="currentColor"></rect>
-                                    </clipPath>
+                                        <clipPath id="clip0_34_3978">
+                                            <rect width="20" height="20" fill="currentColor"></rect>
+                                        </clipPath>
                                     </defs>
                                 </svg>                    
-                                <span>Hemen Başla</span>
+                                <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Newsletter_Button"))</span>
                             </span>             
                         </button>
                     </form>
@@ -61,28 +69,30 @@
                     </div>
                 </div>
                 <div>
-                    <p class="mb-0 td_fs_14 td_semibold td_heading_color">Öğrenci Sayısı</p>
-                    <p class="mb-0 td_fs_12 td_opacity_6">Toplam bu güne kadar kayıt olmuş öğrenci</p>
+                    <p class="mb-0 td_fs_14 td_semibold td_heading_color">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_StudentCount_Title"))
+                    </p>
+                    <p class="mb-0 td_fs_12 td_opacity_6">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_StudentCount_Description"))
+                    </p>
                 </div>
             </div>
             <div class="td_hero_funfact td_hover_layer_5">
                 <img src="~/theme/web_UI/assets/img/icons/user_2.svg" alt="">
                 <div>
-                    <p class="td_fs_40 td_bold td_heading_color">8750</p>
-                    <p class="td_mb_5 td_heading_color td_opacity_5 td_fs_12">Aktif Öğrenci</p>
+                    <p class="td_fs_40 td_bold td_heading_color">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_ActiveStudents_Number"))
+                    </p>
+                    <p class="td_mb_5 td_heading_color td_opacity_5 td_fs_12">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_ActiveStudents_Text"))
+                    </p>
                 </div>
             </div>
             <div class="td_hero_shape_1 td_accent_color position-absolute">
                 <svg width="602" height="602" viewBox="0 0 602 602" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M161.753 36.4035C207.321 12.4228 258.31 0.61671 309.781 2.12897C361.252 3.64123 411.46 18.4206 455.542 45.0353C499.623 71.6501 536.084 109.198 561.393 154.042C586.702 198.887 600 249.507 600 301"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
-                    <path
-                        d="M67.4657 487.715C42.427 456.397 23.9433 420.362 13.1142 381.755C2.2851 343.148 -0.66817 302.758 4.43008 262.986C9.52834 223.215 22.574 184.875 42.7908 150.248C63.0077 115.62 89.9828 85.4132 122.111 61.4231"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
-                    <path
-                        d="M599.556 317.316C596.535 372.583 578.232 425.927 546.686 471.407C515.14 516.888 471.588 552.719 420.882 574.911C370.175 597.102 314.304 604.784 259.49 597.099C204.676 589.415 153.071 566.666 110.422 531.386"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
+                    <path d="M161.753 36.4035C207.321 12.4228 258.31 0.61671 309.781 2.12897C361.252 3.64123 411.46 18.4206 455.542 45.0353C499.623 71.6501 536.084 109.198 561.393 154.042C586.702 198.887 600 249.507 600 301" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
+                    <path d="M67.4657 487.715C42.427 456.397 23.9433 420.362 13.1142 381.755C2.2851 343.148 -0.66817 302.758 4.43008 262.986C9.52834 223.215 22.574 184.875 42.7908 150.248C63.0077 115.62 89.9828 85.4132 122.111 61.4231" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
+                    <path d="M599.556 317.316C596.535 372.583 578.232 425.927 546.686 471.407C515.14 516.888 471.588 552.719 420.882 574.911C370.175 597.102 314.304 604.784 259.49 597.099C204.676 589.415 153.071 566.666 110.422 531.386" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="20 20"/>
                 </svg>
             </div>
         </div>
@@ -120,42 +130,43 @@
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                 <div class="td_section_heading td_style_1 td_mb_30">
-                    <p
-                        class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-                        Hakkımızda
+                    <p class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Subtitle"))
                     </p>
-                    <h2 class="td_section_title td_fs_48 td_mb_20">Kelime Hazinesi Projesi</h2>
+                    <h2 class="td_section_title td_fs_48 td_mb_20">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Title"))
+                    </h2>
                     <p class="td_section_subtitle td_fs_18 mb-0">
-                        Kelime Hazinesi Projesi, Türkçede sık kullanılan kelimelerin anlamlarını öğretmeyi ve tekrar ettirmeyi amaçlayan, görsel öğrenme ve oyun temelli bir eğitim programıdır. Öğrencilerin kelime dağarcıklarını zenginleştirerek okuduğunu anlama oranlarını artırmayı hedefliyoruz.
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Description"))
                     </p>
                 </div>
                 <div class="td_tabs td_style_1">
                     <ul class="td_tab_links td_style_3 td_mp_0 td_medium td_fs_24 td_heading_color">
                         <li class="active">
-                            <a href="#td_tab_1">Hakkımızda</a>
+                            <a href="#td_tab_1">@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Tab1_Title"))</a>
                         </li>
                         <li>
-                            <a href="#td_tab_2">Misyonumuz</a>
+                            <a href="#td_tab_2">@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Tab2_Title"))</a>
                         </li>
                         <li>
-                            <a href="#td_tab_3">Vizyonumuz</a>
+                            <a href="#td_tab_3">@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Tab3_Title"))</a>
                         </li>
                     </ul>
                     <div class="td_height_40 td_height_lg_30"></div>
                     <div class="td_tab_body">
                         <div class="td_tab active" id="td_tab_1">
                             <p>
-                                Kelime Hazinesi Projesi, ortaokul öğrencilerine yönelik olarak tasarlanmış bir eğitim programıdır. Görsel öğrenme ve oyun temelli metodlarla öğrencilerin kelime dağarcıklarını geliştirmeyi amaçlar.
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Tab1_Text"))
                             </p>
                         </div>
                         <div class="td_tab" id="td_tab_2">
                             <p class="td_fs_18 mb-0">
-                                Misyonumuz, öğrencilerin Türkçe kelime dağarcıklarını zenginleştirerek okuduğunu anlama becerilerini artırmak ve eğlenerek öğrenmelerini sağlamaktır.
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Tab2_Text"))
                             </p>
                         </div>
                         <div class="td_tab" id="td_tab_3">
                             <p class="td_fs_18 mb-0">
-                                Vizyonumuz, Türkiye genelinde tüm öğrencilerin kelime hazinesini geliştirerek daha iyi bir eğitim almalarını sağlamak ve bu alanda öncü bir proje olmaktır.
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Tab3_Text"))
                             </p>
                         </div>
                     </div>
@@ -163,17 +174,10 @@
                 <div class="td_height_40 td_height_lg_40"></div>
                 <a href="courses-grid-view.html" class="td_btn td_style_1 td_radius_10 td_medium">
                     <span class="td_btn_in td_white_color td_accent_bg">
-                        <span>Detaylar</span>
-                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5"
-                                  stroke-linecap="round" stroke-linejoin="round">
-                            </path>
-                            <path
-                                d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                            </path>
+                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_Details_Button"))</span>
+                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </span>
                 </a>
@@ -202,81 +206,79 @@
                 <div class="col-xl-6 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
                     <div class="td_section_heading td_style_1">
                         <p class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-                            Sıkça Sorulan Sorular
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Subtitle"))
                         </p>
-                        <h2 class="td_height_50 td_height_lg_50">Kelime Hazinesi Projesi Hakkında Merak Ettikleriniz</h2>
+                        <h2 class="td_height_50 td_height_lg_50">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Title"))
+                        </h2>
                     </div>
                     <div class="td_height_50 td_height_lg_50"></div>
                     <div class="td_accordions td_style_1 td_color_1 td_type_1">
                         <div class="td_accordion active">
                             <div class="td_accordion_head">
-                                <h2 class="td_accordion_title td_fs_20 td_medium">Projeye kimler katılabilir?</h2>
+                                <h2 class="td_accordion_title td_fs_20 td_medium">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion1_Title"))
+                                </h2>
                                 <span class="td_accordion_toggle">
-                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z"
-                                            fill="white"/>
+                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z" fill="white"/>
                                     </svg>
                                 </span>
                             </div>
                             <div class="td_accordion_body">
                                 <p>
-                                    Kelime Hazinesi Projesi, özellikle ortaokul öğrencilerine yönelik olarak tasarlanmıştır. Ancak Türkçe kelime dağarcığını geliştirmek isteyen herkes bu projeden faydalanabilir.
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion1_Body"))
                                 </p>
                             </div>
                         </div>
                         <div class="td_accordion">
                             <div class="td_accordion_head">
-                                <h2 class="td_accordion_title td_fs_20 td_medium">Proje ücretli mi?</h2>
+                                <h2 class="td_accordion_title td_fs_20 td_medium">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion2_Title"))
+                                </h2>
                                 <span class="td_accordion_toggle">
-                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z"
-                                            fill="white"/>
+                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z" fill="white"/>
                                     </svg>
                                 </span>
                             </div>
                             <div class="td_accordion_body">
                                 <p>
-                                    Projenin temel içeriği ücretsizdir. Ancak daha kapsamlı eğitimler ve özel içerikler için ücretli paketler de sunulmaktadır.
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion2_Body"))
                                 </p>
                             </div>
                         </div>
                         <div class="td_accordion">
                             <div class="td_accordion_head">
-                                <h2 class="td_accordion_title td_fs_20 td_medium">Nasıl kayıt olabilirim?</h2>
+                                <h2 class="td_accordion_title td_fs_20 td_medium">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion3_Title"))
+                                </h2>
                                 <span class="td_accordion_toggle">
-                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z"
-                                            fill="white"/>
+                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z" fill="white"/>
                                     </svg>
                                 </span>
                             </div>
                             <div class="td_accordion_body">
                                 <p>
-                                    Web sitemiz üzerinden kolayca kayıt olabilirsiniz. Kayıt işlemi tamamlandıktan sonra hemen eğitimlere başlayabilirsiniz.
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion3_Body"))
                                 </p>
                             </div>
                         </div>
                         <div class="td_accordion">
                             <div class="td_accordion_head">
-                                <h2 class="td_accordion_title td_fs_20 td_medium">Eğitimler nasıl ilerliyor?</h2>
+                                <h2 class="td_accordion_title td_fs_20 td_medium">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion4_Title"))
+                                </h2>
                                 <span class="td_accordion_toggle">
-                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z"
-                                            fill="white"/>
+                                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.355 9L7 3.43725L1.645 9L0 7.28745L7 -9.53674e-07L14 7.28745L12.355 9Z" fill="white"/>
                                     </svg>
                                 </span>
                             </div>
                             <div class="td_accordion_body">
                                 <p>
-                                    Eğitimler, her biri 10 kelime içeren dersler şeklinde ilerler. Her dersin sonunda oyunlar ve testlerle öğrendiklerinizi pekiştirebilirsiniz.
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Accordion4_Body"))
                                 </p>
                             </div>
                         </div>
@@ -288,9 +290,15 @@
                         <div class="td_image_box_contact td_accent_bg text-center">
                             <i class="fa-solid fa-phone td_center td_heading_color"></i>
                             <div class="td_image_box_contact_in">
-                                <h4 class="td_fs_20 td_mb_10 td_white_color">Hala soruların mı var?</h4>
-                                <p class="td_fs_14 td_opacity_7 td_white_color td_mb_2">Bizi ara!</p>
-                                <h4 class="td_fs_20 td_mb_10 td_white_color mb-0">(000 0000 00 00)</h4>
+                                <h4 class="td_fs_20 td_mb_10 td_white_color">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Contact_Title"))
+                                </h4>
+                                <p class="td_fs_14 td_opacity_7 td_white_color td_mb_2">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Contact_Subtitle"))
+                                </p>
+                                <h4 class="td_fs_20 td_mb_10 td_white_color mb-0">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_FAQ_Contact_Phone"))
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -309,60 +317,44 @@
                 <div class="col-lg-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.35s">
                     <div class="td_section_heading td_style_1">
                         <p class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-                            Yorumlar
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial_Subtitle"))
                         </p>
-                        <h2 class="td_section_title td_fs_48 td_mb_20">Öğrencilerimizin Deneyimleri</h2>
+                        <h2 class="td_section_title td_fs_48 td_mb_20">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial_Title"))
+                        </h2>
                         <p class="td_section_subtitle td_fs_18 mb-0">
-                            Kelime Hazinesi Projesi'ni kullanan öğrencilerimizin ve velilerin geri bildirimlerini burada bulabilirsiniz.
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial_Description"))
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-7 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
                     <div class="td_full_width">
                         <div class="td_slider td_style_1 td_slider_gap_24 td_remove_overflow">
-                            <div class="td_slider_container" data-autoplay="0" data-loop="1" data-speed="800"
-                                 data-center="0" data-variable-width="1" data-slides-per-view="responsive"
-                                 data-xs-slides="2" data-sm-slides="2" data-md-slides="2" data-lg-slides="2"
-                                 data-add-slides="3">
+                            <div class="td_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0" data-variable-width="1" data-slides-per-view="responsive" data-xs-slides="2" data-sm-slides="2" data-md-slides="2" data-lg-slides="2" data-add-slides="3">
                                 <div class="td_slider_wrapper">
                                     <div class="td_slide">
                                         <div class="td_testimonial td_style_1 td_type_2 td_white_bg td_radius_5">
                                             <div class="td_rating td_mb_20" data-rating="5">
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <div class="td_rating_percentage">
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                </div>
+                                                <!-- Rating icons -->
                                             </div>
-                                            <blockquote
-                                                class="td_testimonial_text td_fs_20 td_medium td_heading_color td_mb_30 td_opacity_9">
-                                                Kelime Hazinesi Projesi sayesinde oğlumun okuduğunu anlama becerisi ciddi anlamda gelişti. Oyunlarla öğrenme metodu çok etkili!
+                                            <blockquote class="td_testimonial_text td_fs_20 td_medium td_heading_color td_mb_30 td_opacity_9">
+                                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial1_Text"))
                                             </blockquote>
                                             <div class="td_testimonial_meta td_mb_24">
                                                 <img src="~/theme/web_UI/assets/img/avatar_1.png" alt="">
                                                 <div class="td_testimonial_meta_right">
-                                                    <h3 class="td_fs_20 td_semibold td_mb_2">Ayşe Yılmaz</h3>
+                                                    <h3 class="td_fs_20 td_semibold td_mb_2">
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial1_Name"))
+                                                    </h3>
                                                     <p class="td_fs_14 mb-0 td_heading_color td_opacity_7">
-                                                        Velilerimizden
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial1_Role"))
                                                     </p>
                                                 </div>
                                             </div>
                                             <span class="td_quote_icon td_accent_color">
-                                                <svg width="66" height="49" viewBox="0 0 66 49" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.7"
-                                                          d="M59.3083 24.7533L59.5477 23.7101L58.594 24.196C56.8371 25.0911 54.9022 25.6333 52.8104 25.6333C45.7993 25.6333 40.1208 20.0011 40.1208 13.0667C40.1208 6.13225 45.7993 0.5 52.8104 0.5C59.8215 0.5 65.5 6.13225 65.5 13.0667V19.5743C65.5 35.5242 52.4088 48.5 36.2974 48.5C34.7517 48.5 33.5 47.2533 33.5 45.7333C33.5 44.2134 34.7517 42.9667 36.2974 42.9667C47.5163 42.9667 56.9202 35.1632 59.3083 24.7533Z"
-                                                          stroke="currentColor"/>
-                                                    <path opacity="0.7"
-                                                          d="M26.3083 24.7533L26.5477 23.7101L25.594 24.196C23.8371 25.0911 21.9022 25.6333 19.8104 25.6333C12.7993 25.6333 7.12077 20.0011 7.12077 13.0667C7.12077 6.13226 12.7993 0.5 19.8104 0.5C26.8215 0.5 32.5 6.13226 32.5 13.0667V19.5743C32.5 35.5242 19.4088 48.5 3.2974 48.5C1.75166 48.5 0.5 47.2533 0.5 45.7333C0.5 44.2134 1.75166 42.9667 3.2974 42.9667C14.5163 42.9667 23.9202 35.1632 26.3083 24.7533Z"
-                                                          stroke="currentColor"/>
+                                                <svg width="66" height="49" viewBox="0 0 66 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.7" d="M59.3083 24.7533L59.5477 23.7101L58.594 24.196C56.8371 25.0911 54.9022 25.6333 52.8104 25.6333C45.7993 25.6333 40.1208 20.0011 40.1208 13.0667C40.1208 6.13225 45.7993 0.5 52.8104 0.5C59.8215 0.5 65.5 6.13225 65.5 13.0667V19.5743C65.5 35.5242 52.4088 48.5 36.2974 48.5C34.7517 48.5 33.5 47.2533 33.5 45.7333C33.5 44.2134 34.7517 42.9667 36.2974 42.9667C47.5163 42.9667 56.9202 35.1632 59.3083 24.7533Z" stroke="currentColor"/>
+                                                    <path opacity="0.7" d="M26.3083 24.7533L26.5477 23.7101L25.594 24.196C23.8371 25.0911 21.9022 25.6333 19.8104 25.6333C12.7993 25.6333 7.12077 20.0011 7.12077 13.0667C7.12077 6.13226 12.7993 0.5 19.8104 0.5C26.8215 0.5 32.5 6.13226 32.5 13.0667V19.5743C32.5 35.5242 19.4088 48.5 3.2974 48.5C1.75166 48.5 0.5 47.2533 0.5 45.7333C0.5 44.2134 1.75166 42.9667 3.2974 42.9667C14.5163 42.9667 23.9202 35.1632 26.3083 24.7533Z" stroke="currentColor"/>
                                                 </svg>
                                             </span>
                                         </div>
@@ -370,41 +362,26 @@
                                     <div class="td_slide">
                                         <div class="td_testimonial td_style_1 td_type_2 td_white_bg td_radius_5">
                                             <div class="td_rating td_mb_20" data-rating="5">
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <div class="td_rating_percentage">
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                </div>
+                                                <!-- Rating icons -->
                                             </div>
-                                            <blockquote
-                                                class="td_testimonial_text td_fs_20 td_medium td_heading_color td_mb_30 td_opacity_9">
-                                                Öğrencilerim için harika bir kaynak! Kelime öğrenme sürecini eğlenceli ve etkili hale getiriyor. Kesinlikle tavsiye ederim.
+                                            <blockquote class="td_testimonial_text td_fs_20 td_medium td_heading_color td_mb_30 td_opacity_9">
+                                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial2_Text"))
                                             </blockquote>
                                             <div class="td_testimonial_meta td_mb_24">
                                                 <img src="~/theme/web_UI/assets/img/avatar_2.png" alt="">
                                                 <div class="td_testimonial_meta_right">
-                                                    <h3 class="td_fs_20 td_semibold td_mb_2">Mehmet Öztürk</h3>
+                                                    <h3 class="td_fs_20 td_semibold td_mb_2">
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial2_Name"))
+                                                    </h3>
                                                     <p class="td_fs_14 mb-0 td_heading_color td_opacity_7">
-                                                        Öğretmenlerimizden
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial2_Role"))
                                                     </p>
                                                 </div>
                                             </div>
                                             <span class="td_quote_icon td_accent_color">
-                                                <svg width="66" height="49" viewBox="0 0 66 49" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.7"
-                                                          d="M59.3083 24.7533L59.5477 23.7101L58.594 24.196C56.8371 25.0911 54.9022 25.6333 52.8104 25.6333C45.7993 25.6333 40.1208 20.0011 40.1208 13.0667C40.1208 6.13225 45.7993 0.5 52.8104 0.5C59.8215 0.5 65.5 6.13225 65.5 13.0667V19.5743C65.5 35.5242 52.4088 48.5 36.2974 48.5C34.7517 48.5 33.5 47.2533 33.5 45.7333C33.5 44.2134 34.7517 42.9667 36.2974 42.9667C47.5163 42.9667 56.9202 35.1632 59.3083 24.7533Z"
-                                                          stroke="currentColor"/>
-                                                    <path opacity="0.7"
-                                                          d="M26.3083 24.7533L26.5477 23.7101L25.594 24.196C23.8371 25.0911 21.9022 25.6333 19.8104 25.6333C12.7993 25.6333 7.12077 20.0011 7.12077 13.0667C7.12077 6.13226 12.7993 0.5 19.8104 0.5C26.8215 0.5 32.5 6.13226 32.5 13.0667V19.5743C32.5 35.5242 19.4088 48.5 3.2974 48.5C1.75166 48.5 0.5 47.2533 0.5 45.7333C0.5 44.2134 1.75166 42.9667 3.2974 42.9667C14.5163 42.9667 23.9202 35.1632 26.3083 24.7533Z"
-                                                          stroke="currentColor"/>
+                                                <svg width="66" height="49" viewBox="0 0 66 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.7" d="M59.3083 24.7533L59.5477 23.7101L58.594 24.196C56.8371 25.0911 54.9022 25.6333 52.8104 25.6333C45.7993 25.6333 40.1208 20.0011 40.1208 13.0667C40.1208 6.13225 45.7993 0.5 52.8104 0.5C59.8215 0.5 65.5 6.13225 65.5 13.0667V19.5743C65.5 35.5242 52.4088 48.5 36.2974 48.5C34.7517 48.5 33.5 47.2533 33.5 45.7333C33.5 44.2134 34.7517 42.9667 36.2974 42.9667C47.5163 42.9667 56.9202 35.1632 59.3083 24.7533Z" stroke="currentColor"/>
+                                                    <path opacity="0.7" d="M26.3083 24.7533L26.5477 23.7101L25.594 24.196C23.8371 25.0911 21.9022 25.6333 19.8104 25.6333C12.7993 25.6333 7.12077 20.0011 7.12077 13.0667C7.12077 6.13226 12.7993 0.5 19.8104 0.5C26.8215 0.5 32.5 6.13226 32.5 13.0667V19.5743C32.5 35.5242 19.4088 48.5 3.2974 48.5C1.75166 48.5 0.5 47.2533 0.5 45.7333C0.5 44.2134 1.75166 42.9667 3.2974 42.9667C14.5163 42.9667 23.9202 35.1632 26.3083 24.7533Z" stroke="currentColor"/>
                                                 </svg>
                                             </span>
                                         </div>
@@ -412,28 +389,19 @@
                                     <div class="td_slide">
                                         <div class="td_testimonial td_style_1 td_type_2 td_white_bg td_radius_5">
                                             <div class="td_rating td_mb_20" data-rating="5">
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <div class="td_rating_percentage">
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                </div>
+                                                <!-- Rating icons -->
                                             </div>
                                             <blockquote class="td_testimonial_text td_fs_20 td_medium td_heading_color td_mb_30 td_opacity_9">
-                                                Kelime Hazinesi Projesi sayesinde kızımın okuma becerileri inanılmaz derecede gelişti. Artık kitapları daha keyifle okuyor!
+                                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial3_Text"))
                                             </blockquote>
                                             <div class="td_testimonial_meta td_mb_24">
                                                 <img src="~/theme/web_UI/assets/img/avatar_3.png" alt="">
                                                 <div class="td_testimonial_meta_right">
-                                                    <h3 class="td_fs_20 td_semibold td_mb_2">Fatma Kaya</h3>
+                                                    <h3 class="td_fs_20 td_semibold td_mb_2">
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial3_Name"))
+                                                    </h3>
                                                     <p class="td_fs_14 mb-0 td_heading_color td_opacity_7">
-                                                        Velilerimizden
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial3_Role"))
                                                     </p>
                                                 </div>
                                             </div>
@@ -445,32 +413,22 @@
                                             </span>
                                         </div>
                                     </div>
-                                    
                                     <div class="td_slide">
                                         <div class="td_testimonial td_style_1 td_type_2 td_white_bg td_radius_5">
                                             <div class="td_rating td_mb_20" data-rating="5">
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                                <div class="td_rating_percentage">
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                    <i class="fa-solid fa-star fa-fw"></i>
-                                                </div>
+                                                <!-- Rating icons -->
                                             </div>
                                             <blockquote class="td_testimonial_text td_fs_20 td_medium td_heading_color td_mb_30 td_opacity_9">
-                                                Bu proje sayesinde öğrencilerim kelime dağarcıklarını hızla geliştirdi. Eğlenceli ve etkili bir yöntem! Ciddi anlamda tavsiye ederim.
+                                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial4_Text"))
                                             </blockquote>
                                             <div class="td_testimonial_meta td_mb_24">
                                                 <img src="~/theme/web_UI/assets/img/avatar_4.png" alt="">
                                                 <div class="td_testimonial_meta_right">
-                                                    <h3 class="td_fs_20 td_semibold td_mb_2">Ali Demir</h3>
+                                                    <h3 class="td_fs_20 td_semibold td_mb_2">
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial4_Name"))
+                                                    </h3>
                                                     <p class="td_fs_14 mb-0 td_heading_color td_opacity_7">
-                                                        Öğretmenlerimizden
+                                                        @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Testimonial4_Role"))
                                                     </p>
                                                 </div>
                                             </div>
@@ -482,29 +440,20 @@
                                             </span>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                             <div class="td_height_40 td_height_lg_30"></div>
                             <div class="td_slider_arrows td_style_1 td_type_2">
                                 <div class="td_left_arrow td_accent_bg td_radius_10 td_center td_white_color">
-                                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1.00194 6.00024L17.002 6.00024" stroke="currentColor"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M6.00191 1C6.00191 1 1.00196 4.68244 1.00195 6.00004C1.00194 7.31763 6.00195 11 6.00195 11"
-                                              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                              stroke-linejoin="round"/>
+                                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.00194 6.00024L17.002 6.00024" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6.00191 1C6.00191 1 1.00196 4.68244 1.00195 6.00004C1.00194 7.31763 6.00195 11 6.00195 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div class="td_right_arrow td_accent_bg td_radius_10 td_center td_white_color">
-                                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.002 5.99976L1.00195 5.99976" stroke="currentColor"
-                                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M12.002 11C12.002 11 17.0019 7.31756 17.002 5.99996C17.002 4.68237 12.002 1 12.002 1"
-                                              stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                              stroke-linejoin="round"/>
+                                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.002 5.99976L1.00195 5.99976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.002 11C12.002 11 17.0019 7.31756 17.002 5.99996C17.002 4.68237 12.002 1 12.002 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                             </div>
@@ -518,62 +467,52 @@
     <section id="pricing">
         <div class="td_height_120 td_height_lg_80"></div>
         <div class="container">
-            <div class="td_section_heading td_style_1 text-center wow fadeInUp" data-wow-duration="1s"
-                 data-wow-delay="0.2s">
+            <div class="td_section_heading td_style_1 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                 <p class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-                    Ödeme Planlarımız
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing_Subtitle"))
                 </p>
                 <h2 class="td_section_title td_fs_48 mb-0">
-                    <b>Sana uygun olan</b> planı seç ve hemen başla!
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing_Title"))
                 </h2>
             </div>
             <div class="td_height_50 td_height_lg_50"></div>
             <div class="row td_gap_y_30 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.35s">
                 <div class="col-lg-4">
                     <div class="td_pricing td_style_1 td_type_1 td_radius_10">
-                        <h2 class="td_pricing_package_name td_fs_24">Temel Paket</h2>
+                        <h2 class="td_pricing_package_name td_fs_24">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_PackageName"))
+                        </h2>
                         <p class="td_heading_color td_opacity_8 td_mb_20">
-                            Kelime Hazinesi Projesi'nin temel içeriklerine erişim sağlar.
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Description"))
                         </p>
                         <div class="td_pricing_in">
                             <h2 class="td_fs_64 td_mb_20 td_accent_color">
-                                Ücretsiz
-                                <span
-                                    class="td_fs_16 td_medium td_heading_color">
-                                    /Süresiz
-                                </span>
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Price"))
                             </h2>
-                            <h3 class="td_pricing_title td_fs_32 td_mb_20">Neler Dahil?</h3>
+                            <h3 class="td_pricing_title td_fs_32 td_mb_20">
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Included_Title"))
+                            </h3>
                             <ul class="td_pricing_feature td_mp_0 td_medium td_heading_color">
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Temel kelime dersleri
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature1"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Oyunlar ve testler
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature2"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Sınırlı eğitim içeriği
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature3"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Temel raporlama
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature4"))
                                 </li>
                             </ul>
                             <div class="text-center">
                                 <a href="contact.html" class="td_btn td_style_1 td_radius_10 td_medium w-100">
                                     <span class="td_btn_in td_white_color td_accent_bg">
-                                        <span>Hemen Başla</span>
+                                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Button"))</span>
                                         <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5"
-                                                  stroke-linecap="round" stroke-linejoin="round">
-                                            </path>
-                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
-                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round">
-                                            </path>
+                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </span>
                                 </a>
@@ -583,49 +522,40 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="td_pricing td_style_1 td_type_1 td_radius_10">
-                        <h2 class="td_pricing_package_name td_fs_24">Premium Paket</h2>
+                        <h2 class="td_pricing_package_name td_fs_24">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_PackageName"))
+                        </h2>
                         <p class="td_heading_color td_opacity_8 td_mb_20">
-                            Kelime Hazinesi Projesi'nin tüm içeriklerine erişim sağlar.
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Description"))
                         </p>
                         <div class="td_pricing_in">
                             <h2 class="td_fs_64 td_mb_20 td_accent_color">
-                                ₺99
-                                <span
-                                    class="td_fs_16 td_medium td_heading_color">
-                                    /Aylık
-                                </span>
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Price"))
                             </h2>
-                            <h3 class="td_pricing_title td_fs_32 td_mb_20">Neler Dahil?</h3>
+                            <h3 class="td_pricing_title td_fs_32 td_mb_20">
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Included_Title"))
+                            </h3>
                             <ul class="td_pricing_feature td_mp_0 td_medium td_heading_color">
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Tüm kelime dersleri
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature1"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Özel oyunlar ve testler
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature2"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Sınırsız eğitim içeriği
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature3"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Detaylı raporlama
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature4"))
                                 </li>
                             </ul>
                             <div class="text-center">
                                 <a href="contact.html" class="td_btn td_style_1 td_radius_10 td_medium w-100">
                                     <span class="td_btn_in td_white_color td_accent_bg">
-                                        <span>Hemen Başla</span>
+                                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Button"))</span>
                                         <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5"
-                                                  stroke-linecap="round" stroke-linejoin="round">
-                                            </path>
-                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
-                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round">
-                                            </path>
+                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </span>
                                 </a>
@@ -635,49 +565,40 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="td_pricing td_style_1 td_type_1 td_radius_10">
-                        <h2 class="td_pricing_package_name td_fs_24">Okul Paketi</h2>
+                        <h2 class="td_pricing_package_name td_fs_24">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_PackageName"))
+                        </h2>
                         <p class="td_heading_color td_opacity_8 td_mb_20">
-                            Okullar için özel tasarlanmış paket. Tüm içeriklere erişim sağlar.
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Description"))
                         </p>
                         <div class="td_pricing_in">
                             <h2 class="td_fs_64 td_mb_20 td_accent_color">
-                                299
-                                <span
-                                    class="td_fs_16 td_medium td_heading_color">
-                                    /Aylık
-                                </span>
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Price"))
                             </h2>
-                            <h3 class="td_pricing_title td_fs_32 td_mb_20">Neler Dahil?</h3>
+                            <h3 class="td_pricing_title td_fs_32 td_mb_20">
+                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Included_Title"))
+                            </h3>
                             <ul class="td_pricing_feature td_mp_0 td_medium td_heading_color">
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Tüm öğrenciler için erişim
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature1"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Öğretmen paneli
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature2"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Sınıf bazlı raporlama
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature3"))
                                 </li>
                                 <li>
-                                    <i class="fa-solid fa-check"></i>
-                                    Özel eğitim içerikleri
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature4"))
                                 </li>
                             </ul>
                             <div class="text-center">
                                 <a href="contact.html" class="td_btn td_style_1 td_radius_10 td_medium w-100">
                                     <span class="td_btn_in td_white_color td_accent_bg">
-                                        <span>Teklif Al</span>
+                                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Button"))</span>
                                         <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5"
-                                                  stroke-linecap="round" stroke-linejoin="round">
-                                            </path>
-                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
-                                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round">
-                                            </path>
+                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                     </span>
                                 </a>
@@ -692,8 +613,7 @@
 
     <section id="contact">
         <div class="td_video_block td_style_2 td_center td_bg_filed" data-src="/theme/web_UI/assets/img/home_5/video_block.jpg">
-            <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="td_video_open wow zoomIn" data-wow-duration="1s"
-               data-wow-delay="0.3s">
+            <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="td_video_open wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s">
                 <span class="td_player_btn td_center">
                     <span></span>
                 </span>
@@ -707,47 +627,46 @@
                         <div class="col-lg-7 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
                             <div class="td_section_heading td_style_1">
                                 <p class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-                                    İletişime Geç
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Subtitle"))
                                 </p>
-                                <h2 class="td_section_title td_fs_48 td_mb_20">Bize Ulaşın</h2>
+                                <h2 class="td_section_title td_fs_48 td_mb_20">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Title"))
+                                </h2>
                                 <p class="td_section_subtitle td_fs_18 mb-0">
-                                    Kelime Hazinesi Projesi hakkında her türlü soru, öneri veya geri bildirim için bizimle iletişime geçebilirsiniz. Ekibimiz size en kısa sürede dönüş yapacaktır.
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Description"))
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-5 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.35s">
                             <div class="td_contact_box td_style_2 td_accent_bg td_radius_10">
-                                <h3 class="td_white_color td_fs_20 td_semibold td_mb_35">Sana dönüş yapalım!</h3>
+                                <h3 class="td_white_color td_fs_20 td_semibold td_mb_35">
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Form_Title"))
+                                </h3>
                                 <form action="#">
                                     <div class="td_form_field_3 td_mb_30">
-                                        <input type="text" class="td_white_color" placeholder="Adınız" required>
-                                        <label class="td_fs_20 td_semibold td_accent_bg td_white_color">İsmin</label>
-                                    </div>
-                                    <div class="td_form_field_3 td_mb_30">
-                                        <input type="email" class="td_white_color" placeholder="E-posta adresiniz" required>
+                                        <input type="text" class="td_white_color" placeholder="@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Field_Name_Placeholder"))" required>
                                         <label class="td_fs_20 td_semibold td_accent_bg td_white_color">
-                                            Eposta
-                                            Adresin
+                                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Field_Name_Label"))
                                         </label>
                                     </div>
                                     <div class="td_form_field_3 td_mb_30">
-                                        <input type="text" class="td_white_color" placeholder="Telefon numaranız" required>
+                                        <input type="email" class="td_white_color" placeholder="@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Field_Email_Placeholder"))" required>
                                         <label class="td_fs_20 td_semibold td_accent_bg td_white_color">
-                                            Telefon
-                                            Numaran
+                                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Field_Email_Label"))
+                                        </label>
+                                    </div>
+                                    <div class="td_form_field_3 td_mb_30">
+                                        <input type="text" class="td_white_color" placeholder="@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Field_Phone_Placeholder"))" required>
+                                        <label class="td_fs_20 td_semibold td_accent_bg td_white_color">
+                                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Field_Phone_Label"))
                                         </label>
                                     </div>
                                     <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium w-100">
                                         <span class="td_btn_in td_accent_color td_white_bg">
-                                            <span>İletişime Geç</span>
+                                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Contact_Button"))</span>
                                             <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5"
-                                                      stroke-linecap="round" stroke-linejoin="round">
-                                                </path>
-                                                <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
-                                                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                      stroke-linejoin="round">
-                                                </path>
+                                                <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                             </svg>
                                         </span>
                                     </button>

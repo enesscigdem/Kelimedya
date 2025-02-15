@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.WordCardViewModel>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kelime Kartları";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">Kelime Kartları</h2>
+                <div class="text-muted mt-1">
+                    Seçtiğiniz ders için oluşturulan kelime kartlarını görüntüleyip düzenleyebilirsiniz.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Kelime Kartları Tablosu -->
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kelime Kartları Listesi</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table card-table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Kelime</th>
+                            <th>Tanım</th>
+                            <th>Örnek Cümle</th>
+                            <th class="w-1 text-end">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(var card in Model)
+                    {
+                        <tr>
+                            <td>@card.Word</td>
+                            <td>@card.Definition</td>
+                            <td>@card.ExampleSentence</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@card.Id" class="btn btn-success me-1 d-flex align-items-center" title="Düzenle">Düzenle</a>
+                                    <a asp-action="Delete" asp-route-id="@card.Id" class="btn btn-danger d-flex align-items-center delete-btn" title="Sil">Sil</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

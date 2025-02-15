@@ -1,4 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Paragraph.WebApp.Areas.Admin.Models;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 
 namespace Paragraph.WebApp.Areas.Admin.Controllers
 {
@@ -6,17 +11,17 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class RolesController : Controller
     {
-        public IActionResult Index()
+        private readonly HttpClient _httpClient;
+        public RolesController(IHttpClientFactory httpClientFactory)
         {
-            return View();
+            _httpClient = httpClientFactory.CreateClient("DefaultApi");
         }
-        public IActionResult Create()
+
+        // GET: /Admin/Roles
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-        public IActionResult Edit()
-        {
-            return View();
+            var roles = await _httpClient.GetFromJsonAsync<List<RoleViewModel>>("api/roles");
+            return View(roles);
         }
     }
 }

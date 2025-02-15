@@ -1,0 +1,54 @@
+﻿@model Paragraph.WebApp.Areas.Admin.Models.ReportViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Yeni Rapor Ekle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Yeni Rapor Ekle</h2>
+        <div class="text-muted mt-1">
+            Rapor bilgilerini giriniz.
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+        {
+            <div class="alert alert-danger" role="alert">
+                @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+            </div>
+        }
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="Reports" asp-action="Create">
+                    <!-- Rapor Başlığı -->
+                    <div class="mb-3">
+                        <label class="form-label">Rapor Adı</label>
+                        <input type="text" class="form-control" asp-for="Title" placeholder="Rapor başlığı"/>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <!-- Açıklama -->
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea class="form-control" asp-for="Description" rows="5" placeholder="Rapor açıklaması"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <!-- Rapor Tarihi -->
+                    <div class="mb-3">
+                        <label class="form-label">Rapor Tarihi</label>
+                        <input type="date" class="form-control" asp-for="ReportDate"/>
+                        <span asp-validation-for="ReportDate" class="text-danger"></span>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

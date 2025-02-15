@@ -14,44 +14,48 @@
     <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/demo.min.css" rel="stylesheet"/>
-    <link href="~/theme/custom-styles.css" rel="stylesheet"/>
     <script src="~/theme/tabler/dist/js/demo-theme.min.js?1692870487"></script>
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.15.10/sweetalert2.css" integrity="sha512-aT8kGTpksA05BegcQmkwCB142bJ9VHx8RAdt4FsCxivASGHCKrI3o1KX5oftKK8J8oZ5v450UtJPp66EJhEuHA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+ <style>
         :root {
             --tblr-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         .navbar-nav .nav-item {
           margin-bottom: 7px;
         }
+        body.swal2-height-auto {
+          height:  inherit !important;
+        }
     </style>
 </head>
 <body class="theme-light">
 <div class="page">
-    <aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
-        <div class="container-fluid">
-            <!-- Sidebar Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
-                    aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Brand -->
-            <h1 class="navbar-brand navbar-brand-autodark">
-                <a asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
-                </a>
-            </h1>
+<aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
+<div class="container-fluid">
+<!-- Sidebar Toggle -->
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
+        aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<!-- Brand -->
+<h1 class="navbar-brand navbar-brand-autodark">
+    <a asp-area="" asp-controller="Home" asp-action="Index">
+        <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+    </a>
+</h1>
 
-            <!-- Mobile Nav (GitHub, Theme Toggle vb.) -->
-            <div class="navbar-nav flex-row d-lg-none">
-                <div class="nav-item d-none d-lg-flex me-3">
-                    <div class="btn-list">
-                        <a href="https://github.com/tabler/tabler" class="btn" target="_blank" rel="noreferrer">
-                            <!-- GitHub Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5
+<!-- Mobile Nav (GitHub, Theme Toggle vb.) -->
+<div class="navbar-nav flex-row d-lg-none">
+    <div class="nav-item d-none d-lg-flex me-3">
+        <div class="btn-list">
+            <a href="https://github.com/tabler/tabler" class="btn" target="_blank" rel="noreferrer">
+                <!-- GitHub Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5
                                          c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6
                                          a4.6 4.6 0 0 0 -1.3 -3.2
                                          a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3
@@ -61,574 +65,535 @@
                                          a4.6 4.6 0 0 0 -1.3 3.2
                                          c0 4.6 2.7 5.7 5.5 6
                                          c-.6 .6 -.6 1.2 -.5 2v3.5"/>
-                            </svg>
-                            Kaynak Kodu
-                        </a>
-                        <a href="https://github.com/sponsors/codecalm" class="btn" target="_blank" rel="noreferrer">
-                            <!-- Sponsor Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428
+                </svg>
+                Kaynak Kodu
+            </a>
+            <a href="https://github.com/sponsors/codecalm" class="btn" target="_blank" rel="noreferrer">
+                <!-- Sponsor Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink" width="24" height="24"
+                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428
                                          a5 5 0 1 1 7.5 -6.566
                                          a5 5 0 1 1 7.5 6.572"/>
-                            </svg>
-                            Sponsor
-                        </a>
-                    </div>
-                </div>
-                <div class="d-none d-lg-flex">
+                </svg>
+                Sponsor
+            </a>
+        </div>
+    </div>
+    <div class="d-none d-lg-flex">
+        <!-- Dark Mode -->
+        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
+           data-bs-toggle="tooltip" data-bs-placement="bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 3c.132 0 .263 0 .393 0
+                                     a7.5 7.5 0 0 0 7.92 12.446
+                                     a9 9 0 1 1 -8.313 -12.454z"/>
+            </svg>
+        </a>
+        <!-- Light Mode -->
+        <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
+           data-bs-toggle="tooltip" data-bs-placement="bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
+                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1
+                                     m-6.4 -15.4l.7 .7
+                                     m12.1 -.7l-.7 .7
+                                     m0 11.4l.7 .7
+                                     m-12.1 -.7l-.7 .7"/>
+            </svg>
+        </a>
+        <!-- Bildirimler vb. -->
+    </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="collapse navbar-collapse" id="sidebar-menu">
+  <ul class="navbar-nav pt-lg-3">
+    <!-- Anasayfa (Dashboard) -->
+    <li class="nav-item">
+      <a class="nav-link"
+         asp-area="Admin"
+         asp-controller="Dashboard"
+         asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 13h16"/>
+            <path d="M4 6h16"/>
+            <path d="M4 20h16"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Anasayfa</span>
+      </a>
+    </li>
+
+    <!-- Kullanıcı Yönetimi -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"
+         href="#navbar-users"
+         data-bs-toggle="dropdown"
+         data-bs-auto-close="false"
+         role="button"
+         aria-expanded="false">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Users Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 21v-2a4 4 0 0 1 8 0v2"/>
+            <path d="M5 11a4 4 0 1 1 8 0a4 4 0 1 1 -8 0"/>
+            <path d="M5 11l-2 7h14l-2 -7"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Kullanıcı Yönetimi</span>
+      </a>
+      <div class="dropdown-menu show">
+        <div class="dropdown-menu-columns">
+          <div class="dropdown-menu-column">
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Index">
+              Kullanıcılar
+            </a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Roles" asp-action="Index">
+              Roller <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Yeni</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Ürün Yönetimi -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"
+         href="#navbar-products"
+         data-bs-toggle="dropdown"
+         data-bs-auto-close="false"
+         role="button"
+         aria-expanded="false">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Products Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 20h12v-8h-12v8z"/>
+            <path d="M12 4l-8 8h16l-8 -8z"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Ürün Yönetimi</span>
+      </a>
+      <div class="dropdown-menu show">
+        <div class="dropdown-menu-columns">
+          <div class="dropdown-menu-column">
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Products" asp-action="Index">
+              Ürünler
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Siparişler -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Orders" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Orders Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 20h12v-8h-12v8z"/>
+            <path d="M12 4l-8 8h16l-8 -8z"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Siparişler</span>
+      </a>
+    </li>
+
+    <!-- Raporlar -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Reports" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Reports Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 3h18v18h-18z"/>
+            <path d="M9 3v18"/>
+            <path d="M3 9h18"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Raporlar</span>
+      </a>
+    </li>
+
+    <!-- Mesajlar -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Messages" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Messages Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M21 15v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4"/>
+            <path d="M7 15h10l4 -4v-6a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v6"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Mesajlar</span>
+      </a>
+    </li>
+
+    <!-- Kurlar (Eğitimler, Dersler, Kelime Kartları) -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"
+         href="#navbar-courses"
+         data-bs-toggle="dropdown"
+         data-bs-auto-close="false"
+         role="button"
+         aria-expanded="false">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Courses Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 20v-16"/>
+            <path d="M8 16h8"/>
+            <path d="M8 12h8"/>
+            <path d="M8 8h8"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Kurlar</span>
+      </a>
+      <div class="dropdown-menu show">
+        <div class="dropdown-menu-columns">
+          <div class="dropdown-menu-column">
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Courses" asp-action="Index">
+              Eğitimler
+            </a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Lessons" asp-action="Index">
+              Dersler  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Yeni</span>
+            </a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="WordCards" asp-action="Index">
+              Kelime Kartları  <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Yeni</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Metin Düzenlemeleri -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Widgets" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 3v18"/>
+            <path d="M12 15h9"/>
+            <path d="M12 9h9"/>
+            <path d="M12 15v-6"/>
+            <path d="M9 3v18"/>
+            <path d="M9 15h-9"/>
+            <path d="M9 9h-9"/>
+            <path d="M9 15v-6"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Metin Düzenlemeleri</span>
+      </a>
+    </li>
+
+    <!-- Oyunlar -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Games" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Games Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M9 12l3 3l3 -3"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Oyunlar</span>
+      </a>
+    </li>
+
+    <!-- Satış Grafiği -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Sales" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Sales Chart Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 20h16v-16h-16z"/>
+            <path d="M6 20v-4h4v4h-4z"/>
+            <path d="M14 20v-10h4v10h-4z"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Satış Grafiği</span>
+      </a>
+    </li>
+
+    <!-- Ayarlar -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Settings" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Settings Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 15a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l0 0
+                     a2 2 0 1 1 -2.83 2.83l0 0
+                     a1.65 1.65 0 0 0 -1.82 -.33
+                     a1.65 1.65 0 0 0 -1 1.51v0
+                     a2 2 0 1 1 -4 0v0
+                     a1.65 1.65 0 0 0 -1 -1.51
+                     a1.65 1.65 0 0 0 -1.82 .33l0 0
+                     a2 2 0 1 1 -2.83 -2.83l0 0
+                     a1.65 1.65 0 0 0 .33 -1.82
+                     a1.65 1.65 0 0 0 -1.51 -1h0
+                     a2 2 0 1 1 -0  -4h0
+                     a1.65 1.65 0 0 0 1.51 -1
+                     a1.65 1.65 0 0 0 -.33 -1.82l0 0
+                     a2 2 0 1 1 2.83 -2.83l0 0
+                     a1.65 1.65 0 0 0 1.82 .33
+                     a1.65 1.65 0 0 0 1 1.51v0
+                     a2 2 0 1 1 4 0v0
+                     a1.65 1.65 0 0 0 1 1.51
+                     a1.65 1.65 0 0 0 1.82 -.33l0 0
+                     a2 2 0 1 1 2.83 2.83l0 0
+                     a1.65 1.65 0 0 0 -.33 1.82
+                     a1.65 1.65 0 0 0 1.51 1h0
+                     a2 2 0 1 1 0 4h0z"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Ayarlar</span>
+      </a>
+    </li>
+
+    <!-- Çıkış Yap -->
+    <li class="nav-item">
+      <a class="nav-link" asp-area="Admin" asp-controller="Logout" asp-action="Index">
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <!-- Logout Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 8h-4l4 -4v3c5.5 0 9.5 4.5 9.5 10
+                     c0 1.5 -.5 3 -1 4"/>
+            <path d="M10 12v7"/>
+            <path d="M14 12v7"/>
+            <path d="M17 16h3"/>
+          </svg>
+        </span>
+        <span class="nav-link-title">Çıkış Yap</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+</div>
+</aside>
+
+<div class="page-wrapper">
+    <!-- Header -->
+    <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
+        <div class="container-xl">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+                    aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-nav flex-row order-md-last">
+                <div class="d-none d-md-flex">
                     <!-- Dark Mode -->
                     <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
                        data-bs-toggle="tooltip" data-bs-placement="bottom">
+                        <!-- Moon Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                              stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M12 3c.132 0 .263 0 .393 0
-                                     a7.5 7.5 0 0 0 7.92 12.446
-                                     a9 9 0 1 1 -8.313 -12.454z"/>
+                                         a7.5 7.5 0 0 0 7.92 12.446
+                                         a9 9 0 1 1 -8.313 -12.454z"/>
                         </svg>
                     </a>
                     <!-- Light Mode -->
                     <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
                        data-bs-toggle="tooltip" data-bs-placement="bottom">
+                        <!-- Sun Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                              stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
-                            <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1
-                                     m-6.4 -15.4l.7 .7
-                                     m12.1 -.7l-.7 .7
-                                     m0 11.4l.7 .7
-                                     m-12.1 -.7l-.7 .7"/>
-                        </svg>
-                    </a>
-                    <!-- Bildirimler vb. -->
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            <div class="collapse navbar-collapse" id="sidebar-menu">
-                <ul class="navbar-nav pt-lg-3">
-                    <!-- Anasayfa (Dashboard) -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Dashboard"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M4 13h16"/>
-                                    <path d="M4 6h16"/>
-                                    <path d="M4 20h16"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Anasayfa
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Kullanıcı Yönetimi -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#navbar-users"
-                           data-bs-toggle="dropdown"
-                           data-bs-auto-close="false"
-                           role="button"
-                           aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Users Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M7 21v-2a4 4 0 0 1 8 0v2"/>
-                                    <path d="M5 11a4 4 0 1 1 8 0a4 4 0 1 1 -8 0"/>
-                                    <path d="M5 11l-2 7h14l-2 -7"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Kullanıcı Yönetimi
-                            </span>
-                        </a>
-                        <div class="dropdown-menu show">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item"
-                                       asp-area="Admin"
-                                       asp-controller="Users"
-                                       asp-action="Index">
-                                        Kullanıcılar
-                                    </a>
-                                    <a class="dropdown-item"
-                                       asp-area="Admin"
-                                       asp-controller="Roles"
-                                       asp-action="Index">
-                                        Roller
-                                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Yeni</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Ürün Yönetimi -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#navbar-products"
-                           data-bs-toggle="dropdown"
-                           data-bs-auto-close="false"
-                           role="button"
-                           aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Products Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M6 20h12v-8h-12v8z"/>
-                                    <path d="M12 4l-8 8h16l-8 -8z"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Ürün Yönetimi
-                            </span>
-                        </a>
-                        <div class="dropdown-menu show">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item"
-                                       asp-area="Admin"
-                                       asp-controller="Products"
-                                       asp-action="Index">
-                                        Ürünler
-                                    </a>
-                                    <a class="dropdown-item"
-                                       asp-area="Admin"
-                                       asp-controller="Categories"
-                                       asp-action="Index">
-                                        Kategoriler
-                                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Yeni</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Siparişler -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Orders"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Orders Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M6 20h12v-8h-12v8"/>
-                                    <path d="M12 4l-8 8h16l-8 -8z"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Siparişler
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Raporlar -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Reports"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Reports Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M3 3h18v18h-18z"/>
-                                    <path d="M9 3v18"/>
-                                    <path d="M3 9h18"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Raporlar
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Mesajlar -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Messages"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Messages Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M21 15v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4"/>
-                                    <path d="M7 15h10l4 -4v-6a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v6"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Mesajlar
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Ayarlar -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Settings"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Settings Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 15a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z"/>
-                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l0 0
-                                             a2 2 0 1 1 -2.83 2.83l0 0
-                                             a1.65 1.65 0 0 0 -1.82 -.33
-                                             a1.65 1.65 0 0 0 -1 1.51v0
-                                             a2 2 0 1 1 -4 0v0
-                                             a1.65 1.65 0 0 0 -1 -1.51
-                                             a1.65 1.65 0 0 0 -1.82 .33l0 0
-                                             a2 2 0 1 1 -2.83 -2.83l0 0
-                                             a1.65 1.65 0 0 0 .33 -1.82
-                                             a1.65 1.65 0 0 0 -1.51 -1h0
-                                             a2 2 0 1 1 0 -4h0
-                                             a1.65 1.65 0 0 0 1.51 -1
-                                             a1.65 1.65 0 0 0 -.33 -1.82l0 0
-                                             a2 2 0 1 1 2.83 -2.83l0 0
-                                             a1.65 1.65 0 0 0 1.82 .33
-                                             a1.65 1.65 0 0 0 1 -1.51v0
-                                             a2 2 0 1 1 4 0v0
-                                             a1.65 1.65 0 0 0 1 1.51
-                                             a1.65 1.65 0 0 0 1.82 -.33l0 0
-                                             a2 2 0 1 1 2.83 2.83l0 0
-                                             a1.65 1.65 0 0 0 -.33 1.82
-                                             a1.65 1.65 0 0 0 1.51 1h0
-                                             a2 2 0 1 1 0 4h0z"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Ayarlar
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Kurlar (Eğitim, Metin Düzenleme) -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#navbar-courses"
-                           data-bs-toggle="dropdown"
-                           data-bs-auto-close="false"
-                           role="button"
-                           aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Courses Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M12 20v-16"/>
-                                    <path d="M8 16h8"/>
-                                    <path d="M8 12h8"/>
-                                    <path d="M8 8h8"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Kurlar
-                            </span>
-                        </a>
-                        <div class="dropdown-menu show">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item"
-                                       asp-area="Admin"
-                                       asp-controller="Courses"
-                                       asp-action="Index">
-                                        Eğitimler
-                                    </a>
-                                    <a class="dropdown-item"
-                                       asp-area="Admin"
-                                       asp-controller="TextEditing"
-                                       asp-action="Index">
-                                        Metin Düzenlemeleri
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Oyunlar -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Games"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Games Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="9"/>
-                                    <path d="M9 12l3 3l3 -3"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Oyunlar
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Satış Grafiği -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Sales"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Sales Chart Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M4 20h16v-16h-16z"/>
-                                    <path d="M6 20v-4h4v4h-4z"/>
-                                    <path d="M14 20v-10h4v10h-4z"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Satış Grafiği
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Çıkış Yap -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Admin"
-                           asp-controller="Logout"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Logout Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M7 8h-4l4 -4v3c5.5 0 9.5 4.5 9.5 10
-                                             c0 1.5 -.5 3 -1 4"/>
-                                    <path d="M10 12v7"/>
-                                    <path d="M14 12v7"/>
-                                    <path d="M17 16h3"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Çıkış Yap
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </aside>
-
-    <div class="page-wrapper">
-        <!-- Header -->
-        <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
-            <div class="container-xl">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
-                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-nav flex-row order-md-last">
-                    <div class="d-none d-md-flex">
-                        <!-- Dark Mode -->
-                        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
-                           data-bs-toggle="tooltip" data-bs-placement="bottom">
-                            <!-- Moon Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M12 3c.132 0 .263 0 .393 0
-                                         a7.5 7.5 0 0 0 7.92 12.446
-                                         a9 9 0 1 1 -8.313 -12.454z"/>
-                            </svg>
-                        </a>
-                        <!-- Light Mode -->
-                        <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
-                           data-bs-toggle="tooltip" data-bs-placement="bottom">
-                            <!-- Sun Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M12 12m-4 0a4 4 0 1 0 8 0
+                            <path d="M12 12m-4 0a4 4 0 1 0 8 0
                                          a4 4 0 1 0 -8 0"/>
-                                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1
+                            <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1
                                          m-6.4 -15.4l.7 .7
                                          m12.1 -.7l-.7 .7
                                          m0 11.4l.7 .7
                                          m-12.1 -.7l-.7 .7"/>
-                            </svg>
-                        </a>
+                        </svg>
+                    </a>
 
-                        <!-- Bildirimler -->
-                        <div class="nav-item dropdown d-none d-md-flex me-3">
-                            <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1"
-                               aria-label="Show notifications">
-                                <!-- Bell Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M10 5a2 2 0 1 1 4 0
+                    <!-- Bildirimler -->
+                    <div class="nav-item dropdown d-none d-md-flex me-3">
+                        <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1"
+                           aria-label="Show notifications">
+                            <!-- Bell Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M10 5a2 2 0 1 1 4 0
                                              a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3
                                              h-16a4 4 0 0 0 2 -3v-3
                                              a7 7 0 0 1 4 -6"/>
-                                    <path d="M9 17v1a3 3 0 0 0 6 0v-1"/>
-                                </svg>
-                                <span class="badge bg-red"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Son Güncellemeler</h3>
-                                    </div>
-                                    <div class="list-group list-group-flush list-group-hoverable">
-                                        <!-- Örnek bildirim -->
-                                        <div class="list-group-item">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span class="status-dot status-dot-animated bg-red d-block"></span>
+                                <path d="M9 17v1a3 3 0 0 0 6 0v-1"/>
+                            </svg>
+                            <span class="badge bg-red"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Son Güncellemeler</h3>
+                                </div>
+                                <div class="list-group list-group-flush list-group-hoverable">
+                                    <!-- Örnek bildirim -->
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <span class="status-dot status-dot-animated bg-red d-block"></span>
+                                            </div>
+                                            <div class="col text-truncate">
+                                                <a href="#" class="text-body d-block">Örnek 1</a>
+                                                <div class="d-block text-secondary text-truncate mt-n1">
+                                                    HTML etiketlerini metin dekorasyon sınıflarına değiştir (#29604)
                                                 </div>
-                                                <div class="col text-truncate">
-                                                    <a href="#" class="text-body d-block">Örnek 1</a>
-                                                    <div class="d-block text-secondary text-truncate mt-n1">
-                                                        HTML etiketlerini metin dekorasyon sınıflarına değiştir (#29604)
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="#" class="list-group-item-actions">
-                                                        <!-- Star Icon -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted"
-                                                             width="24" height="24" viewBox="0 0 24 24"
-                                                             stroke-width="2" stroke="currentColor" fill="none"
-                                                             stroke-linecap="round" stroke-linejoin="round">
-                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="#" class="list-group-item-actions">
+                                                    <!-- Star Icon -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted"
+                                                         width="24" height="24" viewBox="0 0 24 24"
+                                                         stroke-width="2" stroke="currentColor" fill="none"
+                                                         stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873
                                                                      l-5 -4.867l6.9 -1l3.086 -6.253
                                                                      l3.086 6.253l6.9 1l-5 4.867
                                                                      l1.179 6.873z"/>
-                                                        </svg>
-                                                    </a>
-                                                </div>
+                                                    </svg>
+                                                </a>
                                             </div>
                                         </div>
-                                        <!-- Diğer bildirimler -->
                                     </div>
+                                    <!-- Diğer bildirimler -->
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Kullanıcı Menüsü -->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
-                           aria-label="Open user menu">
-                            <span class="avatar avatar-sm"
-                                  style="background-image: url('@Url.Content("~/theme/tabler/static/avatars/000m.jpg")')"></span>
-                            <div class="d-none d-xl-block ps-2">
-                                <div>Paweł Kuna</div>
-                                <div class="mt-1 small text-secondary">UI Tasarımcısı</div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <a href="#" class="dropdown-item">Durum</a>
-                            <a href="~/theme/tabler/profile.html" class="dropdown-item">Profil</a>
-                            <a href="#" class="dropdown-item">Geri Bildirim</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="~/theme/tabler/settings.html" class="dropdown-item">Ayarlar</a>
-                            <a href="~/theme/tabler/sign-in.html" class="dropdown-item">Çıkış Yap</a>
+                <!-- Kullanıcı Menüsü -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                       aria-label="Open user menu">
+                        <span class="avatar avatar-sm"
+                              style="background-image: url('@Url.Content("~/theme/tabler/static/avatars/000m.jpg")')">
+                        </span>
+                        <div class="d-none d-xl-block ps-2">
+                            <div>Paweł Kuna</div>
+                            <div class="mt-1 small text-secondary">UI Tasarımcısı</div>
                         </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <a href="#" class="dropdown-item">Durum</a>
+                        <a href="~/theme/tabler/profile.html" class="dropdown-item">Profil</a>
+                        <a href="#" class="dropdown-item">Geri Bildirim</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="~/theme/tabler/settings.html" class="dropdown-item">Ayarlar</a>
+                        <a href="~/theme/tabler/sign-in.html" class="dropdown-item">Çıkış Yap</a>
                     </div>
                 </div>
-                <!-- Arama -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <div>
-                        <form action="~/theme/tabler/" method="get" autocomplete="off" novalidate>
-                            <div class="input-icon">
-                                <span class="input-icon-addon">
-                                    <!-- Search Icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                         stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M10 10m-7 0a7 7 0 1 0 14 0
+            </div>
+            <!-- Arama -->
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div>
+                    <form action="~/theme/tabler/" method="get" autocomplete="off" novalidate>
+                        <div class="input-icon">
+                            <span class="input-icon-addon">
+                                <!-- Search Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0
                                                  a7 7 0 1 0 -14 0"/>
-                                        <path d="M21 21l-6 -6"/>
-                                    </svg>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Ara…"
-                                       aria-label="Website'de ara">
-                            </div>
-                        </form>
-                    </div>
+                                    <path d="M21 21l-6 -6"/>
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Ara…"
+                                   aria-label="Website'de ara">
+                        </div>
+                    </form>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Ana İçerik Alanı -->
-        <main class="page-body">
-            <div class="container-xl">
-                @RenderBody()
-            </div>
-        </main>
+    <!-- Ana İçerik Alanı -->
+    <main class="page-body">
+        <div class="container-xl">
+            @RenderBody()
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer class="footer footer-transparent d-print-none">
-            <div class="container-xl">
-                <div class="row text-center align-items-center flex-row-reverse">
-                    <div class="col-lg-auto ms-lg-auto">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                <a href="#" class="link-secondary">Dokümantasyon</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="link-secondary">Destek</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                &copy; 2023 Şirketiniz. Tüm hakları saklıdır.
-                            </li>
-                        </ul>
-                    </div>
+    <!-- Footer -->
+    <footer class="footer footer-transparent d-print-none">
+        <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+                <div class="col-lg-auto ms-lg-auto">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="link-secondary">Dokümantasyon</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="link-secondary">Destek</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            &copy; 2023 Şirketiniz. Tüm hakları saklıdır.
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+</div>
 </div>
 
 <!-- JS dosyaları -->
@@ -639,6 +604,31 @@
 <script src="~/theme/tabler/dist/js/tabler.min.js?1692870487" defer></script>
 <script src="~/theme/tabler/dist/js/demo.min.js?1692870487" defer></script>
 <script src="~/theme/tabler/dist/libs/tinymce/tinymce.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.15.10/sweetalert2.min.js" integrity="sha512-M60HsJC4M4A8pgBOj7oC/lvJXuOc9CraWXdD4PF+KNmKl8/Mnz6AH9FANgi4SJM6D9rqPvgQt4KRFR1rPN+EUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+        $(document).on('click', '.delete-btn', function (e) {
+            e.preventDefault();
+            var deleteUrl = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Bu işlem geri alınamaz!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'Vazgeç',
+                scrollbarPadding: false 
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = deleteUrl;
+                }
+            });
+        });
+</script>
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 @RenderSection("Scripts", required: false)
 
 </body>

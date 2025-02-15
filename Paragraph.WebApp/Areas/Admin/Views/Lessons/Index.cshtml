@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.LessonViewModel>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Dersler";
+}
+
+<div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row align-items-center">
+      <div class="col">
+        <h2 class="page-title">Ders Listesi</h2>
+        <div class="text-muted mt-1">
+          Seçili eğitime ait dersleri görüntüleyin ve yönetin.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ders Tablosu -->
+<div class="page-body pt-2">
+  <div class="container-xl">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Dersler</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table card-table table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>Ders Başlığı</th>
+              <th>Açıklama</th>
+              <th>Sıra No</th>
+              <th class="w-1 text-end">İşlemler</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach(var lesson in Model)
+            {
+              <tr>
+                <td>@lesson.Title</td>
+                <td>@lesson.Description</td>
+                <td>@lesson.SequenceNo</td>
+                <td class="text-end">
+                  <div class="btn-group" role="group">
+                    <a asp-action="Edit" asp-route-id="@lesson.Id" class="btn btn-success me-1" title="Düzenle">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@lesson.Id" class="btn btn-danger delete-btn" title="Sil">Sil</a>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

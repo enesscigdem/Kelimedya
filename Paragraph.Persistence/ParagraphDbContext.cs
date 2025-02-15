@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Paragraph.Core.BaseModels;
+using Paragraph.Core.Entities;
 using Paragraph.Core.IdentityEntities;
 using Paragraph.Core.Interfaces.Business;
 using Paragraph.Core.Interfaces.Persistance;
@@ -22,7 +23,16 @@ public class ParagraphDbContext : IdentityDbContext<CustomUser, CustomRole, int>
         _currentService = currentUserService;
     }
 
-    // public virtual DbSet<Language> Languages { get; set; }
+    public virtual DbSet<Course> Courses { get; set; }
+    public virtual DbSet<Game> Games { get; set; }
+    public virtual DbSet<Lesson> Lessons { get; set; }
+    public virtual DbSet<Message> Messages { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<Report> Reports { get; set; }
+    public virtual DbSet<WordCard> WordCards { get; set; }
+    public virtual DbSet<Widget> Widgets { get; set; }
+     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
     }

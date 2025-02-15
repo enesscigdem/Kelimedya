@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.WidgetViewModel>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+    ViewData["Title"] = "Widget Listesi";
+}
+
+<!-- Sayfa Başlığı -->
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    <!-- Widget Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-widgets me-1" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                    Widget Listesi
+                </h2>
+                <div class="text-muted mt-1">
+                    Sistemde kayıtlı tüm widget'ları buradan yönetebilirsiniz.
+                </div>
+            </div>
+            <div class="col-auto ms-auto d-print-none">
+                <a asp-area="Admin" asp-controller="Widgets" asp-action="Create" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <line x1="9" y1="12" x2="15" y2="12" />
+                        <line x1="12" y1="9" x2="12" y2="15" />
+                    </svg>
+                    Yeni Widget
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Widget Tablosu -->
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kayıtlı Widget'lar</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table card-table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Key</th>
+                            <th>Subject</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th class="w-1 text-end">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var widget in Model)
+                        {
+                            <tr>
+                                <td>@widget.Key</td>
+                                <td>@Html.Raw(widget.Subject)</td>
+                                <td>@widget.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Edit" asp-route-id="@widget.Id" class="btn btn-success me-1" title="Düzenle">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M8 18h4" />
+                                                <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z" />
+                                            </svg>
+                                            Düzenle
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Delete" asp-route-id="@widget.Id" class="btn btn-danger delete-btn" title="Sil">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 7h16" />
+                                                <path d="M10 11v6" />
+                                                <path d="M14 11v6" />
+                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                <path d="M9 7v-2a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2" />
+                                            </svg>
+                                            Sil
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@model Paragraph.WebApp.Areas.Admin.Models.WordCardViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Yeni Kelime Kartı Ekle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Yeni Kelime Kartı Ekle</h2>
+        <div class="text-muted mt-1">
+            Kelime kartı bilgilerini giriniz.
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="WordCards" asp-action="Create">
+                    <input type="hidden" asp-for="LessonId" value="@ViewBag.LessonId" />
+                    <!-- Kelime -->
+                    <div class="mb-3">
+                        <label class="form-label">Kelime</label>
+                        <input type="text" class="form-control" asp-for="Word" placeholder="Kelime" />
+                        <span asp-validation-for="Word" class="text-danger"></span>
+                    </div>
+                    <!-- Tanım -->
+                    <div class="mb-3">
+                        <label class="form-label">Tanım</label>
+                        <input type="text" class="form-control" asp-for="Definition" placeholder="Tanım" />
+                        <span asp-validation-for="Definition" class="text-danger"></span>
+                    </div>
+                    <!-- Örnek Cümle -->
+                    <div class="mb-3">
+                        <label class="form-label">Örnek Cümle</label>
+                        <textarea class="form-control" asp-for="ExampleSentence" rows="3" placeholder="Örnek cümle"></textarea>
+                        <span asp-validation-for="ExampleSentence" class="text-danger"></span>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a asp-action="Index" asp-route-lessonId="@ViewBag.LessonId" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

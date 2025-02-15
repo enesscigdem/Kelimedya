@@ -93,8 +93,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Areas\Admin\Views\Categories\Index.cshtml" />
       <AdditionalFiles Include="Areas\Admin\Views\Courses\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Widgets\Create.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Widgets\Edit.cshtml" />
       <AdditionalFiles Include="Areas\Student\Views\MyCourses\Index.cshtml" />
       <AdditionalFiles Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
       <AdditionalFiles Include="Areas\Teacher\Views\Students\Index.cshtml" />

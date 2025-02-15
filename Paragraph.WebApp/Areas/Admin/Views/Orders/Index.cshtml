@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.OrderViewModel>
+
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Siparişler";
 }
@@ -16,8 +18,7 @@
                 </div>
             </div>
             <div class="col-auto ms-auto d-print-none">
-                <!-- İsteğe bağlı ek buton -->
-                <a class="btn btn-primary" href="#">Yeni Sipariş</a>
+                <a class="btn btn-primary" asp-action="Create">Yeni Sipariş</a>
             </div>
         </div>
     </div>
@@ -101,23 +102,25 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <!-- Dinamik siparişler burada listelenecek -->
-                    <tr>
-                        <td>ORD-001</td>
-                        <td>Ahmet Yılmaz</td>
-                        <td>2025-01-01</td>
-                        <td>250.00 TL</td>
-                        <td class="text-end">
-                            <div class="btn-group" role="group">
-                                <!-- Düzenle Butonu -->
-                                <a asp-controller="Roles" asp-action="Edit"
-                                   class="btn btn-tabler d-flex align-items-center me-1" title="Detay">
-                                    Detay
-                                </a>
-                            </div>
-                        </td>
-
-                    </tr>
+                    @foreach(var order in Model)
+                    {
+                        <tr>
+                            <td>@order.OrderNumber</td>
+                            <td>@order.CustomerName</td>
+                            <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                            <td>@($"{order.TotalAmount} TL")</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@order.Id" class="btn btn-success me-1 d-flex align-items-center" title="Düzenle">
+                                        Düzenle
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@order.Id" class="btn btn-danger d-flex align-items-center delete-btn" title="Sil">
+                                        Sil
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>

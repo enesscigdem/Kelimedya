@@ -17,6 +17,7 @@ namespace Paragraph.Core.Entities
         public string Word { get; set; } = null!;            // Örn: "Adeta"
         public string Definition { get; set; } = null!;      // Kelimenin anlamı
         public string? ExampleSentence { get; set; }         // Örnek cümle
-        // public string? ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
+
     }
 }

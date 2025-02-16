@@ -18,7 +18,6 @@
     </div>
 </div>
 
-<!-- Kelime Kartları Tablosu -->
 <div class="page-body pt-2">
     <div class="container-xl">
         <div class="card">
@@ -32,6 +31,7 @@
                             <th>Kelime</th>
                             <th>Tanım</th>
                             <th>Örnek Cümle</th>
+                            <th>Resim</th>
                             <th class="w-1 text-end">İşlemler</th>
                         </tr>
                     </thead>
@@ -42,6 +42,12 @@
                             <td>@card.Word</td>
                             <td>@card.Definition</td>
                             <td>@card.ExampleSentence</td>
+                            <td>
+                              @if(!string.IsNullOrEmpty(card.ImageUrl))
+                              {
+                                <img src="@card.ImageUrl" alt="WordCard Image" style="max-height:50px;" />
+                              }
+                            </td>
                             <td class="text-end">
                                 <div class="btn-group" role="group">
                                     <a asp-action="Edit" asp-route-id="@card.Id" class="btn btn-success me-1 d-flex align-items-center" title="Düzenle">Düzenle</a>

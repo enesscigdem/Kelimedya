@@ -1,17 +1,28 @@
-﻿@{
-    ViewData["Title"] = "Misyonumuz";
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Paragraph.Services.Interfaces
+@inject IWidgetService WidgetService
+@{
+    Layout = "_Layout";
+    // Sayfa başlığı ve breadcrumb'ı widget'lerden çekiyoruz
+    var pageTitle = await WidgetService.GetWidgetContentAsync("Mission_PageTitle");
+    var breadcrumbHome = await WidgetService.GetWidgetContentAsync("Mission_Breadcrumb_Home");
+    var breadcrumbActive = await WidgetService.GetWidgetContentAsync("Mission_Breadcrumb_Active");
 }
-
 <main>
+    <!-- Sayfa Başlığı -->
     <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
         <div class="container">
             <div class="td_page_heading_in">
-                <h1 class="td_white_color td_fs_48 td_mb_10">Misyonumuz</h1>
+                <h1 class="td_white_color td_fs_48 td_mb_10">
+                    @Html.Raw(pageTitle)
+                </h1>
                 <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
                     <li class="breadcrumb-item">
-                        <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        <a asp-controller="Home" asp-action="Index">@Html.Raw(breadcrumbHome)</a>
                     </li>
-                    <li class="breadcrumb-item active">Misyonumuz</li>
+                    <li class="breadcrumb-item active">
+                        @Html.Raw(breadcrumbActive)
+                    </li>
                 </ol>
             </div>
         </div>
@@ -19,13 +30,13 @@
         <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
         <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
         <div class="td_page_heading_shape_3 position-absolute">
-            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="Vizyon Şekli">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="Shape 3">
         </div>
         <div class="td_page_heading_shape_4 position-absolute">
-            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="Vizyon Şekli">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="Shape 4">
         </div>
         <div class="td_page_heading_shape_5 position-absolute">
-            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="Vizyon Şekli">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="Shape 5">
         </div>
         <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
     </section>
@@ -35,91 +46,88 @@
         <div class="container">
             <div class="mission-content">
                 <div class="mission-text">
-                    <h2>Misyonumuz</h2>
-                    <p>
-                        Misyonumuz, müşterilerimize en yüksek kalitede ürün ve hizmet sunarak onların beklentilerini aşmaktır. Yenilikçi çözümler geliştirerek, sektörümüzde sürdürülebilir büyümeyi hedeflemekteyiz.
-                    </p>
-                    <p>
-                        Eğitim teknolojilerinde öncü olmak, kullanıcı dostu çözümler sunmak ve müşteri memnuniyetini her zaman en üst seviyede tutmak misyonumuzun temel taşlarını oluşturur.
-                    </p>
+                    <h2>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_SectionHeading"))</h2>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Paragraph1"))</p>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Paragraph2"))</p>
                     <!-- Misyon Maddeleri -->
                     <ul class="mission-list">
-                        <li>Yüksek Kaliteli Ürün ve Hizmetler Sunmak</li>
-                        <li>Müşteri Memnuniyetini Ön Planda Tutmak</li>
-                        <li>Sürdürülebilir Büyümeyi Sağlamak</li>
-                        <li>Teknolojik Yenilikleri Takip Etmek</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem1"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem2"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem3"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem4"))</li>
                     </ul>
                 </div>
                 <div class="mission-graphics">
-                    <!-- CSS ile oluşturulan grafikler -->
+                    <!-- Skill Barlar -->
                     <div class="skill-bars">
                         <div class="skill-bar-container">
-                            <span>Topluluk Oluşturma</span>
-                            <div class="skill-bar" data-skill="90%"></div>
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill1_Label"))</span>
+                            <div class="skill-bar" data-skill="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill1_Percentage"))"></div>
                         </div>
                         <div class="skill-bar-container">
-                            <span>Yenilikçilik</span>
-                            <div class="skill-bar" data-skill="85%"></div>
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill2_Label"))</span>
+                            <div class="skill-bar" data-skill="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill2_Percentage"))"></div>
                         </div>
                         <div class="skill-bar-container">
-                            <span>Büyüme ve Genişleme</span>
-                            <div class="skill-bar" data-skill="80%"></div>
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill3_Label"))</span>
+                            <div class="skill-bar" data-skill="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill3_Percentage"))"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Ana Hedefler -->
             <div class="future-goals">
-                <h3>Ana Hedeflerimiz</h3>
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_FutureGoalsHeading"))</h3>
                 <div class="goals-cards">
                     <div class="goal-card">
-                        <div class="icon">👥</div>
-                        <h4>Topluluk Oluşturma</h4>
-                        <p>Eğitimde toplulukları güçlendirerek, bilgi paylaşımını teşvik etmek.</p>
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal1_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal1_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal1_Text"))</p>
                     </div>
                     <div class="goal-card">
-                        <div class="icon">💡</div>
-                        <h4>Yenilikçilik</h4>
-                        <p>Sürekli yeniliklerle eğitim teknolojilerinde liderlik yapmak.</p>
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal2_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal2_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal2_Text"))</p>
                     </div>
                     <div class="goal-card">
-                        <div class="icon">📈</div>
-                        <h4>Büyüme ve Genişleme</h4>
-                        <p>Uluslararası pazarlarda etkin varlık göstererek büyümeyi sürdürmek.</p>
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal3_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal3_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal3_Text"))</p>
                     </div>
                 </div>
             </div>
 
             <!-- İstatistikler -->
             <div class="statistics">
-                <h3>Başarılarımız</h3>
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_StatisticsHeading"))</h3>
                 <div class="stats-cards">
                     <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <h4 class="stat-number" data-target="10000">0</h4>
-                        <p>Kullanıcı</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat1_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat1_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat1_Text"))</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🏆</div>
-                        <h4 class="stat-number" data-target="50">0</h4>
-                        <p>Ödül</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat2_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat2_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat2_Text"))</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🌐</div>
-                        <h4 class="stat-number" data-target="100">0</h4>
-                        <p>Ülke</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat3_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat3_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat3_Text"))</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🤝</div>
-                        <h4 class="stat-number" data-target="500">0</h4>
-                        <p>İş Ortaklığı</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat4_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat4_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat4_Text"))</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
+
 
     <style>
         /* Misyon Bölümü */

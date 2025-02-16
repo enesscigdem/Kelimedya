@@ -16,6 +16,9 @@ namespace Paragraph.WebApp.Areas.Admin.Models
         [Range(1, 100, ErrorMessage = "Ders sırası 1 ile 100 arasında olmalıdır.")]
         public int SequenceNo { get; set; }
         
+        // Ders resmi (varsa)
+        public string? ImageUrl { get; set; }
+        
         // Alt kelime kartları
         public List<WordCardViewModel> WordCards { get; set; } = new();
     }

@@ -1,17 +1,24 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Paragraph.Services.Interfaces
+@inject IWidgetService WidgetService
+@{
     ViewData["Title"] = "Biz Kimiz";
+    Layout = "_Layout";
 }
-
 <main>
     <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
         <div class="container">
             <div class="td_page_heading_in">
-                <h1 class="td_white_color td_fs_48 td_mb_10">Biz Kimiz</h1>
+                <h1 class="td_white_color td_fs_48 td_mb_10">
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_PageTitle"))
+                </h1>
                 <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
                     <li class="breadcrumb-item">
                         <a asp-controller="Home" asp-action="Index">Anasayfa</a>
                     </li>
-                    <li class="breadcrumb-item active">Biz Kimiz</li>
+                    <li class="breadcrumb-item active">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Breadcrumb"))
+                    </li>
                 </ol>
             </div>
         </div>
@@ -35,47 +42,66 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Biz Kimiz</h2>
+                    <h2>
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_SectionHeading"))
+                    </h2>
                     <p>
-                        Paragraph, yenilikçi çözümler sunarak müşterilerinin ihtiyaçlarını karşılamayı hedefleyen lider bir şirkettir. 2025 yılından bu yana, kaliteli ürünlerimiz ve müşteri odaklı hizmet anlayışımızla sektörde öncü bir konumda yer almaktayız.
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Paragraph1"))
                     </p>
                     <p>
-                        Eğitim teknolojileri alanında faaliyet gösteren Paragraph, sürekli gelişim ve inovasyon anlayışıyla hareket ederek, öğrencilere ve eğitimcilerine en iyi çözümleri sunmayı amaçlamaktadır.
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Paragraph2"))
                     </p>
-                    <h3>Tarihçemiz</h3>
+                    <h3>
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_HistoryHeading"))
+                    </h3>
                     <p>
-                        2020 yılında kurulan Paragraph, ilk adımlarını küçük bir ekip ile atmış, kısa sürede büyük başarılar elde etmiştir. Teknolojiye olan inancımız ve müşteri memnuniyetine verdiğimiz önem sayesinde, hızla büyüyerek bugünlere gelmiş bulunmaktayız.
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_HistoryText"))
                     </p>
                 </div>
                 <div class="about-graphics">
-                    <!-- CSS ile oluşturulan grafikler -->
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-icon">🏁</div>
                             <div class="timeline-content">
-                                <h4>2020</h4>
-                                <p>Paragraph Kuruldu</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline1_Year"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline1_Text"))
+                                </p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-icon">🚀</div>
                             <div class="timeline-content">
-                                <h4>2021</h4>
-                                <p>İlk Ürün Lansmanı</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline2_Year"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline2_Text"))
+                                </p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-icon">🏆</div>
                             <div class="timeline-content">
-                                <h4>2023</h4>
-                                <p>En İyi Eğitim Teknolojisi Ödülü</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline3_Year"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline3_Text"))
+                                </p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-icon">🌐</div>
                             <div class="timeline-content">
-                                <h4>2025</h4>
-                                <p>Global Pazara Giriş</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline4_Year"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Timeline4_Text"))
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -84,14 +110,22 @@
 
             <!-- Ekip Üyeleri -->
             <div class="team-section">
-                <h3>Ekibimiz</h3>
+                <h3>
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_TeamSectionHeading"))
+                </h3>
                 <div class="team-cards">
                     <div class="team-card">
                         <div class="team-member">
                             <div class="team-info">
-                                <h4>Ahmet Yılmaz</h4>
-                                <p>CEO</p>
-                                <p>Ahmet Yılmaz, şirketimizin vizyonunu belirleyen ve stratejik kararlar alan liderimizdir.</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_AhmetName"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_AhmetPosition"))
+                                </p>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_AhmetDescription"))
+                                </p>
                                 <div class="team-social">
                                     <a href="#"><i class="fab fa-linkedin"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -102,9 +136,15 @@
                     <div class="team-card">
                         <div class="team-member">
                             <div class="team-info">
-                                <h4>Elif Demir</h4>
-                                <p>CTO</p>
-                                <p>Elif Demir, teknolojik altyapımızı güçlendiren ve yenilikçi projeler geliştiren uzmanımızdır.</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_ElifName"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_ElifPosition"))
+                                </p>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_ElifDescription"))
+                                </p>
                                 <div class="team-social">
                                     <a href="#"><i class="fab fa-linkedin"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -115,9 +155,15 @@
                     <div class="team-card">
                         <div class="team-member">
                             <div class="team-info">
-                                <h4>Mehmet Can</h4>
-                                <p>CFO</p>
-                                <p>Mehmet Can, finansal stratejilerimizi yöneten ve şirketimizin mali sağlığını koruyan liderimizdir.</p>
+                                <h4>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_MehmetName"))
+                                </h4>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_MehmetPosition"))
+                                </p>
+                                <p>
+                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Team_MehmetDescription"))
+                                </p>
                                 <div class="team-social">
                                     <a href="#"><i class="fab fa-linkedin"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -125,35 +171,46 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Diğer ekip üyeleri ekleyebilirsiniz -->
+                    <!-- Diğer ekip üyeleri eklenebilir -->
                 </div>
             </div>
 
             <!-- Şirket Başarıları ve Sertifikalar -->
             <div class="achievements-section">
-                <h3>Başarılarımız ve Sertifikalarımız</h3>
+                <h3>
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_AchievementsHeading"))
+                </h3>
                 <div class="achievements-cards">
                     <div class="achievement-card">
                         <div class="achievement-icon">🏆</div>
-                        <p>En İyi Eğitim Teknolojisi Ödülü</p>
+                        <p>
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Achievement1"))
+                        </p>
                     </div>
                     <div class="achievement-card">
                         <div class="achievement-icon">🌟</div>
-                        <p>Müşteri Memnuniyeti Lideri</p>
+                        <p>
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Achievement2"))
+                        </p>
                     </div>
                     <div class="achievement-card">
                         <div class="achievement-icon">🔬</div>
-                        <p>Yenilikçilikde Öncü</p>
+                        <p>
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Achievement3"))
+                        </p>
                     </div>
                     <div class="achievement-card">
                         <div class="achievement-icon">🌱</div>
-                        <p>Sürdürülebilirlik Sertifikası</p>
+                        <p>
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_Achievement4"))
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
+
 
     <style>
         .about-section {

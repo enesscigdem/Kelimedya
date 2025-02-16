@@ -15,7 +15,6 @@ namespace Paragraph.Core.Entities
         public string Subject { get; set; } = null!;
         public string Body { get; set; } = null!;
         public string FromEmail { get; set; } = null!;
-        public string? ToEmail { get; set; }
         public bool IsRead { get; set; }
     }
 }

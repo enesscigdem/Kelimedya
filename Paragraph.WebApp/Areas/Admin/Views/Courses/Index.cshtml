@@ -5,90 +5,229 @@
     ViewData["Title"] = "Eğitim Yönetimi";
 }
 
-<!-- Özel CSS (isteğe bağlı) -->
+<!-- Ultra Modern Minimalist Header & Page Body -->
 <style>
-  /* Genel kart stilleri */
-  .course-panel, .lesson-panel {
-    border: 1px solid #e3e6f0;
-    border-radius: 0.35rem;
-    box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,.15);
+  /* Global Tipografi & Renk Ayarları */
+  :root {
+    --primary-color: #38506d;
+    --primary-dark: #2980b9;
+    --secondary-color: #2ecc71;
+    --text-dark: #2c3e50;
+    --text-muted: #7f8c8d;
+    --bg-color: #f4f7fa;
+    --card-bg: #fff;
+    --border-radius: 0.5rem;
+    --transition-speed: 0.3s;
   }
-  .course-panel .card-header, .lesson-panel .card-header {
-    background-color: #f8f9fc;
-    border-bottom: 1px solid #e3e6f0;
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
   }
-  .wordcard-table th, .wordcard-table td {
-    vertical-align: middle;
+
+  @@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  /* Arama ve sıralama alanı */
+  @@keyframes slideIn {
+    from { width: 0; }
+    to { width: 80px; }
+  }
+  
+  /* Genel Kart Stilleri */
+  .card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    margin-bottom: 2rem;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+  }
+  .card-header {
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-bottom: 1px solid #dcdcdc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-body {
+    padding: 1rem 1.25rem;
+  }
+  
+  /* Resim Thumbnail */
+  .thumb {
+    max-height: 50px;
+    margin-left: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    transition: transform var(--transition-speed) ease;
+  }
+  .thumb:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Buton Stilleri */
+  .btn {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  }
+  .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+  .btn-outline-secondary {
+    border: 1px solid #95a5a6;
+    color: #95a5a6;
+  }
+  .btn-outline-secondary:hover {
+    background-color: #95a5a6;
+    color: #fff;
+  }
+  
+  /* Arama Kutusu & Dropdown */
+  .input-icon {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
   #globalSearch {
-    min-width: 250px;
+    width: 100%;
+    padding: 0.5rem 1.5rem 0.5rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    font-size: 1rem;
   }
-  /* Responsive düzen */
+  .input-icon-addon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+  .dropdown-menu {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+  .dropdown-item {
+    transition: background-color var(--transition-speed) ease;
+  }
+  .dropdown-item:hover {
+    background-color: #ecf0f1;
+  }
+  #clearGlobalFilters {
+    border-radius: 2rem;
+  }
+  
+  /* Tablo Stilleri */
+  .table {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: var(--card-bg);
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .table th, .table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border: none;
+  }
+  .table thead th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+  }
+  .table-bordered td, .table-bordered th {
+    border: 1px solid #dcdcdc;
+  }
+  
+  /* Responsive Ayarlar */
   @@media (max-width: 576px) {
-    .page-header .d-flex {
-      flex-direction: column;
-      gap: 1rem;
+    .page-header .container-xl {
+      text-align: center;
+    }
+    .thumb {
+      margin-left: 0;
+      margin-top: 0.5rem;
     }
   }
 </style>
 
-<!-- Üst İşlem Alanı -->
 <div class="page-header d-print-none">
   <div class="container-xl">
-    <div class="row align-items-center gy-3">
+    <div class="row align-items-center">
       <div class="col">
-        <h2 class="page-title">
-          <i class="fa fa-graduation-cap me-2"></i> Eğitim Yönetimi
-        </h2>
-        <div class="text-muted">Kurs, ders ve kelime kartlarını hızlıca arayın, sıralayın ve yönetin.</div>
-      </div>
-      <div class="col-auto">
-        <div class="d-flex flex-wrap align-items-center gap-2">
-          <!-- Global Arama -->
-          <div class="input-icon">
-            <input type="text" id="globalSearch" class="form-control" placeholder="Kurs, ders veya kelime ara..." />
-            <span class="input-icon-addon"><i class="fa fa-search"></i></span>
-          </div>
-          <!-- Sıralama Dropdown -->
-          <div class="dropdown">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="globalSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              Sırala
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="globalSortDropdown">
-              <li><a class="dropdown-item sort-option" data-sort="course-asc" href="#">Kurs Başlığı Artan</a></li>
-              <li><a class="dropdown-item sort-option" data-sort="course-desc" href="#">Kurs Başlığı Azalan</a></li>
-              <li><a class="dropdown-item sort-option" data-sort="lesson-asc" href="#">Ders Başlığı Artan</a></li>
-              <li><a class="dropdown-item sort-option" data-sort="lesson-desc" href="#">Ders Başlığı Azalan</a></li>
-            </ul>
-          </div>
-          <!-- Filtreleri Temizle Butonu -->
-          <button id="clearGlobalFilters" class="btn btn-outline-secondary">Filtreleri Temizle</button>
-          <!-- Yeni Eğitim Ekle Butonu -->
-          <a class="btn btn-primary" href="@Url.Action("Create", "Courses", new { area = "Admin" })">
-            <i class="fa fa-plus me-1"></i> Yeni Eğitim Ekle
-          </a>
+        <h2 class="page-title">Ders Listesi</h2>
+        <div class="text-muted mt-1">
+          Seçili eğitime ait dersleri görüntüleyin ve yönetin.
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Yönetim İçeriği -->
+<!-- Page Body -->
 <div class="page-body">
   <div class="container-xl">
+    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+      <div class="input-icon">
+        <input type="text" id="globalSearch" placeholder="Kurs, ders veya kelime ara..." />
+        <span class="input-icon-addon"><i class="fa fa-search"></i></span>
+      </div>
+      <div class="d-flex gap-3">
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="globalSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Sırala
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="globalSortDropdown">
+            <li><a class="dropdown-item sort-option" data-sort="course-asc" href="#">Kurs Başlığı Artan</a></li>
+            <li><a class="dropdown-item sort-option" data-sort="course-desc" href="#">Kurs Başlığı Azalan</a></li>
+            <li><a class="dropdown-item sort-option" data-sort="lesson-asc" href="#">Ders Başlığı Artan</a></li>
+            <li><a class="dropdown-item sort-option" data-sort="lesson-desc" href="#">Ders Başlığı Azalan</a></li>
+          </ul>
+        </div>
+        <button id="clearGlobalFilters" class="btn btn-outline-secondary">Filtreleri Temizle</button>
+        <a class="btn btn-primary" href="@Url.Action("Create", "Courses", new { area = "Admin" })">
+          <i class="fa fa-plus me-1"></i> Yeni Eğitim Ekle
+        </a>
+      </div>
+    </div>
+
     @foreach(var course in Model)
     {
-      <div class="card mb-4 course-panel" data-course-title="@course.Title.ToLower()">
+      <div class="card course-panel" data-course-title="@course.Title.ToLower()">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h4 class="card-title mb-0">
-            @course.Title <small class="text-muted">(@course.LessonCount ders, @course.WordCount kelime)</small>
-          </h4>
+          <div class="d-flex align-items-center">
+            <h4 class="mb-0">
+              @course.Title <small class="text-muted">(@course.LessonCount ders, @course.WordCount kelime)</small>
+            </h4>
+            @if(!string.IsNullOrEmpty(course.ImageUrl))
+            {
+              <img src="@course.ImageUrl" alt="Kurs Resmi" class="thumb" />
+            }
+          </div>
           <div>
-            <a href="@Url.Action("Edit", "Courses", new { area = "Admin", id = course.Id })" class="btn btn-sm btn-primary me-2" data-bs-toggle="tooltip" title="Eğitimi Düzenle">
-                <i class="fa fa-edit"></i>
+            <a href="@Url.Action("Edit", "Courses", new { area = "Admin", id = course.Id })" class="btn btn-primary btn-sm me-2" data-bs-toggle="tooltip" title="Eğitimi Düzenle">
+              <i class="fa fa-edit"></i>
             </a>
-            <a href="@Url.Action("Delete", "Courses", new { area = "Admin", id = course.Id })" class="btn btn-sm btn-danger delete-btn" data-bs-toggle="tooltip" title="Eğitimi Sil">
+            <a href="@Url.Action("Delete", "Courses", new { area = "Admin", id = course.Id })" class="btn btn-danger btn-sm delete-btn" data-bs-toggle="tooltip" title="Eğitimi Sil">
               <i class="fa fa-trash"></i>
             </a>
           </div>
@@ -96,7 +235,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="mb-0">Dersler</h5>
-            <a href="@Url.Action("Create", "Lessons", new { area = "Admin", courseId = course.Id })" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="Yeni Ders Ekle">
+            <a href="@Url.Action("Create", "Lessons", new { area = "Admin", courseId = course.Id })" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" title="Yeni Ders Ekle">
               <i class="fa fa-plus me-1"></i> Ders Ekle
             </a>
           </div>
@@ -105,16 +244,20 @@
             {
               @foreach(var lesson in course.Lessons)
               {
-                <div class="card mb-3 lesson-panel" data-lesson-title="@lesson.Title.ToLower()">
+                <div class="card lesson-panel mb-3" data-lesson-title="@lesson.Title.ToLower()">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="card-title mb-0">
-                      @lesson.Title <small class="text-muted">(Sıra: @lesson.SequenceNo)</small>
-                    </h5>
+                    <div class="d-flex align-items-center">
+                      <h5 class="mb-0">@lesson.Title <small class="text-muted">(Sıra: @lesson.SequenceNo)</small></h5>
+                      @if(!string.IsNullOrEmpty(lesson.ImageUrl))
+                      {
+                        <img src="@lesson.ImageUrl" alt="Ders Resmi" class="thumb" />
+                      }
+                    </div>
                     <div>
-                      <a href="@Url.Action("Edit", "Lessons", new { area = "Admin", id = lesson.Id })" class="btn btn-sm btn-primary me-2" data-bs-toggle="tooltip" title="Dersi Düzenle">
+                      <a href="@Url.Action("Edit", "Lessons", new { area = "Admin", id = lesson.Id })" class="btn btn-primary btn-sm me-2" data-bs-toggle="tooltip" title="Dersi Düzenle">
                         <i class="fa fa-edit"></i>
                       </a>
-                      <a href="@Url.Action("Delete", "Lessons", new { area = "Admin", id = lesson.Id, courseId = course.Id })" class="btn btn-sm btn-danger delete-btn" data-bs-toggle="tooltip" title="Dersi Sil">
+                      <a href="@Url.Action("Delete", "Lessons", new { area = "Admin", id = lesson.Id, courseId = course.Id })" class="btn btn-danger btn-sm delete-btn" data-bs-toggle="tooltip" title="Dersi Sil">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
@@ -122,39 +265,46 @@
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                       <h6 class="mb-0">Kelime Kartları</h6>
-                      <a href="@Url.Action("Create", "WordCards", new { area = "Admin", lessonId = lesson.Id })" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="Yeni Kelime Kartı Ekle">
+                      <a href="@Url.Action("Create", "WordCards", new { area = "Admin", lessonId = lesson.Id })" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" title="Yeni Kelime Kartı Ekle">
                         <i class="fa fa-plus me-1"></i> Kart Ekle
                       </a>
                     </div>
                     <div class="table-responsive wordcardsContainer">
                       @if(lesson.WordCards != null && lesson.WordCards.Any())
                       {
-                        <table class="table table-sm table-bordered">
-                          <thead class="table-light">
-                          <tr>
-                            <th>Kelime</th>
-                            <th>Tanım</th>
-                            <th>Örnek Cümle</th>
-                            <th class="text-end">İşlemler</th>
-                          </tr>
+                        <table class="table table-bordered wordcard-table">
+                          <thead>
+                            <tr>
+                              <th>Kelime</th>
+                              <th>Tanım</th>
+                              <th>Örnek Cümle</th>
+                              <th>Resim</th>
+                              <th class="text-end">İşlemler</th>
+                            </tr>
                           </thead>
                           <tbody>
-                          @foreach(var card in lesson.WordCards)
-                          {
-                            <tr class="wordcard-row" data-word="@card.Word.ToLower()" data-definition="@card.Definition.ToLower()">
-                              <td>@card.Word</td>
-                              <td>@card.Definition</td>
-                              <td>@card.ExampleSentence</td>
-                              <td class="text-end">
-                                <a href="@Url.Action("Edit", "WordCards", new { area = "Admin", id = card.Id })" class="btn btn-sm btn-primary me-1" data-bs-toggle="tooltip" title="Kartı Düzenle">
-                                  <i class="fa fa-edit"></i>
-                                </a>
-                                <a href="@Url.Action("Delete", "WordCards", new { area = "Admin", id = card.Id, lessonId = lesson.Id })" class="btn btn-sm btn-danger delete-btn" data-bs-toggle="tooltip" title="Kartı Sil">
-                                  <i class="fa fa-trash"></i>
-                                </a>
-                              </td>
-                            </tr>
-                          }
+                            @foreach(var card in lesson.WordCards)
+                            {
+                              <tr class="wordcard-row" data-word="@card.Word.ToLower()" data-definition="@card.Definition.ToLower()">
+                                <td>@card.Word</td>
+                                <td>@card.Definition</td>
+                                <td>@card.ExampleSentence</td>
+                                <td>
+                                  @if(!string.IsNullOrEmpty(card.ImageUrl))
+                                  {
+                                    <img src="@card.ImageUrl" alt="Kelime Kartı Resmi" class="thumb" />
+                                  }
+                                </td>
+                                <td class="text-end">
+                                  <a href="@Url.Action("Edit", "WordCards", new { area = "Admin", id = card.Id })" class="btn btn-primary btn-sm me-1" data-bs-toggle="tooltip" title="Kartı Düzenle">
+                                    <i class="fa fa-edit"></i>
+                                  </a>
+                                  <a href="@Url.Action("Delete", "WordCards", new { area = "Admin", id = card.Id, lessonId = lesson.Id })" class="btn btn-danger btn-sm delete-btn" data-bs-toggle="tooltip" title="Kartı Sil">
+                                    <i class="fa fa-trash"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                            }
                           </tbody>
                         </table>
                       }
@@ -173,9 +323,8 @@
             }
           </div>
         </div>
-      
       </div>
-      }
+    }
   </div>
 </div>
 
@@ -183,7 +332,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function () {
-      // Global filtreleme: kurs, ders ve kelime kartı metinlerine göre filtreleme
+      // Global Filtreleme
       $("#globalSearch").on("input", function () {
         var searchTerm = $(this).val().toLowerCase();
         $(".course-panel").each(function () {
@@ -211,7 +360,7 @@
         });
       });
       
-      // Sıralama işlemi: kurs veya ders başlıklarına göre
+      // Sıralama İşlemi
       $(".sort-option").click(function (e) {
         e.preventDefault();
         var sortOrder = $(this).data("sort");
@@ -222,7 +371,6 @@
             var titleB = $(b).data("course-title");
             return sortOrder === "course-asc" ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
           });
-          // Tüm kursları yeniden render et
           $("#managementContainer").html(items);
         } else if (sortOrder.indexOf("lesson") > -1) {
           $(".course-panel").each(function () {
@@ -237,13 +385,13 @@
         }
       });
       
-      // Temizle butonu
+      // Filtreleri Temizle
       $("#clearGlobalFilters").click(function () {
         $("#globalSearch").val("");
         $(".course-panel").show();
       });
       
-      // Bootstrap tooltips başlatma
+      // Bootstrap Tooltip Başlatma
       var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.forEach(function(tooltipTriggerEl) {
         new bootstrap.Tooltip(tooltipTriggerEl);

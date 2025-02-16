@@ -1,7 +1,7 @@
 ﻿@model Paragraph.Core.Entities.Widget
 
 @{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
     ViewData["Title"] = "Widget Düzenle";
 }
 
@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Subject</label>
-                        <textarea id="tinymceSubjectEdit" class="form-control" asp-for="Subject"></textarea>
+                        <textarea class="form-control" asp-for="Subject" rows="5"></textarea>
                         <span asp-validation-for="Subject" class="text-danger"></span>
                     </div>
                     <div class="text-end">
@@ -45,26 +45,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts {
-    <!-- TinyMCE -->
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        tinyMCE.init({
-            selector: '#tinymceSubjectEdit',
-            height: 300,
-            menubar: false,
-            plugins: [
-              'advlist autolink lists link image charmap print preview anchor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-                     'bold italic backcolor | alignleft aligncenter ' +
-                     'alignright alignjustify | bullist numlist outdent indent | ' +
-                     'removeformat | help',
-            content_style: 'body { font-family:Inter, sans-serif; font-size:14px }'
-        });
-    });
-    </script>
-}

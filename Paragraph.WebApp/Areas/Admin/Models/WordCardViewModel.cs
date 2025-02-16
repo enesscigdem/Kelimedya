@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Paragraph.WebApp.Areas.Admin.Models
 {
@@ -16,5 +17,11 @@ namespace Paragraph.WebApp.Areas.Admin.Models
         public string Definition { get; set; }
         
         public string? ExampleSentence { get; set; }
+        
+        // Kelime kartı resmi (varsa)
+        public string? ImageUrl { get; set; }
+        
+        // Dosya yüklemek için (create/edit)
+        public IFormFile? ImageFile { get; set; }
     }
 }

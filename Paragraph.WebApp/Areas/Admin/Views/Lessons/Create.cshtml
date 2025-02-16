@@ -6,44 +6,47 @@
 }
 
 <div class="page-header d-print-none">
-  <div class="container-xl">
-    <h2 class="page-title">Yeni Ders Ekle</h2>
-    <div class="text-muted mt-1">
-      Ders bilgilerini giriniz.
+    <div class="container-xl">
+        <h2 class="page-title">Yeni Ders Ekle</h2>
+        <div class="text-muted mt-1">Ders bilgilerini giriniz.</div>
     </div>
-  </div>
 </div>
 
 <div class="page-body pt-2">
-  <div class="container-xl">
-    <div class="card">
-      <div class="card-body">
-        <form method="post" asp-area="Admin" asp-controller="Lessons" asp-action="Create">
-          <input type="hidden" name="CourseId" value="@ViewBag.CourseId" />
-          <div class="mb-3">
-            <label class="form-label">Ders Başlığı</label>
-            <input type="text" class="form-control" asp-for="Title" placeholder="Ders başlığı" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Açıklama</label>
-            <textarea class="form-control" asp-for="Description" rows="4" placeholder="Ders açıklaması"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Sıra No</label>
-            <input type="number" class="form-control" asp-for="SequenceNo" placeholder="Ders sırası" />
-            <span asp-validation-for="SequenceNo" class="text-danger"></span>
-          </div>
-          <div class="text-end">
-            <button type="submit" class="btn btn-primary">Kaydet</button>
-            <a asp-action="Index" asp-route-courseId="@ViewBag.CourseId" class="btn btn-link link-secondary">Vazgeç</a>
-          </div>
-        </form>
-      </div>
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="Lessons" asp-action="Create" enctype="multipart/form-data">
+                    <input type="hidden" name="CourseId" value="@ViewBag.CourseId" />
+                    <div class="mb-3">
+                        <label class="form-label">Ders Başlığı</label>
+                        <input type="text" class="form-control" asp-for="Title" placeholder="Ders başlığı" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea class="form-control" asp-for="Description" rows="4" placeholder="Ders açıklaması"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Sıra No</label>
+                        <input type="number" class="form-control" asp-for="SequenceNo" placeholder="Ders sırası" />
+                        <span asp-validation-for="SequenceNo" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Resim Yükle</label>
+                        <input type="file" class="form-control" asp-for="ImageFile" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a asp-action="Index" asp-route-courseId="@ViewBag.CourseId" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 @section Scripts {
-  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

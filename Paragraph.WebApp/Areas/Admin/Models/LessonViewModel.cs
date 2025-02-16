@@ -17,5 +17,8 @@ namespace Paragraph.WebApp.Areas.Admin.Models
         [Required(ErrorMessage = "Ders sırası gereklidir.")]
         [Range(1, 100, ErrorMessage = "Ders sırası 1 ile 100 arasında olmalıdır.")]
         public int SequenceNo { get; set; }
+        
+        public IFormFile? ImageFile { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

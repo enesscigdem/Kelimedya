@@ -18,5 +18,6 @@ namespace Paragraph.Core.Entities
         
         // Ders sırası
         public int SequenceNo { get; set; }         // Örneğin 1,2,3... 40
+        public string? ImageUrl { get; set; }
     }
 }

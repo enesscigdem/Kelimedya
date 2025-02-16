@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Paragraph.WebApp.Models.ContactFamiliesModel
+
+@{
     Layout = "_Layout";
 }
 
@@ -15,21 +17,8 @@
                 </ol>
             </div>
         </div>
-        <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
-        <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
-        <div class="td_page_heading_shape_3 position-absolute">
-            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="">
-        </div>
-        <div class="td_page_heading_shape_4 position-absolute">
-            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="">
-        </div>
-        <div class="td_page_heading_shape_5 position-absolute">
-            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="">
-        </div>
-        <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
     </section>
 
-    <!-- İçerik Bölümü -->
     <section>
         <div class="td_height_120 td_height_lg_80"></div>
         <div class="container">
@@ -42,22 +31,35 @@
                                 @TempData["Success"]
                             </div>
                         }
-
-                        <form asp-action="ContactFamilies" method="post">
+                        @using (Html.BeginForm("ContactFamilies", "Home", FormMethod.Post, new { @class = "contact-form", id = "contactFamiliesForm" }))
+                        {
                             @Html.AntiForgeryToken()
-                            <input type="text" class="td_form_field_2 td_mb_16" placeholder="İsminiz">
-                            <input type="text" class="td_form_field_2 td_mb_16" placeholder="E-Posta Adresiniz">
-                            <textarea rows="5" class="td_form_field_2 td_mb_16" placeholder="Mesajınız" required></textarea>
 
+                            <div class="mb-3">
+                                <input type="text" name="Name" class="td_form_field_2 td_mb_16" placeholder="İsminiz" value="@Model?.Name" required />
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="mb-3">
+                                <!-- name="FromEmail" ile model binding sağlanacak -->
+                                <input type="email" name="FromEmail" class="td_form_field_2 td_mb_16" placeholder="E-Posta Adresiniz" value="@Model?.FromEmail" required />
+                                @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="mb-3">
+                                <textarea name="Body" rows="5" class="td_form_field_2 td_mb_16" placeholder="Mesajınız" required>@Model?.Body</textarea>
+                                @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
+                            </div>
+                            
+                            <!-- Gizli alanlar: Subject ve Body (form submit öncesinde doldurulacak) -->
+                            @Html.HiddenFor(m => m.Subject)
+                            
                             <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
                                 <span class="td_btn_in td_white_color td_accent_bg">
                                     <span>Gönder</span>
                                 </span>
                             </button>
-                        </form>
+                        }
                     </div>
                 </div>
-
                 <div class="col-lg-3 ms-5">
                     <div class="td_contact_info">
                         <div class="td_section_heading td_style_2 td_mb_20">
@@ -83,4 +85,13 @@
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script>
+        $(document).ready(function () {
+            // Form submit öncesinde gizli alanları dolduruyoruz.
+            $("#contactFamiliesForm").submit(function () {
+                $("input[name='Subject']").val("Aileler İçin İletişim Mesajı");
+            });
+        });
+    </script>
 }

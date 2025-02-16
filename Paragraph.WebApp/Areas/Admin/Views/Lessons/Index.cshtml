@@ -18,7 +18,6 @@
   </div>
 </div>
 
-<!-- Ders Tablosu -->
 <div class="page-body pt-2">
   <div class="container-xl">
     <div class="card">
@@ -32,6 +31,7 @@
               <th>Ders Başlığı</th>
               <th>Açıklama</th>
               <th>Sıra No</th>
+              <th>Resim</th>
               <th class="w-1 text-end">İşlemler</th>
             </tr>
           </thead>
@@ -42,6 +42,12 @@
                 <td>@lesson.Title</td>
                 <td>@lesson.Description</td>
                 <td>@lesson.SequenceNo</td>
+                <td>
+                  @if(!string.IsNullOrEmpty(lesson.ImageUrl))
+                  {
+                    <img src="@lesson.ImageUrl" alt="Lesson Image" style="max-height:50px;" />
+                  }
+                </td>
                 <td class="text-end">
                   <div class="btn-group" role="group">
                     <a asp-action="Edit" asp-route-id="@lesson.Id" class="btn btn-success me-1" title="Düzenle">Düzenle</a>

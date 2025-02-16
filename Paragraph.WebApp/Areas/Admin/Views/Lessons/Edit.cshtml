@@ -6,45 +6,55 @@
 }
 
 <div class="page-header d-print-none">
-  <div class="container-xl">
-    <h2 class="page-title">Ders Düzenle</h2>
-    <div class="text-muted mt-1">
-      Ders bilgilerini güncelleyin.
+    <div class="container-xl">
+        <h2 class="page-title">Ders Düzenle</h2>
+        <div class="text-muted mt-1">Ders bilgilerini güncelleyin.</div>
     </div>
-  </div>
 </div>
 
 <div class="page-body pt-2">
-  <div class="container-xl">
-    <div class="card">
-      <div class="card-body">
-        <form method="post" asp-action="Edit">
-          <input type="hidden" asp-for="Id" />
-          <input type="hidden" asp-for="CourseId" />
-          <div class="mb-3">
-            <label class="form-label">Ders Başlığı</label>
-            <input type="text" class="form-control" asp-for="Title" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Açıklama</label>
-            <textarea class="form-control" asp-for="Description" rows="4"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Sıra No</label>
-            <input type="number" class="form-control" asp-for="SequenceNo" />
-            <span asp-validation-for="SequenceNo" class="text-danger"></span>
-          </div>
-          <div class="text-end">
-            <button type="submit" class="btn btn-primary">Güncelle</button>
-            <a asp-action="Index" asp-route-courseId="@Model.CourseId" class="btn btn-link link-secondary">Vazgeç</a>
-          </div>
-        </form>
-      </div>
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-action="Edit" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="CourseId" />
+                    <div class="mb-3">
+                        <label class="form-label">Ders Başlığı</label>
+                        <input type="text" class="form-control" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea class="form-control" asp-for="Description" rows="4"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Sıra No</label>
+                        <input type="number" class="form-control" asp-for="SequenceNo" />
+                        <span asp-validation-for="SequenceNo" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mevcut Resim</label>
+                        @if(!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="@Model.ImageUrl" alt="Ders Resmi" style="max-height:50px;" />
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Yeni Resim Yükle (Değiştirmek için)</label>
+                        <input type="file" class="form-control" asp-for="ImageFile" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                        <a asp-action="Index" asp-route-courseId="@Model.CourseId" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 @section Scripts {
-  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

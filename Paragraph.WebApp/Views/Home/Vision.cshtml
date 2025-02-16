@@ -1,18 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Vizyonumuz";
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Paragraph.Services.Interfaces
+@inject IWidgetService WidgetService
+@{
+    ViewData["Title"] = await WidgetService.GetWidgetContentAsync("Vision_PageTitle");
 }
-
 <main>
-    <!-- Başlık Bölümü -->
+    <!-- Sayfa Başlığı -->
     <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
         <div class="container">
             <div class="td_page_heading_in">
-                <h1 class="td_white_color td_fs_48 td_mb_10">Vizyonumuz</h1>
+                <h1 class="td_white_color td_fs_48 td_mb_10">
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_PageTitle"))
+                </h1>
                 <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
                     <li class="breadcrumb-item">
-                        <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        <a asp-controller="Home" asp-action="Index">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Breadcrumb_Home"))
+                        </a>
                     </li>
-                    <li class="breadcrumb-item active">Vizyonumuz</li>
+                    <li class="breadcrumb-item active">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Breadcrumb_Active"))
+                    </li>
                 </ol>
             </div>
         </div>
@@ -36,35 +44,31 @@
         <div class="container">
             <div class="vision-content">
                 <div class="vision-text">
-                    <h2>Vizyonumuz</h2>
-                    <p>
-                        Vizyonumuz, global pazarda lider bir konuma ulaşarak, yenilikçi ve sürdürülebilir çözümlerle müşteri memnuniyetini en üst düzeye çıkarmaktır. Teknolojiyi etkin kullanarak, sektördeki değişimlere hızla adapte olmayı hedeflemekteyiz.
-                    </p>
-                    <p>
-                        2030 yılına kadar, eğitim teknolojileri alanında öncü bir firma olarak, milyonlarca öğrencinin hayatını iyileştirmeyi ve onların potansiyelini maksimize etmeyi amaçlıyoruz.
-                    </p>
+                    <h2>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_SectionHeading"))</h2>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Paragraph1"))</p>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Paragraph2"))</p>
                     <!-- Vizyon Maddeleri -->
                     <ul class="vision-list">
-                        <li>Global Eğitim Standartlarını Yükseltmek</li>
-                        <li>Teknolojik Yeniliklerde Liderlik</li>
-                        <li>Sürdürülebilir ve Etik İş Uygulamaları</li>
-                        <li>Müşteri Odaklı Hizmet Anlayışı</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem1"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem2"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem3"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem4"))</li>
                     </ul>
                 </div>
                 <div class="vision-graphics">
-                    <!-- CSS ile oluşturulan grafikler -->
+                    <!-- Progres Barlar -->
                     <div class="progress-bars">
                         <div class="progress-bar-container">
-                            <span>Yenilikçilik</span>
-                            <div class="progress-bar" data-progress="90%"></div>
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill1_Label"))</span>
+                            <div class="progress-bar" data-progress="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill1_Percentage"))"></div>
                         </div>
                         <div class="progress-bar-container">
-                            <span>Sürdürülebilirlik</span>
-                            <div class="progress-bar" data-progress="80%"></div>
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill2_Label"))</span>
+                            <div class="progress-bar" data-progress="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill2_Percentage"))"></div>
                         </div>
                         <div class="progress-bar-container">
-                            <span>Müşteri Memnuniyeti</span>
-                            <div class="progress-bar" data-progress="95%"></div>
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill3_Label"))</span>
+                            <div class="progress-bar" data-progress="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill3_Percentage"))"></div>
                         </div>
                     </div>
                 </div>
@@ -72,55 +76,56 @@
             
             <!-- Geleceğe Yönelik Hedefler -->
             <div class="future-goals">
-                <h3>Geleceğe Yönelik Hedeflerimiz</h3>
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_FutureGoalsHeading"))</h3>
                 <div class="goals-cards">
                     <div class="goal-card">
-                        <div class="icon">📈</div>
-                        <h4>Pazar Liderliği</h4>
-                        <p>Eğitim teknolojileri pazarında lider konuma ulaşmak.</p>
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal1_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal1_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal1_Text"))</p>
                     </div>
                     <div class="goal-card">
-                        <div class="icon">💡</div>
-                        <h4>Yenilikçilik</h4>
-                        <p>Sürekli yeniliklerle eğitim teknolojilerinde liderlik yapmak.</p>
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal2_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal2_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal2_Text"))</p>
                     </div>
                     <div class="goal-card">
-                        <div class="icon">🌱</div>
-                        <h4>Sürdürülebilirlik</h4>
-                        <p>Çevre dostu ve sürdürülebilir iş uygulamalarını benimsemek.</p>
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal3_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal3_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal3_Text"))</p>
                     </div>
                 </div>
             </div>
-
+            
             <!-- İstatistikler -->
             <div class="statistics">
-                <h3>Başarılarımız</h3>
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_StatisticsHeading"))</h3>
                 <div class="stats-cards">
                     <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <h4 class="stat-number" data-target="10000">0</h4>
-                        <p>Kullanıcı</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat1_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat1_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat1_Text"))</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🏆</div>
-                        <h4 class="stat-number" data-target="50">0</h4>
-                        <p>Ödül</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat2_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat2_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat2_Text"))</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🌐</div>
-                        <h4 class="stat-number" data-target="100">0</h4>
-                        <p>Ülke</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat3_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat3_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat3_Text"))</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon">🤝</div>
-                        <h4 class="stat-number" data-target="500">0</h4>
-                        <p>İş Ortaklığı</p>
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat4_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat4_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat4_Text"))</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
+
 
     <style>
         .heading-content h1 {

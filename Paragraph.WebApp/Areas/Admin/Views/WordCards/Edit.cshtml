@@ -8,9 +8,7 @@
 <div class="page-header d-print-none">
     <div class="container-xl">
         <h2 class="page-title">Kelime Kartı Düzenle</h2>
-        <div class="text-muted mt-1">
-            Kelime kartı bilgilerini güncelleyin.
-        </div>
+        <div class="text-muted mt-1">Kelime kartı bilgilerini güncelleyin.</div>
     </div>
 </div>
 
@@ -18,26 +16,35 @@
     <div class="container-xl">
         <div class="card">
             <div class="card-body">
-                <form method="post" asp-action="Edit">
+                <form method="post" asp-action="Edit" enctype="multipart/form-data">
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="LessonId" />
-                    <!-- Kelime -->
                     <div class="mb-3">
                         <label class="form-label">Kelime</label>
                         <input type="text" class="form-control" asp-for="Word" />
                         <span asp-validation-for="Word" class="text-danger"></span>
                     </div>
-                    <!-- Tanım -->
                     <div class="mb-3">
                         <label class="form-label">Tanım</label>
                         <input type="text" class="form-control" asp-for="Definition" />
                         <span asp-validation-for="Definition" class="text-danger"></span>
                     </div>
-                    <!-- Örnek Cümle -->
                     <div class="mb-3">
                         <label class="form-label">Örnek Cümle</label>
                         <textarea class="form-control" asp-for="ExampleSentence" rows="3"></textarea>
                         <span asp-validation-for="ExampleSentence" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mevcut Resim</label>
+                        @if(!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="@Model.ImageUrl" alt="Kelime Kartı Resmi" style="max-height:50px;" />
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Yeni Resim Yükle (Değiştirmek için)</label>
+                        <input type="file" class="form-control" asp-for="ImageFile" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
@@ -48,7 +55,6 @@
         </div>
     </div>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

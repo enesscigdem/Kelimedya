@@ -65,5 +65,11 @@ namespace Paragraph.WebAPI.Controllers
                 Role = role
             });
         }
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _authService.GetAllUsersAsync();
+            return Ok(users);
+        }
     }
 }

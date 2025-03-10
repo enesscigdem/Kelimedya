@@ -16,5 +16,7 @@ namespace Paragraph.WebApp.Areas.Admin.Models
 
         [Range(1, int.MaxValue, ErrorMessage = "Kelime sayısı en az 1 olmalıdır.")]
         public int WordCount { get; set; } = 400;
+
+        public bool IsActive { get; set; } = true;
     }
 }

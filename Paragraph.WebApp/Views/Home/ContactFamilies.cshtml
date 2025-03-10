@@ -5,7 +5,8 @@
 }
 
 <main>
-    <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
+    <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble"
+        data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
         <div class="container">
             <div class="td_page_heading_in">
                 <h1 class="td_white_color td_fs_48 td_mb_10">Aileler İçin İletişim</h1>
@@ -31,27 +32,35 @@
                                 @TempData["Success"]
                             </div>
                         }
-                        @using (Html.BeginForm("ContactFamilies", "Home", FormMethod.Post, new { @class = "contact-form", id = "contactFamiliesForm" }))
+                        @using (Html.BeginForm("ContactFamilies", "Home", FormMethod.Post, new
+                        {
+                            @class =
+                                                "contact-form",
+                            id = "contactFamiliesForm"
+                        }))
                         {
                             @Html.AntiForgeryToken()
 
                             <div class="mb-3">
-                                <input type="text" name="Name" class="td_form_field_2 td_mb_16" placeholder="İsminiz" value="@Model?.Name" required />
+                                <input type="text" name="Name" class="td_form_field_2 td_mb_16" placeholder="İsminiz"
+                                    value="@Model?.Name" required />
                                 @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3">
                                 <!-- name="FromEmail" ile model binding sağlanacak -->
-                                <input type="email" name="FromEmail" class="td_form_field_2 td_mb_16" placeholder="E-Posta Adresiniz" value="@Model?.FromEmail" required />
+                                <input type="email" name="FromEmail" class="td_form_field_2 td_mb_16"
+                                    placeholder="E-Posta Adresiniz" value="@Model?.FromEmail" required />
                                 @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3">
-                                <textarea name="Body" rows="5" class="td_form_field_2 td_mb_16" placeholder="Mesajınız" required>@Model?.Body</textarea>
+                                <textarea name="Body" rows="5" class="td_form_field_2 td_mb_16" placeholder="Mesajınız"
+                                    required>@Model?.Body</textarea>
                                 @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
                             </div>
-                            
+
                             <!-- Gizli alanlar: Subject ve Body (form submit öncesinde doldurulacak) -->
                             @Html.HiddenFor(m => m.Subject)
-                            
+
                             <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
                                 <span class="td_btn_in td_white_color td_accent_bg">
                                     <span>Gönder</span>
@@ -84,7 +93,9 @@
 </main>
 
 @section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
     <script>
         $(document).ready(function () {

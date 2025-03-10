@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lsHDX7bqM2SueRw5maWq+ewLgTpGknwWbyVvMam3atmUMfgE4wBpEAiM+1nCxgoRAm2rDq1MmDaUaTVnf/ca3w==",
+  "dgSpecHash": "W50S29/GAb8=",
   "success": true,
   "projectFilePath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj",
   "expectedPackageFiles": [
@@ -21,7 +21,9 @@
     "/Users/enescigdem/.nuget/packages/microsoft.extensions.logging/8.0.0/microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "/Users/enescigdem/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    "/Users/enescigdem/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/Users/enescigdem/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "/Users/enescigdem/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }

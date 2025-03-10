@@ -1,0 +1,264 @@
+/* Genel Gövde & Kapsayıcı */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #2c3e50;
+    background: linear-gradient(120deg, #fefefe 0%, #ffe5e0 100%);
+    animation: bodyAnim 15s infinite alternate ease-in-out;
+}
+@keyframes bodyAnim {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+.words-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+/* Pulsing Daireler (arka plan dekoru) */
+.pulse-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: pulseAnim 5s infinite alternate ease-in-out;
+    filter: blur(30px);
+    z-index: -1;
+}
+@keyframes pulseAnim {
+    0% { transform: scale(0.8); }
+    100% { transform: scale(1.2); }
+}
+.pulse-circle:nth-child(1) {
+    width: 220px;
+    height: 220px;
+    top: -60px;
+    right: 10%;
+    background: rgba(240, 82, 50, 0.2);
+}
+.pulse-circle:nth-child(2) {
+    width: 180px;
+    height: 180px;
+    bottom: -50px;
+    left: 15%;
+    background: rgba(76, 175, 80, 0.2);
+    animation-delay: 2s;
+}
+
+/* Başlık & Alt Açıklama */
+.header-area {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.words-hero {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ff5b5b;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    margin-bottom: 0.5rem;
+}
+.words-sub {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* İstatistik Kartları */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.stat-card {
+    background: #f8f8f8;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+.stat-card .stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+}
+.stat-card .stat-value {
+    font-size: 2.2rem;
+    color: #f05232;
+}
+.stat-card .stat-value.green {
+    color: #4caf50;
+}
+.stat-card .stat-value.orange {
+    color: #ff9800;
+}
+
+/* Araçlar */
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+.tools input[type="text"] {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.tools input[type="text"]:focus {
+    border-color: #ff5b5b;
+    box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.15);
+    outline: none;
+}
+.ultra-btn {
+    background: linear-gradient(135deg, #ff5b5b, #f05232);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.ultra-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.ultra-btn.secondary {
+    background: linear-gradient(135deg, #64dd17, #4caf50) !important;
+}
+
+/* Kartlar Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+/* Word Card */
+.word-card {
+    perspective: 1000px;
+    position: relative;
+    height: 380px; /* Sabit yükseklik */
+    background: #fafafa; /* Hafif renk tonu */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.word-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.word-card:hover .word-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Image */
+.card-image {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.3);
+}
+.card-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Card Front & Back */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 140px);
+    top: 140px;
+    left: 0;
+    padding: 0.8rem;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.card-front {
+    background: linear-gradient(135deg, #ffe5e0, #ffd9bf);
+}
+.card-back {
+    background: #f0f0f0;
+    transform: rotateY(180deg);
+}
+
+/* Card Front İçeriği */
+.card-front .word-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.card-front .word-category {
+    font-size: 0.85rem;
+    color: #555;
+    background: rgba(255,255,255,0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+.card-front .progress-badge {
+    font-size: 0.85rem;
+    color: #f05232;
+    background: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+/* Card Back İçeriği */
+.card-back .meaning {
+    font-size: 1.4rem;
+    color: #4caf50;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+.card-back .example {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+.card-back .synonyms {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+    margin-bottom: 5rem;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+    .word-card { height: 280px; }
+    .cards-grid { gap: 1.5rem; }
+}
+.example {
+    min-height: 10rem !important;
+}

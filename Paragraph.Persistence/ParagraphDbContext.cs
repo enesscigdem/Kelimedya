@@ -32,7 +32,9 @@ public class ParagraphDbContext : IdentityDbContext<CustomUser, CustomRole, int>
     public virtual DbSet<Report> Reports { get; set; }
     public virtual DbSet<WordCard> WordCards { get; set; }
     public virtual DbSet<Widget> Widgets { get; set; }
-     
+    public virtual DbSet<StudentLessonProgress> StudentLessonProgresses { get; set; }
+    public virtual DbSet<StudentWordCardProgress> StudentWordCardProgresses { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
     }

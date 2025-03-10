@@ -4,7 +4,7 @@
 @model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.WidgetViewModel>
 
 @{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Widget Listesi";
 }
 <!-- Sayfa Başlığı -->
@@ -14,7 +14,9 @@
             <div class="col">
                 <h2 class="page-title">
                     <!-- Widget Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-widgets me-1" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-widgets me-1" width="28"
+                        height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="3" width="7" height="7" />
                         <rect x="14" y="3" width="7" height="7" />
                         <rect x="14" y="14" width="7" height="7" />
@@ -28,7 +30,9 @@
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <a asp-area="Admin" asp-controller="Widgets" asp-action="Create" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus me-1"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="9" />
                         <line x1="9" y1="12" x2="15" y2="12" />
                         <line x1="12" y1="9" x2="12" y2="15" />
@@ -78,7 +82,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var widget in Model)
+                        @foreach (var widget in Model)
                         {
                             <tr>
                                 <td class="widget-key">@widget.Key</td>
@@ -86,15 +90,21 @@
                                 <td>@widget.CreatedAt.ToString("dd/MM/yyyy")</td>
                                 <td class="text-end">
                                     <div class="btn-group" role="group">
-                                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Edit" asp-route-id="@widget.Id" class="btn btn-success me-1" title="Düzenle">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Edit"
+                                            asp-route-id="@widget.Id" class="btn btn-success me-1" title="Düzenle">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M8 18h4" />
                                                 <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z" />
                                             </svg>
                                             Düzenle
                                         </a>
-                                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Delete" asp-route-id="@widget.Id" class="btn btn-danger" title="Sil">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Delete"
+                                            asp-route-id="@widget.Id" class="btn btn-danger" title="Sil">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M4 7h16" />
                                                 <path d="M10 11v6" />
                                                 <path d="M14 11v6" />
@@ -139,7 +149,7 @@
                     var subjectA = $(a).find(".widget-subject").text().toUpperCase();
                     var subjectB = $(b).find(".widget-subject").text().toUpperCase();
 
-                    switch(option) {
+                    switch (option) {
                         case "keyAsc":
                             return (keyA < keyB) ? -1 : (keyA > keyB) ? 1 : 0;
                         case "keyDesc":

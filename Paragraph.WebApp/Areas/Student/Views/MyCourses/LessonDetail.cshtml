@@ -1,0 +1,333 @@
+@using System.Security.Claims
+@model Paragraph.WebApp.Areas.Student.Models.LessonDetailViewModel
+@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kelime Kartları - Modal Oyunlu Versiyon";
+    
+    var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var totalCards = Model.WordCards?.Count ?? 0;
+    var lessonId = Model.Lesson != null ? Model.Lesson.Id : 0;
+}
+<link href="~/css/lessonDetail.css" rel="stylesheet" />
+
+<div class="lesson-detail">
+    @if(Model.Lesson == null)
+    {
+        <div class="alert alert-danger">
+            Ders bilgisi bulunamadı.
+        </div>
+    }
+    else
+    {
+        <!-- Üst Dalga Alanı -->
+        <div class="top-wave">
+            <h1>Kelime Kartları</h1>
+        </div>
+
+        <div class="super-container">
+            <!-- İlerleme Çubuğu -->
+            <div class="progress-area">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Kart Sahnesi -->
+            <div class="kart-sahne" id="kartSahne">
+                @if(Model.WordCards != null && Model.WordCards.Any())
+                {
+                    @for (int i = 0; i < Model.WordCards.Count; i++)
+                    {
+                        var card = Model.WordCards[i].WordCard;
+                        var indexDisplay = $"{i + 1} / {totalCards}";
+                        <div class="kelime-card" id="card@(i)" data-wordcard-id="@card.Id">
+                            <div class="card-index">Kart @indexDisplay</div>
+                            @if(!string.IsNullOrEmpty(card.ImageUrl))
+                            {
+                                <img src="@card.ImageUrl" alt="@card.Word" style="width:130px;height:130px;border-radius:50%;margin-bottom:1rem;" />
+                            }
+                            else
+                            {
+                                <div class="card-emoji">
+                                    @card.Word.Substring(0,1)
+                                </div>
+                            }
+                            <div class="word-title">@card.Word</div>
+                            <div class="sentence">
+                                @(!string.IsNullOrEmpty(card.ExampleSentence) ? card.ExampleSentence : card.Definition)
+                            </div>
+                            <div class="info-area">
+                                Eş Anlam: <span class="bold">@card.Definition</span><br />
+                                Zıt Anlam: <span class="bold">Yok</span>
+                            </div>
+                            <div class="btn-row">
+                                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
+                                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="no-lessons">
+                        <h3>Bu derse ait kelime kartı bulunamadı.</h3>
+                    </div>
+                }
+            </div>
+            
+            <!-- Öğrenilen Kelimeler Bölümü -->
+            @if(Model.LearnedWords != null && Model.LearnedWords.Any())
+            {
+                <div class="learned-words">
+                    <h2>Öğrenilen Kelimeler</h2>
+                    <ul>
+                        @foreach(var item in Model.LearnedWords)
+                        {
+                            <li>
+                                <strong>@item.WordCard.Word</strong> - @item.WordCard.Definition
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+
+        <!-- Modal Overlay ve Popup -->
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div id="gameModal">
+            <div class="modal-title" id="modalTitle">Ara Oyun</div>
+            <p>“Doğru” veya “Yanlış” seçeneklerini deneyerek oyunu cevaplayın.</p>
+            <div class="modal-btns">
+                <button class="pastel-btn" id="btnGameCorrect">Doğru</button>
+                <button class="pastel-btn" id="btnGameWrong">Yanlış</button>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- JS: Kart Mantığı, Modal ve AJAX İlerlemesi -->
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+    <script>
+        const studentId = '@studentId';
+        const totalCards = @totalCards;
+        const lessonId = @Model.Lesson.Id;
+        let cardEls = [];
+        let currentIndex = 0;
+        let isFinalGame = false;
+        
+        document.addEventListener("DOMContentLoaded", function(){
+            initCards();
+            document.getElementById("btnGameCorrect").addEventListener("click", () => {
+                onGameAnswer(true, isFinalGame);
+            });
+            document.getElementById("btnGameWrong").addEventListener("click", () => {
+                onGameAnswer(false, isFinalGame);
+            });
+        });
+        
+        function initCards(){
+            for (let i = 0; i < totalCards; i++){
+                let cardEl = document.getElementById("card" + i);
+                if (cardEl) {
+                    cardEls.push(cardEl);
+                }
+            }
+            if (cardEls.length > 0) {
+                cardEls[0].classList.add("aktif");
+                updateProgress(0);
+                // Güncelleme: İlk kart için viewcount gibi istatistikler güncellensin.
+                updateWordCardProgress(0);
+                updateLessonProgress(0);
+            } else {
+                console.warn("Hiç kart bulunamadı!");
+            }
+        }
+        
+        function updateProgress(idx){
+            let percent = ((idx + 1) / totalCards) * 100;
+            document.getElementById("progressFill").style.width = percent + "%";
+        }
+        
+        // Kart değişiminde, geçilen (terk edilen) kart için istatistik güncellemesi yapılır.
+        function showCard(newIndex){
+            if (cardEls[currentIndex]) {
+                cardEls[currentIndex].classList.remove("aktif");
+                cardEls[currentIndex].classList.add("cikis-sola");
+                setTimeout(() => {
+                    cardEls[currentIndex].classList.remove("cikis-sola");
+                }, 300);
+            }
+            cardEls[newIndex].classList.add("aktif");
+            updateProgress(newIndex);
+            currentIndex = newIndex;
+            updateLessonProgress(newIndex);
+            updateWordCardProgress(currentIndex);
+        }
+        
+        function nextCard(){
+            if (currentIndex === 4){
+                openGame(false);
+                return;
+            }
+            if (currentIndex === totalCards - 1){
+                openGame(true);
+                return;
+            }
+            if (currentIndex < totalCards - 1){
+                showCard(currentIndex + 1);
+            }
+        }
+        
+        function prevCard(){
+            if (currentIndex > 0){
+                showCard(currentIndex - 1);
+            }
+        }
+        
+        function openGame(finalGame){
+            isFinalGame = finalGame;
+            let overlay = document.getElementById("modalOverlay");
+            let modal = document.getElementById("gameModal");
+            let modalTitle = document.getElementById("modalTitle");
+            modalTitle.textContent = finalGame ? "SON OYUN" : "ARA OYUN";
+            overlay.classList.add("show");
+            modal.classList.add("show");
+            showIziToastSuccess(modalTitle.textContent + " başladı. Lütfen cevaplayın.");
+        }
+        
+        function onGameAnswer(correct, finalGame){
+            let overlay = document.getElementById("modalOverlay");
+            let modal = document.getElementById("gameModal");
+            overlay.classList.remove("show");
+            modal.classList.remove("show");
+            if (correct){
+                showIziToastSuccess("Oyunu doğru cevapladınız!");
+                if (finalGame){
+                    finishCourse();
+                } else {
+                    showCard(5);
+                }
+            } else {
+                showIziToastError("Oyunu yanlış cevapladınız! Tekrar deneyin...");
+                setTimeout(() => {
+                    openGame(finalGame);
+                }, 2000);
+            }
+        }
+        
+        function finishCourse(){
+            showIziToastSuccess("Tebrikler, dersi tamamladınız!");
+            setTimeout(() => {
+                window.location = 'http://localhost:5001/Student/MyCourses';
+            }, 2000);
+        }
+        
+        // AJAX: Kelime Kartı İlerlemesi Güncelleme (Detaylı İstatistikler Dahil)
+function updateWordCardProgress(cardIndex) {
+    if(cardIndex < 0 || cardIndex >= totalCards) return;
+    const cardEl = cardEls[cardIndex];
+    const wordCardId = cardEl.getAttribute("data-wordcard-id");
+    const payload = {
+        StudentId: studentId,
+        WordCardId: parseInt(wordCardId),
+        LessonId: lessonId,
+        IsLearned: true,
+        ResponseTimeSeconds: 2.5 // Bu değer dinamik hesaplanabilir
+    };
+    fetch('http://localhost:5001/api/progress/wordcards/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (response.status === 404) {
+            return fetch('http://localhost:5001/api/progress/wordcards/create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        }
+        if (!response.ok) throw new Error("Kelime kartı ilerlemesi güncellenemedi.");
+        return response.json();
+    })
+    .then(data => {
+        console.log("Kelime kartı ilerlemesi:", data);
+    })
+    .catch(error => {
+        console.error("Kelime kartı ilerlemesi hatası:", error);
+        showIziToastError("Kelime kartı ilerlemesi güncellenemedi.");
+    });
+}
+        
+        // AJAX: Ders İlerlemesi Güncelleme (Detaylı İstatistikler Dahil)
+        function updateLessonProgress(cardIndex) {
+            let completion = ((cardIndex + 1) / totalCards) * 100;
+            const payload = {
+                StudentId: studentId,
+                LessonId: lessonId,
+                LearnedWordCardsCount: cardIndex + 1,
+                CompletionPercentage: completion,
+                // Ek istatistikler: her kart geçişinde deneme sayısı artıyor, örnek olarak her geçiş 1 ekleniyor
+                TotalAttempts: cardIndex + 1,
+                TotalTimeSpentSeconds: (cardIndex + 1) * 3 // Örneğin her kart için 3 saniye ekleniyor
+            };
+            fetch('http://localhost:5001/api/progress/lessons/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.status === 404) {
+                    return fetch('http://localhost:5001/api/progress/lessons/create', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                }
+                if (!response.ok) throw new Error("Ders ilerlemesi güncellenemedi.");
+                return response.json();
+            })
+            .then(data => {
+                console.log("Ders ilerlemesi:", data);
+            })
+            .catch(error => {
+                console.error("Ders ilerlemesi hatası:", error);
+                showIziToastError("Ders ilerlemesi güncellenemedi.");
+            });
+        }
+        
+        function showIziToastSuccess(message) {
+            iziToast.show({
+                title: 'Başarılı!',
+                message: message,
+                position: 'topRight',
+                theme: 'light',
+                color: 'green',
+                timeout: 4000,
+                icon: 'fa-solid fa-circle-check',
+                transitionIn: 'fadeInDown',
+                transitionOut: 'fadeOutUp',
+                closeOnClick: true,
+                progressBar: false
+            });
+        }
+        
+        function showIziToastError(message) {
+            iziToast.show({
+                title: 'Hata!',
+                message: message,
+                position: 'topRight',
+                theme: 'light',
+                color: 'red',
+                timeout: 5000,
+                icon: 'fa-solid fa-triangle-exclamation',
+                transitionIn: 'fadeInDown',
+                transitionOut: 'fadeOutUp',
+                closeOnClick: true,
+                progressBar: false
+            });
+        }
+    </script>
+}

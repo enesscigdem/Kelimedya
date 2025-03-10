@@ -107,3 +107,6 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/Paragraph.WebApi.pdb
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/Paragraph.WebApi.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/ref/Paragraph.WebApi.dll
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/bin/Debug/net8.0/Paragraph.WebApi.staticwebassets.endpoints.json
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

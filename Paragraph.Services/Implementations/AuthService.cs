@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Paragraph.Core.Enum;
@@ -105,6 +106,12 @@ namespace Paragraph.Services.Implementations
             return GenerateJwtToken(user, role);
         }
 
+        public async Task<List<CustomUser>> GetAllUsersAsync()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            return users;
+        }
+
         /// <summary>
         /// JWT oluşturur ve string olarak döner.
         /// </summary>
@@ -122,7 +129,7 @@ namespace Paragraph.Services.Implementations
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Role, role)
             };
-            
+
             var identity = new ClaimsIdentity(claims, "Jwt");
 
             var tokenDescriptor = new SecurityTokenDescriptor

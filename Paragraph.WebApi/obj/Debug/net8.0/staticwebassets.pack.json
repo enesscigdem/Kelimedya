@@ -13,12 +13,32 @@
       "PackagePath": "staticwebassets/uploads/lessons/5e78b5c5-300c-42a2-b305-0134ab1eac79.jpeg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/lessons/bc33cd13-cf29-446b-8158-c77614b31b75.jpg",
+      "PackagePath": "staticwebassets/uploads/lessons/bc33cd13-cf29-446b-8158-c77614b31b75.jpg"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg",
       "PackagePath": "staticwebassets/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/wordcards/ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg",
       "PackagePath": "staticwebassets/uploads/wordcards/ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/wordcards/c94b7a20-f4ce-48a1-aa66-6c2761e2bc60.jpeg",
+      "PackagePath": "staticwebassets/uploads/wordcards/c94b7a20-f4ce-48a1-aa66-6c2761e2bc60.jpeg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/wordcards/e2a33ee6-1d80-4c16-8d53-1b759ad0e22e.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/e2a33ee6-1d80-4c16-8d53-1b759ad0e22e.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/wordcards/ef296c1e-d2b9-412c-8130-57b941569229.jpeg",
+      "PackagePath": "staticwebassets/uploads/wordcards/ef296c1e-d2b9-412c-8130-57b941569229.jpeg"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApi.Microsoft.AspNetCore.StaticWebAssets.props",

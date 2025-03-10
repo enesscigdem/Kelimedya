@@ -44,6 +44,16 @@
                         <input type="number" class="form-control" asp-for="WordCount" />
                         <span asp-validation-for="WordCount" class="text-danger"></span>
                     </div>
+                    <!-- Aktiflik Durumu -->
+                    <div class="mb-3">
+                        <label class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" asp-for="IsActive" />
+                            <span class="form-check-label">Eğitim Aktif</span>
+                        </label>
+                        <div class="text-muted small">
+                            Eğitimi aktif/pasif yapmak için toggle'ı kullanın. Pasif eğitimler öğrencilere gösterilmez.
+                        </div>
+                    </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
                         <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
@@ -55,5 +65,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

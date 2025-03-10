@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.LessonViewModel>
 
 @{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Dersler";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+  ViewData["Title"] = "Dersler";
 }
 
 <div class="page-header d-print-none">
@@ -13,6 +13,26 @@
         <div class="text-muted mt-1">
           Seçili eğitime ait dersleri görüntüleyin ve yönetin.
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Arama / Sıralama Alanı -->
+<div class="page-body pt-1">
+  <div class="container-xl">
+    <div class="row mb-3 align-items-center">
+      <div class="col-12 col-lg-4">
+        <input type="text" id="searchInput" class="form-control" placeholder="Ders ara..." />
+      </div>
+      <div class="col-12 col-lg-8 text-end">
+        <select id="sortSelect" class="form-select d-inline-block w-auto">
+          <option value="">-- Sıralama Seçeneği --</option>
+          <option value="titleAsc">Başlık (A - Z)</option>
+          <option value="titleDesc">Başlık (Z - A)</option>
+          <option value="sequenceAsc">Sıra No (Küçükten Büyüğe)</option>
+          <option value="sequenceDesc">Sıra No (Büyükten Küçüğe)</option>
+        </select>
       </div>
     </div>
   </div>
@@ -36,21 +56,22 @@
             </tr>
           </thead>
           <tbody>
-            @foreach(var lesson in Model)
+            @foreach (var lesson in Model)
             {
               <tr>
                 <td>@lesson.Title</td>
                 <td>@lesson.Description</td>
                 <td>@lesson.SequenceNo</td>
                 <td>
-                  @if(!string.IsNullOrEmpty(lesson.ImageUrl))
+                  @if (!string.IsNullOrEmpty(lesson.ImageUrl))
                   {
                     <img src="@lesson.ImageUrl" alt="Lesson Image" style="max-height:50px;" />
                   }
                 </td>
                 <td class="text-end">
                   <div class="btn-group" role="group">
-                    <a asp-action="Edit" asp-route-id="@lesson.Id" class="btn btn-success me-1" title="Düzenle">Düzenle</a>
+                    <a asp-action="Edit" asp-route-id="@lesson.Id" class="btn btn-success me-1"
+                      title="Düzenle">Düzenle</a>
                     <a asp-action="Delete" asp-route-id="@lesson.Id" class="btn btn-danger delete-btn" title="Sil">Sil</a>
                   </div>
                 </td>
@@ -62,3 +83,50 @@
     </div>
   </div>
 </div>
+
+@section Scripts {
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Arama: input'a yazıldıkça tabloyu filtrele
+      $("#searchInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("table tbody tr").filter(function () {
+          var titleText = $(this).find("td:first").text().toLowerCase();
+          var descText = $(this).find("td:eq(1)").text().toLowerCase();
+          $(this).toggle(titleText.indexOf(value) > -1 || descText.indexOf(value) > -1);
+        });
+      });
+
+      // Sıralama: seçilen seçeneklere göre tabloyu sıralayın
+      $("#sortSelect").on("change", function () {
+        var option = $(this).val();
+        var rows = $("table tbody tr").get();
+
+        rows.sort(function (a, b) {
+          var titleA = $(a).find("td:first").text().toUpperCase();
+          var titleB = $(b).find("td:first").text().toUpperCase();
+          var sequenceA = parseInt($(a).find("td:eq(2)").text());
+          var sequenceB = parseInt($(b).find("td:eq(2)").text());
+
+          switch (option) {
+            case "titleAsc":
+              return (titleA < titleB) ? -1 : (titleA > titleB) ? 1 : 0;
+            case "titleDesc":
+              return (titleA > titleB) ? -1 : (titleA < titleB) ? 1 : 0;
+            case "sequenceAsc":
+              return sequenceA - sequenceB;
+            case "sequenceDesc":
+              return sequenceB - sequenceA;
+            default:
+              return 0;
+          }
+        });
+
+        $.each(rows, function (index, row) {
+          $("table tbody").append(row);
+        });
+      });
+    });
+  </script>
+}

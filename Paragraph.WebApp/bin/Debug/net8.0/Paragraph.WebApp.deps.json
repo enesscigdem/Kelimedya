@@ -1924,7 +1924,7 @@
         },
         "runtime": {
           "Paragraph.Core.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
@@ -1941,7 +1941,7 @@
         },
         "runtime": {
           "Paragraph.HangfireDashboard.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
@@ -1960,7 +1960,7 @@
         },
         "runtime": {
           "Paragraph.HangfireServer.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
@@ -1977,7 +1977,7 @@
         },
         "runtime": {
           "Paragraph.Persistence.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
@@ -1992,7 +1992,7 @@
         },
         "runtime": {
           "Paragraph.Services.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },

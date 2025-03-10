@@ -25,6 +25,16 @@ namespace Paragraph.WebAPI.Controllers
             return Ok(courses);
         }
 
+        // GET: api/courses/active
+        [HttpGet("active")]
+        public async Task<IActionResult> GetActiveCourses()
+        {
+            var courses = await _context.Courses
+                .Where(c => c.IsActive && !c.IsDeleted)
+                .ToListAsync();
+            return Ok(courses);
+        }
+
         // GET: api/courses/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCourse(int id)

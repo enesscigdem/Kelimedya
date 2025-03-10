@@ -1,7 +1,7 @@
 ﻿@model List<Paragraph.WebApp.Areas.Admin.Models.RoleViewModel>
 
 @{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Roller Listesi";
 }
 
@@ -12,15 +12,16 @@
             <div class="col">
                 <h2 class="page-title">
                     <!-- Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shield-lock me-1 text-primary" 
-                         width="28" height="28" viewBox="0 0 24 24" stroke-width="2" 
-                         stroke="currentColor" fill="none" stroke-linecap="round" 
-                         stroke-linejoin="round">
-                        <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-shield-lock me-1 text-primary" width="28" height="28"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M0 0h24v24H0z" fill="none" stroke="none" />
                         <path d="M13 20h-2" />
                         <path d="M12 14v-4" />
                         <path d="M12 10a2 2 0 1 0 -2 -2" />
-                        <path d="M19 4l-7 -2l-7 2v5c0 7.075 4.591 13.631 11 15c6.409 -1.369 11 -7.925 11 -15v-5" transform="translate(-5)" />
+                        <path d="M19 4l-7 -2l-7 2v5c0 7.075 4.591 13.631 11 15c6.409 -1.369 11 -7.925 11 -15v-5"
+                            transform="translate(-5)" />
                     </svg>
                     Roller Listesi
                 </h2>
@@ -38,50 +39,25 @@
         <!-- Filtreleme / Arama Alanı -->
         <div class="row mb-3">
             <div class="col-12 col-lg-4">
-                <form method="get" class="mb-2">
-                    <div class="input-icon">
-                        <span class="input-icon-addon">
-                            <!-- Search icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" 
-                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
-                                 stroke="currentColor" fill="none" stroke-linecap="round" 
-                                 stroke-linejoin="round">
-                                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                <path d="M10 10a7 7 0 1 0 7 7" />
-                                <path d="M21 21l-6 -6" />
-                            </svg>
-                        </span>
-                        <input type="text" name="search" class="form-control" placeholder="Rol ara…" />
-                    </div>
-                </form>
-            </div>
-            <!-- Ek Filtreler (opsiyonel) -->
-            <div class="col-12 col-lg-8 text-end">
-                <div class="btn-group">
-                    <button class="btn btn-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter me-1"
-                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                             stroke="currentColor" fill="none" stroke-linecap="round"
-                             stroke-linejoin="round">
-                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                            <path d="M5.5 5h13" />
-                            <path d="M7 10h9" />
-                            <path d="M8.5 15h5" />
+                <div class="input-icon">
+                    <span class="input-icon-addon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10 10a7 7 0 1 0 7 7" />
+                            <path d="M21 21l-6 -6" />
                         </svg>
-                        Filtre
-                    </button>
-                    <button class="btn btn-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-sort me-1" 
-                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" 
-                             stroke="currentColor" fill="none" stroke-linecap="round" 
-                             stroke-linejoin="round">
-                            <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                            <path d="M3 9l4 -4l4 4m-4 -4v14" />
-                            <path d="M21 15l-4 4l-4 -4m4 4v-14" />
-                        </svg>
-                        Sırala
-                    </button>
+                    </span>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Rol ara..." />
                 </div>
+            </div>
+            <div class="col-12 col-lg-8 text-end">
+                <select id="sortSelect" class="form-select d-inline-block w-auto">
+                    <option value="">-- Sıralama Seçeneği --</option>
+                    <option value="nameAsc">Rol Adı (A - Z)</option>
+                    <option value="nameDesc">Rol Adı (Z - A)</option>
+                </select>
             </div>
         </div>
 
@@ -98,7 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var role in Model)
+                        @foreach (var role in Model)
                         {
                             <tr>
                                 <td>@role.Name</td>
@@ -110,3 +86,43 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Arama işlevi
+            $("#searchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("table tbody tr").filter(function () {
+                    var roleText = $(this).find("td:first").text().toLowerCase();
+                    $(this).toggle(roleText.indexOf(value) > -1);
+                });
+            });
+
+            // Sıralama işlevi
+            $("#sortSelect").on("change", function () {
+                var option = $(this).val();
+                var rows = $("table tbody tr").get();
+
+                rows.sort(function (a, b) {
+                    var roleA = $(a).find("td:first").text().toUpperCase();
+                    var roleB = $(b).find("td:first").text().toUpperCase();
+
+                    switch (option) {
+                        case "nameAsc":
+                            return (roleA < roleB) ? -1 : (roleA > roleB) ? 1 : 0;
+                        case "nameDesc":
+                            return (roleA > roleB) ? -1 : (roleA < roleB) ? 1 : 0;
+                        default:
+                            return 0;
+                    }
+                });
+
+                $.each(rows, function (index, row) {
+                    $("table tbody").append(row);
+                });
+            });
+        });
+    </script>
+}

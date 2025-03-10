@@ -24430,7 +24430,6 @@ textarea[cols] {
 }
 
 .list-inline-dots .list-inline-item + .list-inline-item:before {
-    content: " · ";
     -webkit-margin-end: .5rem;
     margin-inline-end: .5rem
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System;
 using Paragraph.Core.Models;
+using Paragraph.WebApp.Areas.Admin.Models;
 
 namespace Paragraph.WebApp.Controllers
 {
@@ -88,12 +89,23 @@ namespace Paragraph.WebApp.Controllers
         {
             return role switch
             {
-                "Admin"   => "/Admin/Dashboard",
+                "Admin" => "/Admin/Dashboard",
                 "Teacher" => "/Teacher/Dashboard",
                 "Student" => "/Student/Dashboard",
-                "User"    => "/",
-                _         => "/"
+                "User" => "/",
+                _ => "/"
             };
+        }
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var response = await _httpClient.GetAsync("api/auth/users");
+            if (!response.IsSuccessStatusCode)
+            {
+                return BadRequest(new { success = false, message = "Kullanıcıları alırken bir sorun oluştu." });
+            }
+
+            var users = await response.Content.ReadFromJsonAsync<List<UserViewModel>>();
+            return Ok(new { success = true, users });
         }
     }
 }

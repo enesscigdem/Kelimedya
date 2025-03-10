@@ -2,11 +2,19 @@
   "Files": [
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/obj/Debug/net8.0/scopedcss/projectbundle/Paragraph.WebApp.bundle.scp.css",
-      "PackagePath": "staticwebassets/Paragraph.WebApp.bundle.scp.css"
+      "PackagePath": "staticwebassets/Paragraph.WebApp.a4w2q6764o.bundle.scp.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/iziToastCustom.css",
       "PackagePath": "staticwebassets/css/iziToastCustom.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/lessonDetail.css",
+      "PackagePath": "staticwebassets/css/lessonDetail.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/myWords.css",
+      "PackagePath": "staticwebassets/css/myWords.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/site.css",
@@ -6791,6 +6799,10 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/theme/web_UI/assets/sass/style.scss",
       "PackagePath": "staticwebassets/theme/web_UI/assets/sass/style.scss"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",

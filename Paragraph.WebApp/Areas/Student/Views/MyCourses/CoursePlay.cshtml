@@ -1,590 +1,211 @@
-﻿@{
+﻿@model Paragraph.WebApp.Areas.Student.Models.CoursePlayViewModel
+@{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Kelime Kartları - Modal Oyunlu Versiyon";
+    ViewData["Title"] = Model.Course.Title;
 }
 
-<!-- STİL (CSS) -->
 <style>
-/* ANA GÖVDE: Pastel degrade */
-body {
-    margin: 0; 
-    padding: 0;
-    background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%) !important;
-    font-family: 'Josefin Sans', sans-serif;
-    color: #333;
-}
-/* ÜST BÖLÜM: Asimetrik pastel dalga (clip-path) */
-.top-wave {
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(135deg, #ffd2ca 0%, #ffbfb2 100%);
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-}
-.top-wave h1 {
-    position: absolute;
-    top: 50px; 
-    width: 100%;
-    text-align: center;
-    font-size: 2.6rem;
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-    letter-spacing: 0.5px;
-}
-/* KAPSAYICI */
-.super-container {
-    max-width: 1000px;
-    margin: -80px auto 0 auto; 
-    position: relative;
-    z-index: 1;
-}
-/* İLERLEME ÇUBUĞU */
-.progress-area {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0 1.5rem;
-}
-.progress-track {
-    width: 80%;
-    height: 12px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-}
-.progress-fill {
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90deg, #ff9e85, #ff8466);
-    transition: width 0.3s ease;
-}
-/* KART SAHNE: 520px */
-.kart-sahne {
-    position: relative;
-    width: 100%;
-    height: 520px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-/* KART - sağdan sola, hızlı 0.3s */
-.kelime-card {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
-    text-align: center;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.03);
-    opacity: 0;
-    transform: translateX(120%);
-    transition: transform 0.3s cubic-bezier(0.65,0.05,0.36,1), opacity 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.kelime-card.aktif {
-    opacity: 1;
-    transform: translateX(0);
-    z-index: 5;
-}
-.kelime-card.cikis-sola {
-    transform: translateX(-120%) !important;
-    opacity: 0 !important;
-}
-/* KART İÇERİKLERİ */
-.card-index {
-    font-size: 0.9rem;
-    color: #aaa;
-    margin-bottom: 0.5rem;
-}
-.card-emoji {
-    width: 130px; 
-    height: 130px;
-    border-radius: 50%;
-    background: linear-gradient(130deg, #ffe5e0, #ffd9bf);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: #d85c5c;
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease;
-}
-.card-emoji:hover {
-    transform: scale(1.1);
-}
-.word-title {
-    font-size: 2.2rem;
-    color: #f05a5a;
-    margin-bottom: 0.5rem;
-}
-.sentence {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 1rem;
-    max-width: 75%;
-    margin: 0 auto 1rem auto;
-}
-.info-area {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-.info-area .bold {
-    font-weight: 600;
-    color: #333;
-}
-/* BUTONLAR */
-.btn-row {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-.pastel-btn {
-    background: linear-gradient(135deg, #ffe5e0, #ffd9bf);
-    border: none;
-    border-radius: 8px;
-    color: #333;
-    padding: 0.7rem 1.4rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: box-shadow 0.2s, transform 0.2s;
-}
-.pastel-btn:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transform: translateY(-2px);
-}
-.finish-btn {
-    background: linear-gradient(135deg, #5edb8c, #4caf50) !important;
-    color: #fff !important;
-}
-/* RESPONSIVE */
-@@media(max-width:768px){
-    .kart-sahne {
-        height: 460px;
+    body {
+        background: linear-gradient(120deg, #fffdfd 0%, #ffe5e0 100%);
+        animation: bodyBg 10s infinite alternate ease-in-out;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #333;
     }
-    .word-title {
-        font-size: 2rem;
-    }
-    .sentence {
-        font-size: 1rem;
-    }
-}
 
-/* -------------------------------------
-   MODAL (POPUP) STİLİ
-------------------------------------- */
-#gameModal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    max-width: 90vw;
-    background: #fff;
-    border-radius: 12px;
-    transform: translate(-50%, -50%) scale(0);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    z-index: 9999;
-    padding: 2rem;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-#gameModal.show {
-    transform: translate(-50%, -50%) scale(1);
-}
-.modal-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #f05a5a;
-}
-.modal-btns {
-    display: flex; 
-    gap: 1rem;
-    margin-top: 1rem;
-}
-.modal-overlay {
-    position: fixed;
-    top: 0; left: 0; 
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 9998;
-    display: none; 
-}
-.modal-overlay.show {
-    display: block;
-}
+    .course-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+    }
+
+    .pulse-decor {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(20px);
+        opacity: 0.6;
+        animation: pulseAni 6s infinite alternate ease-in-out;
+        z-index: -1;
+    }
+
+    @@keyframes pulseAni {
+        0% { transform: scale(0.9); }
+        100% { transform: scale(1.2); }
+    }
+
+    .pulse-decor:nth-child(1) {
+        top: -30px;
+        right: 15%;
+        width: 160px;
+        height: 160px;
+        background: rgba(240, 82, 50, 0.3);
+    }
+
+    .pulse-decor:nth-child(2) {
+        bottom: -30px;
+        left: 10%;
+        width: 180px;
+        height: 180px;
+        background: rgba(240, 82, 50, 0.2);
+        animation-delay: 3s;
+    }
+
+    .course-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .course-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #f05232;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-description {
+        font-size: 1.1rem;
+        color: #777;
+        margin-bottom: 1rem;
+    }
+
+    .lessons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .lesson-card {
+        background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%);
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lesson-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.09);
+    }
+
+    .lesson-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .lesson-number {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(240, 82, 50, 0.9);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .lesson-title {
+        font-size: 1.3rem;
+        color: #c94a2c;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .lesson-description {
+        color: #555;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        flex: 1;
+    }
+
+    .lesson-stats {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .lesson-btn {
+        background-color: #f05232;
+        color: #fff;
+        padding: 0.7rem 1.5rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        transition: background 0.3s, transform 0.3s;
+    }
+
+    .lesson-btn:hover {
+        background-color: #d74322;
+        transform: translateY(-2px);
+        color: #fff;
+    }
+
+    .no-lessons {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        color: #666;
+    }
 </style>
 
-<!-- 2) ÜST KISIM (DALGALI ALAN) -->
-<div class="top-wave">
-    <h1>Kelime Kartları</h1>
-</div>
+<div class="course-container">
+    <div class="pulse-decor"></div>
+    <div class="pulse-decor"></div>
 
-<!-- 3) ANA İÇERİK KAPSAYICI -->
-<div class="super-container">
-    <!-- İlerleme Alanı -->
-    <div class="progress-area">
-        <div class="progress-track">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
+    <div class="course-header">
+        <h1 class="course-title">@Model.Course.Title</h1>
+        <p class="course-description">@Model.Course.Description</p>
     </div>
 
-    <!-- Kart Sahnesi -->
-    <div class="kart-sahne" id="kartSahne">
-        <!-- 10 KART (index=0..9) -->
-        
-        <!-- Kart 0 -->
-        <div class="kelime-card" id="card0">
-            <div class="card-index">Kart 1 / 10</div>
-            <div class="card-emoji">🍎</div>
-            <div class="word-title">Elma</div>
-            <div class="sentence">Günde bir elma yemek sağlığınıza katkı sağlar.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Malus domestica</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
+    <div class="lessons-grid">
+        @if (Model.Lessons != null && Model.Lessons.Any())
+        {
+            foreach (var lesson in Model.Lessons.OrderBy(l => l.Lesson.SequenceNo))
+            {
+                <div class="lesson-card">
+                    <span class="lesson-number">Ders @lesson.Lesson.SequenceNo</span>
+                    @if (!string.IsNullOrEmpty(lesson.Lesson.ImageUrl))
+                    {
+                        <img src="@lesson.Lesson.ImageUrl" alt="@lesson.Lesson.Title" class="lesson-image">
+                    }
+                    <h3 class="lesson-title">@lesson.Lesson.Title</h3>
+                    <p class="lesson-description">@(lesson.Lesson.Description ?? "Açıklama bulunmuyor.")</p>
+                    <div class="lesson-stats">
+                        <span>@(lesson.Lesson.WordCount > 0 ? $"{lesson.Lesson.WordCount} Kelime" : "0 Kelime")</span>
+                        <span>•</span>
+                        <span>@(lesson.Lesson.GameCount > 0 ? $"{lesson.Lesson.GameCount} Oyun" : "0 Oyun")</span>
+                    </div>
+                    <a class="lesson-btn" asp-action="LessonDetail" asp-route-id="@lesson.Lesson.Id">
+                        @(lesson.Lesson.IsStarted ? "Derse Devam Et" : "Derse Başla")
+                    </a>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="no-lessons">
+                <h3>Henüz bu kursta ders bulunmuyor.</h3>
+                <p>Lütfen daha sonra tekrar kontrol edin.</p>
             </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 1 -->
-        <div class="kelime-card" id="card1">
-            <div class="card-index">Kart 2 / 10</div>
-            <div class="card-emoji">🍌</div>
-            <div class="word-title">Muz</div>
-            <div class="sentence">Maymunlar en çok muzu sever.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Musa sapientum</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 2 -->
-        <div class="kelime-card" id="card2">
-            <div class="card-index">Kart 3 / 10</div>
-            <div class="card-emoji">🍉</div>
-            <div class="word-title">Karpuz</div>
-            <div class="sentence">Yaz aylarında soğuk karpuz ferahlatır.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Citrullus lanatus</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 3 -->
-        <div class="kelime-card" id="card3">
-            <div class="card-index">Kart 4 / 10</div>
-            <div class="card-emoji">🍒</div>
-            <div class="word-title">Kiraz</div>
-            <div class="sentence">Kiraz, yaz aylarının sevilen meyvelerindendir.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Prunus avium</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 4 (5. SORU => ARA OYUN) -->
-        <div class="kelime-card" id="card4">
-            <div class="card-index">Kart 5 / 10</div>
-            <div class="card-emoji">🍓</div>
-            <div class="word-title">Çilek</div>
-            <div class="sentence">Çilek, hoş kokusu ve tadıyla çocukların favorisi.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Fragaria</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 5 -->
-        <div class="kelime-card" id="card5">
-            <div class="card-index">Kart 6 / 10</div>
-            <div class="card-emoji">🍊</div>
-            <div class="word-title">Portakal</div>
-            <div class="sentence">Portakal, C vitamini kaynağıdır.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Citrus sinensis</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 6 -->
-        <div class="kelime-card" id="card6">
-            <div class="card-index">Kart 7 / 10</div>
-            <div class="card-emoji">🍇</div>
-            <div class="word-title">Üzüm</div>
-            <div class="sentence">Kuru üzüm de taze üzüm kadar lezzetlidir.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Vitis vinifera</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 7 -->
-        <div class="kelime-card" id="card7">
-            <div class="card-index">Kart 8 / 10</div>
-            <div class="card-emoji">🍈</div>
-            <div class="word-title">Kavun</div>
-            <div class="sentence">Kavun tatlı ve sulu bir yaz meyvesidir.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Cucumis melo</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 8 -->
-        <div class="kelime-card" id="card8">
-            <div class="card-index">Kart 9 / 10</div>
-            <div class="card-emoji">🥕</div>
-            <div class="word-title">Havuç</div>
-            <div class="sentence">Havuç, göz sağlığına iyi gelen bir sebzedir.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Carrot</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn" onclick="nextCard()">Sonraki</button>
-            </div>
-        </div>
-
-        <!-- Kart 9 (10. SORU => SON OYUN) -->
-        <div class="kelime-card" id="card9">
-            <div class="card-index">Kart 10 / 10</div>
-            <div class="card-emoji">📚</div>
-            <div class="word-title">Kütüphane</div>
-            <div class="sentence">Kütüphaneden kitap ödünç alıp okumak ücretsizdir.</div>
-            <div class="info-area">
-                Eş Anlam: <span class="bold">Kitaplık</span><br/>
-                Zıt Anlam: <span class="bold">Yok</span>
-            </div>
-            <div class="btn-row">
-                <button class="pastel-btn" onclick="prevCard()">Önceki</button>
-                <button class="pastel-btn finish-btn" onclick="nextCard()">Son Oyun</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 5) MODAL OVERLAY + POPUP (hidden by default) -->
-<div class="modal-overlay" id="modalOverlay"></div>
-<div id="gameModal">
-    <div class="modal-title" id="modalTitle">Ara Oyun</div>
-    <p>“Doğru” veya “Yanlış” seçeneklerini deneyerek oyunu cevaplayın.</p>
-    <div class="modal-btns">
-        <button class="pastel-btn" id="btnGameCorrect">Doğru</button>
-        <button class="pastel-btn" id="btnGameWrong">Yanlış</button>
+        }
     </div>
 </div>
 
 @section Scripts {
-    <!-- 5A) izitoast CSS/JS -->
-    <link href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
-
-    <!-- 5B) CustomIziToast fonksiyonları (showIziToastSuccess / showIziToastError) -->
     <script>
-    function showIziToastSuccess(message) {
-        iziToast.show({
-            title: 'Başarılı!',
-            message: message,
-            position: 'topRight',
-            theme: 'light',
-            color: 'green',
-            timeout: 5000,
-            icon: 'fa-solid fa-circle-check',
-            transitionIn: 'fadeInDown',
-            transitionOut: 'fadeOutUp',
-            class: 'iziToastGlassy',
-            closeOnClick: true,
-            progressBar: false,
-            layout: 2
-        });
-    }
-    function showIziToastError(message) {
-        iziToast.show({
-            title: 'Hata!',
-            message: message,
-            position: 'topRight',
-            theme: 'light',
-            color: 'red',
-            timeout: 7000,
-            icon: 'fa-solid fa-triangle-exclamation',
-            transitionIn: 'fadeInDown',
-            transitionOut: 'fadeOutUp',
-            class: 'iziToastGlassyError',
-            closeOnClick: true,
-            progressBar: false,
-            layout: 2
-        });
-    }
-    </script>
-
-    <!-- 5C) JS: Kart Mantığı + Modal Oyun -->
-    <script>
-    let currentIndex = 0;
-    let totalCards = 10;
-    let cardEls = [];
-    let isFinalGame = false; // Son Oyun mu?
-
-    document.addEventListener("DOMContentLoaded", function(){
-        initCards();
-
-        // Oyun butonlarına event ekle
-        document.getElementById("btnGameCorrect").addEventListener("click", ()=>{
-            onGameAnswer(true, isFinalGame);
-        });
-        document.getElementById("btnGameWrong").addEventListener("click", ()=>{
-            onGameAnswer(false, isFinalGame);
-        });
-    });
-
-    function initCards(){
-        for(let i=0; i<totalCards; i++){
-            let cardEl = document.getElementById("card"+i);
-            if(cardEl) cardEls.push(cardEl);
-        }
-        if(cardEls.length > 0) {
-            cardEls[0].classList.add("aktif");
-            updateProgress(0);
-        } else {
-            console.warn("Kart bulunamadı!");
-        }
-    }
-
-    function updateProgress(idx){
-        let percent = ((idx+1)/totalCards)*100;
-        document.getElementById("progressFill").style.width = percent + "%";
-    }
-
-    function showCard(newIndex){
-        // Eski kart kapat
-        if(cardEls[currentIndex]) {
-            cardEls[currentIndex].classList.remove("aktif");
-            cardEls[currentIndex].classList.add("cikis-sola");
-            setTimeout(()=>{
-                cardEls[currentIndex].classList.remove("cikis-sola");
-            },300);
-        }
-        // Yeni kart aç
-        cardEls[newIndex].classList.add("aktif");
-        updateProgress(newIndex);
-        currentIndex = newIndex;
-    }
-
-    function nextCard(){
-        console.log("nextCard => currentIndex=", currentIndex);
-        // 5.soru => Ara Oyun
-        if(currentIndex === 4){
-            openGame(false);
-            return;
-        }
-        // 10.soru => Son Oyun
-        if(currentIndex === 9){
-            openGame(true);
-            return;
-        }
-        // Normalde bir sonraki kart
-        if(currentIndex < totalCards - 1){
-            showCard(currentIndex+1);
-        }
-    }
-    function prevCard(){
-        console.log("prevCard => currentIndex=", currentIndex);
-        if(currentIndex > 0){
-            showCard(currentIndex-1);
-        }
-    }
-
-    /* Modal Oyun açmak */
-    function openGame(finalGame){
-        isFinalGame = finalGame;
-        let overlay = document.getElementById("modalOverlay");
-        let modal = document.getElementById("gameModal");
-        let modalTitle = document.getElementById("modalTitle");
-
-        if(finalGame){
-            modalTitle.textContent = "SON OYUN";
-        } else {
-            modalTitle.textContent = "ARA OYUN";
-        }
-
-        // Modalı göster
-        overlay.classList.add("show");
-        modal.classList.add("show");
-        showIziToastSuccess(modalTitle.textContent + " başladı. Lütfen cevaplayın.");
-    }
-
-    /* Oyun cevabı => correct: bool, finalGame: bool */
-    function onGameAnswer(correct, finalGame){
-        let overlay = document.getElementById("modalOverlay");
-        let modal = document.getElementById("gameModal");
-
-        // Modalı kapat
-        overlay.classList.remove("show");
-        modal.classList.remove("show");
-
-        if(correct){
-            showIziToastSuccess("Oyunu doğru cevapladınız!");
-            if(finalGame){
-                finishCourse();
-            } else {
-                // 5.kart => Doğru => 6. karta geç
-                showCard(5);
-            }
-        } else {
-            showIziToastError("Oyunu yanlış cevapladınız! Tekrar dene...");
-            // Tekrar oyunu aç
-            setTimeout(()=>{
-                openGame(finalGame);
-            },2000);
-        }
-    }
-
-    /* Kurs Bitti */
-    function finishCourse(){
-        showIziToastSuccess("Tebrikler, dersi tamamladınız!");
-        setTimeout(()=>{
-            // window.location = '@Url.Action("Index","MyCourses")';
-            console.log("Ders bitti, MyCourses sayfasına gidiliyor...");
-        },2000);
-    }
+        // Gerekirse JavaScript kodları buraya eklenebilir
     </script>
 }

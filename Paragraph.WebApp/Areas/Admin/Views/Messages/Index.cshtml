@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Paragraph.WebApp.Areas.Admin.Models.MessageViewModel>
 
 @{
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Mesajlar";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+  ViewData["Title"] = "Mesajlar";
 }
 
 <!-- Sayfa Başlığı -->
@@ -27,39 +27,29 @@
   <div class="container-xl">
     <div class="row mb-3">
       <div class="col-12 col-lg-4">
-        <form method="get" class="mb-2">
-          <div class="input-icon">
-            <span class="input-icon-addon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                <path d="M10 10a7 7 0 1 0 7 7"/>
-                <path d="M21 21l-6 -6"/>
-              </svg>
-            </span>
-            <input type="text" name="search" class="form-control" placeholder="Mesaj ara…" />
-          </div>
-        </form>
+        <div class="input-icon">
+          <span class="input-icon-addon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24"
+              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M0 0h24v24H0z" fill="none" stroke="none" />
+              <path d="M10 10a7 7 0 1 0 7 7" />
+              <path d="M21 21l-6 -6" />
+            </svg>
+          </span>
+          <input type="text" id="searchInput" class="form-control" placeholder="Mesaj ara..." />
+        </div>
       </div>
       <div class="col-12 col-lg-8 text-end">
-        <div class="btn-group">
-          <button class="btn btn-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-              <path d="M5.5 5h13"/>
-              <path d="M7 10h9"/>
-              <path d="M8.5 15h5"/>
-            </svg>
-            Filtre
-          </button>
-          <button class="btn btn-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrows-sort me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-              <path d="M3 9l4 -4l4 4m-4 -4v14"/>
-              <path d="M21 15l-4 4l-4 -4m4 4v-14"/>
-            </svg>
-            Sırala
-          </button>
-        </div>
+        <select id="sortSelect" class="form-select d-inline-block w-auto me-2">
+          <option value="">-- Sıralama Seçeneği --</option>
+          <option value="fromAsc">Gönderen (A - Z)</option>
+          <option value="fromDesc">Gönderen (Z - A)</option>
+          <option value="subjectAsc">Konu (A - Z)</option>
+          <option value="subjectDesc">Konu (Z - A)</option>
+          <option value="dateAsc">Tarih (Eskiden Yeniye)</option>
+          <option value="dateDesc">Tarih (Yeniden Eskiye)</option>
+        </select>
       </div>
     </div>
   </div>
@@ -83,16 +73,17 @@
             </tr>
           </thead>
           <tbody>
-            @foreach(var message in Model)
+            @foreach (var message in Model)
             {
-                <tr>
-                    <td>@message.FromEmail</td>
-                    <td>@message.Subject</td>
-                    <td>@message.CreatedAt.ToString("yyyy-MM-dd")</td>
-                    <td class="text-end">
-                        <a class="btn btn-primary me-1 d-flex align-items-center" asp-action="Details" asp-route-id="@message.Id">Oku</a>
-                    </td>
-                </tr>
+              <tr>
+                <td>@message.FromEmail</td>
+                <td>@message.Subject</td>
+                <td>@message.CreatedAt.ToString("yyyy-MM-dd")</td>
+                <td class="text-end">
+                  <a class="btn btn-primary me-1 d-flex align-items-center" asp-action="Details"
+                    asp-route-id="@message.Id">Oku</a>
+                </td>
+              </tr>
             }
           </tbody>
         </table>
@@ -100,3 +91,56 @@
     </div>
   </div>
 </div>
+
+@section Scripts {
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Arama işlevi
+      $("#searchInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("table tbody tr").filter(function () {
+          var fromText = $(this).find("td:first").text().toLowerCase();
+          var subjectText = $(this).find("td:eq(1)").text().toLowerCase();
+          $(this).toggle(fromText.indexOf(value) > -1 || subjectText.indexOf(value) > -1);
+        });
+      });
+
+      // Sıralama işlevi
+      $("#sortSelect").on("change", function () {
+        var option = $(this).val();
+        var rows = $("table tbody tr").get();
+
+        rows.sort(function (a, b) {
+          var fromA = $(a).find("td:first").text().toUpperCase();
+          var fromB = $(b).find("td:first").text().toUpperCase();
+          var subjectA = $(a).find("td:eq(1)").text().toUpperCase();
+          var subjectB = $(b).find("td:eq(1)").text().toUpperCase();
+          var dateA = new Date($(a).find("td:eq(2)").text());
+          var dateB = new Date($(b).find("td:eq(2)").text());
+
+          switch (option) {
+            case "fromAsc":
+              return (fromA < fromB) ? -1 : (fromA > fromB) ? 1 : 0;
+            case "fromDesc":
+              return (fromA > fromB) ? -1 : (fromA < fromB) ? 1 : 0;
+            case "subjectAsc":
+              return (subjectA < subjectB) ? -1 : (subjectA > subjectB) ? 1 : 0;
+            case "subjectDesc":
+              return (subjectA > subjectB) ? -1 : (subjectA < subjectB) ? 1 : 0;
+            case "dateAsc":
+              return dateA - dateB;
+            case "dateDesc":
+              return dateB - dateA;
+            default:
+              return 0;
+          }
+        });
+
+        $.each(rows, function (index, row) {
+          $("table tbody").append(row);
+        });
+      });
+    });
+  </script>
+}

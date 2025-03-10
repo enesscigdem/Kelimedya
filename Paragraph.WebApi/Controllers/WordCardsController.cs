@@ -38,6 +38,14 @@ namespace Paragraph.WebAPI.Controllers
             return Ok(card);
         }
 
+        // GET : api/wordcards/lessons/{lessonId}
+        [HttpGet("lessons/{lessonId}")]
+        public async Task<IActionResult> GetWordCardsByLesson(int lessonId)
+        {
+            var cards = await _context.WordCards.Where(w => w.LessonId == lessonId && !w.IsDeleted).ToListAsync();
+            return Ok(cards);
+        }
+        
         // POST: api/wordcards
         [HttpPost]
         public async Task<IActionResult> CreateWordCard([FromForm] WordCardCreateDto dto)

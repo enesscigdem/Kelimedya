@@ -1,4 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Paragraph.WebApp.Areas.Student.Models;
 
 namespace Paragraph.WebApp.Areas.Student.Controllers
 {
@@ -6,9 +11,20 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class DashboardController : Controller
     {
-        public IActionResult Index()
+        private readonly HttpClient _httpClient;
+
+        public DashboardController(IHttpClientFactory httpClientFactory)
         {
-            return View();
+            _httpClient = httpClientFactory.CreateClient("DefaultApi");
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var viewModel = await _httpClient.GetFromJsonAsync<StudentDashboardViewModel>($"api/student/dashboard/{studentId}");
+
+            return View(viewModel);
         }
     }
 }

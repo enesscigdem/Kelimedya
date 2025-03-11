@@ -70,7 +70,9 @@
             background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%) !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
+        .navbar-brand {
+            margin-left: 20px;
+        }
         .navbar-pastel .navbar-brand-image {
             filter: sepia(1);
         }
@@ -113,7 +115,7 @@
             <div class="container-xl">
                 <a class="navbar-brand" href="@Url.Action("Index", "Dashboard", new { area = "Student" })">
                     <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Logo"
-                        class="navbar-brand-image">
+                        class="navbar-brand-image ms-2">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
                     aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +127,7 @@
                         <li class="nav-item">
                             <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")"
                                 asp-area="Student" asp-controller="Dashboard" asp-action="Index">
-                                Dashboard
+                                Anasayfa
                             </a>
                         </li>
                         <li class="nav-item">
@@ -199,7 +201,7 @@
                         <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                             <ul class="list-inline list-inline-dots mb-0">
                                 <li class="list-inline-item">
-                                    &copy; 2023 Şirketiniz. Tüm hakları saklıdır.
+                                    &copy; 2025 Kelimedya. Tüm hakları saklıdır.
                                 </li>
                             </ul>
                         </div>

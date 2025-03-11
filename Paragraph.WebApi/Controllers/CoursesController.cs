@@ -2,8 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Paragraph.Core.Entities;
 using Paragraph.Persistence;
+using Paragraph.WebAPI.Models;
+using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Paragraph.WebAPI.Controllers
 {
@@ -47,10 +51,26 @@ namespace Paragraph.WebAPI.Controllers
 
         // POST: api/courses
         [HttpPost]
-        public async Task<IActionResult> CreateCourse([FromBody] Course course)
+        public async Task<IActionResult> CreateCourse([FromForm] CourseCreateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var course = new Course
+            {
+                Title = dto.Title,
+                Description = dto.Description,
+                IsActive = true,
+                IsDeleted = false,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow
+            };
+
+            if (dto.ImageFile != null)
+            {
+                course.ImageUrl = await SaveFileAsync(dto.ImageFile, "courses");
+            }
+
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetCourse), new { id = course.Id }, course);
@@ -58,10 +78,28 @@ namespace Paragraph.WebAPI.Controllers
 
         // PUT: api/courses/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCourse(int id, [FromBody] Course course)
+        public async Task<IActionResult> UpdateCourse(int id, [FromForm] CourseUpdateDto dto)
         {
-            if (id != course.Id)
+            if (id != dto.Id)
                 return BadRequest();
+
+            var course = await _context.Courses.FindAsync(id);
+            if (course == null || course.IsDeleted)
+                return NotFound();
+
+            course.Title = dto.Title;
+            course.Description = dto.Description;
+            course.LessonCount = dto.LessonCount;
+            course.WordCount = dto.WordCount;
+            course.IsActive = dto.IsActive;
+            course.ModifiedAt = DateTime.UtcNow;
+
+            if (dto.ImageFile != null)
+            {
+                // Eski resmi silmek isterseniz ilgili kod ekleyin.
+                course.ImageUrl = await SaveFileAsync(dto.ImageFile, "courses");
+            }
+
             _context.Entry(course).State = EntityState.Modified;
             try
             {
@@ -89,6 +127,26 @@ namespace Paragraph.WebAPI.Controllers
             _context.Entry(course).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return Ok(new { Message = "Course deleted successfully." });
+        }
+
+        // Yardımcı metot: Dosya kaydetme
+        private async Task<string?> SaveFileAsync(IFormFile file, string folder)
+        {
+            if (file == null || file.Length == 0)
+                return null;
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", folder);
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadsFolder, fileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return $"{Request.Scheme}://{Request.Host}/uploads/{folder}/{fileName}";
         }
     }
 }

@@ -208,12 +208,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9Mb2dvdXQvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Student/Views/MyCourses/CoursePlay.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9NeUNvdXJzZXMvQ291cnNlUGxheS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Student/Views/MyCourses/LessonDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9NeUNvdXJzZXMvTGVzc29uRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Student/Views/MyCourses/MyLessons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9NeUNvdXJzZXMvTXlMZXNzb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Student/Views/MyWords/Index.cshtml]

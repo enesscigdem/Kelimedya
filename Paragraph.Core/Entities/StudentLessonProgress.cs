@@ -1,3 +1,4 @@
+// StudentLessonProgress.cs
 using Paragraph.Core.BaseModels;
 using System;
 
@@ -15,16 +16,14 @@ namespace Paragraph.Core.Entities
 
         public string StudentId { get; set; } = string.Empty;
         public int LessonId { get; set; }
+        public virtual Lesson Lesson { get; set; }  // Navigation property
 
         public int LearnedWordCardsCount { get; set; }
         public decimal CompletionPercentage { get; set; }
-
         public DateTime StartDate { get; set; }
         public DateTime? LastAccessDate { get; set; }
         public bool IsCompleted { get; set; }
-
-        // Yeni detaylı istatistikler:
-        public int TotalAttempts { get; set; }              // Tüm kartlar için yapılan deneme sayısı
-        public double TotalTimeSpentSeconds { get; set; }     // Saniye cinsinden toplam geçirilen süre
+        public int TotalAttempts { get; set; }
+        public double TotalTimeSpentSeconds { get; set; }
     }
 }

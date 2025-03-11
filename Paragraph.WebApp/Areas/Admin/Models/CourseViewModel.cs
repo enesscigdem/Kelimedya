@@ -18,5 +18,7 @@ namespace Paragraph.WebApp.Areas.Admin.Models
         public int WordCount { get; set; } = 400;
 
         public bool IsActive { get; set; } = true;
+        public IFormFile? ImageFile { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

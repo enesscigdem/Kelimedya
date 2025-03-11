@@ -24,15 +24,13 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
             _httpClient = httpClientFactory.CreateClient("DefaultApi");
         }
 
-        // Ana sayfa: Öğrencinin aktif kurslarını ve kurs ilerlemelerini getirir.
+        // Ana sayfa: Öğrencinin aktif kurslarını getirir.
         public async Task<IActionResult> Index()
         {
             var studentId = _currentUserService.GetUserId();
 
-            // Aktif ve silinmemiş kursları getir
             var courses = await _httpClient.GetFromJsonAsync<List<CourseViewModel>>("api/courses/active");
 
-            // Kurs ilerlemelerini getirirken hata alınırsa boş liste döndür
             List<StudentCourseProgressViewModel> progresses;
             try
             {
@@ -43,7 +41,6 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
                 progresses = new List<StudentCourseProgressViewModel>();
             }
 
-            // Kursları, öğrenciye ait ilerleme bilgileriyle birleştir
             var coursesWithProgress = courses?.Select(course =>
             {
                 var progress = progresses?.FirstOrDefault(p => p.CourseId == course.Id);
@@ -57,20 +54,17 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
             return View(coursesWithProgress);
         }
 
-        // Belirli bir kursun detay sayfası: Kurs bilgisi, dersler ve ders ilerlemeleri.
-        public async Task<IActionResult> CoursePlay(int id)
+        // Belirli bir kursun derslerini getirir.
+        public async Task<IActionResult> MyLessons(int id)
         {
             var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            // Kurs bilgilerini al
             var course = await _httpClient.GetFromJsonAsync<CourseViewModel>($"api/courses/{id}");
             if (course == null)
                 return NotFound();
 
-            // Kursa ait dersleri al
             var lessons = await _httpClient.GetFromJsonAsync<List<LessonViewModel>>($"api/lessons/bycourse/{id}");
-
-            // Derslerin öğrenci ilerlemelerini getirirken hata alınırsa boş liste ata
+        
             List<StudentLessonProgressViewModel> lessonProgresses;
             try
             {
@@ -81,8 +75,7 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
                 lessonProgresses = new List<StudentLessonProgressViewModel>();
             }
 
-            // ViewModel oluşturuluyor
-            var viewModel = new CoursePlayViewModel
+            var viewModel = new MyLessonsViewModel
             {
                 Course = course,
                 Lessons = lessons?.Select(lesson =>
@@ -98,12 +91,10 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
 
             return View(viewModel);
         }
-
-        // Ders detay sayfası: Ders, kelime kartları ve ders ilerlemesi bilgilerini içerir.
+        // Ders detay sayfası: Ders, kelime kartları ve ders ilerlemesini getirir.
         public async Task<IActionResult> LessonDetail(int id)
         {
             var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            // Dersin detay bilgilerini al
             LessonViewModel lesson;
             try
             {
@@ -111,14 +102,12 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
             }
             catch (System.Text.Json.JsonException)
             {
-                // JSON parse hatası varsa NotFound döndürün
                 return NotFound("Ders bilgisi okunamadı.");
             }
-    
+
             if (lesson == null)
                 return NotFound();
 
-            // Dersin kelime kartlarını getir (endpoint'inizi kontrol edin, örneğin tekil "lesson" olabilir)
             List<WordCardViewModel> wordCards;
             try
             {
@@ -129,7 +118,6 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
                 wordCards = new List<WordCardViewModel>();
             }
 
-            // Kelime kartı ilerlemelerini getir
             List<StudentWordCardProgressViewModel> cardProgresses;
             try
             {
@@ -140,9 +128,8 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
                 cardProgresses = new List<StudentWordCardProgressViewModel>();
             }
 
-            // Ders ilerlemesini al veya oluştur
             var lessonProgress = await GetOrCreateLessonProgress(studentId, id);
-    
+
             var viewModel = new LessonDetailViewModel
             {
                 Lesson = lesson,
@@ -161,19 +148,19 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
             return View(viewModel);
         }
 
-        // Kelime kartı ilerlemesini güncellemek için kullanılan POST metodu.
+        // Kelime kartı ilerlemesini güncellemek için POST metodu
         [HttpPost]
         public async Task<IActionResult> UpdateWordCardProgress([FromBody] UpdateWordCardProgressViewModel model)
         {
             var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            // API'ye ilerleme güncelleme isteği gönder
             var response = await _httpClient.PostAsJsonAsync("api/progress/wordcards/update", new
             {
                 StudentId = studentId,
                 WordCardId = model.WordCardId,
+                LessonId = model.LessonId,
                 IsLearned = model.IsLearned,
-                IsMarkedForReview = model.IsMarkedForReview
+                ResponseTimeSeconds = model.ResponseTimeSeconds
             });
 
             if (!response.IsSuccessStatusCode)
@@ -182,26 +169,17 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
             return Ok();
         }
 
-        // Öğrenci için ders ilerlemesini getirir; mevcut değilse yeni oluşturur.
+        // Öğrenci için ders ilerlemesini getirir; yoksa oluşturur.
         private async Task<StudentLessonProgressViewModel> GetOrCreateLessonProgress(string studentId, int lessonId)
         {
             StudentLessonProgressViewModel progress = null;
             try
             {
-                // API'den ders ilerlemesi çekmeye çalışıyoruz
                 progress = await _httpClient.GetFromJsonAsync<StudentLessonProgressViewModel>($"api/progress/lessons/{studentId}/{lessonId}");
             }
-            catch (System.Text.Json.JsonException)
-            {
-                // Yanıt boş veya geçersiz JSON içeriyorsa, progress null olsun
-                progress = null;
-            }
-            catch (HttpRequestException)
-            {
-                progress = null;
-            }
-    
-            // Eğer progress bulunamadıysa (null ise), create işlemini tetikleyelim
+            catch (System.Text.Json.JsonException) { progress = null; }
+            catch (HttpRequestException) { progress = null; }
+
             if (progress == null)
             {
                 var response = await _httpClient.PostAsJsonAsync("api/progress/lessons/create", new
@@ -216,10 +194,7 @@ namespace Paragraph.WebApp.Areas.Student.Controllers
                     {
                         progress = await response.Content.ReadFromJsonAsync<StudentLessonProgressViewModel>();
                     }
-                    catch (System.Text.Json.JsonException)
-                    {
-                        progress = null;
-                    }
+                    catch (System.Text.Json.JsonException) { progress = null; }
                 }
             }
 

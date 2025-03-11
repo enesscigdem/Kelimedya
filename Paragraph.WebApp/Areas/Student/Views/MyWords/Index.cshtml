@@ -2,22 +2,29 @@
 
 @{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Kelime Kartlarım - Ultra Profesyonel Tasarım";
+    ViewData["Title"] = "Kelime Kartlarım - Profesyonel Kelime Yönetimi";
 }
 
 <link href="~/css/myWords.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <div class="words-container">
-    <!-- Pulsing Daireler (arka plan dekoru) -->
-    <div class="pulse-circle"></div>
-    <div class="pulse-circle"></div>
-
-    <!-- Başlık & Alt Açıklama -->
+    <!-- Başlık & Kontroller -->
     <header class="header-area">
-        <h1 class="words-hero">Kelime Kartlarım</h1>
-        <p class="words-sub">
-            Ezberlediğin kelimeleri, modern tasarımla bir arada gör. Yeni kelimeler ekleyip, başarılarını takip et!
-        </p>
+        <div class="header-content">
+            <h1 class="words-hero">Kelime Kartlarım</h1>
+            <p class="words-sub">Öğrendiğin kelimeleri etkili şekilde yönet</p>
+        </div>
+        <div class="tools">
+            <div class="search-box">
+                <input type="text" placeholder="Kelime ara..." id="searchInput">
+                <i class="fas fa-search"></i>
+            </div>
+            <button class="ultra-btn" id="sortBtn">
+                <i class="fas fa-sort-alpha-down"></i>
+                Sırala
+            </button>
+        </div>
     </header>
 
     <!-- İstatistik Kartları -->
@@ -27,52 +34,59 @@
             <div class="stat-value">@Model.LearnedWords.Count</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Ezberlenen</div>
-            <div class="stat-value green">@Model.LearnedWords.Where(x => x.Progress.IsLearned).Count()</div>
+            <div class="stat-label">Öğrenilenler</div>
+            <div class="stat-value green">@Model.LearnedWords.Count(x => x.Progress.IsLearned)</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Bugün Çalışılan</div>
             <div class="stat-value orange">
-                @Model.LearnedWords.Where(x => x.Progress.LastSeenDate.GetValueOrDefault().Date == DateTime.Now.Date).Count()
+                @Model.LearnedWords.Count(x => x.Progress.LastSeenDate?.Date == DateTime.Today)
             </div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Gösterim Sayısı</div>
+            <div class="stat-label">Gösterim</div>
             <div class="stat-value">@Model.LearnedWords.Sum(x => x.Progress.ViewCount)</div>
         </div>
     </section>
 
-    <!-- Araçlar: Arama, Filtre, Sırala, Yeni Kart -->
-    <div class="tools">
-        <input type="text" placeholder="Kelime ara…" id="searchInput" />
-        <button class="ultra-btn" id="filterBtn">Filtrele</button>
-        <button class="ultra-btn" id="sortBtn">Sırala</button>
-        <a href="#" class="ultra-btn secondary" style="margin-left:auto;">Yeni Kart Ekle</a>
-    </div>
-
-    <!-- Kelime Kartları Grid (Ezberlenen Kelimeler) -->
+    <!-- Kelime Kartları Grid -->
     <section class="cards-grid" id="cardsGrid">
-        @if(Model.LearnedWords != null && Model.LearnedWords.Any())
+        @if(Model.LearnedWords?.Any() == true)
         {
             @foreach (var item in Model.LearnedWords)
             {
                 <div class="word-card">
-                    <div class="word-card-inner">
-                        <!-- Resim Alanı -->
-                        <div class="card-image">
-                            <img src="@( !string.IsNullOrEmpty(item.WordCard.ImageUrl) ? item.WordCard.ImageUrl : Url.Content("https://flowbite.com/docs/images/examples/image-1@2x.jpg") )" alt="@item.WordCard.Word" />
+                 <div class="progress-indicator">
+                        <span class="progress-text">Gösterim</span>
+                        <span class="progress-number">@item.Progress.ViewCount</span>
+                    </div>
+                    <div class="card-header">
+                        <img src="@(item.WordCard.ImageUrl ?? "/images/placeholder-word.png")" 
+                             alt="@item.WordCard.Word"
+                             class="card-image">
+                    </div>
+                    
+                    <div class="card-body">
+                        <h3 class="word-title">@item.WordCard.Word</h3>
+                        <p class="word-definition">@item.WordCard.Definition</p>
+                        
+                        <div class="card-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-history"></i>
+                                @item.Progress.LastSeenDate?.ToString("dd MMM")
+                            </span>
+                            @if(item.Progress.IsLearned)
+                            {
+                                <span class="learned-badge">
+                                    <i class="fas fa-check"></i>
+                                    Öğrenildi
+                                </span>
+                            }
                         </div>
-                        <!-- Kart İçeriği: Ön Yüz -->
-                        <div class="card-front">
-                            <h2 class="word-title">@item.WordCard.Word</h2>
-                            <p class="word-description">@item.WordCard.Definition</p>
-                            <div class="progress-badge">Gösterim: @(item.Progress?.ViewCount ?? 0)</div>
-                        </div>
-                        <!-- Kart İçeriği: Arka Yüz -->
-                        <div class="card-back">
-                            <p class="meaning">@item.WordCard.Definition</p>
-                            <p class="example">“@item.WordCard.ExampleSentence”</p>
-                            <p class="synonyms">Eş Anlam: <strong>@(item.WordCard.Definition ?? "Bilinmiyor")</strong></p>
+                        
+                        <!-- Örnek Cümle Bölümü -->
+                        <div class="example-section mt-2">
+                            <p class="example-text">@item.WordCard.ExampleSentence</p>
                         </div>
                     </div>
                 </div>
@@ -81,7 +95,8 @@
         else
         {
             <div class="no-words">
-                <h3>Henüz ezberlenen kelime kartınız bulunmamaktadır.</h3>
+                <img src="/images/empty-state.png" alt="Boş liste">
+                <h3>Henüz kelime kartınız bulunmamaktadır</h3>
             </div>
         }
     </section>
@@ -89,38 +104,39 @@
 
 @section Scripts {
     <script>
-        // Filtreleme ve sıralama için
-        const searchInput = document.getElementById("searchInput");
-        const filterBtn = document.getElementById("filterBtn");
-        const sortBtn = document.getElementById("sortBtn");
-        const cardsGrid = document.getElementById("cardsGrid");
-        let sortAsc = true;
-        
-        function filterCards() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const cards = cardsGrid.getElementsByClassName("word-card");
-            for (let card of cards) {
-                const wordTitleElem = card.querySelector(".word-title");
-                if (wordTitleElem) {
-                    const word = wordTitleElem.textContent.toLowerCase();
-                    card.style.display = word.includes(searchTerm) ? "" : "none";
-                }
-            }
-        }
-        
-        function sortCards() {
-            const cardsArray = Array.from(cardsGrid.getElementsByClassName("word-card"));
-            cardsArray.sort((a, b) => {
-                const wordA = a.querySelector(".word-title").textContent.trim().toLowerCase();
-                const wordB = b.querySelector(".word-title").textContent.trim().toLowerCase();
-                return sortAsc ? wordA.localeCompare(wordB) : wordB.localeCompare(wordA);
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const sortBtn = document.getElementById('sortBtn');
+            let sortAsc = true;
+
+            // Arama Fonksiyonu
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                document.querySelectorAll('.word-card').forEach(card => {
+                    const word = card.querySelector('.word-title').textContent.toLowerCase();
+                    card.style.display = word.includes(searchTerm) ? 'flex' : 'none';
+                });
             });
-            cardsArray.forEach(card => cardsGrid.appendChild(card));
-            sortAsc = !sortAsc;
-        }
-        
-        searchInput.addEventListener("input", filterCards);
-        filterBtn.addEventListener("click", filterCards);
-        sortBtn.addEventListener("click", sortCards);
+
+            // Sıralama Fonksiyonu
+            sortBtn.addEventListener('click', () => {
+                const container = document.getElementById('cardsGrid');
+                const cards = Array.from(container.children);
+                
+                cards.sort((a, b) => {
+                    const wordA = a.querySelector('.word-title').textContent.trim();
+                    const wordB = b.querySelector('.word-title').textContent.trim();
+                    return sortAsc ? 
+                        wordA.localeCompare(wordB) : 
+                        wordB.localeCompare(wordA);
+                });
+
+                cards.forEach(card => container.appendChild(card));
+                sortAsc = !sortAsc;
+                sortBtn.querySelector('i').className = sortAsc ? 
+                    'fas fa-sort-alpha-down' : 
+                    'fas fa-sort-alpha-up';
+            });
+        });
     </script>
 }

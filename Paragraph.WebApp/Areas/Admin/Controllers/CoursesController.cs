@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Paragraph.WebApp.Areas.Admin.Models;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Json;
+using Microsoft.EntityFrameworkCore;
+using Paragraph.Core.Entities;
+using Paragraph.Persistence;
+using System.Linq;
 using System.Threading.Tasks;
+using Paragraph.WebApp.Areas.Admin.Models;
 
 namespace Paragraph.WebApp.Areas.Admin.Controllers
 {
@@ -16,31 +17,28 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         {
             _httpClient = httpClientFactory.CreateClient("DefaultApi");
         }
-        
+
         // GET: /Admin/Courses
         public async Task<IActionResult> Index()
         {
-            // 1. Kursları çekiyoruz.
             var courses = await _httpClient.GetFromJsonAsync<List<CourseAggregateViewModel>>("api/courses");
             if (courses == null)
             {
                 courses = new List<CourseAggregateViewModel>();
             }
 
-            // 2. Her kurs için ilgili dersleri ve derslere ait kelime kartlarını yüklüyoruz.
+            // Her kurs için ilgili dersleri ve kelime kartlarını da yüklemek için:
             foreach (var course in courses)
             {
-                // Dersleri API'den çekiyoruz (course.Id ile filtreleyerek)
                 var lessons = await _httpClient.GetFromJsonAsync<List<LessonAggregateViewModel>>($"api/lessons/bycourse/{course.Id}");
                 if (lessons == null)
                 {
                     lessons = new List<LessonAggregateViewModel>();
                 }
 
-                // Her ders için kelime kartlarını yüklüyoruz.
                 foreach (var lesson in lessons)
                 {
-                    // API'den tüm kelime kartlarını çekip, ilgili derse ait olanları filtreleyelim.
+                    // Tüm kelime kartlarını çekip, ilgili derse ait olanları filtreleyelim.
                     var allCards = await _httpClient.GetFromJsonAsync<List<WordCardViewModel>>("api/wordcards");
                     if (allCards != null)
                     {
@@ -66,18 +64,36 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-            var response = await _httpClient.PostAsJsonAsync("api/courses", model);
-            if (response.IsSuccessStatusCode)
+
+            using (var content = new MultipartFormDataContent())
             {
-                TempData["Success"] = "Eğitim başarıyla oluşturuldu.";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-                return View(model);
+                content.Add(new StringContent(model.Title), "Title");
+                content.Add(new StringContent(model.Description ?? string.Empty), "Description");
+                content.Add(new StringContent(model.LessonCount.ToString()), "LessonCount");
+                content.Add(new StringContent(model.WordCount.ToString()), "WordCount");
+                content.Add(new StringContent(model.IsActive.ToString()), "IsActive");
+
+                if (model.ImageFile != null)
+                {
+                    var streamContent = new StreamContent(model.ImageFile.OpenReadStream());
+                    streamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(model.ImageFile.ContentType);
+                    content.Add(streamContent, "ImageFile", model.ImageFile.FileName);
+                }
+
+                var response = await _httpClient.PostAsync("api/courses", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "Eğitim başarıyla oluşturuldu.";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+                    return View(model);
+                }
             }
         }
+
 
         // GET: /Admin/Courses/Edit/{id}
         public async Task<IActionResult> Edit(int id)
@@ -97,16 +113,35 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
                 return BadRequest();
             if (!ModelState.IsValid)
                 return View(model);
-            var response = await _httpClient.PutAsJsonAsync($"api/courses/{id}", model);
-            if (response.IsSuccessStatusCode)
+
+            // Multipart form-data olarak gönderim yapmak için:
+            using (var content = new MultipartFormDataContent())
             {
-                TempData["Success"] = "Eğitim başarıyla güncellendi.";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-                return View(model);
+                content.Add(new StringContent(model.Id.ToString()), "Id");
+                content.Add(new StringContent(model.Title), "Title");
+                content.Add(new StringContent(model.Description ?? string.Empty), "Description");
+                content.Add(new StringContent(model.LessonCount.ToString()), "LessonCount");
+                content.Add(new StringContent(model.WordCount.ToString()), "WordCount");
+                content.Add(new StringContent(model.IsActive.ToString()), "IsActive");
+
+                if (model.ImageFile != null)
+                {
+                    var streamContent = new StreamContent(model.ImageFile.OpenReadStream());
+                    streamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(model.ImageFile.ContentType);
+                    content.Add(streamContent, "ImageFile", model.ImageFile.FileName);
+                }
+
+                var response = await _httpClient.PutAsync($"api/courses/{id}", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "Eğitim başarıyla güncellendi.";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+                    return View(model);
+                }
             }
         }
 
@@ -116,14 +151,13 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
             var response = await _httpClient.DeleteAsync($"api/courses/{id}");
             if (response.IsSuccessStatusCode)
             {
-                TempData["Success"] = "Product deleted successfully.";
+                TempData["Success"] = "Eğitim başarıyla silindi.";
             }
             else
             {
                 TempData["Error"] = await response.Content.ReadAsStringAsync();
             }
             return RedirectToAction("Index");
-
         }
     }
 }

@@ -32,7 +32,9 @@ namespace Paragraph.WebAPI.Controllers
         [HttpGet("bycourse/{courseId}")]
         public async Task<IActionResult> GetLessonsByCourse(int courseId)
         {
-            var lessons = await _context.Lessons.Where(l => l.CourseId == courseId && !l.IsDeleted).ToListAsync();
+            var lessons = await _context.Lessons
+                .Include(x => x.WordCards)
+                .Where(l => l.CourseId == courseId && !l.IsDeleted).ToListAsync();
             return Ok(lessons);
         }
 

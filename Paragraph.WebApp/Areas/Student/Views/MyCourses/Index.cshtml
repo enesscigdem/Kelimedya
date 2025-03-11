@@ -1,224 +1,83 @@
-﻿@model List<Paragraph.WebApp.Areas.Student.Models.CourseWithProgressViewModel>
+﻿<!-- MyCourses/Index.cshtml -->
+@model List<Paragraph.WebApp.Areas.Student.Models.CourseWithProgressViewModel>
 @{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Eğitimlerim - Profesyonel Görünüm";
 }
 
-<style>
-    /* Arkaplan degrade + animasyon */
-    body {
-        background: linear-gradient(120deg, #fffdfd 0%, #ffe5e0 100%);
-        animation: bodyBg 10s infinite alternate ease-in-out;
-        font-family: 'Josefin Sans', sans-serif;
-        color: #333;
-    }
-
-    /* Ana kapsayıcı */
-    .courses-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-        position: relative;
-    }
-
-    /* Dekoratif daireler (pulsing effect) */
-    .pulse-decor {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(20px);
-        opacity: 0.6;
-        animation: pulseAni 6s infinite alternate ease-in-out;
-        z-index: -1;
-    }
-
-    @@keyframes pulseAni {
-        0% { transform: scale(0.9); }
-        100% { transform: scale(1.2); }
-    }
-
-    .pulse-decor:nth-child(1) {
-        top: -30px;
-        right: 15%;
-        width: 160px;
-        height: 160px;
-        background: rgba(240, 82, 50, 0.3);
-    }
-
-    .pulse-decor:nth-child(2) {
-        bottom: -30px;
-        left: 10%;
-        width: 180px;
-        height: 180px;
-        background: rgba(240, 82, 50, 0.2);
-        animation-delay: 3s;
-    }
-
-    /* Başlıklar */
-    .courses-hero {
-        font-size: 2.8rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #f05232;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-        text-align: center;
-    }
-
-    .courses-sub {
-        font-size: 1.1rem;
-        color: #777;
-        margin-bottom: 2.5rem;
-        text-align: center;
-    }
-
-    /* Araçlar: Arama / Filtre / Sırala / Kurs Kaydı */
-    .courses-tools {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        align-items: center;
-    }
-
-    .courses-tools input {
-        flex: 1;
-        max-width: 250px;
-        padding: 0.7rem 1.2rem;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        transition: 0.3s;
-    }
-
-    .courses-tools input:focus {
-        border-color: #f05232;
-        box-shadow: 0 0 0 3px rgba(240, 82, 50, 0.15);
-        outline: none;
-    }
-
-    .course-btn {
-        background-color: #f05232;
-        color: #fff;
-        padding: 0.7rem 1.5rem;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        transition: background 0.3s, transform 0.3s;
-        text-decoration: none;
-    }
-
-    .course-btn:hover {
-        background-color: #d74322;
-        transform: translateY(-2px);
-    }
-
-    /* Kurs Kart Grid */
-    .courses-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 1.5rem;
-    }
-
-    /* Kurs Blok */
-    .course-block {
-        background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%);
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .course-block:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.09);
-    }
-
-    .course-block h3 {
-        margin: 0 0 0.5rem;
-        font-size: 1.3rem;
-        color: #c94a2c;
-    }
-
-    .course-block p {
-        color: #555;
-        font-size: 0.95rem;
-        flex: 1;
-        margin-bottom: 1rem;
-    }
-
-    .course-block .course-btn {
-        align-self: flex-start;
-    }
-
-    /* Responsive ayarlar */
-    @@media(max-width: 768px) {
-        .courses-hero { font-size: 2rem; }
-        .course-block h3 { font-size: 1.2rem; }
-    }
-</style>
+<link href="~/css/myCourses.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <div class="courses-container">
-    <!-- Pulsing Dekorlar -->
-    <div class="pulse-decor"></div>
-    <div class="pulse-decor"></div>
-
-    <!-- Başlık & Alt Yazı -->
-    <h1 class="courses-hero">Eğitimlerim</h1>
-    <div class="courses-sub">
-        Buradan kayıtlı veya yeni başlayacağınız eğitimleri yönetebilirsiniz.
-    </div>
-
-    <!-- Araçlar (Arama, Filtre, Sırala, Kurs Kaydı) -->
-    <div class="courses-tools">
-        <input type="text" placeholder="Kurs ara…" id="searchInput" />
-        <button class="course-btn" id="filterBtn">Filtre</button>
-        <button class="course-btn" id="sortBtn">Sırala</button>
-    </div>
+    <!-- Başlık & Kontroller -->
+    <header class="header-area">
+        <div class="header-content">
+            <h1 class="courses-hero">Eğitimlerim</h1>
+            <p class="courses-sub">Kayıtlı eğitimlerinizi profesyonel şekilde yönetin</p>
+        </div>
+        <div class="tools">
+            <div class="search-box">
+                <input type="text" placeholder="Kurs ara..." id="searchInput">
+                <i class="fas fa-search"></i>
+            </div>
+            <button class="ultra-btn" id="filterBtn">
+                <i class="fas fa-filter"></i>
+                Filtrele
+            </button>
+        </div>
+    </header>
 
     <!-- Kurs Kartları Grid -->
-    <div class="courses-grid">
-        @if (Model != null && Model.Any())
+    <section class="cards-grid" id="cardsGrid">
+        @if (Model?.Any() == true)
         {
-            foreach (var item in Model)
+            @foreach (var item in Model)
             {
-                <div class="course-block">
-                    <h3>@item.Course.Title</h3>
-                    <p>@(item.Course.Description ?? "Açıklama bulunmuyor.")</p>
-                    <a class="course-btn" asp-controller="MyCourses" asp-action="CoursePlay" asp-route-id="@item.Course.Id">
-                        Eğitime Git
-                    </a>
+                <div class="course-card">
+                    <div class="card-header">
+                        <img src="@(item.Course.ImageUrl ?? "/images/course-placeholder.jpg")" 
+                             alt="@item.Course.Title"
+                             class="card-image">
+                    </div>
+                    
+                    <div class="card-body">
+                        <h3 class="course-title">@item.Course.Title</h3>
+                        <p class="course-description">@item.Course.Description</p>
+                        
+                        <a class="ultra-btn course-action" 
+                           asp-controller="MyCourses" 
+                           asp-action="MyLessons" 
+                           asp-route-id="@item.Course.Id">
+                            <i class="fas fa-graduation-cap"></i>
+                            Eğitime Git
+                        </a>
+                    </div>
                 </div>
             }
         }
         else
         {
-            <div class="alert alert-info">
-                Henüz kayıtlı eğitim bulunmuyor.
+            <div class="no-courses">
+                <img src="/images/empty-courses.png" alt="Boş liste">
+                <h3>Henüz kayıtlı eğitiminiz bulunmamaktadır</h3>
             </div>
         }
-    </div>
+    </section>
 </div>
 
 @section Scripts {
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
-            const courseBlocks = document.querySelectorAll('.course-block');
-
-            // Arama fonksiyonu
-            searchInput.addEventListener('input', function (e) {
+            
+            searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
-
-                courseBlocks.forEach(block => {
-                    const title = block.querySelector('h3').textContent.toLowerCase();
-                    const description = block.querySelector('p').textContent.toLowerCase();
-
-                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                        block.style.display = '';
-                    } else {
-                        block.style.display = 'none';
-                    }
+                document.querySelectorAll('.course-card').forEach(card => {
+                    const title = card.querySelector('.course-title').textContent.toLowerCase();
+                    const desc = card.querySelector('.course-description')?.textContent.toLowerCase() || '';
+                    card.style.display = (title.includes(searchTerm) || desc.includes(searchTerm)) 
+                        ? 'flex' 
+                        : 'none';
                 });
             });
         });

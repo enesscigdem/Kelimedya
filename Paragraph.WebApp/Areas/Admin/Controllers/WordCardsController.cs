@@ -39,9 +39,6 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(WordCardViewModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
-
             using (var content = new MultipartFormDataContent())
             {
                 content.Add(new StringContent(model.LessonId.ToString()), "LessonId");
@@ -92,9 +89,6 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         {
             if (id != model.Id)
                 return BadRequest();
-            if (!ModelState.IsValid)
-                return View(model);
-
             using (var content = new MultipartFormDataContent())
             {
                 content.Add(new StringContent(model.Id.ToString()), "Id");

@@ -109,6 +109,7 @@ namespace Paragraph.WebAPI.Controllers
                 progress.TotalTimeSpentSeconds = dto.TotalTimeSpentSeconds;
                 progress.LastAccessDate = DateTime.UtcNow;
                 progress.ModifiedAt = DateTime.UtcNow;
+                progress.IsCompleted = progress.CompletionPercentage == 100;
                 _context.StudentLessonProgresses.Update(progress);
             }
             await _context.SaveChangesAsync();

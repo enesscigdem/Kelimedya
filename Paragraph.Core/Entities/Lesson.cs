@@ -1,4 +1,6 @@
+// Lesson.cs
 using Paragraph.Core.BaseModels;
+using System.Collections.Generic;
 
 namespace Paragraph.Core.Entities
 {
@@ -12,12 +14,18 @@ namespace Paragraph.Core.Entities
         public DateTime ModifiedAt { get; set; }
         public int? ModifiedBy { get; set; }
 
-        public int CourseId { get; set; }           // Hangi kursa ait
-        public string Title { get; set; } = null!;  // Örnek: "Ders 1"
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }  // Navigation property
+
+        public string Title { get; set; } = null!;
         public string? Description { get; set; }
-        
-        // Ders sırası
-        public int SequenceNo { get; set; }         // Örneğin 1,2,3... 40
+        public int SequenceNo { get; set; }
         public string? ImageUrl { get; set; }
+        
+        public virtual ICollection<StudentLessonProgress> StudentLessonProgresses { get; set; }
+            = new List<StudentLessonProgress>();
+
+        public virtual ICollection<WordCard> WordCards { get; set; }
+            = new List<WordCard>();
     }
 }

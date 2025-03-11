@@ -13,12 +13,24 @@
       "PackagePath": "staticwebassets/css/lessonDetail.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/myCourses.css",
+      "PackagePath": "staticwebassets/css/myCourses.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/myLessons.css",
+      "PackagePath": "staticwebassets/css/myLessons.css"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/myWords.css",
       "PackagePath": "staticwebassets/css/myWords.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/studentDashboard.css",
+      "PackagePath": "staticwebassets/css/studentDashboard.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/favicon.ico",

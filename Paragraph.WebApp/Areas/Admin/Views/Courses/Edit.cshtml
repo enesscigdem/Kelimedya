@@ -18,7 +18,7 @@
     <div class="container-xl">
         <div class="card">
             <div class="card-body">
-                <form method="post" asp-action="Edit">
+                <form method="post" asp-action="Edit" enctype="multipart/form-data">
                     <input type="hidden" asp-for="Id" />
                     <!-- Eğitim Başlığı -->
                     <div class="mb-3">
@@ -44,6 +44,18 @@
                         <input type="number" class="form-control" asp-for="WordCount" />
                         <span asp-validation-for="WordCount" class="text-danger"></span>
                     </div>
+                    <!-- Kurs Resmi -->
+                    <div class="mb-3">
+                        <label class="form-label">Kurs Resmi</label>
+                        <input type="file" class="form-control" asp-for="ImageFile" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <div class="mt-2">
+                                <img src="@Model.ImageUrl" alt="Kurs Resmi" class="thumb" style="max-width:150px;"/>
+                            </div>
+                        }
+                    </div>
                     <!-- Aktiflik Durumu -->
                     <div class="mb-3">
                         <label class="form-check form-switch">
@@ -65,7 +77,5 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

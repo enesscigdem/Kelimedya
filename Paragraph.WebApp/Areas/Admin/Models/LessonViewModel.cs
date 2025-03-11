@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Paragraph.Core.Entities;
 
 namespace Paragraph.WebApp.Areas.Admin.Models
 {
@@ -26,6 +27,7 @@ namespace Paragraph.WebApp.Areas.Admin.Models
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int WordCount { get; set; }
+        public List<WordCard> WordCards { get; set; } = new List<WordCard>();
         public int GameCount { get; set; }
         public bool IsStarted { get; set; }
     }

@@ -40,9 +40,6 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(LessonViewModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
-
             using (var content = new MultipartFormDataContent())
             {
                 content.Add(new StringContent(model.CourseId.ToString()), "CourseId");
@@ -93,8 +90,6 @@ namespace Paragraph.WebApp.Areas.Admin.Controllers
         {
             if (id != model.Id)
                 return BadRequest();
-            if (!ModelState.IsValid)
-                return View(model);
 
             using (var content = new MultipartFormDataContent())
             {

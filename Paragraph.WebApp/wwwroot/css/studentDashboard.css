@@ -1,0 +1,169 @@
+/* Gövde / Arkaplan */
+body {
+    background: linear-gradient(120deg, #fffaf9 0%, #ffe5df 100%);
+    animation: dashBg 12s infinite alternate ease-in-out;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #333;
+}
+
+/* Ana kapsayıcı */
+.student-dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Dekoratif daire - animasyon */
+.circle-anim {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(25px);
+    opacity: 0.5;
+    animation: animCircle 6s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes animCircle {
+    0% {
+        transform: scale(0.8) translateY(0);
+    }
+    100% {
+        transform: scale(1.1) translateY(-30px);
+    }
+}
+
+.circle-anim:nth-child(1) {
+    top: -50px;
+    left: 70%;
+    width: 150px;
+    height: 150px;
+    background: rgba(240, 82, 50, 0.3);
+}
+
+.circle-anim:nth-child(2) {
+    bottom: 50px;
+    left: 10%;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 120, 100, 0.2);
+    animation-delay: 2s;
+}
+
+/* Hero Başlık */
+.hero-welcome {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #f05232;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sub-text {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 2.5rem;
+}
+
+/* Istatistik grid (2 sütun, hover efektli kartlar) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stats-block {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    transition: 0.3s ease;
+}
+
+.stats-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.stats-block h2 {
+    font-size: 1.6rem;
+    color: #c94a2c;
+    margin-bottom: 0.5rem;
+}
+
+.stats-block .numbers {
+    font-size: 2.4rem;
+    color: #f05232;
+    margin-bottom: 0.5rem;
+}
+
+.stats-block .desc {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Kurs İlerleme Tablo Kutusu */
+.progress-box {
+    margin-bottom: 2rem;
+    background: #fff;
+    border-left: 6px solid #fcbfa1;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+}
+
+.progress-box h3 {
+    font-size: 1.5rem;
+    color: #f05232;
+    margin-bottom: 1rem;
+}
+
+.progress-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.progress-box th, .progress-box td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.progress-box thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.progress-box tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.progress-box .progress-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.4rem;
+    background: #f05232;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.progress-box .progress-btn:hover {
+    background: #d74322;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-welcome {
+        font-size: 2.2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,159 +1,21 @@
-﻿@{
+﻿@model IEnumerable<Paragraph.WebApp.Areas.Teacher.Models.StudentViewModel>
+
+@{
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Öğrenciler";
 }
 
-<style>
-    .students-page {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-    }
-    .students-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-    }
-    .students-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #2b4055;
-        margin: 0;
-    }
-    .students-sub {
-        color: #777;
-        font-size: 0.9rem;
-    }
-    .stats-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-    .stats-box {
-        background: #fff;
-        border-left: 6px solid var(--color-accent);
-        border-radius: 6px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-        padding: 1rem;
-        text-align: center;
-    }
-    .stats-box .subheader {
-        font-size: 0.75rem;
-        color: #999;
-        text-transform: uppercase;
-        margin-bottom: 0.3rem;
-    }
-    .stats-box .number {
-        font-size: 2rem;
-        color: var(--color-accent);
-        margin: 0;
-        font-weight: 700;
-    }
-
-    /* Araç çubuğu */
-    .tools-row {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
-    }
-    .btn-tool {
-        background: var(--color-accent);
-        border: none;
-        color: #fff;
-        padding: 0.6rem 1.2rem;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.3s;
-    }
-    .btn-tool:hover {
-        background: #d68910;
-    }
-
-    /* Öğrenci Tablosu */
-    .table-wrap {
-        background: #fff;
-        border-radius: 6px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-        overflow: hidden;
-    }
-    .table-wrap .card-header {
-        background: #ecf0f1;
-        border-radius: 6px 6px 0 0;
-        padding: 1rem;
-    }
-    .table-wrap table thead {
-        background: #2b4055;
-        color: #fff;
-    }
-    .table-wrap table thead th {
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        letter-spacing: 0.5px;
-    }
-    .table-wrap table tbody tr:hover {
-        background: #fafafa;
-    }
-    .btn-small {
-        padding: 0.4rem 0.8rem;
-        border-radius: 4px;
-        color: #fff;
-        font-size: 0.8rem;
-        margin-right: 0.2rem;
-    }
-</style>
+<link href="~/css/teacherStudents.css" rel="stylesheet" />
 
 <div class="students-page container-xl">
     <div class="students-header">
-        <div>
-            <h2 class="students-title">Öğrenciler</h2>
-            <div class="students-sub">Tüm öğrencileri görüntüleyin ve yönetin.</div>
-        </div>
+        <h2 class="students-title">Öğrenciler</h2>
+        <div class="students-sub">Tüm öğrencileri görüntüleyin ve yönetin.</div>
     </div>
-
-    <!-- İstatistik Kartları -->
-    <div class="stats-row">
-        <div class="stats-box">
-            <div class="subheader">Toplam Öğrenci</div>
-            <div class="number">64</div>
-        </div>
-        <div class="stats-box">
-            <div class="subheader">Mezun Olanlar</div>
-            <div class="number" style="color:#27ae60;">12</div>
-        </div>
-    </div>
-
-    <!-- Filtre / Arama Araçları -->
-    <div class="tools-row">
-        <form style="max-width:300px;">
-            <div class="input-icon">
-                <span class="input-icon-addon">
-                    <!-- Search Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         class="icon icon-tabler icon-tabler-search"
-                         width="24" height="24"
-                         viewBox="0 0 24 24" stroke-width="2"
-                         stroke="currentColor" fill="none"
-                         stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="10" cy="10" r="7"/>
-                      <line x1="21" y1="21" x2="15" y2="15"/>
-                    </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="Öğrenci ara…"/>
-            </div>
-        </form>
-        <div style="flex:1; text-align:right;">
-            <button class="btn-tool">Filtre</button>
-            <button class="btn-tool">Sırala</button>
-        </div>
-    </div>
-
     <!-- Öğrenci Tablosu -->
     <div class="table-wrap">
         <div class="card-header">
-            <h3 class="card-title" style="margin:0;">Tüm Öğrenciler</h3>
+            <h3 class="card-title">Tüm Öğrenciler</h3>
         </div>
         <div class="table-responsive">
             <table class="table card-table table-hover mb-0">
@@ -163,24 +25,18 @@
                         <th>E-posta</th>
                         <th>Kayıt Tarihi</th>
                         <th>Kurs Düzeyi</th>
-                        <th class="w-1 text-end">İşlemler</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Ali Yılmaz</td>
-                        <td>ali@example.com</td>
-                        <td>2025-02-05</td>
-                        <td>A2</td>
-                        <td class="text-end">
-                            <div class="btn-group">
-                                <a href="#" class="btn-small" style="background:#2980b9;">Detay</a>
-                                <a href="#" class="btn-small" style="background:#27ae60;">Düzenle</a>
-                                <a href="#" class="btn-small" style="background:#e74c3c;">Sil</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- Daha fazla satır -->
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.FullName</td>
+                            <td>@student.Email</td>
+                            <td>@student.CreatedAt.ToString("yyyy-MM-dd")</td>
+                            <td>@student.Role</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

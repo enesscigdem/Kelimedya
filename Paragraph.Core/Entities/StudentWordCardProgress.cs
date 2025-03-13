@@ -15,6 +15,7 @@ namespace Paragraph.Core.Entities
 
         public string StudentId { get; set; } = string.Empty;
         public int WordCardId { get; set; }
+        public WordCard WordCard { get; set; }
         public int LessonId { get; set; }
 
         public bool IsLearned { get; set; }

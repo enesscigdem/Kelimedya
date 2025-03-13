@@ -33,6 +33,18 @@
       "PackagePath": "staticwebassets/css/studentDashboard.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/teacherPerformance.css",
+      "PackagePath": "staticwebassets/css/teacherPerformance.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/teacherReports.css",
+      "PackagePath": "staticwebassets/css/teacherReports.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/css/teacherStudents.css",
+      "PackagePath": "staticwebassets/css/teacherStudents.css"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
     },

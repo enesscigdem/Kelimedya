@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Paragraph.Core.Entities;
-using Paragraph.Persistence; // DbContext’inizin bulunduğu namespace
+using Paragraph.Persistence;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -72,7 +72,6 @@ namespace Paragraph.WebAPI.Controllers
             var product = await _context.Products.FindAsync(id);
             if (product == null)
                 return NotFound();
-            // Soft delete: işaretleyip güncelliyoruz.
             product.IsDeleted = true;
             product.IsActive = false;
             _context.Entry(product).State = EntityState.Modified;

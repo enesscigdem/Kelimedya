@@ -156,8 +156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zf4m2k4uf9</Fingerprint>
-      <Integrity>AW7dRI5nzvjNg10xgffKkGDHCT3Ig1MXPpwXywKdNgY=</Integrity>
+      <Fingerprint>2mhtn64dg3</Fingerprint>
+      <Integrity>as0T6yy8XRUAIcuO3nIQRUHug3z76ircX1WK2FAONGs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\teacherReports.css'))</OriginalItemSpec>

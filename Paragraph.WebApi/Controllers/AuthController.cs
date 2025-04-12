@@ -19,11 +19,6 @@ namespace Paragraph.WebAPI.Controllers
             _authService = authService;
         }
 
-        /// <summary>
-        /// Kayıt olma işlemi.
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
@@ -38,11 +33,6 @@ namespace Paragraph.WebAPI.Controllers
             return Ok(new { Message = result.Message });
         }
 
-        /// <summary>
-        /// Giriş işlemi.
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {

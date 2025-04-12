@@ -22,7 +22,6 @@ namespace Paragraph.WebAPI.Controllers
         [HttpGet("{studentId}")]
         public async Task<IActionResult> GetDashboardData(string studentId)
         {
-            // EF Core navigation property’leri sayesinde Lesson ve Course bilgilerine erişim sağlanıyor.
             var lessonProgresses = await _context.StudentLessonProgresses
                 .Include(p => p.Lesson)
                     .ThenInclude(l => l.Course)
@@ -40,7 +39,6 @@ namespace Paragraph.WebAPI.Controllers
                 .Where(p => p.StudentId == studentId && p.IsLearned)
                 .CountAsync();
 
-            // Kurs İlerleme Listesi: Her kurs için ortalama ilerleme
             var courseProgresses = lessonProgresses
                 .GroupBy(p => p.Lesson.Course)
                 .Select(g => new CourseProgressDto
@@ -51,7 +49,6 @@ namespace Paragraph.WebAPI.Controllers
                 })
                 .ToList();
 
-            // Ders İlerlemeleri: Öğrencinin tüm ders ilerleme kayıtları
             var lessonProgressList = lessonProgresses
                 .Select(p => new LessonProgressDto
                 {

@@ -1,4 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using Paragraph.WebApp.Areas.Teacher.Models;
+using System.Collections.Generic;
 
 namespace Paragraph.WebApp.Areas.Teacher.Controllers
 {
@@ -6,9 +11,29 @@ namespace Paragraph.WebApp.Areas.Teacher.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class DashboardController : Controller
     {
-        public IActionResult Index()
+        private readonly HttpClient _httpClient;
+
+        public DashboardController(IHttpClientFactory httpClientFactory)
         {
-            return View();
+            _httpClient = httpClientFactory.CreateClient("DefaultApi");
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            // API tarafındaki endpoint'i çağırarak dinamik veriyi çekiyoruz.
+            var dashboardData = await _httpClient.GetFromJsonAsync<TeacherDashboardViewModel>("api/teacher/dashboard");
+            if (dashboardData == null)
+            {
+                dashboardData = new TeacherDashboardViewModel
+                {
+                    TeacherName = "Ayşe Öğretmen",
+                    TotalStudents = 0,
+                    NewStudents = 0,
+                    AverageProgress = 0,
+                    StudentReports = new List<StudentReportViewModel>()
+                };
+            }
+            return View(dashboardData);
         }
     }
 }

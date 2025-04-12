@@ -244,10 +244,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvVGVhY2hlci9WaWV3cy9Qcm9maWxlL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Teacher/Views/Reports/PerformanceReports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvVGVhY2hlci9WaWV3cy9SZXBvcnRzL1BlcmZvcm1hbmNlUmVwb3J0cy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/Areas/Teacher/Views/Reports/StudentReports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvVGVhY2hlci9WaWV3cy9SZXBvcnRzL1N0dWRlbnRSZXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

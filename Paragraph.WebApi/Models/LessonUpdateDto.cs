@@ -20,7 +20,6 @@ namespace Paragraph.WebAPI.Models
         [Range(1, 100, ErrorMessage = "Ders sırası 1 ile 100 arasında olmalıdır.")]
         public int SequenceNo { get; set; }
         
-        // Dosya yükleme için (opsiyonel)
         public IFormFile? ImageFile { get; set; }
     }
 }

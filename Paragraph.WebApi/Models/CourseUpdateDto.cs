@@ -21,7 +21,6 @@ namespace Paragraph.WebAPI.Models
 
         public bool IsActive { get; set; } = true;
 
-        // Güncellemede de isteğe bağlı olarak resim gönderilebilir
         public IFormFile? ImageFile { get; set; }
     }
 }

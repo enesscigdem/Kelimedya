@@ -96,7 +96,6 @@ namespace Paragraph.WebAPI.Controllers
 
             if (dto.ImageFile != null)
             {
-                // Eski resmi silmek isterseniz ilgili kod ekleyin.
                 course.ImageUrl = await SaveFileAsync(dto.ImageFile, "courses");
             }
 
@@ -129,7 +128,6 @@ namespace Paragraph.WebAPI.Controllers
             return Ok(new { Message = "Course deleted successfully." });
         }
 
-        // Yardımcı metot: Dosya kaydetme
         private async Task<string?> SaveFileAsync(IFormFile file, string folder)
         {
             if (file == null || file.Length == 0)

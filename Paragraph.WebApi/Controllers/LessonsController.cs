@@ -96,7 +96,6 @@ namespace Paragraph.WebAPI.Controllers
 
             if (dto.ImageFile != null)
             {
-                // (Opsiyonel: eski dosyayı silmek isterseniz ilgili kod eklenebilir)
                 lesson.ImageUrl = await SaveFileAsync(dto.ImageFile, "lessons");
             }
 
@@ -129,7 +128,6 @@ namespace Paragraph.WebAPI.Controllers
             return Ok(new { Message = "Lesson deleted successfully" });
         }
 
-        // Yardımcı metot: Dosya kaydetme
         private async Task<string?> SaveFileAsync(IFormFile file, string folder)
         {
             if (file == null || file.Length == 0)
@@ -146,7 +144,6 @@ namespace Paragraph.WebAPI.Controllers
                 await file.CopyToAsync(stream);
             }
 
-            // Absolute URL üretelim (API projesi https://localhost:5001 çalışıyor)
             return $"{Request.Scheme}://{Request.Host}/uploads/{folder}/{fileName}";
         }
 

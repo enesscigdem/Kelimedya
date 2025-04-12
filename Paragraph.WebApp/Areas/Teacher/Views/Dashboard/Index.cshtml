@@ -1,433 +1,224 @@
-﻿@{
+﻿@model Paragraph.WebApp.Areas.Teacher.Models.TeacherDashboardViewModel
+
+@{
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Öğretmen Paneli - Ultra Profesyonel Dashboard";
 }
 
 <style>
-
-/* Ana dış container */
-.dashboard-container {
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-/* --------- HERO BÖLÜMÜ --------- */
-.hero-section {
-    position: relative;
-    color: #fff;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
-.hero-bg {
-    /* Arka plan degrade + shape */
-    background: linear-gradient(to right, #2b4055, #3f5872);
-    padding: 2.5rem 2rem;
-    border-radius: 12px 12px 0 0;
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-}
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-.hero-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0;
-}
-.hero-subtitle {
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
-    color: #f0f0f0;
-}
-.hero-overlay {
-    position: absolute;
-    bottom: -16px;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: #2b4055;
-    clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
-    z-index: 1;
-}
-
-/* --------- İSTATİSTİK KARTLARI (4 ADET) --------- */
-.stat-row {
-    margin-bottom: 2rem;
-}
-.stat-card-pro {
-    background: #fff;
-    border-radius: 8px;
-    border-left: 5px solid var(--color-accent);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-    padding: 1.2rem;
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-.stat-card-pro:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-.stat-icon {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 5rem;
-    color: rgba(0,0,0,0.05);
-}
-.stat-title {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 0.2rem;
-    font-weight: 600;
-}
-.stat-value {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--color-accent);
-}
-.stat-desc {
-    font-size: 0.8rem;
-    color: #aaa;
-}
-
-/* Kart gövdesi (genel) */
-.card-block {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-.card-block-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #2b4055;
-    margin-bottom: 1rem;
-}
-
-/* Tablo stili */
-.table-custom {
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.table-custom thead {
-    background: #2b4055;
-    color: #fff;
-}
-.table-custom tbody tr:hover {
-    background: #f9f9f9;
-}
-
-/* Ghost buton */
-.btn-ghost-pro {
-    border: 1px solid var(--color-accent);
-    background: transparent;
-    color: var(--color-accent);
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.btn-ghost-pro:hover {
-    background: var(--color-accent);
-    color: #fff;
-}
-
-/* Chart alanları */
-.chart-box {
-    min-height: 280px;
-    margin-top: 0.5rem;
-}
-
-/* Küçük bordersız buton */
-.btn-mini {
-    background: #2b4055;
-    color: #fff;
-    border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-left: 0.5rem;
-    transition: 0.2s;
-}
-.btn-mini:hover {
-    background: #253649;
-}
+    /* Ana dış container */
+    .dashboard-container {
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+    /* --------- HERO BÖLÜMÜ --------- */
+    .hero-section {
+        position: relative;
+        color: #fff;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+    .hero-bg {
+        background: linear-gradient(to right, #2b4055, #3f5872);
+        padding: 2.5rem 2rem;
+        border-radius: 12px 12px 0 0;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+    .hero-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    .hero-subtitle {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        color: #f0f0f0;
+    }
+    .hero-overlay {
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: #2b4055;
+        clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+        z-index: 1;
+    }
+    /* --------- İSTATİSTİK KARTLARI --------- */
+    .stat-row {
+        margin-bottom: 2rem;
+    }
+    .stat-card-pro {
+        background: #fff;
+        border-radius: 8px;
+        border-left: 5px solid var(--color-accent);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+        padding: 1.2rem;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+    .stat-card-pro:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .stat-icon {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 5rem;
+        color: rgba(0,0,0,0.05);
+    }
+    .stat-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: #888;
+        margin-bottom: 0.2rem;
+        font-weight: 600;
+    }
+    .stat-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--color-accent);
+    }
+    .stat-desc {
+        font-size: 0.8rem;
+        color: #aaa;
+    }
+    /* Öğrenci Kartları */
+    .student-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .student-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .student-avatar {
+        width: 50px;
+        height: 50px;
+        background: #3498db;
+        color: #fff;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+    .student-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    .student-meta {
+        font-size: 0.85rem;
+        color: #666;
+    }
+    .btn-report {
+        margin-top: 1rem;
+    }
 </style>
 
 <div class="dashboard-container container-xl">
-
     <!-- HERO BÖLÜMÜ -->
     <div class="hero-section">
         <div class="hero-bg">
             <div class="hero-content">
                 <h1 class="hero-title">Öğretmen Paneli</h1>
                 <p class="hero-subtitle">
-                    Merhaba <strong>Ayşe Hocam</strong>, bugünkü genel görünümünüz aşağıda:
+                    Merhaba <strong>@Model.TeacherName</strong>, bugünkü genel görünümünüz aşağıda:
                 </p>
             </div>
         </div>
         <div class="hero-overlay"></div>
     </div>
 
-    <!-- İstatistik Kartları (4 adet) -->
+    <!-- İSTATİSTİK KARTLARI -->
     <div class="stat-row row">
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-lg-4">
             <div class="stat-card-pro">
                 <i class="stat-icon icon icon-tabler icon-tabler-users"></i>
                 <div class="stat-title">Toplam Öğrenci</div>
-                <div class="stat-value">72</div>
+                <div class="stat-value">@Model.TotalStudents</div>
                 <div class="stat-desc">Aktif kayıtlı</div>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="stat-card-pro">
-                <i class="stat-icon icon icon-tabler icon-tabler-book"></i>
-                <div class="stat-title">Aktif Kurslar</div>
-                <div class="stat-value" style="color:#27ae60;">10</div>
-                <div class="stat-desc">Devam ediyor</div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-lg-4">
             <div class="stat-card-pro">
                 <i class="stat-icon icon icon-tabler icon-tabler-user-plus"></i>
-                <div class="stat-title">Yeni Kayıt</div>
-                <div class="stat-value" style="color:#f39c12;">5</div>
+                <div class="stat-title">Bugün Yeni Kayıt</div>
+                <div class="stat-value">@Model.NewStudents</div>
                 <div class="stat-desc">Bugün eklenen</div>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-12 col-lg-4">
             <div class="stat-card-pro">
                 <i class="stat-icon icon icon-tabler icon-tabler-clipboard-check"></i>
-                <div class="stat-title">Ödev Onayı</div>
-                <div class="stat-value" style="color:#c0392b;">4</div>
-                <div class="stat-desc">Bekliyor</div>
+                <div class="stat-title">Ortalama İlerleme</div>
+                <div class="stat-value">@Model.AverageProgress.ToString("0.##")%</div>
+                <div class="stat-desc">Tüm öğrenciler</div>
             </div>
         </div>
     </div>
 
-    <!-- İKİ SÜTUN: Sol = Son Aktiviteler, Sağ = Grafikler -->
+    <!-- ÖĞRENCİ RAPOR KARTLARI -->
     <div class="row">
-        <!-- Sol Sütun -->
-        <div class="col-lg-6">
-            <!-- Son Aktiviteler -->
-            <div class="card-block">
-                <div class="card-block-title">Son Aktiviteler</div>
-                <div class="table-responsive table-custom">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr>
-                                <th>Öğrenci</th>
-                                <th>Aktivite</th>
-                                <th>Tarih</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Ali Veli</td>
-                                <td><span style="color:#27ae60; font-weight:600;">B2 Sınav Teslimi</span></td>
-                                <td>2025-04-01</td>
-                            </tr>
-                            <tr>
-                                <td>Zeynep Uçar</td>
-                                <td><span style="color:#f39c12; font-weight:600;">A1 Ödev Gönderdi</span></td>
-                                <td>2025-04-01</td>
-                            </tr>
-                            <tr>
-                                <td>Burak Kılıç</td>
-                                <td><span style="color:#e74c3c; font-weight:600;">Duyuru Yorumladı</span></td>
-                                <td>2025-03-31</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-end mt-3">
-                    <button class="btn-ghost-pro">Tüm Aktiviteler</button>
-                </div>
-            </div>
-        </div>
-        <!-- Sağ Sütun -->
-        <div class="col-lg-6">
-            <!-- Grafik Kartı -->
-            <div class="card-block">
-                <div class="card-block-title">Kurs Katılım & Genel Başarı</div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div style="font-weight:600; margin-bottom:0.5rem;">Katılım (Bar)</div>
-                        <div class="chart-box" id="chart-participation"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div style="font-weight:600; margin-bottom:0.5rem;">Başarı (Alan)</div>
-                        <div class="chart-box" id="chart-success"></div>
+        @if(Model.StudentReports != null && Model.StudentReports.Any())
+        {
+            @foreach(var student in Model.StudentReports)
+            {
+                <div class="col-md-6 col-xl-4">
+                    <div class="student-card">
+                        <div class="student-info">
+                            <div class="student-avatar">
+                                @student.FullName.Substring(0,1)
+                            </div>
+                            <div>
+                                <p class="student-name">@student.FullName</p>
+                                <p class="student-meta">ID: @student.StudentId</p>
+                            </div>
+                        </div>
+                        <p><strong>E-posta:</strong> @student.Email</p>
+                        <p><strong>Kayıt Tarihi:</strong> @student.CreatedAt.ToString("yyyy-MM-dd")</p>
+                        <p>
+                            <strong>Ortalama Ders Tamamlanma:</strong> 
+                            @(
+                                student.CompletedLessons.Any()
+                                ? student.CompletedLessons.Average(l => l.CompletionPercentage).ToString("0.##")
+                                : "0"
+                             )%
+                        </p>
+                        <a class="btn btn-primary btn-report" asp-area="Teacher" asp-controller="Reports" asp-action="StudentReports" asp-route-studentId="@student.StudentId">
+                            Rapor Görüntüle
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ALTLARDA 2 SÜTUN: Tüm Öğrenciler & Raporlar / Profilim & Performans Raporları -->
-    <div class="row">
-        <!-- Sol Sütun: Tüm Öğrenciler + Raporlar -->
-        <div class="col-md-6">
-            <!-- Tüm Öğrenciler (mini tablo) -->
-            <div class="card-block">
-                <div class="card-block-title">Tüm Öğrenciler</div>
-                <div class="table-responsive table-custom">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr>
-                                <th>Ad Soyad</th>
-                                <th>Kayıt Tarihi</th>
-                                <th>Kur</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Ahmet Demir</td>
-                                <td>2025-03-20</td>
-                                <td>A2</td>
-                            </tr>
-                            <tr>
-                                <td>Merve Aydın</td>
-                                <td>2025-03-18</td>
-                                <td>B1</td>
-                            </tr>
-                            <tr>
-                                <td>Özge Karadağ</td>
-                                <td>2025-03-15</td>
-                                <td>A1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-end mt-3">
-                    <button class="btn-ghost-pro">Tüm Öğrenciler</button>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info">
+                    Henüz rapor verisi bulunmamaktadır.
                 </div>
             </div>
-
-            <!-- Raporlar (kısa özet) -->
-            <div class="card-block">
-                <div class="card-block-title">Raporlar</div>
-                <p style="font-size:0.9rem; color:#666;">
-                    Öğrencilerin genel raporları ve sınav istatistikleri burada.
-                </p>
-                <ul style="list-style:none; margin:0; padding:0; margin-top:0.5rem;">
-                    <li>- A1 Seviye Yazılı Sonuçları</li>
-                    <li>- B2 Proje Değerlendirmeleri</li>
-                    <li>- Yıllık Katılım Raporu</li>
-                </ul>
-                <div class="text-end mt-2">
-                    <button class="btn-ghost-pro">Tüm Raporlar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sağ Sütun: Profilim + Performans Raporları -->
-        <div class="col-md-6">
-            <!-- Profilim (Özet) -->
-            <div class="card-block">
-                <div class="card-block-title">Profilim</div>
-                <p style="font-size:0.9rem; color:#666;">
-                    <strong>Ad Soyad:</strong> Ayşe Öğretmen <br/>
-                    <strong>E-posta:</strong> ayse@example.com <br/>
-                    <strong>Branş:</strong> İngilizce <br/>
-                    <strong>Kurum:</strong> XYZ Dil Okulu
-                </p>
-                <div class="text-end mt-2">
-                    <button class="btn-ghost-pro">Profili Düzenle</button>
-                </div>
-            </div>
-
-            <!-- Performans Raporları (kısa özet) -->
-            <div class="card-block">
-                <div class="card-block-title">Performans Raporları</div>
-                <p style="font-size:0.9rem; color:#666;">
-                    Kur bazlı öğrenci performanslarını inceleyin.  
-                    <br/>Sınav sonuçları, ödev değerlendirmeleri ve daha fazlası.
-                </p>
-                <ul style="list-style:none; margin:0; padding:0; margin-top:0.5rem;">
-                    <li>- A1 Genel Başarı (%)</li>
-                    <li>- B1/B2 İlerleme Grafiği</li>
-                    <li>- Bireysel Karne Raporları</li>
-                </ul>
-                <div class="text-end mt-2">
-                    <button class="btn-ghost-pro">Performans Raporları</button>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
 
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Bar Chart: Katılım
-      var optionsParticipation = {
-        chart: {
-          type: 'bar',
-          height: 160
-        },
-        series: [{
-          name: 'Katılım',
-          data: [15, 22, 10, 18, 12]
-        }],
-        xaxis: {
-          categories: ['A1', 'A2', 'B1', 'B2', 'C1']
-        },
-        colors: ['#3498db'],
-        plotOptions: {
-          bar: {
-            columnWidth: '45%'
-          }
-        },
-        dataLabels: {
-          enabled: false
-        }
-      };
-      var chartP = new ApexCharts(document.querySelector("#chart-participation"), optionsParticipation);
-      chartP.render();
-
-      // Area Chart: Başarı
-      var optionsSuccess = {
-        chart: {
-          type: 'area',
-          height: 160,
-          sparkline: {
-            enabled: false
-          }
-        },
-        series: [{
-          name: 'Başarı',
-          data: [60, 70, 65, 80, 75, 85, 90]
-        }],
-        xaxis: {
-          categories: ['Ocak', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem']
-        },
-        colors: ['#f39c12'],
-        stroke: {
-          curve: 'smooth'
-        },
-        fill: {
-          type: 'gradient',
-          gradient: {
-            shadeIntensity: 1,
-            inverseColors: false,
-            opacityFrom: 0.4,
-            opacityTo: 0.1
-          }
-        },
-        dataLabels: {
-          enabled: false
-        }
-      };
-      var chartS = new ApexCharts(document.querySelector("#chart-success"), optionsSuccess);
-      chartS.render();
-    });
+        // İhtiyaç duyulursa modal ya da ek AJAX kodları eklenebilir.
     </script>
 }

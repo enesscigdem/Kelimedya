@@ -21,14 +21,12 @@ namespace Paragraph.Core.Entities
         public bool IsLearned { get; set; }
 
         public int ViewCount { get; set; }
-        // Aşağıdaki sütunlar kaldırıldı: CorrectAnswerCount, WrongAnswerCount, SuccessRate, IsMarkedForReview
 
         public DateTime FirstSeenDate { get; set; }
         public DateTime? LastSeenDate { get; set; }
         public DateTime? LearnedDate { get; set; }
 
-        // Yeni detaylı istatistik:
-        public double ResponseTimeTotalSeconds { get; set; } // Toplam cevap süresi (saniye cinsinden)
+        public double ResponseTimeTotalSeconds { get; set; }
         public double AverageResponseTimeSeconds 
         { 
             get => ViewCount > 0 ? ResponseTimeTotalSeconds / ViewCount : 0; 

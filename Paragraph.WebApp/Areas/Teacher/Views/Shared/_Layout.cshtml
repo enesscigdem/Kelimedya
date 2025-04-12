@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Kurumsal Öğretmen Paneli</title>
 
@@ -187,413 +187,338 @@
     </style>
 </head>
 <body class="theme-light">
-
+<script src="~/theme/tabler/dist/js/demo-theme.min.js?1692870487"></script>
 <div class="page">
-    <!-- Side Navbar -->
-    <aside class="navbar navbar-vertical navbar-expand-lg">
-        <div class="container-fluid">
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#sidebar-menu"
-                    aria-controls="sidebar-menu" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<!-- Side Navbar -->
+<aside class="navbar navbar-vertical navbar-expand-lg">
+    <div class="container-fluid">
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#sidebar-menu"
+                aria-controls="sidebar-menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- Logo / Brand -->
-            <h1 class="navbar-brand navbar-brand-autodark">
-                <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index">
-                    <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Kurumsal Logo"
-                         class="navbar-brand-image"/>
-                </a>
-            </h1>
+        <!-- Logo / Brand -->
+        <h1 class="navbar-brand navbar-brand-autodark">
+            <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index">
+                <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Kurumsal Logo"
+                     class="navbar-brand-image"/>
+            </a>
+        </h1>
 
-            <!-- Sidebar Menu Items -->
-            <div class="collapse navbar-collapse" id="sidebar-menu">
-                <ul class="navbar-nav pt-lg-3">
-                    <!-- Dashboard -->
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="Teacher"
-                           asp-controller="Dashboard" asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     class="icon icon-tabler icon-tabler-layout-dashboard"
-                                     width="24" height="24" viewBox="0 0 24 24"
-                                     stroke-width="2" stroke="currentColor"
-                                     fill="none" stroke-linecap="round"
-                                     stroke-linejoin="round">
-                                    <rect x="4" y="4" width="6" height="5" rx="2"/>
-                                    <rect x="4" y="13" width="6" height="7" rx="2"/>
-                                    <rect x="14" y="4" width="6" height="7" rx="2"/>
-                                    <rect x="14" y="13" width="6" height="5" rx="2"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Anasayfa
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Kullanıcı Yönetimi -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#navbar-users"
-                           data-bs-toggle="dropdown"
-                           data-bs-auto-close="false"
-                           role="button"
-                           aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Users Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     class="icon icon-tabler icon-tabler-users"
-                                     width="24" height="24"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="2" stroke="currentColor"
-                                     fill="none" stroke-linecap="round"
-                                     stroke-linejoin="round">
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">Kullanıcılar</span>
-                        </a>
-                        <div class="dropdown-menu show">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item"
-                                       style="color:whitesmoke"
-                                       asp-area="Teacher"
-                                       asp-controller="Students"
-                                       asp-action="Index">
-                                        Tüm Öğrenciler
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Raporlar -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           data-bs-toggle="dropdown"
-                           role="button"
-                           aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Reports Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     class="icon icon-tabler icon-tabler-report-analytics"
-                                     width="24" height="24"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="2" stroke="currentColor"
-                                     fill="none" stroke-linecap="round"
-                                     stroke-linejoin="round">
-                                    <path d="M17 3h4v4"/>
-                                    <path d="M16 8l5 -5"/>
-                                    <rect x="3" y="13" width="18" height="8" rx="2"/>
-                                    <path d="M8 13v-2a4 4 0 1 1 8 0v2"/>
-                                    <path d="M12 15v2"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">Raporlar</span>
-                        </a>
-                        <div class="dropdown-menu show">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item"
-                                       style="color:whitesmoke" 
-                                       asp-area="Teacher"
-                                       asp-controller="Reports"
-                                       asp-action="StudentReports">
-                                        Öğrenci Raporları
-                                    </a>
-                                    <a class="dropdown-item"
-                                       style="color:whitesmoke" 
-                                       asp-area="Teacher"
-                                       asp-controller="Reports"
-                                       asp-action="PerformanceReports">
-                                        Performans Raporları
-                                        <span class="badge badge-sm bg-yellow-lt text-uppercase ms-auto">Yeni</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Profilim -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Teacher"
-                           asp-controller="Profile"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Profile Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     class="icon icon-tabler icon-tabler-user-circle"
-                                     width="24" height="24"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="2"
-                                     stroke="currentColor" fill="none"
-                                     stroke-linecap="round"
-                                     stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="9"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                    <path d="M6.75 18a8.1 8.1 0 0 1 10.5 0"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Profilim
-                            </span>
-                        </a>
-                    </li>
-
-                    <!-- Çıkış -->
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-area="Teacher"
-                           asp-controller="Logout"
-                           asp-action="Index">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Logout Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     class="icon icon-tabler icon-tabler-logout"
-                                     width="24" height="24"
-                                     viewBox="0 0 24 24"
-                                     stroke-width="2" stroke="currentColor"
-                                     fill="none" stroke-linecap="round"
-                                     stroke-linejoin="round">
-                                    <path d="M13 9l2 2l-2 2"/>
-                                    <path d="M8 9l-2 2l2 2"/>
-                                    <path d="M3 12h2"/>
-                                    <path d="M16 12h5"/>
-                                    <path d="M10 9v-2a2 2 0 0 1 2 -2h3"/>
-                                    <path d="M10 15v2a2 2 0 0 0 2 2h3"/>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Çıkış Yap
-                            </span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </aside>
-
-    <!-- PAGE CONTENT -->
-    <div class="page-wrapper">
-        <!-- Üst Navbar -->
-        <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
-            <div class="container-xl">
-
-                <!-- Sidebar Toggle Butonu -->
-                <a aria-label="Hide Sidebar" class="app-sidebar__toggle me-2" href="javascript:void(0);" title="Sidebar Daralt/Genişlet">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2"
-                         width="24" height="24" viewBox="0 0 24 24"
-                         stroke-width="2" stroke="currentColor"
-                         fill="none" stroke-linecap="round"
-                         stroke-linejoin="round">
-                        <path d="M0 0h24v24H0z" stroke="none"/>
-                        <line x1="4" y1="6" x2="20" y2="6" />
-                        <line x1="4" y1="12" x2="20" y2="12" />
-                        <line x1="4" y1="18" x2="20" y2="18" />
-                    </svg>
-                </a>
-
-                <!-- Arama Alanı -->
-                <form method="get" autocomplete="off" novalidate style="display:inline-block;">
-                    <div class="input-icon">
-                        <span class="input-icon-addon">
-                            <!-- Search Icon -->
+        <!-- Sidebar Menu Items -->
+        <div class="collapse navbar-collapse" id="sidebar-menu">
+            <ul class="navbar-nav pt-lg-3">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Teacher"
+                       asp-controller="Dashboard" asp-action="Index">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg"
-                                 class="icon icon-tabler icon-tabler-search"
+                                 class="icon icon-tabler icon-tabler-layout-dashboard"
+                                 width="24" height="24" viewBox="0 0 24 24"
+                                 stroke-width="2" stroke="currentColor"
+                                 fill="none" stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <rect x="4" y="4" width="6" height="5" rx="2"/>
+                                <rect x="4" y="13" width="6" height="7" rx="2"/>
+                                <rect x="14" y="4" width="6" height="7" rx="2"/>
+                                <rect x="14" y="13" width="6" height="5" rx="2"/>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Anasayfa
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Kullanıcı Yönetimi -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#navbar-users"
+                       data-bs-toggle="dropdown"
+                       data-bs-auto-close="false"
+                       role="button"
+                       aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Users Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="icon icon-tabler icon-tabler-users"
                                  width="24" height="24"
                                  viewBox="0 0 24 24"
                                  stroke-width="2" stroke="currentColor"
                                  fill="none" stroke-linecap="round"
                                  stroke-linejoin="round">
-                                <circle cx="10" cy="10" r="7"/>
-                                <line x1="21" y1="21" x2="15" y2="15"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M3 21v-2a4 4 0 0 1 4 -4h4"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/>
                             </svg>
                         </span>
-                        <input type="text" class="form-control"
-                               placeholder="Arama…"
-                               aria-label="Arama">
+                        <span class="nav-link-title">Kullanıcılar</span>
+                    </a>
+                    <div class="dropdown-menu show">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item"
+                                   style="color:whitesmoke"
+                                   asp-area="Teacher"
+                                   asp-controller="Students"
+                                   asp-action="Index">
+                                    Tüm Öğrenciler
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </li>
 
-                <!-- Sağ Nav -->
-                <div class="navbar-nav flex-row order-md-last">
-                    <div class="d-none d-md-flex">
-                        <!-- Dark Mode -->
-                        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark"
-                           title="Enable dark mode"
-                           data-bs-toggle="tooltip"
-                           data-bs-placement="bottom">
-                            <!-- Moon Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon"
+                <!-- Raporlar -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       data-bs-toggle="dropdown"
+                       role="button"
+                       aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Reports Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="icon icon-tabler icon-tabler-report-analytics"
+                                 width="24" height="24"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="2" stroke="currentColor"
+                                 fill="none" stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="M17 3h4v4"/>
+                                <path d="M16 8l5 -5"/>
+                                <rect x="3" y="13" width="18" height="8" rx="2"/>
+                                <path d="M8 13v-2a4 4 0 1 1 8 0v2"/>
+                                <path d="M12 15v2"/>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">Raporlar</span>
+                    </a>
+                    <div class="dropdown-menu show">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item"
+                                   style="color:whitesmoke"
+                                   asp-area="Teacher"
+                                   asp-controller="Reports"
+                                   asp-action="StudentReports">
+                                    Öğrenci Raporları
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Profilim -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       asp-area="Teacher"
+                       asp-controller="Profile"
+                       asp-action="Index">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Profile Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="icon icon-tabler icon-tabler-user-circle"
                                  width="24" height="24"
                                  viewBox="0 0 24 24"
                                  stroke-width="2"
                                  stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 3c.132 0 .263 0 .393 0
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9"/>
+                                <circle cx="12" cy="10" r="3"/>
+                                <path d="M6.75 18a8.1 8.1 0 0 1 10.5 0"/>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Profilim
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Çıkış -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       asp-area="Teacher"
+                       asp-controller="Logout"
+                       asp-action="Index">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Logout Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="icon icon-tabler icon-tabler-logout"
+                                 width="24" height="24"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="2" stroke="currentColor"
+                                 fill="none" stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="M13 9l2 2l-2 2"/>
+                                <path d="M8 9l-2 2l2 2"/>
+                                <path d="M3 12h2"/>
+                                <path d="M16 12h5"/>
+                                <path d="M10 9v-2a2 2 0 0 1 2 -2h3"/>
+                                <path d="M10 15v2a2 2 0 0 0 2 2h3"/>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Çıkış Yap
+                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</aside>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrapper">
+    <!-- Üst Navbar -->
+    <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
+        <div class="container-xl">
+
+            <!-- Sidebar Toggle Butonu -->
+            <a aria-label="Hide Sidebar" class="app-sidebar__toggle me-2" href="javascript:void(0);" title="Sidebar Daralt/Genişlet">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2"
+                     width="24" height="24" viewBox="0 0 24 24"
+                     stroke-width="2" stroke="currentColor"
+                     fill="none" stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <path d="M0 0h24v24H0z" stroke="none"/>
+                    <line x1="4" y1="6" x2="20" y2="6"/>
+                    <line x1="4" y1="12" x2="20" y2="12"/>
+                    <line x1="4" y1="18" x2="20" y2="18"/>
+                </svg>
+            </a>
+
+            <!-- Arama Alanı -->
+            <form method="get" autocomplete="off" novalidate style="display:inline-block;">
+                <div class="input-icon">
+                    <span class="input-icon-addon">
+                        <!-- Search Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="icon icon-tabler icon-tabler-search"
+                             width="24" height="24"
+                             viewBox="0 0 24 24"
+                             stroke-width="2" stroke="currentColor"
+                             fill="none" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <circle cx="10" cy="10" r="7"/>
+                            <line x1="21" y1="21" x2="15" y2="15"/>
+                        </svg>
+                    </span>
+                    <input type="text" class="form-control"
+                           placeholder="Arama…"
+                           aria-label="Arama">
+                </div>
+            </form>
+
+            <!-- Sağ Nav -->
+            <div class="navbar-nav flex-row order-md-last">
+                <div class="d-none d-md-flex">
+                    <!-- Dark Mode -->
+                    <a href="?theme=dark" class="nav-link px-0 hide-theme-dark"
+                       title="Enable dark mode"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="bottom">
+                        <!-- Moon Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon"
+                             width="24" height="24"
+                             viewBox="0 0 24 24"
+                             stroke-width="2"
+                             stroke="currentColor" fill="none"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3c.132 0 .263 0 .393 0
                                              a7.5 7.5 0 0 0 7.92 12.446
                                              a9 9 0 1 1 -8.313 -12.454z"/>
-                            </svg>
-                        </a>
-                        <!-- Light Mode -->
-                        <a href="?theme=light" class="nav-link px-0 hide-theme-light"
-                           title="Enable light mode"
-                           data-bs-toggle="tooltip"
-                           data-bs-placement="bottom">
-                            <!-- Sun Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                 width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 12m-4 0a4 4 0 1 0 8 0
+                        </svg>
+                    </a>
+                    <!-- Light Mode -->
+                    <a href="?theme=light" class="nav-link px-0 hide-theme-light"
+                       title="Enable light mode"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="bottom">
+                        <!-- Sun Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon"
+                             width="24" height="24"
+                             viewBox="0 0 24 24" stroke-width="2"
+                             stroke="currentColor" fill="none"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 12m-4 0a4 4 0 1 0 8 0
                                          a4 4 0 1 0 -8 0"/>
-                                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1
+                            <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1
                                          m-6.4 -15.4l.7 .7
                                          m12.1 -.7l-.7 .7
                                          m0 11.4l.7 .7
                                          m-12.1 -.7l-.7 .7"/>
-                            </svg>
-                        </a>
-                    </div>
+                        </svg>
+                    </a>
+                </div>
 
-                    <!-- Bildirimler (opsiyonel) -->
-                    <div class="nav-item dropdown d-none d-md-flex me-3">
-                        <a href="#" class="nav-link px-0"
-                           data-bs-toggle="dropdown"
-                           tabindex="-1"
-                           aria-label="Show notifications">
-                            <!-- Bell Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                 width="24" height="24"
-                                 viewBox="0 0 24 24" stroke-width="2"
-                                 stroke="currentColor" fill="none"
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M10 5a2 2 0 1 1 4 0
-                                             a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3
-                                             h-16a4 4 0 0 0 2 -3v-3
-                                             a7 7 0 0 1 4 -6"/>
-                                <path d="M9 17v1a3 3 0 0 0 6 0v-1"/>
-                            </svg>
-                            <span class="badge bg-red"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Bildirimler</h3>
-                                </div>
-                                <div class="list-group list-group-flush list-group-hoverable">
-                                    <!-- Bildirim örneği -->
-                                    <div class="list-group-item">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span class="status-dot status-dot-animated bg-red d-block"></span>
-                                            </div>
-                                            <div class="col text-truncate">
-                                                <a href="#" class="text-body d-block">Sistem Uyarısı</a>
-                                                <div class="d-block text-secondary text-truncate mt-n1">
-                                                    Sunucuda bakım çalışması...
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a href="#" class="list-group-item-actions">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                         class="icon text-muted"
-                                                         width="24" height="24"
-                                                         viewBox="0 0 24 24"
-                                                         stroke-width="2"
-                                                         stroke="currentColor"
-                                                         fill="none"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round">
-                                                        <path d="M12 17.75l-6.172 3.245
-                                                                 l1.179 -6.873l-5 -4.867
-                                                                 l6.9 -1
-                                                                 l3.086 -6.253
-                                                                 l3.086 6.253
-                                                                 l6.9 1
-                                                                 l-5 4.867
-                                                                 l1.179 6.873z"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Devam... -->
-                                </div>
-                            </div>
+                <!-- Kullanıcı Menüsü -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0"
+                       data-bs-toggle="dropdown"
+                       aria-label="Open user menu">
+                        <span class="avatar avatar-sm"
+                              style="background-image: url('~/theme/tabler/static/avatars/000m.jpg')">
+                        </span>
+                        <div class="d-none d-xl-block ps-2">
+                            <div>Öğretmen Adı</div>
+                            <div class="mt-1 small text-secondary">Teacher</div>
                         </div>
-                    </div>
-
-                    <!-- Kullanıcı Menüsü -->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0"
-                           data-bs-toggle="dropdown"
-                           aria-label="Open user menu">
-                            <span class="avatar avatar-sm"
-                                  style="background-image: url('~/theme/tabler/static/avatars/000m.jpg')"></span>
-                            <div class="d-none d-xl-block ps-2">
-                                <div>Öğretmen Adı</div>
-                                <div class="mt-1 small text-secondary">Teacher</div>
-                            </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <a asp-area="Teacher" asp-controller="Profile" asp-action="Index" class="dropdown-item">
+                            Profil
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <a asp-area="Teacher" asp-controller="Profile" asp-action="Index" class="dropdown-item">
-                                Profil
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a asp-area="Teacher" asp-controller="Logout" asp-action="Index" class="dropdown-item">
-                                Çıkış Yap
-                            </a>
-                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a asp-area="Teacher" asp-controller="Logout" asp-action="Index" class="dropdown-item">
+                            Çıkış Yap
+                        </a>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- İçerik -->
-        <main class="page-body">
-            <div class="container-xl">
-                @RenderBody()
-            </div>
-        </main>
+    <!-- İçerik -->
+    <main class="page-body">
+        <div class="container-xl">
+            @RenderBody()
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer class="footer footer-transparent d-print-none">
-            <div class="container-xl">
-                <div class="row text-center align-items-center flex-row-reverse">
-                    <div class="col-lg-auto ms-lg-auto">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                <a href="#" class="link-secondary">Dokümantasyon</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="link-secondary">Destek</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                &copy; 2025 Kelimedya. Tüm hakları saklıdır.
-                            </li>
-                        </ul>
-                    </div>
+    <!-- Footer -->
+    <footer class="footer footer-transparent d-print-none">
+        <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+                <div class="col-lg-auto ms-lg-auto">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            <a href="#" class="link-secondary">Dokümantasyon</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="link-secondary">Destek</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            &copy; 2025 Kelimedya. Tüm hakları saklıdır.
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+</div>
 </div>
 
 <!-- JS -->

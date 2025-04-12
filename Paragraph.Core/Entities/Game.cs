@@ -13,8 +13,8 @@ namespace Paragraph.Core.Entities
         public int? ModifiedBy { get; set; }
 
         public string Title { get; set; } = null!;
-        public string? GameType { get; set; }   // Çoktan Seçmeli, Adam Asmaca vb.
-        public string? Difficulty { get; set; } // Kolay/Orta/Zor vb.
+        public string? GameType { get; set; }
+        public string? Difficulty { get; set; }
         
         // public int? LessonId { get; set; }
     }

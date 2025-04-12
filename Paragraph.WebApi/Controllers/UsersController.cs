@@ -120,7 +120,6 @@ namespace Paragraph.WebAPI.Controllers
             if (user == null)
                 return NotFound(new { Message = "User not found." });
 
-            // Güncellenecek özellikleri ayarla
             user.UserName = dto.UserName;
             user.Email = dto.Email;
             user.Name = dto.Name;
@@ -132,7 +131,6 @@ namespace Paragraph.WebAPI.Controllers
                 return BadRequest(new { Message = "User update failed.", Errors = updateResult.Errors.Select(e => e.Description) });
             }
 
-            // Rol değişikliği varsa güncelle
             var currentRoles = await _userManager.GetRolesAsync(user);
             var currentRole = currentRoles.FirstOrDefault() ?? RoleNames.User;
             if (currentRole != dto.Role)

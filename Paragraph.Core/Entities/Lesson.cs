@@ -1,4 +1,3 @@
-// Lesson.cs
 using Paragraph.Core.BaseModels;
 using System.Collections.Generic;
 
@@ -15,7 +14,7 @@ namespace Paragraph.Core.Entities
         public int? ModifiedBy { get; set; }
 
         public int CourseId { get; set; }
-        public virtual Course Course { get; set; }  // Navigation property
+        public virtual Course Course { get; set; }
 
         public string Title { get; set; } = null!;
         public string? Description { get; set; }

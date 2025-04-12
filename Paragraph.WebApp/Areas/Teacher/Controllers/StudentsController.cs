@@ -21,7 +21,7 @@ namespace Paragraph.WebApp.Areas.Teacher.Controllers
         public async Task<IActionResult> Index()
         {
             // API'den kullanıcıları çekiyoruz (API'da "api/users" endpoint’i tanımlı olmalıdır)
-            var students = await _httpClient.GetFromJsonAsync<List<StudentViewModel>>("api/users");
+            var students = await _httpClient.GetFromJsonAsync<List<StudentViewModel>>("api/teacher/users");
             return View(students);
         }
     }

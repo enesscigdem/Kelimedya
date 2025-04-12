@@ -1,4 +1,3 @@
-// StudentLessonProgress.cs
 using Paragraph.Core.BaseModels;
 using System;
 
@@ -16,7 +15,7 @@ namespace Paragraph.Core.Entities
 
         public string StudentId { get; set; } = string.Empty;
         public int LessonId { get; set; }
-        public virtual Lesson Lesson { get; set; }  // Navigation property
+        public virtual Lesson Lesson { get; set; }
 
         public int LearnedWordCardsCount { get; set; }
         public decimal CompletionPercentage { get; set; }

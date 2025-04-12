@@ -7,6 +7,8 @@ namespace Paragraph.WebApp.Areas.Teacher.Models
     {
         public string StudentId { get; set; }
         public string FullName { get; set; }
+        public string Email { get; set; }
+        public DateTime CreatedAt { get; set; }
         public List<LessonReportViewModel> CompletedLessons { get; set; } = new List<LessonReportViewModel>();
         public List<WordReportViewModel> LearnedWords { get; set; } = new List<WordReportViewModel>();
     }

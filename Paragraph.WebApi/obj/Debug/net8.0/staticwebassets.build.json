@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ml+zbhTRR3N5NpXGILaE2Ja2Jkh1fFRCtIBxNjCLHV0=",
+  "Hash": "+P8oNfWmjYa0CnJaQaXCgyv4DV+QQYbEgOZyw0MkPgg=",
   "Source": "Paragraph.WebApi",
   "BasePath": "_content/Paragraph.WebApi",
   "Mode": "Default",
@@ -78,6 +78,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/lessons/5e78b5c5-300c-42a2-b305-0134ab1eac79.jpeg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.jpeg",
+      "SourceId": "Paragraph.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/",
+      "BasePath": "_content/Paragraph.WebApi",
+      "RelativePath": "uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8v4c8hvzvd",
+      "Integrity": "XMA8Igk/Tk2c/PeOnMRU3lUGOYL7YusWD6PkAGW0NkQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.jpeg"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/lessons/bc33cd13-cf29-446b-8158-c77614b31b75.jpg",
@@ -450,6 +471,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-gj/PqSidVxmKTxZqJlzw7awHVtiSHaBdz3HjO+Iew6A="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.8v4c8hvzvd.jpeg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9244"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XMA8Igk/Tk2c/PeOnMRU3lUGOYL7YusWD6PkAGW0NkQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 19:10:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8v4c8hvzvd"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XMA8Igk/Tk2c/PeOnMRU3lUGOYL7YusWD6PkAGW0NkQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.jpeg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/lessons/8ed70d30-11e3-4f30-a1b7-fea78f530a2e.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9244"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XMA8Igk/Tk2c/PeOnMRU3lUGOYL7YusWD6PkAGW0NkQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 19 Mar 2025 19:10:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XMA8Igk/Tk2c/PeOnMRU3lUGOYL7YusWD6PkAGW0NkQ="
         }
       ]
     },

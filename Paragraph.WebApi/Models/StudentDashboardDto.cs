@@ -4,11 +4,11 @@ namespace Paragraph.WebAPI.Models
 {
     public class StudentDashboardDto
     {
-        public int TotalCourses { get; set; }         // İlerlemesi olan farklı kurs sayısı
-        public int CompletedLessons { get; set; }       // Tamamlanmış ders sayısı
-        public int LearnedWords { get; set; }           // Öğrenilmiş kelime sayısı
+        public int TotalCourses { get; set; }
+        public int CompletedLessons { get; set; }
+        public int LearnedWords { get; set; }
         public List<CourseProgressDto> CourseProgresses { get; set; } = new List<CourseProgressDto>();
-        public List<LessonProgressDto> LessonProgresses { get; set; } = new List<LessonProgressDto>(); // Yeni eklenen ders ilerlemeleri listesi
+        public List<LessonProgressDto> LessonProgresses { get; set; } = new List<LessonProgressDto>();
     }
 
     public class CourseProgressDto

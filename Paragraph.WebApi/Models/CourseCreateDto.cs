@@ -13,7 +13,6 @@ namespace Paragraph.WebAPI.Models
         
         public string? Description { get; set; }
         
-        // Dosya yükleme için
         public IFormFile? ImageFile { get; set; }
     }
 }

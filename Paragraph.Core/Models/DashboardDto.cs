@@ -15,7 +15,6 @@ namespace Paragraph.Core.Models
         public int PendingPayments { get; set; }
         public int IncomingMessages { get; set; }
         public int TotalUsers { get; set; }
-        // Ek metrikler:
         public int TotalRoles { get; set; }
         public int TotalProducts { get; set; }
         public int TotalReports { get; set; }

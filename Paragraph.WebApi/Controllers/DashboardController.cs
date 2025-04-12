@@ -38,14 +38,11 @@ namespace Paragraph.WebAPI.Controllers
 
             int incomingMessages = await _context.Messages
                 .CountAsync(m => m.IsActive && !m.IsDeleted && !m.IsRead);
-            // Toplam mesaj sayısı:
             int totalMessagesAll = await _context.Messages.CountAsync(m => m.IsActive && !m.IsDeleted);
 
-            // Identity kullanıcıları (Users) – _context.Users tanımlı olmalıdır.
             int totalUsers = await _context.Users.CountAsync();
 
-            // Ek metrikler: Roller, Ürünler, Raporlar
-            int totalRoles = await _context.Roles.CountAsync();  // Identity Role tablonuz varsa.
+            int totalRoles = await _context.Roles.CountAsync();
             int totalProducts = await _context.Products.CountAsync(p => p.IsActive && !p.IsDeleted);
             int totalReports = await _context.Reports.CountAsync(r => r.IsActive && !r.IsDeleted);
 

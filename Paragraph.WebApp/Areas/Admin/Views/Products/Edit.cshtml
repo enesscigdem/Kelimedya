@@ -24,7 +24,7 @@
         }
         <div class="card">
             <div class="card-body">
-                <form method="post" asp-action="Edit">
+                <form method="post" asp-action="Edit" enctype="multipart/form-data">
                     <input type="hidden" asp-for="Id"/>
                     <!-- Ürün Adı -->
                     <div class="mb-3">
@@ -44,6 +44,24 @@
                         <textarea id="tinymceEditDescription" class="form-control" asp-for="Description" rows="5"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
+                    <!-- Ürün Fotoğrafı -->
+                    <div class="mb-3">
+                        <label class="form-label">Ürün Fotoğrafı</label>
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <div class="mb-1">
+                                <img src="@Model.ImageUrl" alt="Ürün Fotoğrafı" style="max-width: 200px;"/>
+                            </div>
+                        }
+                        <input type="file" name="ImageFile" class="form-control"/>
+                    </div>
+                    <!-- Dahil Edilen Eğitimler -->
+                    <div class="mb-3">
+                        <label class="form-label">Dahil Edilen Eğitimler</label>
+                        <select asp-for="SelectedCourseIds" class="form-select" multiple="multiple"
+                            asp-items="@(new MultiSelectList(Model.AvailableCourses, "Id", "Title", Model.SelectedCourseIds))">
+                        </select>
+                    </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
                         <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
@@ -58,22 +76,22 @@
     <!-- TinyMCE -->
     <script src="~/lib/tinymce/tinymce.min.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        tinyMCE.init({
-            selector: '#tinymceEditDescription',
-            height: 300,
-            menubar: false,
-            plugins: [
-              'advlist autolink lists link image charmap print preview anchor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-                     'bold italic backcolor | alignleft aligncenter ' +
-                     'alignright alignjustify | bullist numlist outdent indent | ' +
-                     'removeformat | help',
-            content_style: 'body { font-family:Inter, sans-serif; font-size:14px }'
+        document.addEventListener("DOMContentLoaded", function () {
+            tinyMCE.init({
+                selector: '#tinymceEditDescription',
+                height: 300,
+                menubar: false,
+                plugins: [
+                  'advlist autolink lists link image charmap print preview anchor',
+                  'searchreplace visualblocks code fullscreen',
+                  'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar: 'undo redo | formatselect | ' +
+                         'bold italic backcolor | alignleft aligncenter ' +
+                         'alignright alignjustify | bullist numlist outdent indent | ' +
+                         'removeformat | help',
+                content_style: 'body { font-family:Inter, sans-serif; font-size:14px }'
+            });
         });
-    });
     </script>
 }

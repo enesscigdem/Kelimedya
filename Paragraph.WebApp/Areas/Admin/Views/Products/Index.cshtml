@@ -104,8 +104,10 @@
                 <table class="table card-table table-hover">
                     <thead class="table-dark">
                         <tr>
+                            <th>Fotoğraf</th>
                             <th>Ürün Adı</th>
                             <th>Fiyat</th>
+                            <th>Eğitimler</th>
                             <th class="w-1 text-end">İşlemler</th>
                         </tr>
                     </thead>
@@ -113,8 +115,25 @@
                         @foreach (var product in Model)
                         {
                             <tr>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(product.ImageUrl))
+                                    {
+                                        <img src="@product.ImageUrl" alt="@product.Name" style="max-width:80px; max-height:80px;" />
+                                    }
+                                    else { <span>Fotoğraf Yok</span> }
+                                </td>
                                 <td>@product.Name</td>
                                 <td>@($"{product.Price} TL")</td>
+                                <td>
+                                    @if(product.ProductCourses != null && product.ProductCourses.Any())
+                                    {
+                                        @string.Join(", ", product.ProductCourses.Select(c => c.Course.Title))
+                                    }
+                                    else
+                                    {
+                                        <span>-</span>
+                                    }
+                                </td>
                                 <td class="text-end">
                                     <div class="btn-group" role="group">
                                         <a asp-area="Admin" asp-controller="Products" asp-action="Edit"
@@ -163,8 +182,8 @@
             $("#searchInput").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
                 $("table tbody tr").filter(function () {
-                    var nameText = $(this).find("td:first").text().toLowerCase();
-                    var priceText = $(this).find("td:eq(1)").text().toLowerCase();
+                    var nameText = $(this).find("td:eq(1)").text().toLowerCase();
+                    var priceText = $(this).find("td:eq(2)").text().toLowerCase();
                     $(this).toggle(nameText.indexOf(value) > -1 || priceText.indexOf(value) > -1);
                 });
             });
@@ -175,11 +194,11 @@
                 var rows = $("table tbody tr").get();
 
                 rows.sort(function (a, b) {
-                    var nameA = $(a).find("td:first").text().toUpperCase();
-                    var nameB = $(b).find("td:first").text().toUpperCase();
-                    var priceA = parseFloat($(a).find("td:eq(1)").text().replace(" TL", ""));
-                    var priceB = parseFloat($(b).find("td:eq(1)").text().replace(" TL", ""));
-
+                    var nameA = $(a).find("td:eq(1)").text().toUpperCase();
+                    var nameB = $(b).find("td:eq(1)").text().toUpperCase();
+                    var priceA = parseFloat($(a).find("td:eq(2)").text().replace(" TL", ""));
+                    var priceB = parseFloat($(b).find("td:eq(2)").text().replace(" TL", ""));
+                    
                     switch (option) {
                         case "nameAsc":
                             return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;

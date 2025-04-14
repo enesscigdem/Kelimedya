@@ -7,13 +7,18 @@ using Paragraph.Persistence;
 using Paragraph.Services.Implementations;
 using Paragraph.Services.Interfaces;
 using System.Text;
+using System.Text.Json.Serialization;
 using Paragraph.Core.Entities;
 using Paragraph.Core.Interfaces.Business;
 using Paragraph.HangfireServer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});;
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];

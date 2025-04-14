@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets/uploads/lessons/bc33cd13-cf29-446b-8158-c77614b31b75.jpg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/products/4e539d80-21aa-4eb8-8061-8e5488c46be2.png",
+      "PackagePath": "staticwebassets/uploads/products/4e539d80-21aa-4eb8-8061-8e5488c46be2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png",
+      "PackagePath": "staticwebassets/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApi/wwwroot/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg",
       "PackagePath": "staticwebassets/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg"
     },

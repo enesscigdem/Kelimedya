@@ -18,5 +18,7 @@ namespace Paragraph.Core.Entities
         public int LessonCount { get; set; } = 40; 
         public int WordCount { get; set; } = 400;
         public string? ImageUrl { get; set; }
+        public ICollection<ProductCourse> ProductCourses { get; set; }
+            = new List<ProductCourse>();
     }
 }

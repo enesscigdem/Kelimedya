@@ -34,6 +34,9 @@ public class ParagraphDbContext : IdentityDbContext<CustomUser, CustomRole, int>
     public virtual DbSet<Widget> Widgets { get; set; }
     public virtual DbSet<StudentLessonProgress> StudentLessonProgresses { get; set; }
     public virtual DbSet<StudentWordCardProgress> StudentWordCardProgresses { get; set; }
+    public virtual DbSet<ProductCourse> ProductCourses { get; set; }
+    public virtual DbSet<Cart> Carts { get; set; }
+    public virtual DbSet<CartItem> CartItems { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -47,6 +50,18 @@ public class ParagraphDbContext : IdentityDbContext<CustomUser, CustomRole, int>
             .HasForeignKey(x => x.TranslationMasterId)
             .OnDelete(DeleteBehavior.ClientNoAction);*/
 
+        modelBuilder.Entity<ProductCourse>()
+            .HasKey(pc => new { pc.ProductId, pc.CourseId });
+
+        modelBuilder.Entity<ProductCourse>()
+            .HasOne(pc => pc.Product)
+            .WithMany(p => p.ProductCourses)
+            .HasForeignKey(pc => pc.ProductId);
+
+        modelBuilder.Entity<ProductCourse>()
+            .HasOne(pc => pc.Course)
+            .WithMany(c => c.ProductCourses)
+            .HasForeignKey(pc => pc.CourseId);
 
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {

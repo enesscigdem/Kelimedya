@@ -7,12 +7,17 @@ using Paragraph.Core.Interfaces.Business;
 using Paragraph.HangfireServer.Services;
 using Paragraph.Persistence;
 using System.Text;
+using System.Text.Json.Serialization;
 using Paragraph.Services.Implementations;
 using Paragraph.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});;
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<AppSettings>>()?.Value);

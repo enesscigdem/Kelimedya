@@ -16,5 +16,9 @@ namespace Paragraph.Core.Entities
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
         public decimal Price { get; set; }
+        public string? ImageUrl { get; set; }
+
+        public ICollection<ProductCourse> ProductCourses { get; set; }
+            = new List<ProductCourse>();
     }
 }

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Paragraph.Core.Entities;
+using Paragraph.Core.Interfaces.Business;
+using Paragraph.WebApp.Areas.Admin.Models;
 using Paragraph.WebApp.Models;
 
 namespace Paragraph.WebApp.Controllers;
@@ -10,11 +12,12 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
-
-    public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory)
+    private readonly ICurrentUserService _currentUserService;
+    public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory, ICurrentUserService currentUserService)
     {
         _logger = logger;
         _httpClientFactory = httpClientFactory;
+        _currentUserService = currentUserService;
     }
 
     public IActionResult Index()
@@ -32,9 +35,72 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Cart()
+    public async Task<IActionResult> Cart()
     {
-        return View();
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var userId = _currentUserService.GetUserId();
+        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}");
+        if (cart == null)
+        {
+            cart = new CartDto();
+        }
+        return View(cart);
+    }
+    [HttpPost]
+    public async Task<IActionResult> AddToCart(int ProductId)
+    {
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var userId = _currentUserService.GetUserId();
+
+        var dto = new AddToCartDto
+        {
+            UserId = userId.ToString(),
+            ProductId = ProductId,
+            Quantity = 1
+        };
+
+        var response = await client.PostAsJsonAsync("api/cart/add", dto);
+        if(response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Cart");
+        }
+        else
+        {
+            TempData["Error"] = "Ürün sepetinize eklenemedi.";
+            return RedirectToAction("Product", "Home", new { id = ProductId });
+        }
+    }
+    [HttpPost]
+    public async Task<IActionResult> UpdateCartItem(int itemId, int newQuantity)
+    {
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var response = await client.PostAsJsonAsync("/api/cart/updateQuantity", new UpdateCartItemDto
+        {
+            ItemId = itemId,
+            Quantity = newQuantity
+        });
+        if (!response.IsSuccessStatusCode)
+        {
+            TempData["Error"] = "Miktar güncellenemedi.";
+        }
+        return RedirectToAction("Cart");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RemoveCartItem(int itemId)
+    {
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        // Artık API endpoint’imiz POST olarak çalışıyor.
+        var formData = new FormUrlEncodedContent(new[]
+        {
+            new KeyValuePair<string, string>("itemId", itemId.ToString())
+        });
+        var response = await client.PostAsync("/api/cart/remove", formData);
+        if (!response.IsSuccessStatusCode)
+        {
+            TempData["Error"] = "Ürün sepetten kaldırılamadı.";
+        }
+        return RedirectToAction("Cart");
     }
 
     public IActionResult Contact()
@@ -42,14 +108,22 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Product()
+    public async Task<IActionResult> Products()
     {
-        return View();
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var products = await client.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+        return View(products);
     }
 
-    public IActionResult Products()
+    public async Task<IActionResult> Product(int id)
     {
-        return View();
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var product = await client.GetFromJsonAsync<ProductViewModel>($"api/products/{id}");
+        if (product == null)
+        {
+            return NotFound();
+        }
+        return View(product);
     }
     // Hakkımızda Alt Menüsü
     public IActionResult WhoAreWe()

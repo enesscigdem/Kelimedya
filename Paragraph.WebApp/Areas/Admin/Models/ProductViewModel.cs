@@ -1,4 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace Paragraph.WebApp.Areas.Admin.Models
 {
@@ -6,13 +8,25 @@ namespace Paragraph.WebApp.Areas.Admin.Models
     {
         public int Id { get; set; }
         
-        [Required(ErrorMessage = "Ürün adı gereklidir.")]
         public string Name { get; set; }
-        
-        [Required(ErrorMessage = "Açıklama gereklidir.")]
-        public string Description { get; set; }
-        
-        [Required(ErrorMessage = "Fiyat bilgisi gereklidir.")]
+        public string? Description { get; set; }
         public decimal Price { get; set; }
+        public string? ImageUrl { get; set; }
+        
+        public List<CourseViewModel> Courses { get; set; } = new List<CourseViewModel>();
+
+        public List<ProductCourseViewModel> ProductCourses { get; set; } = new List<ProductCourseViewModel>();
+        public DateTime CreatedAt { get; set; }
+
+        public List<int> SelectedCourseIds { get; set; } = new List<int>();
+        public List<CourseViewModel> AvailableCourses { get; set; } = new List<CourseViewModel>();
+
+        public IFormFile? ImageFile { get; set; }
+    }
+    public class ProductCourseViewModel
+    {
+        public int ProductId { get; set; }
+        public int CourseId { get; set; }
+        public CourseViewModel? Course { get; set; }
     }
 }

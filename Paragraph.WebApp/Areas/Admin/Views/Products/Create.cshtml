@@ -24,7 +24,8 @@
         }
         <div class="card">
             <div class="card-body">
-                <form method="post" asp-area="Admin" asp-controller="Products" asp-action="Create">
+                <!-- enctype multipart form-data eklendi -->
+                <form method="post" asp-area="Admin" asp-controller="Products" asp-action="Create" enctype="multipart/form-data">
                     <!-- Ürün Adı -->
                     <div class="mb-3">
                         <label class="form-label">Ürün Adı</label>
@@ -43,6 +44,18 @@
                         <textarea id="tinymceDescription" class="form-control" asp-for="Description" rows="5"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
+                    <!-- Ürün Fotoğrafı -->
+                    <div class="mb-3">
+                        <label class="form-label">Ürün Fotoğrafı</label>
+                        <input type="file" name="ImageFile" class="form-control"/>
+                    </div>
+                    <!-- Dahil Edilen Eğitimler -->
+                    <div class="mb-3">
+                        <label class="form-label">Dahil Edilen Eğitimler</label>
+                        <select asp-for="SelectedCourseIds" class="form-select" multiple="multiple"
+                            asp-items="@(new MultiSelectList(Model.AvailableCourses, "Id", "Title"))">
+                        </select>
+                    </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                         <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
@@ -56,22 +69,22 @@
 @section Scripts {
     <!-- TinyMCE -->
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        tinyMCE.init({
-            selector: '#tinymceDescription',
-            height: 300,
-            menubar: false,
-            plugins: [
-              'advlist autolink lists link image charmap print preview anchor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-                     'bold italic backcolor | alignleft aligncenter ' +
-                     'alignright alignjustify | bullist numlist outdent indent | ' +
-                     'removeformat | help',
-            content_style: 'body { font-family:Inter, sans-serif; font-size:14px }'
+        document.addEventListener("DOMContentLoaded", function () {
+            tinyMCE.init({
+                selector: '#tinymceDescription',
+                height: 300,
+                menubar: false,
+                plugins: [
+                  'advlist autolink lists link image charmap print preview anchor',
+                  'searchreplace visualblocks code fullscreen',
+                  'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar: 'undo redo | formatselect | ' +
+                         'bold italic backcolor | alignleft aligncenter ' +
+                         'alignright alignjustify | bullist numlist outdent indent | ' +
+                         'removeformat | help',
+                content_style: 'body { font-family:Inter, sans-serif; font-size:14px }'
+            });
         });
-    });
     </script>
 }

@@ -22,7 +22,6 @@
                 </ol>
             </div>
         </div>
-        <!-- Dekoratif Şekiller -->
         <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
         <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
         <div class="td_page_heading_shape_3 position-absolute">
@@ -37,7 +36,6 @@
         <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
     </section>
 
-    <!-- Biz Kimiz İçeriği -->
     <section class="about-section">
         <div class="container">
             <div class="about-content">
@@ -108,7 +106,6 @@
                 </div>
             </div>
 
-            <!-- Ekip Üyeleri -->
             <div class="team-section">
                 <h3>
                     @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_TeamSectionHeading"))
@@ -171,11 +168,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Diğer ekip üyeleri eklenebilir -->
                 </div>
             </div>
 
-            <!-- Şirket Başarıları ve Sertifikalar -->
             <div class="achievements-section">
                 <h3>
                     @Html.Raw(await WidgetService.GetWidgetContentAsync("WhoWeAre_AchievementsHeading"))
@@ -278,7 +273,6 @@
             color: #7f8c8d;
         }
 
-        /* Ekip Bölümü */
         .team-section {
             margin-top: 60px;
             text-align: center;
@@ -342,7 +336,6 @@
             color: #2980b9;
         }
 
-        /* Başarılar Bölümü */
         .achievements-section {
             margin-top: 60px;
             text-align: center;
@@ -387,7 +380,6 @@
             color: #7f8c8d;
         }
 
-        /* Responsive Ayarlar */
         @@media (max-width: 768px) {
             .about-content {
                 flex-direction: column;
@@ -417,7 +409,6 @@
 
 @section Scripts {
     <script>
-        // İstatistik Sayı Animasyonu
         document.addEventListener('DOMContentLoaded', function () {
             const counters = document.querySelectorAll('.stat-number');
 
@@ -425,7 +416,7 @@
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
                     const count = +counter.innerText;
-                    const increment = target / 200; // Hız ayarı
+                    const increment = target / 200;
 
                     if (count < target) {
                         counter.innerText = Math.ceil(count + increment);

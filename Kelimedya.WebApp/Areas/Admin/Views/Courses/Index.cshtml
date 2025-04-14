@@ -5,7 +5,6 @@
     ViewData["Title"] = "Eğitim Yönetimi";
 }
 
-<!-- Ultra Modern Minimalist Header & Page Body -->
 <style>
   :root {
     --primary-color: #38506d;
@@ -193,7 +192,6 @@
   </div>
 </div>
 
-<!-- Page Body -->
 <div class="page-body">
   <div class="container-xl">
     <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
@@ -342,7 +340,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function () {
-      // Global Filtreleme
       $("#globalSearch").on("input", function () {
         var searchTerm = $(this).val().toLowerCase();
         $(".course-panel").each(function () {
@@ -370,7 +367,6 @@
         });
       });
       
-      // Sıralama İşlemi
       $(".sort-option").click(function (e) {
         e.preventDefault();
         var sortOrder = $(this).data("sort");
@@ -395,13 +391,11 @@
         }
       });
       
-      // Filtreleri Temizle
       $("#clearGlobalFilters").click(function () {
         $("#globalSearch").val("");
         $(".course-panel").show();
       });
       
-      // Bootstrap Tooltip Başlatma
       var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.forEach(function(tooltipTriggerEl) {
         new bootstrap.Tooltip(tooltipTriggerEl);

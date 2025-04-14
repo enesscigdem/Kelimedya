@@ -18,7 +18,6 @@
   </div>
 </div>
 
-<!-- Arama / Sıralama Alanı -->
 <div class="page-body pt-1">
   <div class="container-xl">
     <div class="row mb-3 align-items-center">
@@ -88,7 +87,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function () {
-      // Arama: input'a yazıldıkça tabloyu filtrele
       $("#searchInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("table tbody tr").filter(function () {
@@ -98,7 +96,6 @@
         });
       });
 
-      // Sıralama: seçilen seçeneklere göre tabloyu sıralayın
       $("#sortSelect").on("change", function () {
         var option = $(this).val();
         var rows = $("table tbody tr").get();

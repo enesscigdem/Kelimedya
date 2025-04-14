@@ -5,76 +5,69 @@
 }
 
 <main>
-    <!-- Gradient Hero Section -->
-        <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" 
-                 style="background-image: url('~/theme/web_UI/assets/img/home_5/page_heading_bg.jpg'); background-size: cover; min-height: 200px; position: relative;">
-            <div class="container">
-                <div class="td_page_heading_in">
-                    <h1 class="td_white_color td_fs_48 td_mb_10">Ödeme</h1>
-                    <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
-                        <li class="breadcrumb-item">
-                            <a asp-controller="Home" asp-action="Index" class="td_white_color">Anasayfa</a>
-                        </li>
-                        <li class="breadcrumb-item active">Ödeme</li>
-                    </ol>
-                </div>
+    <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble"
+             style="background-image: url('~/theme/web_UI/assets/img/home_5/page_heading_bg.jpg'); background-size: cover; min-height: 200px; position: relative;">
+        <div class="container">
+            <div class="td_page_heading_in">
+                <h1 class="td_white_color td_fs_48 td_mb_10">Ödeme</h1>
+                <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index" class="td_white_color">Anasayfa</a>
+                    </li>
+                    <li class="breadcrumb-item active">Ödeme</li>
+                </ol>
             </div>
-            <!-- Dekoratif Şekiller -->
-            <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
-            <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
-            <div class="td_page_heading_shape_3 position-absolute">
-                <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="">
-            </div>
-            <div class="td_page_heading_shape_4 position-absolute">
-                <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="">
-            </div>
-            <div class="td_page_heading_shape_5 position-absolute">
-                <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="">
-            </div>
-            <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
-        </section>
-    
-        <div class="td_height_120 td_height_lg_80"></div>
+        </div>
+        <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
+        <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
+        <div class="td_page_heading_shape_3 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="">
+        </div>
+        <div class="td_page_heading_shape_4 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="">
+        </div>
+        <div class="td_page_heading_shape_5 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="">
+        </div>
+        <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
+    </section>
 
-    <!-- Payment Section -->
+    <div class="td_height_120 td_height_lg_80"></div>
+
     <div class="container">
         <div class="row g-5">
-            <!-- Payment Form -->
             <div class="col-lg-8">
                 <div class="payment-card">
                     <div class="payment-card-header">
                         <h2 class="mb-1">Ödeme Bilgileri</h2>
                         <p class="text-muted">Lütfen kredi kartı bilgilerinizi girin</p>
                     </div>
-                    
+
                     <form method="post" asp-action="Payment" class="payment-form">
-                        <!-- Card Number -->
                         <div class="form-group animated-input">
                             <label>Kart Numarası</label>
                             <div class="input-wrapper">
-                                <input type="text" name="CardNumber" class="form-control" 
+                                <input type="text" name="CardNumber" class="form-control"
                                        placeholder="4242 4242 4242 4242" required>
                                 <i class="bi bi-credit-card"></i>
                             </div>
                         </div>
 
-                        <!-- Card Holder -->
                         <div class="form-group animated-input">
                             <label>Kart Üzerindeki İsim</label>
                             <div class="input-wrapper">
-                                <input type="text" name="CardHolderName" class="form-control" 
+                                <input type="text" name="CardHolderName" class="form-control"
                                        placeholder="Ad Soyad" required>
                                 <i class="bi bi-person-badge"></i>
                             </div>
                         </div>
 
-                        <!-- Expiry & CVV -->
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-group animated-input">
                                     <label>Son Kullanma Tarihi</label>
                                     <div class="input-wrapper">
-                                        <input type="text" name="ExpiryDate" class="form-control" 
+                                        <input type="text" name="ExpiryDate" class="form-control"
                                                placeholder="AA/YY" required>
                                         <i class="bi bi-calendar2-month"></i>
                                     </div>
@@ -84,7 +77,7 @@
                                 <div class="form-group animated-input">
                                     <label>CVV</label>
                                     <div class="input-wrapper">
-                                        <input type="text" name="CCV" class="form-control" 
+                                        <input type="text" name="CCV" class="form-control"
                                                placeholder="123" required>
                                         <i class="bi bi-lock"></i>
                                     </div>
@@ -92,7 +85,6 @@
                             </div>
                         </div>
 
-                        <!-- Terms -->
                         <div class="form-check terms-check">
                             <input class="form-check-input" type="checkbox" id="terms" required>
                             <label class="form-check-label" for="terms">
@@ -100,7 +92,6 @@
                             </label>
                         </div>
 
-                        <!-- Actions -->
                         <div class="d-flex flex-column flex-lg-row gap-3 mt-5">
                             <a href="@Url.Action("Cart", "Home")" class="btn btn-back">
                                 <i class="bi bi-arrow-left me-2"></i>Sepete Dön
@@ -113,36 +104,54 @@
                 </div>
             </div>
 
-            <!-- Order Summary -->
             <div class="col-lg-4">
                 <div class="summary-card">
                     <h3 class="summary-title">Sipariş Özeti</h3>
-                    
-                    <div class="summary-items">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span>Ara Toplam</span>
-                            <span class="fw-semibold">₺1,299.00</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span>Kargo</span>
-                            <span class="text-success">Ücretsiz</span>
-                        </div>
-                        <hr>
-                        <div class="d-flex justify-content-between fs-5">
-                            <span class="fw-bold">Toplam</span>
-                            <span class="fw-bold">₺1,299.00</span>
-                        </div>
+
+                    @if (Model.Cart.Items != null && Model.Cart.Items.Any())
+                    {
+                        <ul class="list-unstyled mb-3">
+                            @foreach (var item in Model.Cart.Items)
+                            {
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <div>
+                                        <strong>@item.ProductName</strong><br/>
+                                        <small>@item.Quantity adet</small>
+                                    </div>
+                                    <span>@(string.Format(new System.Globalization.CultureInfo("tr-TR"), "{0:C}", item.Price * item.Quantity))</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>Sepetiniz boş.</p>
+                    }
+
+                    <hr/>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Ara Toplam</span>
+                        <span class="fw-semibold">@Model.Cart.TotalPrice.ToString("C")</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Kargo</span>
+                        <span class="text-success">Ücretsiz</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fs-5">
+                        <span class="fw-bold">Toplam</span>
+                        <span class="fw-bold">@Model.Cart.TotalPrice.ToString("C")</span>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
     <div class="spacer-120"></div>
 </main>
 
-    <style>
-        /* Custom Variables */
+<style>
         :root {
             --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
             --primary-color: #6366f1;
@@ -150,7 +159,6 @@
             --soft-shadow: 0 8px 32px rgba(0,0,0,0.05);
         }
 
-        /* Hero Section */
         .payment-hero {
             padding: 8rem 0;
             background: var(--primary-gradient);
@@ -181,7 +189,6 @@
             right: -50px;
         }
 
-        /* Payment Card */
         .payment-card {
             background: #fff;
             border-radius: 1.5rem;
@@ -201,7 +208,6 @@
             font-size: 2rem;
         }
 
-        /* Animated Inputs */
         .animated-input {
             margin-bottom: 1.5rem;
             position: relative;
@@ -242,7 +248,6 @@
             box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
         }
 
-        /* Summary Card */
         .summary-card {
             background: #fff;
             border-radius: 1.5rem;
@@ -258,7 +263,6 @@
             font-size: 1.5rem;
         }
 
-        /* Buttons */
         .btn-payment {
             background: var(--primary-gradient);
             color: white;
@@ -290,7 +294,6 @@
             color: #475569;
         }
 
-        /* Terms Checkbox */
         .terms-check {
             margin-top: 2rem;
             padding: 1rem;
@@ -302,7 +305,6 @@
             margin-top: 0.3em;
         }
 
-        /* Responsive Design */
         @@media (max-width: 992px) {
             .payment-card, .summary-card {
                 padding: 1.5rem;

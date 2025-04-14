@@ -7,11 +7,9 @@
     ViewData["Title"] = "Yönetim Paneli";
 }
 
-<!-- Font Awesome ve ApexCharts CDN'leri -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p0Yry5eH5nZpq++WfEn5t5vEEz/sB8+LSyz2cBR3npd+EXcD5+39j7r7jd8avJ53+8dAydV7VSV+Phb9uln9Og==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-<!-- Özel CSS -->
 <style>
   .card {
       border: 1px solid #e3e6f0;
@@ -54,7 +52,6 @@
   }
 </style>
 
-<!-- Üst İşlem Alanı -->
 <div class="page-header d-print-none mb-4">
     <div class="container-xl">
         <div class="row align-items-center gy-3">
@@ -66,14 +63,12 @@
             </div>
             <div class="col-auto">
                 <div class="d-flex flex-wrap align-items-center gap-2">
-                    <!-- Global Arama -->
                     <div class="input-icon">
                         <input type="text" id="globalSearch" class="form-control" placeholder="Kurs, ders veya kelime ara..."/>
                         <span class="input-icon-addon">
                             <i class="fas fa-search"></i>
                         </span>
                     </div>
-                    <!-- Sıralama Dropdown -->
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="globalSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             Sırala
@@ -94,7 +89,6 @@
                         </ul>
                     </div>
                     <button id="clearGlobalFilters" class="btn btn-outline-secondary">Filtreleri Temizle</button>
-                    <!-- Yeni Rapor Oluştur Modal -->
                     <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#modal-report">
                         <i class="fas fa-plus"></i> Yeni Rapor Oluştur
                     </a>
@@ -104,11 +98,9 @@
     </div>
 </div>
 
-<!-- Dashboard Kartları -->
 <div class="page-body">
 <div class="container-xl">
 <div class="row row-deck row-cards">
-    <!-- Siparişler Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card">
             <div class="card-body">
@@ -124,7 +116,6 @@
             </div>
         </div>
     </div>
-    <!-- Gelir Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card">
             <div class="card-body">
@@ -143,7 +134,6 @@
             <div id="chart-revenue-bg" class="chart-sm"></div>
         </div>
     </div>
-    <!-- Toplam Kullanıcılar Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card">
             <div class="card-body">
@@ -163,7 +153,6 @@
         </div>
     </div>
 
-    <!-- Gelen Mesajlar Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card">
             <div class="card-body">
@@ -184,9 +173,7 @@
     </div>
 </div>
 
-<!-- Ek Küçük Kartlar -->
 <div class="row row-cards mt-4">
-    <!-- Toplam Dersler Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card card-sm">
             <div class="card-body d-flex align-items-center">
@@ -200,7 +187,6 @@
             </div>
         </div>
     </div>
-    <!-- Toplam Eğitimler Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card card-sm">
             <div class="card-body d-flex align-items-center">
@@ -214,7 +200,6 @@
             </div>
         </div>
     </div>
-    <!-- Toplam Raporlar Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card card-sm">
             <div class="card-body d-flex align-items-center">
@@ -228,7 +213,6 @@
             </div>
         </div>
     </div>
-    <!-- Toplam Mesajlar Kartı -->
     <div class="col-sm-6 col-lg-3">
         <div class="card card-sm">
             <div class="card-body d-flex align-items-center">
@@ -244,7 +228,6 @@
     </div>
 </div>
 
-<!-- Son Aktivite Tablosu -->
 <div class="row mt-4">
     <div class="col-md-6">
         <div class="card">
@@ -259,7 +242,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!-- Ek aktiviteler: Toplam Ürünler, Roller, Raporlar, Mesajlar, Eğitimler -->
                 <tr>
                     <td>Toplam Kullanıcılar</td>
                     <td>@Model.TotalUsers</td>
@@ -319,7 +301,6 @@
             </table>
         </div>
     </div>
-    <!-- Satış Grafiği -->
     <div class="col-12 col-lg-6">
         <div class="card">
             <div class="card-header">
@@ -332,7 +313,6 @@
     </div>
 </div>
 
-<!-- Son 10 Sipariş Tablosu -->
 <div class="row mt-4">
     <div class="col-12">
         <div class="card">
@@ -435,7 +415,6 @@
 </div>
 </div>
 
-<!-- Modal: Yeni Rapor Oluştur -->
 <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -533,7 +512,6 @@
     </div>
 </div>
 
-<!-- ApexCharts: Satış Grafiği Ayarı -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     var options = {
@@ -561,13 +539,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<!-- jQuery, Filtre/Sıralama Scriptleri ve Bootstrap Tooltips -->
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     $(document).ready(function () {
-      // Global filtreleme: kurs, ders ve kelime kartı metinlerine göre
       $("#globalSearch").on("input", function () {
         var searchTerm = $(this).val().toLowerCase();
         $(".course-panel").each(function () {
@@ -591,7 +567,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       });
       
-      // Sıralama işlemi: kurs veya ders başlıklarına göre
       $(".sort-option").click(function (e) {
         e.preventDefault();
         var sortOrder = $(this).data("sort");
@@ -602,7 +577,6 @@ document.addEventListener("DOMContentLoaded", function() {
             var titleB = $(b).data("course-title");
             return sortOrder === "course-asc" ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
           });
-          // Örneğin, dashboard kartlarının bulunduğu container'ı yeniden düzenleyin
           var container = $(".dashboard-courses-container");
           if(container.length) {
               container.html(items);
@@ -620,13 +594,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
       
-      // Filtreleri temizle
       $("#clearGlobalFilters").click(function () {
         $("#globalSearch").val("");
         $(".course-panel").show();
       });
       
-      // Bootstrap tooltips başlatma
       var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.forEach(function(tooltipTriggerEl) {
         new bootstrap.Tooltip(tooltipTriggerEl);

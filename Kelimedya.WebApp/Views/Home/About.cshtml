@@ -5,11 +5,9 @@
 }
 
 <main>
-<!-- Sayfa Başlığı -->
 <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
     <div class="container">
         <div class="td_page_heading_in">
-            <!-- Sayfa başlığı tamamen dinamik -->
             <h1 class="td_white_color td_fs_48 td_mb_10">
                 @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_PageTitle"))
             </h1>
@@ -23,7 +21,6 @@
             </ol>
         </div>
     </div>
-    <!-- Sayfa heading görsel şekilleri -->
     <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
     <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
     <div class="td_page_heading_shape_3 position-absolute">
@@ -38,16 +35,13 @@
     <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
 </section>
 
-<!-- About Bölümü -->
 <section>
     <div class="td_height_120 td_height_lg_80"></div>
     <div class="td_about td_style_1">
         <div class="container">
             <div class="row align-items-center td_gap_y_40">
-                <!-- Sol: Görsel Alan (statik veya ihtiyaç duyulursa dinamik de yapılabilir) -->
                 <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.25s">
                     <div class="td_about_thumb_wrap">
-                        <!-- EST yıl bilgisi de dinamik olarak alınabilir; örn: -->
                         <div class="td_about_year text-uppercase td_fs_64 td_bold">
                             @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_About_EstYear"))
                         </div>
@@ -66,7 +60,6 @@
                         <div class="td_circle_shape"></div>
                     </div>
                 </div>
-                <!-- Sağ: Metin Alanı (Tüm metinler dinamik olarak widget'lerden çekilecek – HTML etiketsiz) -->
                 <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
                     <div class="td_section_heading td_style_1 td_mb_30">
                         <p class="td_section_subtitle_up td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_accent_color">
@@ -117,7 +110,6 @@
     <div class="td_height_120 td_height_lg_80"></div>
 </section>
 
-<!-- Detayları Keşfet Bölümü -->
 <section class="td_accent_bg td_shape_section_1">
     <div class="td_height_120 td_height_lg_80"></div>
     <div class="container">
@@ -158,7 +150,6 @@
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-1">
-                <!-- Ürün kartları kısmı: statik örnek içerik bırakılmıştır -->
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="td_card td_style_2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
@@ -170,7 +161,6 @@
                                     <a href="">Ürün #1</a>
                                 </h2>
                                 <a href="" class="td_card_btn">
-                                    <!-- İkonlar -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" fill="none" stroke="white" stroke-width="2">
                                         <path d="M18.564 4.70161L4.42188 18.8438"/>
                                         <path d="M18.5654 13.5341C18.5654 13.5341 19.7299 5.85989 18.5654 4.69528C17.4008 3.53067 9.72656 4.69531 9.72656 4.69531"/>
@@ -236,7 +226,6 @@
     </div>
 </section>
 
-<!-- Video & Dinle Bölümü -->
 <section>
     <div class="td_video_block td_style_1 td_accent_bg td_bg_filed td_center text-center" data-src="/theme/web_UI/assets/img/home_5/video_bg.jpg">
         <div class="container">
@@ -280,7 +269,6 @@
     </div>
 </section>
 
-<!-- Blog & Yazılar Bölümü -->
 <section>
     <div class="td_height_112 td_height_lg_75"></div>
     <div class="container">
@@ -294,8 +282,6 @@
         </div>
         <div class="td_height_50 td_height_lg_50"></div>
         <div class="row td_gap_y_30">
-            <!-- Blog post örnekleri; burada statik örnek içerikler bırakılmıştır. -->
-            <!-- Eğer dinamik olarak çekmek isterseniz, ilgili widget çağrılarını ekleyebilirsiniz. -->
             <div class="col-lg-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
                 <div class="td_post td_style_1">
                     <a href="blog-details.html" class="td_post_thumb d-block">
@@ -327,7 +313,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Blog post 2 ve 3 benzer şekilde -->
         </div>
         <div class="td_height_120 td_height_lg_80"></div>
     </div>

@@ -13,7 +13,9 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly ICurrentUserService _currentUserService;
-    public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory, ICurrentUserService currentUserService)
+
+    public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientFactory,
+        ICurrentUserService currentUserService)
     {
         _logger = logger;
         _httpClientFactory = httpClientFactory;
@@ -25,16 +27,19 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet, Route("hakkimizda")]
     public IActionResult About()
     {
         return View();
     }
 
+    [HttpGet, Route("blog-detaylari")]
     public IActionResult BlogDetails()
     {
         return View();
     }
 
+    [HttpGet, Route("sepet")]
     public async Task<IActionResult> Cart()
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
@@ -44,9 +49,11 @@ public class HomeController : Controller
         {
             cart = new CartDto();
         }
+
         return View(cart);
     }
-    [HttpPost]
+
+    [HttpPost, Route("sepete-ekle")]
     public async Task<IActionResult> AddToCart(int ProductId)
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
@@ -60,7 +67,7 @@ public class HomeController : Controller
         };
 
         var response = await client.PostAsJsonAsync("api/cart/add", dto);
-        if(response.IsSuccessStatusCode)
+        if (response.IsSuccessStatusCode)
         {
             return RedirectToAction("Cart");
         }
@@ -70,7 +77,8 @@ public class HomeController : Controller
             return RedirectToAction("Product", "Home", new { id = ProductId });
         }
     }
-    [HttpPost]
+
+    [HttpPost, Route("sepet-miktar-guncelle")]
     public async Task<IActionResult> UpdateCartItem(int itemId, int newQuantity)
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
@@ -83,14 +91,14 @@ public class HomeController : Controller
         {
             TempData["Error"] = "Miktar güncellenemedi.";
         }
+
         return RedirectToAction("Cart");
     }
 
-    [HttpPost]
+    [HttpPost, Route("sepet-urununu-kaldir")]
     public async Task<IActionResult> RemoveCartItem(int itemId)
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
-        // Artık API endpoint’imiz POST olarak çalışıyor.
         var formData = new FormUrlEncodedContent(new[]
         {
             new KeyValuePair<string, string>("itemId", itemId.ToString())
@@ -100,14 +108,17 @@ public class HomeController : Controller
         {
             TempData["Error"] = "Ürün sepetten kaldırılamadı.";
         }
+
         return RedirectToAction("Cart");
     }
 
+    [HttpGet, Route("iletisim")]
     public IActionResult Contact()
     {
         return View();
     }
 
+    [HttpGet, Route("urunler")]
     public async Task<IActionResult> Products()
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
@@ -115,6 +126,7 @@ public class HomeController : Controller
         return View(products);
     }
 
+    [HttpGet, Route("urun-detaylari/{id}")]
     public async Task<IActionResult> Product(int id)
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
@@ -123,131 +135,135 @@ public class HomeController : Controller
         {
             return NotFound();
         }
+
         return View(product);
     }
-    // Hakkımızda Alt Menüsü
+
+    [HttpGet, Route("biz-kimiz")]
     public IActionResult WhoAreWe()
     {
         return View();
     }
 
+    [HttpGet, Route("misyon")]
     public IActionResult Mission()
     {
         return View();
     }
 
+    [HttpGet, Route("vizyon")]
     public IActionResult Vision()
     {
         return View();
     }
 
-    // Aileler İçin İletişim
-        public IActionResult ContactFamilies()
+    [HttpGet, Route("aileler-icin-iletisim")]
+    public IActionResult ContactFamilies()
+    {
+        return View(new ContactFamiliesModel());
+    }
+
+    [HttpPost, ValidateAntiForgeryToken, Route("aileler-icin-iletisim")]
+    public async Task<IActionResult> ContactFamilies(ContactFamiliesModel model)
+    {
+        if (!ModelState.IsValid)
         {
-            return View(new ContactFamiliesModel());
+            return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ContactFamilies(ContactFamiliesModel model)
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+
+        var response = await client.PostAsJsonAsync("api/messages", model);
+        if (response.IsSuccessStatusCode)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            TempData["Success"] = "Mesajınız başarıyla gönderildi.";
+            return RedirectToAction("ContactFamilies");
+        }
+        else
+        {
+            var errorContent = await response.Content.ReadAsStringAsync();
+            _logger.LogError("ContactFamilies API Hatası: {Error}", errorContent);
+            ModelState.AddModelError("", "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.");
+            return View(model);
+        }
+    }
 
-            // Form submit öncesinde Subject ve Body alanlarını JavaScript ile dolduracağız.
-            var client = _httpClientFactory.CreateClient("DefaultApi");
+    [HttpGet, Route("okullar-icin-iletisim")]
+    public IActionResult ContactSchools()
+    {
+        return View(new ContactSchoolsModel());
+    }
 
-            // API Message modeline uyumlu gönderiyoruz. (Mapping, view'dan doldurulmuş olmalı.)
-            var response = await client.PostAsJsonAsync("api/messages", model);
-            if (response.IsSuccessStatusCode)
-            {
-                TempData["Success"] = "Mesajınız başarıyla gönderildi.";
-                return RedirectToAction("ContactFamilies");
-            }
-            else
-            {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                _logger.LogError("ContactFamilies API Hatası: {Error}", errorContent);
-                ModelState.AddModelError("", "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.");
-                return View(model);
-            }
+    [HttpPost, ValidateAntiForgeryToken, Route("okullar-icin-iletisim")]
+    public async Task<IActionResult> ContactSchools(ContactSchoolsModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
         }
 
-        // Okullar İçin İletişim
-        public IActionResult ContactSchools()
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var response = await client.PostAsJsonAsync("api/messages", model);
+        if (response.IsSuccessStatusCode)
         {
-            return View(new ContactSchoolsModel());
+            TempData["Success"] = "Mesajınız başarıyla gönderildi.";
+            return RedirectToAction("ContactSchools");
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ContactSchools(ContactSchoolsModel model)
+        else
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var client = _httpClientFactory.CreateClient("DefaultApi");
-            var response = await client.PostAsJsonAsync("api/messages", model);
-            if (response.IsSuccessStatusCode)
-            {
-                TempData["Success"] = "Mesajınız başarıyla gönderildi.";
-                return RedirectToAction("ContactSchools");
-            }
-            else
-            {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                _logger.LogError("ContactSchools API Hatası: {Error}", errorContent);
-                ModelState.AddModelError("", "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.");
-                return View(model);
-            }
+            var errorContent = await response.Content.ReadAsStringAsync();
+            _logger.LogError("ContactSchools API Hatası: {Error}", errorContent);
+            ModelState.AddModelError("", "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.");
+            return View(model);
         }
+    }
 
 
-    // Öğrenci Profili (Bilgilerim)
-    [Authorize]
+    [Authorize, HttpGet, Route("profilim")]
     public IActionResult Profile()
     {
         return View();
     }
 
-    [HttpPost]
-    [Authorize]
+    [Authorize, HttpPost, Route("profilim")]
     public IActionResult Profile(UserProfileModel model)
     {
         if (ModelState.IsValid)
         {
-            // Kullanıcı bilgilerini güncelleme işlemlerini gerçekleştirin
-            // Örneğin:
-            // _userService.UpdateUserProfile(User.Identity.Name, model);
             return RedirectToAction("Profile");
         }
+
         return View(model);
     }
 
-    // Ödeme Sayfası
-    [HttpGet]
-    public IActionResult Payment()
+    [HttpGet, Route("odeme")]
+    public async Task<IActionResult> Payment()
     {
-        return View();
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var userId = _currentUserService.GetUserId();
+        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}");
+
+        var model = new PaymentModel
+        {
+            Cart = cart ?? new CartDto()
+        };
+
+        return View(model);
     }
 
-    [HttpPost]
+
+    [HttpPost, Route("odeme")]
     public IActionResult Payment(PaymentModel model)
     {
         if (ModelState.IsValid)
         {
-            // Ödeme işlemlerini gerçekleştirin
-            // Örneğin:
-            // _paymentService.ProcessPayment(model);
             return RedirectToAction("OrderConfirmation");
         }
+
         return View(model);
     }
 
+    [HttpGet, Route("siparis-onay")]
     public IActionResult OrderConfirmation()
     {
         return View();

@@ -10,7 +10,6 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title">
-                    <!-- Edit Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-edit me-1"
                          width="28" height="28" viewBox="0 0 24 24" stroke-width="2"
                          stroke="currentColor" fill="none" stroke-linecap="round"
@@ -46,7 +45,6 @@
                 <h3 class="card-title">Kullanıcı Bilgileri</h3>
             </div>
             <div class="card-body">
-                <!-- Ad Soyad -->
                 <div class="mb-3">
                     <label class="form-label required">Ad</label>
                     <input type="text" asp-for="Name" class="form-control" placeholder="Örn: Ali" required/>
@@ -59,21 +57,18 @@
                     <span asp-validation-for="Surname" class="text-danger"></span>
                 </div>
 
-                <!-- Kullanıcı Adı -->
                 <div class="mb-3">
                     <label class="form-label required">Kullanıcı Adı</label>
                     <input type="text" asp-for="UserName" class="form-control" placeholder="Örn: aliyilmaz" required/>
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
 
-                <!-- E-posta -->
                 <div class="mb-3">
                     <label class="form-label required">E-posta</label>
                     <input type="email" asp-for="Email" class="form-control" placeholder="Örn: ali@example.com" required/>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
-                <!-- Rol -->
                 <div class="mb-3">
                     <label class="form-label required">Rol</label>
                     <select asp-for="Role" class="form-select" required>

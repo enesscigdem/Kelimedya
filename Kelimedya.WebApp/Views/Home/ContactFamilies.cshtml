@@ -47,7 +47,6 @@
                                 @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3">
-                                <!-- name="FromEmail" ile model binding sağlanacak -->
                                 <input type="email" name="FromEmail" class="td_form_field_2 td_mb_16"
                                     placeholder="E-Posta Adresiniz" value="@Model?.FromEmail" required />
                                 @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
@@ -58,7 +57,6 @@
                                 @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
                             </div>
 
-                            <!-- Gizli alanlar: Subject ve Body (form submit öncesinde doldurulacak) -->
                             @Html.HiddenFor(m => m.Subject)
 
                             <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">

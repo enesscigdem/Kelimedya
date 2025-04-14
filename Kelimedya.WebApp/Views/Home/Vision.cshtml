@@ -5,7 +5,6 @@
     ViewData["Title"] = await WidgetService.GetWidgetContentAsync("Vision_PageTitle");
 }
 <main>
-    <!-- Sayfa Başlığı -->
     <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
         <div class="container">
             <div class="td_page_heading_in">
@@ -24,7 +23,6 @@
                 </ol>
             </div>
         </div>
-        <!-- Dekoratif Şekiller -->
         <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
         <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
         <div class="td_page_heading_shape_3 position-absolute">
@@ -39,7 +37,6 @@
         <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
     </section>
 
-    <!-- Vizyon İçeriği -->
     <section class="vision-section">
         <div class="container">
             <div class="vision-content">
@@ -47,7 +44,6 @@
                     <h2>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_SectionHeading"))</h2>
                     <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Kelimedya1"))</p>
                     <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Kelimedya2"))</p>
-                    <!-- Vizyon Maddeleri -->
                     <ul class="vision-list">
                         <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem1"))</li>
                         <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem2"))</li>
@@ -56,7 +52,6 @@
                     </ul>
                 </div>
                 <div class="vision-graphics">
-                    <!-- Progres Barlar -->
                     <div class="progress-bars">
                         <div class="progress-bar-container">
                             <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill1_Label"))</span>
@@ -74,7 +69,6 @@
                 </div>
             </div>
             
-            <!-- Geleceğe Yönelik Hedefler -->
             <div class="future-goals">
                 <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_FutureGoalsHeading"))</h3>
                 <div class="goals-cards">
@@ -96,7 +90,6 @@
                 </div>
             </div>
             
-            <!-- İstatistikler -->
             <div class="statistics">
                 <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_StatisticsHeading"))</h3>
                 <div class="stats-cards">

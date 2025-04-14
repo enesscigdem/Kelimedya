@@ -3,13 +3,11 @@
 @inject IWidgetService WidgetService
 @{
     Layout = "_Layout";
-    // Sayfa başlığı ve breadcrumb'ı widget'lerden çekiyoruz
     var pageTitle = await WidgetService.GetWidgetContentAsync("Mission_PageTitle");
     var breadcrumbHome = await WidgetService.GetWidgetContentAsync("Mission_Breadcrumb_Home");
     var breadcrumbActive = await WidgetService.GetWidgetContentAsync("Mission_Breadcrumb_Active");
 }
 <main>
-    <!-- Sayfa Başlığı -->
     <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
         <div class="container">
             <div class="td_page_heading_in">
@@ -26,7 +24,6 @@
                 </ol>
             </div>
         </div>
-        <!-- Dekoratif Şekiller -->
         <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
         <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
         <div class="td_page_heading_shape_3 position-absolute">
@@ -41,7 +38,6 @@
         <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
     </section>
 
-    <!-- Misyon İçeriği -->
     <section class="mission-section">
         <div class="container">
             <div class="mission-content">
@@ -49,7 +45,6 @@
                     <h2>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_SectionHeading"))</h2>
                     <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Kelimedya1"))</p>
                     <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Kelimedya2"))</p>
-                    <!-- Misyon Maddeleri -->
                     <ul class="mission-list">
                         <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem1"))</li>
                         <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem2"))</li>
@@ -58,7 +53,6 @@
                     </ul>
                 </div>
                 <div class="mission-graphics">
-                    <!-- Skill Barlar -->
                     <div class="skill-bars">
                         <div class="skill-bar-container">
                             <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill1_Label"))</span>
@@ -76,7 +70,6 @@
                 </div>
             </div>
 
-            <!-- Ana Hedefler -->
             <div class="future-goals">
                 <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_FutureGoalsHeading"))</h3>
                 <div class="goals-cards">
@@ -98,7 +91,6 @@
                 </div>
             </div>
 
-            <!-- İstatistikler -->
             <div class="statistics">
                 <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_StatisticsHeading"))</h3>
                 <div class="stats-cards">
@@ -130,7 +122,6 @@
 
 
     <style>
-        /* Misyon Bölümü */
         .mission-section {
             padding: 80px 0;
             background-color: #fff;
@@ -180,7 +171,6 @@
             min-width: 300px;
         }
 
-        /* Geleceğe Yönelik Hedefler */
         .future-goals {
             margin-top: 60px;
             text-align: center;
@@ -283,7 +273,6 @@
             color: #7f8c8d;
         }
 
-        /* Responsive Ayarlar */
         @@media (max-width: 768px) {
             .mission-content {
                 flex-direction: column;
@@ -310,7 +299,7 @@
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
                     const count = +counter.innerText;
-                    const increment = target / 200; // Hız ayarı
+                    const increment = target / 200;
 
                     if (count < target) {
                         counter.innerText = Math.ceil(count + increment);

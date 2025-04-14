@@ -81,6 +81,7 @@
       <ProjectReference Include="..\Kelimedya.Core\Kelimedya.Core.csproj" />
       <ProjectReference Include="..\Kelimedya.HangfireDashboard\Kelimedya.HangfireDashboard.csproj" />
       <ProjectReference Include="..\Kelimedya.HangfireServer\Kelimedya.HangfireServer.csproj" />
+      <ProjectReference Include="..\Kelimedya.Services\Kelimedya.Services.csproj" />
     </ItemGroup>
 
     <ItemGroup>

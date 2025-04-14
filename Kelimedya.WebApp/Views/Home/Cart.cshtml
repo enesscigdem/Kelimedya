@@ -6,7 +6,6 @@
 
 <div class="td_height_120 td_height_lg_80"></div>
 <div class="container">
-    <!-- Sepet Tablosu -->
     <div class="td_table_1">
         <div class="table-responsive">
             <table class="table">
@@ -34,7 +33,6 @@
                                 </td>
                                 <td class="unit-price">@item.Price.ToString("C")</td>
                                 <td>
-                                    <!-- Miktar Güncelleme Formu -->
                                     <form method="post" asp-controller="Home" asp-action="UpdateCartItem" class="d-inline">
                                         <input type="hidden" name="itemId" value="@item.Id" />
                                         <div class="td_quantity d-flex align-items-center">
@@ -50,7 +48,6 @@
                                 </td>
                                 <td class="line-total">@item.Total.ToString("C")</td>
                                 <td>
-                                    <!-- Sepetten Kaldırma Formu -->
                                     <form method="post" asp-controller="Home" asp-action="RemoveCartItem">
                                         <input type="hidden" name="itemId" value="@item.Id" />
                                         <button class="td_table_close_btn btn btn-danger btn-sm" type="submit">
@@ -74,16 +71,13 @@
 
     <div class="td_height_60 td_height_lg_40"></div>
 
-    <!-- Özet Kart Bölümü: Kupon & Sepet Toplamı & İşlem Butonları -->
     <div class="row td_gap_y_30 td_row_gap_30">
-        <!-- Kupon Alanı -->
         <div class="col-xl-6 td_gap_y_50">
             <form action="#" class="td_cupon td_mb_50">
                 <input type="text" placeholder="Kupon kodu" class="td_cupon_input form-control" name="couponCode" />
                 <button type="submit" class="td_cupon_btn btn btn-secondary">Uygula</button>
             </form>
         </div>
-        <!-- Sepet Toplamı -->
         <div class="col-xl-6">
             <div class="td_total_card p-3 rounded shadow-sm">
                 <h3 class="td_fs_16 td_mb_2">Sepet Toplamı</h3>

@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>@ViewData["Title"] - Admin Panel</title>
-    <!-- Tabler CSS -->
     <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-flags.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet"/>
@@ -34,19 +33,16 @@
 <div class="page">
 <aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
 <div class="container-fluid">
-<!-- Sidebar Toggle -->
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
         aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
-<!-- Brand -->
 <h1 class="navbar-brand navbar-brand-autodark">
     <a asp-area="" asp-controller="Home" asp-action="Index">
         <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
     </a>
 </h1>
 
-<!-- Mobile Nav (GitHub, Theme Toggle vb.) -->
 <div class="navbar-nav flex-row d-lg-none">
     <div class="nav-item d-none d-lg-flex me-3">
         <div class="btn-list">
@@ -84,7 +80,6 @@
         </div>
     </div>
     <div class="d-none d-lg-flex">
-        <!-- Dark Mode -->
         <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
            data-bs-toggle="tooltip" data-bs-placement="bottom">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -96,7 +91,6 @@
                                      a9 9 0 1 1 -8.313 -12.454z"/>
             </svg>
         </a>
-        <!-- Light Mode -->
         <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
            data-bs-toggle="tooltip" data-bs-placement="bottom">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -111,21 +105,17 @@
                                      m-12.1 -.7l-.7 .7"/>
             </svg>
         </a>
-        <!-- Bildirimler vb. -->
     </div>
 </div>
 
-<!-- Sidebar Menu -->
 <div class="collapse navbar-collapse" id="sidebar-menu">
 <ul class="navbar-nav pt-lg-3">
-<!-- Anasayfa (Dashboard) -->
 <li class="nav-item">
     <a class="nav-link"
        asp-area="Admin"
        asp-controller="Dashboard"
        asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
-            <!-- Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                  stroke-linecap="round" stroke-linejoin="round">
@@ -139,7 +129,6 @@
     </a>
 </li>
 
-<!-- Kullanıcı Yönetimi -->
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle"
        href="#navbar-users"
@@ -174,7 +163,6 @@
     </div>
 </li>
 
-<!-- Ürün Yönetimi -->
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle"
        href="#navbar-products"
@@ -205,7 +193,6 @@
     </div>
 </li>
 
-<!-- Siparişler -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Orders" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -222,7 +209,6 @@
     </a>
 </li>
 
-<!-- Raporlar -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Reports" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -240,7 +226,6 @@
     </a>
 </li>
 
-<!-- Mesajlar -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Messages" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -257,7 +242,6 @@
     </a>
 </li>
 
-<!-- Kurlar (Eğitimler, Dersler, Kelime Kartları) -->
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle"
        href="#navbar-courses"
@@ -266,7 +250,6 @@
        role="button"
        aria-expanded="false">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
-            <!-- Courses Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                  stroke-linecap="round" stroke-linejoin="round">
@@ -296,7 +279,6 @@
     </div>
 </li>
 
-<!-- Metin Düzenlemeleri -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Widgets" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -318,7 +300,6 @@
     </a>
 </li>
 
-<!-- Oyunlar -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Games" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -334,7 +315,6 @@
     </a>
 </li>
 
-<!-- Satış Grafiği -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Sales" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -352,7 +332,6 @@
     </a>
 </li>
 
-<!-- Ayarlar -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Settings" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -391,7 +370,6 @@
     </a>
 </li>
 
-<!-- Çıkış Yap -->
 <li class="nav-item">
     <a class="nav-link" asp-area="Admin" asp-controller="Logout" asp-action="Index">
         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -417,7 +395,6 @@
 </aside>
 
 <div class="page-wrapper">
-    <!-- Header -->
     <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
         <div class="container-xl">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
@@ -426,10 +403,8 @@
             </button>
             <div class="navbar-nav flex-row order-md-last">
                 <div class="d-none d-md-flex">
-                    <!-- Dark Mode -->
                     <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
                        data-bs-toggle="tooltip" data-bs-placement="bottom">
-                        <!-- Moon Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                              stroke-linecap="round" stroke-linejoin="round">
@@ -439,10 +414,8 @@
                                          a9 9 0 1 1 -8.313 -12.454z"/>
                         </svg>
                     </a>
-                    <!-- Light Mode -->
                     <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
                        data-bs-toggle="tooltip" data-bs-placement="bottom">
-                        <!-- Sun Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                              stroke-linecap="round" stroke-linejoin="round">
@@ -459,7 +432,6 @@
 
                 </div>
 
-                <!-- Kullanıcı Menüsü -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                        aria-label="Open user menu">
@@ -481,13 +453,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Arama -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <div>
                     <form action="~/theme/tabler/" method="get" autocomplete="off" novalidate>
                         <div class="input-icon">
                             <span class="input-icon-addon">
-                                <!-- Search Icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                      viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                      stroke-linecap="round" stroke-linejoin="round">
@@ -506,14 +476,12 @@
         </div>
     </header>
 
-    <!-- Ana İçerik Alanı -->
     <main class="page-body">
         <div class="container-xl">
             @RenderBody()
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer footer-transparent d-print-none">
         <div class="container-xl">
             <div class="row text-center align-items-center flex-row-reverse">
@@ -540,7 +508,6 @@
 </div>
 </div>
 
-<!-- JS dosyaları -->
 <script src="~/theme/tabler/dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
 <script src="~/theme/tabler/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
 <script src="~/theme/tabler/dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>

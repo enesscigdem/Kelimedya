@@ -45,7 +45,6 @@
                         <div class="td_nav_list_wrap">
                             <div class="td_nav_list_wrap_in">
                                 <ul class="td_nav_list">
-                                    <!-- not childeren -->
                                     <li>
                                         <a asp-controller="Home" asp-action="Index">Anasayfa</a>
                                     </li>
@@ -94,7 +93,6 @@
                         <ul class="td_mp_0 td_hero_toolbox">
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <!-- Kullanıcı oturumu açık -->
                                 <li>
                                     <a asp-controller="Account" asp-action="Profile"
                                        class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
@@ -114,7 +112,6 @@
                             }
                             else
                             {
-                                <!-- Kullanıcı oturumu kapalı -->
                                 <li>
                                     <a asp-controller="Auth" asp-action="Login"
                                        class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">

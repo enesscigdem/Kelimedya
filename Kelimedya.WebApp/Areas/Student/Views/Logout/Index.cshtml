@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Çıkış Yap";
+}
+
+<style>
+    body {
+        background-color: #fefefe;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    .logout-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        text-align: center;
+        color: #333;
+    }
+    .logout-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .logout-message {
+        font-size: 1rem;
+        color: #777;
+        margin-bottom: 2rem;
+    }
+
+    /* Pastel Daireler */
+    .circle-decor {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #ffc2c2;
+        z-index: -1;
+        opacity: 0.4;
+    }
+    .circle-decor:nth-child(1) {
+        top: -30px;
+        right: 20%;
+    }
+    .circle-decor:nth-child(2) {
+        bottom: -30px;
+        left: 10%;
+        background: #ffded2;
+    }
+
+    .logout-actions button,
+    .logout-actions a {
+        display: inline-block;
+        margin: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        background-color: #f05232;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    .logout-actions a.btn-secondary {
+        background-color: #aaa;
+        color: #fff;
+    }
+    .logout-actions button:hover {
+        background-color: #d74322;
+    }
+    .logout-actions a.btn-secondary:hover {
+        background-color: #888;
+    }
+</style>
+
+<div class="logout-container">
+    <div class="circle-decor"></div>
+    <div class="circle-decor"></div>
+    <div class="logout-title">Çıkış Yap</div>
+    <div class="logout-message">
+        Panelden çıkmak üzeresiniz. Emin misiniz?
+    </div>
+    <form method="post" asp-area="Student" asp-controller="Logout" asp-action="Logout">
+        <div class="logout-actions">
+            <button type="submit">Çıkış Yap</button>
+            <a asp-area="Student" asp-controller="Dashboard" asp-action="Index" class="btn-secondary">Vazgeç</a>
+        </div>
+    </form>
+</div>

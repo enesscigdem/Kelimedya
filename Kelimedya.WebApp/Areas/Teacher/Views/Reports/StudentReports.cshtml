@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Kelimedya.WebApp.Areas.Teacher.Models.StudentReportViewModel>
+
+@{
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Öğrenci Raporları";
+}
+
+<link href="~/css/teacherReports.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="teacher-reports-container container-xl">
+       <div class="reports-header mb-5">
+           <div class="d-flex align-items-center justify-content-between border-bottom pb-3">
+               <div>
+                   <h1 class="reports-title mb-1">Öğrenci Performans Takip</h1>
+                   <div class="d-flex align-items-center gap-2">
+                       <span class="badge bg-primary">@Model.Count() Öğrenci</span>
+                       <span class="text-muted fs-7"><i class="bi bi-info-circle"></i> Son güncelleme: @DateTime.Now.ToString("dd MMM yyyy")</span>
+                   </div>
+               </div>
+               <div class="header-actions">
+                   <button class="btn btn-sm btn-light">
+                       <i class="bi bi-printer"></i> Yazdır
+                   </button>
+               </div>
+           </div>
+       </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="student-report-list row g-4">
+            @foreach(var report in Model)
+            {
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="student-report-card">
+                        <div class="student-info d-flex align-items-center mb-3">
+                            <div class="avatar me-3">
+                                <div class="avatar-initials bg-primary text-white">@report.FullName?.Substring(0,1)</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-0">@report.FullName</h3>
+                                <p class="student-meta text-muted mb-0">ID: @report.StudentId</p>
+                            </div>
+                        </div>
+                        
+                        <div class="report-stats mb-3">
+                            <div class="stat-item">
+                                <div class="d-flex justify-content-between">
+                                    <span class="stat-label">Tamamlanan Ders</span>
+                                    <span class="stat-value">@report.CompletedLessons?.Count()</span>
+                                </div>
+                                <div class="progress mt-1" style="height: 4px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="d-flex justify-content-between">
+                                    <span class="stat-label">Öğrenilen Kelime</span>
+                                    <span class="stat-value">@report.LearnedWords?.Count()</span>
+                                </div>
+                                <div class="progress mt-1" style="height: 4px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-actions d-grid gap-2">
+                            <button class="btn btn-primary btn-report" 
+                                    data-student="@report.StudentId" 
+                                    data-type="transcript">
+                                <i class="bi bi-file-text me-2"></i>Karne Görüntüle
+                            </button>
+                            <button class="btn btn-outline-primary btn-report" 
+                                    data-student="@report.StudentId" 
+                                    data-type="detailed">
+                                <i class="bi bi-bar-chart-line me-2"></i>Detaylı Rapor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="no-reports text-center py-5">
+            <div class="empty-state">
+                <img src="~/images/empty-report.svg" alt="Boş Rapor" class="mb-4" width="200">
+                <h4 class="mb-3">Henüz rapor verisi bulunmamaktadır</h4>
+                <p class="text-muted">Öğrenciler ders tamamladıkça burada görüntülenecektir</p>
+            </div>
+        </div>
+    }
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary text-white">
+                    <h2 class="modal-title fs-4" id="reportModalLabel"></h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalContent" class="report-content-container"></div>
+                </div>
+                <div class="modal-footer">
+                    <a id="modalDownload" href="#" class="btn btn-success">
+                        <i class="bi bi-file-earmark-pdf me-2"></i>PDF Olarak İndir
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- jQuery (Bootstrap 5 için zorunlu değildir, ama AJAX için kullanabiliriz) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS (Sürüm 5) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(function() {
+            $(".btn-report").click(function(e) {
+                e.preventDefault();
+                
+                var studentId = $(this).data("student");
+                var reportType = $(this).data("type"); // "transcript" veya "detailed"
+
+                // AJAX ile ilgili raporu çekmek için URL'yi belirleyelim
+                var url = reportType === "transcript"
+                    ? "@Url.Action("Transcript", "Reports", new { area = "Teacher" })"
+                    : "@Url.Action("DetailedReport", "Reports", new { area = "Teacher" })";
+                url += "?studentId=" + studentId;
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function(data) {
+                        // Modal başlığını ayarla
+                        $("#modalTitle").text(
+                            reportType === "transcript" ? "Öğrenci Karnesi" : "Öğrenci Detay Raporu"
+                        );
+
+                        // İçeriği modal gövdesine bas
+                        $("#modalContent").html(data.htmlContent || "<p>İçerik bulunamadı.</p>");
+
+                        // İndirilecek PDF linkini ayarla
+                        var downloadUrl = reportType === "transcript"
+                            ? "@Url.Action("DownloadTranscript", "Reports", new { area = "Teacher" })"
+                            : "@Url.Action("DownloadDetailedReport", "Reports", new { area = "Teacher" })";
+                        downloadUrl += "?studentId=" + studentId;
+                        $("#modalDownload").attr("href", downloadUrl);
+
+                        // Bootstrap 5 modalını aç
+                        var modalElement = document.getElementById('reportModal');
+                        var reportModal = new bootstrap.Modal(modalElement);
+                        reportModal.show();
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Rapor yüklenirken hata oluştu: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+}
+

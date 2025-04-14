@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<main>
+    <section>
+        <div class="td_height_120 td_height_lg_80"></div>
+        <div class="container">
+            <div class="row td_gap_y_40">
+                <div class="col-lg-6">
+                    <div class="td_form_card td_style_1 td_radius_10 td_gray_bg_5">
+                        <div class="td_form_card_in">
+                            <h2 class="td_fs_36 td_mb_20">Giriş Yap</h2>
+                            <hr>
+                            <div class="td_height_30 td_height_lg_30"></div>
+                            <form id="loginForm">
+                                <input type="email" id="Email" class="td_form_field td_mb_10 td_medium td_white_bg"
+                                       placeholder="E-posta Adresin *"/>
+                                <span class="text-danger" id="EmailError"></span>
+
+                                <input type="password" id="Password" class="td_form_field td_mb_10 td_medium td_white_bg"
+                                       placeholder="Şifren *"/>
+                                <span class="text-danger" id="PasswordError"></span>
+
+                                <div class="td_form_card_text_2 td_mb_50">
+                                    <div>
+                                        <a href="#" class="td_semibold td_accent_color">Şifreni mi unuttun?</a>
+                                    </div>
+                                    <div class="td_accent_color">
+                                        <div class="td_custom_checkbox">
+                                            <input type="checkbox" id="remember"/>
+                                            <label for="remember">Beni Hatırla</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="td_form_card_bottom td_mb_25">
+                                    <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
+                                        <span class="td_btn_in td_white_color td_accent_bg">
+                                            <span>Giriş Yap</span>
+                                        </span>
+                                    </button>
+
+                                    <p class="td_fs_20 mb-0 td_medium td_heading_color">veya</p>
+
+                                    <div class="td_form_social td_fs_20">
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-apple"></i>
+                                        </a>
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-google"></i>
+                                        </a>
+                                        <a href="#" class="td_center">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <p class="td_form_card_text td_fs_20 td_medium td_heading_color mb-0">
+                                Hesabın yok mu?
+                                <a asp-controller="Auth" asp-action="Register">Kayıt Ol</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="td_sign_thumb">
+                        <img src="~/theme/web_UI/assets/img/home_5/login.jpg" alt="" class="w-100 td_radius_10">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="td_height_120 td_height_lg_80"></div>
+    </section>
+</main>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#loginForm').on('submit', function (e) {
+                e.preventDefault();
+
+                const data = {
+                    email: $('#Email').val(),
+                    password: $('#Password').val()
+                };
+
+                $('.text-danger').text('');
+                $('#loginForm .td_form_field').removeClass('input-error');
+
+                let isValid = true;
+                if (!data.email) {
+                    $('#EmailError').text('E-posta zorunludur.');
+                    $('#Email').addClass('input-error');
+                    isValid = false;
+                }
+                if (!data.password) {
+                    $('#PasswordError').text('Şifre zorunludur.');
+                    $('#Password').addClass('input-error');
+                    isValid = false;
+                }
+                if (!isValid) {
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Auth/Login',
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function (response) {
+                        if (response.success) {
+                            showIziToastSuccess(response.message);
+                
+                            setTimeout(() => window.location.href = response.redirectUrl, 500);
+                        } else {
+                            showIziToastError(response.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        const errMessage = xhr.responseJSON?.message || "Beklenmeyen bir hata oluştu.";
+                        showIziToastError(errMessage);
+                    }
+                });
+            });
+        });
+    </script>
+}

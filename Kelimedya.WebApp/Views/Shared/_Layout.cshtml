@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="smskSoft">
+    
+    <title>Anasayfa | Kelimedya</title>
+
+    <link rel="icon" href="~/theme/web_UI/assets/uploads/app/favicon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/slick.min.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/odometer.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/animate.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/style.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/iziToastCustom.css" />
+</head>
+
+<body class="td_theme_2">
+
+    @await Html.PartialAsync("_Header")
+
+    <main>
+        @RenderBody()
+    </main>
+
+    @await Html.PartialAsync("_Footer")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+    <script src="~/js/CustomIziToast.js"></script>
+    <script src="~/theme/web_UI/assets/js/jquery.slick.min.js"></script>
+    <script src="~/theme/web_UI/assets/js/odometer.js"></script>
+    <script src="~/theme/web_UI/assets/js/gsap.min.js"></script>
+    <script src="~/theme/web_UI/assets/js/jquery-ui.min.js"></script>
+    <script src="~/theme/web_UI/assets/js/wow.min.js"></script>
+    <script src="~/theme/web_UI/assets/js/main.js"></script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

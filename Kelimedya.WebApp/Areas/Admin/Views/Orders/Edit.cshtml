@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Kelimedya.Core.Enum
+@model Kelimedya.WebApp.Areas.Admin.Models.OrderViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Sipariş Düzenle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Sipariş Düzenle</h2>
+        <div class="text-muted mt-1">
+            Sipariş bilgilerini güncelleyin.
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+        {
+            <div class="alert alert-danger" role="alert">
+                @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+            </div>
+        }
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-action="Edit">
+                    <input type="hidden" asp-for="Id"/>
+                    <!-- Sipariş Numarası -->
+                    <div class="mb-3">
+                        <label class="form-label">Sipariş Numarası</label>
+                        <input type="text" class="form-control" asp-for="OrderNumber"/>
+                        <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                    </div>
+                    <!-- Müşteri Adı -->
+                    <div class="mb-3">
+                        <label class="form-label">Müşteri Adı</label>
+                        <input type="text" class="form-control" asp-for="CustomerName"/>
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                    </div>
+                    <!-- Müşteri Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Müşteri Email</label>
+                        <input type="email" class="form-control" asp-for="CustomerEmail"/>
+                        <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                    </div>
+                    <!-- Sipariş Tarihi -->
+                    <div class="mb-3">
+                        <label class="form-label">Sipariş Tarihi</label>
+                        <input type="date" class="form-control" asp-for="OrderDate"/>
+                        <span asp-validation-for="OrderDate" class="text-danger"></span>
+                    </div>
+                    <!-- Toplam Tutar -->
+                    <div class="mb-3">
+                        <label class="form-label">Toplam Tutar</label>
+                        <input type="number" step="0.01" class="form-control" asp-for="TotalAmount"/>
+                        <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                    </div>
+                    <!-- Sipariş Durumu -->
+                    <div class="mb-3">
+                        <label class="form-label">Sipariş Durumu</label>
+                        <select class="form-select" asp-for="Status">
+                            @foreach (var status in Enum.GetValues(typeof(OrderStatus)))
+                            {
+                                <option value="@status">@status</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                        <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

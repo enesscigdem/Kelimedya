@@ -1,0 +1,142 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="smskSoft">
+
+    <link rel="icon" href="~/theme/web_UI/~/theme/web_UI/assets/uploads/app/favicon.png">
+
+    <title>Anasayfa | Kelimedya</title>
+
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/slick.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/odometer.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/animate.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/theme/web_UI/assets/css/style.css">
+</head>
+
+<body class="td_theme_2">
+<div class="td_preloader">
+    <div class="td_preloader_in">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<header class="td_site_header td_style_1 td_sticky_header td_medium td_heading_color td_gescout_sticky td_gescout_show">
+    <div class="td_main_header">
+        <div class="container">
+            <div class="td_main_header_in">
+                <div class="td_main_header_left">
+                    <a class="td_site_branding" asp-controller="Home" asp-action="Index">
+                        <img src="~/theme/web_UI/assets/img/home_5/logo_v2.svg" alt="Kelimedya">
+                    </a>
+                </div>
+                <div class="td_main_header_center">
+                    <nav class="td_nav">
+                        <div class="td_nav_list_wrap">
+                            <div class="td_nav_list_wrap_in">
+                                <ul class="td_nav_list">
+                                    <!-- not childeren -->
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a asp-controller="Home" asp-action="About">Hakkımızda</a>
+                                        <ul>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="WhoAreWe">Biz Kimiz</a>
+                                            </li>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="Mission">Misyonumuz</a>
+                                            </li>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="Vision">Vizyonumuz</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Products">Ürünlerimiz</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a asp-controller="Home" asp-action="Contact">İletişim</a>
+                                        <ul>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="Contact">İletişim Bilgilerimiz</a>
+                                            </li>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="ContactFamilies">Aileler İçin</a>
+                                            </li>
+                                            <li>
+                                                <a asp-controller="Home" asp-action="ContactSchools">Okullar İçin</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="td_main_header_right">
+                    <div class="td_hero_toolbox_wrap">
+                        <a asp-controller="Home" asp-action="Cart" class="td_circle_btn td_center" type="button">
+                            <img src="~/theme/web_UI/assets/img/home_5/cart.svg" alt="">
+                            <span class="td_circle_btn_label">0</span>
+                        </a>
+                        <ul class="td_mp_0 td_hero_toolbox">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <!-- Kullanıcı oturumu açık -->
+                                <li>
+                                    <a asp-controller="Account" asp-action="Profile"
+                                       class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                        <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                        <span>Bilgilerim</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <form asp-controller="Auth" asp-action="Logout" method="post" style="display: inline;">
+                                        <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
+                                            <span class="td_btn_in td_white_color td_accent_bg">
+                                                <span>Çıkış Yap</span>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <!-- Kullanıcı oturumu kapalı -->
+                                <li>
+                                    <a asp-controller="Auth" asp-action="Login"
+                                       class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                        <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                        <span>Giriş Yap</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Auth" asp-action="Register"
+                                       class="td_btn td_style_1 td_radius_10 td_medium td_with_shadow">
+                                        <span class="td_btn_in td_white_color td_accent_bg">
+                                            <span>Kayıt Ol</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

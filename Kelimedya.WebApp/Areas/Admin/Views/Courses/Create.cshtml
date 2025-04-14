@@ -1,0 +1,74 @@
+﻿@model Kelimedya.WebApp.Areas.Admin.Models.CourseViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Yeni Eğitim Ekle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Yeni Eğitim Ekle</h2>
+        <div class="text-muted mt-1">
+            Eğitim bilgilerini giriniz.
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="Courses" asp-action="Create" enctype="multipart/form-data">
+                    <!-- Eğitim Başlığı -->
+                    <div class="mb-3">
+                        <label class="form-label">Eğitim Başlığı</label>
+                        <input type="text" class="form-control" asp-for="Title" placeholder="Eğitim başlığı" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <!-- Açıklama -->
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea class="form-control" asp-for="Description" rows="5" placeholder="Eğitim açıklaması"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <!-- Ders Sayısı -->
+                    <div class="mb-3">
+                        <label class="form-label">Ders Sayısı</label>
+                        <input type="number" class="form-control" asp-for="LessonCount" />
+                        <span asp-validation-for="LessonCount" class="text-danger"></span>
+                    </div>
+                    <!-- Kelime Sayısı -->
+                    <div class="mb-3">
+                        <label class="form-label">Kelime Sayısı</label>
+                        <input type="number" class="form-control" asp-for="WordCount" />
+                        <span asp-validation-for="WordCount" class="text-danger"></span>
+                    </div>
+                    <!-- Kurs Resmi -->
+                    <div class="mb-3">
+                        <label class="form-label">Kurs Resmi</label>
+                        <input type="file" class="form-control" asp-for="ImageFile" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                    <!-- Aktiflik Durumu -->
+                    <div class="mb-3">
+                        <label class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" asp-for="IsActive" />
+                            <span class="form-check-label">Eğitim Aktif</span>
+                        </label>
+                        <div class="text-muted small">
+                            Eğitimi aktif/pasif yapmak için toggle'ı kullanın. Pasif eğitimler öğrencilere gösterilmez.
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

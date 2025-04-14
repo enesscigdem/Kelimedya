@@ -1,0 +1,424 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp1/Paragraph.WebApp1.csproj": {}
+  },
+  "projects": {
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj",
+        "projectName": "Paragraph.Core",
+        "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj",
+        "packagesPath": "/Users/enescigdem/.nuget/packages/",
+        "outputPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj",
+        "projectName": "Paragraph.HangfireDashboard",
+        "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj",
+        "packagesPath": "/Users/enescigdem/.nuget/packages/",
+        "outputPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.15, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.15, )"
+            },
+            "Hangfire.Dashboard.Basic.Authentication": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj",
+        "projectName": "Paragraph.HangfireServer",
+        "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj",
+        "packagesPath": "/Users/enescigdem/.nuget/packages/",
+        "outputPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj"
+              },
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj"
+              },
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.15, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.15, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj",
+        "projectName": "Paragraph.Persistence",
+        "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj",
+        "packagesPath": "/Users/enescigdem/.nuget/packages/",
+        "outputPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper.Collection.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj",
+        "projectName": "Paragraph.Services",
+        "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/Paragraph.Services.csproj",
+        "packagesPath": "/Users/enescigdem/.nuget/packages/",
+        "outputPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj"
+              },
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Persistence/Paragraph.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp1/Paragraph.WebApp1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp1/Paragraph.WebApp1.csproj",
+        "projectName": "Paragraph.WebApp1",
+        "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp1/Paragraph.WebApp1.csproj",
+        "packagesPath": "/Users/enescigdem/.nuget/packages/",
+        "outputPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp1/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.Core/Paragraph.Core.csproj"
+              },
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireDashboard/Paragraph.HangfireDashboard.csproj"
+              },
+              "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj": {
+                "projectPath": "/Users/enescigdem/RiderProjects/Paragraph/Paragraph.HangfireServer/Paragraph.HangfireServer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

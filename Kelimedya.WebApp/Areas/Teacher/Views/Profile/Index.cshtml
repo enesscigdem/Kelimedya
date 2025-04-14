@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Profilim";
+}
+
+<style>
+    .profile-section {
+        margin-top: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+    .profile-card {
+        background: #fff;
+        border-left: 6px solid var(--color-accent);
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        padding: 2rem;
+    }
+    .profile-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2b4055;
+        margin-bottom: 1rem;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #444;
+    }
+    .btn-save {
+        background: var(--color-accent);
+        border: none;
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        margin-top: 1rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .btn-save:hover {
+        background: #d68910;
+    }
+</style>
+
+<div class="profile-section">
+    <div class="profile-card">
+        <div class="profile-title">Kişisel Bilgiler</div>
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Ad Soyad</label>
+                <input type="text" class="form-control" value="Öğretmen Adı"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-posta</label>
+                <input type="email" class="form-control" value="teacher@example.com"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Şifre</label>
+                <input type="password" class="form-control" />
+            </div>
+            <button class="btn-save" type="submit">Kaydet</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,328 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Kelimedya.Services.Interfaces
+@inject IWidgetService WidgetService
+@{
+    Layout = "_Layout";
+    // Sayfa başlığı ve breadcrumb'ı widget'lerden çekiyoruz
+    var pageTitle = await WidgetService.GetWidgetContentAsync("Mission_PageTitle");
+    var breadcrumbHome = await WidgetService.GetWidgetContentAsync("Mission_Breadcrumb_Home");
+    var breadcrumbActive = await WidgetService.GetWidgetContentAsync("Mission_Breadcrumb_Active");
+}
+<main>
+    <!-- Sayfa Başlığı -->
+    <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
+        <div class="container">
+            <div class="td_page_heading_in">
+                <h1 class="td_white_color td_fs_48 td_mb_10">
+                    @Html.Raw(pageTitle)
+                </h1>
+                <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">@Html.Raw(breadcrumbHome)</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        @Html.Raw(breadcrumbActive)
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- Dekoratif Şekiller -->
+        <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
+        <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
+        <div class="td_page_heading_shape_3 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="Shape 3">
+        </div>
+        <div class="td_page_heading_shape_4 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="Shape 4">
+        </div>
+        <div class="td_page_heading_shape_5 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="Shape 5">
+        </div>
+        <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
+    </section>
+
+    <!-- Misyon İçeriği -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_SectionHeading"))</h2>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Kelimedya1"))</p>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Kelimedya2"))</p>
+                    <!-- Misyon Maddeleri -->
+                    <ul class="mission-list">
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem1"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem2"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem3"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_ListItem4"))</li>
+                    </ul>
+                </div>
+                <div class="mission-graphics">
+                    <!-- Skill Barlar -->
+                    <div class="skill-bars">
+                        <div class="skill-bar-container">
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill1_Label"))</span>
+                            <div class="skill-bar" data-skill="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill1_Percentage"))"></div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill2_Label"))</span>
+                            <div class="skill-bar" data-skill="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill2_Percentage"))"></div>
+                        </div>
+                        <div class="skill-bar-container">
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill3_Label"))</span>
+                            <div class="skill-bar" data-skill="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Skill3_Percentage"))"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ana Hedefler -->
+            <div class="future-goals">
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_FutureGoalsHeading"))</h3>
+                <div class="goals-cards">
+                    <div class="goal-card">
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal1_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal1_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal1_Text"))</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal2_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal2_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal2_Text"))</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal3_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal3_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Goal3_Text"))</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İstatistikler -->
+            <div class="statistics">
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_StatisticsHeading"))</h3>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat1_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat1_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat1_Text"))</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat2_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat2_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat2_Text"))</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat3_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat3_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat3_Text"))</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat4_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat4_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Mission_Stat4_Text"))</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    <style>
+        /* Misyon Bölümü */
+        .mission-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .mission-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .mission-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mission-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .mission-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .mission-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .mission-list li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #e67e22;
+        }
+
+        .mission-graphics {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Geleceğe Yönelik Hedefler */
+        .future-goals {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .future-goals h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .goals-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .goal-card {
+            background-color: #fff;
+            border: 2px solid #eaeaea;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .goal-card .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #e67e22;
+        }
+
+        .goal-card h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .goal-card p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* İstatistikler */
+        .statistics {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .statistics h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .stats-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .stat-card {
+            background-color: #fff;
+            border: 2px solid #eaeaea;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #e67e22;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* Responsive Ayarlar */
+        @@media (max-width: 768px) {
+            .mission-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mission-graphics {
+                margin-top: 30px;
+            }
+
+            .goals-cards, .stats-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / 200; // Hız ayarı
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                counter.innerText = '0';
+                updateCount();
+            });
+        });
+    </script>
+}

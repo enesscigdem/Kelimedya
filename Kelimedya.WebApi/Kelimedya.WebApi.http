@@ -1,0 +1,6 @@
+@Kelimedya.WebApi_HostAddress = http://localhost:5103
+
+GET {{Kelimedya.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

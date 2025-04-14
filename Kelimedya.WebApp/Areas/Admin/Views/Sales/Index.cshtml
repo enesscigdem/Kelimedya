@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Satış Grafiği";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Satış Grafikleri</h2>
+        <div class="text-muted mt-1">
+            Son döneme ait çeşitli satış grafikleri.
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+
+        <!-- 2 satırda 2'şer grafik, toplam 4 grafik örneği -->
+        <div class="row row-cards">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Aylık Satışlar</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-sales-1" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Haftalık Satışlar</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-sales-2" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cards mt-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Kategori Bazlı Satış</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-sales-3" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Eğitim Paketleri Satışı</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="chart-sales-4" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Aylık Satışlar
+        var options1 = {
+          chart: { type: 'line', height: 300 },
+          series: [{ name: 'Satış', data: [20, 45, 35, 50, 49, 60] }],
+          xaxis: { categories: ['Ocak','Şub','Mar','Nis','May','Haz'] }
+        };
+        var chart1 = new ApexCharts(document.querySelector("#chart-sales-1"), options1);
+        chart1.render();
+
+        // Haftalık Satışlar
+        var options2 = {
+          chart: { type: 'bar', height: 300 },
+          series: [{ name: 'Satış', data: [10, 15, 9, 18, 12, 24, 20] }],
+          xaxis: { categories: ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'] }
+        };
+        var chart2 = new ApexCharts(document.querySelector("#chart-sales-2"), options2);
+        chart2.render();
+
+        // Kategori Bazlı Satış (Pie)
+        var options3 = {
+          chart: { type: 'pie', height: 300 },
+          labels: ['Teknoloji', 'Kitap', 'Hizmet', 'Eğitim'],
+          series: [44, 25, 14, 17]
+        };
+        var chart3 = new ApexCharts(document.querySelector("#chart-sales-3"), options3);
+        chart3.render();
+
+        // Eğitim Paketleri Satışı (RadialBar)
+        var options4 = {
+          chart: { type: 'radialBar', height: 300 },
+          series: [70, 50, 40],
+          labels: ['A1 Kur', 'A2 Kur', 'B1 Kur']
+        };
+        var chart4 = new ApexCharts(document.querySelector("#chart-sales-4"), options4);
+        chart4.render();
+      });
+    </script>
+}

@@ -1,0 +1,76 @@
+﻿@model Kelimedya.WebApp.Areas.Admin.Models.MessageViewModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Mesaj Detayları";
+}
+
+<!-- Sayfa Başlığı -->
+<div class="page-header d-print-none">
+  <div class="container-xl">
+    <div class="row align-items-center">
+      <div class="col">
+        <h2 class="page-title">
+          <!-- Mesaj Detayları Icon (Örnek SVG) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-opened me-1 text-primary" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 8l9 6l9 -6" />
+            <path d="M21 8v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-8" />
+            <path d="M3 8l9 6l9 -6" />
+          </svg>
+          Mesaj Detayları
+        </h2>
+        <div class="text-muted mt-1">
+          Gelen mesajın tüm detaylarını aşağıda inceleyebilirsiniz.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mesaj Detayları Kartı -->
+<div class="page-body">
+  <div class="container-xl">
+    <div class="card card-md">
+      <div class="card-header">
+        <h3 class="card-title">Mesaj Bilgileri</h3>
+      </div>
+      <div class="card-body">
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label class="form-label">Gönderen</label>
+              <div class="form-control-plaintext">
+                <strong>@Model.FromEmail</strong>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tarih</label>
+              <div class="form-control-plaintext">
+                @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label class="form-label">Konu</label>
+              <div class="form-control-plaintext">
+                <strong>@Model.Subject</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="mb-3">
+          <label class="form-label">Mesaj İçeriği</label>
+          <div class="border p-3 rounded" style="background: #f8f9fa;">
+            @Html.Raw(Model.Body)
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-end">
+        <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+      </div>
+    </div>
+  </div>
+</div>

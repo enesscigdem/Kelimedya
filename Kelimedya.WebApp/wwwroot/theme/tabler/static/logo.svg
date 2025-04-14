@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150">
+  <defs>
+    <!-- Gradient Renk Geçişi -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0054a6"/>
+      <stop offset="100%" stop-color="#2ecc71"/>
+    </linearGradient>
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Logo Yazısı: "kelimedya" -->
+  <g filter="url(#shadow)">
+    <text x="100" y="100" letter-spacing="10px" font-family="Luminari, fantasy	" font-size="80" font-weight="bold" fill="url(#logoGradient)">
+      kelimedya
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+﻿@model Kelimedya.Core.Entities.Widget
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+    ViewData["Title"] = "Widget Düzenle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Widget Düzenle</h2>
+        <div class="text-muted mt-1">
+            Mevcut widget bilgilerini güncelleyin.
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+        {
+            <div class="alert alert-danger" role="alert">
+                @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+            </div>
+        }
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="Widgets" asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="mb-3">
+                        <label class="form-label">Key</label>
+                        <input type="text" class="form-control" asp-for="Key" />
+                        <span asp-validation-for="Key" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subject</label>
+                        <textarea class="form-control" asp-for="Subject" rows="5"></textarea>
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                        <a asp-area="Admin" asp-controller="Widgets" asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

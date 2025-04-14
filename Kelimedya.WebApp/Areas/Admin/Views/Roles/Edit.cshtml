@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Rol Düzenle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Rol Düzenle
+                </h2>
+                <div class="text-muted mt-1">
+                    Mevcut rol bilgilerini güncelleyin
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="Roles" asp-action="Edit">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <!-- Rol Adı -->
+                    <div class="mb-3">
+                        <label class="form-label">Rol Adı</label>
+                        <input type="text" class="form-control" name="Name" value="@Model.Name" />
+                    </div>
+                    <!-- Rol Açıklaması -->
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea class="form-control" name="Description" rows="3">@Model.Description</textarea>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="submit" class="btn btn-primary">
+                            Güncelle
+                        </button>
+                        <a asp-area="Admin" asp-controller="Roles" asp-action="Index"
+                           class="btn btn-link link-secondary">
+                            Vazgeç
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

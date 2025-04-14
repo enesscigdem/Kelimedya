@@ -1,0 +1,357 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Kelimedya.Services.Interfaces
+@inject IWidgetService WidgetService
+@{
+    ViewData["Title"] = await WidgetService.GetWidgetContentAsync("Vision_PageTitle");
+}
+<main>
+    <!-- Sayfa Başlığı -->
+    <section class="td_page_heading td_center td_bg_filed td_heading_bg text-center td_hobble" data-src="/theme/web_UI/assets/img/home_5/page_heading_bg.jpg">
+        <div class="container">
+            <div class="td_page_heading_in">
+                <h1 class="td_white_color td_fs_48 td_mb_10">
+                    @Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_PageTitle"))
+                </h1>
+                <ol class="breadcrumb m-0 td_fs_20 td_opacity_8 td_semibold td_white_color">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">
+                            @Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Breadcrumb_Home"))
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        @Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Breadcrumb_Active"))
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- Dekoratif Şekiller -->
+        <div class="td_page_heading_shape_1 position-absolute td_hover_layer_3"></div>
+        <div class="td_page_heading_shape_2 position-absolute td_hover_layer_5"></div>
+        <div class="td_page_heading_shape_3 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_3.svg" alt="Vizyon Şekli">
+        </div>
+        <div class="td_page_heading_shape_4 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_4.svg" alt="Vizyon Şekli">
+        </div>
+        <div class="td_page_heading_shape_5 position-absolute">
+            <img src="~/theme/web_UI/assets/img/home_5/page_heading_shape_5.svg" alt="Vizyon Şekli">
+        </div>
+        <div class="td_page_heading_shape_6 position-absolute td_hover_layer_3"></div>
+    </section>
+
+    <!-- Vizyon İçeriği -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="vision-content">
+                <div class="vision-text">
+                    <h2>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_SectionHeading"))</h2>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Kelimedya1"))</p>
+                    <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Kelimedya2"))</p>
+                    <!-- Vizyon Maddeleri -->
+                    <ul class="vision-list">
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem1"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem2"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem3"))</li>
+                        <li>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_ListItem4"))</li>
+                    </ul>
+                </div>
+                <div class="vision-graphics">
+                    <!-- Progres Barlar -->
+                    <div class="progress-bars">
+                        <div class="progress-bar-container">
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill1_Label"))</span>
+                            <div class="progress-bar" data-progress="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill1_Percentage"))"></div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill2_Label"))</span>
+                            <div class="progress-bar" data-progress="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill2_Percentage"))"></div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill3_Label"))</span>
+                            <div class="progress-bar" data-progress="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Skill3_Percentage"))"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Geleceğe Yönelik Hedefler -->
+            <div class="future-goals">
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_FutureGoalsHeading"))</h3>
+                <div class="goals-cards">
+                    <div class="goal-card">
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal1_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal1_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal1_Text"))</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal2_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal2_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal2_Text"))</p>
+                    </div>
+                    <div class="goal-card">
+                        <div class="icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal3_Icon"))</div>
+                        <h4>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal3_Title"))</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Goal3_Text"))</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- İstatistikler -->
+            <div class="statistics">
+                <h3>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_StatisticsHeading"))</h3>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat1_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat1_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat1_Text"))</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat2_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat2_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat2_Text"))</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat3_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat3_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat3_Text"))</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat4_Icon"))</div>
+                        <h4 class="stat-number" data-target="@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat4_Target"))">0</h4>
+                        <p>@Html.Raw(await WidgetService.GetWidgetContentAsync("Vision_Stat4_Text"))</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    <style>
+        .heading-content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .decorative-shapes .shape {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .decorative-shapes .shape-1 { top: 20%; left: 10%; }
+        .decorative-shapes .shape-2 { bottom: 15%; right: 20%; }
+        .decorative-shapes .shape-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .decorative-shapes .shape-4 { top: 30%; right: 15%; }
+        .decorative-shapes .shape-5 { bottom: 25%; left: 30%; }
+        .decorative-shapes .shape-6 { bottom: 10%; right: 5%; }
+
+        @@keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .vision-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .vision-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .vision-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .vision-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .vision-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .vision-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .vision-list li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #27ae60;
+        }
+
+        .vision-graphics {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .future-goals {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .future-goals h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .goals-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .goal-card {
+            background-color: #fff;
+            border: 2px solid #eaeaea;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .goal-card .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .goal-card h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .goal-card p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* İstatistikler */
+        .statistics {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .statistics h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .stats-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .stat-card {
+            background-color: #fff;
+            border: 2px solid #eaeaea;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 220px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #e67e22;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* Animasyonlar için JavaScript */
+        .stat-number {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Responsive Ayarlar */
+        @@media (max-width: 768px) {
+            .vision-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .vision-graphics {
+                margin-top: 30px;
+            }
+
+            .goals-cards, .stats-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / 200;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                counter.innerText = '0';
+                updateCount();
+            });
+        });
+    </script>
+}

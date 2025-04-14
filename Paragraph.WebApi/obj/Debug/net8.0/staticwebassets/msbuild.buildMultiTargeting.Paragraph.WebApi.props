@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/Paragraph.WebApi.props" />
-</Project>

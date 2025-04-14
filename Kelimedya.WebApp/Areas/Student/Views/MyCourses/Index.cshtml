@@ -1,4 +1,4 @@
-﻿<!-- MyCourses/Index.cshtml -->
+﻿
 @model List<Kelimedya.WebApp.Areas.Student.Models.CourseWithProgressViewModel>
 @{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <div class="courses-container">
-    <!-- Başlık & Kontroller -->
+    
     <header class="header-area">
         <div class="header-content">
             <h1 class="courses-hero">Eğitimlerim</h1>
@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <!-- Kurs Kartları Grid -->
+    
     <section class="cards-grid" id="cardsGrid">
         @if (Model?.Any() == true)
         {

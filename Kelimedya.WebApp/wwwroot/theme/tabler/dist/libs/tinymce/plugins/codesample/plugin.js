@@ -1499,7 +1499,7 @@
       Prism.languages.js = Prism.languages.javascript;
       Prism.languages.markup = {
         'comment': {
-          pattern: /<!--(?:(?!<!--)[\s\S])*?-->/,
+          pattern: //,
           greedy: true
         },
         'prolog': {
@@ -1507,7 +1507,7 @@
           greedy: true
         },
         'doctype': {
-          pattern: /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,
+          pattern: /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|)*\]\s*)?>/i,
           greedy: true,
           inside: {
             'internal-subset': {

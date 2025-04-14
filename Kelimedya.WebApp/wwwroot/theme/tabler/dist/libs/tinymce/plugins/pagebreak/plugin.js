@@ -14,7 +14,7 @@
       const registerOption = editor.options.register;
       registerOption('pagebreak_separator', {
         processor: 'string',
-        default: '<!-- pagebreak -->'
+        default: ''
       });
       registerOption('pagebreak_split_block', {
         processor: 'boolean',

@@ -5786,6 +5786,7 @@
       "Kelimedya.Core >= 1.0.0",
       "Kelimedya.HangfireDashboard >= 1.0.0",
       "Kelimedya.HangfireServer >= 1.0.0",
+      "Kelimedya.Services >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "MyTested.AspNetCore.Mvc.Razor.RuntimeCompilation >= 8.0.0"
@@ -5824,6 +5825,9 @@
             },
             "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj": {
               "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj"
+            },
+            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj": {
+              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj"
             }
           }
         }

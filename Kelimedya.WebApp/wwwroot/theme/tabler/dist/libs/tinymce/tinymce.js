@@ -11220,7 +11220,7 @@
           html.push('<![CDATA[', text, ']]>');
         },
         comment: text => {
-          html.push('<!--', text, '-->');
+          html.push('');
         },
         pi: (name, text) => {
           if (text) {
@@ -16239,7 +16239,7 @@
             }
           }
         } else if (dirty instanceof Node) {
-          body = _initDocument('<!---->');
+          body = _initDocument('');
           importedNode = body.ownerDocument.importNode(dirty, true);
           if (importedNode.nodeType === 1 && importedNode.nodeName === 'BODY') {
             body = importedNode;
@@ -17509,7 +17509,7 @@
       } else if (isText$a(elm)) {
         return Entities.encodeRaw(elm.data, false);
       } else if (isComment(elm)) {
-        return '<!--' + elm.data + '-->';
+        return '';
       }
       return '';
     };
@@ -18506,7 +18506,7 @@
       htmlParser.addNodeFilter('script,style', (nodes, name) => {
         var _a;
         const trim = value => {
-          return value.replace(/(<!--\[CDATA\[|\]\]-->)/g, '\n').replace(/^[\r\n]*|[\r\n]*$/g, '').replace(/^\s*((<!--)?(\s*\/\/)?\s*<!\[CDATA\[|(<!--\s*)?\/\*\s*<!\[CDATA\[\s*\*\/|(\/\/)?\s*<!--|\/\*\s*<!--\s*\*\/)\s*[\r\n]*/gi, '').replace(/\s*(\/\*\s*\]\]>\s*\*\/(-->)?|\s*\/\/\s*\]\]>(-->)?|\/\/\s*(-->)?|\]\]>|\/\*\s*-->\s*\*\/|\s*-->\s*)\s*$/g, '');
+          return value.replace(/()/g, '\n').replace(/^[\r\n]*|[\r\n]*$/g, '').replace(/^\s*(()?|\s*\/\/\s*\]\]>(-->)?|\/\/\s*(-->)?|\]\]>|\/\*\s*-->\s*\*\/|\s*-->\s*)\s*$/g, '');
         };
         let i = nodes.length;
         while (i--) {
@@ -18523,7 +18523,7 @@
             }
           } else {
             if (settings.element_format === 'xhtml' && firstChild && value.length > 0) {
-              firstChild.value = '<!--\n' + trim(value) + '\n-->';
+              firstChild.value = '';
             }
           }
         }
@@ -24745,7 +24745,7 @@
 
     const internalMimeType = 'x-tinymce/html';
     const internalHtmlMime = constant(internalMimeType);
-    const internalMark = '<!-- ' + internalMimeType + ' -->';
+    const internalMark = '';
     const mark = html => internalMark + html;
     const unmark = html => html.replace(internalMark, '');
     const isMarked = html => html.indexOf(internalMark) !== -1;
@@ -24906,7 +24906,7 @@
       };
       html = filter$1(html, [
         /^[\s\S]*<body[^>]*>\s*|\s*<\/body[^>]*>[\s\S]*$/ig,
-        /<!--StartFragment-->|<!--EndFragment-->/g,
+        /|/g,
         [
           /( ?)<span class="Apple-converted-space">\u00a0<\/span>( ?)/g,
           trimSpaces
@@ -27546,7 +27546,7 @@
         editor.on('BeforeSetContent', e => {
           Tools.each(protect, pattern => {
             e.content = e.content.replace(pattern, str => {
-              return '<!--mce:protected ' + escape(str) + '-->';
+              return '';
             });
           });
         });

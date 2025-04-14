@@ -10,20 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Student Panel</title>
 
-    <!-- Tabler CSS -->
+    
     <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-flags.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/demo.min.css" rel="stylesheet"/>
 
-    <!-- Google Font -->
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap"/>
 
-    <!-- Custom CSS -->
+    
     <link href="~/theme/custom-styles.css" rel="stylesheet"/>
 
-    <!-- Tabler Demo Theme Script -->
+    
     <script src="~/theme/tabler/dist/js/demo-theme.min.js"></script>
 
     <style>
@@ -111,7 +111,7 @@
     <div class="pastel-circle circle1"></div>
     <div class="pastel-circle circle2"></div>
 
-    <!-- Top Navbar -->
+    
     <header class="navbar navbar-expand-md navbar-pastel d-print-none">
         <div class="container-xl">
             <a class="navbar-brand" href="@Url.Action("Index", "Dashboard", new { area = "Student" })">
@@ -150,7 +150,7 @@
                         </a>
                     </li>
                 </ul>
-                <!-- Kullanıcı Menüsü -->
+                
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
@@ -178,14 +178,14 @@
         </div>
     </header>
 
-    <!-- İçerik -->
+    
     <div class="page-wrapper">
         <main class="page-body">
             <div class="container-xl">
                 @RenderBody()
             </div>
         </main>
-        <!-- Footer -->
+        
         <footer class="footer footer-transparent d-print-none">
             <div class="container-xl">
                 <div class="row text-center align-items-center flex-row-reverse">
@@ -212,7 +212,7 @@
     </div>
 </div>
 
-<!-- JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
 <script src="~/js/CustomIziToast.js"></script>
 <script src="~/theme/tabler/dist/libs/apexcharts/dist/apexcharts.min.js" defer></script>

@@ -28718,7 +28718,7 @@
             }
           }
         } else if (dirty instanceof Node) {
-          body = _initDocument('<!---->');
+          body = _initDocument('');
           importedNode = body.ownerDocument.importNode(dirty, true);
           if (importedNode.nodeType === 1 && importedNode.nodeName === 'BODY') {
             body = importedNode;

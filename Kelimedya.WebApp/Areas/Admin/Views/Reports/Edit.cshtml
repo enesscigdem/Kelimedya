@@ -20,19 +20,19 @@
             <div class="card-body">
                 <form method="post" asp-action="Edit">
                     <input type="hidden" asp-for="Id" />
-                    <!-- Rapor Başlığı -->
+                    
                     <div class="mb-3">
                         <label class="form-label">Rapor Adı</label>
                         <input type="text" class="form-control" asp-for="Title" />
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
-                    <!-- Açıklama -->
+                    
                     <div class="mb-3">
                         <label class="form-label">Açıklama</label>
                         <textarea class="form-control" asp-for="Description" rows="5"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
-                    <!-- Rapor Tarihi -->
+                    
                     <div class="mb-3">
                         <label class="form-label">Rapor Tarihi</label>
                         <input type="date" class="form-control" asp-for="ReportDate" />

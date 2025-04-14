@@ -1,4 +1,4 @@
-﻿<!-- MyLessons.cshtml -->
+﻿
 @model Kelimedya.WebApp.Areas.Student.Models.MyLessonsViewModel
 
 @{
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <div class="lessons-container">
-    <!-- Başlık Alanı -->
+    
     <header class="header-area">
         <div class="header-content">
             <h1 class="course-hero">@Model.Course.Title</h1>
@@ -18,7 +18,7 @@
         </div>
     </header>
 
-    <!-- Ders Kartları Grid -->
+    
     <section class="cards-grid">
         @if (Model.Lessons?.Any() == true)
         {

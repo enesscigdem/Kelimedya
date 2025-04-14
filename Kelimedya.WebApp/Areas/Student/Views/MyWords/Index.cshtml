@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <div class="words-container">
-    <!-- Başlık & Kontroller -->
+    
     <header class="header-area">
         <div class="header-content">
             <h1 class="words-hero">Kelime Kartlarım</h1>
@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <!-- İstatistik Kartları -->
+    
     <section class="stats-row">
         <div class="stat-card">
             <div class="stat-label">Toplam Kart</div>
@@ -49,7 +49,7 @@
         </div>
     </section>
 
-    <!-- Kelime Kartları Grid -->
+    
     <section class="cards-grid" id="cardsGrid">
         @if(Model.LearnedWords?.Any() == true)
         {
@@ -84,7 +84,7 @@
                             }
                         </div>
                         
-                        <!-- Örnek Cümle Bölümü -->
+                        
                         <div class="example-section mt-2">
                             <p class="example-text">@item.WordCard.ExampleSentence</p>
                         </div>

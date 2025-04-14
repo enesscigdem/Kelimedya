@@ -19,20 +19,20 @@
     }
     else
     {
-        <!-- Üst Dalga Alanı -->
+        
         <div class="top-wave">
             <h1>Kelime Kartları</h1>
         </div>
 
         <div class="super-container">
-            <!-- İlerleme Çubuğu -->
+            
             <div class="progress-area">
                 <div class="progress-track">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
             </div>
 
-            <!-- Kart Sahnesi -->
+            
             <div class="kart-sahne" id="kartSahne">
                 @if (Model.WordCards != null && Model.WordCards.Any())
                 {
@@ -74,7 +74,7 @@
                 }
             </div>
 
-            <!-- Öğrenilen Kelimeler Bölümü -->
+            
             @if (Model.LearnedWords != null && Model.LearnedWords.Any())
             {
                 <div class="learned-words">
@@ -91,7 +91,7 @@
             }
         </div>
 
-        <!-- Modal Overlay ve Popup -->
+        
         <div class="modal-overlay" id="modalOverlay"></div>
         <div id="gameModal">
             <div class="modal-title" id="modalTitle">Ara Oyun</div>
@@ -104,7 +104,7 @@
     }
 </div>
 
-<!-- JS: Kart Mantığı, Modal ve AJAX İlerlemesi -->
+
 
 @section Scripts {
     <link href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" rel="stylesheet"/>

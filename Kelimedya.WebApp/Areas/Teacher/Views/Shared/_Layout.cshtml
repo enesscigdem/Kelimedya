@@ -8,21 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Kurumsal Öğretmen Paneli</title>
 
-    <!-- Tabler CSS -->
+    
     <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-flags.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
     <link href="~/theme/tabler/dist/css/demo.min.css" rel="stylesheet"/>
 
-    <!-- Google Fonts -->
+    
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"/>
 
-    <!-- Tabler Demo Theme -->
+    
     <script src="~/theme/tabler/dist/js/demo-theme.min.js"></script>
 
-    <!-- Özel Kurumsal CSS -->
+    
     <style>
         :root {
             --tblr-font-sans-serif: 'Nunito', sans-serif;
@@ -189,10 +189,10 @@
 <body class="theme-light">
 <script src="~/theme/tabler/dist/js/demo-theme.min.js?1692870487"></script>
 <div class="page">
-<!-- Side Navbar -->
+
 <aside class="navbar navbar-vertical navbar-expand-lg">
     <div class="container-fluid">
-        <!-- Mobile Toggle -->
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#sidebar-menu"
                 aria-controls="sidebar-menu" aria-expanded="false"
@@ -200,7 +200,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Logo / Brand -->
+        
         <h1 class="navbar-brand navbar-brand-autodark">
             <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index">
                 <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Kurumsal Logo"
@@ -208,15 +208,15 @@
             </a>
         </h1>
 
-        <!-- Sidebar Menu Items -->
+        
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav pt-lg-3">
-                <!-- Dashboard -->
+                
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Teacher"
                        asp-controller="Dashboard" asp-action="Index">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Icon -->
+                            
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="icon icon-tabler icon-tabler-layout-dashboard"
                                  width="24" height="24" viewBox="0 0 24 24"
@@ -235,7 +235,7 @@
                     </a>
                 </li>
 
-                <!-- Kullanıcı Yönetimi -->
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
                        href="#navbar-users"
@@ -244,7 +244,7 @@
                        role="button"
                        aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Users Icon -->
+                            
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="icon icon-tabler icon-tabler-users"
                                  width="24" height="24"
@@ -275,7 +275,7 @@
                     </div>
                 </li>
 
-                <!-- Raporlar -->
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
                        href="#"
@@ -283,7 +283,7 @@
                        role="button"
                        aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Reports Icon -->
+                            
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="icon icon-tabler icon-tabler-report-analytics"
                                  width="24" height="24"
@@ -315,14 +315,14 @@
                     </div>
                 </li>
 
-                <!-- Profilim -->
+                
                 <li class="nav-item">
                     <a class="nav-link"
                        asp-area="Teacher"
                        asp-controller="Profile"
                        asp-action="Index">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Profile Icon -->
+                            
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="icon icon-tabler icon-tabler-user-circle"
                                  width="24" height="24"
@@ -342,14 +342,14 @@
                     </a>
                 </li>
 
-                <!-- Çıkış -->
+                
                 <li class="nav-item">
                     <a class="nav-link"
                        asp-area="Teacher"
                        asp-controller="Logout"
                        asp-action="Index">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <!-- Logout Icon -->
+                            
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  class="icon icon-tabler icon-tabler-logout"
                                  width="24" height="24"
@@ -376,13 +376,13 @@
     </div>
 </aside>
 
-<!-- PAGE CONTENT -->
+
 <div class="page-wrapper">
-    <!-- Üst Navbar -->
+    
     <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
         <div class="container-xl">
 
-            <!-- Sidebar Toggle Butonu -->
+            
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle me-2" href="javascript:void(0);" title="Sidebar Daralt/Genişlet">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2"
                      width="24" height="24" viewBox="0 0 24 24"
@@ -396,11 +396,11 @@
                 </svg>
             </a>
 
-            <!-- Arama Alanı -->
+            
             <form method="get" autocomplete="off" novalidate style="display:inline-block;">
                 <div class="input-icon">
                     <span class="input-icon-addon">
-                        <!-- Search Icon -->
+                        
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="icon icon-tabler icon-tabler-search"
                              width="24" height="24"
@@ -418,15 +418,15 @@
                 </div>
             </form>
 
-            <!-- Sağ Nav -->
+            
             <div class="navbar-nav flex-row order-md-last">
                 <div class="d-none d-md-flex">
-                    <!-- Dark Mode -->
+                    
                     <a href="?theme=dark" class="nav-link px-0 hide-theme-dark"
                        title="Enable dark mode"
                        data-bs-toggle="tooltip"
                        data-bs-placement="bottom">
-                        <!-- Moon Icon -->
+                        
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon"
                              width="24" height="24"
                              viewBox="0 0 24 24"
@@ -438,12 +438,12 @@
                                              a9 9 0 1 1 -8.313 -12.454z"/>
                         </svg>
                     </a>
-                    <!-- Light Mode -->
+                    
                     <a href="?theme=light" class="nav-link px-0 hide-theme-light"
                        title="Enable light mode"
                        data-bs-toggle="tooltip"
                        data-bs-placement="bottom">
-                        <!-- Sun Icon -->
+                        
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon"
                              width="24" height="24"
                              viewBox="0 0 24 24" stroke-width="2"
@@ -460,7 +460,7 @@
                     </a>
                 </div>
 
-                <!-- Kullanıcı Menüsü -->
+                
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link d-flex lh-1 text-reset p-0"
                        data-bs-toggle="dropdown"
@@ -487,14 +487,14 @@
         </div>
     </header>
 
-    <!-- İçerik -->
+    
     <main class="page-body">
         <div class="container-xl">
             @RenderBody()
         </div>
     </main>
 
-    <!-- Footer -->
+    
     <footer class="footer footer-transparent d-print-none">
         <div class="container-xl">
             <div class="row text-center align-items-center flex-row-reverse">
@@ -521,7 +521,7 @@
 </div>
 </div>
 
-<!-- JS -->
+
 <script src="~/theme/tabler/dist/libs/apexcharts/dist/apexcharts.min.js" defer></script>
 <script src="~/theme/tabler/dist/libs/jsvectormap/dist/js/jsvectormap.min.js" defer></script>
 <script src="~/theme/tabler/dist/libs/jsvectormap/dist/maps/world.js" defer></script>
@@ -530,7 +530,7 @@
 <script src="~/theme/tabler/dist/js/demo.min.js" defer></script>
 <script src="~/theme/tabler/dist/libs/tinymce/tinymce.min.js"></script>
 
-<!-- Sidebar Toggle JS -->
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const body = document.querySelector('body');

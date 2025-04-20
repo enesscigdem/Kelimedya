@@ -11,6 +11,7 @@ namespace Kelimedya.Core.Models
         public string FullName { get; set; }
         public string Role { get; set; }
         public DateTime? CreatedAt { get; set; }
+        public int? TeacherId { get; set; }
     }
 
     public class CreateUserDto
@@ -21,6 +22,7 @@ namespace Kelimedya.Core.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Role { get; set; }
+        public int? TeacherId { get; set; }
     }
 
     public class UpdateUserDto
@@ -31,5 +33,6 @@ namespace Kelimedya.Core.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Role { get; set; }
+        public int? TeacherId { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Kelimedya.WebApp.Areas.Admin.Models
 {
@@ -22,5 +23,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         
         [Required(ErrorMessage = "Rol seçimi gereklidir.")]
         public string Role { get; set; }
+        [Display(Name = "Mentor Öğretmen")]
+        public int? TeacherId { get; set; }
+        public List<SelectListItem> Teachers { get; set; } = new();
     }
 }

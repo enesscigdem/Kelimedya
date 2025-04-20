@@ -71,12 +71,22 @@
 
                 <div class="mb-3">
                     <label class="form-label required">Rol</label>
-                    <select asp-for="Role" class="form-select" required>
+                    <select asp-for="Role" class="form-select" id="roleSelect" required>
                         <!option value="Admin" @(Model.Role == "Admin" ? "selected" : "")>Admin</!option>
                         <!option value="Teacher" @(Model.Role == "Teacher" ? "selected" : "")>Öğretmen</!option>
                         <!option value="Student" @(Model.Role == "Student" ? "selected" : "")>Öğrenci</!option>
                     </select>
                     <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <div class="mb-3" id="teacherSelectGroup" style="display:none;">
+                  <label asp-for="TeacherId" class="form-label">Mentor Öğretmen</label>
+                  <select asp-for="TeacherId" class="form-select">
+                    <option value="">-- Seçiniz --</option>
+                    @foreach(var t in Model.Teachers)
+                    {
+                      <!option value="@t.Value" @(t.Selected ? "selected" : "")>@t.Text</!option>
+                    }
+                  </select>
                 </div>
             </div>
             <div class="card-footer text-end">
@@ -100,3 +110,11 @@
         </form>
     </div>
 </div>
+<script>
+  document.getElementById('roleSelect').addEventListener('change', function(){
+    document.getElementById('teacherSelectGroup').style.display =
+      this.value === 'Student' ? 'block' : 'none';
+  });
+  if (document.getElementById('roleSelect').value === 'Student')
+    document.getElementById('teacherSelectGroup').style.display = 'block';
+</script>

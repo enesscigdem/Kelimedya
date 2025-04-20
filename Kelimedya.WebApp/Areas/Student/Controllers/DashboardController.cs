@@ -3,11 +3,14 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Kelimedya.Core.Enum;
 using Kelimedya.WebApp.Areas.Student.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebApp.Areas.Student.Controllers
 {
     [Area("Student")]
+    [Authorize(Roles = RoleNames.Student)]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class DashboardController : Controller
     {

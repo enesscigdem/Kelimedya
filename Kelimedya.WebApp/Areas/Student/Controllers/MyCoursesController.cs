@@ -5,13 +5,16 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Security.Claims;
+using Kelimedya.Core.Enum;
 using Kelimedya.Core.Interfaces.Business;
 using Kelimedya.WebApp.Areas.Admin.Models;
 using Kelimedya.WebApp.Areas.Student.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebApp.Areas.Student.Controllers
 {
     [Area("Student")]
+    [Authorize(Roles = RoleNames.Student)]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class MyCoursesController : Controller
     {

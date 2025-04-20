@@ -45,10 +45,11 @@ namespace Kelimedya.WebApp.Controllers
 
             Response.Cookies.Append("AuthToken", tokenResponse.Token, new CookieOptions
             {
-                HttpOnly = true,
-                Secure = true,
-                SameSite = SameSiteMode.Strict,
-                Expires = DateTime.UtcNow.AddDays(2)
+                HttpOnly   = true,
+                Secure     = false, 
+                SameSite   = SameSiteMode.Lax,
+                Path       = "/",    
+                Expires    = DateTime.UtcNow.AddDays(2)
             });
 
             var redirectUrl = GetRedirectUrlByRole(tokenResponse.Role);

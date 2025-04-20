@@ -12054,8 +12054,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hsan5pwhja</Fingerprint>
-      <Integrity>Yf9JNb4VSP49RKoNjSvsiL4TWbCbB0Brzz7sroQNCpY=</Integrity>
+      <Fingerprint>at5qpi2jso</Fingerprint>
+      <Integrity>Ej90TbIjO4TD8sEumBnIx0sezTuUCEZlaojQ14EHsXo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\dist\libs\tinymce\plugins\codesample\plugin.js'))</OriginalItemSpec>
@@ -12072,8 +12072,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qq3hnbzbif</Fingerprint>
-      <Integrity>MqD4E1iYjOd7ZgKfVASbzGdo4qq86fzD9agnu+Dlvoc=</Integrity>
+      <Fingerprint>krtd86lt99</Fingerprint>
+      <Integrity>ELiSdmiOz3WZLM7TuLbN1hFNn2+qrSXeMXIhWY/SOu8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\dist\libs\tinymce\plugins\codesample\plugin.min.js'))</OriginalItemSpec>
@@ -12774,8 +12774,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>j0jiabzrsy</Fingerprint>
-      <Integrity>w3ZmDF8KmgIervsd313wo7ivWua4GaVayG2jLgjV8OE=</Integrity>
+      <Fingerprint>9r3izdh1d6</Fingerprint>
+      <Integrity>e3VUDeLn9sKQz6v9HtYjHgsVBitElr9OlDsf0ezRbZk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\dist\libs\tinymce\plugins\pagebreak\plugin.js'))</OriginalItemSpec>
@@ -14124,8 +14124,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>lzynticixs</Fingerprint>
-      <Integrity>4RX+/C4A/HYUpvPki2NAml/ynnBxiD2bhYD8esNrD3E=</Integrity>
+      <Fingerprint>hfwrthxx2q</Fingerprint>
+      <Integrity>7U2B0lYIGwJL2lcQ/Ua9VO6NnlqCZXO7E8C3oBXgCVI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\dist\libs\tinymce\themes\silver\theme.js'))</OriginalItemSpec>
@@ -14160,8 +14160,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4ynr3477t0</Fingerprint>
-      <Integrity>/FR1q6OumkkB4sqlwAeu6upiYNkn8TU5wrY/n2h/gQM=</Integrity>
+      <Fingerprint>l3gmui3vqa</Fingerprint>
+      <Integrity>AVE5G/mZqZh6/nOYoYFOe+xqGqSZ22t7FYOIb2QCNOE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\dist\libs\tinymce\tinymce.js'))</OriginalItemSpec>
@@ -14196,8 +14196,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>z2l6i0eopl</Fingerprint>
-      <Integrity>O+IXDF8nciE3cRtuXX5Qzf1JD77kKIdNGv1H46JP3XU=</Integrity>
+      <Fingerprint>hwjb8gyqeh</Fingerprint>
+      <Integrity>gSF0D+raKDVPYQLJMHeQoR0jvkwnO/KAd90cK0oNB5U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\dist\libs\tinymce\tinymce.min.js'))</OriginalItemSpec>
@@ -23790,8 +23790,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>cf8q52z8f7</Fingerprint>
-      <Integrity>KEp0aOM7TctyDzN4DVuOawFAvk1ocUQ7bHG2Bi97BHA=</Integrity>
+      <Fingerprint>tdvtmq2leq</Fingerprint>
+      <Integrity>ISKNQVCJXk0Kc5GynI4iQD05BuLsNMW1WU+ISi1bEhA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\tabler\static\logo.svg'))</OriginalItemSpec>

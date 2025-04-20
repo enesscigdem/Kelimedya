@@ -125,10 +125,11 @@ namespace Kelimedya.Services.Implementations
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim( ClaimTypes.NameIdentifier, user.Id.ToString() ),
+                new Claim( ClaimTypes.Name,           user.UserName     ),
                 new Claim(ClaimTypes.Role, role)
             };
+
 
             var identity = new ClaimsIdentity(claims, "Jwt");
 

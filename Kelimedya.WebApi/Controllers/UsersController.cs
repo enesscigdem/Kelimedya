@@ -40,7 +40,8 @@ namespace Kelimedya.WebAPI.Controllers
                     Email = user.Email,
                     FullName = $"{user.Name} {user.Surname}",
                     Role = role,
-                    CreatedAt = user.CreatedAt
+                    CreatedAt = user.CreatedAt,
+                    TeacherId = user.TeacherId
                 });
             }
 
@@ -65,7 +66,8 @@ namespace Kelimedya.WebAPI.Controllers
                 Email = user.Email,
                 FullName = $"{user.Name} {user.Surname}",
                 Role = role,
-                CreatedAt = user.CreatedAt
+                CreatedAt = user.CreatedAt,
+                TeacherId = user.TeacherId
             };
 
             return Ok(userDto);
@@ -90,6 +92,7 @@ namespace Kelimedya.WebAPI.Controllers
                 Email = dto.Email,
                 Name = dto.Name,
                 Surname = dto.Surname,
+                TeacherId = dto.TeacherId,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow
             };
@@ -124,7 +127,8 @@ namespace Kelimedya.WebAPI.Controllers
             user.Email = dto.Email;
             user.Name = dto.Name;
             user.Surname = dto.Surname;
-
+            user.TeacherId = dto.TeacherId;
+            
             var updateResult = await _userManager.UpdateAsync(user);
             if (!updateResult.Succeeded)
             {

@@ -22,5 +22,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         public string Role { get; set; }
         
         public DateTime CreatedAt { get; set; }
+        [Display(Name = "Mentor Öğretmen")]
+        public int? TeacherId { get; set; }
     }
 }

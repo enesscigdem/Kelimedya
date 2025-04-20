@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Json;
+using Kelimedya.Core.Enum;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = RoleNames.Admin)]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class LessonsController : Controller
     {

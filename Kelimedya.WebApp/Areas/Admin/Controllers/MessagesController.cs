@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using Kelimedya.Core.Enum;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = RoleNames.Admin)]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class MessagesController : Controller
     {

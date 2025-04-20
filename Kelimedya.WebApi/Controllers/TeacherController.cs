@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Kelimedya.Core.Enum;
 using Kelimedya.Core.IdentityEntities;
+using Kelimedya.Core.Interfaces.Business;
 using Kelimedya.Core.Models;
 
 namespace Kelimedya.WebAPI.Controllers
@@ -20,16 +21,20 @@ namespace Kelimedya.WebAPI.Controllers
     {
         private readonly KelimedyaDbContext _context;
         private readonly UserManager<CustomUser> _userManager;
+        private readonly ICurrentUserService _currentUserService;
 
-        public TeacherController(KelimedyaDbContext context, UserManager<CustomUser> userManager)
+        public TeacherController(KelimedyaDbContext context, UserManager<CustomUser> userManager,
+            ICurrentUserService currentUserService)
         {
             _context = context;
             _userManager = userManager;
+            _currentUserService = currentUserService;
         }
 
         [HttpGet("dashboard")]
         public async Task<IActionResult> GetDashboardData()
         {
+            var teacherId = _currentUserService.GetUserId();
             var studentRole = await _context.Roles.SingleOrDefaultAsync(r => r.Name == RoleNames.Student);
             if (studentRole == null)
             {
@@ -37,7 +42,8 @@ namespace Kelimedya.WebAPI.Controllers
             }
 
             var students = await _context.Users
-                .Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == studentRole.Id))
+                .Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == studentRole.Id) &&
+                            u.TeacherId == teacherId)
                 .ToListAsync();
             int totalStudents = students.Count;
             int newStudents = students.Count(u => u.CreatedAt.Value.Date == DateTime.UtcNow.Date);
@@ -48,7 +54,7 @@ namespace Kelimedya.WebAPI.Controllers
             {
                 var progresses = await _context.StudentLessonProgresses
                     .Include(p => p.Lesson)
-                        .ThenInclude(l => l.Course)
+                    .ThenInclude(l => l.Course)
                     .Where(p => p.StudentId == student.Id.ToString())
                     .ToListAsync();
 
@@ -95,13 +101,16 @@ namespace Kelimedya.WebAPI.Controllers
 
             return Ok(dashboard);
         }
+
         // GET: api/teacher/users
         [HttpGet("users")]
         public async Task<IActionResult> GetUsers()
         {
+            var teacherId = _currentUserService.GetUserId();
             var studentRole = await _context.Roles.SingleOrDefaultAsync(r => r.Name == RoleNames.Student);
             var students = await _context.Users
-                .Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == studentRole.Id))
+                .Where(u => _context.UserRoles.Any(ur => ur.UserId == u.Id && ur.RoleId == studentRole.Id) &&
+                            u.TeacherId == teacherId)
                 .ToListAsync();
             var userDtos = new List<UserDto>();
 

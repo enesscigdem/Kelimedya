@@ -4,10 +4,13 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Kelimedya.WebApp.Areas.Teacher.Models;
 using System.Collections.Generic;
+using Kelimedya.Core.Enum;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebApp.Areas.Teacher.Controllers
 {
     [Area("Teacher")]
+    [Authorize(Roles = RoleNames.Teacher)]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class DashboardController : Controller
     {

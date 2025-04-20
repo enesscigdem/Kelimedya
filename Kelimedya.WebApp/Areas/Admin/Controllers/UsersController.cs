@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using Kelimedya.Core.Enum;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Kelimedya.WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = RoleNames.Admin)]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class UsersController : Controller
     {
@@ -26,10 +30,17 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         }
 
         // GET: /Admin/Users/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var vm = new CreateUserViewModel();
+            var all = await _httpClient.GetFromJsonAsync<List<UserViewModel>>("api/users");
+            vm.Teachers = all
+                .Where(u => u.Role == "Teacher")
+                .Select(u => new SelectListItem(u.FullName, u.Id))
+                .ToList();
+            return View(vm);
         }
+
 
         // POST: /Admin/Users/Create
         [HttpPost]
@@ -49,7 +60,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 Password = model.Password,
                 Name = model.Name,
                 Surname = model.Surname,
-                Role = model.Role
+                Role = model.Role,
+                TeacherId = model.TeacherId
             };
 
             var response = await _httpClient.PostAsJsonAsync("api/users", dto);
@@ -87,8 +99,14 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     Email = user.Email,
                     Name = nameParts[0],
                     Surname = nameParts.Length > 1 ? string.Join(" ", nameParts, 1, nameParts.Length - 1) : "",
-                    Role = user.Role
+                    Role = user.Role,
+                    TeacherId = user.TeacherId
                 };
+                var all = await _httpClient.GetFromJsonAsync<List<UserViewModel>>("api/users");
+                model.Teachers = all
+                    .Where(u => u.Role == "Teacher")
+                    .Select(u => new SelectListItem(u.FullName, u.Id, u.TeacherId == model.TeacherId))
+                    .ToList();
                 return View(model);
             }
 
@@ -113,7 +131,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 Email = model.Email,
                 Name = model.Name,
                 Surname = model.Surname,
-                Role = model.Role
+                Role = model.Role,
+                TeacherId = model.TeacherId
             };
 
             var response = await _httpClient.PutAsJsonAsync($"api/users/{model.Id}", dto);

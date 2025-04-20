@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,10 @@ builder.Services.AddIdentity<CustomUser, CustomRole>(options =>
 var jwtSettings = builder.Configuration.GetSection("JWT");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
 
+Console.WriteLine($"[Config] JWT Secret   : '{builder.Configuration["JWT:Secret"]}'");
+Console.WriteLine($"[Config] JWT Issuer   : '{builder.Configuration["JWT:Issuer"]}'");
+Console.WriteLine($"[Config] JWT Audience : '{builder.Configuration["JWT:Audience"]}'");
+
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -56,6 +61,7 @@ builder.Services.AddAuthentication(options =>
     
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            RoleClaimType = ClaimTypes.Role,
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
@@ -63,20 +69,24 @@ builder.Services.AddAuthentication(options =>
             ValidIssuer = jwtSettings["Issuer"],
             ValidAudience = jwtSettings["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(key),
-            ClockSkew = TimeSpan.Zero
+            ClockSkew = TimeSpan.Zero,
         };
     
         options.Events = new JwtBearerEvents
         {
-            OnMessageReceived = context =>
+            OnMessageReceived = ctx =>
             {
-                if (context.Request.Cookies.ContainsKey("AuthToken"))
-                {
-                    context.Token = context.Request.Cookies["AuthToken"];
-                }
+                if (ctx.Request.Cookies.TryGetValue("AuthToken", out var t))
+                    Console.WriteLine($"[JWT] Cookie’den token: {t[..20]}…");
+                ctx.Token = t;
                 return Task.CompletedTask;
             },
-            OnTokenValidated = context =>
+            OnAuthenticationFailed = ctx =>
+            {
+                Console.WriteLine($"[JWT] AuthFailed: {ctx.Exception.Message}");
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = ctx =>
             {
                 Console.WriteLine("Token doğrulandı!");
                 return Task.CompletedTask;
@@ -100,6 +110,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

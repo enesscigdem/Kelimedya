@@ -1,3 +1,5 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -10,6 +12,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Kelimedya.Services.Implementations;
 using Kelimedya.Services.Interfaces;
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,37 +38,60 @@ connectionString += $"Password={dbPassword}";
 builder.Services.AddDbContext<KelimedyaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+// WebApp/Program.cs içinde, builder oluşturulduktan sonra:
+Console.WriteLine($"[WebApp Config] JWT Secret   : '{builder.Configuration["JWT:Secret"]}'");
+Console.WriteLine($"[WebApp Config] JWT Issuer   : '{builder.Configuration["JWT:Issuer"]}'");
+Console.WriteLine($"[WebApp Config] JWT Audience : '{builder.Configuration["JWT:Audience"]}'");
+
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        var key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]);
+        var jwt = builder.Configuration.GetSection("JWT");
+        var key = Encoding.UTF8.GetBytes(jwt["Secret"]);
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            RoleClaimType = ClaimTypes.Role,
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JWT:Issuer"],
-            ValidAudience = builder.Configuration["JWT:Audience"],
+            ValidIssuer = jwt["Issuer"],
+            ValidAudience = jwt["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(key),
-            ClockSkew = TimeSpan.Zero
+            ClockSkew = TimeSpan.Zero,
         };
 
-        // Read JWT from cookies
         options.Events = new JwtBearerEvents
         {
-            OnMessageReceived = context =>
+            OnMessageReceived = ctx =>
             {
-                if (context.Request.Cookies.ContainsKey("AuthToken"))
-                {
-                    context.Token = context.Request.Cookies["AuthToken"];
-                }
+                var has = ctx.Request.Cookies.TryGetValue("AuthToken", out var token);
+                Console.WriteLine($"[WebApp JWT] Cookie var mı? {has}. Token başı: '{(has ? token[..20] : "")}…'");
+                if (has) ctx.Token = token;
+                return Task.CompletedTask;
+            },
+            OnAuthenticationFailed = ctx =>
+            {
+                Console.WriteLine($"[WebApp JWT] AuthFailed: {ctx.Exception.GetType().Name} — {ctx.Exception.Message}");
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = ctx =>
+            {
+                var roles = string.Join(",", ctx.Principal.Claims
+                    .Where(c => c.Type == "role")
+                    .Select(c => c.Value));
+                Console.WriteLine($"[WebApp JWT] TokenValidated. Roller: {roles}");
                 return Task.CompletedTask;
             }
         };
     });
 
+
 builder.Services.AddAuthorization();
+
 
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IWidgetService, WidgetService>();
@@ -79,6 +106,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthentication();

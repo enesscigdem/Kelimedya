@@ -15,6 +15,8 @@ namespace Kelimedya.Core.IdentityEntities
         //public virtual Company Company { get; set; }
         
         public bool? AdminApproved { get; set; }
+        public int? TeacherId { get; set; }
+        public virtual CustomUser? Teacher { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; }
     }

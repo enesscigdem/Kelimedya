@@ -17,6 +17,10 @@ JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddTransient<AuthenticationDelegatingHandler>();
+
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
@@ -27,22 +31,18 @@ builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSet
 builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<AppSettings>>()?.Value);
 
 builder.Services.AddHttpClient("DefaultApi", (provider, client) =>
-{
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    client.BaseAddress = new Uri(configuration["AppSettings:ApiUrl"]);
-});
+    {
+        var configuration = provider.GetRequiredService<IConfiguration>();
+        client.BaseAddress = new Uri(configuration["AppSettings:ApiUrl"]);
+    })
+// Burada cookie’den token’ı header’a ekleyen handler’ı devreye alıyoruz
+    .AddHttpMessageHandler<AuthenticationDelegatingHandler>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];
 connectionString += $"Password={dbPassword}";
 builder.Services.AddDbContext<KelimedyaDbContext>(options =>
     options.UseSqlServer(connectionString));
-
-// WebApp/Program.cs içinde, builder oluşturulduktan sonra:
-Console.WriteLine($"[WebApp Config] JWT Secret   : '{builder.Configuration["JWT:Secret"]}'");
-Console.WriteLine($"[WebApp Config] JWT Issuer   : '{builder.Configuration["JWT:Issuer"]}'");
-Console.WriteLine($"[WebApp Config] JWT Audience : '{builder.Configuration["JWT:Audience"]}'");
-
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

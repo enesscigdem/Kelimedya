@@ -4,7 +4,6 @@ namespace Kelimedya.Core.Interfaces.Business
     {
         public int GetUserId();
         public string GetEmail();
-        public int GetCompanyId();
         bool GetIsAdmin();
     }
 }

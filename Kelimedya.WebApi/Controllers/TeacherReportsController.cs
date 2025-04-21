@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kelimedya.Core.Interfaces.Business;
 
 namespace Kelimedya.WebAPI.Controllers
 {
@@ -16,46 +17,60 @@ namespace Kelimedya.WebAPI.Controllers
     public class TeacherReportsController : ControllerBase
     {
         private readonly KelimedyaDbContext _context;
-        public TeacherReportsController(KelimedyaDbContext context)
+        private readonly ICurrentUserService _currentUserService;
+
+        public TeacherReportsController(
+            KelimedyaDbContext context,
+            ICurrentUserService currentUserService)
         {
             _context = context;
+            _currentUserService = currentUserService;
         }
 
         // GET: api/teacher/reports/students
-        [HttpGet("students")]
+       [HttpGet("students")]
         public async Task<IActionResult> GetStudentReports()
         {
-            // Group lesson progress by StudentId and join with WordCard progress to form a student report.
+            var teacherId = _currentUserService.GetUserId();
+            var myStudentIds = await _context.Users
+                .Where(u => u.TeacherId == teacherId)
+                .Select(u => u.Id.ToString())
+                .ToListAsync();
+
             var reports = await _context.StudentLessonProgresses
-                .Include(slp => slp.Lesson)
-                    .ThenInclude(l => l.Course)
+                .Include(slp => slp.Lesson).ThenInclude(l => l.Course)
+                .Where(slp => myStudentIds.Contains(slp.StudentId))
                 .GroupBy(slp => slp.StudentId)
                 .Select(g => new StudentReportDto
                 {
                     StudentId = g.Key,
-                    FullName = "Öğrenci " + g.Key, // In a real app, join with Users to get full name.
-                    CompletedLessons = g.Where(slp => slp.IsCompleted)
-                                        .Select(slp => new LessonReportDto
-                                        {
-                                            LessonId = slp.LessonId,
-                                            Title = slp.Lesson.Title,
-                                            CourseTitle = slp.Lesson.Course.Title,
-                                            CompletionPercentage = slp.CompletionPercentage,
-                                            StartDate = slp.StartDate,
-                                            LastAccessDate = slp.LastAccessDate
-                                        }).ToList(),
+                    FullName = _context.Users
+                                .Where(u => u.Id.ToString() == g.Key)
+                                .Select(u => u.Name + " " + u.Surname)
+                                .FirstOrDefault() ?? "Bilinmiyor",
+                    CompletedLessons = g
+                        .Where(slp => slp.IsCompleted)
+                        .Select(slp => new LessonReportDto {
+                            LessonId = slp.LessonId,
+                            Title = slp.Lesson.Title,
+                            CourseTitle = slp.Lesson.Course.Title,
+                            CompletionPercentage = slp.CompletionPercentage,
+                            StartDate = slp.StartDate,
+                            LastAccessDate = slp.LastAccessDate
+                        }).ToList(),
                     LearnedWords = (from swcp in _context.StudentWordCardProgresses
-                                    join wc in _context.WordCards on swcp.WordCardId equals wc.Id
-                                    where swcp.StudentId == g.Key && swcp.IsLearned
-                                    select new WordReportDto
-                                    {
-                                        WordCardId = wc.Id,
-                                        Word = wc.Word,
-                                        Definition = wc.Definition,
-                                        ExampleSentence = wc.ExampleSentence,
-                                        ViewCount = swcp.ViewCount
+                                    join wc in _context.WordCards
+                                      on swcp.WordCardId equals wc.Id
+                                    where swcp.IsLearned && swcp.StudentId == g.Key
+                                    select new WordReportDto {
+                                       WordCardId = wc.Id,
+                                       Word = wc.Word,
+                                       Definition = wc.Definition,
+                                       ExampleSentence = wc.ExampleSentence,
+                                       ViewCount = swcp.ViewCount
                                     }).ToList()
-                }).ToListAsync();
+                })
+                .ToListAsync();
 
             return Ok(reports);
         }
@@ -64,9 +79,15 @@ namespace Kelimedya.WebAPI.Controllers
         [HttpGet("transcript/{studentId}")]
         public async Task<IActionResult> GetTranscript(string studentId)
         {
+            var teacherId = _currentUserService.GetUserId();
+            var isMine = await _context.Users
+                .AnyAsync(u => u.Id.ToString() == studentId && u.TeacherId == teacherId);
+
+            if (!isMine)
+                return Forbid();
+            
             var transcriptData = await _context.StudentLessonProgresses
-                .Include(slp => slp.Lesson)
-                    .ThenInclude(l => l.Course)
+                .Include(slp => slp.Lesson).ThenInclude(l => l.Course)
                 .Where(slp => slp.StudentId == studentId)
                 .ToListAsync();
 
@@ -135,9 +156,14 @@ namespace Kelimedya.WebAPI.Controllers
         [HttpGet("detailed/{studentId}")]
         public async Task<IActionResult> GetDetailedReport(string studentId)
         {
+            var teacherId = _currentUserService.GetUserId();
+            var isMine = await _context.Users
+                .AnyAsync(u => u.Id.ToString() == studentId && u.TeacherId == teacherId);
+            if (!isMine)
+                return Forbid();
+
             var lessonProgresses = await _context.StudentLessonProgresses
-                .Include(slp => slp.Lesson)
-                    .ThenInclude(l => l.Course)
+                .Include(slp => slp.Lesson).ThenInclude(l => l.Course)
                 .Where(slp => slp.StudentId == studentId)
                 .ToListAsync();
 
@@ -145,6 +171,7 @@ namespace Kelimedya.WebAPI.Controllers
                 .Include(w => w.WordCard)
                 .Where(w => w.StudentId == studentId && w.IsLearned)
                 .ToListAsync();
+
 
             var htmlBuilder = new StringBuilder();
             htmlBuilder.Append("<div class='detailed-report-container'>");

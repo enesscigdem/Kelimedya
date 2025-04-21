@@ -12,6 +12,7 @@ using System.Text.Json.Serialization;
 using Kelimedya.Core.Entities;
 using Kelimedya.Core.Interfaces.Business;
 using Kelimedya.HangfireServer.Services;
+using CurrentUserService = Kelimedya.WebApi.CurrentUserService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,6 +95,7 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 

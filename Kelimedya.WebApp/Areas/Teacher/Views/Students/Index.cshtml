@@ -5,14 +5,14 @@
     ViewData["Title"] = "Öğrenciler";
 }
 
-<link href="~/css/teacherStudents.css" rel="stylesheet" />
+<link href="~/css/teacherStudents.css" rel="stylesheet"/>
 
 <div class="students-page container-xl">
     <div class="students-header">
         <h2 class="students-title">Öğrenciler</h2>
         <div class="students-sub">Tüm öğrencileri görüntüleyin ve yönetin.</div>
     </div>
-    
+
     <div class="table-wrap">
         <div class="card-header">
             <h3 class="card-title">Tüm Öğrenciler</h3>
@@ -20,23 +20,29 @@
         <div class="table-responsive">
             <table class="table card-table table-hover mb-0">
                 <thead>
-                    <tr>
-                        <th>Öğrenci Adı</th>
-                        <th>E-posta</th>
-                        <th>Kayıt Tarihi</th>
-                        <th>Kurs Düzeyi</th>
-                    </tr>
+                <tr>
+                    <th>Öğrenci Adı</th>
+                    <th>E-posta</th>
+                    <th>Kayıt Tarihi</th>
+                    <th>Kurs Düzeyi</th>
+                    <th>İşlemler</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach (var student in Model)
-                    {
-                        <tr>
-                            <td>@student.FullName</td>
-                            <td>@student.Email</td>
-                            <td>@student.CreatedAt.ToString("yyyy-MM-dd")</td>
-                            <td>@student.Role</td>
-                        </tr>
-                    }
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.FullName</td>
+                        <td>@student.Email</td>
+                        <td>@student.CreatedAt.ToString("yyyy-MM-dd")</td>
+                        <td>@student.Role</td>
+                        <td>
+                            <a class="btn btn-primary btn-report" asp-area="Teacher" asp-controller="Reports" asp-action="StudentReports" asp-route-studentId="@student.Id">
+                                Rapor Görüntüle
+                            </a>
+                        </td>
+                    </tr>
+                }
                 </tbody>
             </table>
         </div>

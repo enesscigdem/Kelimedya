@@ -1,0 +1,102 @@
+﻿@model Kelimedya.WebApp.Areas.Admin.Models.CreateCouponDto
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Yeni Kupon Ekle";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ticket me-1" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 7h16v4a3 3 0 0 1 0 6v4h-16v-4a3 3 0 0 1 0 -6v-4"/>
+                    </svg>
+                    Yeni Kupon Ekle
+                </h2>
+                <div class="text-muted mt-1">
+                    Sisteme yeni bir kupon ekleyin
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">@Html.ValidationSummary()</div>
+        }
+        <form asp-area="Admin" asp-controller="Coupons" asp-action="Create" method="post" class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kupon Bilgileri</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label required">Kod</label>
+                    <input asp-for="Code" class="form-control" placeholder="Örn: HOSGELDIN10"/>
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Açıklama</label>
+                    <input asp-for="Description" class="form-control"/>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label required">İndirim Türü</label>
+                        <select asp-for="DiscountType" class="form-select">
+                            <option value="0">Yüzde (%)</option>
+                            <option value="1">Sabit (₺)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label required">Değer</label>
+                        <input asp-for="DiscountValue"
+                               class="form-control"
+                               type="text"
+                               inputmode="decimal"
+                               pattern="\d+(\.\d{1,2})?"
+                               title="Sadece rakam ve nokta kullanın (ör: 100 veya 12.50)"/> 
+                        <span asp-validation-for="DiscountValue" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Aktif</label>
+                        <div class="form-check">
+                            <input asp-for="IsActive" class="form-check-input"/>
+                            <label class="form-check-label">Evet</label>
+                        </div>
+                    </div>
+                </div>
+              <div class="row">
+                  <div class="col-md-6 mb-3">
+                      <label class="form-label">Başlangıç</label>
+                      <input asp-for="ValidFrom"
+                             type="date"
+                             class="form-control"
+                             value="@(Model.ValidFrom?.ToString("yyyy-MM-dd") ?? DateTime.Today.ToString("yyyy-MM-dd"))" />
+                      <span asp-validation-for="ValidFrom" class="text-danger"></span>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <label class="form-label">Bitiş</label>
+                      <input asp-for="ValidTo"
+                             type="date"
+                             class="form-control"
+                             value="@(Model.ValidTo?.ToString("yyyy-MM-dd")   ?? DateTime.Today.ToString("yyyy-MM-dd"))" />
+                      <span asp-validation-for="ValidTo" class="text-danger"></span>
+                  </div>
+              </div>
+            </div>
+            <div class="card-footer text-end">
+                <a asp-area="Admin" asp-controller="Coupons" asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+                <button type="submit" class="btn btn-primary ms-2">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

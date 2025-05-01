@@ -118,7 +118,7 @@
                                         <strong>@item.ProductName</strong><br/>
                                         <small>@item.Quantity adet</small>
                                     </div>
-                                    <span>@(string.Format(new System.Globalization.CultureInfo("tr-TR"), "{0:C}", item.Price * item.Quantity))</span>
+                                    <span>@(item.Price * item.Quantity)</span>
                                 </li>
                             }
                         </ul>
@@ -129,22 +129,37 @@
                     }
 
                     <hr/>
-                    <div class="d-flex justify-content-between mb-3">
+
+                    <!-- 1) Ara Toplam -->
+                    <div class="d-flex justify-content-between mb-2">
                         <span>Ara Toplam</span>
-                        <span class="fw-semibold">@Model.Cart.TotalPrice.ToString("C")</span>
+                        <span class="fw-semibold">@Model.GrandTotal.ToString("C")</span>
                     </div>
+
+                    <!-- 2) Kupon indirim satırı (sadece varsa) -->
+                    @if (!string.IsNullOrEmpty(Model.CouponCode) && Model.DiscountAmount > 0)
+                    {
+                        <div class="d-flex justify-content-between text-success mb-2">
+                            <span>Kupon (@Model.CouponCode) indirimi</span>
+                            <span>-@Model.DiscountAmount.ToString("C")</span>
+                        </div>
+                    }
+
+                    <!-- 3) Kargo -->
                     <div class="d-flex justify-content-between mb-3">
                         <span>Kargo</span>
                         <span class="text-success">Ücretsiz</span>
                     </div>
-                    <hr>
+
+                    <hr/>
+
+                    <!-- 4) Grand Total -->
                     <div class="d-flex justify-content-between fs-5">
                         <span class="fw-bold">Toplam</span>
-                        <span class="fw-bold">@Model.Cart.TotalPrice.ToString("C")</span>
+                        <span class="fw-bold">@Model.GrandTotal.ToString("C")</span>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 

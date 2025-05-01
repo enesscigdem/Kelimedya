@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KV88DkcivQ+TKV3wU0VPa5sRUyphINe4ll9QCw5ohqA=",
+  "Hash": "/Fxp4z+ZueYxjPWBO4WmHOfyIJ/qwXKJ2IpTXtnEuqw=",
   "Source": "Kelimedya.WebApi",
   "BasePath": "_content/Kelimedya.WebApi",
   "Mode": "Default",
@@ -141,6 +141,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/products/4e539d80-21aa-4eb8-8061-8e5488c46be2.png"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6jjjv74f47",
+      "Integrity": "ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png",
@@ -759,6 +780,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-3Zwy09ZflzvVZM3t40wVfWOZOvS54uLXQxOtAFjurIk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.6jjjv74f47.jpeg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13055"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:49:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6jjjv74f47"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13055"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:49:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU="
         }
       ]
     },

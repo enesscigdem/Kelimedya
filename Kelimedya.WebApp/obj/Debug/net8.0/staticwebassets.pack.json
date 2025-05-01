@@ -6481,6 +6481,34 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_shape_2.svg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatarT_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatarT_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatarT_2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatarT_2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatarT_3.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatarT_3.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatarT_4.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatarT_4.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatar_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatar_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatar_2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatar_2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/avatar_3.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/avatar_3.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/campur_life_1.jpg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/campur_life_1.jpg"
     },

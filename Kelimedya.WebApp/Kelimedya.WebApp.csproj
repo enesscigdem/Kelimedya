@@ -94,6 +94,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Views\Coupons\Create.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Coupons\Edit.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Coupons\Index.cshtml" />
       <AdditionalFiles Include="Areas\Admin\Views\Courses\Index.cshtml" />
       <AdditionalFiles Include="Areas\Admin\Views\Widgets\Create.cshtml" />
       <AdditionalFiles Include="Areas\Admin\Views\Widgets\Edit.cshtml" />

@@ -48,7 +48,10 @@
                                     <li>
                                         <a asp-controller="Home" asp-action="Index">Anasayfa</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li>
+                                        <a asp-controller="Home" asp-action="About">Hakkımızda</a>
+                                    </li>
+                                    @*<li class="menu-item-has-children">
                                         <a asp-controller="Home" asp-action="About">Hakkımızda</a>
                                         <ul>
                                             <li>
@@ -61,7 +64,7 @@
                                                 <a asp-controller="Home" asp-action="Vision">Vizyonumuz</a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li>*@
                                     <li>
                                         <a asp-controller="Home" asp-action="Products">Ürünlerimiz</a>
                                     </li>
@@ -88,7 +91,7 @@
                     <div class="td_hero_toolbox_wrap">
                         <a asp-controller="Home" asp-action="Cart" class="td_circle_btn td_center" type="button">
                             <img src="~/theme/web_UI/assets/img/home_5/cart.svg" alt="">
-                            <span class="td_circle_btn_label">0</span>
+                            @await Component.InvokeAsync("MiniCart")
                         </a>
                         <ul class="td_mp_0 td_hero_toolbox">
                             @if (User.Identity.IsAuthenticated)

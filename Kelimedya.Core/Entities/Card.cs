@@ -8,6 +8,9 @@ namespace Kelimedya.Core.Entities
     {
         public int Id { get; set; }
         public string UserId { get; set; } = string.Empty; // Kullanıcının Id'si (Identity kullanıyorsanız)
+        public int?   CouponId        { get; set; }
+        public virtual Coupon? Coupon { get; set; }
+        public decimal CouponDiscount { get; set; } = 0m;
         public int? ModifiedBy { get; set; }
         public DateTime CreatedAt { get; set; }
         public int? CreatedBy { get; set; }

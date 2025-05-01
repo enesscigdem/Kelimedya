@@ -44,13 +44,40 @@ public class HomeController : Controller
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
-        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}");
-        if (cart == null)
-        {
-            cart = new CartDto();
-        }
-
+        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}") 
+                   ?? new CartDto();
         return View(cart);
+    }
+
+    [HttpPost, Route("sepete-kupon-uygula"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> ApplyCoupon(string couponCode)
+    {
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var userId = _currentUserService.GetUserId();
+        var resp = await client.PostAsJsonAsync("api/cart/applyCoupon", new {
+            UserId = userId.ToString(),
+            CouponCode = couponCode
+        });
+
+        if (resp.IsSuccessStatusCode)
+            TempData["CouponSuccess"] = "Kupon başarıyla uygulandı!";
+        else
+            TempData["CouponError"] = await resp.Content.ReadAsStringAsync();
+
+        return RedirectToAction("Cart");
+    }
+
+    [HttpPost, Route("sepette-kupon-kaldir"), ValidateAntiForgeryToken]
+    public async Task<IActionResult> RemoveCoupon()
+    {
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var userId = _currentUserService.GetUserId();
+        await client.PostAsJsonAsync("api/cart/removeCoupon", new {
+            UserId = userId,
+            CouponCode = ""   // sadece UserId yeterli ama DTO bekliyor
+        });
+        TempData["CouponSuccess"] = "Kupon kaldırıldı.";
+        return RedirectToAction("Cart");
     }
 
     [HttpPost, Route("sepete-ekle")]
@@ -176,7 +203,7 @@ public class HomeController : Controller
         var response = await client.PostAsJsonAsync("api/messages", model);
         if (response.IsSuccessStatusCode)
         {
-            TempData["Success"] = "Mesajınız başarıyla gönderildi.";
+            TempData["ContactFamiliesSuccess"] = "Mesajınız başarıyla gönderildi.";
             return RedirectToAction("ContactFamilies");
         }
         else
@@ -206,7 +233,7 @@ public class HomeController : Controller
         var response = await client.PostAsJsonAsync("api/messages", model);
         if (response.IsSuccessStatusCode)
         {
-            TempData["Success"] = "Mesajınız başarıyla gönderildi.";
+            TempData["ContactSchoolsSuccess"] = "Mesajınız başarıyla gönderildi.";
             return RedirectToAction("ContactSchools");
         }
         else
@@ -241,11 +268,15 @@ public class HomeController : Controller
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
-        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}");
+
+        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}")
+                   ?? new CartDto();
 
         var model = new PaymentModel
         {
-            Cart = cart ?? new CartDto()
+            Cart           = cart,
+            CouponCode     = cart.CouponCode,
+            DiscountAmount = cart.CouponDiscount
         };
 
         return View(model);

@@ -26,10 +26,10 @@
             <div class="row td_gap_y_50">
                 <div class="col-lg-8">
                     <div class="td_contact_form">
-                        @if (TempData["Success"] != null)
+                        @if (TempData["ContactFamiliesSuccess"] != null)
                         {
                             <div class="alert alert-success">
-                                @TempData["Success"]
+                                @TempData["ContactFamiliesSuccess"]
                             </div>
                         }
                         @using (Html.BeginForm("ContactFamilies", "Home", FormMethod.Post, new

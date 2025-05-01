@@ -495,6 +495,88 @@
       ]
     },
     {
+      "Route": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.6jjjv74f47.jpeg",
+      "AssetFile": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13055"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:49:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6jjjv74f47"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "AssetFile": "uploads/products/66372e0d-0780-4ded-b2f7-aea73d83309b.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13055"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 21 Apr 2025 17:49:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ouREj8NvVCEvTM89pdEioNRTY4CsGMwTQCW3lhuuwDU="
+        }
+      ]
+    },
+    {
       "Route": "uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png",
       "AssetFile": "uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png",
       "Selectors": [],

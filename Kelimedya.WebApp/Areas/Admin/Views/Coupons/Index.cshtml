@@ -1,0 +1,158 @@
+﻿@model List<Kelimedya.WebApp.Areas.Admin.Models.CouponDto>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kuponlar";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ticket me-1" width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 7h16v4a3 3 0 0 1 0 6v4h-16v-4a3 3 0 0 1 0 -6v-4"/>
+                    </svg>
+                    Kupon Yönetimi
+                </h2>
+                <div class="text-muted mt-1">
+                    Mevcut kuponlarınızı buradan görüntüleyebilir, düzenleyebilir veya silebilirsiniz.
+                </div>
+            </div>
+            <div class="col-auto ms-auto d-print-none">
+                <a asp-area="Admin" asp-controller="Coupons" asp-action="Create" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 5v14m-7 -7h14"/>
+                    </svg>
+                    Yeni Kupon
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-1">
+    <div class="container-xl">
+        <div class="row mb-3 align-items-center">
+            <div class="col-12 col-lg-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Kupon kodu veya açıklama ara..." />
+            </div>
+            <div class="col-12 col-lg-8 text-end">
+                <select id="sortSelect" class="form-select d-inline-block w-auto">
+                    <option value="">-- Sıralama Seçeneği --</option>
+                    <option value="codeAsc">Kod (A - Z)</option>
+                    <option value="codeDesc">Kod (Z - A)</option>
+                    <option value="dateAsc">Oluşturulma Tarihi (Eski &gt; Yeni)</option>
+                    <option value="dateDesc">Oluşturulma Tarihi (Yeni &gt; Eski)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table table-vcenter" id="couponsTable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="coupon-code">Kod</th>
+                            <th class="coupon-desc">Açıklama</th>
+                            <th>Tür</th>
+                            <th>Değer</th>
+                            <th class="coupon-date">Oluşturulma Tarihi</th>
+                            <th class="text-center">Aktif</th>
+                            <th class="w-1 text-end">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var c in Model)
+                        {
+                            <tr>
+                                <td class="coupon-code">@c.Code</td>
+                                <td class="coupon-desc">@c.Description</td>
+                                <td>@(c.DiscountType == 0 ? "Yüzde" : "Sabit")</td>
+                                <td>@c.DiscountValue</td>
+                                <td class="coupon-date">@c.CreatedAt?.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td class="text-center">
+                                    @if (c.IsActive)
+                                    {
+                                        <span class="badge bg-green-lt text-green">Evet</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-red-lt text-red">Hayır</span>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <a asp-area="Admin" asp-controller="Coupons" asp-action="Edit" asp-route-id="@c.Id" class="btn btn-success me-1" title="Düzenle">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+                                                <path d="M8 18h4"/>
+                                                <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z"/>
+                                            </svg>
+                                            Düzenle
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="Coupons" asp-action="Delete" asp-route-id="@c.Id" class="btn btn-danger delete-btn" title="Sil">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+                                                <path d="M4 7h16"/>
+                                                <path d="M10 11v6"/>
+                                                <path d="M14 11v6"/>
+                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
+                                                <path d="M9 7v-2a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2"/>
+                                            </svg>
+                                            Sil
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $("#searchInput").on("keyup", function () {
+                var val = $(this).val().toLowerCase();
+                $("#couponsTable tbody tr").filter(function () {
+                    var code = $(this).find(".coupon-code").text().toLowerCase();
+                    var desc = $(this).find(".coupon-desc").text().toLowerCase();
+                    $(this).toggle(code.indexOf(val) > -1 || desc.indexOf(val) > -1);
+                });
+            });
+
+            $("#sortSelect").on("change", function () {
+                var opt = $(this).val();
+                var rows = $("#couponsTable tbody tr").get();
+
+                rows.sort(function (a, b) {
+                    var dateA = new Date($(a).find(".coupon-date").text().split('/').reverse().join('-'));
+                    var dateB = new Date($(b).find(".coupon-date").text().split('/').reverse().join('-'));
+                    var codeA = $(a).find(".coupon-code").text().toUpperCase();
+                    var codeB = $(b).find(".coupon-code").text().toUpperCase();
+
+                    switch (opt) {
+                        case "codeAsc":   return codeA < codeB ? -1 : codeA > codeB ? 1 : 0;
+                        case "codeDesc":  return codeA > codeB ? -1 : codeA < codeB ? 1 : 0;
+                        case "dateAsc":   return dateA - dateB;
+                        case "dateDesc":  return dateB - dateA;
+                        default:          return 0;
+                    }
+                });
+
+                $.each(rows, function(i, row) {
+                    $("#couponsTable tbody").append(row);
+                });
+            });
+        });
+    </script>
+}

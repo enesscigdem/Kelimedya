@@ -6,6 +6,8 @@
 
 <div class="td_height_120 td_height_lg_80"></div>
 <div class="container">
+
+    <!-- Ürün Tablosu -->
     <div class="td_table_1">
         <div class="table-responsive">
             <table class="table">
@@ -19,28 +21,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if(Model.Items != null && Model.Items.Any())
+                    @if (Model.Items != null && Model.Items.Any())
                     {
-                        foreach(var item in Model.Items)
+                        foreach (var item in Model.Items)
                         {
                             <tr>
                                 <td>
                                     <div class="td_table_meta d-flex align-items-center">
                                         <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? Url.Content("~/theme/web_UI/assets/img/no_image.png") : item.ImageUrl)"
-                                             alt="@item.ProductName" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;" />
-                                        <span class="td_fs_18 td_semibold td_heading_color ms-2">@item.ProductName</span>
+                                             alt="@item.ProductName"
+                                             class="img-thumbnail"
+                                             style="width: 60px; height: 60px; object-fit: cover;" />
+                                        <span class="td_fs_18 td_semibold td_heading_color ms-2">
+                                            @item.ProductName
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="unit-price">@item.Price.ToString("C")</td>
                                 <td>
-                                    <form method="post" asp-controller="Home" asp-action="UpdateCartItem" class="d-inline">
+                                    <form method="post"
+                                          asp-controller="Home"
+                                          asp-action="UpdateCartItem"
+                                          class="d-inline">
+                                        @Html.AntiForgeryToken()
                                         <input type="hidden" name="itemId" value="@item.Id" />
                                         <div class="td_quantity d-flex align-items-center">
-                                            <button class="td_quantity_btn btn btn-outline-secondary btn-sm" type="submit" name="newQuantity" value="@(item.Quantity - 1)" @(item.Quantity <= 1 ? "disabled" : "")>
+                                            <button class="td_quantity_btn btn btn-outline-secondary btn-sm"
+                                                    type="submit"
+                                                    name="newQuantity"
+                                                    value="@(item.Quantity - 1)"
+                                                    @(item.Quantity <= 1 ? "disabled" : "")>
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
                                             <span class="td_quantity_number mx-2">@item.Quantity</span>
-                                            <button class="td_quantity_btn btn btn-outline-secondary btn-sm" type="submit" name="newQuantity" value="@(item.Quantity + 1)">
+                                            <button class="td_quantity_btn btn btn-outline-secondary btn-sm"
+                                                    type="submit"
+                                                    name="newQuantity"
+                                                    value="@(item.Quantity + 1)">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
                                         </div>
@@ -48,9 +65,13 @@
                                 </td>
                                 <td class="line-total">@item.Total.ToString("C")</td>
                                 <td>
-                                    <form method="post" asp-controller="Home" asp-action="RemoveCartItem">
+                                    <form method="post"
+                                          asp-controller="Home"
+                                          asp-action="RemoveCartItem">
+                                        @Html.AntiForgeryToken()
                                         <input type="hidden" name="itemId" value="@item.Id" />
-                                        <button class="td_table_close_btn btn btn-danger btn-sm" type="submit">
+                                        <button class="td_table_close_btn btn btn-danger btn-sm"
+                                                type="submit">
                                             <i class="fa-solid fa-xmark"></i>
                                         </button>
                                     </form>
@@ -72,28 +93,77 @@
     <div class="td_height_60 td_height_lg_40"></div>
 
     <div class="row td_gap_y_30 td_row_gap_30">
+        <!-- Kupon Bölümü -->
         <div class="col-xl-6 td_gap_y_50">
-            <form action="#" class="td_cupon td_mb_50">
-                <input type="text" placeholder="Kupon kodu" class="td_cupon_input form-control" name="couponCode" />
-                <button type="submit" class="td_cupon_btn btn btn-secondary">Uygula</button>
-            </form>
+            @if (TempData["CouponError"] != null)
+            {
+                <div class="alert alert-danger">@TempData["CouponError"]</div>
+            }
+            @if (TempData["CouponSuccess"] != null)
+            {
+                <div class="alert alert-success">@TempData["CouponSuccess"]</div>
+            }
+
+            @if (string.IsNullOrEmpty(Model.CouponCode))
+            {
+                <form asp-action="ApplyCoupon"
+                      asp-controller="Home"
+                      method="post"
+                      class="td_cupon td_mb_50 d-flex">
+                    @Html.AntiForgeryToken()
+                    <input name="couponCode"
+                           type="text"
+                           placeholder="Kupon kodu"
+                           class="form-control td_cupon_input" />
+                    <button type="submit"
+                            class="td_cupon_btn btn btn-secondary ms-2">
+                        Uygula
+                    </button>
+                </form>
+            }
+            else
+            {
+                <div class="td_cupon_applied mb-4">
+                    <span class="badge bg-success">
+                        Uygulanan Kupon: @Model.CouponCode
+                    </span>
+                    <form asp-action="RemoveCoupon"
+                          asp-controller="Home"
+                          method="post"
+                          class="d-inline ms-2">
+                        @Html.AntiForgeryToken()
+                        <button class="btn btn-outline-danger btn-sm">
+                            Kaldır
+                        </button>
+                    </form>
+                </div>
+            }
         </div>
+
+        <!-- Özet Kartı -->
         <div class="col-xl-6">
             <div class="td_total_card p-3 rounded shadow-sm">
                 <h3 class="td_fs_16 td_mb_2">Sepet Toplamı</h3>
-                <div class="td_mb_14">
-                    <ul class="td_total_card_list td_mp_0 td_heading_color list-unstyled">
-                        <li class="d-flex justify-content-between border-bottom pb-2 mb-2">
-                            <span>Ara Toplam</span>
-                            <span class="td_bold" id="cartSubtotal">@Model.TotalPrice.ToString("C")</span>
+                <ul class="td_total_card_list td_mp_0 td_heading_color list-unstyled mb-0">
+                    <li class="d-flex justify-content-between border-bottom pb-2 mb-2">
+                        <span>Ara Toplam</span>
+                        <strong id="cartSubtotal">@Model.SubTotal.ToString("C")</strong>
+                    </li>
+                    @if (Model.CouponDiscount > 0)
+                    {
+                        <li class="d-flex justify-content-between text-danger pb-2 mb-2">
+                            <span>Kupon İndirimi</span>
+                            <strong>- @Model.CouponDiscount.ToString("C")</strong>
                         </li>
-                        <li class="d-flex justify-content-between">
-                            <span>Toplam</span>
-                            <span class="td_bold td_fs_20" id="cartTotal">@Model.TotalPrice.ToString("C")</span>
-                        </li>
-                    </ul>
-                </div>
-                <a asp-controller="Home" asp-action="Payment" class="td_btn td_style_1 td_radius_10 td_medium w-100 btn btn-primary btn-lg">
+                    }
+                    <li class="d-flex justify-content-between">
+                        <span>Genel Toplam</span>
+                        <strong id="cartTotal">@Model.Total.ToString("C")</strong>
+                    </li>
+                </ul>
+                <a asp-controller="Home"
+                   asp-action="Payment"
+                   class="td_btn td_style_1 td_radius_10 td_medium w-100 btn btn-primary btn-lg mt-3">
                     <span class="td_btn_in td_white_color td_accent_bg">
                         <span>Ödeme Yap</span>
                     </span>
@@ -101,5 +171,6 @@
             </div>
         </div>
     </div>
+
     <div class="td_height_120 td_height_lg_80"></div>
 </div>

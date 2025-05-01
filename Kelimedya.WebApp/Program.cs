@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Kelimedya.Services.Implementations;
 using Kelimedya.Services.Interfaces;
+using CurrentUserService = Kelimedya.WebApp.CurrentUserService;
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 

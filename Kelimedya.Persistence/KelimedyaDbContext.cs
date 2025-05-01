@@ -10,6 +10,7 @@ using Kelimedya.Core.Entities;
 using Kelimedya.Core.IdentityEntities;
 using Kelimedya.Core.Interfaces.Business;
 using Kelimedya.Core.Interfaces.Persistance;
+using Kelimedya.Core.Entities;
 
 namespace Kelimedya.Persistence;
 
@@ -37,6 +38,7 @@ public class KelimedyaDbContext : IdentityDbContext<CustomUser, CustomRole, int>
     public virtual DbSet<ProductCourse> ProductCourses { get; set; }
     public virtual DbSet<Cart> Carts { get; set; }
     public virtual DbSet<CartItem> CartItems { get; set; }
+    public virtual DbSet<Coupon> Coupons { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

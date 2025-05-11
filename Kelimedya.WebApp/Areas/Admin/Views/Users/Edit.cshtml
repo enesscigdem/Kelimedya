@@ -56,7 +56,24 @@
                     <input type="text" asp-for="Surname" class="form-control" placeholder="Örn: Yılmaz" required/>
                     <span asp-validation-for="Surname" class="text-danger"></span>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label required">Telefon Numarası</label>
+                    <input type="tel" asp-for="PhoneNumber" class="form-control" placeholder="05xxxxxxxxx" required/>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
 
+                <div class="mb-3">
+                    <label class="form-label required">Sınıf</label>
+                    <select asp-for="ClassGrade" class="form-select" required>
+                        <option value="0">-- Sınıf Yok --</option>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <!option value="@i" @(Model.ClassGrade == i ? "selected" : "")>@i. Sınıf</!option>
+                        }
+                    </select>
+                    <span asp-validation-for="ClassGrade" class="text-danger"></span>
+                </div>
+                
                 <div class="mb-3">
                     <label class="form-label required">Kullanıcı Adı</label>
                     <input type="text" asp-for="UserName" class="form-control" placeholder="Örn: aliyilmaz" required/>
@@ -79,14 +96,14 @@
                     <span asp-validation-for="Role" class="text-danger"></span>
                 </div>
                 <div class="mb-3" id="teacherSelectGroup" style="display:none;">
-                  <label asp-for="TeacherId" class="form-label">Mentor Öğretmen</label>
-                  <select asp-for="TeacherId" class="form-select">
-                    <option value="">-- Seçiniz --</option>
-                    @foreach(var t in Model.Teachers)
-                    {
-                      <!option value="@t.Value" @(t.Selected ? "selected" : "")>@t.Text</!option>
-                    }
-                  </select>
+                    <label asp-for="TeacherId" class="form-label">Mentor Öğretmen</label>
+                    <select asp-for="TeacherId" class="form-select">
+                        <option value="">-- Seçiniz --</option>
+                        @foreach (var t in Model.Teachers)
+                        {
+                            <!option value="@t.Value" @(t.Selected ? "selected" : "")>@t.Text</!option>
+                        }
+                    </select>
                 </div>
             </div>
             <div class="card-footer text-end">

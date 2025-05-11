@@ -11,12 +11,12 @@
             <div class="col">
                 <h2 class="page-title">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users me-1 text-primary"
-                        width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M9 7a4 4 0 1 1 6 0a4 4 0 1 1 -6 0" />
-                        <path d="M17 11l2 2l4 -4" />
-                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                         width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 7a4 4 0 1 1 6 0a4 4 0 1 1 -6 0"/>
+                        <path d="M17 11l2 2l4 -4"/>
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/>
                     </svg>
                     Kullanıcı Listesi
                 </h2>
@@ -26,15 +26,15 @@
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <a asp-area="Admin" asp-controller="Users" asp-action="Create"
-                    class="btn btn-primary d-none d-sm-inline-block">
+                   class="btn btn-primary d-none d-sm-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus me-1"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M8 7a4 4 0 1 1 8 0a4 4 0 1 1 -8 0" />
-                        <path d="M16 19h6" />
-                        <path d="M19 16v6" />
-                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 1 8 0a4 4 0 1 1 -8 0"/>
+                        <path d="M16 19h6"/>
+                        <path d="M19 16v6"/>
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4"/>
                     </svg>
                     Yeni Kullanıcı
                 </a>
@@ -97,14 +97,14 @@
                 <div class="input-icon">
                     <span class="input-icon-addon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24"
-                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M10 10a7 7 0 1 0 7 7" />
-                            <path d="M21 21l-6 -6" />
+                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M10 10a7 7 0 1 0 7 7"/>
+                            <path d="M21 21l-6 -6"/>
                         </svg>
                     </span>
-                    <input type="text" id="searchInput" class="form-control" placeholder="Kullanıcı ara..." />
+                    <input type="text" id="searchInput" class="form-control" placeholder="Kullanıcı ara..."/>
                 </div>
             </div>
             <div class="col-12 col-lg-8 text-end">
@@ -135,104 +135,110 @@
             <div class="table-responsive">
                 <table class="table card-table table-vcenter table-hover">
                     <thead class="table-dark">
-                        <tr>
-                            <th>Ad Soyad</th>
-                            <th>Kullanıcı Adı</th>
-                            <th>E-posta</th>
-                            <th>Rol</th>
-                            <th>Kayıt Tarihi</th>
-                            <th class="w-1 text-end">İşlemler</th>
-                        </tr>
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Telefon</th>
+                        <th>Sınıf</th>
+                        <th>E-posta</th>
+                        <th>Rol</th>
+                        <th>Kayıt Tarihi</th>
+                        <th class="w-1 text-end">İşlemler</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach (var user in Model)
-                        {
-                            <tr>
-                                <td>@user.FullName</td>
-                                <td>@user.UserName</td>
-                                <td>@user.Email</td>
-                                <td>
-                                    @if (user.Role == "Admin")
-                                    {
-                                        <span class="badge bg-red-lt text-red">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-star me-1" width="16" height="16"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path
-                                                    d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
-                                            </svg>
-                                            Yönetici
-                                        </span>
-                                    }
-                                    else if (user.Role == "Teacher")
-                                    {
-                                        <span class="badge bg-blue-lt text-blue">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-chalkboard me-1" width="16" height="16"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M4 3h16v13h-4l-4 5l-4 -5h-4z" />
-                                                <path d="M7 7h1" />
-                                                <path d="M12 7h1" />
-                                                <path d="M15 7h2" />
-                                            </svg>
-                                            Öğretmen
-                                        </span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge bg-green-lt text-green">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-graduation-cap me-1" width="16" height="16"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M3 7l9 -4l9 4l-9 4l-9 -4v6" />
-                                                <path d="M9 10v4c0 1.38 2.686 2.5 6 2.5s6 -1.12 6 -2.5v-4" />
-                                                <path d="M9 10l9 -4" />
-                                            </svg>
-                                            Öğrenci
-                                        </span>
-                                    }
-                                </td>
-                                <td>@user.CreatedAt.ToString("dd/MM/yyyy")</td>
-                                <td class="text-end">
-                                    <div class="btn-group" role="group">
-                                        <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id"
-                                            class="btn btn-success d-flex align-items-center me-1" title="Düzenle">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M8 18h4" />
-                                                <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z" />
-                                            </svg>
-                                            Düzenle
-                                        </a>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.FullName</td>
+                            <td>@user.UserName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>
+                                @(user.ClassGrade == null || user.ClassGrade == 0 ? "" : user.ClassGrade + ". sınıf")
+                            </td>
+                            <td>@user.Email</td>
+                            <td>
+                                @if (user.Role == "Admin")
+                                {
+                                    <span class="badge bg-red-lt text-red">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             class="icon icon-tabler icon-tabler-star me-1" width="16" height="16"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path
+                                                d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/>
+                                        </svg>
+                                        Yönetici
+                                    </span>
+                                }
+                                else if (user.Role == "Teacher")
+                                {
+                                    <span class="badge bg-blue-lt text-blue">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             class="icon icon-tabler icon-tabler-chalkboard me-1" width="16" height="16"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M4 3h16v13h-4l-4 5l-4 -5h-4z"/>
+                                            <path d="M7 7h1"/>
+                                            <path d="M12 7h1"/>
+                                            <path d="M15 7h2"/>
+                                        </svg>
+                                        Öğretmen
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-green-lt text-green">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             class="icon icon-tabler icon-tabler-graduation-cap me-1" width="16" height="16"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M3 7l9 -4l9 4l-9 4l-9 -4v6"/>
+                                            <path d="M9 10v4c0 1.38 2.686 2.5 6 2.5s6 -1.12 6 -2.5v-4"/>
+                                            <path d="M9 10l9 -4"/>
+                                        </svg>
+                                        Öğrenci
+                                    </span>
+                                }
+                            </td>
+                            <td>@user.CreatedAt.ToString("dd/MM/yyyy")</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group">
+                                    <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id"
+                                       class="btn btn-success d-flex align-items-center me-1" title="Düzenle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M8 18h4"/>
+                                            <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z"/>
+                                        </svg>
+                                        Düzenle
+                                    </a>
 
-                                        <a asp-area="Admin" asp-controller="Users" asp-action="Delete"
-                                            asp-route-id="@user.Id"
-                                            class="btn btn-danger d-flex align-items-center delete-btn" title="Sil">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M4 7h16" />
-                                                <path d="M10 11v6" />
-                                                <path d="M14 11v6" />
-                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                <path d="M9 7v-2a1 1 0 0 1 1 -1h4 a1 1 0 0 1 1 1v2" />
-                                            </svg>
-                                            Sil
-                                        </a>
+                                    <a asp-area="Admin" asp-controller="Users" asp-action="Delete"
+                                       asp-route-id="@user.Id"
+                                       class="btn btn-danger d-flex align-items-center delete-btn" title="Sil">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="20" height="20"
+                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                             stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M4 7h16"/>
+                                            <path d="M10 11v6"/>
+                                            <path d="M14 11v6"/>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
+                                            <path d="M9 7v-2a1 1 0 0 1 1 -1h4 a1 1 0 0 1 1 1v2"/>
+                                        </svg>
+                                        Sil
+                                    </a>
 
-                                    </div>
-                                </td>
-                            </tr>
-                        }
+                                </div>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </div>

@@ -21,5 +21,21 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
         {
             return View();
         }
+        public IActionResult VisualPrompt()
+        {
+            return View();
+        }
+        public IActionResult BubbleLetters()
+        {
+            return View();
+        }
+        public IActionResult CrossPuzzle()
+        {
+            return View();
+        }
+        public IActionResult FillBlanks()
+        {
+            return View();
+        }
     }
 }

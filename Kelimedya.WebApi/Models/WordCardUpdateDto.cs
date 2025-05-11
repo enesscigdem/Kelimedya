@@ -14,6 +14,9 @@ namespace Kelimedya.WebAPI.Models
         [Required(ErrorMessage = "Kelime alanı gereklidir.")]
         public string Word { get; set; }
         
+        [Required(ErrorMessage = "Eş anlam alanı gereklidir.")]
+        public string Synonym { get; set; }
+        
         [Required(ErrorMessage = "Tanım alanı gereklidir.")]
         public string Definition { get; set; }
         

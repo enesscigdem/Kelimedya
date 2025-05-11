@@ -1,0 +1,97 @@
+/* AdamAsmaca.css */
+:root {
+    --primary-color: #ff5b5b;
+    --background-page: #fff8f4;
+    --btn-bg: #f05232;
+    --btn-hover: #d74322;
+    --accent-light: rgba(255, 91, 91, 0.1);
+    --text-color: #2c3e50;
+}
+
+.fullscreen-container {
+    width: 100%;
+    height: 80vh;
+    background: var(--background-page);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.asmaca-header {
+    background: linear-gradient(130deg, #ffd9bf, #ffe5e0);
+    padding: 1rem;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.5rem;
+    color: #c94a2c;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
+}
+
+.game-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: calc(100% - 70px);
+    gap: 2rem;
+}
+
+.hangman-canvas {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-light);
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+}
+
+.letters {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    gap: 0.5rem;
+}
+
+.letter-btn {
+    background: #ffc2c2;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.letter-btn:hover {
+    background: #ffb0a8;
+}
+
+.simple-btn {
+    background: var(--btn-bg);
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.simple-btn:hover {
+    background: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+    }
+    .hangman-canvas {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+}

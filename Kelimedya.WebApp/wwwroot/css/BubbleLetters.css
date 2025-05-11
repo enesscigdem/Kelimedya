@@ -1,0 +1,113 @@
+/* BubbleLetters.css */
+:root {
+    --bl-bg: #fffaf9;
+    --bl-card: rgba(255, 250, 249, 0.95);
+    --bl-primary: #ff5b5b;
+    --bl-secondary: #4caf50;
+    --bl-text: #2c3e50;
+    --bl-shadow: rgba(0,0,0,0.1);
+    --bl-correct: #d4edda;
+    --bl-incorrect: #f8d7da;
+    --bl-reveal: #d1ecf1;
+}
+
+.fullscreen-container {
+    background: var(--bl-bg);
+    border-radius:20px;
+    box-shadow:0 8px 32px var(--bl-shadow);
+    overflow:hidden;
+}
+.bl-header { text-align:center; padding:1.5rem; }
+.bl-header h1 { font-size:2.2rem; color:var(--bl-primary); margin:0; }
+.bl-header p { font-size:1rem; color:#7f8c8d; }
+.bl-gamecard { background: var(--bl-card); }
+
+/* Hint */
+.bl-hint {
+    background: linear-gradient(135deg, #ffe5df 0%, #fffaf9 100%);
+    border-radius:15px;
+    padding:1.5rem;
+    margin:1rem;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    color:var(--bl-text);
+    line-height:1.5;
+}
+.bl-hint .hint-line {
+    position:relative;
+    padding-left:1.8rem;
+    margin-bottom:0.75rem;
+    font-size:0.95rem;
+}
+.bl-hint .hint-line::before {
+    content:"💡";
+    position:absolute;
+    left:0; top:0;
+    font-size:1.2rem;
+}
+.bl-hint strong { color: var(--bl-primary); }
+
+/* Slots */
+.bl-target {
+    display:flex; justify-content:center;
+    gap:0.5rem; padding:1rem; flex-wrap:wrap;
+}
+.bl-letter {
+    width:2.5rem; height:2.5rem;
+    line-height:2.5rem; text-align:center;
+    border-bottom:2px solid #ccc;
+    font-size:1.2rem; color:var(--bl-text);
+}
+
+/* Bubbles */
+.bl-bubbles {
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap:0.5rem; padding:0 1rem;
+}
+.bubble-btn {
+    width:3rem; height:3rem;
+    border-radius:50%;
+    background:var(--bl-primary);
+    color:#fff; border:none;
+    font-weight:700; cursor:pointer;
+    transition:transform .2s;
+}
+.bubble-btn:disabled { background:#eee; color:#999; cursor:default; }
+.bubble-btn:hover:not(:disabled) { transform:scale(1.1); }
+
+/* Controls */
+.bl-controls {
+    display:flex; justify-content:center;
+    gap:0.5rem; padding:1rem;
+}
+.bl-btn {
+    padding:.6rem 1.2rem;
+    border:none; border-radius:8px;
+    font-weight:600; cursor:pointer;
+    background:var(--bl-primary); color:#fff;
+    transition:transform .2s;
+}
+.bl-btn.secondary { background:var(--bl-secondary); }
+.bl-btn:hover { transform:scale(1.05); }
+
+/* Feedback */
+.bl-feedback {
+    text-align:center;
+    margin:.5rem 1rem;
+    padding:.75rem; border-radius:8px;
+    font-size:1rem;
+}
+.bl-feedback.correct { background:var(--bl-correct); color:#155724; }
+.bl-feedback.incorrect { background:var(--bl-incorrect); color:#721c24; }
+.bl-feedback.revealed { background:var(--bl-reveal); color:#0c5460; }
+
+/* Footer */
+.bl-footer {
+    display:flex; justify-content:space-between;
+    padding:1rem; border-top:1px solid #eee;
+}
+
+@media(max-width:600px){
+    .bl-target { gap:0.2rem; }
+    .bubble-btn { width:2.5rem; height:2.5rem; }
+    .bl-footer { flex-direction:column-reverse; gap:0.5rem; }
+}

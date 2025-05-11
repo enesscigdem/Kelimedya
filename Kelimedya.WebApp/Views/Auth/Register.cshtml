@@ -19,6 +19,24 @@
                             <hr>
                             <div class="td_height_30 td_height_lg_30"></div>
                             <form id="registerForm">
+                                <input type="text" id="Name" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Adınız *">
+                                <span class="text-danger" id="NameError"></span>
+
+                                <input type="text" id="Surname" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Soyadınız *">
+                                <span class="text-danger" id="SurnameError"></span>
+
+                                <input type="tel" id="PhoneNumber" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Telefon Numaranız">
+                                <span class="text-danger" id="PhoneNumberError"></span>
+
+                                <select id="ClassGrade" class="td_form_field td_mb_10 td_medium td_white_bg">
+                                    <option value="">-- Sınıf Yok --</option>
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <option value="@i">@i. Sınıf</option>
+                                    }
+                                </select>
+                                <span class="text-danger" id="ClassGradeError"></span>
+
                                 <input type="text" id="UserName" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Kullanıcı Adı *">
                                 <span class="text-danger" id="UserNameError"></span>
 
@@ -27,12 +45,6 @@
 
                                 <input type="password" id="Password" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Şifren *">
                                 <span class="text-danger" id="PasswordError"></span>
-
-                                <input type="text" id="Name" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Adınız *">
-                                <span class="text-danger" id="NameError"></span>
-
-                                <input type="text" id="Surname" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Soyadınız *">
-                                <span class="text-danger" id="SurnameError"></span>
 
                                 <div class="td_form_card_bottom td_mb_25">
                                     <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium">
@@ -72,63 +84,80 @@
         $(document).ready(function () {
             $('#registerForm').on('submit', function (e) {
                 e.preventDefault();
+
+                // Temizle
+                $('.text-danger').text('');
+                $('.td_form_field').removeClass('input-error');
+
+                // Veri toplama
                 const data = {
                     userName: $('#UserName').val(),
                     email: $('#Email').val(),
                     password: $('#Password').val(),
                     name: $('#Name').val(),
-                    surname: $('#Surname').val()
+                    surname: $('#Surname').val(),
+                    phoneNumber: $('#PhoneNumber').val(),
+                    classGrade: $('#ClassGrade').val() || null
                 };
 
-                $('.text-danger').text('');
-                $('#registerForm .td_form_field').removeClass('input-error');
-
+                // Validasyon
                 let isValid = true;
-                if (!data.userName) { 
-                    $('#UserNameError').text('Kullanıcı adı zorunludur.'); 
+                if (!data.userName) {
+                    $('#UserNameError').text('Kullanıcı adı zorunludur.');
                     $('#UserName').addClass('input-error');
-                    isValid = false; 
+                    isValid = false;
                 }
-                if (!data.email) { 
-                    $('#EmailError').text('E-posta adresi zorunludur.'); 
+                if (!data.email) {
+                    $('#EmailError').text('E-posta adresi zorunludur.');
                     $('#Email').addClass('input-error');
-                    isValid = false; 
+                    isValid = false;
                 }
-                if (!data.password || data.password.length < 6) { 
-                    $('#PasswordError').text('Şifre en az 6 karakter olmalıdır.'); 
+                if (!data.password || data.password.length < 6) {
+                    $('#PasswordError').text('Şifre en az 6 karakter olmalıdır.');
                     $('#Password').addClass('input-error');
-                    isValid = false; 
+                    isValid = false;
                 }
-                if (!data.name) { 
-                    $('#NameError').text('Ad zorunludur.'); 
+                if (!data.name) {
+                    $('#NameError').text('Ad zorunludur.');
                     $('#Name').addClass('input-error');
-                    isValid = false; 
+                    isValid = false;
                 }
-                if (!data.surname) { 
-                    $('#SurnameError').text('Soyad zorunludur.'); 
+                if (!data.surname) {
+                    $('#SurnameError').text('Soyad zorunludur.');
                     $('#Surname').addClass('input-error');
-                    isValid = false; 
+                    isValid = false;
+                }
+                if (data.phoneNumber && !/^[0-9]{10,15}$/.test(data.phoneNumber)) {
+                    $('#PhoneNumberError').text('Geçerli bir telefon numarası giriniz.');
+                    $('#PhoneNumber').addClass('input-error');
+                    isValid = false;
+                }
+                if (data.classGrade !== null && (data.classGrade < 1 || data.classGrade > 12)) {
+                    $('#ClassGradeError').text('Sınıf 1 ile 12 arasında olmalıdır.');
+                    $('#ClassGrade').addClass('input-error');
+                    isValid = false;
                 }
                 if (!isValid) return;
 
-                 $.ajax({
-                        url: '/Auth/Register',
-                        type: 'POST',
-                        data: JSON.stringify(data),
-                        contentType: 'application/json',
-                        success: function (response) {
-                            if (response.success) {
-                                showIziToastSuccess(response.message);
-                                setTimeout(() => window.location.href = '/auth/login', 2000);
-                            } else {
-                                showIziToastError(response.message);
-                            }
-                        },
-                        error: function (xhr) {
-                            const errMessage = xhr.responseJSON?.message || "Beklenmeyen bir hata oluştu.";
-                            showIziToastError(errMessage);
+                // AJAX çağrısı
+                $.ajax({
+                    url: '/Auth/Register',
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function (response) {
+                        if (response.success) {
+                            showIziToastSuccess(response.message);
+                            setTimeout(() => window.location.href = '/auth/login', 2000);
+                        } else {
+                            showIziToastError(response.message);
                         }
-                    });
+                    },
+                    error: function (xhr) {
+                        const errMessage = xhr.responseJSON?.message || "Beklenmeyen bir hata oluştu.";
+                        showIziToastError(errMessage);
+                    }
+                });
             });
         });
     </script>

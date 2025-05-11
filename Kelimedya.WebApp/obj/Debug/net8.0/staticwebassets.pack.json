@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets/Kelimedya.WebApp.lp1xuqe9kr.bundle.scp.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/AdamAsmaca.css",
+      "PackagePath": "staticwebassets/css/AdamAsmaca.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/BubbleLetters.css",
+      "PackagePath": "staticwebassets/css/BubbleLetters.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/CrossPuzzle.css",
+      "PackagePath": "staticwebassets/css/CrossPuzzle.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/FillBlanks.css",
+      "PackagePath": "staticwebassets/css/FillBlanks.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/KelimeBulmaca.css",
+      "PackagePath": "staticwebassets/css/KelimeBulmaca.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/VisualPrompt.css",
+      "PackagePath": "staticwebassets/css/VisualPrompt.css"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/iziToastCustom.css",
       "PackagePath": "staticwebassets/css/iziToastCustom.css"
     },
@@ -15,6 +39,10 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/myCourses.css",
       "PackagePath": "staticwebassets/css/myCourses.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/myGames.css",
+      "PackagePath": "staticwebassets/css/myGames.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/myLessons.css",

@@ -15,6 +15,7 @@ namespace Kelimedya.WebAPI.Models
     {
         public int WordCardId { get; set; }
         public string Word { get; set; }
+        public string Synonym { get; set; }
         public string Definition { get; set; }
         public string ExampleSentence { get; set; }
         public int ViewCount { get; set; }

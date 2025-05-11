@@ -17,15 +17,20 @@
         <div class="card">
             <div class="card-body">
                 <form method="post" asp-area="Admin" asp-controller="WordCards" asp-action="Create" enctype="multipart/form-data">
-                    <input type="hidden" asp-for="LessonId" value="@ViewBag.LessonId" />
+                    <input type="hidden" asp-for="LessonId" value="@ViewBag.LessonId"/>
                     <div class="mb-3">
                         <label class="form-label">Kelime</label>
-                        <input type="text" class="form-control" asp-for="Word" placeholder="Kelime" />
+                        <input type="text" class="form-control" asp-for="Word" placeholder="Kelime"/>
                         <span asp-validation-for="Word" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Eş Anlam</label>
+                        <input type="text" class="form-control" asp-for="Synonym" placeholder="Eş Anlam"/>
+                        <span asp-validation-for="Synonym" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Tanım</label>
-                        <input type="text" class="form-control" asp-for="Definition" placeholder="Tanım" />
+                        <input type="text" class="form-control" asp-for="Definition" placeholder="Tanım"/>
                         <span asp-validation-for="Definition" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
@@ -35,7 +40,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Resim Yükle</label>
-                        <input type="file" class="form-control" asp-for="ImageFile" />
+                        <input type="file" class="form-control" asp-for="ImageFile"/>
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
                     <div class="text-end">
@@ -47,6 +52,7 @@
         </div>
     </div>
 </div>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

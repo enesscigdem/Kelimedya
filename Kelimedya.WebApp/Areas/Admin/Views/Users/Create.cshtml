@@ -56,6 +56,24 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label required">Telefon Numarası</label>
+                    <input type="tel" asp-for="PhoneNumber" class="form-control" placeholder="05xxxxxxxxx" required/>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label required">Sınıf</label>
+                    <select asp-for="ClassGrade" class="form-select" required>
+                        <option value="0">-- Sınıf Yok --</option>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <!option value="@i" @(Model.ClassGrade == i ? "selected" : "")>@i. Sınıf</!option>
+                        }
+                    </select>
+                    <span asp-validation-for="ClassGrade" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label required">Kullanıcı Adı</label>
                     <input type="text" asp-for="UserName" class="form-control" placeholder="Örn: aliyilmaz" required/>
                     <span asp-validation-for="UserName" class="text-danger"></span>

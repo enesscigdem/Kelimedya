@@ -46,6 +46,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
             {
                 content.Add(new StringContent(model.LessonId.ToString()), "LessonId");
                 content.Add(new StringContent(model.Word), "Word");
+                content.Add(new StringContent(model.Synonym), "Synonym");
                 content.Add(new StringContent(model.Definition), "Definition");
                 content.Add(new StringContent(model.ExampleSentence ?? ""), "ExampleSentence");
 
@@ -97,6 +98,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 content.Add(new StringContent(model.Id.ToString()), "Id");
                 content.Add(new StringContent(model.LessonId.ToString()), "LessonId");
                 content.Add(new StringContent(model.Word), "Word");
+                content.Add(new StringContent(model.Synonym), "Synonym");
                 content.Add(new StringContent(model.Definition), "Definition");
                 content.Add(new StringContent(model.ExampleSentence ?? ""), "ExampleSentence");
 

@@ -65,6 +65,7 @@ namespace Kelimedya.WebAPI.Controllers
                                     select new WordReportDto {
                                        WordCardId = wc.Id,
                                        Word = wc.Word,
+                                       Synonym = wc.Synonym,
                                        Definition = wc.Definition,
                                        ExampleSentence = wc.ExampleSentence,
                                        ViewCount = swcp.ViewCount
@@ -196,6 +197,7 @@ namespace Kelimedya.WebAPI.Controllers
             {
                 htmlBuilder.Append("<li class='word-progress-item'>");
                 htmlBuilder.Append($"<span class='word'>{wp.WordCard.Word}</span> - ");
+                htmlBuilder.Append($"<span class='word'>{wp.WordCard.Synonym}</span> - ");
                 htmlBuilder.Append($"<span class='definition'>{wp.WordCard.Definition}</span> ");
                 htmlBuilder.Append($"<span class='viewcount'>(Gösterim: {wp.ViewCount})</span>");
                 htmlBuilder.Append("</li>");

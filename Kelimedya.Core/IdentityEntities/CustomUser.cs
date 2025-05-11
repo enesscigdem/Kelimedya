@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 using Kelimedya.Core.BaseModels;
 
@@ -19,5 +20,6 @@ namespace Kelimedya.Core.IdentityEntities
         public virtual CustomUser? Teacher { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; }
+        public int? ClassGrade { get; set; }
     }
 }

@@ -27,5 +27,12 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         [Display(Name = "Mentor Öğretmen")]
         public int? TeacherId { get; set; }
         public List<SelectListItem> Teachers { get; set; } = new();
+        [Required(ErrorMessage = "Telefon numarası gereklidir.")]
+        [Phone(ErrorMessage = "Geçerli bir telefon numarası giriniz.")]
+        public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Sınıf bilgisi gereklidir.")]
+        [Range(0,12, ErrorMessage = "Sınıf 1 ile 12 arasında olmalıdır.")]
+        public int? ClassGrade { get; set; }
     }
 }

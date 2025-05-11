@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Kelimedya.Core.Models
 {
@@ -12,6 +13,11 @@ namespace Kelimedya.Core.Models
         public string Role { get; set; }
         public DateTime? CreatedAt { get; set; }
         public int? TeacherId { get; set; }
+        [Phone]
+        public string? PhoneNumber { get; set; }
+
+        [Range(0, 12)]
+        public int? ClassGrade { get; set; }
     }
 
     public class CreateUserDto
@@ -23,6 +29,11 @@ namespace Kelimedya.Core.Models
         public string Surname { get; set; }
         public string Role { get; set; }
         public int? TeacherId { get; set; }
+        [Phone]
+        public string? PhoneNumber { get; set; }
+
+        [Range(0, 12)]
+        public int? ClassGrade { get; set; }
     }
 
     public class UpdateUserDto
@@ -34,5 +45,10 @@ namespace Kelimedya.Core.Models
         public string Surname { get; set; }
         public string Role { get; set; }
         public int? TeacherId { get; set; }
+        [Phone]
+        public string? PhoneNumber { get; set; }
+
+        [Range(0, 12)]
+        public int? ClassGrade { get; set; }
     }
 }

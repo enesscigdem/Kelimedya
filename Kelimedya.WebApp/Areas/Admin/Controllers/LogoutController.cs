@@ -18,7 +18,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             Response.Cookies.Delete("AuthToken");
 
-            return RedirectToAction("Login", "Auth");
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Kelimedya.Core.Entities
         public int LessonId { get; set; }
 
         public string Word { get; set; } = null!;
+        public string Synonym { get; set; } = null!;
         public string Definition { get; set; } = null!;
         public string? ExampleSentence { get; set; }
         public string? ImageUrl { get; set; }

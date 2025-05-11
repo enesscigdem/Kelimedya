@@ -3,81 +3,8 @@
     ViewData["Title"] = "Oyunlar";
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap"/>
-<style>
-    body {
-        background-color: #fefefe;
-        font-family: 'Josefin Sans', sans-serif;
-        color: #333;
-    }
-    .games-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-        position: relative;
-    }
-    .games-hero {
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-    }
-    .games-sub {
-        font-size: 1.1rem;
-        color: #777;
-        margin-bottom: 2rem;
-    }
-    .circle-decor {
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: #ffded2;
-        z-index: -1;
-        opacity: 0.4;
-    }
-    .circle-decor:nth-child(1) {
-        top: -40px;
-        right: 10%;
-    }
-    .circle-decor:nth-child(2) {
-        bottom: -40px;
-        left: 5%;
-        background: #ffc2c2;
-    }
-    .simple-btn {
-        display: inline-block;
-        padding: 0.6rem 1.2rem;
-        border-radius: 8px;
-        background-color: #f05232;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background 0.3s ease;
-    }
-    .simple-btn:hover {
-        background-color: #d74322;
-    }
-    .games-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-        gap: 1.5rem;
-    }
-    .game-block {
-        background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%);
-        border-radius: 20px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        padding: 1.5rem;
-    }
-    .game-block h3 {
-        margin: 0 0 0.5rem;
-        font-size: 1.4rem;
-        color: #c94a2c;
-    }
-    .game-block p {
-        color: #555;
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-    }
-</style>
+<link href="~/css/myGames.css" rel="stylesheet"/>
+
 
 <div class="games-container">
     <div class="circle-decor"></div>
@@ -86,11 +13,11 @@
     <div class="games-hero">Oyunlar</div>
     <div class="games-sub">Kelime oyunları ile pratik yapabilirsiniz.</div>
 
-    
+
     <div style="margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap:1rem;">
         <div style="flex:1;">
             <form>
-                <input type="text" class="form-control" placeholder="Oyun adı ara…" style="max-width:300px;" />
+                <input type="text" class="form-control" placeholder="Oyun adı ara…" style="max-width:300px;"/>
             </form>
         </div>
         <div>
@@ -99,14 +26,14 @@
         </div>
     </div>
 
-    
+
     <div style="margin-bottom:1.5rem;">
         <a href="#" class="simple-btn">Yeni Oyun Ekle</a>
     </div>
 
-    
+
     <div class="games-grid">
-        
+
         <div class="game-block">
             <h3>Adam Asmaca</h3>
             <p>Verilen kelimeyi harf tahmini yaparak bulmaya çalışın.</p>
@@ -114,10 +41,10 @@
                asp-controller="Games"
                asp-action="AdamAsmaca"
                class="simple-btn">
-               Oyuna Başla
+                Oyuna Başla
             </a>
         </div>
-        
+
         <div class="game-block">
             <h3>Kelime Bulmaca</h3>
             <p>Çoktan seçmeli veya yazılı kelime tahmin oyunu.</p>
@@ -125,7 +52,33 @@
                asp-controller="Games"
                asp-action="KelimeBulmaca"
                class="simple-btn">
-               Oyuna Başla
+                Oyuna Başla
+            </a>
+        </div>
+        <div class="game-block">
+            <h3>Görselden Soru</h3>
+            <p>Görsel size hangi kelimeyi çağrıştırıyor?</p>
+            <a asp-area="Student" asp-controller="Games" asp-action="VisualPrompt" class="simple-btn">Oyuna Başla</a>
+        </div>
+        <div class="game-block">
+            <h3>Kabarcık Harfler</h3>
+            <p>Doğru kelimeyi oluşturmak için baloncuklara tıklayın.</p>
+            <a asp-area="Student" asp-controller="Games" asp-action="BubbleLetters" class="simple-btn">
+                Oyuna Başla
+            </a>
+        </div>
+        <div class="game-block">
+            <h3>Çengel Bulmaca</h3>
+            <p>Yatay ve dikey kelimeleri doldurarak bulmacayı tamamlayın.</p> <a asp-area="Student" asp-controller="Games" asp-action="CrossPuzzle" class="simple-btn"> Oyuna Başla </a>
+        </div>
+        <div class="game-block">
+            <h3>Boşluk Doldurma</h3>
+            <p>Cümledeki eksik kelimeleri tamamlayın.</p>
+            <a asp-area="Student"
+               asp-controller="Games"
+               asp-action="FillBlanks"
+               class="simple-btn">
+                Oyuna Başla
             </a>
         </div>
     </div>

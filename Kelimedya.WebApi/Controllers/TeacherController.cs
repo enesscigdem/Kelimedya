@@ -124,6 +124,8 @@ namespace Kelimedya.WebAPI.Controllers
                     UserName = user.UserName,
                     Email = user.Email,
                     FullName = $"{user.Name} {user.Surname}",
+                    PhoneNumber = user.PhoneNumber,
+                    ClassGrade = user.ClassGrade,
                     Role = role,
                     CreatedAt = user.CreatedAt
                 });

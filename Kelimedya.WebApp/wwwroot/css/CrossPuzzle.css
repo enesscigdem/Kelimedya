@@ -1,0 +1,186 @@
+:root {
+    --cp-bg: #fffef2;
+    --cp-card: rgba(255, 254, 242, 0.95);
+    --cp-primary: #ff5b5b;
+    --cp-secondary: #4caf50;
+    --cp-tertiary: #ececec;
+    --cp-text: #2c3e50;
+    --cp-shadow: rgba(0,0,0,0.1);
+    --cp-wrong: #f8d7da;
+    --cp-correct: #d4edda;
+}
+
+.fullscreen-container {
+    display: flex;
+    flex-direction: column;
+    background: var(--cp-bg);
+    border-radius: 20px;
+    height: 85vh;
+    box-shadow: 0 8px 32px var(--cp-shadow);
+    overflow: hidden;
+}
+
+.cp-header {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--cp-card);
+}
+.cp-header h1 {
+    font-size: 2.4rem;
+    color: var(--cp-primary);
+    margin: 0;
+}
+.cp-header p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+.cp-gamecard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--cp-card);
+}
+
+/* Main bölümü: grid + sidebar yan yana */
+.cp-main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Bulmaca ızgarası */
+.cp-grid {
+    flex: 1;
+    display: grid;
+    gap: 2px;
+    padding: 1rem;
+    background: #f4f4f4;
+    /* 7x7 dakika boyut hücreler */
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(50px, 1fr);
+    overflow: auto;
+}
+
+/* Hücreler */
+.cp-cell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: #fff;
+    box-sizing: border-box;
+}
+.cp-cell.blocked {
+    background: #eaeaea;
+}
+.cp-cell.wrong {
+    background: var(--cp-wrong);
+    animation: shake 0.3s;
+}
+
+/* Hücrelerdeki numaralar */
+.cp-num {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 0.7rem;
+    color: var(--cp-text);
+}
+
+/* Yan panel: ipuçlar + butonlar */
+.cp-sidebar {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ddd;
+    background: #fff;
+}
+
+/* İpuçları */
+.cp-clues {
+    flex: 1;
+    padding: 1rem;
+    overflow: auto;
+}
+.cp-clue-block h3 {
+    color: var(--cp-primary);
+    margin-bottom: 0.5rem;
+}
+.cp-clue-block ul {
+    list-style: disc inside;
+    color: var(--cp-text);
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+}
+
+/* Kontroller */
+.cp-controls {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    background: var(--cp-tertiary);
+}
+.cp-btn {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.cp-btn.primary {
+    background: var(--cp-primary);
+    color: #fff;
+}
+.cp-btn.secondary {
+    background: var(--cp-secondary);
+    color: #fff;
+}
+.cp-btn.tertiary {
+    background: var(--cp-tertiary);
+    color: var(--cp-text);
+}
+.cp-btn:hover {
+    transform: scale(1.03);
+}
+
+/* Geri bildirim */
+.cp-feedback {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+}
+.cp-feedback.correct {
+    background: var(--cp-correct);
+    color: #155724;
+}
+.cp-feedback.incorrect {
+    background: var(--cp-wrong);
+    color: #721c24;
+}
+
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%,75% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cp-main {
+        flex-direction: column;
+    }
+    .cp-sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+}

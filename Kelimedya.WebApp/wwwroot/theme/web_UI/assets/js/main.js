@@ -287,8 +287,10 @@
     let scroll = $(window).scrollTop();
     if (scroll >= 350) {
       $('.td_scrollup').addClass('td_scrollup_show');
+      $('.td_whatsappup').css('bottom', '75px');
     } else {
       $('.td_scrollup').removeClass('td_scrollup_show');
+      $('.td_whatsappup').css('bottom', '20px');
     }
   }
 
@@ -534,4 +536,18 @@
       );
     }
   }
+  function showWhatsApp() {
+    let scroll = $(window).scrollTop();
+    if (scroll >= 350) {
+      $('.td_whatsappup').addClass('td_scrollup_show');
+    } else {
+      $('.td_whatsappup').removeClass('td_scrollup_show');
+    }
+  }
+
+  $(window).on('scroll', function() {
+    showScrollUp();
+    showWhatsApp();
+  });
+
 })(jQuery); // End of use strict

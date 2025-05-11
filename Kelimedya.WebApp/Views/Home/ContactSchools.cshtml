@@ -36,19 +36,19 @@
                             @Html.AntiForgeryToken()
 
                             <div class="mb-3">
-                                <input type="text" name="SchoolName" class="form-control" placeholder="Okul Adı" value="@Model?.SchoolName" required />
+                                <input type="text" name="SchoolName" class="td_form_field_2 td_mb_16" placeholder="Okul Adı" value="@Model?.SchoolName" required />
                                 @Html.ValidationMessageFor(m => m.SchoolName, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="ContactPerson" class="form-control" placeholder="İlgili Kişi" value="@Model?.ContactPerson" required />
+                                <input type="text" name="ContactPerson" class="td_form_field_2 td_mb_16" placeholder="İlgili Kişi" value="@Model?.ContactPerson" required />
                                 @Html.ValidationMessageFor(m => m.ContactPerson, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3">
-                                <input type="email" name="FromEmail" class="form-control" placeholder="E-Posta Adresiniz" value="@Model?.FromEmail" required />
+                                <input type="email" name="FromEmail" class="td_form_field_2 td_mb_16" placeholder="E-Posta Adresiniz" value="@Model?.FromEmail" required />
                                 @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3">
-                                <textarea name="Body" rows="5" class="form-control" placeholder="Mesajınız" required>@Model?.Body</textarea>
+                                <textarea name="Body" rows="5" class="td_form_field_2 td_mb_16" placeholder="Mesajınız" required>@Model?.Body</textarea>
                                 @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
                             </div>
                             @Html.HiddenFor(m => m.Subject)

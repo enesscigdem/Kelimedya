@@ -1,0 +1,158 @@
+/* myGames.css */
+/* Ana Renkler ve Değişkenler */
+:root {
+    --primary-color: rgb(240, 82, 50);
+    --secondary-color: #4caf50;
+    --background-gradient: linear-gradient(120deg, #fffaf9 0%, #ffe5df 100%);
+    --card-background: rgba(255, 255, 255, 0.9);
+    --text-color: #2c3e50;
+    --accent-bg: rgba(255, 91, 91, 0.1);
+}
+
+/* Genel Gövde Stilleri */
+body {
+    background: var(--background-gradient);
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Oyunlar Container */
+.games-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    position: relative;
+}
+
+/* Dekoratif Çemberler */
+.circle-decor {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--accent-bg);
+    border-radius: 50%;
+    top: -50px;
+    left: -200px;
+    z-index: 0;
+}
+.circle-decor:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    background: rgba(76, 175, 80, 0.1);
+    top: 100px;
+    right: -75px;
+}
+
+/* Başlıklar */
+.games-hero {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    margin-bottom: 0.5rem;
+    z-index: 1;
+    position: relative;
+}
+.games-sub {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    z-index: 1;
+    position: relative;
+}
+
+/* Araç Çubuğu */
+.games-container form {
+    display: flex;
+    align-items: center;
+}
+.games-container .form-control {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+/* Basit Düğmeler */
+.simple-btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255,91,91,0.3);
+}
+.simple-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255,91,91,0.4);
+}
+
+/* Yeni Oyun Ekle Butonu */
+.games-container > div > a.simple-btn {
+    margin-bottom: 1.5rem;
+}
+
+/* Oyun Kartları Grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    z-index: 1;
+    position: relative;
+}
+
+/* Her Bir Oyun Bloğu */
+.game-block {
+    background: var(--card-background);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.game-block:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.game-block h3 {
+    margin: 0 0 0.5rem;
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+.game-block p {
+    flex-grow: 1;
+    color: #7f8c8d;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Oyun Başlat Butonu */
+.game-block .simple-btn {
+    align-self: start;
+    margin-top: auto;
+    width: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .circle-decor { display: none; }
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    .games-hero { font-size: 2rem; }
+}

@@ -61,7 +61,9 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 Name = model.Name,
                 Surname = model.Surname,
                 Role = model.Role,
-                TeacherId = model.TeacherId
+                TeacherId = model.TeacherId,
+                PhoneNumber = model.PhoneNumber,
+                ClassGrade = model.ClassGrade
             };
 
             var response = await _httpClient.PostAsJsonAsync("api/users", dto);
@@ -100,7 +102,9 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     Name = nameParts[0],
                     Surname = nameParts.Length > 1 ? string.Join(" ", nameParts, 1, nameParts.Length - 1) : "",
                     Role = user.Role,
-                    TeacherId = user.TeacherId
+                    TeacherId = user.TeacherId,
+                    PhoneNumber = user.PhoneNumber,
+                    ClassGrade = user.ClassGrade,
                 };
                 var all = await _httpClient.GetFromJsonAsync<List<UserViewModel>>("api/users");
                 model.Teachers = all
@@ -132,7 +136,9 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 Name = model.Name,
                 Surname = model.Surname,
                 Role = model.Role,
-                TeacherId = model.TeacherId
+                TeacherId = model.TeacherId,
+                PhoneNumber = model.PhoneNumber,
+                ClassGrade = model.ClassGrade
             };
 
             var response = await _httpClient.PutAsJsonAsync($"api/users/{model.Id}", dto);

@@ -19,20 +19,19 @@
     }
     else
     {
-        
         <div class="top-wave">
             <h1>Kelime Kartları</h1>
         </div>
 
         <div class="super-container">
-            
+
             <div class="progress-area">
                 <div class="progress-track">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
             </div>
 
-            
+
             <div class="kart-sahne" id="kartSahne">
                 @if (Model.WordCards != null && Model.WordCards.Any())
                 {
@@ -54,7 +53,10 @@
                             }
                             <div class="word-title">@card.Word</div>
                             <div class="info-area">
-                                Anlamı: <span class="bold">@card.Definition</span><br/>
+                                <div> Eş anlamı: <span class="bold">@card.Synonym</span><br/></div>
+                                <div class="mt-1">
+                                    Anlamı: <span class="bold">@card.Definition</span>
+                                </div>
                             </div>
                             <div class="sentence">
                                 @(!string.IsNullOrEmpty(card.ExampleSentence) ? card.ExampleSentence : card.Definition)
@@ -74,7 +76,7 @@
                 }
             </div>
 
-            
+
             @if (Model.LearnedWords != null && Model.LearnedWords.Any())
             {
                 <div class="learned-words">
@@ -91,7 +93,7 @@
             }
         </div>
 
-        
+
         <div class="modal-overlay" id="modalOverlay"></div>
         <div id="gameModal">
             <div class="modal-title" id="modalTitle">Ara Oyun</div>
@@ -103,7 +105,6 @@
         </div>
     }
 </div>
-
 
 
 @section Scripts {

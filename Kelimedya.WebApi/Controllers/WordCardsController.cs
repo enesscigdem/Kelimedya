@@ -57,6 +57,7 @@ namespace Kelimedya.WebAPI.Controllers
             {
                 LessonId = dto.LessonId,
                 Word = dto.Word,
+                Synonym = dto.Synonym,
                 Definition = dto.Definition,
                 ExampleSentence = dto.ExampleSentence,
                 IsActive = true,
@@ -88,6 +89,7 @@ namespace Kelimedya.WebAPI.Controllers
 
             card.LessonId = dto.LessonId;
             card.Word = dto.Word;
+            card.Synonym = dto.Synonym;
             card.Definition = dto.Definition;
             card.ExampleSentence = dto.ExampleSentence;
             card.ModifiedAt = DateTime.UtcNow;

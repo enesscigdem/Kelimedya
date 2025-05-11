@@ -41,7 +41,9 @@ namespace Kelimedya.WebAPI.Controllers
                     FullName = $"{user.Name} {user.Surname}",
                     Role = role,
                     CreatedAt = user.CreatedAt,
-                    TeacherId = user.TeacherId
+                    TeacherId = user.TeacherId,
+                    PhoneNumber = user.PhoneNumber,
+                    ClassGrade = user.ClassGrade
                 });
             }
 
@@ -67,6 +69,8 @@ namespace Kelimedya.WebAPI.Controllers
                 FullName = $"{user.Name} {user.Surname}",
                 Role = role,
                 CreatedAt = user.CreatedAt,
+                PhoneNumber = user.PhoneNumber,
+                ClassGrade = user.ClassGrade,
                 TeacherId = user.TeacherId
             };
 
@@ -94,6 +98,8 @@ namespace Kelimedya.WebAPI.Controllers
                 Surname = dto.Surname,
                 TeacherId = dto.TeacherId,
                 IsActive = true,
+                PhoneNumber = dto.PhoneNumber,
+                ClassGrade = dto.ClassGrade,
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -128,6 +134,8 @@ namespace Kelimedya.WebAPI.Controllers
             user.Name = dto.Name;
             user.Surname = dto.Surname;
             user.TeacherId = dto.TeacherId;
+            user.PhoneNumber = dto.PhoneNumber;
+            user.ClassGrade = dto.ClassGrade;
             
             var updateResult = await _userManager.UpdateAsync(user);
             if (!updateResult.Succeeded)

@@ -52,6 +52,8 @@ namespace Kelimedya.Services.Implementations
                 Name = dto.Name,
                 Surname = dto.Surname,
                 IsActive = true,
+                PhoneNumber = dto.PhoneNumber,
+                ClassGrade = dto.ClassGrade,
                 CreatedAt = DateTime.UtcNow
             };
 

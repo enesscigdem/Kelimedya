@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fy3r2jnijb</Fingerprint>
-      <Integrity>x6qagoSTeqMBRcNQUEWKOYtOjinywkCtL3UWqSUqdvY=</Integrity>
+      <Fingerprint>e0uh17wy2o</Fingerprint>
+      <Integrity>Lk+J86VKQTlvtFGr+525R7vdrPBrku+FH4VK7rk0XEs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\FillBlanks.css'))</OriginalItemSpec>

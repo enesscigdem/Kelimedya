@@ -39,14 +39,14 @@
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/css/FillBlanks.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\FillBlanks.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-x6qagoSTeqMBRcNQUEWKOYtOjinywkCtL3UWqSUqdvY="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3439"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022x6qagoSTeqMBRcNQUEWKOYtOjinywkCtL3UWqSUqdvY=\u0022"},{"Name":"Last-Modified","Value":"Sun, 11 May 2025 23:12:38 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Lk\u002BJ86VKQTlvtFGr\u002B525R7vdrPBrku\u002BFH4VK7rk0XEs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2818"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Lk\u002BJ86VKQTlvtFGr\u002B525R7vdrPBrku\u002BFH4VK7rk0XEs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 11 May 2025 23:27:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/css/FillBlanks.fy3r2jnijb.css">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/css/FillBlanks.e0uh17wy2o.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\FillBlanks.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fy3r2jnijb"},{"Name":"integrity","Value":"sha256-x6qagoSTeqMBRcNQUEWKOYtOjinywkCtL3UWqSUqdvY="},{"Name":"label","Value":"_content/Kelimedya.WebApp/css/FillBlanks.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3439"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022x6qagoSTeqMBRcNQUEWKOYtOjinywkCtL3UWqSUqdvY=\u0022"},{"Name":"Last-Modified","Value":"Sun, 11 May 2025 23:12:38 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"e0uh17wy2o"},{"Name":"integrity","Value":"sha256-Lk\u002BJ86VKQTlvtFGr\u002B525R7vdrPBrku\u002BFH4VK7rk0XEs="},{"Name":"label","Value":"_content/Kelimedya.WebApp/css/FillBlanks.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2818"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Lk\u002BJ86VKQTlvtFGr\u002B525R7vdrPBrku\u002BFH4VK7rk0XEs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 11 May 2025 23:27:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/css/iziToastCustom.05fs5khome.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\iziToastCustom.css'))</AssetFile>

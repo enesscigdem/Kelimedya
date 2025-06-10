@@ -1,4 +1,4 @@
-import {fetchLearnedWords, recordGameStat} from './common.js';
+import {fetchLearnedWords, awardScore} from './common.js';
 
 let items=[], idx=0, start;
 
@@ -26,7 +26,7 @@ function check(studentId, gameId){
   let all=true;items[idx].answers.forEach((a,i)=>{const inp=document.querySelector(`.fb-input[data-index="${i}"]`);if(inp.value.trim().toLowerCase()===a){inp.classList.add('correct');}else{inp.classList.add('wrong');all=false;}});
   document.getElementById('fbFeedback').textContent=all?'Doğru!':'Yanlış';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId,gameId,score:all?1:0,durationSeconds:duration});
+  awardScore(studentId, gameId, all, duration);
   if(all) items.splice(idx,1);
 }
 

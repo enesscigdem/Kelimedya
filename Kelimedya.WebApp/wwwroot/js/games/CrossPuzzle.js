@@ -1,4 +1,4 @@
-import {recordGameStat} from './common.js';
+import {awardScore} from './common.js';
 
 const puzzle = {
   size:7,
@@ -43,7 +43,7 @@ function check(studentId, gameId){
   let correct=true;document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c=>{if(c.value.toUpperCase()!==c.dataset.answer){correct=false;c.classList.add('wrong');}else c.classList.remove('wrong');});
   document.getElementById('cpFeedback').textContent=correct?'Tebrikler':'Yanlışlıklar var';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId,gameId,score:correct?1:0,durationSeconds:duration});
+  awardScore(studentId, gameId, correct, duration);
 }
 
 function reveal(){

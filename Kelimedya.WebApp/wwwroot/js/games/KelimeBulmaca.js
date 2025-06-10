@@ -1,4 +1,4 @@
-import {fetchLearnedWords, recordGameStat} from './common.js';
+import {fetchLearnedWords, awardScore} from './common.js';
 
 let cards=[], idx=0, start;
 
@@ -21,7 +21,7 @@ function select(ans,correct){
   const ok=ans===correct;document.getElementById('questionBox').textContent= ok?'Doğru':'Yanlış';
   const duration=(Date.now()-start)/1000;
   const gid=document.getElementById('gameRoot').dataset.gameId;
-  recordGameStat({studentId:document.getElementById('gameRoot').dataset.studentId,gameId:gid,score:ok?1:0,durationSeconds:duration});
+  awardScore(document.getElementById('gameRoot').dataset.studentId, gid, ok, duration);
   if(ok) cards.splice(idx,1);
   idx=(idx+1)%cards.length;
   setTimeout(load,500);

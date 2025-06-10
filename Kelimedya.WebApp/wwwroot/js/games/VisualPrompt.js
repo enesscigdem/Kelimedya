@@ -1,4 +1,4 @@
-import {fetchLearnedWords, recordGameStat} from './common.js';
+import {fetchLearnedWords, awardScore} from './common.js';
 
 let cards=[], idx=0, start;
 let imgEl, guessEl, feedbackEl, questionEl;
@@ -21,7 +21,7 @@ function submit(studentId, gameId){
   const success=user===answer;
   feedbackEl.textContent=success?'Doğru':'Yanlış';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId,gameId,score:success?1:0,durationSeconds:duration});
+  awardScore(studentId, gameId, success, duration);
   if(success) cards.splice(idx,1);
 }
 

@@ -8,10 +8,14 @@ export async function fetchLearnedWords(studentId) {
 }
 
 export async function recordGameStat(stat) {
+  const payload = {
+    ...stat,
+    gameId: parseInt(stat.gameId, 10),
+  };
   await fetch(`${API_BASE_URL}/api/gamestats/record`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(stat),
+    body: JSON.stringify(payload),
   });
 }
 

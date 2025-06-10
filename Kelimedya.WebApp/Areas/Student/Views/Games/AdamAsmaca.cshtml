@@ -24,7 +24,7 @@
                     }
                 </div>
                 <div style="margin-top:1rem;">
-                    <button class="simple-btn" onclick="EndGame()">Oyunu Sonlandır</button>
+                    <button id="endGameBtn" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
                 </div>
             </div>
         </div>
@@ -32,15 +32,5 @@
 </div>
 
 @section Scripts {
-    <script>
-        function EndGame() {
-            // Örnek: Yönlendirme ya da popup
-            window.location = '@Url.Action("Index","Games", new {area="Student"})';
-        }
-
-        // Burada AdamAsmaca oyununun JS logic'i, canvas çizimi vb. devreye girebilir
-        document.addEventListener("DOMContentLoaded", function(){
-            // init game...
-        });
-    </script>
+    <script src="~/js/games/AdamAsmaca.js"></script>
 }

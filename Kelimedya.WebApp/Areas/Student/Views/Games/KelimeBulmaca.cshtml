@@ -21,21 +21,12 @@
                 <button class="option-btn">Seçenek 4</button>
             </div>
             <div style="margin-top: 2rem;">
-                <button class="simple-btn" onclick="EndGame()">Oyunu Sonlandır</button>
+                <button id="kbEndGame" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
             </div>
         </div>
     </div>
 </div>
 
 @section Scripts {
-    <script>
-        function EndGame() {
-            window.location = '@Url.Action("Index","Games", new {area="Student"})';
-        }
-
-        // Kelime Bulmaca logic...
-        document.addEventListener("DOMContentLoaded", function(){
-            // Oyun verilerini yükle, soruları göster, vb.
-        });
-    </script>
+    <script src="~/js/games/KelimeBulmaca.js"></script>
 }

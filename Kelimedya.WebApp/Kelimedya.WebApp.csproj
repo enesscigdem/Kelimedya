@@ -105,4 +105,10 @@
       <AdditionalFiles Include="Areas\Teacher\Views\Students\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Remove="wwwroot\theme\web_UI\assets\img\home_5\register2.png" />
+      <Content Remove="wwwroot\theme\web_UI\assets\img\home_5\login3.png" />
+      <Content Remove="wwwroot\theme\web_UI\assets\img\home_5\login2.png" />
+    </ItemGroup>
+
 </Project>

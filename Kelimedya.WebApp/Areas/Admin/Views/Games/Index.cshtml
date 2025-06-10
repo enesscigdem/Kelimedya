@@ -1,141 +1,57 @@
-﻿@{
+@model IEnumerable<Kelimedya.WebApp.Areas.Admin.Models.GameViewModel>
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Oyunlar";
 }
 
 <div class="page-header d-print-none">
     <div class="container-xl">
-        <div class="row g-2 align-items-center">
+        <div class="row align-items-center">
             <div class="col">
-                <h2 class="page-title">
-                    Oyunlar
-                </h2>
-                <div class="text-muted mt-1">
-                    Kelime bulmaca, adam asmaca vb. oyunları burada yönetebilirsiniz.
-                </div>
+                <h2 class="page-title">Oyunlar</h2>
             </div>
             <div class="col-auto ms-auto d-print-none">
-                <a class="btn btn-primary" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         class="icon icon-tabler icon-tabler-circle-plus me-1"
-                         width="24" height="24" viewBox="0 0 24 24"
-                         stroke-width="2" stroke="currentColor"
-                         fill="none" stroke-linecap="round"
-                         stroke-linejoin="round">
-                        <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                        <circle cx="12" cy="12" r="9"/>
-                        <line x1="9" y1="12" x2="15" y2="12"/>
-                        <line x1="12" y1="9" x2="12" y2="15"/>
-                    </svg>
-                    Yeni Oyun Ekle
-                </a>
+                <a class="btn btn-primary" asp-action="Create">Yeni Oyun Ekle</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="page-body pt-1">
+<div class="page-body pt-2">
     <div class="container-xl">
-        <div class="row row-cards">
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Toplam Oyun</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-blue">4</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Aktif Oyun</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-green">3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Bug Raporu</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-orange">1</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-sm">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="subheader">Toplam Oynanma</div>
-                        <div class="ms-auto lh-1">
-                            <span class="h2 mb-0 text-indigo">150</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mt-3">
+        <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Mevcut Oyunlar</h3>
             </div>
             <div class="table-responsive">
                 <table class="table card-table table-hover">
                     <thead class="table-dark">
-                    <tr>
-                        <th>Oyun Adı</th>
-                        <th>Türü</th>
-                        <th>Zorluk</th>
-                        <th>Aktif mi?</th>
-                        <th class="w-1 text-end">İşlemler</th>
-                    </tr>
+                        <tr>
+                            <th>Oyun Adı</th>
+                            <th>Türü</th>
+                            <th>Zorluk</th>
+                            <th>Aktif mi?</th>
+                            <th class="w-1 text-end">İşlemler</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Kelime Bulmaca</td>
-                        <td>Çoktan Seçmeli</td>
-                        <td>Orta</td>
-                        <td>
-                            <span class="badge bg-green">Evet</span>
-                        </td>
-                        <td class="text-end">
-                            <div class="btn-group" role="group">
-                                <a asp-area="Admin" asp-controller="Categories" asp-action="Edit"
-                                   asp-route-id="1" class="btn btn-success me-1 d-flex align-items-center" title="Düzenle">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         class="icon me-1" width="20" height="20"
-                                         viewBox="0 0 24 24" stroke-width="2"
-                                         stroke="currentColor" fill="none" stroke-linecap="round"
-                                         stroke-linejoin="round">
-                                        <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                        <path d="M8 18h4"/>
-                                        <path d="M4 14v4h4l10 -10a2 2 0 1 0 -4 -4z"/>
-                                    </svg>
-                                    Düzenle
-                                </a>
-                                <a asp-area="Admin" asp-controller="Categories" asp-action="Delete"
-                                   asp-route-id="1" class="btn btn-danger d-flex align-items-center" title="Sil">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         class="icon me-1" width="20" height="20"
-                                         viewBox="0 0 24 24" stroke-width="2"
-                                         stroke="currentColor" fill="none" stroke-linecap="round"
-                                         stroke-linejoin="round">
-                                        <path d="M0 0h24v24H0z" fill="none" stroke="none"/>
-                                        <path d="M4 7h16"/>
-                                        <path d="M10 11v6"/>
-                                        <path d="M14 11v6"/>
-                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
-                                        <path d="M9 7v-2a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2"/>
-                                    </svg>
-                                    Sil
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                        @foreach (var game in Model)
+                        {
+                            <tr>
+                                <td>@game.Title</td>
+                                <td>@game.GameType</td>
+                                <td>@game.Difficulty</td>
+                                <td>
+                                    <span class="badge @(game.IsActive ? "bg-green" : "bg-red")">@(game.IsActive ? "Evet" : "Hayır")</span>
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Edit" asp-route-id="@game.Id" class="btn btn-success me-1">Düzenle</a>
+                                        <a asp-action="Delete" asp-route-id="@game.Id" class="btn btn-danger delete-btn">Sil</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

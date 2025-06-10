@@ -31,10 +31,21 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         }
         
         // GET: /Admin/WordCards/Create?lessonId=...
-        public IActionResult Create(int lessonId)
+        public async Task<IActionResult> Create(int lessonId)
         {
+            var games = await _httpClient.GetFromJsonAsync<List<GameViewModel>>("api/games");
+            var model = new WordCardViewModel
+            {
+                LessonId = lessonId,
+                GameQuestions = games?.Select(g => new GameQuestionViewModel
+                {
+                    GameId = g.Id,
+                    GameTitle = g.Title
+                }).ToList() ?? new List<GameQuestionViewModel>()
+            };
+
             ViewBag.LessonId = lessonId;
-            return View();
+            return View(model);
         }
         
         // POST: /Admin/WordCards/Create
@@ -63,6 +74,18 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     content.Add(fileContent, "ImageFile", model.ImageFile.FileName);
                 }
 
+                if (model.GameQuestions != null)
+                {
+                    for (int i = 0; i < model.GameQuestions.Count; i++)
+                    {
+                        var q = model.GameQuestions[i];
+                        content.Add(new StringContent(q.GameId.ToString()), $"GameQuestions[{i}].GameId");
+                        content.Add(new StringContent(q.QuestionText ?? string.Empty), $"GameQuestions[{i}].QuestionText");
+                        content.Add(new StringContent(q.AnswerText ?? string.Empty), $"GameQuestions[{i}].AnswerText");
+                        content.Add(new StringContent(q.ImageUrl ?? string.Empty), $"GameQuestions[{i}].ImageUrl");
+                    }
+                }
+
                 var response = await _httpClient.PostAsync("api/wordcards", content);
                 if (response.IsSuccessStatusCode)
                 {
@@ -83,6 +106,17 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
             var card = await _httpClient.GetFromJsonAsync<WordCardViewModel>($"api/wordcards/{id}");
             if (card == null)
                 return NotFound();
+
+            var games = await _httpClient.GetFromJsonAsync<List<GameViewModel>>("api/games");
+            var questions = await _httpClient.GetFromJsonAsync<List<GameQuestionViewModel>>($"api/wordcards/{id}/questions");
+
+            card.GameQuestions = games?.Select(g =>
+            {
+                var q = questions?.FirstOrDefault(x => x.GameId == g.Id) ?? new GameQuestionViewModel { GameId = g.Id };
+                q.GameTitle = g.Title;
+                return q;
+            }).ToList() ?? new List<GameQuestionViewModel>();
+
             return View(card);
         }
         
@@ -113,6 +147,18 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     var fileContent = new ByteArrayContent(fileBytes);
                     fileContent.Headers.ContentType = new MediaTypeHeaderValue(model.ImageFile.ContentType);
                     content.Add(fileContent, "ImageFile", model.ImageFile.FileName);
+                }
+
+                if (model.GameQuestions != null)
+                {
+                    for (int i = 0; i < model.GameQuestions.Count; i++)
+                    {
+                        var q = model.GameQuestions[i];
+                        content.Add(new StringContent(q.GameId.ToString()), $"GameQuestions[{i}].GameId");
+                        content.Add(new StringContent(q.QuestionText ?? string.Empty), $"GameQuestions[{i}].QuestionText");
+                        content.Add(new StringContent(q.AnswerText ?? string.Empty), $"GameQuestions[{i}].AnswerText");
+                        content.Add(new StringContent(q.ImageUrl ?? string.Empty), $"GameQuestions[{i}].ImageUrl");
+                    }
                 }
 
                 var response = await _httpClient.PutAsync($"api/wordcards/{id}", content);

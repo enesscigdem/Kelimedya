@@ -38,6 +38,20 @@ namespace Kelimedya.WebAPI.Controllers
             return Ok(card);
         }
 
+        // GET: api/wordcards/{id}/questions
+        [HttpGet("{id}/questions")]
+        public async Task<IActionResult> GetWordCardQuestions(int id)
+        {
+            var cardExists = await _context.WordCards.AnyAsync(w => w.Id == id && !w.IsDeleted);
+            if (!cardExists)
+                return NotFound();
+
+            var questions = await _context.WordCardGameQuestions
+                .Where(q => q.WordCardId == id && !q.IsDeleted)
+                .ToListAsync();
+            return Ok(questions);
+        }
+
         // GET : api/wordcards/lessons/{lessonId}
         [HttpGet("lessons/{lessonId}")]
         public async Task<IActionResult> GetWordCardsByLesson(int lessonId)

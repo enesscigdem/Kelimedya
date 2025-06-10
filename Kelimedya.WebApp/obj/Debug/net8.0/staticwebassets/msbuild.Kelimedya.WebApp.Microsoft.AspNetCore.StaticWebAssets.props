@@ -354,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mrhnteew4d</Fingerprint>
-      <Integrity>ss7P0FwKgSsXsb94YNRNXtp4cfhpWE62VJOgnOrCe3o=</Integrity>
+      <Fingerprint>x3lg82milw</Fingerprint>
+      <Integrity>3f7uK190r9I6zn0+7IdBMOCI4teg6LYbh5lrFib8uGE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\AdamAsmaca.js'))</OriginalItemSpec>
@@ -372,8 +372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qxn3c4x87l</Fingerprint>
-      <Integrity>7sce+YOB7YZlPRLEE/0kGWisCuWuHfZE8a74B0iIjfI=</Integrity>
+      <Fingerprint>1fbcrra7c4</Fingerprint>
+      <Integrity>M5TdemfLSM+ynplzB3jn16V2gTkQTDacLzcKAzfdOsI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</OriginalItemSpec>
@@ -390,8 +390,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>j0jny4h3l4</Fingerprint>
-      <Integrity>/X2tlxn+Bq6uZqc5s56wNJBUklNHYgiO+HWtjNcRzAg=</Integrity>
+      <Fingerprint>ik0bpkdp9a</Fingerprint>
+      <Integrity>onB2Pwkoo9lkanyD/nIExiUAIsUavF+HYLZ+D0AbW64=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</OriginalItemSpec>
@@ -408,8 +408,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1rrkf4xbqr</Fingerprint>
-      <Integrity>fZi9sbSCFX5K5AWtNe6z8C7RiBur+kOwHFdUu2THHqc=</Integrity>
+      <Fingerprint>enuaau4opk</Fingerprint>
+      <Integrity>qnvSMkhBKnko5paPzAqAmraPqI1qS4XsBEVJA1Olnf8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\CrossPuzzle.js'))</OriginalItemSpec>
@@ -426,8 +426,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qpo7u41f1n</Fingerprint>
-      <Integrity>3rZClv9Q7SBr1i8XGK8Hlie6g2ZIu/iSgJP1KAbZ4Ww=</Integrity>
+      <Fingerprint>7jzjm70e3r</Fingerprint>
+      <Integrity>XfP8FH/xPB+gChg27v6k09KrSyaAsLjoq5iqvAWvBY0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\FillBlanks.js'))</OriginalItemSpec>
@@ -444,8 +444,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>drqag5cxsj</Fingerprint>
-      <Integrity>Bxa2+q7DwP+mFSC9PzIPt/KiYaDXzPBps++M+oeL+fg=</Integrity>
+      <Fingerprint>gu8cbib6j8</Fingerprint>
+      <Integrity>yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</OriginalItemSpec>
@@ -462,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>o7vf9fstrd</Fingerprint>
-      <Integrity>PG9MG9lJGT+cBnBV6Tpoh/buExzxvWDPOfnROvQ9gW8=</Integrity>
+      <Fingerprint>99t78rktla</Fingerprint>
+      <Integrity>I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</OriginalItemSpec>
@@ -30366,24 +30366,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\kelimedya-logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.jpg'))">
-      <SourceType>Package</SourceType>
-      <SourceId>Kelimedya.WebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Kelimedya.WebApp</BasePath>
-      <RelativePath>theme/web_UI/assets/img/home_5/login.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>46lb4fk5w5</Fingerprint>
-      <Integrity>FCAZ+k7Jgh/ZQxfaxCIAMNxXuVyZ6ZyWdw9KcgTwzZM=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.jpg'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.png'))">
       <SourceType>Package</SourceType>
       <SourceId>Kelimedya.WebApp</SourceId>
@@ -30396,8 +30378,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dowetz06ul</Fingerprint>
-      <Integrity>EzryA/uJKNabS/M8BF4gBV2+WowCtPUiqTNoZMY3rP8=</Integrity>
+      <Fingerprint>7l0lay7qmi</Fingerprint>
+      <Integrity>xQct94U8hGC+pcF2Yvm7fy1+E9vMyoMPHs6t1efOGZE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.png'))</OriginalItemSpec>
@@ -30558,8 +30540,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>j999716lyr</Fingerprint>
-      <Integrity>J0L4WQPBfAQG9bF8U600fZa07h+04aB5VUS8JGdemSc=</Integrity>
+      <Fingerprint>h4xe1cwhhe</Fingerprint>
+      <Integrity>z89+aS1CWdDLG7/4L+SW4OiYNy69XVGP66HiYs3frPg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register.png'))</OriginalItemSpec>

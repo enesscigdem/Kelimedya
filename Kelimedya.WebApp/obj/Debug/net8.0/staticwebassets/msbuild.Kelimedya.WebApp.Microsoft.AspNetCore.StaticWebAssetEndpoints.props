@@ -231,86 +231,86 @@
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/AdamAsmaca.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\AdamAsmaca.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ss7P0FwKgSsXsb94YNRNXtp4cfhpWE62VJOgnOrCe3o="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1262"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ss7P0FwKgSsXsb94YNRNXtp4cfhpWE62VJOgnOrCe3o=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3f7uK190r9I6zn0\u002B7IdBMOCI4teg6LYbh5lrFib8uGE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1915"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223f7uK190r9I6zn0\u002B7IdBMOCI4teg6LYbh5lrFib8uGE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/AdamAsmaca.mrhnteew4d.js">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/AdamAsmaca.x3lg82milw.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\AdamAsmaca.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mrhnteew4d"},{"Name":"integrity","Value":"sha256-ss7P0FwKgSsXsb94YNRNXtp4cfhpWE62VJOgnOrCe3o="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/AdamAsmaca.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1262"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022ss7P0FwKgSsXsb94YNRNXtp4cfhpWE62VJOgnOrCe3o=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x3lg82milw"},{"Name":"integrity","Value":"sha256-3f7uK190r9I6zn0\u002B7IdBMOCI4teg6LYbh5lrFib8uGE="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/AdamAsmaca.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1915"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223f7uK190r9I6zn0\u002B7IdBMOCI4teg6LYbh5lrFib8uGE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/BubbleLetters.1fbcrra7c4.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1fbcrra7c4"},{"Name":"integrity","Value":"sha256-M5TdemfLSM\u002BynplzB3jn16V2gTkQTDacLzcKAzfdOsI="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/BubbleLetters.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2811"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022M5TdemfLSM\u002BynplzB3jn16V2gTkQTDacLzcKAzfdOsI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/BubbleLetters.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-7sce\u002BYOB7YZlPRLEE/0kGWisCuWuHfZE8a74B0iIjfI="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2332"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227sce\u002BYOB7YZlPRLEE/0kGWisCuWuHfZE8a74B0iIjfI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-M5TdemfLSM\u002BynplzB3jn16V2gTkQTDacLzcKAzfdOsI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2811"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022M5TdemfLSM\u002BynplzB3jn16V2gTkQTDacLzcKAzfdOsI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/BubbleLetters.qxn3c4x87l.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qxn3c4x87l"},{"Name":"integrity","Value":"sha256-7sce\u002BYOB7YZlPRLEE/0kGWisCuWuHfZE8a74B0iIjfI="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/BubbleLetters.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2332"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00227sce\u002BYOB7YZlPRLEE/0kGWisCuWuHfZE8a74B0iIjfI=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/common.j0jny4h3l4.js">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/common.ik0bpkdp9a.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"j0jny4h3l4"},{"Name":"integrity","Value":"sha256-/X2tlxn\u002BBq6uZqc5s56wNJBUklNHYgiO\u002BHWtjNcRzAg="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/common.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"454"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/X2tlxn\u002BBq6uZqc5s56wNJBUklNHYgiO\u002BHWtjNcRzAg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ik0bpkdp9a"},{"Name":"integrity","Value":"sha256-onB2Pwkoo9lkanyD/nIExiUAIsUavF\u002BHYLZ\u002BD0AbW64="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/common.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1372"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022onB2Pwkoo9lkanyD/nIExiUAIsUavF\u002BHYLZ\u002BD0AbW64=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/common.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-/X2tlxn\u002BBq6uZqc5s56wNJBUklNHYgiO\u002BHWtjNcRzAg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"454"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022/X2tlxn\u002BBq6uZqc5s56wNJBUklNHYgiO\u002BHWtjNcRzAg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-onB2Pwkoo9lkanyD/nIExiUAIsUavF\u002BHYLZ\u002BD0AbW64="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1372"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022onB2Pwkoo9lkanyD/nIExiUAIsUavF\u002BHYLZ\u002BD0AbW64=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/CrossPuzzle.1rrkf4xbqr.js">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/CrossPuzzle.enuaau4opk.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\CrossPuzzle.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1rrkf4xbqr"},{"Name":"integrity","Value":"sha256-fZi9sbSCFX5K5AWtNe6z8C7RiBur\u002BkOwHFdUu2THHqc="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/CrossPuzzle.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2546"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022fZi9sbSCFX5K5AWtNe6z8C7RiBur\u002BkOwHFdUu2THHqc=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"enuaau4opk"},{"Name":"integrity","Value":"sha256-qnvSMkhBKnko5paPzAqAmraPqI1qS4XsBEVJA1Olnf8="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/CrossPuzzle.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2729"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qnvSMkhBKnko5paPzAqAmraPqI1qS4XsBEVJA1Olnf8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/CrossPuzzle.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\CrossPuzzle.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-fZi9sbSCFX5K5AWtNe6z8C7RiBur\u002BkOwHFdUu2THHqc="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2546"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022fZi9sbSCFX5K5AWtNe6z8C7RiBur\u002BkOwHFdUu2THHqc=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qnvSMkhBKnko5paPzAqAmraPqI1qS4XsBEVJA1Olnf8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2729"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qnvSMkhBKnko5paPzAqAmraPqI1qS4XsBEVJA1Olnf8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/FillBlanks.7jzjm70e3r.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\FillBlanks.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7jzjm70e3r"},{"Name":"integrity","Value":"sha256-XfP8FH/xPB\u002BgChg27v6k09KrSyaAsLjoq5iqvAWvBY0="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/FillBlanks.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1995"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022XfP8FH/xPB\u002BgChg27v6k09KrSyaAsLjoq5iqvAWvBY0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/FillBlanks.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\FillBlanks.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3rZClv9Q7SBr1i8XGK8Hlie6g2ZIu/iSgJP1KAbZ4Ww="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1760"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223rZClv9Q7SBr1i8XGK8Hlie6g2ZIu/iSgJP1KAbZ4Ww=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XfP8FH/xPB\u002BgChg27v6k09KrSyaAsLjoq5iqvAWvBY0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1995"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022XfP8FH/xPB\u002BgChg27v6k09KrSyaAsLjoq5iqvAWvBY0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/FillBlanks.qpo7u41f1n.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\FillBlanks.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qpo7u41f1n"},{"Name":"integrity","Value":"sha256-3rZClv9Q7SBr1i8XGK8Hlie6g2ZIu/iSgJP1KAbZ4Ww="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/FillBlanks.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1760"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223rZClv9Q7SBr1i8XGK8Hlie6g2ZIu/iSgJP1KAbZ4Ww=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/KelimeBulmaca.drqag5cxsj.js">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/KelimeBulmaca.gu8cbib6j8.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"drqag5cxsj"},{"Name":"integrity","Value":"sha256-Bxa2\u002Bq7DwP\u002BmFSC9PzIPt/KiYaDXzPBps\u002B\u002BM\u002BoeL\u002Bfg="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/KelimeBulmaca.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1428"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Bxa2\u002Bq7DwP\u002BmFSC9PzIPt/KiYaDXzPBps\u002B\u002BM\u002BoeL\u002Bfg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gu8cbib6j8"},{"Name":"integrity","Value":"sha256-yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/KelimeBulmaca.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1450"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/KelimeBulmaca.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Bxa2\u002Bq7DwP\u002BmFSC9PzIPt/KiYaDXzPBps\u002B\u002BM\u002BoeL\u002Bfg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1428"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Bxa2\u002Bq7DwP\u002BmFSC9PzIPt/KiYaDXzPBps\u002B\u002BM\u002BoeL\u002Bfg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1450"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/VisualPrompt.99t78rktla.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"99t78rktla"},{"Name":"integrity","Value":"sha256-I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/VisualPrompt.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1600"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/VisualPrompt.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-PG9MG9lJGT\u002BcBnBV6Tpoh/buExzxvWDPOfnROvQ9gW8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1380"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022PG9MG9lJGT\u002BcBnBV6Tpoh/buExzxvWDPOfnROvQ9gW8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/VisualPrompt.o7vf9fstrd.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"o7vf9fstrd"},{"Name":"integrity","Value":"sha256-PG9MG9lJGT\u002BcBnBV6Tpoh/buExzxvWDPOfnROvQ9gW8="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/VisualPrompt.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1380"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022PG9MG9lJGT\u002BcBnBV6Tpoh/buExzxvWDPOfnROvQ9gW8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 19:18:15 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1600"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 22:20:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/site.fr7q2aak1r.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
@@ -20244,53 +20244,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl\u002BTQua2uEU="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"128606"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl\u002BTQua2uEU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 30 May 2025 18:12:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.46lb4fk5w5.jpg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.jpg'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"46lb4fk5w5"},{"Name":"integrity","Value":"sha256-FCAZ\u002Bk7Jgh/ZQxfaxCIAMNxXuVyZ6ZyWdw9KcgTwzZM="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.jpg"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"476307"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022FCAZ\u002Bk7Jgh/ZQxfaxCIAMNxXuVyZ6ZyWdw9KcgTwzZM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.dowetz06ul.png">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.7l0lay7qmi.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"dowetz06ul"},{"Name":"integrity","Value":"sha256-EzryA/uJKNabS/M8BF4gBV2\u002BWowCtPUiqTNoZMY3rP8="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"618001"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022EzryA/uJKNabS/M8BF4gBV2\u002BWowCtPUiqTNoZMY3rP8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.jpg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.jpg'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FCAZ\u002Bk7Jgh/ZQxfaxCIAMNxXuVyZ6ZyWdw9KcgTwzZM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"476307"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022FCAZ\u002Bk7Jgh/ZQxfaxCIAMNxXuVyZ6ZyWdw9KcgTwzZM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7l0lay7qmi"},{"Name":"integrity","Value":"sha256-xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"744724"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:59:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-EzryA/uJKNabS/M8BF4gBV2\u002BWowCtPUiqTNoZMY3rP8="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"618001"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022EzryA/uJKNabS/M8BF4gBV2\u002BWowCtPUiqTNoZMY3rP8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login2.c6b9mg0w6a.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login2.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"c6b9mg0w6a"},{"Name":"integrity","Value":"sha256-LEkFjJYmoLe6hl4wqlYh7X0c6jcb\u002BT\u002Bx6leYFTWjoms="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login2.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"540042"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022LEkFjJYmoLe6hl4wqlYh7X0c6jcb\u002BT\u002Bx6leYFTWjoms=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login2.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login2.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-LEkFjJYmoLe6hl4wqlYh7X0c6jcb\u002BT\u002Bx6leYFTWjoms="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"540042"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022LEkFjJYmoLe6hl4wqlYh7X0c6jcb\u002BT\u002Bx6leYFTWjoms=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login3.h4xe1cwhhe.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login3.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"h4xe1cwhhe"},{"Name":"integrity","Value":"sha256-z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login3.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"546328"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/login3.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login3.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"546328"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"744724"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:59:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/logo_v2.mandruyidz.svg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\logo_v2.svg'))</AssetFile>
@@ -20388,41 +20352,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-VH4oDFxVeDCYbuff4e38HM4DDJqoJ4qXK5FUpmVxQkk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"324546"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022VH4oDFxVeDCYbuff4e38HM4DDJqoJ4qXK5FUpmVxQkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 29 Dec 2024 17:02:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register.j999716lyr.png">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register.h4xe1cwhhe.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"j999716lyr"},{"Name":"integrity","Value":"sha256-J0L4WQPBfAQG9bF8U600fZa07h\u002B04aB5VUS8JGdemSc="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"751907"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022J0L4WQPBfAQG9bF8U600fZa07h\u002B04aB5VUS8JGdemSc=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"h4xe1cwhhe"},{"Name":"integrity","Value":"sha256-z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"546328"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:59:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-J0L4WQPBfAQG9bF8U600fZa07h\u002B04aB5VUS8JGdemSc="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"751907"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022J0L4WQPBfAQG9bF8U600fZa07h\u002B04aB5VUS8JGdemSc=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register2.mf5vuenqdo.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register2.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mf5vuenqdo"},{"Name":"integrity","Value":"sha256-QvPVuH9rAi9iIP5iSs2xU4EYXUU4Ar4Wy2DeJDUrOMY="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register2.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"766245"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022QvPVuH9rAi9iIP5iSs2xU4EYXUU4Ar4Wy2DeJDUrOMY=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register2.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register2.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-QvPVuH9rAi9iIP5iSs2xU4EYXUU4Ar4Wy2DeJDUrOMY="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"766245"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022QvPVuH9rAi9iIP5iSs2xU4EYXUU4Ar4Wy2DeJDUrOMY=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register3.7l0lay7qmi.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register3.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7l0lay7qmi"},{"Name":"integrity","Value":"sha256-xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE="},{"Name":"label","Value":"_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register3.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"744724"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/register3.png">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register3.png'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"744724"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022xQct94U8hGC\u002BpcF2Yvm7fy1\u002BE9vMyoMPHs6t1efOGZE=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:18:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"546328"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022z89\u002BaS1CWdDLG7/4L\u002BSW4OiYNy69XVGP66HiYs3frPg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 21:59:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/theme/web_UI/assets/img/home_5/team_member_1.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\team_member_1.jpg'))</AssetFile>

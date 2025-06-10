@@ -6749,10 +6749,6 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/kelimedya-logo.png"
     },
     {
-      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login.jpg",
-      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login.jpg"
-    },
-    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login.png",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login.png"
     },

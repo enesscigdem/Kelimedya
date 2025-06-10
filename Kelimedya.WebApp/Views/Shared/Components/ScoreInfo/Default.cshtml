@@ -1,5 +1,460 @@
 @model Kelimedya.WebApp.Models.ScoreInfoViewModel
-<li class="nav-item d-flex align-items-center me-3" id="scoreInfo">
-    <span class="badge bg-yellow-lt me-2"><i class="ti ti-trophy me-1"></i><span id="leagueLabel">@Model.League</span></span>
-    <span class="badge bg-blue-lt"><span id="scorePoints">@Model.TotalScore</span></span>
+
+<li style="flex-direction: inherit;" class="nav-item d-flex align-items-center" id="scoreInfo">
+  <!-- Lig Göstergesi -->
+  <span class="league-display-container @GetLeagueCssClass(Model.League)">
+    <span class="league-icon">
+      <i class="@GetLeagueIcon(Model.League)"></i>
+    </span>
+    <span id="leagueLabel" class="league-text">@Model.League</span>
+  </span>
+
+  <!-- Puan Göstergesi -->
+  <span class="score-display-container">
+    <span class="score-icon">
+  <i class="fa-solid fa-award"></i>
+    </span>
+    <span id="scorePoints" class="score-text">@Model.TotalScore</span>
+  </span>
 </li>
+
+<!-- Tam Ekran Kutlama Animasyonu -->
+<div id="leaguePromotion" class="promotion-overlay" style="display:none;">
+  <div class="promotion-background"></div>
+  <canvas id="confettiCanvas"></canvas>
+  <div class="promotion-content">
+    <div class="promotion-icon">
+      <i class="fa-solid fa-trophy"></i>
+      <div class="trophy-sparkles"></div>
+    </div>
+    <h2 class="promotion-title">TEBRİKLER!</h2>
+    <p class="promotion-message">
+      Lig atladınız: <span id="newLeague" class="league-display"></span>
+    </p>
+    <div class="stars"></div><div class="stars"></div><div class="stars"></div>
+    <button class="btn-close-promotion">Devam Et</button>
+  </div>
+</div>
+
+<style>
+/* -- Lig/Puan Kutucuğu -- */
+.league-display-container,
+.score-display-container {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-right: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.league-display-container::after,
+.score-display-container::after {
+  content: '';
+  position: absolute; top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.3) 0%,
+    rgba(255,255,255,0)    50%,
+    rgba(255,255,255,0.3) 100%
+  );
+  transform: rotate(30deg);
+}
+.league-display-container:hover,
+.score-display-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.league-icon, .score-icon {
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 0.5rem; font-size: 1.2rem;
+}
+.score-icon { color: #ffc107; text-shadow: 0 2px 4px rgba(255,193,7,0.3); }
+
+/* Lig Renkleri */
+.league-display-container.Bronz {
+  background: linear-gradient(135deg,#f8f0e6,#e8d8c8);
+  border:2px solid #cd7f32; color:#a05a28;
+}
+.league-display-container.Gümüş {
+  background: linear-gradient(135deg,#f5f5f5,#e5e5e5);
+  border:2px solid #c0c0c0; color:#555;
+}
+.league-display-container.Altın {
+  background: linear-gradient(135deg,#fffae6,#ffecc6);
+  border:2px solid #ffd700; color:#b8860b;
+}
+
+/* -- Kutlama Overlay -- */
+.promotion-overlay {
+  position:fixed; inset:0;
+  background:rgba(0,0,0,0.8);
+  display:flex; justify-content:center; align-items:center;
+  z-index:9999; overflow:hidden;
+}
+.promotion-background {
+  position:absolute; inset:0;
+  background:radial-gradient(circle at center,rgba(0,0,0,0.8),rgba(0,0,0,0.9));
+  animation:fadeIn 0.8s ease-out forwards;
+}
+.promotion-content {
+  position:relative; z-index:10;
+  width:90%; max-width:600px;
+  background:rgba(255,255,255,0.95);
+  padding:3rem; border-radius:20px;
+  text-align:center; box-shadow:0 25px 50px rgba(0,0,0,0.5);
+  animation:zoomIn 0.8s cubic-bezier(.175,.885,.32,1.4) forwards;
+  overflow:hidden; transform-style:preserve-3d;
+}
+.promotion-icon {
+  font-size:6rem; margin-bottom:1.5rem;
+  position:relative; display:inline-block;
+  animation:float 3s ease-in-out infinite, glow 2s infinite alternate;
+}
+.trophy-sparkles {
+  position:absolute; inset:-15px;
+  background:radial-gradient(circle,rgba(255,255,255,0.8),transparent 70%);
+  border-radius:50%; animation:sparkle 1.5s infinite; z-index:-1;
+}
+.promotion-title {
+  font-size:3rem; margin-bottom:1rem; font-weight:800;
+  color:#2c3e50; text-shadow:0 2px 10px rgba(0,0,0,0.1);
+  animation:textGlow 3s infinite alternate;
+}
+.promotion-message {
+  font-size:1.8rem; color:#7f8c8d; margin-bottom:2rem;
+  animation:fadeInUp 1s ease-out;
+}
+.league-display {
+  display:inline-block; margin:0.5rem 0; padding:0.5rem 1.5rem;
+  border-radius:30px; font-weight:bold;
+  animation:scalePulse 2s infinite,colorShift 4s infinite;
+}
+.league-display.Bronz {
+  background:linear-gradient(135deg,#cd7f32,#e0a14b);
+  color:#fff; box-shadow:0 10px 25px rgba(205,127,50,0.5);
+}
+.league-display.Gümüş {
+  background:linear-gradient(135deg,#c0c0c0,#e0e0e0);
+  color:#555; box-shadow:0 10px 25px rgba(192,192,192,0.5);
+}
+.league-display.Altın {
+  background:linear-gradient(135deg,#ffd700,#fff380);
+  color:#a67c00; box-shadow:0 10px 25px rgba(255,215,0,0.5);
+}
+.btn-close-promotion {
+  background:linear-gradient(135deg,#4d90fe,#4788ed);
+  color:#fff; border:none; padding:1rem 2.5rem; border-radius:50px;
+  font-size:1.2rem; cursor:pointer; margin-top:2rem;
+  box-shadow:0 5px 20px rgba(77,144,254,0.4);
+  position:relative; overflow:hidden; transition:transform .3s,box-shadow .3s;
+}
+.btn-close-promotion:hover {
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 10px 30px rgba(77,144,254,0.6);
+}
+.btn-close-promotion:active { transform:translateY(1px); }
+.btn-close-promotion::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);
+  animation:buttonShine 3s infinite;
+}
+.stars {
+  position:absolute; background:#fff; border-radius:50%;
+  animation:twinkle var(--duration) infinite ease-in-out; opacity:0;
+}
+#confettiCanvas {
+  position:fixed; inset:0; pointer-events:none; z-index:5;
+}
+
+/* -- Animasyonlar -- */
+@@keyframes fadeIn    { from{opacity:0} to{opacity:1} }
+@@keyframes zoomIn    { from{transform:scale(.5) translateY(100px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+@@keyframes float     {0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+@@keyframes glow      {0%{filter:drop-shadow(0 0 5px rgba(255,215,0,.3))}100%{filter:drop-shadow(0 0 20px rgba(255,215,0,.7))}}
+@@keyframes sparkle   {0%{transform:scale(.8);opacity:.6}50%{transform:scale(1.2);opacity:.9}100%{transform:scale(.8);opacity:.6}}
+@@keyframes textGlow  {0%{text-shadow:0 0 10px rgba(255,215,0,.3)}50%{text-shadow:0 0 30px rgba(255,215,0,.7),0 0 20px rgba(255,255,255,.5)}100%{text-shadow:0 0 10px rgba(255,215,0,.3)}}
+@@keyframes scalePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@@keyframes colorShift{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(10deg)}}
+@@keyframes fadeInUp  {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@@keyframes buttonShine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+@@keyframes twinkle   {0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+</style>
+
+<script>
+    // Global değişkenler
+    let currentLeague = '@Model.League';
+    let currentScore = @Model.TotalScore;
+    let confettiAnimation = null;
+    let starsAnimation = null;
+
+    // Puan güncelleme fonksiyonu
+  window.updateScoreDisplay = function(newScore) {
+    const scoreEl    = document.getElementById('scorePoints');
+    const leagueEl   = document.getElementById('leagueLabel');
+    // Eskiden `.league-badge` arıyorduk, şimdi konteyner:
+    const container  = document.querySelector('.league-display-container');
+  
+    if (!scoreEl || !leagueEl || !container) return;
+  
+    // Yeni ligi hesapla
+    let newLeague = newScore >= 6000 ? 'Altın'
+                  : newScore >= 2500 ? 'Gümüş'
+                  : 'Bronz';
+  
+    // Puanı güncelle
+    scoreEl.textContent = newScore;
+  
+    // Lig değiştiyse
+    if (newLeague !== currentLeague) {
+      // Yazıyı güncelle
+      leagueEl.textContent = newLeague;
+      // CSS sınıfını güncelle
+      container.className = `league-display-container ${newLeague}`;
+      // İkonu güncelle
+      const icon = container.querySelector('.league-icon i');
+      icon.className = getLeagueIcon(newLeague);
+  
+      // Kutlama animasyonunu tetikle
+      showPromotionAnimation(currentLeague, newLeague);
+      currentLeague = newLeague;
+    }
+  };
+
+    
+    // Konfeti sistemi
+    class ConfettiSystem {
+        constructor(canvas) {
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+            this.particles = [];
+            this.particleCount = 200;
+            this.colors = [
+                '#FF5252', '#FF4081', '#E040FB', '#7C4DFF', '#536DFE',
+                '#448AFF', '#40C4FF', '#18FFFF', '#64FFDA', '#69F0AE',
+                '#B2FF59', '#EEFF41', '#FFFF00', '#FFD740', '#FFAB40'
+            ];
+            this.shapes = ['circle', 'rect', 'triangle', 'star'];
+            this.resize();
+            window.addEventListener('resize', this.resize.bind(this));
+        }
+        
+        resize() {
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+        }
+        
+        createParticles() {
+            for (let i = 0; i < this.particleCount; i++) {
+                this.particles.push({
+                    x: Math.random() * this.canvas.width,
+                    y: Math.random() * this.canvas.height - this.canvas.height,
+                    size: Math.random() * 12 + 5,
+                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                    speed: Math.random() * 4 + 2,
+                    angle: Math.random() * Math.PI * 2,
+                    rotation: Math.random() * 0.2 - 0.1,
+                    rotationSpeed: Math.random() * 0.02 - 0.01,
+                    shape: this.shapes[Math.floor(Math.random() * this.shapes.length)],
+                    alpha: 0.9,
+                    wind: Math.random() * 0.5 - 0.25
+                });
+            }
+        }
+        
+        updateParticles() {
+            for (let i = 0; i < this.particles.length; i++) {
+                const p = this.particles[i];
+                p.y += p.speed;
+                p.x += Math.sin(p.angle) * 1 + p.wind;
+                p.angle += p.rotationSpeed;
+                
+                if (p.y > this.canvas.height) {
+                    p.y = -10;
+                    p.x = Math.random() * this.canvas.width;
+                }
+            }
+        }
+        
+        drawParticles() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            for (let i = 0; i < this.particles.length; i++) {
+                const p = this.particles[i];
+                this.ctx.save();
+                this.ctx.translate(p.x, p.y);
+                this.ctx.rotate(p.angle);
+                this.ctx.globalAlpha = p.alpha;
+                this.ctx.fillStyle = p.color;
+                
+                switch(p.shape) {
+                    case 'circle':
+                        this.ctx.beginPath();
+                        this.ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                        this.ctx.fill();
+                        break;
+                    case 'rect':
+                        this.ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                        break;
+                    case 'triangle':
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(0, -p.size / 2);
+                        this.ctx.lineTo(p.size / 2, p.size / 2);
+                        this.ctx.lineTo(-p.size / 2, p.size / 2);
+                        this.ctx.closePath();
+                        this.ctx.fill();
+                        break;
+                    case 'star':
+                        this.drawStar(0, 0, 5, p.size / 2, p.size / 4);
+                        this.ctx.fill();
+                        break;
+                }
+                
+                this.ctx.restore();
+            }
+        }
+        
+        drawStar(cx, cy, spikes, outerRadius, innerRadius) {
+            let rot = Math.PI / 2 * 3;
+            let x = cx;
+            let y = cy;
+            let step = Math.PI / spikes;
+
+            this.ctx.beginPath();
+            this.ctx.moveTo(cx, cy - outerRadius);
+            
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                this.ctx.lineTo(x, y);
+                rot += step;
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                this.ctx.lineTo(x, y);
+                rot += step;
+            }
+            
+            this.ctx.lineTo(cx, cy - outerRadius);
+            this.ctx.closePath();
+        }
+        
+        animate() {
+            this.updateParticles();
+            this.drawParticles();
+            this.animationId = requestAnimationFrame(this.animate.bind(this));
+        }
+        
+        start() {
+            this.createParticles();
+            this.animate();
+        }
+        
+        stop() {
+            cancelAnimationFrame(this.animationId);
+            this.particles = [];
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+    }
+
+    // Yıldız animasyonu
+    function createStars() {
+        const container = document.querySelector('.promotion-content');
+        const stars = container.querySelectorAll('.stars');
+        
+        stars.forEach((star, index) => {
+            // Rastgele konum ve boyut
+            const size = Math.random() * 10 + 5;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${posX}%`;
+            star.style.top = `${posY}%`;
+            star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+            star.style.animationDelay = `${index * 0.5}s`;
+            
+            // Rastgele renk
+            const hue = Math.random() * 60 + 30; // Sarı tonları
+            star.style.backgroundColor = `hsl(${hue}, 100%, 80%)`;
+        });
+    }
+
+    // Animasyon göster
+    window.showPromotionAnimation = function(oldLeague, newLeague) {
+        const overlay = document.getElementById('leaguePromotion');
+        const newLeagueEl = document.getElementById('newLeague');
+        const icon = document.querySelector('.promotion-icon i');
+        const canvas = document.getElementById('confettiCanvas');
+        
+        if (!overlay) return;
+        
+        // İçeriği güncelle
+        newLeagueEl.textContent = newLeague;
+        newLeagueEl.className = `league-display ${newLeague}`;
+        icon.className = `ti ti-trophy-filled ${newLeague}`;
+        
+        // Göster
+        overlay.style.display = 'flex';
+        
+        // Animasyonları başlat
+        createStars();
+        confettiAnimation = new ConfettiSystem(canvas);
+        confettiAnimation.start();
+        
+        // Kapatma butonu
+        const closeBtn = document.querySelector('.btn-close-promotion');
+        closeBtn.onclick = () => {
+            overlay.style.display = 'none';
+            confettiAnimation.stop();
+        };
+        
+        // 10 saniye sonra otomatik kapat
+        setTimeout(() => {
+            if (overlay.style.display !== 'none') {
+                overlay.style.display = 'none';
+                confettiAnimation.stop();
+            }
+        }, 10000);
+    };
+
+    // Yardımcı fonksiyon
+function getLeagueIcon(league) {
+    switch (league) {
+        case 'Bronz':
+            return 'fa-solid fa-medal';     // Bronz madalya
+        case 'Gümüş':
+            return 'fa-solid fa-medal';     // Aynı medal icon’u, CSS ile gümüş rengi ver
+        case 'Altın':
+            return 'fa-solid fa-trophy';    // Kupa ikonu
+        default:
+            return 'fa-solid fa-medal';
+    }
+}
+
+    // Sayfa yüklendiğinde test edebilirsiniz
+    document.addEventListener('DOMContentLoaded', function() {
+        // Test için: showPromotionAnimation('Bronz', 'Altın');
+    });
+</script>
+
+@functions {
+  string GetLeagueCssClass(string league) => league switch {
+    "Bronz" => "Bronz",
+    "Gümüş" => "Gümüş",
+    "Altın" => "Altın",
+    _ => ""
+  };
+  string GetLeagueIcon(string league) => league switch {
+    "Bronz" => "fa-solid fa-medal",
+    "Gümüş" => "fa-solid fa-medal",
+    "Altın" => "fa-solid fa-trophy",
+    _ => "fa-solid fa-medal"
+  };
+}

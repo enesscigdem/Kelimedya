@@ -390,8 +390,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ik0bpkdp9a</Fingerprint>
-      <Integrity>onB2Pwkoo9lkanyD/nIExiUAIsUavF+HYLZ+D0AbW64=</Integrity>
+      <Fingerprint>xmjs7t0wxr</Fingerprint>
+      <Integrity>aU3R5zoRKIocPI2NG5jlC/vRfJrSvfn2mBFxEfdGGEI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</OriginalItemSpec>

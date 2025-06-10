@@ -61,20 +61,24 @@ namespace Kelimedya.WebAPI.Controllers
 
             var gameStats = await _context.Games
                 .Where(g => !g.IsDeleted)
+                .GroupJoin(
+                    _context.StudentGameStatistics.Where(s => s.StudentId == studentId),
+                    game => game.Id,
+                    stat => stat.GameId,
+                    (game, stats) => new { Game = game, Stats = stats }
+                )
                 .Select(g => new GameStatSummaryDto
                 {
-                    GameId = g.Id,
-                    GameTitle = g.Title,
-                    PlayCount = _context.StudentGameStatistics
-                        .Count(s => s.StudentId == studentId && s.GameId == g.Id),
-                    AverageScore = _context.StudentGameStatistics
-                        .Where(s => s.StudentId == studentId && s.GameId == g.Id)
-                        .Select(s => (double?)s.Score)
-                        .DefaultIfEmpty(0)
-                        .Average() ?? 0
+                    GameId = g.Game.Id,
+                    GameTitle = g.Game.Title,
+                    PlayCount = g.Stats.Count(),
+                    AverageScore = g.Stats.Any() ? g.Stats.Average(s => s.Score) : 0
                 })
                 .ToListAsync();
 
+            // Ensure gameStats is not null
+            gameStats ??= new List<GameStatSummaryDto>();
+            
             var dashboardDto = new StudentDashboardDto
             {
                 TotalCourses = totalCourses,

@@ -113,21 +113,21 @@
                 </tr>
             </thead>
             <tbody>
-                @if(Model.GameStats != null && Model.GameStats.Any())
-                {
-                    foreach (var gs in Model.GameStats)
-                    {
-                        <tr>
-                            <td>@gs.GameTitle</td>
-                            <td>@gs.PlayCount</td>
-                            <td>@string.Format("{0:0.##}", gs.AverageScore)</td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <tr><td colspan="3">Henüz oyun verisi bulunmamaktadır.</td></tr>
-                }
+               @if (Model.GameStats != null && Model.GameStats.Any())
+               {
+                   foreach (var gs in Model.GameStats)
+                   {
+                       <tr>
+                           <td>@gs.GameTitle</td>
+                           <td>@gs.PlayCount</td>
+                           <td>@string.Format("{0:0.##}", gs.AverageScore)</td>
+                       </tr>
+                   }
+               }
+               else
+               {
+                   <tr><td colspan="3">Henüz oyun verisi bulunmamaktadır.</td></tr>
+               }
             </tbody>
         </table>
     </div>

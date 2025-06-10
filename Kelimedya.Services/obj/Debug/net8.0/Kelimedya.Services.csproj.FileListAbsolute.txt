@@ -27,12 +27,6 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Kelimedya.Services.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Kelimedya.Core.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Kelimedya.Persistence.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Microsoft.Extensions.Http.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Kelimedya.Core.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/bin/Debug/net8.0/Kelimedya.Persistence.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/obj/Debug/net8.0/Kelimedya.Services.csproj.AssemblyReference.cache

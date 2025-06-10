@@ -108,7 +108,15 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 return NotFound();
 
             var games = await _httpClient.GetFromJsonAsync<List<GameViewModel>>("api/games");
-            var questions = await _httpClient.GetFromJsonAsync<List<GameQuestionViewModel>>($"api/wordcards/{id}/questions");
+            List<GameQuestionViewModel>? questions = null;
+            try
+            {
+                questions = await _httpClient.GetFromJsonAsync<List<GameQuestionViewModel>>($"api/wordcards/{id}/questions");
+            }
+            catch (HttpRequestException)
+            {
+                questions = new List<GameQuestionViewModel>();
+            }
 
             card.GameQuestions = games?.Select(g =>
             {

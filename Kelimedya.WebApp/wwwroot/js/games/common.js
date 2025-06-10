@@ -2,7 +2,7 @@ export async function fetchLearnedWords(studentId){
   const res = await fetch(`/api/progress/wordcards/learned/${studentId}`);
   if(!res.ok) return [];
   const data = await res.json();
-  return data.map(x => x.wordCard);
+  return data.map(x => ({...x.wordCard, gameQuestions: x.gameQuestions}));
 }
 
 export async function recordGameStat(stat){

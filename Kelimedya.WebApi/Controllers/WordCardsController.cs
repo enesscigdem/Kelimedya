@@ -73,6 +73,45 @@ namespace Kelimedya.WebAPI.Controllers
 
             _context.WordCards.Add(card);
             await _context.SaveChangesAsync();
+
+            if (dto.GameQuestions != null && dto.GameQuestions.Any())
+            {
+                foreach (var q in dto.GameQuestions)
+                {
+                    _context.WordCardGameQuestions.Add(new WordCardGameQuestion
+                    {
+                        WordCardId = card.Id,
+                        GameId = q.GameId,
+                        QuestionText = q.QuestionText,
+                        AnswerText = q.AnswerText,
+                        ImageUrl = q.ImageUrl,
+                        IsActive = true,
+                        IsDeleted = false,
+                        CreatedAt = DateTime.UtcNow,
+                        ModifiedAt = DateTime.UtcNow
+                    });
+                }
+            }
+            else
+            {
+                var gameIds = await _context.Games.Where(g => !g.IsDeleted).Select(g => g.Id).ToListAsync();
+                foreach (var gid in gameIds)
+                {
+                    _context.WordCardGameQuestions.Add(new WordCardGameQuestion
+                    {
+                        WordCardId = card.Id,
+                        GameId = gid,
+                        QuestionText = string.Empty,
+                        AnswerText = card.Word,
+                        IsActive = true,
+                        IsDeleted = false,
+                        CreatedAt = DateTime.UtcNow,
+                        ModifiedAt = DateTime.UtcNow
+                    });
+                }
+            }
+
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetWordCard), new { id = card.Id }, card);
         }
 
@@ -102,6 +141,48 @@ namespace Kelimedya.WebAPI.Controllers
             _context.Entry(card).State = EntityState.Modified;
             try
             {
+                await _context.SaveChangesAsync();
+
+                var existing = _context.WordCardGameQuestions.Where(q => q.WordCardId == id);
+                _context.WordCardGameQuestions.RemoveRange(existing);
+
+                if (dto.GameQuestions != null && dto.GameQuestions.Any())
+                {
+                    foreach (var q in dto.GameQuestions)
+                    {
+                        _context.WordCardGameQuestions.Add(new WordCardGameQuestion
+                        {
+                            WordCardId = id,
+                            GameId = q.GameId,
+                            QuestionText = q.QuestionText,
+                            AnswerText = q.AnswerText,
+                            ImageUrl = q.ImageUrl,
+                            IsActive = true,
+                            IsDeleted = false,
+                            CreatedAt = DateTime.UtcNow,
+                            ModifiedAt = DateTime.UtcNow
+                        });
+                    }
+                }
+                else
+                {
+                    var gameIds = await _context.Games.Where(g => !g.IsDeleted).Select(g => g.Id).ToListAsync();
+                    foreach (var gid in gameIds)
+                    {
+                        _context.WordCardGameQuestions.Add(new WordCardGameQuestion
+                        {
+                            WordCardId = id,
+                            GameId = gid,
+                            QuestionText = string.Empty,
+                            AnswerText = card.Word,
+                            IsActive = true,
+                            IsDeleted = false,
+                            CreatedAt = DateTime.UtcNow,
+                            ModifiedAt = DateTime.UtcNow
+                        });
+                    }
+                }
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

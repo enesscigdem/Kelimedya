@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Kelimedya.WebAPI.Models
 {
@@ -23,5 +24,7 @@ namespace Kelimedya.WebAPI.Models
         public string? ExampleSentence { get; set; }
         
         public IFormFile? ImageFile { get; set; }
+
+        public List<GameQuestionDto>? GameQuestions { get; set; }
     }
 }

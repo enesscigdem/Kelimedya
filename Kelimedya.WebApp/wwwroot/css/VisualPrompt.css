@@ -51,6 +51,13 @@
     box-shadow: 0 4px 12px var(--vp-shadow);
 }
 
+.vp-question {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    color: var(--vp-text);
+}
+
 .vp-controls {
     display: flex;
     flex-wrap: wrap;

@@ -6,7 +6,7 @@
 }
 <link href="~/css/CrossPuzzle.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="cp-header">
       <h1>Çengel Bulmaca</h1>
@@ -43,7 +43,7 @@
 @section Scripts {
     <script type="module">
         import {initCrossPuzzle} from '@Url.Content("~/js/games/CrossPuzzle.js")';
-        const sid=document.getElementById('gameRoot').dataset.studentId;
-        initCrossPuzzle(sid);
+        const r=document.getElementById('gameRoot');
+        initCrossPuzzle(r.dataset.studentId, r.dataset.gameId);
     </script>
 }

@@ -22,18 +22,27 @@ function renderCard(){
   start=Date.now();
 }
 
-function check(studentId){
+function check(studentId, gameId){
   let all=true;items[idx].answers.forEach((a,i)=>{const inp=document.querySelector(`.fb-input[data-index="${i}"]`);if(inp.value.trim().toLowerCase()===a){inp.classList.add('correct');}else{inp.classList.add('wrong');all=false;}});
   document.getElementById('fbFeedback').textContent=all?'Doğru!':'Yanlış';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId,gameId:4,score:all?1:0,durationSeconds:duration});
+  recordGameStat({studentId,gameId,score:all?1:0,durationSeconds:duration});
+  if(all) items.splice(idx,1);
 }
 
-export async function initFillBlanks(studentId){
+function reveal(){
+  items[idx].answers.forEach((a,i)=>{
+    const inp=document.querySelector(`.fb-input[data-index="${i}"]`);
+    if(inp) inp.value=a;
+  });
+}
+
+export async function initFillBlanks(studentId, gameId){
   const words=await fetchLearnedWords(studentId);
   items=createItems(words);
   if(items.length===0) items=[{parts:['___ örnek cümle'],answers:['örnek']}];
-  document.getElementById('fbCheck').onclick=()=>check(studentId);
+  document.getElementById('fbCheck').onclick=()=>check(studentId, gameId);
   document.getElementById('fbNext').onclick=()=>{idx=(idx+1)%items.length;renderCard();};
+  document.getElementById('fbReveal').onclick=reveal;
   renderCard();
 }

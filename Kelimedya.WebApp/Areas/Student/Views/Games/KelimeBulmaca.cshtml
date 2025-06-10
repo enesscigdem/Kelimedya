@@ -7,7 +7,7 @@
 
 <link href="~/css/KelimeBulmaca.css" rel="stylesheet"/>
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="kelime-header">
             Kelime Bulmaca Oyunu
@@ -32,7 +32,7 @@
 @section Scripts {
     <script type="module">
         import {initWordQuiz} from '@Url.Content("~/js/games/KelimeBulmaca.js")';
-        const sid=document.getElementById('gameRoot').dataset.studentId;
-        initWordQuiz(sid);
+        const root=document.getElementById('gameRoot');
+        initWordQuiz(root.dataset.studentId, root.dataset.gameId);
     </script>
 }

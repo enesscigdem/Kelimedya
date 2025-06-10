@@ -9,6 +9,7 @@ namespace Kelimedya.WebAPI.Models
         public int LearnedWords { get; set; }
         public List<CourseProgressDto> CourseProgresses { get; set; } = new List<CourseProgressDto>();
         public List<LessonProgressDto> LessonProgresses { get; set; } = new List<LessonProgressDto>();
+        public List<GameStatSummaryDto> GameStats { get; set; } = new List<GameStatSummaryDto>();
     }
 
     public class CourseProgressDto

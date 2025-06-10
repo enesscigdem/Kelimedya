@@ -6,7 +6,7 @@
 }
 <link href="~/css/BubbleLetters.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="bl-header">
       <h1>Kabarcık Harfler</h1>
@@ -56,7 +56,7 @@
 @section Scripts {
   <script type="module">
     import {initBubbleLetters} from '@Url.Content("~/js/games/BubbleLetters.js")';
-    const sid=document.getElementById('gameRoot').dataset.studentId;
-    initBubbleLetters(sid);
+    const root=document.getElementById('gameRoot');
+    initBubbleLetters(root.dataset.studentId, root.dataset.gameId);
   </script>
 }

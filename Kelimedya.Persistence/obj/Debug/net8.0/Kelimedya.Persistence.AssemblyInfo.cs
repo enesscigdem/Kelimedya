@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e93d94fb393fc9330a9fcebe20420b46b348ae46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+826165d854deec8a4c82bcfd507b2fa5121bd338")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,12 +1,12 @@
-﻿@{
+﻿@using System.Security.Claims
+@{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Adam Asmaca - Fullscreen";
+    var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 
 <link href="~/css/AdamAsmaca.css" rel="stylesheet"/>
 
-@using System.Security.Claims
-var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 <div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="asmaca-header">

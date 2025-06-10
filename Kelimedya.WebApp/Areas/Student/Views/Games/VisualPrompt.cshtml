@@ -1,11 +1,11 @@
-﻿@{
+﻿@using System.Security.Claims
+@{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Görselden Soru Oyunu";
+    var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 <link href="~/css/VisualPrompt.css" rel="stylesheet" />
 
-@using System.Security.Claims
-var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 <div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="vp-header">

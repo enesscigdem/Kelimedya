@@ -1,0 +1,47 @@
+@model Kelimedya.WebApp.Areas.Admin.Models.GameViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Yeni Oyun";
+}
+
+<div class="page-header d-print-none">
+    <div class="container-xl">
+        <h2 class="page-title">Yeni Oyun Ekle</h2>
+    </div>
+</div>
+
+<div class="page-body pt-2">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-action="Create">
+                    <div class="mb-3">
+                        <label class="form-label">Oyun Adı</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Türü</label>
+                        <input asp-for="GameType" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Zorluk</label>
+                        <input asp-for="Difficulty" class="form-control" />
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input asp-for="IsActive" class="form-check-input" />
+                        <label class="form-check-label" asp-for="IsActive">Aktif</label>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a asp-action="Index" class="btn btn-link link-secondary">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

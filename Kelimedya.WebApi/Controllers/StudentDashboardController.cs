@@ -59,13 +59,30 @@ namespace Kelimedya.WebAPI.Controllers
                 })
                 .ToList();
 
+            var gameStats = await _context.Games
+                .Where(g => !g.IsDeleted)
+                .Select(g => new GameStatSummaryDto
+                {
+                    GameId = g.Id,
+                    GameTitle = g.Title,
+                    PlayCount = _context.StudentGameStatistics
+                        .Count(s => s.StudentId == studentId && s.GameId == g.Id),
+                    AverageScore = _context.StudentGameStatistics
+                        .Where(s => s.StudentId == studentId && s.GameId == g.Id)
+                        .Select(s => (double?)s.Score)
+                        .DefaultIfEmpty(0)
+                        .Average() ?? 0
+                })
+                .ToListAsync();
+
             var dashboardDto = new StudentDashboardDto
             {
                 TotalCourses = totalCourses,
                 CompletedLessons = completedLessons,
                 LearnedWords = learnedWords,
                 CourseProgresses = courseProgresses,
-                LessonProgresses = lessonProgressList
+                LessonProgresses = lessonProgressList,
+                GameStats = gameStats
             };
 
             return Ok(dashboardDto);

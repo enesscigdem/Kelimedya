@@ -1,6 +1,6 @@
 import {fetchLearnedWords, recordGameStat} from './common.js';
 
-let word = '', guessed = new Set(), wrong = 0, startTime;
+let word = '', guessed = new Set(), wrong = 0, startTime, cards=[], idx=0;
 
 function draw(){
   const display = word.split('').map(ch=>guessed.has(ch)?ch:'_').join(' ');
@@ -8,32 +8,47 @@ function draw(){
   document.getElementById('wrongCount').textContent = wrong;
 }
 
-function finish(success, studentId){
+function finish(success, studentId, gameId){
   const duration = (Date.now()-startTime)/1000;
-  recordGameStat({studentId, gameId:1, score: success?1:0, durationSeconds: duration});
+  recordGameStat({studentId, gameId, score: success?1:0, durationSeconds: duration});
 }
 
-export async function initHangman(studentId){
-  const words = await fetchLearnedWords(studentId);
-  word = (words[0]?.word || 'kelime').toLowerCase();
-  guessed.clear();
-  wrong = 0;
-  startTime = Date.now();
-  draw();
-  document.addEventListener('keydown', onKey);
+export async function initHangman(studentId, gameId){
+  cards = await fetchLearnedWords(studentId);
+  if(cards.length===0) cards=[{word:'kelime'}];
+  idx=0;
+  word = cards[idx].word.toLowerCase();
+  setup(studentId, gameId);
 }
 
 function onKey(e){
   if(e.key.length!==1) return;
   const ch = e.key.toLowerCase();
+  handleGuess(ch, document.getElementById('gameRoot').dataset.studentId, document.getElementById('gameRoot').dataset.gameId, null);
+}
+
+function handleGuess(ch, studentId, gameId, btn){
   if(word.includes(ch)) guessed.add(ch); else wrong++;
+  if(btn) btn.disabled=true;
   draw();
   if(word.split('').every(c=>guessed.has(c))){
     document.removeEventListener('keydown', onKey);
-    finish(true, document.getElementById('gameRoot').dataset.studentId);
+    finish(true, studentId, gameId);
+    cards.splice(idx,1); idx=idx%cards.length; startNext(studentId, gameId);
   }
   if(wrong>=6){
     document.removeEventListener('keydown', onKey);
-    finish(false, document.getElementById('gameRoot').dataset.studentId);
+    finish(false, studentId, gameId);
+    startNext(studentId, gameId);
   }
+}
+
+function setup(studentId, gameId){
+  guessed.clear(); wrong=0; startTime=Date.now(); draw();
+  document.addEventListener('keydown', onKey);
+  document.querySelectorAll('.letter-btn').forEach(b=>{b.disabled=false; b.onclick=()=>handleGuess(b.textContent.toLowerCase(), studentId, gameId, b);});
+}
+
+function startNext(studentId, gameId){
+  if(cards.length===0) return; idx=(idx)%cards.length; word=cards[idx].word.toLowerCase(); setup(studentId, gameId);
 }

@@ -45,18 +45,32 @@ function selectLetter(ch,btn){
   btn.disabled=true;
 }
 
-function check(studentId){
+function check(studentId, gameId){
   const guess=filled.join('');
   const correct=guess===answer;
   document.getElementById('blFeedback').textContent = correct ? 'Doğru!' : 'Yanlış';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId, gameId:2, score: correct?1:0, durationSeconds: duration});
+  recordGameStat({studentId, gameId, score: correct?1:0, durationSeconds: duration});
+  if(correct) cards.splice(cardIdx,1);
 }
 
-export async function initBubbleLetters(studentId){
+function clearLetters(){
+  filled = Array(answer.length).fill('');
+  document.querySelectorAll('.bl-letter').forEach(l=>l.textContent='_');
+  document.querySelectorAll('.bubble-btn').forEach(b=>b.disabled=false);
+}
+
+function reveal(){
+  filled = answer.split('');
+  filled.forEach((c,i)=>document.getElementById(`slot${i}`).textContent=c);
+}
+
+export async function initBubbleLetters(studentId, gameId){
   cards = await fetchLearnedWords(studentId);
   if(cards.length===0) cards=[{word:'örnek', synonym:'', definition:'', exampleSentence:''}];
-  document.getElementById('blSubmit').onclick=()=>check(studentId);
+  document.getElementById('blSubmit').onclick=()=>check(studentId, gameId);
   document.getElementById('blNext').onclick=()=>{cardIdx=(cardIdx+1)%cards.length;loadCard();};
+  document.getElementById('blClear').onclick=clearLetters;
+  document.getElementById('blReveal').onclick=reveal;
   loadCard();
 }

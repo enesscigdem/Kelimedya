@@ -6,7 +6,7 @@
 }
 <link href="~/css/VisualPrompt.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="vp-header">
       <div class="kelime-header">Görselden Soru</div>
@@ -38,7 +38,7 @@
 @section Scripts {
   <script type="module">
     import {initVisualPrompt} from '@Url.Content("~/js/games/VisualPrompt.js")';
-    const sid=document.getElementById('gameRoot').dataset.studentId;
-    initVisualPrompt(sid);
+    const root=document.getElementById('gameRoot');
+    initVisualPrompt(root.dataset.studentId, root.dataset.gameId);
   </script>
 }

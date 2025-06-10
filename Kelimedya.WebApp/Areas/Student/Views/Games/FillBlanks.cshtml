@@ -6,7 +6,7 @@
 }
 <link href="~/css/FillBlanks.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <div class="asmaca-header">
       Boşluk Doldurma Oyunu
@@ -30,7 +30,7 @@
 @section Scripts {
 <script type="module">
 import {initFillBlanks} from '@Url.Content("~/js/games/FillBlanks.js")';
-const sid=document.getElementById('gameRoot').dataset.studentId;
-initFillBlanks(sid);
+const root=document.getElementById('gameRoot');
+initFillBlanks(root.dataset.studentId, root.dataset.gameId);
 </script>
 }

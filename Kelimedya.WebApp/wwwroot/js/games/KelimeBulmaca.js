@@ -20,13 +20,16 @@ function load(){
 function select(ans,correct){
   const ok=ans===correct;document.getElementById('questionBox').textContent= ok?'Doğru':'Yanlış';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId:document.getElementById('gameRoot').dataset.studentId,gameId:5,score:ok?1:0,durationSeconds:duration});
+  const gid=document.getElementById('gameRoot').dataset.gameId;
+  recordGameStat({studentId:document.getElementById('gameRoot').dataset.studentId,gameId:gid,score:ok?1:0,durationSeconds:duration});
+  if(ok) cards.splice(idx,1);
+  idx=(idx+1)%cards.length;
+  setTimeout(load,500);
 }
 
-export async function initWordQuiz(studentId){
+export async function initWordQuiz(studentId, gameId){
   cards=await fetchLearnedWords(studentId);
   if(cards.length===0) cards=[{word:'örnek',definition:'örnek tanım'}];
   document.getElementById('kbEndGame').onclick=()=>{window.location=document.getElementById('kbEndGame').dataset.home;};
-  document.getElementById('kbNext').onclick=()=>{idx=(idx+1)%cards.length;load();};
   load();
 }

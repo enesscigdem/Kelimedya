@@ -39,14 +39,19 @@ function buildGrid(){
   });
 }
 
-function check(studentId){
+function check(studentId, gameId){
   let correct=true;document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c=>{if(c.value.toUpperCase()!==c.dataset.answer){correct=false;c.classList.add('wrong');}else c.classList.remove('wrong');});
   document.getElementById('cpFeedback').textContent=correct?'Tebrikler':'Yanlışlıklar var';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId,gameId:3,score:correct?1:0,durationSeconds:duration});
+  recordGameStat({studentId,gameId,score:correct?1:0,durationSeconds:duration});
 }
 
-export function initCrossPuzzle(studentId){
+function reveal(){
+  document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c=>{c.value=c.dataset.answer;});
+}
+
+export function initCrossPuzzle(studentId, gameId){
   buildClues();buildGrid();start=Date.now();
-  document.getElementById('cpCheck').onclick=()=>check(studentId);
+  document.getElementById('cpCheck').onclick=()=>check(studentId, gameId);
+  const btn=document.getElementById('cpReveal'); if(btn) btn.onclick=reveal;
 }

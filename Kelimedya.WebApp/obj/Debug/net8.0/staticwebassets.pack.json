@@ -81,6 +81,34 @@
       "PackagePath": "staticwebassets/js/CustomIziToast.js"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/AdamAsmaca.js",
+      "PackagePath": "staticwebassets/js/games/AdamAsmaca.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/BubbleLetters.js",
+      "PackagePath": "staticwebassets/js/games/BubbleLetters.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/CrossPuzzle.js",
+      "PackagePath": "staticwebassets/js/games/CrossPuzzle.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/FillBlanks.js",
+      "PackagePath": "staticwebassets/js/games/FillBlanks.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/KelimeBulmaca.js",
+      "PackagePath": "staticwebassets/js/games/KelimeBulmaca.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/VisualPrompt.js",
+      "PackagePath": "staticwebassets/js/games/VisualPrompt.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/common.js",
+      "PackagePath": "staticwebassets/js/games/common.js"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
@@ -6501,8 +6529,24 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_img_1.jpg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_img_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_img_1.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_img_2.jpg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_img_2.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_img_2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_img_2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_page_img_1.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_page_img_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_page_img_2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/about_page_img_2.png"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/about_shape_2.svg",
@@ -6593,6 +6637,10 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_img.jpg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_img.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_img.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/contact_shape_1.svg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/contact_shape_1.svg"
     },
@@ -6661,16 +6709,32 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/footer_logo_v2.svg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_1.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_1.jpg"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_1.png",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_1.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_2.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_2.jpg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_2.png",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_2.png"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_3.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_3.jpg"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_3.png",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_3.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_4.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_img_4.jpg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_img_4.png",
@@ -6681,8 +6745,24 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_shape_5.svg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/kelimedya-logo.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/kelimedya-logo.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login.jpg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/login3.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/login3.png"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/logo_v2.svg",
@@ -6715,6 +6795,18 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/post_3.jpg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/post_3.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/register.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/register.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/register2.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/register2.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/register3.png",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/register3.png"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/team_member_1.jpg",

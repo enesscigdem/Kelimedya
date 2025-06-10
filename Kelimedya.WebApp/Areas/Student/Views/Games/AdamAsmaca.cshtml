@@ -5,16 +5,18 @@
 
 <link href="~/css/AdamAsmaca.css" rel="stylesheet"/>
 
-<div class="container-xl" style="margin-top:1rem;">
+@using System.Security.Claims
+var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="asmaca-header">
             Adam Asmaca Oyunu
         </div>
         <div class="game-area">
             
-            <div class="hangman-canvas" id="hangmanCanvas">
-                
-            </div>
+            <div class="hangman-canvas" id="hangmanCanvas"></div>
+            <div id="hangmanWord" class="hangman-word"></div>
+            <div>Hatalar: <span id="wrongCount">0</span></div>
             <div>
                 <div class="letters">
                     
@@ -24,7 +26,7 @@
                     }
                 </div>
                 <div style="margin-top:1rem;">
-                    <button class="simple-btn" onclick="EndGame()">Oyunu Sonlandır</button>
+                    <button id="endGameBtn" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
                 </div>
             </div>
         </div>
@@ -32,15 +34,9 @@
 </div>
 
 @section Scripts {
-    <script>
-        function EndGame() {
-            // Örnek: Yönlendirme ya da popup
-            window.location = '@Url.Action("Index","Games", new {area="Student"})';
-        }
-
-        // Burada AdamAsmaca oyununun JS logic'i, canvas çizimi vb. devreye girebilir
-        document.addEventListener("DOMContentLoaded", function(){
-            // init game...
-        });
+    <script type="module">
+        import {initHangman} from '@Url.Content("~/js/games/AdamAsmaca.js")';
+        const studentId = document.getElementById('gameRoot').dataset.studentId;
+        initHangman(studentId);
     </script>
 }

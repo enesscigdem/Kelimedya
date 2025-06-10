@@ -9,6 +9,7 @@ namespace Kelimedya.WebApp.Areas.Student.Models
         public int LearnedWords { get; set; }
         public List<CourseProgressViewModel> CourseProgresses { get; set; } = new List<CourseProgressViewModel>();
         public List<LessonProgressViewModel> LessonProgresses { get; set; } = new List<LessonProgressViewModel>();
+        public List<GameStatSummaryViewModel> GameStats { get; set; } = new List<GameStatSummaryViewModel>();
     }
 
     public class CourseProgressViewModel
@@ -24,5 +25,13 @@ namespace Kelimedya.WebApp.Areas.Student.Models
         public string LessonTitle { get; set; }
         public decimal CompletionPercentage { get; set; }
         public bool IsCompleted { get; set; }
+    }
+
+    public class GameStatSummaryViewModel
+    {
+        public int GameId { get; set; }
+        public string GameTitle { get; set; }
+        public int PlayCount { get; set; }
+        public double AverageScore { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 
 <link href="~/css/AdamAsmaca.css" rel="stylesheet"/>
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="asmaca-header">
             Adam Asmaca Oyunu
@@ -36,7 +36,7 @@
 @section Scripts {
     <script type="module">
         import {initHangman} from '@Url.Content("~/js/games/AdamAsmaca.js")';
-        const studentId = document.getElementById('gameRoot').dataset.studentId;
-        initHangman(studentId);
+        const el = document.getElementById('gameRoot');
+        initHangman(el.dataset.studentId, el.dataset.gameId);
     </script>
 }

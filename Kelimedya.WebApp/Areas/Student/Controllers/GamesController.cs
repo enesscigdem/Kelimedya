@@ -1,6 +1,11 @@
 using Kelimedya.Core.Enum;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using Kelimedya.Core.Entities;
+using System.Linq;
 
 namespace Kelimedya.WebApp.Areas.Student.Controllers
 {
@@ -9,32 +14,54 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class GamesController : Controller
     {
-        public IActionResult Index()
+        private readonly HttpClient _httpClient;
+
+        public GamesController(IHttpClientFactory httpClientFactory)
         {
+            _httpClient = httpClientFactory.CreateClient("DefaultApi");
+        }
+
+        private async Task<int> GetGameIdAsync(string title)
+        {
+            var games = await _httpClient.GetFromJsonAsync<List<Game>>("api/games");
+            return games?.FirstOrDefault(g => string.Equals(g.Title, title, System.StringComparison.OrdinalIgnoreCase))?.Id ?? 0;
+        }
+
+        public IActionResult Index() => View();
+
+        public async Task<IActionResult> AdamAsmaca()
+        {
+            ViewData["GameId"] = await GetGameIdAsync("Adam Asmaca");
             return View();
         }
-        public IActionResult AdamAsmaca()
+
+        public async Task<IActionResult> KelimeBulmaca()
         {
+            ViewData["GameId"] = await GetGameIdAsync("Kelime Bulmaca");
             return View();
         }
-        public IActionResult KelimeBulmaca()
+
+        public async Task<IActionResult> VisualPrompt()
         {
+            ViewData["GameId"] = await GetGameIdAsync("Görselden Soru");
             return View();
         }
-        public IActionResult VisualPrompt()
+
+        public async Task<IActionResult> BubbleLetters()
         {
+            ViewData["GameId"] = await GetGameIdAsync("Kabarcık Harfler");
             return View();
         }
-        public IActionResult BubbleLetters()
+
+        public async Task<IActionResult> CrossPuzzle()
         {
+            ViewData["GameId"] = await GetGameIdAsync("Çengel Bulmaca");
             return View();
         }
-        public IActionResult CrossPuzzle()
+
+        public async Task<IActionResult> FillBlanks()
         {
-            return View();
-        }
-        public IActionResult FillBlanks()
-        {
+            ViewData["GameId"] = await GetGameIdAsync("Boşluk Doldurma");
             return View();
         }
     }

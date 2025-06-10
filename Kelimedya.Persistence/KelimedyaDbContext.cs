@@ -35,6 +35,7 @@ public class KelimedyaDbContext : IdentityDbContext<CustomUser, CustomRole, int>
     public virtual DbSet<Widget> Widgets { get; set; }
     public virtual DbSet<StudentLessonProgress> StudentLessonProgresses { get; set; }
     public virtual DbSet<StudentWordCardProgress> StudentWordCardProgresses { get; set; }
+    public virtual DbSet<StudentGameStatistic> StudentGameStatistics { get; set; }
     public virtual DbSet<ProductCourse> ProductCourses { get; set; }
     public virtual DbSet<Cart> Carts { get; set; }
     public virtual DbSet<CartItem> CartItems { get; set; }

@@ -1,61 +1,39 @@
-(function(){
-  const items = [
-    { parts:["Düzenli çalışmak, sınavda "," olmanın anahtarıdır."], answers:["başarılı"] },
-    { parts:["Sınav tarihine göre ders programını "," çok önemlidir."], answers:["planlamak"] },
-    { parts:["Sınavda soruları "," okuyun."], answers:["dikkatlice"] }
-  ];
-  let idx=0;
+import {fetchLearnedWords, recordGameStat} from './common.js';
 
-  function renderCard(){
-    const fb=document.getElementById('fbFeedback');
-    fb.textContent=''; fb.className='fb-feedback';
-    document.querySelectorAll('.fb-input').forEach(i=>i.remove());
-    const card=items[idx], cont=document.getElementById('fbSentence');
-    cont.innerHTML='';
-    card.parts.forEach((txt,i)=>{
-      cont.appendChild(document.createTextNode(txt));
-      if(i<card.answers.length){
-        const inp=document.createElement('input');
-        inp.type='text'; inp.className='fb-input';
-        inp.dataset.index=i; inp.placeholder='_____';
-        cont.appendChild(inp);
-      }
-    });
-  }
+let items=[], idx=0, start;
 
-  function check(){
-    let all=true;
-    items[idx].answers.forEach((a,i)=>{
-      const inp=document.querySelector(`.fb-input[data-index="${i}"]`);
-      if(inp.value.trim().toLowerCase()===a){
-        inp.classList.add('correct'); inp.classList.remove('wrong');
-      } else {
-        inp.classList.add('wrong'); inp.classList.remove('correct');
-        all=false;
-      }
-    });
-    const fb=document.getElementById('fbFeedback');
-    fb.textContent=all?'🎉 Doğru!':'❌ Yanlış yerler.';
-    fb.className=all?'fb-feedback correct':'fb-feedback incorrect';
-  }
+function createItems(words){
+  return words.map(w=>{
+    const sentence=w.exampleSentence||`${w.word} cümle içinde`;
+    const regex=new RegExp(w.word,'i');
+    const parts=sentence.split(regex);
+    return {parts, answers:[w.word.toLowerCase()]};
+  });
+}
 
-  function reveal(){
-    items[idx].answers.forEach((a,i)=>{
-      const inp=document.querySelector(`.fb-input[data-index="${i}"]`);
-      inp.value=a; inp.classList.remove('wrong'); inp.classList.add('revealed');
-    });
-    const fb=document.getElementById('fbFeedback');
-    fb.textContent='🔍 Cevap gösterildi.'; fb.className='fb-feedback revealed';
-  }
+function renderCard(){
+  const fb=document.getElementById('fbFeedback');fb.textContent='';fb.className='fb-feedback';
+  document.querySelectorAll('.fb-input').forEach(i=>i.remove());
+  const card=items[idx], cont=document.getElementById('fbSentence');
+  cont.innerHTML='';
+  card.parts.forEach((txt,i)=>{
+    cont.appendChild(document.createTextNode(txt));
+    if(i<card.answers.length){const inp=document.createElement('input');inp.type='text';inp.className='fb-input';inp.dataset.index=i;inp.placeholder='_____';cont.appendChild(inp);} });
+  start=Date.now();
+}
 
-  function init(){
-    document.getElementById('fbCheck').onclick=check;
-    document.getElementById('fbReveal').onclick=reveal;
-    document.getElementById('fbNext').onclick=()=>{
-      idx=(idx+1)%items.length; renderCard();
-    };
-    renderCard();
-  }
+function check(studentId){
+  let all=true;items[idx].answers.forEach((a,i)=>{const inp=document.querySelector(`.fb-input[data-index="${i}"]`);if(inp.value.trim().toLowerCase()===a){inp.classList.add('correct');}else{inp.classList.add('wrong');all=false;}});
+  document.getElementById('fbFeedback').textContent=all?'Doğru!':'Yanlış';
+  const duration=(Date.now()-start)/1000;
+  recordGameStat({studentId,gameId:4,score:all?1:0,durationSeconds:duration});
+}
 
-  document.addEventListener('DOMContentLoaded', init);
-})();
+export async function initFillBlanks(studentId){
+  const words=await fetchLearnedWords(studentId);
+  items=createItems(words);
+  if(items.length===0) items=[{parts:['___ örnek cümle'],answers:['örnek']}];
+  document.getElementById('fbCheck').onclick=()=>check(studentId);
+  document.getElementById('fbNext').onclick=()=>{idx=(idx+1)%items.length;renderCard();};
+  renderCard();
+}

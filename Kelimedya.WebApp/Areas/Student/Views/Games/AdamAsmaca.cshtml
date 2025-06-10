@@ -5,16 +5,18 @@
 
 <link href="~/css/AdamAsmaca.css" rel="stylesheet"/>
 
-<div class="container-xl" style="margin-top:1rem;">
+@using System.Security.Claims
+var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="asmaca-header">
             Adam Asmaca Oyunu
         </div>
         <div class="game-area">
             
-            <div class="hangman-canvas" id="hangmanCanvas">
-                
-            </div>
+            <div class="hangman-canvas" id="hangmanCanvas"></div>
+            <div id="hangmanWord" class="hangman-word"></div>
+            <div>Hatalar: <span id="wrongCount">0</span></div>
             <div>
                 <div class="letters">
                     
@@ -32,5 +34,9 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/games/AdamAsmaca.js"></script>
+    <script type="module">
+        import {initHangman} from '@Url.Content("~/js/games/AdamAsmaca.js")';
+        const studentId = document.getElementById('gameRoot').dataset.studentId;
+        initHangman(studentId);
+    </script>
 }

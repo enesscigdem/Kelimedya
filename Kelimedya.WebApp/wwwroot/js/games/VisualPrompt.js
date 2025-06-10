@@ -1,58 +1,32 @@
-(function(){
-  const images = [
-    { src: "https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1...", answer: "dikkat etmek" },
-    { src: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?ixlib=rb-1.2.1...", answer: "planlamak" },
-    { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1...", answer: "başarmak" }
-  ];
-  let idx = 0;
-  let imgEl, guessEl, feedbackEl, submitBtn, revealBtn, nextBtn;
+import {fetchLearnedWords, recordGameStat} from './common.js';
 
-  function loadCard(){
-    const card = images[idx];
-    imgEl.src = card.src;
-    guessEl.value = '';
-    feedbackEl.innerHTML = '';
-    feedbackEl.className = 'vp-feedback';
-  }
+let cards=[], idx=0, start;
+let imgEl, guessEl, feedbackEl;
 
-  function init(){
-    imgEl = document.getElementById('vpImage');
-    guessEl = document.getElementById('vpGuess');
-    feedbackEl = document.getElementById('vpFeedback');
-    submitBtn = document.getElementById('vpSubmit');
-    revealBtn = document.getElementById('vpReveal');
-    nextBtn = document.getElementById('vpNext');
-    const backBtn = document.getElementById('vpBack');
-    if(backBtn){
-      const home = backBtn.dataset.home;
-      backBtn.addEventListener('click', () => { if(home) window.location = home; });
-    }
+function loadCard(){
+  const card=cards[idx];
+  imgEl.src=card.imageUrl||'';
+  guessEl.value='';
+  feedbackEl.textContent='';
+  start=Date.now();
+}
 
-    submitBtn.onclick = () => {
-      const user = guessEl.value.trim().toLowerCase();
-      const correct = images[idx].answer.toLowerCase();
-      if(!user) return;
-      if(user === correct){
-        feedbackEl.innerHTML = '<span class="icon">✔︎</span> Doğru!';
-        feedbackEl.classList.add('correct');
-      } else {
-        feedbackEl.innerHTML = '<span class="icon">✖︎</span> Yanlış, tekrar deneyin.';
-        feedbackEl.classList.add('incorrect');
-      }
-    };
+function submit(studentId){
+  const user=guessEl.value.trim().toLowerCase();
+  const correct=cards[idx].word.toLowerCase();
+  const success=user===correct;
+  feedbackEl.textContent=success?'Doğru':'Yanlış';
+  const duration=(Date.now()-start)/1000;
+  recordGameStat({studentId,gameId:6,score:success?1:0,durationSeconds:duration});
+}
 
-    revealBtn.onclick = () => {
-      feedbackEl.innerHTML = '<span class="icon">🔍</span> Cevap: ' + images[idx].answer;
-      feedbackEl.classList.add('revealed');
-    };
-
-    nextBtn.onclick = () => {
-      idx = (idx + 1) % images.length;
-      loadCard();
-    };
-
-    loadCard();
-  }
-
-  document.addEventListener('DOMContentLoaded', init);
-})();
+export async function initVisualPrompt(studentId){
+  cards=await fetchLearnedWords(studentId);
+  if(cards.length===0) cards=[{word:'örnek',imageUrl:'',definition:'',exampleSentence:''}];
+  imgEl=document.getElementById('vpImage');
+  guessEl=document.getElementById('vpGuess');
+  feedbackEl=document.getElementById('vpFeedback');
+  document.getElementById('vpSubmit').onclick=()=>submit(studentId);
+  document.getElementById('vpNext').onclick=()=>{idx=(idx+1)%cards.length;loadCard();};
+  loadCard();
+}

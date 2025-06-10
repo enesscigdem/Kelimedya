@@ -5,7 +5,9 @@
 
 <link href="~/css/KelimeBulmaca.css" rel="stylesheet"/>
 
-<div class="container-xl" style="margin-top:1rem;">
+@using System.Security.Claims
+var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="kelime-header">
             Kelime Bulmaca Oyunu
@@ -28,5 +30,9 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/games/KelimeBulmaca.js"></script>
+    <script type="module">
+        import {initWordQuiz} from '@Url.Content("~/js/games/KelimeBulmaca.js")';
+        const sid=document.getElementById('gameRoot').dataset.studentId;
+        initWordQuiz(sid);
+    </script>
 }

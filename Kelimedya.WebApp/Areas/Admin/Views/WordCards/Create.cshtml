@@ -43,6 +43,26 @@
                         <input type="file" class="form-control" asp-for="ImageFile"/>
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
+
+                    @for (int i = 0; i < Model.GameQuestions.Count; i++)
+                    {
+                        <div class="border rounded p-3 mb-3">
+                            <h5 class="mb-2">@Model.GameQuestions[i].GameTitle</h5>
+                            <input type="hidden" asp-for="GameQuestions[i].GameId" />
+                            <div class="mb-2">
+                                <label class="form-label">Soru</label>
+                                <input type="text" class="form-control" asp-for="GameQuestions[i].QuestionText" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Cevap</label>
+                                <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Resim URL</label>
+                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
+                            </div>
+                        </div>
+                    }
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                         <a asp-action="Index" asp-route-lessonId="@ViewBag.LessonId" class="btn btn-link link-secondary">Vazgeç</a>

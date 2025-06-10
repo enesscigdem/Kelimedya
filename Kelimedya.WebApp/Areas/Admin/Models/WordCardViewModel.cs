@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace Kelimedya.WebApp.Areas.Admin.Models
 {
@@ -29,5 +30,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
 
         public string WordCard { get; set; }
         public string Progress { get; set; }
+
+        public List<GameQuestionViewModel> GameQuestions { get; set; } = new();
     }
 }

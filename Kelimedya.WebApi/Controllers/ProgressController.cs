@@ -177,13 +177,18 @@ namespace Kelimedya.WebAPI.Controllers
                 .Where(p => p.StudentId == studentId && p.IsLearned)
                 .ToListAsync();
 
-            // WordCard bilgilerini de eklemek için join yapıyoruz
+            var cardIds = progresses.Select(p => p.WordCardId).ToList();
+            var cards = await _context.WordCards.Where(w => cardIds.Contains(w.Id)).ToListAsync();
+            var questions = await _context.WordCardGameQuestions
+                .Where(q => cardIds.Contains(q.WordCardId)).ToListAsync();
+
             var learnedWords = from progress in progresses
-                               join card in _context.WordCards on progress.WordCardId equals card.Id
+                               join card in cards on progress.WordCardId equals card.Id
                                select new
                                {
                                    Progress = progress,
-                                   WordCard = card
+                                   WordCard = card,
+                                   GameQuestions = questions.Where(q => q.WordCardId == card.Id).ToList()
                                };
 
             return Ok(learnedWords);

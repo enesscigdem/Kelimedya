@@ -50,4 +50,16 @@ public class GameStatisticsController : ControllerBase
         var stats = await query.ToListAsync();
         return Ok(stats);
     }
+
+    [HttpGet("score/{studentId}")]
+    public async Task<IActionResult> GetScoreInfo(string studentId)
+    {
+        var total = await _context.StudentGameStatistics
+            .Where(s => s.StudentId == studentId)
+            .SumAsync(s => s.Score);
+
+        var league = total < 2500 ? "Bronz" : total < 6000 ? "Gümüş" : "Altın";
+
+        return Ok(new ScoreInfoDto { TotalScore = total, League = league });
+    }
 }

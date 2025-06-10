@@ -1,4 +1,4 @@
-import {fetchLearnedWords, recordGameStat} from './common.js';
+import {fetchLearnedWords, awardScore} from './common.js';
 
 let cards = [], cardIdx = 0, filled = [], answer = '', start;
 
@@ -50,7 +50,7 @@ function check(studentId, gameId){
   const correct=guess===answer;
   document.getElementById('blFeedback').textContent = correct ? 'Doğru!' : 'Yanlış';
   const duration=(Date.now()-start)/1000;
-  recordGameStat({studentId, gameId, score: correct?1:0, durationSeconds: duration});
+  awardScore(studentId, gameId, correct, duration);
   if(correct) cards.splice(cardIdx,1);
 }
 

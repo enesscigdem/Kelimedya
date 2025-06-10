@@ -1,4 +1,4 @@
-import {fetchLearnedWords, recordGameStat} from './common.js';
+import {fetchLearnedWords, awardScore} from './common.js';
 
 let word = '', guessed = new Set(), wrong = 0, startTime, cards=[], idx=0;
 
@@ -10,7 +10,7 @@ function draw(){
 
 function finish(success, studentId, gameId){
   const duration = (Date.now()-startTime)/1000;
-  recordGameStat({studentId, gameId, score: success?1:0, durationSeconds: duration});
+  awardScore(studentId, gameId, success, duration);
 }
 
 export async function initHangman(studentId, gameId){

@@ -68,6 +68,7 @@ namespace Kelimedya.WebAPI.Controllers
             var order = new Order
             {
                 IsActive = true,
+                IsDeleted = false,
                 OrderNumber = Guid.NewGuid().ToString("N").Substring(0, 8),
                 OrderDate = DateTime.UtcNow,
                 CustomerName = userId,
@@ -77,7 +78,7 @@ namespace Kelimedya.WebAPI.Controllers
                 TotalAmount = cart.Items.Sum(i => i.Quantity * i.Product.Price) - cart.CouponDiscount,
                 CouponCode = cart.Coupon?.Code,
                 UserId = userId,
-                Status = OrderStatus.Paid
+                Status = OrderStatus.Completed
             };
 
             foreach (var item in cart.Items.Where(i => !i.IsDeleted))

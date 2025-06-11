@@ -49,5 +49,25 @@ namespace Kelimedya.WebAPI.Controllers
 
             return Ok(sales);
         }
+
+        // GET: api/sales/monthly
+        [HttpGet("monthly")]
+        public async Task<IActionResult> GetMonthlySales()
+        {
+            var cutoff = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1).AddMonths(-11);
+            var sales = await _context.Orders
+                .Where(o => !o.IsDeleted && o.IsActive && o.OrderDate >= cutoff)
+                .GroupBy(o => new { o.OrderDate.Year, o.OrderDate.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    Total = g.Sum(o => o.TotalAmount)
+                })
+                .OrderBy(g => g.Year).ThenBy(g => g.Month)
+                .ToListAsync();
+
+            return Ok(sales);
+        }
     }
 }

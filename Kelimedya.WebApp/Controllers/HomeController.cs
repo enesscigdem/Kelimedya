@@ -42,8 +42,10 @@ public class HomeController : Controller
     [HttpGet, Route("sepet")]
     public async Task<IActionResult> Cart()
     {
-        var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
+        var client = _httpClientFactory.CreateClient("DefaultApi");
         var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}")
                    ?? new CartDto();
         return View(cart);
@@ -52,8 +54,10 @@ public class HomeController : Controller
     [HttpPost, Route("sepete-kupon-uygula"), ValidateAntiForgeryToken]
     public async Task<IActionResult> ApplyCoupon(string couponCode)
     {
-        var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
+        var client = _httpClientFactory.CreateClient("DefaultApi");
         var resp = await client.PostAsJsonAsync("api/cart/applyCoupon", new
         {
             UserId = userId.ToString(),
@@ -71,8 +75,10 @@ public class HomeController : Controller
     [HttpPost, Route("sepette-kupon-kaldir"), ValidateAntiForgeryToken]
     public async Task<IActionResult> RemoveCoupon()
     {
-        var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
+        var client = _httpClientFactory.CreateClient("DefaultApi");
         await client.PostAsJsonAsync("api/cart/removeCoupon", new
         {
             UserId = userId,
@@ -85,8 +91,10 @@ public class HomeController : Controller
     [HttpPost, Route("sepete-ekle")]
     public async Task<IActionResult> AddToCart(int ProductId)
     {
-        var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
+        var client = _httpClientFactory.CreateClient("DefaultApi");
 
         var dto = new AddToCartDto
         {
@@ -110,6 +118,9 @@ public class HomeController : Controller
     [HttpPost, Route("sepet-miktar-guncelle")]
     public async Task<IActionResult> UpdateCartItem(int itemId, int newQuantity)
     {
+        var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var response = await client.PostAsJsonAsync("/api/cart/updateQuantity", new UpdateCartItemDto
         {
@@ -127,6 +138,9 @@ public class HomeController : Controller
     [HttpPost, Route("sepet-urununu-kaldir")]
     public async Task<IActionResult> RemoveCartItem(int itemId)
     {
+        var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var formData = new FormUrlEncodedContent(new[]
         {
@@ -268,8 +282,10 @@ public class HomeController : Controller
     [HttpGet, Route("odeme")]
     public async Task<IActionResult> Payment()
     {
-        var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
+        var client = _httpClientFactory.CreateClient("DefaultApi");
 
         var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}")
                    ?? new CartDto();
@@ -291,8 +307,10 @@ public class HomeController : Controller
         if (!ModelState.IsValid)
             return View(model);
 
-        var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
+        if (userId == -1)
+            return RedirectToAction("Login", "Auth", new { area = "" });
+        var client = _httpClientFactory.CreateClient("DefaultApi");
         var response = await client.PostAsync($"api/orders/checkout/{userId}", null);
         if (!response.IsSuccessStatusCode)
         {

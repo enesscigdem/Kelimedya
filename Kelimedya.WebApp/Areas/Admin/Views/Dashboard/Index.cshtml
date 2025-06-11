@@ -519,14 +519,14 @@
 <script>
 const API_BASE_URL = 'http://localhost:5001';
 document.addEventListener("DOMContentLoaded", function() {
-    fetch(`${API_BASE_URL}/api/sales/daily`)
+    fetch(`${API_BASE_URL}/api/sales/monthly`)
         .then(r => r.json())
         .then(data => {
-            var categories = data.map(d => new Date(d.date).toLocaleDateString('tr-TR', { weekday: 'short' }));
+            var categories = data.map(d => `${d.month}.${d.year}`);
             var totals = data.map(d => d.total);
             var options = {
                 chart: {
-                    type: 'line',
+                    type: 'area',
                     height: 300,
                     parentHeightOffset: 0,
                     toolbar: { show: false }
@@ -534,7 +534,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 series: [{ name: "Satış", data: totals }],
                 xaxis: { categories: categories },
                 colors: ['#206bc4'],
-                stroke: { width: 3, curve: 'smooth' }
+                stroke: { width: 2, curve: 'smooth' },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.5,
+                        opacityTo: 0,
+                        stops: [0, 90, 100]
+                    }
+                }
             };
             var chart = new ApexCharts(document.querySelector("#chart-sales"), options);
             chart.render();

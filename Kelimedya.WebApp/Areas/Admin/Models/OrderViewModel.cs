@@ -27,8 +27,10 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         
         [Required(ErrorMessage = "Toplam tutar gereklidir.")]
         public decimal TotalAmount { get; set; }
-        
+
         [Required(ErrorMessage = "Sipariş durumu seçilmelidir.")]
         public OrderStatus Status { get; set; }
+
+        public string? UserId { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Kelimedya.Core.Enum;
+using Kelimedya.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebApp.Areas.Admin.Controllers
@@ -28,8 +29,10 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         }
 
         // GET: /Admin/Orders/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
+            ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
             return View();
         }
 
@@ -61,6 +64,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
             var order = await _httpClient.GetFromJsonAsync<OrderViewModel>($"api/orders/{id}");
             if (order == null)
                 return NotFound();
+            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
+            ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
             return View(order);
         }
 

@@ -56,8 +56,11 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
                 return View(model);
             }
 
+            var updated = await client.GetFromJsonAsync<StudentProfileViewModel>($"api/users/{model.Id}")
+                          ?? model;
+
             ViewData["Success"] = "Profil güncellendi";
-            return View(model);
+            return View(updated);
         }
     }
 }

@@ -18,8 +18,16 @@ namespace Kelimedya.Core.Entities
         public DateTime OrderDate { get; set; }
         public string CustomerName { get; set; } = null!;
         public string? CustomerEmail { get; set; }
+        public decimal SubTotal { get; set; }
+        public decimal DiscountAmount { get; set; }
         public decimal TotalAmount { get; set; }
+        public string? CouponCode { get; set; }
+        public string? PaymentMethod { get; set; }
+        public string? PaymentReference { get; set; }
+        public string? UserId { get; set; }
 
         public OrderStatus Status { get; set; }
+
+        public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 }

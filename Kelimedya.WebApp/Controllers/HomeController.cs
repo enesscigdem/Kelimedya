@@ -283,16 +283,23 @@ public class HomeController : Controller
     }
 
 
-    [HttpPost, Route("odeme")]
-    public IActionResult Payment(PaymentModel model)
-    {
-        if (ModelState.IsValid)
-        {
-            return RedirectToAction("OrderConfirmation");
-        }
+[HttpPost, Route("odeme")]
+public async Task<IActionResult> Payment(PaymentModel model)
+{
+    if (!ModelState.IsValid)
+        return View(model);
 
+    var client = _httpClientFactory.CreateClient("DefaultApi");
+    var userId = _currentUserService.GetUserId();
+    var response = await client.PostAsync($"api/orders/checkout/{userId}", null);
+    if (!response.IsSuccessStatusCode)
+    {
+        ModelState.AddModelError(string.Empty, "Sipariş oluşturulamadı.");
         return View(model);
     }
+
+    return RedirectToAction("OrderConfirmation");
+}
 
     [HttpGet, Route("siparis-onay")]
     public IActionResult OrderConfirmation()

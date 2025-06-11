@@ -48,6 +48,24 @@
                         <span asp-validation-for="OrderDate" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Kullanıcı</label>
+                        <select class="form-select" asp-for="UserId" asp-items="@(new SelectList(ViewBag.Users, \"Id\", \"UserName\"))">
+                            <option value="">Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kupon Kodu</label>
+                        <input class="form-control" asp-for="CouponCode" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">İndirim Tutarı</label>
+                        <input type="number" step="0.01" class="form-control" asp-for="DiscountAmount" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ara Toplam</label>
+                        <input type="number" step="0.01" class="form-control" asp-for="SubTotal" />
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Toplam Tutar</label>
                         <input type="number" step="0.01" class="form-control" asp-for="TotalAmount" placeholder="Tutar"/>
                         <span asp-validation-for="TotalAmount" class="text-danger"></span>

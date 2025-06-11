@@ -1,4 +1,5 @@
-﻿@{
+@model Kelimedya.WebApp.Areas.Student.Models.StudentProfileViewModel
+@{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Profilim";
 }
@@ -84,18 +85,34 @@
 
     <div class="profile-card">
         <h3>Bilgiler</h3>
-        <form>
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
             <div class="mb-3">
-                <label class="form-label">Ad Soyad</label>
-                <input type="text" class="form-control" value="Öğrenci Adı" />
+                <label asp-for="UserName" class="form-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label class="form-label">E-posta</label>
-                <input type="email" class="form-control" value="student@example.com" />
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label class="form-label">Şifre</label>
-                <input type="password" class="form-control" />
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Surname" class="form-label"></label>
+                <input asp-for="Surname" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="PhoneNumber" class="form-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="ClassGrade" class="form-label"></label>
+                <input asp-for="ClassGrade" class="form-control" />
             </div>
             <button class="btn-primary" type="submit">Kaydet</button>
         </form>

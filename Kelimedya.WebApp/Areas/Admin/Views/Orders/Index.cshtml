@@ -70,6 +70,8 @@
                             <th>Sipariş No</th>
                             <th>Müşteri Adı</th>
                             <th>Tarih</th>
+                            <th>Kupon</th>
+                            <th>İndirim</th>
                             <th>Tutar</th>
                             <th class="w-1 text-end">İşlemler</th>
                         </tr>
@@ -81,6 +83,8 @@
                                 <td>@order.OrderNumber</td>
                                 <td>@order.CustomerName</td>
                                 <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                                <td>@order.CouponCode</td>
+                                <td>@order.DiscountAmount</td>
                                 <td>@($"{order.TotalAmount} TL")</td>
                                 <td class="text-end">
                                     <div class="btn-group" role="group">

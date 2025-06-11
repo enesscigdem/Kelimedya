@@ -20,11 +20,17 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         [Required(ErrorMessage = "Müşteri e-posta bilgisi gereklidir.")]
         [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi giriniz.")]
         public string CustomerEmail { get; set; }
+
+        public string? CouponCode { get; set; }
+        public decimal DiscountAmount { get; set; }
+        public decimal SubTotal { get; set; }
         
         [Required(ErrorMessage = "Toplam tutar gereklidir.")]
         public decimal TotalAmount { get; set; }
-        
+
         [Required(ErrorMessage = "Sipariş durumu seçilmelidir.")]
         public OrderStatus Status { get; set; }
+
+        public string? UserId { get; set; }
     }
 }

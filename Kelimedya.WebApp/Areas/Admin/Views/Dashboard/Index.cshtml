@@ -123,7 +123,7 @@
                     <div class="subheader">Gelir</div>
                 </div>
                 <div class="d-flex align-items-baseline">
-                    <div class="h1 mb-0 me-2">$@Model.TotalRevenue</div>
+                    <div class="h1 mb-0 me-2">@Model.TotalRevenue.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</div>
                     <div class="me-auto">
                         <span class="text-green d-inline-flex align-items-center lh-1">
                             8% <i class="fas fa-arrow-up ms-1"></i>
@@ -363,13 +363,24 @@
                             <td>@order.CustomerEmail</td>
                             <td>@order.OrderDate.ToString("dd MMM yyyy")</td>
                             <td>
-                                <span class="badge @(order.Status == OrderStatus.Completed ? "bg-success" : order.Status == OrderStatus.Pending ? "bg-warning" : "bg-secondary")">
+                                <span class="badge @(order.Status == OrderStatus.Completed ? "bg-green-lt text-green" : order.Status == OrderStatus.Pending ? "bg-yellow-lt text-yellow" : "bg-gray-lt text-gray")">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check me-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M5 12l5 5l10 -10"></path>
+                                    </svg>
                                     @order.Status
                                 </span>
                             </td>
-                            <td>$@order.TotalAmount</td>
-                            <td class="text-end">
-                                <a class="btn btn-sm btn-primary" href="/Admin/Orders">İncele</a>
+                           <td>@order.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
+                          <td class="text-end">
+                                <a class="btn btn-sm btn-primary" href="/Admin/Orders">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye me-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <circle cx="12" cy="12" r="2"></circle>
+                                        <path d="M22 12c0 5.523 -4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10s10 4.477 10 10z"></path>
+                                    </svg>
+                                    İncele
+                                </a>
                             </td>
                         </tr>
                     }
@@ -506,8 +517,9 @@
 </div>
 
 <script>
+const API_BASE_URL = 'http://localhost:5001';
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("/api/sales/daily")
+    fetch(`${API_BASE_URL}/api/sales/daily`)
         .then(r => r.json())
         .then(data => {
             var categories = data.map(d => new Date(d.date).toLocaleDateString('tr-TR', { weekday: 'short' }));

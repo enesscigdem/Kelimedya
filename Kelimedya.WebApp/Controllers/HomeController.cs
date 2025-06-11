@@ -44,7 +44,7 @@ public class HomeController : Controller
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
-        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}") 
+        var cart = await client.GetFromJsonAsync<CartDto>($"api/cart/{userId}")
                    ?? new CartDto();
         return View(cart);
     }
@@ -54,7 +54,8 @@ public class HomeController : Controller
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
-        var resp = await client.PostAsJsonAsync("api/cart/applyCoupon", new {
+        var resp = await client.PostAsJsonAsync("api/cart/applyCoupon", new
+        {
             UserId = userId.ToString(),
             CouponCode = couponCode
         });
@@ -72,9 +73,10 @@ public class HomeController : Controller
     {
         var client = _httpClientFactory.CreateClient("DefaultApi");
         var userId = _currentUserService.GetUserId();
-        await client.PostAsJsonAsync("api/cart/removeCoupon", new {
+        await client.PostAsJsonAsync("api/cart/removeCoupon", new
+        {
             UserId = userId,
-            CouponCode = ""   // sadece UserId yeterli ama DTO bekliyor
+            CouponCode = "" // sadece UserId yeterli ama DTO bekliyor
         });
         TempData["CouponSuccess"] = "Kupon kaldırıldı.";
         return RedirectToAction("Cart");
@@ -274,8 +276,8 @@ public class HomeController : Controller
 
         var model = new PaymentModel
         {
-            Cart           = cart,
-            CouponCode     = cart.CouponCode,
+            Cart = cart,
+            CouponCode = cart.CouponCode,
             DiscountAmount = cart.CouponDiscount
         };
 
@@ -283,23 +285,23 @@ public class HomeController : Controller
     }
 
 
-[HttpPost, Route("odeme")]
-public async Task<IActionResult> Payment(PaymentModel model)
-{
-    if (!ModelState.IsValid)
-        return View(model);
-
-    var client = _httpClientFactory.CreateClient("DefaultApi");
-    var userId = _currentUserService.GetUserId();
-    var response = await client.PostAsync($"api/orders/checkout/{userId}", null);
-    if (!response.IsSuccessStatusCode)
+    [HttpPost, Route("odeme")]
+    public async Task<IActionResult> Payment(PaymentModel model)
     {
-        ModelState.AddModelError(string.Empty, "Sipariş oluşturulamadı.");
-        return View(model);
-    }
+        if (!ModelState.IsValid)
+            return View(model);
 
-    return RedirectToAction("OrderConfirmation");
-}
+        var client = _httpClientFactory.CreateClient("DefaultApi");
+        var userId = _currentUserService.GetUserId();
+        var response = await client.PostAsync($"api/orders/checkout/{userId}", null);
+        if (!response.IsSuccessStatusCode)
+        {
+            ModelState.AddModelError(string.Empty, "Sipariş oluşturulamadı.");
+            return View(model);
+        }
+
+        return RedirectToAction("OrderConfirmation");
+    }
 
     [HttpGet, Route("siparis-onay")]
     public IActionResult OrderConfirmation()

@@ -29424,8 +29424,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ljdgcwbs7r</Fingerprint>
-      <Integrity>b5vUs8agnoLhb7CYqhFVXuxuvUeqWpWb7fDJ3/kfggE=</Integrity>
+      <Fingerprint>sggqp85h04</Fingerprint>
+      <Integrity>JMEZWjC6/2amxykvd/CdyYRi94ARxmBrY8MgYo03RHk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\about_img_1.png'))</OriginalItemSpec>
@@ -29478,8 +29478,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jxciz4eqvn</Fingerprint>
-      <Integrity>9wSpyzz+Qu1j5ucoPjR43/TrEUkp2Kh3expd6dWJGI4=</Integrity>
+      <Fingerprint>i6b37c14sk</Fingerprint>
+      <Integrity>pn0219pIScaqiRhIPv1gi8jIiE+/da6f+ekHHCT34UE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\about_page_img_1.png'))</OriginalItemSpec>
@@ -29496,8 +29496,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>s2vc2qlt5d</Fingerprint>
-      <Integrity>rF0MEuHq8eKr4clJprS8ZvSheMOkvSqg3iVgAGQi3Fo=</Integrity>
+      <Fingerprint>753qt8zvx9</Fingerprint>
+      <Integrity>lSATdVWekaybkapeRJCjmSGzAqyA+O1r6go8tZjLhAY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\about_page_img_2.png'))</OriginalItemSpec>
@@ -30420,6 +30420,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login1.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>theme/web_UI/assets/img/home_5/login1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vt4zjd4dru</Fingerprint>
+      <Integrity>M8rSssfnpJwRlfSWWpV2nN7+PGDXLRanVLkT1KzuUQA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\login1.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\logo_v2.svg'))">
       <SourceType>Package</SourceType>
       <SourceId>Kelimedya.WebApp</SourceId>
@@ -30576,8 +30594,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>h4xe1cwhhe</Fingerprint>
-      <Integrity>z89+aS1CWdDLG7/4L+SW4OiYNy69XVGP66HiYs3frPg=</Integrity>
+      <Fingerprint>gl38bplfm8</Fingerprint>
+      <Integrity>zDxOKFO3puTvCVw+v7DrG778hzyruP3ybYS/E+gLeNk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\register.png'))</OriginalItemSpec>

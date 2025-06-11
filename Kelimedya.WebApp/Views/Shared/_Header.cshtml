@@ -97,11 +97,22 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li>
-                                    <a asp-controller="Account" asp-action="Profile"
-                                       class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
-                                        <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
-                                        <span>Bilgilerim</span>
-                                    </a>
+                                    @if (User.IsInRole("Student"))
+                                    {
+                                        <a asp-area="Student" asp-controller="Dashboard" asp-action="Index"
+                                           class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                            <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                            <span>Panele Git</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Account" asp-action="Profile"
+                                           class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                            <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                            <span>Bilgilerim</span>
+                                        </a>
+                                    }
                                 </li>
                                 <li>
                                     <form asp-controller="Auth" asp-action="Logout" method="post" style="display: inline;">

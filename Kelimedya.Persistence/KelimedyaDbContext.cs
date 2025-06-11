@@ -29,6 +29,7 @@ public class KelimedyaDbContext : IdentityDbContext<CustomUser, CustomRole, int>
     public virtual DbSet<Lesson> Lessons { get; set; }
     public virtual DbSet<Message> Messages { get; set; }
     public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<OrderItem> OrderItems { get; set; }
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<Report> Reports { get; set; }
     public virtual DbSet<WordCard> WordCards { get; set; }
@@ -66,6 +67,16 @@ public class KelimedyaDbContext : IdentityDbContext<CustomUser, CustomRole, int>
             .HasOne(pc => pc.Course)
             .WithMany(c => c.ProductCourses)
             .HasForeignKey(pc => pc.CourseId);
+
+        modelBuilder.Entity<OrderItem>()
+            .HasOne(oi => oi.Order)
+            .WithMany(o => o.Items)
+            .HasForeignKey(oi => oi.OrderId);
+
+        modelBuilder.Entity<OrderItem>()
+            .HasOne(oi => oi.Product)
+            .WithMany()
+            .HasForeignKey(oi => oi.ProductId);
 
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {

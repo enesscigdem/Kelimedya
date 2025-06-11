@@ -32,7 +32,7 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
         {
             var studentId = _currentUserService.GetUserId();
 
-            var courses = await _httpClient.GetFromJsonAsync<List<CourseViewModel>>("api/courses/active");
+            var courses = await _httpClient.GetFromJsonAsync<List<CourseViewModel>>($"api/orders/courses/{studentId}");
 
             List<StudentCourseProgressViewModel> progresses;
             try

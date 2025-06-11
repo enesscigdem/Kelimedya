@@ -369,14 +369,7 @@
                             </td>
                             <td>$@order.TotalAmount</td>
                             <td class="text-end">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm btn-primary" href="#" title="Düzenle">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a class="btn btn-sm btn-danger" href="#" title="Sil">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </div>
+                                <a class="btn btn-sm btn-primary" href="/Admin/Orders">İncele</a>
                             </td>
                         </tr>
                     }
@@ -514,28 +507,26 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var options = {
-        chart: {
-            type: 'line',
-            height: 300,
-            parentHeightOffset: 0,
-            toolbar: { show: false }
-        },
-        series: [{
-            name: "Satış",
-            data: [10, 15, 9, 18, 12, 24, 20]
-        }],
-        xaxis: {
-            categories: ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz']
-        },
-        colors: ['#206bc4'],
-        stroke: {
-            width: 3,
-            curve: 'smooth'
-        }
-    };
-    var chart = new ApexCharts(document.querySelector("#chart-sales"), options);
-    chart.render();
+    fetch("/api/sales/daily")
+        .then(r => r.json())
+        .then(data => {
+            var categories = data.map(d => new Date(d.date).toLocaleDateString('tr-TR', { weekday: 'short' }));
+            var totals = data.map(d => d.total);
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: 300,
+                    parentHeightOffset: 0,
+                    toolbar: { show: false }
+                },
+                series: [{ name: "Satış", data: totals }],
+                xaxis: { categories: categories },
+                colors: ['#206bc4'],
+                stroke: { width: 3, curve: 'smooth' }
+            };
+            var chart = new ApexCharts(document.querySelector("#chart-sales"), options);
+            chart.render();
+        });
 });
 </script>
 

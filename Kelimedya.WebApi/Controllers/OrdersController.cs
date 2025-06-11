@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Kelimedya.Core.Entities;
 using Kelimedya.Persistence;
+using Microsoft.AspNetCore.Authorization;
+using Kelimedya.Core.Enum;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,6 +52,7 @@ namespace Kelimedya.WebAPI.Controllers
 
         // POST: api/orders/checkout/{userId}
         [HttpPost("checkout/{userId}")]
+        [Authorize]
         public async Task<IActionResult> Checkout(string userId)
         {
             var cart = await _context.Carts

@@ -19,29 +19,31 @@
     </div>
 
     
-    <div class="stats-grid">
-        <div class="stats-block">
-            <h2>Toplam Eğitim</h2>
-            <div class="numbers">@Model.TotalCourses</div>
-            <div class="desc">Başarıyla bitirdiğin eğitim sayısı. Yeni bir seviye denemeye hazır!.</div>
+    @if (Model.TotalCourses > 0)
+    {
+        <div class="stats-grid">
+            <div class="stats-block">
+                <h2>Toplam Eğitim</h2>
+                <div class="numbers">@Model.TotalCourses</div>
+                <div class="desc">Başarıyla bitirdiğin eğitim sayısı. Yeni bir seviye denemeye hazır!.</div>
+            </div>
+            <div class="stats-block">
+                <h2>Tamamlanan Dersler</h2>
+                <div class="numbers">@Model.CompletedLessons</div>
+                <div class="desc">Öğrendiğin derslerin sayısı. Yeni derslerle kendini geliştirmeye devam et.</div>
+            </div>
+            <div class="stats-block">
+                <h2>Öğrenilen Kelimeler</h2>
+                <div class="numbers">@Model.LearnedWords</div>
+                <div class="desc">Her gün 5 yeni kelimeyle pratik yapmaya ne dersin?</div>
+            </div>
         </div>
-        <div class="stats-block">
-            <h2>Tamamlanan Dersler</h2>
-            <div class="numbers">@Model.CompletedLessons</div>
-            <div class="desc">Öğrendiğin derslerin sayısı. Yeni derslerle kendini geliştirmeye devam et.</div>
-        </div>
-        <div class="stats-block">
-            <h2>Öğrenilen Kelimeler</h2>
-            <div class="numbers">@Model.LearnedWords</div>
-            <div class="desc">Her gün 5 yeni kelimeyle pratik yapmaya ne dersin?</div>
-        </div>
-    </div>
 
-    
-    <div class="progress-box">
-        <h3>Kurs İlerlemelerim</h3>
-        <table>
-            <thead>
+
+        <div class="progress-box">
+            <h3>Kurs İlerlemelerim</h3>
+            <table>
+                <thead>
                 <tr>
                     <th>Kurs</th>
                     <th>Ortalama İlerleme</th>
@@ -66,13 +68,13 @@
                 }
             </tbody>
         </table>
-        <a href="#" class="progress-btn" style="margin-top:1rem;">Kurs Detayları</a>
-    </div>
+            <a href="#" class="progress-btn" style="margin-top:1rem;">Kurs Detayları</a>
+        </div>
 
-    
-    <div class="progress-box">
-        <h3>Ders İlerlemelerim</h3>
-        <table>
+
+        <div class="progress-box">
+            <h3>Ders İlerlemelerim</h3>
+            <table>
             <thead>
                 <tr>
                     <th>Ders</th>
@@ -100,11 +102,11 @@
                 }
             </tbody>
         </table>
-    </div>
+        </div>
 
-    <div class="progress-box">
-        <h3>Oyun İstatistiklerim</h3>
-        <table>
+        <div class="progress-box">
+            <h3>Oyun İstatistiklerim</h3>
+            <table>
             <thead>
                 <tr>
                     <th>Oyun</th>
@@ -130,5 +132,12 @@
                }
             </tbody>
         </table>
-    </div>
+        </div>
+    }
+    else
+    {
+        <div class="no-courses-dashboard">
+            <p>Henüz kayıtlı eğitiminiz bulunmamaktadır.</p>
+        </div>
+    }
 </div>

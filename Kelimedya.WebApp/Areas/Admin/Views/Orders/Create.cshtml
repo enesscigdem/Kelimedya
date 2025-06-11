@@ -49,7 +49,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Kullanıcı</label>
-                        <select class="form-select" asp-for="UserId" asp-items="@(new SelectList(ViewBag.Users, \"Id\", \"UserName\"))">
+                        <select class="form-select" asp-for="UserId" asp-items="@(new SelectList(ViewBag.Users, "Id", "UserName"))">
                             <option value="">Seçiniz</option>
                         </select>
                     </div>

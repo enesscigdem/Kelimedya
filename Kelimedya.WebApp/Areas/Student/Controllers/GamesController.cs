@@ -6,6 +6,8 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Kelimedya.Core.Entities;
 using System.Linq;
+using System.Security.Claims;
+using Kelimedya.WebApp.Areas.Admin.Models;
 
 namespace Kelimedya.WebApp.Areas.Student.Controllers
 {
@@ -27,7 +29,22 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
             return games?.FirstOrDefault(g => string.Equals(g.Title, title, System.StringComparison.OrdinalIgnoreCase))?.Id ?? 0;
         }
 
-        public IActionResult Index() => View();
+        public async Task<IActionResult> Index()
+        {
+            var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            bool hasCourses;
+            try
+            {
+                var courses = await _httpClient.GetFromJsonAsync<List<CourseViewModel>>($"api/orders/courses/{studentId}");
+                hasCourses = courses != null && courses.Any();
+            }
+            catch (HttpRequestException)
+            {
+                hasCourses = false;
+            }
+            ViewBag.HasCourses = hasCourses;
+            return View();
+        }
 
         public async Task<IActionResult> AdamAsmaca()
         {

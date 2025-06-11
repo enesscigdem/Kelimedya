@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Kelimedya.Core.Entities;
 using Kelimedya.Persistence;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +29,25 @@ namespace Kelimedya.WebAPI.Controllers
                 .Where(o => !o.IsDeleted && o.IsActive)
                 .CountAsync();
             return Ok(new { TotalSales = totalSales, OrderCount = orderCount });
+        }
+
+        // GET: api/sales/daily
+        [HttpGet("daily")]
+        public async Task<IActionResult> GetDailySales()
+        {
+            var cutoff = DateTime.UtcNow.Date.AddDays(-6);
+            var sales = await _context.Orders
+                .Where(o => !o.IsDeleted && o.IsActive && o.OrderDate >= cutoff)
+                .GroupBy(o => o.OrderDate.Date)
+                .Select(g => new
+                {
+                    Date = g.Key,
+                    Total = g.Sum(o => o.TotalAmount)
+                })
+                .OrderBy(g => g.Date)
+                .ToListAsync();
+
+            return Ok(sales);
         }
     }
 }

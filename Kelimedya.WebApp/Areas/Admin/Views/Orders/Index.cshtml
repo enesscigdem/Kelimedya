@@ -85,7 +85,7 @@
                                 <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
                                 <td>@order.CouponCode</td>
                                 <td>@order.DiscountAmount</td>
-                                <td>@($"{order.TotalAmount} TL")</td>
+                              <td>@order.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
                                 <td class="text-end">
                                     <div class="btn-group" role="group">
                                         <a asp-action="Edit" asp-route-id="@order.Id"

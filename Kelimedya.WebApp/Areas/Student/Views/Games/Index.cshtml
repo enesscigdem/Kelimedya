@@ -32,6 +32,12 @@
     </div>
 
 
+    @{ bool disabled = !(ViewBag.HasCourses as bool? ?? false); }
+    @if (disabled)
+    {
+        <p class="text-muted">Oyunlara erişmek için önce bir eğitime kaydolmalısınız.</p>
+    }
+
     <div class="games-grid">
 
         <div class="game-block">
@@ -40,7 +46,9 @@
             <a asp-area="Student"
                asp-controller="Games"
                asp-action="AdamAsmaca"
-               class="simple-btn">
+               class="simple-btn @(disabled ? "disabled" : "")"
+               style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)"
+               tabindex="@(disabled ? -1 : 0)">
                 Oyuna Başla
             </a>
         </div>
@@ -51,25 +59,33 @@
             <a asp-area="Student"
                asp-controller="Games"
                asp-action="KelimeBulmaca"
-               class="simple-btn">
+               class="simple-btn @(disabled ? "disabled" : "")"
+               style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)"
+               tabindex="@(disabled ? -1 : 0)">
                 Oyuna Başla
             </a>
         </div>
         <div class="game-block">
             <h3>Görselden Soru</h3>
             <p>Görsel size hangi kelimeyi çağrıştırıyor?</p>
-            <a asp-area="Student" asp-controller="Games" asp-action="VisualPrompt" class="simple-btn">Oyuna Başla</a>
+            <a asp-area="Student" asp-controller="Games" asp-action="VisualPrompt"
+               class="simple-btn @(disabled ? "disabled" : "")"
+               style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)"
+               tabindex="@(disabled ? -1 : 0)">Oyuna Başla</a>
         </div>
         <div class="game-block">
             <h3>Kabarcık Harfler</h3>
             <p>Doğru kelimeyi oluşturmak için baloncuklara tıklayın.</p>
-            <a asp-area="Student" asp-controller="Games" asp-action="BubbleLetters" class="simple-btn">
+            <a asp-area="Student" asp-controller="Games" asp-action="BubbleLetters"
+               class="simple-btn @(disabled ? "disabled" : "")"
+               style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)"
+               tabindex="@(disabled ? -1 : 0)">
                 Oyuna Başla
             </a>
         </div>
         <div class="game-block">
             <h3>Çengel Bulmaca</h3>
-            <p>Yatay ve dikey kelimeleri doldurarak bulmacayı tamamlayın.</p> <a asp-area="Student" asp-controller="Games" asp-action="CrossPuzzle" class="simple-btn"> Oyuna Başla </a>
+            <p>Yatay ve dikey kelimeleri doldurarak bulmacayı tamamlayın.</p> <a asp-area="Student" asp-controller="Games" asp-action="CrossPuzzle" class="simple-btn @(disabled ? "disabled" : "")" style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)" tabindex="@(disabled ? -1 : 0)"> Oyuna Başla </a>
         </div>
         <div class="game-block">
             <h3>Boşluk Doldurma</h3>
@@ -77,7 +93,9 @@
             <a asp-area="Student"
                asp-controller="Games"
                asp-action="FillBlanks"
-               class="simple-btn">
+               class="simple-btn @(disabled ? "disabled" : "")"
+               style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)"
+               tabindex="@(disabled ? -1 : 0)">
                 Oyuna Başla
             </a>
         </div>

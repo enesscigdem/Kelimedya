@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets/css/myWords.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/scoreInfo.css",
+      "PackagePath": "staticwebassets/css/scoreInfo.css"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -107,6 +111,10 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/common.js",
       "PackagePath": "staticwebassets/js/games/common.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/scoreInfoAnimations.js",
+      "PackagePath": "staticwebassets/js/scoreInfoAnimations.js"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/site.js",

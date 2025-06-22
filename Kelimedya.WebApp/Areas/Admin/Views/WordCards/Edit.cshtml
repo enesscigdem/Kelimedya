@@ -52,6 +52,39 @@
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
 
+                    <h4>Quiz Soruları</h4>
+                    @for (int i = 0; i < Model.QuizQuestions.Count; i++)
+                    {
+                        <div class="border rounded p-3 mb-3">
+                            <div class="mb-2">
+                                <label class="form-label">Soru</label>
+                                <input type="text" class="form-control" asp-for="QuizQuestions[i].QuestionText" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label">A</label>
+                                    <input type="text" class="form-control" asp-for="QuizQuestions[i].OptionA" />
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label">B</label>
+                                    <input type="text" class="form-control" asp-for="QuizQuestions[i].OptionB" />
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label">C</label>
+                                    <input type="text" class="form-control" asp-for="QuizQuestions[i].OptionC" />
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label">D</label>
+                                    <input type="text" class="form-control" asp-for="QuizQuestions[i].OptionD" />
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Doğru Seçenek</label>
+                                <input type="text" class="form-control" asp-for="QuizQuestions[i].CorrectOption" />
+                            </div>
+                        </div>
+                    }
+
                     @for (int i = 0; i < Model.GameQuestions.Count; i++)
                     {
                         <div class="border rounded p-3 mb-3">

@@ -41,7 +41,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 {
                     GameId = g.Id,
                     GameTitle = g.Title
-                }).ToList() ?? new List<GameQuestionViewModel>()
+                }).ToList() ?? new List<GameQuestionViewModel>(),
+                QuizQuestions = new List<QuizQuestionViewModel>()
             };
 
             ViewBag.LessonId = lessonId;
@@ -86,6 +87,34 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     }
                 }
 
+                if (model.QuizQuestions != null)
+                {
+                    for (int i = 0; i < model.QuizQuestions.Count; i++)
+                    {
+                        var q = model.QuizQuestions[i];
+                        content.Add(new StringContent(q.QuestionText ?? string.Empty), $"QuizQuestions[{i}].QuestionText");
+                        content.Add(new StringContent(q.OptionA ?? string.Empty), $"QuizQuestions[{i}].OptionA");
+                        content.Add(new StringContent(q.OptionB ?? string.Empty), $"QuizQuestions[{i}].OptionB");
+                        content.Add(new StringContent(q.OptionC ?? string.Empty), $"QuizQuestions[{i}].OptionC");
+                        content.Add(new StringContent(q.OptionD ?? string.Empty), $"QuizQuestions[{i}].OptionD");
+                        content.Add(new StringContent(q.CorrectOption ?? string.Empty), $"QuizQuestions[{i}].CorrectOption");
+                    }
+                }
+
+                if (model.QuizQuestions != null)
+                {
+                    for (int i = 0; i < model.QuizQuestions.Count; i++)
+                    {
+                        var q = model.QuizQuestions[i];
+                        content.Add(new StringContent(q.QuestionText ?? string.Empty), $"QuizQuestions[{i}].QuestionText");
+                        content.Add(new StringContent(q.OptionA ?? string.Empty), $"QuizQuestions[{i}].OptionA");
+                        content.Add(new StringContent(q.OptionB ?? string.Empty), $"QuizQuestions[{i}].OptionB");
+                        content.Add(new StringContent(q.OptionC ?? string.Empty), $"QuizQuestions[{i}].OptionC");
+                        content.Add(new StringContent(q.OptionD ?? string.Empty), $"QuizQuestions[{i}].OptionD");
+                        content.Add(new StringContent(q.CorrectOption ?? string.Empty), $"QuizQuestions[{i}].CorrectOption");
+                    }
+                }
+
                 var response = await _httpClient.PostAsync("api/wordcards", content);
                 if (response.IsSuccessStatusCode)
                 {
@@ -109,13 +138,16 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
 
             var games = await _httpClient.GetFromJsonAsync<List<GameViewModel>>("api/games");
             List<GameQuestionViewModel>? questions = null;
+            List<QuizQuestionViewModel>? quiz = null;
             try
             {
                 questions = await _httpClient.GetFromJsonAsync<List<GameQuestionViewModel>>($"api/wordcards/{id}/questions");
+                quiz = await _httpClient.GetFromJsonAsync<List<QuizQuestionViewModel>>($"api/wordcards/{id}/quizquestions");
             }
             catch (HttpRequestException)
             {
                 questions = new List<GameQuestionViewModel>();
+                quiz = new List<QuizQuestionViewModel>();
             }
 
             card.GameQuestions = games?.Select(g =>
@@ -124,6 +156,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 q.GameTitle = g.Title;
                 return q;
             }).ToList() ?? new List<GameQuestionViewModel>();
+            card.QuizQuestions = quiz ?? new List<QuizQuestionViewModel>();
 
             return View(card);
         }

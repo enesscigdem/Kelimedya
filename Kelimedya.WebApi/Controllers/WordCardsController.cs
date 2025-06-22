@@ -52,6 +52,20 @@ namespace Kelimedya.WebAPI.Controllers
             return Ok(questions);
         }
 
+        // GET: api/wordcards/{id}/quizquestions
+        [HttpGet("{id}/quizquestions")]
+        public async Task<IActionResult> GetWordCardQuizQuestions(int id)
+        {
+            var cardExists = await _context.WordCards.AnyAsync(w => w.Id == id && !w.IsDeleted);
+            if (!cardExists)
+                return NotFound();
+
+            var questions = await _context.WordCardQuizQuestions
+                .Where(q => q.WordCardId == id && !q.IsDeleted)
+                .ToListAsync();
+            return Ok(questions);
+        }
+
         // GET : api/wordcards/lessons/{lessonId}
         [HttpGet("lessons/{lessonId}")]
         public async Task<IActionResult> GetWordCardsByLesson(int lessonId)
@@ -99,6 +113,26 @@ namespace Kelimedya.WebAPI.Controllers
                         QuestionText = q.QuestionText,
                         AnswerText = q.AnswerText,
                         ImageUrl = q.ImageUrl,
+                        IsActive = true,
+                        IsDeleted = false,
+                        CreatedAt = DateTime.UtcNow,
+                        ModifiedAt = DateTime.UtcNow
+                    });
+                }
+            }
+            if (dto.QuizQuestions != null && dto.QuizQuestions.Any())
+            {
+                foreach (var q in dto.QuizQuestions)
+                {
+                    _context.WordCardQuizQuestions.Add(new WordCardQuizQuestion
+                    {
+                        WordCardId = card.Id,
+                        QuestionText = q.QuestionText,
+                        OptionA = q.OptionA,
+                        OptionB = q.OptionB,
+                        OptionC = q.OptionC,
+                        OptionD = q.OptionD,
+                        CorrectOption = q.CorrectOption,
                         IsActive = true,
                         IsDeleted = false,
                         CreatedAt = DateTime.UtcNow,
@@ -159,6 +193,8 @@ namespace Kelimedya.WebAPI.Controllers
 
                 var existing = _context.WordCardGameQuestions.Where(q => q.WordCardId == id);
                 _context.WordCardGameQuestions.RemoveRange(existing);
+                var existingQuiz = _context.WordCardQuizQuestions.Where(q => q.WordCardId == id);
+                _context.WordCardQuizQuestions.RemoveRange(existingQuiz);
 
                 if (dto.GameQuestions != null && dto.GameQuestions.Any())
                 {
@@ -171,6 +207,26 @@ namespace Kelimedya.WebAPI.Controllers
                             QuestionText = q.QuestionText,
                             AnswerText = q.AnswerText,
                             ImageUrl = q.ImageUrl,
+                            IsActive = true,
+                            IsDeleted = false,
+                            CreatedAt = DateTime.UtcNow,
+                            ModifiedAt = DateTime.UtcNow
+                        });
+                    }
+                }
+                if (dto.QuizQuestions != null && dto.QuizQuestions.Any())
+                {
+                    foreach (var q in dto.QuizQuestions)
+                    {
+                        _context.WordCardQuizQuestions.Add(new WordCardQuizQuestion
+                        {
+                            WordCardId = id,
+                            QuestionText = q.QuestionText,
+                            OptionA = q.OptionA,
+                            OptionB = q.OptionB,
+                            OptionC = q.OptionC,
+                            OptionD = q.OptionD,
+                            CorrectOption = q.CorrectOption,
                             IsActive = true,
                             IsDeleted = false,
                             CreatedAt = DateTime.UtcNow,

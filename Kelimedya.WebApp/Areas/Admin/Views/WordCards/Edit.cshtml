@@ -71,6 +71,37 @@
                             </div>
                         </div>
                     }
+
+                    @for (int i = 0; i < Model.TestQuestions.Count; i++)
+                    {
+                        <div class="border rounded p-3 mb-3">
+                            <h5 class="mb-2">Test Sorusu @(i + 1)</h5>
+                            <div class="mb-2">
+                                <label class="form-label">Soru</label>
+                                <input type="text" class="form-control" asp-for="TestQuestions[i].QuestionText" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">A</label>
+                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionA" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">B</label>
+                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionB" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">C</label>
+                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionC" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">D</label>
+                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionD" />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Doğru Seçenek (1-4)</label>
+                                <input type="number" class="form-control" asp-for="TestQuestions[i].CorrectOption" />
+                            </div>
+                        </div>
+                    }
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
                         <a asp-action="Index" asp-route-lessonId="@Model.LessonId" class="btn btn-link link-secondary">Vazgeç</a>

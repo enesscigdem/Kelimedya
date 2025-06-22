@@ -23,5 +23,6 @@ namespace Kelimedya.WebAPI.Models
         public IFormFile? ImageFile { get; set; }
 
         public List<GameQuestionDto>? GameQuestions { get; set; }
+        public List<TestQuestionDto>? TestQuestions { get; set; }
     }
 }

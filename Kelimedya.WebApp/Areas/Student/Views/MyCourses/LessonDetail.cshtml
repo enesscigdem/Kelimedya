@@ -173,7 +173,7 @@
                 return;
             }
             if (currentIndex === totalCards - 1){
-                openGame(true);
+                openQuiz();
                 return;
             }
             if (currentIndex < totalCards - 1){
@@ -216,6 +216,26 @@
                     openGame(finalGame);
                 }, 2000);
             }
+        }
+
+        async function openQuiz(){
+            const res = await fetch(`http://localhost:5001/api/wordcards/lessons/${lessonId}/testquestions`);
+            if(!res.ok){ finishCourse(); return; }
+            const qs = await res.json();
+            if(qs.length === 0){ finishCourse(); return; }
+            let correct = 0;
+            for(const q of qs){
+                const answer = prompt(`${q.questionText}\nA) ${q.optionA}\nB) ${q.optionB}\nC) ${q.optionC}\nD) ${q.optionD}`);
+                if(!answer) continue;
+                const idx = ['A','B','C','D'].indexOf(answer.trim().toUpperCase())+1;
+                if(idx === q.correctOption) correct++; 
+            }
+            await fetch('http://localhost:5001/api/gamestats/record', {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({studentId, gameId:-1, score: correct*10, durationSeconds:0})
+            });
+            finishCourse();
         }
         
         function finishCourse(){

@@ -304,9 +304,6 @@ public class HomeController : Controller
     [HttpPost, Route("odeme")]
     public async Task<IActionResult> Payment(PaymentModel model)
     {
-        if (!ModelState.IsValid)
-            return View(model);
-
         var userId = _currentUserService.GetUserId();
         if (userId == -1)
             return RedirectToAction("Login", "Auth", new { area = "" });

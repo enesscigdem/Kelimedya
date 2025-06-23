@@ -76,9 +76,28 @@ namespace Kelimedya.WebAPI.Controllers
                 })
                 .ToListAsync();
 
+            var quizStats = await _context.Lessons
+                .Where(l => !l.IsDeleted)
+                .GroupJoin(
+                    _context.StudentQuizResults.Where(r => r.StudentId == studentId && r.LessonId != null),
+                    lesson => lesson.Id,
+                    result => result.LessonId!.Value,
+                    (lesson, results) => new { Lesson = lesson, Results = results }
+                )
+                .Select(l => new QuizStatSummaryDto
+                {
+                    LessonId = l.Lesson.Id,
+                    LessonTitle = l.Lesson.Title,
+                    AttemptCount = l.Results.Count(),
+                    AverageScore = l.Results.Any() ? l.Results.Average(r => r.Score) : 0
+                })
+                .Where(q => q.AttemptCount > 0)
+                .ToListAsync();
+
             // Ensure gameStats is not null
             gameStats ??= new List<GameStatSummaryDto>();
-            
+            quizStats ??= new List<QuizStatSummaryDto>();
+
             var dashboardDto = new StudentDashboardDto
             {
                 TotalCourses = totalCourses,
@@ -86,7 +105,8 @@ namespace Kelimedya.WebAPI.Controllers
                 LearnedWords = learnedWords,
                 CourseProgresses = courseProgresses,
                 LessonProgresses = lessonProgressList,
-                GameStats = gameStats
+                GameStats = gameStats,
+                QuizStats = quizStats
             };
 
             return Ok(dashboardDto);

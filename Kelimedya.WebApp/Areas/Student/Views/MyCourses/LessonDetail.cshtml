@@ -275,11 +275,19 @@
         function closeQuiz(){
             document.getElementById('quizModal').classList.remove('show');
             document.getElementById('modalOverlay').classList.remove('show');
-            fetch('http://localhost:5001/api/gamestats/record', {
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body: JSON.stringify({studentId, gameId:-1, score: quizCorrect*10, durationSeconds:0})
-            }).then(() => finishCourse());
+            const payload = {studentId, lessonId, totalQuestions: quizQuestions.length, correctAnswers: quizCorrect, score: quizCorrect * 10};
+            Promise.all([
+                fetch('http://localhost:5001/api/gamestats/record', {
+                    method:'POST',
+                    headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify({studentId, gameId:-1, score: quizCorrect*10, durationSeconds:0})
+                }),
+                fetch('http://localhost:5001/api/quizresults/record', {
+                    method:'POST',
+                    headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify(payload)
+                })
+            ]).finally(() => finishCourse());
         }
 
         function shuffleArray(arr){

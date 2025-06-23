@@ -461,28 +461,7 @@
                 </div>
 
                 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0"
-                       data-bs-toggle="dropdown"
-                       aria-label="Open user menu">
-                        <span class="avatar avatar-sm"
-                              style="background-image: url('~/theme/tabler/static/avatars/000m.jpg')">
-                        </span>
-                        <div class="d-none d-xl-block ps-2">
-                            <div>Öğretmen Adı</div>
-                            <div class="mt-1 small text-secondary">Teacher</div>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a asp-area="Teacher" asp-controller="Profile" asp-action="Index" class="dropdown-item">
-                            Profil
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a asp-area="Teacher" asp-controller="Logout" asp-action="Index" class="dropdown-item">
-                            Çıkış Yap
-                        </a>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("UserDropdown", new { area = "Teacher" })
             </div>
         </div>
     </header>

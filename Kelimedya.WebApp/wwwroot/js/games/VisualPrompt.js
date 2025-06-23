@@ -5,7 +5,8 @@ let imgEl, guessEl, feedbackEl, questionEl;
 
 function loadCard(){
   const card=cards[idx];
-  const q=card.gameQuestions?.find(g=>g.gameId===6);
+  const gid=parseInt(document.getElementById('gameRoot').dataset.gameId);
+  const q=card.gameQuestions?.find(g=>g.gameId===gid);
   imgEl.src=(q?.imageUrl)||card.imageUrl||'';
   questionEl.textContent=q?.questionText||'';
   guessEl.value='';
@@ -16,7 +17,7 @@ function loadCard(){
 function submit(studentId, gameId){
   const user=guessEl.value.trim().toLowerCase();
   const card=cards[idx];
-  const q=card.gameQuestions?.find(g=>g.gameId===6);
+  const q=card.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
   const answer=(q?.answerText||card.word).toLowerCase();
   const success=user===answer;
   feedbackEl.textContent=success?'Doğru':'Yanlış';
@@ -27,7 +28,8 @@ function submit(studentId, gameId){
 
 function reveal(){
   const card=cards[idx];
-  const q=card.gameQuestions?.find(g=>g.gameId===6);
+  const gid=parseInt(document.getElementById('gameRoot').dataset.gameId);
+  const q=card.gameQuestions?.find(g=>g.gameId===gid);
   guessEl.value=q?.answerText||card.word;
 }
 

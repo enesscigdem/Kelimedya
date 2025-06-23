@@ -84,6 +84,12 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                         content.Add(new StringContent(q.QuestionText ?? string.Empty), $"GameQuestions[{i}].QuestionText");
                         content.Add(new StringContent(q.AnswerText ?? string.Empty), $"GameQuestions[{i}].AnswerText");
                         content.Add(new StringContent(q.ImageUrl ?? string.Empty), $"GameQuestions[{i}].ImageUrl");
+                        content.Add(new StringContent(q.OptionA ?? string.Empty), $"GameQuestions[{i}].OptionA");
+                        content.Add(new StringContent(q.OptionB ?? string.Empty), $"GameQuestions[{i}].OptionB");
+                        content.Add(new StringContent(q.OptionC ?? string.Empty), $"GameQuestions[{i}].OptionC");
+                        content.Add(new StringContent(q.OptionD ?? string.Empty), $"GameQuestions[{i}].OptionD");
+                        content.Add(new StringContent(q.CorrectOption?.ToString() ?? string.Empty), $"GameQuestions[{i}].CorrectOption");
+                        content.Add(new StringContent(q.QuestionType ?? string.Empty), $"GameQuestions[{i}].QuestionType");
                     }
                 }
 
@@ -189,6 +195,12 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                         content.Add(new StringContent(q.QuestionText ?? string.Empty), $"GameQuestions[{i}].QuestionText");
                         content.Add(new StringContent(q.AnswerText ?? string.Empty), $"GameQuestions[{i}].AnswerText");
                         content.Add(new StringContent(q.ImageUrl ?? string.Empty), $"GameQuestions[{i}].ImageUrl");
+                        content.Add(new StringContent(q.OptionA ?? string.Empty), $"GameQuestions[{i}].OptionA");
+                        content.Add(new StringContent(q.OptionB ?? string.Empty), $"GameQuestions[{i}].OptionB");
+                        content.Add(new StringContent(q.OptionC ?? string.Empty), $"GameQuestions[{i}].OptionC");
+                        content.Add(new StringContent(q.OptionD ?? string.Empty), $"GameQuestions[{i}].OptionD");
+                        content.Add(new StringContent(q.CorrectOption?.ToString() ?? string.Empty), $"GameQuestions[{i}].CorrectOption");
+                        content.Add(new StringContent(q.QuestionType ?? string.Empty), $"GameQuestions[{i}].QuestionType");
                     }
                 }
                 if (model.TestQuestions != null)

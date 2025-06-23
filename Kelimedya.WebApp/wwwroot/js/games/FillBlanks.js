@@ -2,12 +2,14 @@ import {fetchLearnedWords, awardScore} from './common.js';
 
 let items=[], idx=0, start;
 
-function createItems(words){
+function createItems(words, gameId){
   return words.map(w=>{
-    const sentence=w.exampleSentence||`${w.word} cümle içinde`;
-    const regex=new RegExp(w.word,'i');
+    const q=w.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
+    const ans=(q?.answerText||w.word).toLowerCase();
+    const sentence=q?.questionText||w.exampleSentence||`${w.word} cümle içinde`;
+    const regex=new RegExp(ans,'i');
     const parts=sentence.split(regex);
-    return {parts, answers:[w.word.toLowerCase()]};
+    return {parts, answers:[ans]};
   });
 }
 
@@ -39,7 +41,7 @@ function reveal(){
 
 export async function initFillBlanks(studentId, gameId){
   const words=await fetchLearnedWords(studentId);
-  items=createItems(words);
+  items=createItems(words, gameId);
   if(items.length===0) items=[{parts:['___ örnek cümle'],answers:['örnek']}];
   document.getElementById('fbCheck').onclick=()=>check(studentId, gameId);
   document.getElementById('fbNext').onclick=()=>{idx=(idx+1)%items.length;renderCard();};

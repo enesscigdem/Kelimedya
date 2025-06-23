@@ -17,4 +17,12 @@ public class WordCardGameQuestion : IIntEntity, IActivateableEntity, IIsDeletedE
     public string QuestionText { get; set; } = string.Empty;
     public string AnswerText { get; set; } = string.Empty;
     public string? ImageUrl { get; set; }
+
+    // Oyun bazlı soru tipleri için ek alanlar
+    public string? QuestionType { get; set; }
+    public string? OptionA { get; set; }
+    public string? OptionB { get; set; }
+    public string? OptionC { get; set; }
+    public string? OptionD { get; set; }
+    public int? CorrectOption { get; set; }
 }

@@ -52,12 +52,42 @@ namespace Kelimedya.WebAPI.Controllers
             return Ok(questions);
         }
 
+        // GET: api/wordcards/{id}/testquestions
+        [HttpGet("{id}/testquestions")]
+        public async Task<IActionResult> GetWordCardTestQuestions(int id)
+        {
+            var cardExists = await _context.WordCards.AnyAsync(w => w.Id == id && !w.IsDeleted);
+            if (!cardExists)
+                return NotFound();
+
+            var questions = await _context.WordCardTestQuestions
+                .Where(q => q.WordCardId == id && !q.IsDeleted)
+                .ToListAsync();
+            return Ok(questions);
+        }
+
         // GET : api/wordcards/lessons/{lessonId}
         [HttpGet("lessons/{lessonId}")]
         public async Task<IActionResult> GetWordCardsByLesson(int lessonId)
         {
             var cards = await _context.WordCards.Where(w => w.LessonId == lessonId && !w.IsDeleted).ToListAsync();
             return Ok(cards);
+        }
+
+        // GET: api/wordcards/lessons/{lessonId}/testquestions
+        [HttpGet("lessons/{lessonId}/testquestions")]
+        public async Task<IActionResult> GetLessonTestQuestions(int lessonId)
+        {
+            var cardIds = await _context.WordCards
+                .Where(w => w.LessonId == lessonId && !w.IsDeleted)
+                .Select(w => w.Id)
+                .ToListAsync();
+
+            var questions = await _context.WordCardTestQuestions
+                .Where(q => cardIds.Contains(q.WordCardId) && !q.IsDeleted)
+                .ToListAsync();
+
+            return Ok(questions);
         }
         
         // POST: api/wordcards
@@ -125,6 +155,27 @@ namespace Kelimedya.WebAPI.Controllers
                 }
             }
 
+            if (dto.TestQuestions != null && dto.TestQuestions.Any())
+            {
+                foreach (var t in dto.TestQuestions)
+                {
+                    _context.WordCardTestQuestions.Add(new WordCardTestQuestion
+                    {
+                        WordCardId = card.Id,
+                        QuestionText = t.QuestionText,
+                        OptionA = t.OptionA,
+                        OptionB = t.OptionB,
+                        OptionC = t.OptionC,
+                        OptionD = t.OptionD,
+                        CorrectOption = t.CorrectOption,
+                        IsActive = true,
+                        IsDeleted = false,
+                        CreatedAt = DateTime.UtcNow,
+                        ModifiedAt = DateTime.UtcNow
+                    });
+                }
+            }
+
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetWordCard), new { id = card.Id }, card);
         }
@@ -159,6 +210,8 @@ namespace Kelimedya.WebAPI.Controllers
 
                 var existing = _context.WordCardGameQuestions.Where(q => q.WordCardId == id);
                 _context.WordCardGameQuestions.RemoveRange(existing);
+                var existingTests = _context.WordCardTestQuestions.Where(t => t.WordCardId == id);
+                _context.WordCardTestQuestions.RemoveRange(existingTests);
 
                 if (dto.GameQuestions != null && dto.GameQuestions.Any())
                 {
@@ -189,6 +242,27 @@ namespace Kelimedya.WebAPI.Controllers
                             GameId = gid,
                             QuestionText = string.Empty,
                             AnswerText = card.Word,
+                            IsActive = true,
+                            IsDeleted = false,
+                            CreatedAt = DateTime.UtcNow,
+                            ModifiedAt = DateTime.UtcNow
+                        });
+                    }
+                }
+
+                if (dto.TestQuestions != null && dto.TestQuestions.Any())
+                {
+                    foreach (var t in dto.TestQuestions)
+                    {
+                        _context.WordCardTestQuestions.Add(new WordCardTestQuestion
+                        {
+                            WordCardId = id,
+                            QuestionText = t.QuestionText,
+                            OptionA = t.OptionA,
+                            OptionB = t.OptionB,
+                            OptionC = t.OptionC,
+                            OptionD = t.OptionD,
+                            CorrectOption = t.CorrectOption,
                             IsActive = true,
                             IsDeleted = false,
                             CreatedAt = DateTime.UtcNow,

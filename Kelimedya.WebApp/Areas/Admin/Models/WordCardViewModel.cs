@@ -32,5 +32,6 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         public string Progress { get; set; }
 
         public List<GameQuestionViewModel> GameQuestions { get; set; } = new();
+        public List<TestQuestionViewModel> TestQuestions { get; set; } = new();
     }
 }

@@ -41,7 +41,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 {
                     GameId = g.Id,
                     GameTitle = g.Title
-                }).ToList() ?? new List<GameQuestionViewModel>()
+                }).ToList() ?? new List<GameQuestionViewModel>(),
+                TestQuestions = new List<TestQuestionViewModel> { new(), new() }
             };
 
             ViewBag.LessonId = lessonId;
@@ -86,6 +87,21 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     }
                 }
 
+                if (model.TestQuestions != null)
+                {
+                    for (int i = 0; i < model.TestQuestions.Count; i++)
+                    {
+                        var t = model.TestQuestions[i];
+                        content.Add(new StringContent(t.QuestionText ?? string.Empty), $"TestQuestions[{i}].QuestionText");
+                        content.Add(new StringContent(t.OptionA ?? string.Empty), $"TestQuestions[{i}].OptionA");
+                        content.Add(new StringContent(t.OptionB ?? string.Empty), $"TestQuestions[{i}].OptionB");
+                        content.Add(new StringContent(t.OptionC ?? string.Empty), $"TestQuestions[{i}].OptionC");
+                        content.Add(new StringContent(t.OptionD ?? string.Empty), $"TestQuestions[{i}].OptionD");
+                        content.Add(new StringContent(t.CorrectOption.ToString()), $"TestQuestions[{i}].CorrectOption");
+                    }
+                }
+
+
                 var response = await _httpClient.PostAsync("api/wordcards", content);
                 if (response.IsSuccessStatusCode)
                 {
@@ -109,13 +125,16 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
 
             var games = await _httpClient.GetFromJsonAsync<List<GameViewModel>>("api/games");
             List<GameQuestionViewModel>? questions = null;
+            List<TestQuestionViewModel>? testQs = null;
             try
             {
                 questions = await _httpClient.GetFromJsonAsync<List<GameQuestionViewModel>>($"api/wordcards/{id}/questions");
+                testQs = await _httpClient.GetFromJsonAsync<List<TestQuestionViewModel>>($"api/wordcards/{id}/testquestions");
             }
             catch (HttpRequestException)
             {
                 questions = new List<GameQuestionViewModel>();
+                testQs = new List<TestQuestionViewModel>();
             }
 
             card.GameQuestions = games?.Select(g =>
@@ -124,6 +143,10 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 q.GameTitle = g.Title;
                 return q;
             }).ToList() ?? new List<GameQuestionViewModel>();
+
+            card.TestQuestions = testQs != null && testQs.Count > 0
+                ? testQs
+                : new List<TestQuestionViewModel> { new(), new() };
 
             return View(card);
         }
@@ -166,6 +189,19 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                         content.Add(new StringContent(q.QuestionText ?? string.Empty), $"GameQuestions[{i}].QuestionText");
                         content.Add(new StringContent(q.AnswerText ?? string.Empty), $"GameQuestions[{i}].AnswerText");
                         content.Add(new StringContent(q.ImageUrl ?? string.Empty), $"GameQuestions[{i}].ImageUrl");
+                    }
+                }
+                if (model.TestQuestions != null)
+                {
+                    for (int i = 0; i < model.TestQuestions.Count; i++)
+                    {
+                        var t = model.TestQuestions[i];
+                        content.Add(new StringContent(t.QuestionText ?? string.Empty), $"TestQuestions[{i}].QuestionText");
+                        content.Add(new StringContent(t.OptionA ?? string.Empty), $"TestQuestions[{i}].OptionA");
+                        content.Add(new StringContent(t.OptionB ?? string.Empty), $"TestQuestions[{i}].OptionB");
+                        content.Add(new StringContent(t.OptionC ?? string.Empty), $"TestQuestions[{i}].OptionC");
+                        content.Add(new StringContent(t.OptionD ?? string.Empty), $"TestQuestions[{i}].OptionD");
+                        content.Add(new StringContent(t.CorrectOption.ToString()), $"TestQuestions[{i}].CorrectOption");
                     }
                 }
 

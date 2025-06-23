@@ -103,6 +103,16 @@
                 <button class="pastel-btn" id="btnGameWrong">Yanlış</button>
             </div>
         </div>
+        <div id="quizModal">
+            <div class="modal-title" id="quizTitle">Test Sorusu</div>
+            <div id="quizQuestion" class="mb-2"></div>
+            <div class="quiz-options">
+                <button class="pastel-btn" data-opt="1" id="quizOpt1"></button>
+                <button class="pastel-btn" data-opt="2" id="quizOpt2"></button>
+                <button class="pastel-btn" data-opt="3" id="quizOpt3"></button>
+                <button class="pastel-btn" data-opt="4" id="quizOpt4"></button>
+            </div>
+        </div>
     }
 </div>
 
@@ -125,6 +135,12 @@
             });
             document.getElementById("btnGameWrong").addEventListener("click", () => {
                 onGameAnswer(false, isFinalGame);
+            });
+            document.querySelectorAll('#quizModal button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const opt = parseInt(btn.getAttribute('data-opt'));
+                    answerQuiz(opt);
+                });
             });
         });
         
@@ -173,7 +189,7 @@
                 return;
             }
             if (currentIndex === totalCards - 1){
-                openGame(true);
+                openQuiz();
                 return;
             }
             if (currentIndex < totalCards - 1){
@@ -216,6 +232,62 @@
                     openGame(finalGame);
                 }, 2000);
             }
+        }
+
+        let quizQuestions = [];
+        let quizIndex = 0;
+        let quizCorrect = 0;
+
+        async function openQuiz(){
+            const res = await fetch(`http://localhost:5001/api/wordcards/lessons/${lessonId}/testquestions`);
+            if(!res.ok){ finishCourse(); return; }
+            const qs = await res.json();
+            if(!qs || qs.length === 0){ finishCourse(); return; }
+            const max = Math.max(1, Math.floor(totalCards / 2));
+            quizQuestions = shuffleArray(qs).slice(0, max);
+            quizIndex = 0;
+            quizCorrect = 0;
+            showQuizQuestion();
+        }
+
+        function showQuizQuestion(){
+            if(quizIndex >= quizQuestions.length){
+                closeQuiz();
+                return;
+            }
+            const q = quizQuestions[quizIndex];
+            document.getElementById('quizQuestion').textContent = q.questionText;
+            document.getElementById('quizOpt1').textContent = q.optionA;
+            document.getElementById('quizOpt2').textContent = q.optionB;
+            document.getElementById('quizOpt3').textContent = q.optionC;
+            document.getElementById('quizOpt4').textContent = q.optionD;
+            document.getElementById('modalOverlay').classList.add('show');
+            document.getElementById('quizModal').classList.add('show');
+        }
+
+        function answerQuiz(opt){
+            const q = quizQuestions[quizIndex];
+            if(opt === q.correctOption) quizCorrect++;
+            quizIndex++;
+            showQuizQuestion();
+        }
+
+        function closeQuiz(){
+            document.getElementById('quizModal').classList.remove('show');
+            document.getElementById('modalOverlay').classList.remove('show');
+            fetch('http://localhost:5001/api/gamestats/record', {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({studentId, gameId:-1, score: quizCorrect*10, durationSeconds:0})
+            }).then(() => finishCourse());
+        }
+
+        function shuffleArray(arr){
+            for(let i = arr.length -1; i>0; i--){
+                const j = Math.floor(Math.random()* (i+1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
         }
         
         function finishCourse(){

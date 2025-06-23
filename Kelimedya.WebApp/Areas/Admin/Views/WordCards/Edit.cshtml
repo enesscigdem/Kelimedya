@@ -69,6 +69,28 @@
                                 <label class="form-label">Resim URL</label>
                                 <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
                             </div>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <label class="form-label">Seçenek A</label>
+                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionA" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Seçenek B</label>
+                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionB" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Seçenek C</label>
+                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionC" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Seçenek D</label>
+                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionD" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Doğru Seçenek</label>
+                                    <input type="number" class="form-control" asp-for="GameQuestions[i].CorrectOption" />
+                                </div>
+                            </div>
                         </div>
                     }
 

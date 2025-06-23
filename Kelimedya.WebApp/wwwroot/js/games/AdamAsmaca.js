@@ -17,7 +17,8 @@ export async function initHangman(studentId, gameId){
   cards = await fetchLearnedWords(studentId);
   if(cards.length===0) cards=[{word:'kelime'}];
   idx=0;
-  word = cards[idx].word.toLowerCase();
+  const q=cards[idx].gameQuestions?.find(g=>g.gameId===parseInt(gameId));
+  word = (q?.answerText||cards[idx].word).toLowerCase();
   setup(studentId, gameId);
 }
 
@@ -50,5 +51,5 @@ function setup(studentId, gameId){
 }
 
 function startNext(studentId, gameId){
-  if(cards.length===0) return; idx=(idx)%cards.length; word=cards[idx].word.toLowerCase(); setup(studentId, gameId);
+  if(cards.length===0) return; idx=(idx)%cards.length; const q=cards[idx].gameQuestions?.find(g=>g.gameId===parseInt(gameId)); word=(q?.answerText||cards[idx].word).toLowerCase(); setup(studentId, gameId);
 }

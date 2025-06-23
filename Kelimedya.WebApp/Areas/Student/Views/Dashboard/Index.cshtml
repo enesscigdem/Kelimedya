@@ -133,6 +133,36 @@
             </tbody>
         </table>
         </div>
+
+        <div class="progress-box">
+            <h3>Test İstatistiklerim</h3>
+            <table>
+            <thead>
+                <tr>
+                    <th>Ders</th>
+                    <th>Çözülme Sayısı</th>
+                    <th>Ortalama Skor</th>
+                </tr>
+            </thead>
+            <tbody>
+               @if (Model.QuizStats != null && Model.QuizStats.Any())
+               {
+                   foreach (var qs in Model.QuizStats)
+                   {
+                       <tr>
+                           <td>@qs.LessonTitle</td>
+                           <td>@qs.AttemptCount</td>
+                           <td>@string.Format("{0:0.##}", qs.AverageScore)</td>
+                       </tr>
+                   }
+               }
+               else
+               {
+                   <tr><td colspan="3">Henüz test verisi bulunmamaktadır.</td></tr>
+               }
+            </tbody>
+        </table>
+        </div>
     }
     else
     {

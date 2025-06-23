@@ -10,6 +10,7 @@ namespace Kelimedya.WebAPI.Models
         public List<CourseProgressDto> CourseProgresses { get; set; } = new List<CourseProgressDto>();
         public List<LessonProgressDto> LessonProgresses { get; set; } = new List<LessonProgressDto>();
         public List<GameStatSummaryDto> GameStats { get; set; } = new List<GameStatSummaryDto>();
+        public List<QuizStatSummaryDto> QuizStats { get; set; } = new List<QuizStatSummaryDto>();
     }
 
     public class CourseProgressDto

@@ -6,10 +6,11 @@ function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.rand
 
 function loadCard(){
   const card = cards[cardIdx];
-  answer = card.word.toLowerCase().replace(/\s+/g,'');
+  const q = card.gameQuestions?.find(g=>g.gameId===parseInt(document.getElementById('gameRoot').dataset.gameId));
+  answer = (q?.answerText || card.word).toLowerCase().replace(/\s+/g,'');
   filled = Array(answer.length).fill('');
   document.getElementById('hintSynonym').textContent = card.synonym;
-  document.getElementById('hintDefinition').textContent = card.definition;
+  document.getElementById('hintDefinition').textContent = q?.questionText || card.definition;
   document.getElementById('hintSentence').textContent = card.exampleSentence;
   const target=document.getElementById('targetSlots');
   target.innerHTML='';

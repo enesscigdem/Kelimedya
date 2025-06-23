@@ -190,6 +190,7 @@
     // Global değişkenler
     let currentLeague = '@Model.League';
     let currentScore = @Model.TotalScore;
+    let shownPromotionFor = localStorage.getItem('shownLeague') || '';
     let confettiAnimation = null;
     let starsAnimation = null;
 
@@ -219,9 +220,11 @@
       // İkonu güncelle
       const icon = container.querySelector('.league-icon i');
       icon.className = getLeagueIcon(newLeague);
-  
-      // Kutlama animasyonunu tetikle
-      showPromotionAnimation(currentLeague, newLeague);
+      if (shownPromotionFor !== newLeague) {
+        showPromotionAnimation(currentLeague, newLeague);
+        shownPromotionFor = newLeague;
+        localStorage.setItem('shownLeague', newLeague);
+      }
       currentLeague = newLeague;
     }
   };

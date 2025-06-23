@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Kelimedya.WebApp.Areas.Student.Models;
 
@@ -37,18 +38,25 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
                 return View(model);
 
             var client = _factory.CreateClient("DefaultApi");
-            var response = await client.PutAsJsonAsync($"api/users/{model.Id}", new
+            using var content = new MultipartFormDataContent();
+            content.Add(new StringContent(model.Id), "Id");
+            content.Add(new StringContent(model.UserName), "UserName");
+            content.Add(new StringContent(model.Email), "Email");
+            content.Add(new StringContent(model.Name ?? string.Empty), "Name");
+            content.Add(new StringContent(model.Surname ?? string.Empty), "Surname");
+            content.Add(new StringContent(model.PhoneNumber ?? string.Empty), "PhoneNumber");
+            if (model.ClassGrade.HasValue)
+                content.Add(new StringContent(model.ClassGrade.Value.ToString()), "ClassGrade");
+            content.Add(new StringContent("Student"), "Role");
+            content.Add(new StringContent(string.Empty), "TeacherId");
+            if (model.ImageFile != null)
             {
-                id = model.Id,
-                userName = model.UserName,
-                email = model.Email,
-                name = model.Name,
-                surname = model.Surname,
-                phoneNumber = model.PhoneNumber,
-                classGrade = model.ClassGrade,
-                role = "Student",
-                teacherId = (int?)null
-            });
+                var stream = new StreamContent(model.ImageFile.OpenReadStream());
+                stream.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(model.ImageFile.ContentType);
+                content.Add(stream, "ImageFile", model.ImageFile.FileName);
+            }
+
+            var response = await client.PutAsync($"api/users/{model.Id}", content);
 
             if (!response.IsSuccessStatusCode)
             {

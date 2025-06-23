@@ -6,8 +6,10 @@ using Kelimedya.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 using Kelimedya.Core.Enum;
+using Microsoft.AspNetCore.Http;
 
 namespace Kelimedya.WebAPI.Controllers
 {
@@ -38,7 +40,10 @@ namespace Kelimedya.WebAPI.Controllers
                     Id = user.Id.ToString(),
                     UserName = user.UserName,
                     Email = user.Email,
+                    Name = user.Name,
+                    Surname = user.Surname,
                     FullName = $"{user.Name} {user.Surname}",
+                    ProfilePicture = user.ProfilePicture,
                     Role = role,
                     CreatedAt = user.CreatedAt,
                     TeacherId = user.TeacherId,
@@ -66,7 +71,10 @@ namespace Kelimedya.WebAPI.Controllers
                 Id = user.Id.ToString(),
                 UserName = user.UserName,
                 Email = user.Email,
+                Name = user.Name,
+                Surname = user.Surname,
                 FullName = $"{user.Name} {user.Surname}",
+                ProfilePicture = user.ProfilePicture,
                 Role = role,
                 CreatedAt = user.CreatedAt,
                 PhoneNumber = user.PhoneNumber,
@@ -120,7 +128,7 @@ namespace Kelimedya.WebAPI.Controllers
 
         // PUT: api/users/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(string id, [FromBody] UpdateUserDto dto)
+        public async Task<IActionResult> UpdateUser(string id, [FromForm] UpdateUserDto dto)
         {
             if (id != dto.Id)
                 return BadRequest(new { Message = "Invalid user ID." });
@@ -136,6 +144,11 @@ namespace Kelimedya.WebAPI.Controllers
             user.TeacherId = dto.TeacherId;
             user.PhoneNumber = dto.PhoneNumber;
             user.ClassGrade = dto.ClassGrade;
+
+            if (dto.ImageFile != null)
+            {
+                user.ProfilePicture = await SaveFileAsync(dto.ImageFile, "profiles");
+            }
             
             var updateResult = await _userManager.UpdateAsync(user);
             if (!updateResult.Succeeded)
@@ -179,6 +192,24 @@ namespace Kelimedya.WebAPI.Controllers
                 return BadRequest(new { Message = "Kullanıcı silinemedi.", Errors = result.Errors.Select(e => e.Description) });
             }
             return Ok(new { Message = "Kullanıcı başarıyla silindi." });
+        }
+
+        private async Task<string?> SaveFileAsync(IFormFile file, string folder)
+        {
+            if (file == null || file.Length == 0)
+                return null;
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", folder);
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine(uploadsFolder, fileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            return $"{Request.Scheme}://{Request.Host}/uploads/{folder}/{fileName}";
         }
     }
 }

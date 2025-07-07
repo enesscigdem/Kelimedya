@@ -7,6 +7,15 @@ export async function fetchLearnedWords(studentId) {
   return data.map(x => ({ ...x.wordCard, gameQuestions: x.gameQuestions }));
 }
 
+export async function fetchWordCardWithQuestions(id) {
+  const cardRes = await fetch(`${API_BASE_URL}/api/wordcards/${id}`);
+  if (!cardRes.ok) return null;
+  const card = await cardRes.json();
+  const qRes = await fetch(`${API_BASE_URL}/api/wordcards/${id}/questions`);
+  const questions = qRes.ok ? await qRes.json() : [];
+  return { ...card, gameQuestions: questions };
+}
+
 export async function recordGameStat(stat) {
   const payload = {
     ...stat,

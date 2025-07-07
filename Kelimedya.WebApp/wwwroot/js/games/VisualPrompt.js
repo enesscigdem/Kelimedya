@@ -1,4 +1,4 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let cards=[], idx=0, start;
 let singleMode=false;
@@ -38,9 +38,14 @@ function reveal(){
   guessEl.value=q?.answerText||card.word;
 }
 
-export async function initVisualPrompt(studentId, gameId, single){
+export async function initVisualPrompt(studentId, gameId, single, wordId){
   if(single){
-    cards=[{word:single,imageUrl:'',definition:'',exampleSentence:''}];
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      cards=card ? [card] : [{word:single,imageUrl:'',definition:'',exampleSentence:''}];
+    }else{
+      cards=[{word:single,imageUrl:'',definition:'',exampleSentence:''}];
+    }
     singleMode=true;
   }else{
     cards=await fetchLearnedWords(studentId);

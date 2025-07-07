@@ -1,4 +1,4 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let cards = [], cardIdx = 0, filled = [], answer = '', start;
 let singleMode=false;
@@ -71,9 +71,14 @@ function reveal(){
   filled.forEach((c,i)=>document.getElementById(`slot${i}`).textContent=c);
 }
 
-export async function initBubbleLetters(studentId, gameId, single){
+export async function initBubbleLetters(studentId, gameId, single, wordId){
   if(single){
-    cards=[{word:single,synonym:'',definition:'',exampleSentence:''}];
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      cards=card ? [card] : [{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }else{
+      cards=[{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }
     singleMode=true;
   }else{
     cards = await fetchLearnedWords(studentId);

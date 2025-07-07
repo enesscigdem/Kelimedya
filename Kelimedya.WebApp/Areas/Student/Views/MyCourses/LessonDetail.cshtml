@@ -225,7 +225,7 @@
             const wordCard = wordOrder[gameIndex];
             document.getElementById('modalTitle').textContent = game.title;
             document.getElementById('gameWord').textContent = wordCard.word;
-            document.getElementById('gameFrame').src = game.url + '?embed=1&word=' + encodeURIComponent(wordCard.word);
+            document.getElementById('gameFrame').src = game.url + '?embed=1&word=' + encodeURIComponent(wordCard.word) + '&id=' + wordCard.id;
             document.getElementById('modalOverlay').classList.add('show');
             document.getElementById('gameModal').classList.add('show');
         }

@@ -1,4 +1,4 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let items=[], idx=0, start;
 let singleMode=false;
@@ -44,10 +44,15 @@ function reveal(){
   });
 }
 
-export async function initFillBlanks(studentId, gameId, single){
+export async function initFillBlanks(studentId, gameId, single, wordId){
   let words;
   if(single){
-    words=[{word:single,synonym:'',definition:'',exampleSentence:''}];
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      words=card ? [card] : [{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }else{
+      words=[{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }
     singleMode=true;
   }else{
     words=await fetchLearnedWords(studentId);

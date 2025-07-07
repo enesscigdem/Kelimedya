@@ -2,13 +2,14 @@
 @{
     bool embed = Context.Request.Query.ContainsKey("embed");
     string singleWord = Context.Request.Query["word"];
+    string wordId = Context.Request.Query["id"];
     Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Kabarcık Harfler";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 <link href="~/css/BubbleLetters.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="bl-header">
       <h1>Kabarcık Harfler</h1>
@@ -62,6 +63,6 @@
   <script type="module">
     import {initBubbleLetters} from '@Url.Content("~/js/games/BubbleLetters.js")';
     const root=document.getElementById('gameRoot');
-    initBubbleLetters(root.dataset.studentId, root.dataset.gameId, root.dataset.word);
+    initBubbleLetters(root.dataset.studentId, root.dataset.gameId, root.dataset.word, root.dataset.wordId);
   </script>
 }

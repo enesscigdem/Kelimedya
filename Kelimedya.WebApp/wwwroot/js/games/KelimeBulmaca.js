@@ -1,4 +1,4 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let cards=[], idx=0, start;
 let singleMode=false;
@@ -45,9 +45,14 @@ function select(ans,correct){
   setTimeout(load,500);
 }
 
-export async function initWordQuiz(studentId, gameId, single){
+export async function initWordQuiz(studentId, gameId, single, wordId){
   if(single){
-    cards=[{word:single,definition:'',synonym:'',exampleSentence:''}];
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      cards=card? [card] : [{word:single,definition:'',synonym:'',exampleSentence:''}];
+    }else{
+      cards=[{word:single,definition:'',synonym:'',exampleSentence:''}];
+    }
     singleMode=true;
   }else{
     cards=await fetchLearnedWords(studentId);

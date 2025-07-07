@@ -1,4 +1,4 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let word = '', guessed = new Set(), wrong = 0, startTime, cards=[], idx=0;
 let singleMode = false;
@@ -14,9 +14,14 @@ function finish(success, studentId, gameId){
   awardScore(studentId, gameId, success, duration);
 }
 
-export async function initHangman(studentId, gameId, single){
+export async function initHangman(studentId, gameId, single, wordId){
   if(single){
-    cards=[{word:single}];
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      cards=card? [card] : [{word:single}];
+    }else{
+      cards=[{word:single}];
+    }
     singleMode=true;
   }else{
     cards = await fetchLearnedWords(studentId);

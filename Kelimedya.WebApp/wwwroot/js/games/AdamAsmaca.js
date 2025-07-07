@@ -27,6 +27,10 @@ export async function initHangman(studentId, gameId, single){
   const q=cards[idx].gameQuestions?.find(g=>g.gameId===parseInt(gameId));
   word = (q?.answerText||cards[idx].word).toLowerCase();
   setup(studentId, gameId);
+  if(singleMode){
+    const btn=document.getElementById('endGameBtn');
+    if(btn) btn.style.display='none';
+  }
 }
 
 function onKey(e){

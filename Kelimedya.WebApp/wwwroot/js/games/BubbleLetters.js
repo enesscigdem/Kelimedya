@@ -82,10 +82,16 @@ export async function initBubbleLetters(studentId, gameId, single){
   }
   document.getElementById('blSubmit').onclick=()=>check(studentId, gameId);
   const nextBtn=document.getElementById('blNext');
-  nextBtn.onclick=()=>{cardIdx=(cardIdx+1)%cards.length;loadCard();};
+  if(nextBtn){
+    nextBtn.onclick=()=>{cardIdx=(cardIdx+1)%cards.length;loadCard();};
+  }
   document.getElementById('blClear').onclick=clearLetters;
   document.getElementById('blReveal').onclick=reveal;
-  if(singleMode) nextBtn.style.display='none';
+  if(singleMode){
+    if(nextBtn) nextBtn.style.display='none';
+    const back=document.getElementById('blBack');
+    if(back) back.style.display='none';
+  }
   loadCard();
 }
 

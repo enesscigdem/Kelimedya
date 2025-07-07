@@ -27,9 +27,12 @@
                         <button class="letter-btn">@c</button>
                     }
                 </div>
-                <div style="margin-top:1rem;">
-                    <button id="endGameBtn" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
-                </div>
+                @if(!embed)
+                {
+                    <div style="margin-top:1rem;">
+                        <button id="endGameBtn" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
+                    </div>
+                }
             </div>
         </div>
     </div>

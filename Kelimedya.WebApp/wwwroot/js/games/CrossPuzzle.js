@@ -55,4 +55,6 @@ export function initCrossPuzzle(studentId, gameId){
   buildClues();buildGrid();start=Date.now();
   document.getElementById('cpCheck').onclick=()=>check(studentId, gameId);
   const btn=document.getElementById('cpReveal'); if(btn) btn.onclick=reveal;
+  const back=document.getElementById('cpBack');
+  if(back && document.getElementById('gameRoot').dataset.embed==='true') back.style.display='none';
 }

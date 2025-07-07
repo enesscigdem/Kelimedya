@@ -54,7 +54,11 @@ export async function initWordQuiz(studentId, gameId, single){
     if(cards.length===0) cards=[{word:'örnek',definition:'örnek tanım'}];
     singleMode=false;
   }
-  document.getElementById('kbEndGame').onclick=()=>{window.location=document.getElementById('kbEndGame').dataset.home;};
+  const endBtn=document.getElementById('kbEndGame');
+  if(endBtn){
+    endBtn.onclick=()=>{window.location=endBtn.dataset.home;};
+    if(singleMode) endBtn.style.display='none';
+  }
   load();
 }
 

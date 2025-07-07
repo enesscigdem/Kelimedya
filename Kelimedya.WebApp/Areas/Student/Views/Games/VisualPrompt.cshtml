@@ -30,8 +30,11 @@
       <div class="vp-feedback" id="vpFeedback"></div>
 
       <div class="vp-footer">
-        <button id="vpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="vp-btn secondary">Geri Dön</button>
-        <button id="vpNext" class="vp-btn">Sonraki</button>
+        @if(!embed)
+        {
+            <button id="vpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="vp-btn secondary">Geri Dön</button>
+            <button id="vpNext" class="vp-btn">Sonraki</button>
+        }
       </div>
     </div>
   </div>

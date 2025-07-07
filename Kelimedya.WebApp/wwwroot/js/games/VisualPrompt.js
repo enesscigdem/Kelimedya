@@ -53,9 +53,15 @@ export async function initVisualPrompt(studentId, gameId, single){
   feedbackEl=document.getElementById('vpFeedback');
   document.getElementById('vpSubmit').onclick=()=>submit(studentId, gameId);
   const nextBtn=document.getElementById('vpNext');
-  nextBtn.onclick=()=>{idx=(idx+1)%cards.length;loadCard();};
+  if(nextBtn){
+    nextBtn.onclick=()=>{idx=(idx+1)%cards.length;loadCard();};
+    if(singleMode) nextBtn.style.display='none';
+  }
   document.getElementById('vpReveal').onclick=reveal;
-  if(singleMode) nextBtn.style.display='none';
+  if(singleMode){
+    const back=document.getElementById('vpBack');
+    if(back) back.style.display='none';
+  }
   loadCard();
 }
 

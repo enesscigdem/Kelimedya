@@ -46,10 +46,13 @@
       <div class="bl-feedback" id="blFeedback"></div>
 
       <div class="bl-footer">
-        <button id="blBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="bl-btn secondary">
-          Geri Dön
-        </button>
-        <button id="blNext" class="bl-btn">Sonraki</button>
+        @if(!embed)
+        {
+            <button id="blBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="bl-btn secondary">
+                Geri Dön
+            </button>
+            <button id="blNext" class="bl-btn">Sonraki</button>
+        }
       </div>
     </div>
   </div>

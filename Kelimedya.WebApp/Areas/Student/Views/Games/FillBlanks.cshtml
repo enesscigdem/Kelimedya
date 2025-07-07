@@ -21,7 +21,10 @@
       <div class="fb-controls">
         <button id="fbCheck" class="simple-btn">Kontrol Et</button>
         <button id="fbReveal" class="simple-btn">Cevabı Göster</button>
-        <button id="fbNext" class="simple-btn">Sonraki</button>
+        @if(!embed)
+        {
+            <button id="fbNext" class="simple-btn">Sonraki</button>
+        }
       </div>
 
       <div class="fb-feedback" id="fbFeedback"></div>

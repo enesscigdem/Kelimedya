@@ -31,7 +31,10 @@
           <div class="cp-controls">
             <button id="cpCheck" class="cp-btn primary">Kontrol Et</button>
             <button id="cpReveal" class="cp-btn secondary">Cevabı Göster</button>
-            <button id="cpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="cp-btn tertiary">Geri Dön</button>
+            @if(!embed)
+            {
+                <button id="cpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="cp-btn tertiary">Geri Dön</button>
+            }
           </div>
         </div>
       </div>

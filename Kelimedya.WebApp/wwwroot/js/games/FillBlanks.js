@@ -57,9 +57,11 @@ export async function initFillBlanks(studentId, gameId, single){
   if(items.length===0) items=[{parts:['___ örnek cümle'],answers:['örnek']}];
   document.getElementById('fbCheck').onclick=()=>check(studentId, gameId);
   const nextBtn=document.getElementById('fbNext');
-  nextBtn.onclick=()=>{idx=(idx+1)%items.length;renderCard();};
+  if(nextBtn){
+    nextBtn.onclick=()=>{idx=(idx+1)%items.length;renderCard();};
+    if(singleMode) nextBtn.style.display='none';
+  }
   document.getElementById('fbReveal').onclick=reveal;
-  if(singleMode) nextBtn.style.display='none';
   renderCard();
 }
 

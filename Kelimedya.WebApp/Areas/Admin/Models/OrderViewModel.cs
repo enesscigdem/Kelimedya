@@ -24,6 +24,9 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         public string? CouponCode { get; set; }
         public decimal DiscountAmount { get; set; }
         public decimal SubTotal { get; set; }
+
+        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
         
         [Required(ErrorMessage = "Toplam tutar gereklidir.")]
         public decimal TotalAmount { get; set; }

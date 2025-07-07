@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.HangfireDashboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d743b3638a0268093386eb181def5e66a24e4374")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18c4a174357284615af6808031316278891c73d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.HangfireDashboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.HangfireDashboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

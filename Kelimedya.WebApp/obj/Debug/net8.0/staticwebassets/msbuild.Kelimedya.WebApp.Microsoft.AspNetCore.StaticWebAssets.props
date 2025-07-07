@@ -120,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>iwhw7ajonb</Fingerprint>
-      <Integrity>oiE8GOM4UhEF7VC1R6IjkbwKOdZAYsTZ/INZj4nrg7M=</Integrity>
+      <Fingerprint>f6xx6d7x2a</Fingerprint>
+      <Integrity>N/B1fA4JiS0PypKVxsmGWBTfXHBNUl49SNCknmMp2/g=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\lessonDetail.css'))</OriginalItemSpec>
@@ -372,8 +372,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x3lg82milw</Fingerprint>
-      <Integrity>3f7uK190r9I6zn0+7IdBMOCI4teg6LYbh5lrFib8uGE=</Integrity>
+      <Fingerprint>ps1nlomnlo</Fingerprint>
+      <Integrity>2R3CiBHjgAJTXGBKpGIR0iB6kFWXC/Pb0e+t9NkC63M=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\AdamAsmaca.js'))</OriginalItemSpec>
@@ -390,8 +390,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1fbcrra7c4</Fingerprint>
-      <Integrity>M5TdemfLSM+ynplzB3jn16V2gTkQTDacLzcKAzfdOsI=</Integrity>
+      <Fingerprint>zda9r7dru7</Fingerprint>
+      <Integrity>16MTK3R26u1dKYFhMYtzdZDJ5cyn9okI1aVpAXSSr+o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</OriginalItemSpec>
@@ -444,8 +444,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7jzjm70e3r</Fingerprint>
-      <Integrity>XfP8FH/xPB+gChg27v6k09KrSyaAsLjoq5iqvAWvBY0=</Integrity>
+      <Fingerprint>yvnvjhj3q9</Fingerprint>
+      <Integrity>Uq72oPlWvz6FkU3wpxN/UU0xVCPvVYwykNI1I/Fc6lw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\FillBlanks.js'))</OriginalItemSpec>
@@ -462,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>gu8cbib6j8</Fingerprint>
-      <Integrity>yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE=</Integrity>
+      <Fingerprint>d1w3q9mf9d</Fingerprint>
+      <Integrity>D/1k9LOIuB2rtJtVSCjM4W+J7KmaK44d3jkfguhScQw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</OriginalItemSpec>
@@ -480,8 +480,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>99t78rktla</Fingerprint>
-      <Integrity>I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro=</Integrity>
+      <Fingerprint>mouivkc3td</Fingerprint>
+      <Integrity>1jq9oSW45xwwO57ekgTd8hwgd/nAlFYAZQKNtPl6kwk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</OriginalItemSpec>

@@ -1030,3 +1030,5 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/ref/Kelimedya.WebApp.dll
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.Options.dll

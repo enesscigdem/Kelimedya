@@ -673,7 +673,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4965"
+          "Value": "5515"
         },
         {
           "Name": "Content-Type",
@@ -681,22 +681,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oiE8GOM4UhEF7VC1R6IjkbwKOdZAYsTZ/INZj4nrg7M=\""
+          "Value": "\"N/B1fA4JiS0PypKVxsmGWBTfXHBNUl49SNCknmMp2/g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 20:50:34 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oiE8GOM4UhEF7VC1R6IjkbwKOdZAYsTZ/INZj4nrg7M="
+          "Value": "sha256-N/B1fA4JiS0PypKVxsmGWBTfXHBNUl49SNCknmMp2/g="
         }
       ]
     },
     {
-      "Route": "css/lessonDetail.iwhw7ajonb.css",
+      "Route": "css/lessonDetail.f6xx6d7x2a.css",
       "AssetFile": "css/lessonDetail.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -710,7 +710,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4965"
+          "Value": "5515"
         },
         {
           "Name": "Content-Type",
@@ -718,21 +718,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oiE8GOM4UhEF7VC1R6IjkbwKOdZAYsTZ/INZj4nrg7M=\""
+          "Value": "\"N/B1fA4JiS0PypKVxsmGWBTfXHBNUl49SNCknmMp2/g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 20:50:34 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "iwhw7ajonb"
+          "Value": "f6xx6d7x2a"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oiE8GOM4UhEF7VC1R6IjkbwKOdZAYsTZ/INZj4nrg7M="
+          "Value": "sha256-N/B1fA4JiS0PypKVxsmGWBTfXHBNUl49SNCknmMp2/g="
         },
         {
           "Name": "label",
@@ -1739,7 +1739,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1915"
+          "Value": "2095"
         },
         {
           "Name": "Content-Type",
@@ -1747,22 +1747,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3f7uK190r9I6zn0+7IdBMOCI4teg6LYbh5lrFib8uGE=\""
+          "Value": "\"2R3CiBHjgAJTXGBKpGIR0iB6kFWXC/Pb0e+t9NkC63M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3f7uK190r9I6zn0+7IdBMOCI4teg6LYbh5lrFib8uGE="
+          "Value": "sha256-2R3CiBHjgAJTXGBKpGIR0iB6kFWXC/Pb0e+t9NkC63M="
         }
       ]
     },
     {
-      "Route": "js/games/AdamAsmaca.x3lg82milw.js",
+      "Route": "js/games/AdamAsmaca.ps1nlomnlo.js",
       "AssetFile": "js/games/AdamAsmaca.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1776,7 +1776,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1915"
+          "Value": "2095"
         },
         {
           "Name": "Content-Type",
@@ -1784,70 +1784,25 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3f7uK190r9I6zn0+7IdBMOCI4teg6LYbh5lrFib8uGE=\""
+          "Value": "\"2R3CiBHjgAJTXGBKpGIR0iB6kFWXC/Pb0e+t9NkC63M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "x3lg82milw"
+          "Value": "ps1nlomnlo"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3f7uK190r9I6zn0+7IdBMOCI4teg6LYbh5lrFib8uGE="
+          "Value": "sha256-2R3CiBHjgAJTXGBKpGIR0iB6kFWXC/Pb0e+t9NkC63M="
         },
         {
           "Name": "label",
           "Value": "js/games/AdamAsmaca.js"
-        }
-      ]
-    },
-    {
-      "Route": "js/games/BubbleLetters.1fbcrra7c4.js",
-      "AssetFile": "js/games/BubbleLetters.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2811"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"M5TdemfLSM+ynplzB3jn16V2gTkQTDacLzcKAzfdOsI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1fbcrra7c4"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-M5TdemfLSM+ynplzB3jn16V2gTkQTDacLzcKAzfdOsI="
-        },
-        {
-          "Name": "label",
-          "Value": "js/games/BubbleLetters.js"
         }
       ]
     },
@@ -1866,7 +1821,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2811"
+          "Value": "2963"
         },
         {
           "Name": "Content-Type",
@@ -1874,17 +1829,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"M5TdemfLSM+ynplzB3jn16V2gTkQTDacLzcKAzfdOsI=\""
+          "Value": "\"16MTK3R26u1dKYFhMYtzdZDJ5cyn9okI1aVpAXSSr+o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-M5TdemfLSM+ynplzB3jn16V2gTkQTDacLzcKAzfdOsI="
+          "Value": "sha256-16MTK3R26u1dKYFhMYtzdZDJ5cyn9okI1aVpAXSSr+o="
+        }
+      ]
+    },
+    {
+      "Route": "js/games/BubbleLetters.zda9r7dru7.js",
+      "AssetFile": "js/games/BubbleLetters.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2963"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"16MTK3R26u1dKYFhMYtzdZDJ5cyn9okI1aVpAXSSr+o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zda9r7dru7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-16MTK3R26u1dKYFhMYtzdZDJ5cyn9okI1aVpAXSSr+o="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/BubbleLetters.js"
         }
       ]
     },
@@ -1971,51 +1971,6 @@
       ]
     },
     {
-      "Route": "js/games/FillBlanks.7jzjm70e3r.js",
-      "AssetFile": "js/games/FillBlanks.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1995"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XfP8FH/xPB+gChg27v6k09KrSyaAsLjoq5iqvAWvBY0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "7jzjm70e3r"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XfP8FH/xPB+gChg27v6k09KrSyaAsLjoq5iqvAWvBY0="
-        },
-        {
-          "Name": "label",
-          "Value": "js/games/FillBlanks.js"
-        }
-      ]
-    },
-    {
       "Route": "js/games/FillBlanks.js",
       "AssetFile": "js/games/FillBlanks.js",
       "Selectors": [],
@@ -2030,7 +1985,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1995"
+          "Value": "2128"
         },
         {
           "Name": "Content-Type",
@@ -2038,22 +1993,67 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XfP8FH/xPB+gChg27v6k09KrSyaAsLjoq5iqvAWvBY0=\""
+          "Value": "\"Uq72oPlWvz6FkU3wpxN/UU0xVCPvVYwykNI1I/Fc6lw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XfP8FH/xPB+gChg27v6k09KrSyaAsLjoq5iqvAWvBY0="
+          "Value": "sha256-Uq72oPlWvz6FkU3wpxN/UU0xVCPvVYwykNI1I/Fc6lw="
         }
       ]
     },
     {
-      "Route": "js/games/KelimeBulmaca.gu8cbib6j8.js",
+      "Route": "js/games/FillBlanks.yvnvjhj3q9.js",
+      "AssetFile": "js/games/FillBlanks.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2128"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Uq72oPlWvz6FkU3wpxN/UU0xVCPvVYwykNI1I/Fc6lw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yvnvjhj3q9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Uq72oPlWvz6FkU3wpxN/UU0xVCPvVYwykNI1I/Fc6lw="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/FillBlanks.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/games/KelimeBulmaca.d1w3q9mf9d.js",
       "AssetFile": "js/games/KelimeBulmaca.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2067,7 +2067,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1450"
+          "Value": "1914"
         },
         {
           "Name": "Content-Type",
@@ -2075,21 +2075,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE=\""
+          "Value": "\"D/1k9LOIuB2rtJtVSCjM4W+J7KmaK44d3jkfguhScQw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "gu8cbib6j8"
+          "Value": "d1w3q9mf9d"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE="
+          "Value": "sha256-D/1k9LOIuB2rtJtVSCjM4W+J7KmaK44d3jkfguhScQw="
         },
         {
           "Name": "label",
@@ -2112,7 +2112,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1450"
+          "Value": "1914"
         },
         {
           "Name": "Content-Type",
@@ -2120,62 +2120,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE=\""
+          "Value": "\"D/1k9LOIuB2rtJtVSCjM4W+J7KmaK44d3jkfguhScQw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yFowoW7cy60XP1b/QjBP1cs4TLvyGFKPTElczMtkfnE="
-        }
-      ]
-    },
-    {
-      "Route": "js/games/VisualPrompt.99t78rktla.js",
-      "AssetFile": "js/games/VisualPrompt.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1600"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "99t78rktla"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro="
-        },
-        {
-          "Name": "label",
-          "Value": "js/games/VisualPrompt.js"
+          "Value": "sha256-D/1k9LOIuB2rtJtVSCjM4W+J7KmaK44d3jkfguhScQw="
         }
       ]
     },
@@ -2194,7 +2149,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1600"
+          "Value": "1767"
         },
         {
           "Name": "Content-Type",
@@ -2202,17 +2157,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro=\""
+          "Value": "\"1jq9oSW45xwwO57ekgTd8hwgd/nAlFYAZQKNtPl6kwk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 10 Jun 2025 22:20:06 GMT"
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-I5zm8E7Aix3GGDWfhhga1o3cVWPHMmqkqsEMmbEfuro="
+          "Value": "sha256-1jq9oSW45xwwO57ekgTd8hwgd/nAlFYAZQKNtPl6kwk="
+        }
+      ]
+    },
+    {
+      "Route": "js/games/VisualPrompt.mouivkc3td.js",
+      "AssetFile": "js/games/VisualPrompt.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1767"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1jq9oSW45xwwO57ekgTd8hwgd/nAlFYAZQKNtPl6kwk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Jun 2025 14:54:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mouivkc3td"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1jq9oSW45xwwO57ekgTd8hwgd/nAlFYAZQKNtPl6kwk="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/VisualPrompt.js"
         }
       ]
     },

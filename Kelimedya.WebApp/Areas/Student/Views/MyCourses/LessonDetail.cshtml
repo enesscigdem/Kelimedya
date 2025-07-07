@@ -98,8 +98,9 @@
         <div id="gameModal">
             <div class="modal-title" id="modalTitle"></div>
             <p id="gameWord"></p>
+            <iframe id="gameFrame" style="width:100%;height:70vh;border:none;"></iframe>
             <div class="modal-btns">
-                <button class="pastel-btn" id="btnNextGame">Devam</button>
+                <button class="pastel-btn" id="btnNextGame">Sonraki Oyun</button>
             </div>
         </div>
         <div id="quizModal">
@@ -195,7 +196,14 @@
         }
         
         const lessonWords = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.WordCards.Select(w => w.WordCard.Word)));
-        const games = ["Adam Asmaca","Kelime Bulmaca","Görselden Soru","Kabarcık Harfler","Çengel Bulmaca","Boşluk Doldurma"];
+        const games = [
+            {title:"Adam Asmaca", url:"/Student/Games/AdamAsmaca"},
+            {title:"Kelime Bulmaca", url:"/Student/Games/KelimeBulmaca"},
+            {title:"Görselden Soru", url:"/Student/Games/VisualPrompt"},
+            {title:"Kabarcık Harfler", url:"/Student/Games/BubbleLetters"},
+            {title:"Çengel Bulmaca", url:"/Student/Games/CrossPuzzle"},
+            {title:"Boşluk Doldurma", url:"/Student/Games/FillBlanks"}
+        ];
         let gameOrder = [];
         let wordOrder = [];
         let gameIndex = 0;
@@ -212,8 +220,10 @@
                 openQuiz();
                 return;
             }
-            document.getElementById('modalTitle').textContent = gameOrder[gameIndex];
+            const game = gameOrder[gameIndex];
+            document.getElementById('modalTitle').textContent = game.title;
             document.getElementById('gameWord').textContent = wordOrder[gameIndex];
+            document.getElementById('gameFrame').src = game.url + '?lessonId=' + lessonId;
             document.getElementById('modalOverlay').classList.add('show');
             document.getElementById('gameModal').classList.add('show');
         }

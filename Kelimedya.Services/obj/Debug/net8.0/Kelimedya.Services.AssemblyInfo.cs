@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+212c406f50b8300b094ea79aafa2bc6bdea840c2")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18c4a174357284615af6808031316278891c73d3")]
+>>>>>>> codex/dersler-için-kilitli-butonlar-ve-oyunlar-ekle4
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

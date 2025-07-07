@@ -1,6 +1,7 @@
 import {fetchLearnedWords, awardScore} from './common.js';
 
 let cards=[], idx=0, start;
+let singleMode=false;
 let imgEl, guessEl, feedbackEl, questionEl;
 
 function loadCard(){
@@ -24,6 +25,10 @@ function submit(studentId, gameId){
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, success, duration);
   if(success) cards.splice(idx,1);
+  if(cards.length===0){
+    notifyParent();
+    return;
+  }
 }
 
 function reveal(){
@@ -33,15 +38,27 @@ function reveal(){
   guessEl.value=q?.answerText||card.word;
 }
 
-export async function initVisualPrompt(studentId, gameId){
-  cards=await fetchLearnedWords(studentId);
-  if(cards.length===0) cards=[{word:'örnek',imageUrl:'',definition:'',exampleSentence:''}];
+export async function initVisualPrompt(studentId, gameId, single){
+  if(single){
+    cards=[{word:single,imageUrl:'',definition:'',exampleSentence:''}];
+    singleMode=true;
+  }else{
+    cards=await fetchLearnedWords(studentId);
+    if(cards.length===0) cards=[{word:'örnek',imageUrl:'',definition:'',exampleSentence:''}];
+    singleMode=false;
+  }
   imgEl=document.getElementById('vpImage');
   questionEl=document.getElementById('vpQuestion');
   guessEl=document.getElementById('vpGuess');
   feedbackEl=document.getElementById('vpFeedback');
   document.getElementById('vpSubmit').onclick=()=>submit(studentId, gameId);
-  document.getElementById('vpNext').onclick=()=>{idx=(idx+1)%cards.length;loadCard();};
+  const nextBtn=document.getElementById('vpNext');
+  nextBtn.onclick=()=>{idx=(idx+1)%cards.length;loadCard();};
   document.getElementById('vpReveal').onclick=reveal;
+  if(singleMode) nextBtn.style.display='none';
   loadCard();
+}
+
+function notifyParent(){
+  if(window.parent!==window) window.parent.postMessage('next-game','*');
 }

@@ -1,6 +1,7 @@
 import {fetchLearnedWords, awardScore} from './common.js';
 
 let cards=[], idx=0, start;
+let singleMode=false;
 
 function load(){
   const card=cards[idx];
@@ -36,13 +37,27 @@ function select(ans,correct){
   const gid=document.getElementById('gameRoot').dataset.gameId;
   awardScore(document.getElementById('gameRoot').dataset.studentId, gid, ok, duration);
   if(ok) cards.splice(idx,1);
+  if(cards.length===0){
+    notifyParent();
+    return;
+  }
   idx=(idx+1)%cards.length;
   setTimeout(load,500);
 }
 
-export async function initWordQuiz(studentId, gameId){
-  cards=await fetchLearnedWords(studentId);
-  if(cards.length===0) cards=[{word:'örnek',definition:'örnek tanım'}];
+export async function initWordQuiz(studentId, gameId, single){
+  if(single){
+    cards=[{word:single,definition:'',synonym:'',exampleSentence:''}];
+    singleMode=true;
+  }else{
+    cards=await fetchLearnedWords(studentId);
+    if(cards.length===0) cards=[{word:'örnek',definition:'örnek tanım'}];
+    singleMode=false;
+  }
   document.getElementById('kbEndGame').onclick=()=>{window.location=document.getElementById('kbEndGame').dataset.home;};
   load();
+}
+
+function notifyParent(){
+  if(window.parent!==window) window.parent.postMessage('next-game','*');
 }

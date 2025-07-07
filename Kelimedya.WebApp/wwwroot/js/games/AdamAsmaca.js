@@ -1,6 +1,7 @@
 import {fetchLearnedWords, awardScore} from './common.js';
 
 let word = '', guessed = new Set(), wrong = 0, startTime, cards=[], idx=0;
+let singleMode = false;
 
 function draw(){
   const display = word.split('').map(ch=>guessed.has(ch)?ch:'_').join(' ');
@@ -13,9 +14,15 @@ function finish(success, studentId, gameId){
   awardScore(studentId, gameId, success, duration);
 }
 
-export async function initHangman(studentId, gameId){
-  cards = await fetchLearnedWords(studentId);
-  if(cards.length===0) cards=[{word:'kelime'}];
+export async function initHangman(studentId, gameId, single){
+  if(single){
+    cards=[{word:single}];
+    singleMode=true;
+  }else{
+    cards = await fetchLearnedWords(studentId);
+    if(cards.length===0) cards=[{word:'kelime'}];
+    singleMode=false;
+  }
   idx=0;
   const q=cards[idx].gameQuestions?.find(g=>g.gameId===parseInt(gameId));
   word = (q?.answerText||cards[idx].word).toLowerCase();
@@ -35,7 +42,9 @@ function handleGuess(ch, studentId, gameId, btn){
   if(word.split('').every(c=>guessed.has(c))){
     document.removeEventListener('keydown', onKey);
     finish(true, studentId, gameId);
-    cards.splice(idx,1); idx=idx%cards.length; startNext(studentId, gameId);
+    cards.splice(idx,1);
+    idx = idx % (cards.length||1);
+    startNext(studentId, gameId);
   }
   if(wrong>=6){
     document.removeEventListener('keydown', onKey);
@@ -50,6 +59,17 @@ function setup(studentId, gameId){
   document.querySelectorAll('.letter-btn').forEach(b=>{b.disabled=false; b.onclick=()=>handleGuess(b.textContent.toLowerCase(), studentId, gameId, b);});
 }
 
+function notifyParent(){
+  if(window.parent!==window) window.parent.postMessage('next-game','*');
+}
+
 function startNext(studentId, gameId){
-  if(cards.length===0) return; idx=(idx)%cards.length; const q=cards[idx].gameQuestions?.find(g=>g.gameId===parseInt(gameId)); word=(q?.answerText||cards[idx].word).toLowerCase(); setup(studentId, gameId);
+  if(cards.length===0){
+    notifyParent();
+    return;
+  }
+  idx=(idx)%cards.length;
+  const q=cards[idx].gameQuestions?.find(g=>g.gameId===parseInt(gameId));
+  word=(q?.answerText||cards[idx].word).toLowerCase();
+  setup(studentId, gameId);
 }

@@ -132,6 +132,7 @@
             document.getElementById("btnNextGame").addEventListener("click", () => {
                 completeGame();
             });
+            window.addEventListener('message', e => { if(e.data === 'next-game') completeGame(); });
             document.querySelectorAll('#quizModal button').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const opt = parseInt(btn.getAttribute('data-opt'));
@@ -195,7 +196,7 @@
             }
         }
         
-        const lessonWords = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.WordCards.Select(w => w.WordCard.Word)));
+        const lessonWords = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.WordCards.Select(w => new {id = w.WordCard.Id, word = w.WordCard.Word})));
         const games = [
             {title:"Adam Asmaca", url:"/Student/Games/AdamAsmaca"},
             {title:"Kelime Bulmaca", url:"/Student/Games/KelimeBulmaca"},
@@ -221,9 +222,10 @@
                 return;
             }
             const game = gameOrder[gameIndex];
+            const wordCard = wordOrder[gameIndex];
             document.getElementById('modalTitle').textContent = game.title;
-            document.getElementById('gameWord').textContent = wordOrder[gameIndex];
-            document.getElementById('gameFrame').src = game.url + '?lessonId=' + lessonId;
+            document.getElementById('gameWord').textContent = wordCard.word;
+            document.getElementById('gameFrame').src = game.url + '?embed=1&word=' + encodeURIComponent(wordCard.word);
             document.getElementById('modalOverlay').classList.add('show');
             document.getElementById('gameModal').classList.add('show');
         }

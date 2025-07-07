@@ -1,13 +1,15 @@
 ﻿@using System.Security.Claims
 @{
-    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Adam Asmaca - Fullscreen";
+    bool embed = Context.Request.Query.ContainsKey("embed");
+    string singleWord = Context.Request.Query["word"];
+    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Adam Asmaca";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 
 <link href="~/css/AdamAsmaca.css" rel="stylesheet"/>
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
     <div class="fullscreen-container">
         <div class="asmaca-header">
             Adam Asmaca Oyunu
@@ -37,6 +39,6 @@
     <script type="module">
         import {initHangman} from '@Url.Content("~/js/games/AdamAsmaca.js")';
         const el = document.getElementById('gameRoot');
-        initHangman(el.dataset.studentId, el.dataset.gameId);
+        initHangman(el.dataset.studentId, el.dataset.gameId, el.dataset.word);
     </script>
 }

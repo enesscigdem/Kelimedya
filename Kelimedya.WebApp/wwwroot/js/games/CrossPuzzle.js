@@ -44,6 +44,7 @@ function check(studentId, gameId){
   document.getElementById('cpFeedback').textContent=correct?'Tebrikler':'Yanlışlıklar var';
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, correct, duration);
+  if(correct && window.parent!==window) window.parent.postMessage('next-game','*');
 }
 
 function reveal(){

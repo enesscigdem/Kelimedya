@@ -1,12 +1,13 @@
 ﻿@using System.Security.Claims
 @{
-    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Çengel Bulmaca Oyunu";
+    bool embed = Context.Request.Query.ContainsKey("embed");
+    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Çengel Bulmaca";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 <link href="~/css/CrossPuzzle.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="cp-header">
       <h1>Çengel Bulmaca</h1>

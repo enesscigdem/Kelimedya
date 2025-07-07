@@ -11,7 +11,7 @@ function loadCard(){
   answer = (q?.answerText || card.word).toLowerCase().replace(/\s+/g,'');
   filled = Array(answer.length).fill('');
   document.getElementById('hintSynonym').textContent = card.synonym;
-  document.getElementById('hintDefinition').textContent = q?.questionText || card.definition;
+  document.getElementById('hintDefinition').textContent = q?.questionText || card.word;
   document.getElementById('hintSentence').textContent = card.exampleSentence;
   const target=document.getElementById('targetSlots');
   target.innerHTML='';

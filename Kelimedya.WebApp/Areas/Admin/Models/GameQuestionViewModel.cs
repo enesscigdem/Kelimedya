@@ -7,6 +7,9 @@ public class GameQuestionViewModel
     public string QuestionText { get; set; } = string.Empty;
     public string AnswerText { get; set; } = string.Empty;
     public string? ImageUrl { get; set; }
+    public string? ImageUrl2 { get; set; }
+    public string? ImageUrl3 { get; set; }
+    public string? ImageUrl4 { get; set; }
 
     public string? QuestionType { get; set; }
     public string? OptionA { get; set; }

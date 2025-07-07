@@ -1,0 +1,41 @@
+﻿@using System.Security.Claims
+@{
+    bool embed = Context.Request.Query.ContainsKey("embed");
+    string singleWord = Context.Request.Query["word"];
+    string wordId = Context.Request.Query["id"];
+    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Kelimeden Görsel";
+    var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<link href="~/css/WordImage.css" rel="stylesheet" />
+
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
+  <div class="fullscreen-container">
+    <header class="vp-header">
+      <div class="kelime-header">Kelimeden Görsel</div>
+      <p>Kelimeye uygun görseli seçiniz.</p>
+    </header>
+    <div class="vp-gamecard">
+      <h2 id="wtiWord" class="vp-question"></h2>
+      <div id="wtiOptions" class="wti-options"></div>
+
+      <div class="vp-feedback" id="wtiFeedback"></div>
+
+      <div class="vp-footer">
+        @if(!embed)
+        {
+            <button id="wtiBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="vp-btn secondary">Geri Dön</button>
+            <button id="wtiNext" class="vp-btn">Sonraki</button>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+  <script type="module">
+    import {initWordImage} from '@Url.Content("~/js/games/WordImage.js")';
+    const root=document.getElementById('gameRoot');
+    initWordImage(root.dataset.studentId, root.dataset.gameId, root.dataset.word, root.dataset.wordId);
+  </script>
+}

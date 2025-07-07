@@ -2,8 +2,8 @@ import {awardScore} from './common.js';
 
 const puzzle = {
   size:7,
-  across:[{num:1,row:1,col:1,answer:'ELMA',clue:'Meyve'}],
-  down:[{num:2,row:1,col:4,answer:'AGAÇ',clue:'Odun'}]
+  across:[{num:1,row:1,col:1,answer:'ELMA',clue:'1. Soru'}],
+  down:[{num:2,row:1,col:4,answer:'AGAC',clue:'2. Soru'}]
 };
 let start;
 

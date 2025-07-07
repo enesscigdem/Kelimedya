@@ -96,11 +96,11 @@
 
         <div class="modal-overlay" id="modalOverlay"></div>
         <div id="gameModal">
-            <div class="modal-title" id="modalTitle">Ara Oyun</div>
-            <p>“Doğru” veya “Yanlış” seçeneklerini deneyerek oyunu cevaplayın.</p>
+            <div class="modal-title" id="modalTitle"></div>
+            <p id="gameWord"></p>
+            <iframe id="gameFrame" style="width:100%;height:70vh;border:none;"></iframe>
             <div class="modal-btns">
-                <button class="pastel-btn" id="btnGameCorrect">Doğru</button>
-                <button class="pastel-btn" id="btnGameWrong">Yanlış</button>
+                <button class="pastel-btn" id="btnNextGame">Sonraki Oyun</button>
             </div>
         </div>
         <div id="quizModal">
@@ -126,16 +126,13 @@
         const lessonId = @Model.Lesson.Id;
         let cardEls = [];
         let currentIndex = 0;
-        let isFinalGame = false;
         
         document.addEventListener("DOMContentLoaded", function(){
             initCards();
-            document.getElementById("btnGameCorrect").addEventListener("click", () => {
-                onGameAnswer(true, isFinalGame);
+            document.getElementById("btnNextGame").addEventListener("click", () => {
+                completeGame();
             });
-            document.getElementById("btnGameWrong").addEventListener("click", () => {
-                onGameAnswer(false, isFinalGame);
-            });
+            window.addEventListener('message', e => { if(e.data === 'next-game') completeGame(); });
             document.querySelectorAll('#quizModal button').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const opt = parseInt(btn.getAttribute('data-opt'));
@@ -184,12 +181,8 @@
         }
         
         function nextCard(){
-            if (currentIndex === 4){
-                openGame(false);
-                return;
-            }
             if (currentIndex === totalCards - 1){
-                openQuiz();
+                startGames();
                 return;
             }
             if (currentIndex < totalCards - 1){
@@ -203,35 +196,45 @@
             }
         }
         
-        function openGame(finalGame){
-            isFinalGame = finalGame;
-            let overlay = document.getElementById("modalOverlay");
-            let modal = document.getElementById("gameModal");
-            let modalTitle = document.getElementById("modalTitle");
-            modalTitle.textContent = finalGame ? "SON OYUN" : "ARA OYUN";
-            overlay.classList.add("show");
-            modal.classList.add("show");
-            showIziToastSuccess(modalTitle.textContent + " başladı. Lütfen cevaplayın.");
+        const lessonWords = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.WordCards.Select(w => new {id = w.WordCard.Id, word = w.WordCard.Word})));
+        const games = [
+            {title:"Adam Asmaca", url:"/Student/Games/AdamAsmaca"},
+            {title:"Kelime Bulmaca", url:"/Student/Games/KelimeBulmaca"},
+            {title:"Görselden Soru", url:"/Student/Games/VisualPrompt"},
+            {title:"Kabarcık Harfler", url:"/Student/Games/BubbleLetters"},
+            {title:"Çengel Bulmaca", url:"/Student/Games/CrossPuzzle"},
+            {title:"Boşluk Doldurma", url:"/Student/Games/FillBlanks"}
+        ];
+        let gameOrder = [];
+        let wordOrder = [];
+        let gameIndex = 0;
+
+        function startGames(){
+            gameOrder = shuffleArray(games.slice());
+            wordOrder = shuffleArray(lessonWords).slice(0, gameOrder.length);
+            gameIndex = 0;
+            showCurrentGame();
         }
-        
-        function onGameAnswer(correct, finalGame){
-            let overlay = document.getElementById("modalOverlay");
-            let modal = document.getElementById("gameModal");
-            overlay.classList.remove("show");
-            modal.classList.remove("show");
-            if (correct){
-                showIziToastSuccess("Oyunu doğru cevapladınız!");
-                if (finalGame){
-                    finishCourse();
-                } else {
-                    showCard(5);
-                }
-            } else {
-                showIziToastError("Oyunu yanlış cevapladınız! Tekrar deneyin...");
-                setTimeout(() => {
-                    openGame(finalGame);
-                }, 2000);
+
+        function showCurrentGame(){
+            if(gameIndex >= gameOrder.length){
+                openQuiz();
+                return;
             }
+            const game = gameOrder[gameIndex];
+            const wordCard = wordOrder[gameIndex];
+            document.getElementById('modalTitle').textContent = game.title;
+            document.getElementById('gameWord').textContent = wordCard.word;
+            document.getElementById('gameFrame').src = game.url + '?embed=1&word=' + encodeURIComponent(wordCard.word) + '&id=' + wordCard.id;
+            document.getElementById('modalOverlay').classList.add('show');
+            document.getElementById('gameModal').classList.add('show');
+        }
+
+        function completeGame(){
+            document.getElementById('modalOverlay').classList.remove('show');
+            document.getElementById('gameModal').classList.remove('show');
+            gameIndex++;
+            showCurrentGame();
         }
 
         let quizQuestions = [];

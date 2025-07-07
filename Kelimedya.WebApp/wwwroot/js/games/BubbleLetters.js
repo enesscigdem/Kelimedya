@@ -1,6 +1,7 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let cards = [], cardIdx = 0, filled = [], answer = '', start;
+let singleMode=false;
 
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } }
 
@@ -53,6 +54,10 @@ function check(studentId, gameId){
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, correct, duration);
   if(correct) cards.splice(cardIdx,1);
+  if(cards.length===0){
+    notifyParent();
+    return;
+  }
 }
 
 function clearLetters(){
@@ -66,12 +71,35 @@ function reveal(){
   filled.forEach((c,i)=>document.getElementById(`slot${i}`).textContent=c);
 }
 
-export async function initBubbleLetters(studentId, gameId){
-  cards = await fetchLearnedWords(studentId);
-  if(cards.length===0) cards=[{word:'örnek', synonym:'', definition:'', exampleSentence:''}];
+export async function initBubbleLetters(studentId, gameId, single, wordId){
+  if(single){
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      cards=card ? [card] : [{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }else{
+      cards=[{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }
+    singleMode=true;
+  }else{
+    cards = await fetchLearnedWords(studentId);
+    if(cards.length===0) cards=[{word:'örnek', synonym:'', definition:'', exampleSentence:''}];
+    singleMode=false;
+  }
   document.getElementById('blSubmit').onclick=()=>check(studentId, gameId);
-  document.getElementById('blNext').onclick=()=>{cardIdx=(cardIdx+1)%cards.length;loadCard();};
+  const nextBtn=document.getElementById('blNext');
+  if(nextBtn){
+    nextBtn.onclick=()=>{cardIdx=(cardIdx+1)%cards.length;loadCard();};
+  }
   document.getElementById('blClear').onclick=clearLetters;
   document.getElementById('blReveal').onclick=reveal;
+  if(singleMode){
+    if(nextBtn) nextBtn.style.display='none';
+    const back=document.getElementById('blBack');
+    if(back) back.style.display='none';
+  }
   loadCard();
+}
+
+function notifyParent(){
+  if(window.parent!==window) window.parent.postMessage('next-game','*');
 }

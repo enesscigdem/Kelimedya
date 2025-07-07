@@ -1,12 +1,15 @@
 ﻿@using System.Security.Claims
 @{
-    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Görselden Soru Oyunu";
+    bool embed = Context.Request.Query.ContainsKey("embed");
+    string singleWord = Context.Request.Query["word"];
+    string wordId = Context.Request.Query["id"];
+    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Görselden Soru";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 <link href="~/css/VisualPrompt.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" style="margin-top:1rem;">
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
   <div class="fullscreen-container">
     <header class="vp-header">
       <div class="kelime-header">Görselden Soru</div>
@@ -28,8 +31,11 @@
       <div class="vp-feedback" id="vpFeedback"></div>
 
       <div class="vp-footer">
-        <button id="vpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="vp-btn secondary">Geri Dön</button>
-        <button id="vpNext" class="vp-btn">Sonraki</button>
+        @if(!embed)
+        {
+            <button id="vpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="vp-btn secondary">Geri Dön</button>
+            <button id="vpNext" class="vp-btn">Sonraki</button>
+        }
       </div>
     </div>
   </div>
@@ -39,6 +45,6 @@
   <script type="module">
     import {initVisualPrompt} from '@Url.Content("~/js/games/VisualPrompt.js")';
     const root=document.getElementById('gameRoot');
-    initVisualPrompt(root.dataset.studentId, root.dataset.gameId);
+    initVisualPrompt(root.dataset.studentId, root.dataset.gameId, root.dataset.word, root.dataset.wordId);
   </script>
 }

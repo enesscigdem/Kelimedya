@@ -44,6 +44,7 @@ function check(studentId, gameId){
   document.getElementById('cpFeedback').textContent=correct?'Tebrikler':'Yanlışlıklar var';
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, correct, duration);
+  if(correct && window.parent!==window) window.parent.postMessage('next-game','*');
 }
 
 function reveal(){
@@ -54,4 +55,6 @@ export function initCrossPuzzle(studentId, gameId){
   buildClues();buildGrid();start=Date.now();
   document.getElementById('cpCheck').onclick=()=>check(studentId, gameId);
   const btn=document.getElementById('cpReveal'); if(btn) btn.onclick=reveal;
+  const back=document.getElementById('cpBack');
+  if(back && document.getElementById('gameRoot').dataset.embed==='true') back.style.display='none';
 }

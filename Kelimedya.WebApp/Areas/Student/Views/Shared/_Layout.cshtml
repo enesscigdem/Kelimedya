@@ -206,6 +206,12 @@
 <script src="~/theme/tabler/dist/js/demo.min.js" defer></script>
 <script src="~/theme/tabler/dist/libs/tinymce/tinymce.min.js"></script>
 <script src="~/js/scoreInfoAnimations.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) { new bootstrap.Tooltip(tooltipTriggerEl); });
+    });
+</script>
 
 @RenderSection("Scripts", required: false)
 </body>

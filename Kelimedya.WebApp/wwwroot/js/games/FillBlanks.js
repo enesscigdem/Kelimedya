@@ -1,6 +1,7 @@
-import {fetchLearnedWords, awardScore} from './common.js';
+import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
 
 let items=[], idx=0, start;
+let singleMode=false;
 
 function createItems(words, gameId){
   return words.map(w=>{
@@ -30,6 +31,10 @@ function check(studentId, gameId){
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, all, duration);
   if(all) items.splice(idx,1);
+  if(items.length===0){
+    notifyParent();
+    return;
+  }
 }
 
 function reveal(){
@@ -39,12 +44,32 @@ function reveal(){
   });
 }
 
-export async function initFillBlanks(studentId, gameId){
-  const words=await fetchLearnedWords(studentId);
+export async function initFillBlanks(studentId, gameId, single, wordId){
+  let words;
+  if(single){
+    if(wordId){
+      const card=await fetchWordCardWithQuestions(wordId);
+      words=card ? [card] : [{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }else{
+      words=[{word:single,synonym:'',definition:'',exampleSentence:''}];
+    }
+    singleMode=true;
+  }else{
+    words=await fetchLearnedWords(studentId);
+    singleMode=false;
+  }
   items=createItems(words, gameId);
   if(items.length===0) items=[{parts:['___ örnek cümle'],answers:['örnek']}];
   document.getElementById('fbCheck').onclick=()=>check(studentId, gameId);
-  document.getElementById('fbNext').onclick=()=>{idx=(idx+1)%items.length;renderCard();};
+  const nextBtn=document.getElementById('fbNext');
+  if(nextBtn){
+    nextBtn.onclick=()=>{idx=(idx+1)%items.length;renderCard();};
+    if(singleMode) nextBtn.style.display='none';
+  }
   document.getElementById('fbReveal').onclick=reveal;
   renderCard();
+}
+
+function notifyParent(){
+  if(window.parent!==window) window.parent.postMessage('next-game','*');
 }

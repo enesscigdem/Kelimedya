@@ -96,11 +96,10 @@
 
         <div class="modal-overlay" id="modalOverlay"></div>
         <div id="gameModal">
-            <div class="modal-title" id="modalTitle">Ara Oyun</div>
-            <p>“Doğru” veya “Yanlış” seçeneklerini deneyerek oyunu cevaplayın.</p>
+            <div class="modal-title" id="modalTitle"></div>
+            <p id="gameWord"></p>
             <div class="modal-btns">
-                <button class="pastel-btn" id="btnGameCorrect">Doğru</button>
-                <button class="pastel-btn" id="btnGameWrong">Yanlış</button>
+                <button class="pastel-btn" id="btnNextGame">Devam</button>
             </div>
         </div>
         <div id="quizModal">
@@ -126,15 +125,11 @@
         const lessonId = @Model.Lesson.Id;
         let cardEls = [];
         let currentIndex = 0;
-        let isFinalGame = false;
         
         document.addEventListener("DOMContentLoaded", function(){
             initCards();
-            document.getElementById("btnGameCorrect").addEventListener("click", () => {
-                onGameAnswer(true, isFinalGame);
-            });
-            document.getElementById("btnGameWrong").addEventListener("click", () => {
-                onGameAnswer(false, isFinalGame);
+            document.getElementById("btnNextGame").addEventListener("click", () => {
+                completeGame();
             });
             document.querySelectorAll('#quizModal button').forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -184,12 +179,8 @@
         }
         
         function nextCard(){
-            if (currentIndex === 4){
-                openGame(false);
-                return;
-            }
             if (currentIndex === totalCards - 1){
-                openQuiz();
+                startGames();
                 return;
             }
             if (currentIndex < totalCards - 1){
@@ -203,35 +194,35 @@
             }
         }
         
-        function openGame(finalGame){
-            isFinalGame = finalGame;
-            let overlay = document.getElementById("modalOverlay");
-            let modal = document.getElementById("gameModal");
-            let modalTitle = document.getElementById("modalTitle");
-            modalTitle.textContent = finalGame ? "SON OYUN" : "ARA OYUN";
-            overlay.classList.add("show");
-            modal.classList.add("show");
-            showIziToastSuccess(modalTitle.textContent + " başladı. Lütfen cevaplayın.");
+        const lessonWords = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.WordCards.Select(w => w.WordCard.Word)));
+        const games = ["Adam Asmaca","Kelime Bulmaca","Görselden Soru","Kabarcık Harfler","Çengel Bulmaca","Boşluk Doldurma"];
+        let gameOrder = [];
+        let wordOrder = [];
+        let gameIndex = 0;
+
+        function startGames(){
+            gameOrder = shuffleArray(games.slice());
+            wordOrder = shuffleArray(lessonWords).slice(0, gameOrder.length);
+            gameIndex = 0;
+            showCurrentGame();
         }
-        
-        function onGameAnswer(correct, finalGame){
-            let overlay = document.getElementById("modalOverlay");
-            let modal = document.getElementById("gameModal");
-            overlay.classList.remove("show");
-            modal.classList.remove("show");
-            if (correct){
-                showIziToastSuccess("Oyunu doğru cevapladınız!");
-                if (finalGame){
-                    finishCourse();
-                } else {
-                    showCard(5);
-                }
-            } else {
-                showIziToastError("Oyunu yanlış cevapladınız! Tekrar deneyin...");
-                setTimeout(() => {
-                    openGame(finalGame);
-                }, 2000);
+
+        function showCurrentGame(){
+            if(gameIndex >= gameOrder.length){
+                openQuiz();
+                return;
             }
+            document.getElementById('modalTitle').textContent = gameOrder[gameIndex];
+            document.getElementById('gameWord').textContent = wordOrder[gameIndex];
+            document.getElementById('modalOverlay').classList.add('show');
+            document.getElementById('gameModal').classList.add('show');
+        }
+
+        function completeGame(){
+            document.getElementById('modalOverlay').classList.remove('show');
+            document.getElementById('gameModal').classList.remove('show');
+            gameIndex++;
+            showCurrentGame();
         }
 
         let quizQuestions = [];

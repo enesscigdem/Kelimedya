@@ -74,6 +74,14 @@
                tabindex="@(disabled ? -1 : 0)">Oyuna Başla</a>
         </div>
         <div class="game-block">
+            <h3>Kelimeden Görsel</h3>
+            <p>Kelimeye en uygun görseli seçin.</p>
+            <a asp-area="Student" asp-controller="Games" asp-action="WordImage"
+               class="simple-btn @(disabled ? "disabled" : "")"
+               style="@(disabled ? "pointer-events:none;opacity:0.6;" : null)"
+               tabindex="@(disabled ? -1 : 0)">Oyuna Başla</a>
+        </div>
+        <div class="game-block">
             <h3>Kabarcık Harfler</h3>
             <p>Doğru kelimeyi oluşturmak için baloncuklara tıklayın.</p>
             <a asp-area="Student" asp-controller="Games" asp-action="BubbleLetters"

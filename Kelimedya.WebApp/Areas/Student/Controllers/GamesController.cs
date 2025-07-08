@@ -64,6 +64,12 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
             return View();
         }
 
+        public async Task<IActionResult> WordImage()
+        {
+            ViewData["GameId"] = await GetGameIdAsync("Kelimeden Görsel");
+            return View();
+        }
+
         public async Task<IActionResult> BubbleLetters()
         {
             ViewData["GameId"] = await GetGameIdAsync("Kabarcık Harfler");

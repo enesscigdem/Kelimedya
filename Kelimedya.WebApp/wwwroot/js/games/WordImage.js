@@ -4,17 +4,27 @@ let cards=[], idx=0, start;
 let singleMode=false;
 let wordEl, optionsEl, feedbackEl;
 
+function findQuestion(card,gid){
+  let q=card.gameQuestions?.find(g=>g.gameId===gid);
+  if(!q){
+    q=card.gameQuestions?.find(g=>g.imageUrl||g.imageUrl2||g.imageUrl3||g.imageUrl4);
+  }
+  return q;
+}
+
 function loadCard(){
   const card=cards[idx];
   const gid=parseInt(document.getElementById('gameRoot').dataset.gameId);
-  const q=card.gameQuestions?.find(g=>g.gameId===gid);
+  const q=findQuestion(card,gid);
   wordEl.textContent=q?.questionText||card.word;
-  const opts=[q?.imageUrl,q?.imageUrl2,q?.imageUrl3,q?.imageUrl4].filter(Boolean);
+  let opts=[q?.imageUrl,q?.imageUrl2,q?.imageUrl3,q?.imageUrl4].filter(Boolean);
+  if(opts.length===0 && card.imageUrl) opts=[card.imageUrl];
   const correct=q?.correctOption? opts[q.correctOption-1]:opts[0];
   optionsEl.innerHTML='';
   opts.forEach((img)=>{
     const i=document.createElement('img');
     i.src=img;i.className='wti-option';
+    i.alt=card.word;
     i.onclick=()=>select(img===correct);
     optionsEl.appendChild(i);
   });

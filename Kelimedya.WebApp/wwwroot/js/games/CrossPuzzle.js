@@ -1,11 +1,30 @@
-import {awardScore} from './common.js';
+import {awardScore, fetchLearnedWords} from './common.js';
 
-const puzzle = {
-  size:7,
-  across:[{num:1,row:1,col:1,answer:'ELMA',clue:'1. Soru'}],
-  down:[{num:2,row:1,col:4,answer:'AGAC',clue:'2. Soru'}]
-};
+const puzzle = { size:7, across:[], down:[] };
 let start;
+
+async function buildPuzzle(studentId, gameId){
+  const cards = await fetchLearnedWords(studentId);
+  if(!cards || cards.length < 2){
+    puzzle.size = 7;
+    puzzle.across=[{num:1,row:1,col:1,answer:'ELMA',clue:'1'}];
+    puzzle.down=[{num:2,row:1,col:4,answer:'AGAC',clue:'2'}];
+    return;
+  }
+  const a = cards[0];
+  const b = cards[1];
+  const qa = a.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
+  const qb = b.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
+  const ansA = (qa?.answerText||a.word).toUpperCase();
+  const ansB = (qb?.answerText||b.word).toUpperCase();
+  const clueA = qa?.questionText || a.definition || '';
+  const clueB = qb?.questionText || b.definition || '';
+  let col = ansA.indexOf(ansB[0]);
+  col = col === -1 ? 1 : col+1;
+  puzzle.size = Math.max(ansA.length, col + ansB.length -1) + 2;
+  puzzle.across=[{num:1,row:1,col:1,answer:ansA,clue:clueA}];
+  puzzle.down=[{num:2,row:1,col:col,answer:ansB,clue:clueB}];
+}
 
 function buildClues(){
   const a=document.getElementById('across-clues'),d=document.getElementById('down-clues');
@@ -51,8 +70,11 @@ function reveal(){
   document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c=>{c.value=c.dataset.answer;});
 }
 
-export function initCrossPuzzle(studentId, gameId){
-  buildClues();buildGrid();start=Date.now();
+export async function initCrossPuzzle(studentId, gameId){
+  await buildPuzzle(studentId, gameId);
+  buildClues();
+  buildGrid();
+  start=Date.now();
   document.getElementById('cpCheck').onclick=()=>check(studentId, gameId);
   const btn=document.getElementById('cpReveal'); if(btn) btn.onclick=reveal;
   const back=document.getElementById('cpBack');

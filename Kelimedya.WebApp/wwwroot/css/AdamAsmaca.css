@@ -69,6 +69,13 @@
     background: #ffb0a8;
 }
 
+.hangman-question {
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
 .simple-btn {
     background: var(--btn-bg);
     color: #fff;

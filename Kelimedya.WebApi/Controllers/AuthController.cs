@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Kelimedya.WebAPI.Models;
 
 namespace Kelimedya.WebAPI.Controllers
 {

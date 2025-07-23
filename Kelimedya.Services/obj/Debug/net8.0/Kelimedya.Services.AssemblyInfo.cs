@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0c87c6b9a95e3f572813b3c6a8179a22c3d6da3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3eda754e5c7f27152321440bc6c59aecaed53fe4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

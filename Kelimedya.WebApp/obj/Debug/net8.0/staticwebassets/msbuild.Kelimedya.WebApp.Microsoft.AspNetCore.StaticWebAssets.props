@@ -30522,8 +30522,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>f7boy914wf</Fingerprint>
-      <Integrity>u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl+TQua2uEU=</Integrity>
+      <Fingerprint>vzez0al639</Fingerprint>
+      <Integrity>q248e9UoJvVCeIOfyNJEAbwBZUPLQnY+VbCuWflKZT8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\kelimedya-logo.png'))</OriginalItemSpec>

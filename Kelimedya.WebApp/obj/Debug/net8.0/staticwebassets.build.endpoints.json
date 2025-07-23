@@ -111,7 +111,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Jul 2025 18:06:59 GMT"
+          "Value": "Wed, 23 Jul 2025 21:12:43 GMT"
         }
       ],
       "EndpointProperties": [
@@ -156,7 +156,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Jul 2025 18:06:59 GMT"
+          "Value": "Wed, 23 Jul 2025 21:12:43 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2817,7 +2817,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Jul 2025 18:33:40 GMT"
+          "Value": "Wed, 23 Jul 2025 21:12:43 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2862,7 +2862,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Jul 2025 18:33:40 GMT"
+          "Value": "Wed, 23 Jul 2025 21:12:43 GMT"
         }
       ],
       "EndpointProperties": [
@@ -138993,51 +138993,6 @@
       ]
     },
     {
-      "Route": "theme/web_UI/assets/img/home_5/kelimedya-logo.f7boy914wf.png",
-      "AssetFile": "theme/web_UI/assets/img/home_5/kelimedya-logo.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "128606"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl+TQua2uEU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 30 May 2025 18:12:09 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "f7boy914wf"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl+TQua2uEU="
-        },
-        {
-          "Name": "label",
-          "Value": "theme/web_UI/assets/img/home_5/kelimedya-logo.png"
-        }
-      ]
-    },
-    {
       "Route": "theme/web_UI/assets/img/home_5/kelimedya-logo.png",
       "AssetFile": "theme/web_UI/assets/img/home_5/kelimedya-logo.png",
       "Selectors": [],
@@ -139052,7 +139007,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "128606"
+          "Value": "187623"
         },
         {
           "Name": "Content-Type",
@@ -139060,17 +139015,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl+TQua2uEU=\""
+          "Value": "\"q248e9UoJvVCeIOfyNJEAbwBZUPLQnY+VbCuWflKZT8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 30 May 2025 18:12:09 GMT"
+          "Value": "Wed, 23 Jul 2025 21:12:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-u4ScVBF4bPFBGnPfuYRyFKZ5FeRRStfpbl+TQua2uEU="
+          "Value": "sha256-q248e9UoJvVCeIOfyNJEAbwBZUPLQnY+VbCuWflKZT8="
+        }
+      ]
+    },
+    {
+      "Route": "theme/web_UI/assets/img/home_5/kelimedya-logo.vzez0al639.png",
+      "AssetFile": "theme/web_UI/assets/img/home_5/kelimedya-logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "187623"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q248e9UoJvVCeIOfyNJEAbwBZUPLQnY+VbCuWflKZT8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 21:12:43 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vzez0al639"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-q248e9UoJvVCeIOfyNJEAbwBZUPLQnY+VbCuWflKZT8="
+        },
+        {
+          "Name": "label",
+          "Value": "theme/web_UI/assets/img/home_5/kelimedya-logo.png"
         }
       ]
     },

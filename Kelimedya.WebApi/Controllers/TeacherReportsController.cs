@@ -101,7 +101,10 @@ namespace Kelimedya.WebAPI.Controllers
                 });
             }
 
-            string studentName = "Öğrenci " + studentId;
+            var studentName = await _context.Users
+                .Where(u => u.Id.ToString() == studentId)
+                .Select(u => u.Name + " " + u.Surname)
+                .FirstOrDefaultAsync() ?? ("Öğrenci " + studentId);
 
             var courses = transcriptData.GroupBy(slp => slp.Lesson.Course).ToList();
             var htmlBuilder = new StringBuilder();
@@ -149,7 +152,8 @@ namespace Kelimedya.WebAPI.Controllers
             return Ok(new TranscriptDto
             {
                 HtmlContent = htmlBuilder.ToString(),
-                PdfDownloadUrl = Url.Action("DownloadTranscript", new { studentId })
+                PdfDownloadUrl = Url.Action("DownloadTranscript", new { studentId }),
+                StudentName = studentName
             });
         }
 
@@ -167,6 +171,11 @@ namespace Kelimedya.WebAPI.Controllers
                 .Include(slp => slp.Lesson).ThenInclude(l => l.Course)
                 .Where(slp => slp.StudentId == studentId)
                 .ToListAsync();
+
+            var studentName = await _context.Users
+                .Where(u => u.Id.ToString() == studentId)
+                .Select(u => u.Name + " " + u.Surname)
+                .FirstOrDefaultAsync() ?? ("Öğrenci " + studentId);
 
             var wordProgresses = await _context.StudentWordCardProgresses
                 .Include(w => w.WordCard)
@@ -210,7 +219,8 @@ namespace Kelimedya.WebAPI.Controllers
             return Ok(new DetailedReportDto
             {
                 HtmlContent = htmlBuilder.ToString(),
-                PdfDownloadUrl = Url.Action("DownloadDetailedReport", new { studentId })
+                PdfDownloadUrl = Url.Action("DownloadDetailedReport", new { studentId }),
+                StudentName = studentName
             });
         }
 

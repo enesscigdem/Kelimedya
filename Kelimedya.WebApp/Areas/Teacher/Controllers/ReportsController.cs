@@ -21,9 +21,10 @@ namespace Kelimedya.WebApp.Areas.Teacher.Controllers
         }
 
         // GET: /Teacher/Reports/StudentReports
-        public async Task<IActionResult> StudentReports()
+        public async Task<IActionResult> StudentReports(string? studentId)
         {
             var studentReports = await _httpClient.GetFromJsonAsync<List<StudentReportViewModel>>("api/teacher/reports/students");
+            ViewData["SelectedStudentId"] = studentId;
             return View(studentReports);
         }
 

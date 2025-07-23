@@ -107,6 +107,9 @@
                     <a id="modalDownload" href="#" class="btn btn-success">
                         <i class="bi bi-file-earmark-pdf me-2"></i>PDF Olarak İndir
                     </a>
+                    <button id="modalDownloadPng" type="button" class="btn btn-primary">
+                        <i class="bi bi-image me-2"></i>PNG Olarak İndir
+                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
                 </div>
             </div>
@@ -119,9 +122,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
     <script>
-        $(function() {
+$(function() {
             $(".btn-report").click(function(e) {
                 e.preventDefault();
                 
@@ -138,10 +142,8 @@
                     url: url,
                     type: "GET",
                     success: function(data) {
-                        // Modal başlığını ayarla
-                        $("#modalTitle").text(
-                            reportType === "transcript" ? "Öğrenci Karnesi" : "Öğrenci Detay Raporu"
-                        );
+                        var title = (reportType === "transcript" ? "Karne" : "Detaylı Rapor");
+                        $("#reportModalLabel").text(data.studentName + " - " + title);
 
                         // İçeriği modal gövdesine bas
                         $("#modalContent").html(data.htmlContent || "<p>İçerik bulunamadı.</p>");
@@ -153,6 +155,15 @@
                         downloadUrl += "?studentId=" + studentId;
                         $("#modalDownload").attr("href", downloadUrl);
 
+                        $("#modalDownloadPng").off('click').on('click', function() {
+                            html2canvas(document.getElementById('modalContent')).then(function(canvas) {
+                                var link = document.createElement('a');
+                                link.download = data.studentName + '-' + title + '.png';
+                                link.href = canvas.toDataURL();
+                                link.click();
+                            });
+                        });
+
                         // Bootstrap 5 modalını aç
                         var modalElement = document.getElementById('reportModal');
                         var reportModal = new bootstrap.Modal(modalElement);
@@ -163,6 +174,12 @@
                     }
                 });
             });
+
+            var selectedId = '@ViewData["SelectedStudentId"]';
+            if (selectedId) {
+                var btn = $('.btn-report[data-student="' + selectedId + '"][data-type="transcript"]');
+                if (btn.length) btn.trigger('click');
+            }
         });
     </script>
 }

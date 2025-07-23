@@ -1,13 +1,14 @@
-﻿@{
+@model Kelimedya.WebApp.Areas.Admin.Models.AdminProfileViewModel
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Ayarlar";
+    ViewData["Title"] = "Profilim";
 }
 
 <div class="page-header d-print-none">
     <div class="container-xl">
-        <h2 class="page-title">Ayarlar</h2>
+        <h2 class="page-title">Profil</h2>
         <div class="text-muted mt-1">
-            Sistem genel ayarlarını buradan yönetebilirsiniz.
+            Bilgilerinizi güncelleyebilirsiniz.
         </div>
     </div>
 </div>
@@ -16,29 +17,57 @@
     <div class="container-xl">
         <div class="card">
             <div class="card-body">
-
-                <ul class="nav nav-tabs" data-bs-toggle="tabs">
-                    <li class="nav-item">
-                        <a href="#general" class="nav-link active" data-bs-toggle="tab">Genel Ayarlar</a>
-                    </li>
-                </ul>
-                <div class="tab-content mt-3">
-                    <div class="tab-pane active" id="general">
-                        <form method="post">
+                <form method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="Id" />
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label">Kullanıcı Adı</label>
-                                <input type="text" class="form-control" name="SmtpUser"/>
+                                <label asp-for="UserName" class="form-label"></label>
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Şifre</label>
-                                <input type="password" class="form-control" name="SmtpPassword"/>
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
-                            <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" class="form-control" />
                             </div>
-                        </form>
+                            <div class="mb-3">
+                                <label asp-for="Surname" class="form-label"></label>
+                                <input asp-for="Surname" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="PhoneNumber" class="form-label"></label>
+                                <input asp-for="PhoneNumber" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Mevcut Resim</label><br />
+                                <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? Url.Content("~/theme/tabler/static/avatars/000m.jpg") : Model.ProfilePicture)" style="width:120px;" class="img-thumbnail" />
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="ImageFile" class="form-label">Profil Resmi</label>
+                                <input asp-for="ImageFile" type="file" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="CurrentPassword" class="form-label">Mevcut Şifre</label>
+                                <input asp-for="CurrentPassword" type="password" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="NewPassword" class="form-label">Yeni Şifre</label>
+                                <input asp-for="NewPassword" type="password" class="form-control" />
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

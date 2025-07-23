@@ -61,5 +61,14 @@ namespace Kelimedya.WebAPI.Controllers
             var users = await _authService.GetAllUsersAsync();
             return Ok(users);
         }
+
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+        {
+            var result = await _authService.ChangePasswordAsync(dto.UserId, dto.CurrentPassword, dto.NewPassword);
+            if (!result)
+                return BadRequest(new { Message = "Şifre güncellenemedi." });
+            return Ok(new { Message = "Şifre güncellendi." });
+        }
     }
 }

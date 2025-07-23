@@ -10,5 +10,6 @@ namespace Kelimedya.Services.Interfaces
         Task<AuthResultViewModel> RegisterAsync(RegisterDto dto);
         Task<string> LoginAsync(LoginDto dto);
         Task<List<CustomUser>> GetAllUsersAsync();
+        Task<bool> ChangePasswordAsync(string userId, string currentPassword, string newPassword);
     }
 }

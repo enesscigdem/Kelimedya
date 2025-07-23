@@ -13,7 +13,6 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.WebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dcc89ae79a2733cac764c305f69ab3f949a43e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.WebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.WebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "1d1wAyJUprGiSlCK6yC9qOARLbirRq/z5RClybm2OwY=",
+=======
+  "Hash": "GiuA3pie8T8dRwajOjbJvwxB23Uup0K3qAlZ10TM8Ec=",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
   "Source": "Kelimedya.WebApi",
   "BasePath": "_content/Kelimedya.WebApi",
   "Mode": "Default",

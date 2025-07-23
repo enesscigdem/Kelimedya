@@ -111,7 +111,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
@@ -148,7 +152,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
@@ -767,7 +775,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Mon, 07 Jul 2025 23:02:18 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
@@ -804,7 +816,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Mon, 07 Jul 2025 23:02:18 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
@@ -1151,52 +1167,11 @@
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "css/myLessons.4o4pd0n6q4.css",
-      "AssetFile": "css/myLessons.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3677"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 08 Jul 2025 00:13:52 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4o4pd0n6q4"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI="
-        },
-        {
-          "Name": "label",
-          "Value": "css/myLessons.css"
-        }
-      ]
-    },
-    {
+=======
       "Route": "css/myLessons.css",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "AssetFile": "css/myLessons.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1210,7 +1185,11 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "3677"
+=======
+          "Value": "3688"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -1218,17 +1197,99 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Tue, 08 Jul 2025 00:13:52 GMT"
+=======
+          "Value": "\"lfErSFdJViCh5I7qwYESxlyS7ZlEfzneL6sjjMs+vDo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 17:38:58 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
+<<<<<<< HEAD
+          "Name": "fingerprint",
+          "Value": "4o4pd0n6q4"
+        },
+        {
           "Name": "integrity",
           "Value": "sha256-HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI="
+        },
+        {
+          "Name": "label",
+          "Value": "css/myLessons.css"
+=======
+          "Name": "integrity",
+          "Value": "sha256-lfErSFdJViCh5I7qwYESxlyS7ZlEfzneL6sjjMs+vDo="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        }
+      ]
+    },
+    {
+      "Route": "css/myLessons.np9pdt1hbp.css",
+      "AssetFile": "css/myLessons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+<<<<<<< HEAD
+          "Value": "3677"
+=======
+          "Value": "3688"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+<<<<<<< HEAD
+          "Value": "\"HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 00:13:52 GMT"
+=======
+          "Value": "\"lfErSFdJViCh5I7qwYESxlyS7ZlEfzneL6sjjMs+vDo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 17:38:58 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "np9pdt1hbp"
+        },
+        {
+          "Name": "integrity",
+<<<<<<< HEAD
+          "Value": "sha256-HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI="
+=======
+          "Value": "sha256-lfErSFdJViCh5I7qwYESxlyS7ZlEfzneL6sjjMs+vDo="
+        },
+        {
+          "Name": "label",
+          "Value": "css/myLessons.css"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
@@ -1972,6 +2033,7 @@
     },
     {
       "Route": "js/games/AdamAsmaca.be3yoteg3f.js",
+<<<<<<< HEAD
       "AssetFile": "js/games/AdamAsmaca.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2017,6 +2079,8 @@
     },
     {
       "Route": "js/games/AdamAsmaca.js",
+=======
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "AssetFile": "js/games/AdamAsmaca.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2026,7 +2090,7 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Length",
@@ -2042,13 +2106,95 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "be3yoteg3f"
+        },
+        {
           "Name": "integrity",
           "Value": "sha256-s9Fppc4CHrNGMA2sFwv7+rrJhk9JpXlUUraXXKeV2sU="
+<<<<<<< HEAD
+=======
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/AdamAsmaca.js"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        }
+      ]
+    },
+    {
+<<<<<<< HEAD
+      "Route": "js/games/BubbleLetters.eobibp0q82.js",
+      "AssetFile": "js/games/BubbleLetters.js",
+=======
+      "Route": "js/games/AdamAsmaca.js",
+      "AssetFile": "js/games/AdamAsmaca.js",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+<<<<<<< HEAD
+          "Value": "3716"
+=======
+          "Value": "3799"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+<<<<<<< HEAD
+          "Value": "\"nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "\"s9Fppc4CHrNGMA2sFwv7+rrJhk9JpXlUUraXXKeV2sU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        }
+      ],
+      "EndpointProperties": [
+        {
+<<<<<<< HEAD
+          "Name": "fingerprint",
+          "Value": "eobibp0q82"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/BubbleLetters.js"
+=======
+          "Name": "integrity",
+          "Value": "sha256-s9Fppc4CHrNGMA2sFwv7+rrJhk9JpXlUUraXXKeV2sU="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
@@ -2079,7 +2225,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Mon, 07 Jul 2025 23:02:18 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
@@ -2090,51 +2240,18 @@
         {
           "Name": "integrity",
           "Value": "sha256-nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8="
+<<<<<<< HEAD
+=======
         },
         {
           "Name": "label",
           "Value": "js/games/BubbleLetters.js"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
     {
-      "Route": "js/games/BubbleLetters.js",
-      "AssetFile": "js/games/BubbleLetters.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3716"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8="
-        }
-      ]
-    },
-    {
+<<<<<<< HEAD
       "Route": "js/games/CrossPuzzle.js",
       "AssetFile": "js/games/CrossPuzzle.js",
       "Selectors": [],
@@ -2174,6 +2291,10 @@
     {
       "Route": "js/games/CrossPuzzle.mgcxh27cf1.js",
       "AssetFile": "js/games/CrossPuzzle.js",
+=======
+      "Route": "js/games/BubbleLetters.js",
+      "AssetFile": "js/games/BubbleLetters.js",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2182,11 +2303,15 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "3891"
+=======
+          "Value": "3716"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2194,15 +2319,24 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"ViZYRtrgsOlB85AI+795s3d3FW4cvZ1XLmREr+Jn0XE=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "\"nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 23:02:18 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
+<<<<<<< HEAD
           "Name": "fingerprint",
           "Value": "mgcxh27cf1"
         },
@@ -2213,10 +2347,15 @@
         {
           "Name": "label",
           "Value": "js/games/CrossPuzzle.js"
+=======
+          "Name": "integrity",
+          "Value": "sha256-nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "js/games/FillBlanks.js",
       "AssetFile": "js/games/FillBlanks.js",
       "Selectors": [],
@@ -2256,6 +2395,10 @@
     {
       "Route": "js/games/FillBlanks.r94mu72sj6.js",
       "AssetFile": "js/games/FillBlanks.js",
+=======
+      "Route": "js/games/CrossPuzzle.js",
+      "AssetFile": "js/games/CrossPuzzle.js",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2264,11 +2407,15 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "2783"
+=======
+          "Value": "3891"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2276,15 +2423,24 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"4cYceMkc9c7u1SREUuINptdL6g/34ffigD7GEwSFLRQ=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Mon, 07 Jul 2025 17:35:41 GMT"
+=======
+          "Value": "\"ViZYRtrgsOlB85AI+795s3d3FW4cvZ1XLmREr+Jn0XE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
+<<<<<<< HEAD
           "Name": "fingerprint",
           "Value": "r94mu72sj6"
         },
@@ -2295,10 +2451,15 @@
         {
           "Name": "label",
           "Value": "js/games/FillBlanks.js"
+=======
+          "Name": "integrity",
+          "Value": "sha256-ViZYRtrgsOlB85AI+795s3d3FW4cvZ1XLmREr+Jn0XE="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "js/games/KelimeBulmaca.g7fe1zj9xk.js",
       "AssetFile": "js/games/KelimeBulmaca.js",
       "Selectors": [],
@@ -2346,6 +2507,10 @@
     {
       "Route": "js/games/KelimeBulmaca.js",
       "AssetFile": "js/games/KelimeBulmaca.js",
+=======
+      "Route": "js/games/CrossPuzzle.mgcxh27cf1.js",
+      "AssetFile": "js/games/CrossPuzzle.js",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2354,11 +2519,15 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "2529"
+=======
+          "Value": "3891"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2366,17 +2535,37 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Mon, 07 Jul 2025 17:35:41 GMT"
+=======
+          "Value": "\"ViZYRtrgsOlB85AI+795s3d3FW4cvZ1XLmREr+Jn0XE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "mgcxh27cf1"
+        },
+        {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY="
+=======
+          "Value": "sha256-ViZYRtrgsOlB85AI+795s3d3FW4cvZ1XLmREr+Jn0XE="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/CrossPuzzle.js"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
@@ -2395,7 +2584,11 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "2820"
+=======
+          "Value": "2783"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2403,23 +2596,40 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"6tMj1uiCwYpeFHTK+jL46TI14gZ8pc1J9n1VG9Fo9rw=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Wed, 23 Jul 2025 16:19:10 GMT"
+=======
+          "Value": "\"4cYceMkc9c7u1SREUuINptdL6g/34ffigD7GEwSFLRQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 17:35:41 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-6tMj1uiCwYpeFHTK+jL46TI14gZ8pc1J9n1VG9Fo9rw="
+=======
+          "Value": "sha256-4cYceMkc9c7u1SREUuINptdL6g/34ffigD7GEwSFLRQ="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "js/games/SentenceBuilder.q052mu8n3b.js",
       "AssetFile": "js/games/SentenceBuilder.js",
+=======
+      "Route": "js/games/FillBlanks.r94mu72sj6.js",
+      "AssetFile": "js/games/FillBlanks.js",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2432,7 +2642,11 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "2820"
+=======
+          "Value": "2783"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2440,21 +2654,37 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"6tMj1uiCwYpeFHTK+jL46TI14gZ8pc1J9n1VG9Fo9rw=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Wed, 23 Jul 2025 16:19:10 GMT"
+=======
+          "Value": "\"4cYceMkc9c7u1SREUuINptdL6g/34ffigD7GEwSFLRQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 17:35:41 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
+<<<<<<< HEAD
           "Value": "q052mu8n3b"
         },
         {
           "Name": "integrity",
           "Value": "sha256-6tMj1uiCwYpeFHTK+jL46TI14gZ8pc1J9n1VG9Fo9rw="
+=======
+          "Value": "r94mu72sj6"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4cYceMkc9c7u1SREUuINptdL6g/34ffigD7GEwSFLRQ="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "label",
@@ -2463,8 +2693,13 @@
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "js/games/SynonymMatch.cs6ft2cb9a.js",
       "AssetFile": "js/games/SynonymMatch.js",
+=======
+      "Route": "js/games/KelimeBulmaca.g7fe1zj9xk.js",
+      "AssetFile": "js/games/KelimeBulmaca.js",
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2477,7 +2712,11 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "2625"
+=======
+          "Value": "2529"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2485,21 +2724,37 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"HNW5k9wK8oYwOZ+oBB1zD/PBuLAKAgai4FTZCRyE4X8=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Wed, 23 Jul 2025 16:19:10 GMT"
+=======
+          "Value": "\"hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 17:35:41 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
+<<<<<<< HEAD
           "Value": "cs6ft2cb9a"
         },
         {
           "Name": "integrity",
           "Value": "sha256-HNW5k9wK8oYwOZ+oBB1zD/PBuLAKAgai4FTZCRyE4X8="
+=======
+          "Value": "g7fe1zj9xk"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "label",
@@ -2522,7 +2777,11 @@
         },
         {
           "Name": "Content-Length",
+<<<<<<< HEAD
           "Value": "2625"
+=======
+          "Value": "2529"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2530,17 +2789,29 @@
         },
         {
           "Name": "ETag",
+<<<<<<< HEAD
           "Value": "\"HNW5k9wK8oYwOZ+oBB1zD/PBuLAKAgai4FTZCRyE4X8=\""
         },
         {
           "Name": "Last-Modified",
           "Value": "Wed, 23 Jul 2025 16:19:10 GMT"
+=======
+          "Value": "\"hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Jul 2025 17:35:41 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
+<<<<<<< HEAD
           "Value": "sha256-HNW5k9wK8oYwOZ+oBB1zD/PBuLAKAgai4FTZCRyE4X8="
+=======
+          "Value": "sha256-hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY="
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         }
       ]
     },
@@ -2642,6 +2913,7 @@
         {
           "Name": "Content-Length",
           "Value": "2831"
+<<<<<<< HEAD
         },
         {
           "Name": "Content-Type",
@@ -2679,6 +2951,8 @@
         {
           "Name": "Content-Length",
           "Value": "2831"
+=======
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
         },
         {
           "Name": "Content-Type",
@@ -2690,7 +2964,61 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Jul 2025 00:13:57 GMT"
+=======
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wwstcf6xfm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YAAA8ZMFKamY0hb9pw+Vz+eQRqndWVIVWM/tQKOCvCY="
+<<<<<<< HEAD
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/WordImage.js"
+=======
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+        }
+      ]
+    },
+    {
+<<<<<<< HEAD
+=======
+      "Route": "js/games/WordImage.wwstcf6xfm.js",
+      "AssetFile": "js/games/WordImage.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2831"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YAAA8ZMFKamY0hb9pw+Vz+eQRqndWVIVWM/tQKOCvCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 00:06:13 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2709,6 +3037,7 @@
       ]
     },
     {
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       "Route": "js/games/common.4bcz4yp9qr.js",
       "AssetFile": "js/games/common.js",
       "Selectors": [],

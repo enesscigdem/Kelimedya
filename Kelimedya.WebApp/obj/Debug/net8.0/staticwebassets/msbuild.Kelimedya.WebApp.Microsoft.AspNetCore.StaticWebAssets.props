@@ -174,8 +174,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+<<<<<<< HEAD
       <Fingerprint>4o4pd0n6q4</Fingerprint>
       <Integrity>HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI=</Integrity>
+=======
+      <Fingerprint>np9pdt1hbp</Fingerprint>
+      <Integrity>lfErSFdJViCh5I7qwYESxlyS7ZlEfzneL6sjjMs+vDo=</Integrity>
+>>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\myLessons.css'))</OriginalItemSpec>

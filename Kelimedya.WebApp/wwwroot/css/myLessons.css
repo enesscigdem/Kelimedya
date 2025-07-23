@@ -164,7 +164,7 @@ body {
 }
 
 .ultra-btn.success {
-    background: linear-gradient(135deg, #4caf50 0%, #64dd17 100%);
+    background: linear-gradient(135deg, #4caf50 0%, #64dd17 100%) !important;
 }
 .ultra-btn[disabled] {
     background: #ccc;

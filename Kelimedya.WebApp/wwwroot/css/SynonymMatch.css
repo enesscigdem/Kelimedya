@@ -32,43 +32,40 @@
 
 .game-area {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     padding: 2rem;
     height: calc(100% - 70px);
     gap: 1.5rem;
 }
 
-.question-box {
-    background: var(--accent-light);
-    border: 2px dotted #ccc;
-    width: 400px;
-    max-width: 100%;
-    min-height: 200px;
-    border-radius: 8px;
+.match-column {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem;
-    color: var(--text-color);
-    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.option-btn {
+.match-item {
     background: #ffc2c2;
-    border: none;
     border-radius: 6px;
     padding: 0.5rem 1rem;
     font-weight: 700;
     color: #333;
     cursor: pointer;
+    text-align: center;
     transition: background 0.2s;
-    margin: 0.5rem;
 }
 
-.option-btn:hover {
+.match-item.active {
     background: #ffb0a8;
+}
+
+.match-item.correct {
+    animation: pop-out 0.3s forwards;
+}
+
+@keyframes pop-out {
+    to { transform: scale(0); opacity: 0; }
 }
 
 .simple-btn {
@@ -89,9 +86,7 @@
 
 @media (max-width: 768px) {
     .game-area {
+        flex-direction: column;
         padding: 1rem;
-    }
-    .question-box {
-        width: 100%;
     }
 }

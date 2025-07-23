@@ -87,5 +87,17 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
             ViewData["GameId"] = await GetGameIdAsync("Boşluk Doldurma");
             return View();
         }
+
+        public async Task<IActionResult> SynonymMatch()
+        {
+            ViewData["GameId"] = await GetGameIdAsync("Eş Yakın Eşleştirme");
+            return View();
+        }
+
+        public async Task<IActionResult> SentenceBuilder()
+        {
+            ViewData["GameId"] = await GetGameIdAsync("Cümle Kurma");
+            return View();
+        }
     }
 }

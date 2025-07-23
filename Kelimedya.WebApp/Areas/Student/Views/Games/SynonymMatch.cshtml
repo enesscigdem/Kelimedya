@@ -1,0 +1,36 @@
+@using System.Security.Claims
+@{
+    bool embed = Context.Request.Query.ContainsKey("embed");
+    string singleWord = Context.Request.Query["word"];
+    string wordId = Context.Request.Query["id"];
+    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Eş Yakın Eşleştirme";
+    var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<link href="~/css/SynonymMatch.css" rel="stylesheet"/>
+
+<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
+    <div class="fullscreen-container">
+        <div class="kelime-header">
+            Eş Yakın Eşleştirme Oyunu
+        </div>
+        <div class="game-area">
+            <div class="question-box" id="questionBox">Soru burada görünecek...</div>
+            <div id="optionsArea"></div>
+            @if(!embed)
+            {
+                <div style="margin-top: 2rem;">
+                    <button id="smEndGame" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="module">
+        import {initSynonymMatch} from '@Url.Content("~/js/games/SynonymMatch.js")';
+        const root=document.getElementById('gameRoot');
+        initSynonymMatch(root.dataset.studentId, root.dataset.gameId, root.dataset.word, root.dataset.wordId);
+    </script>
+}

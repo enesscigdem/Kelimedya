@@ -1,78 +1,97 @@
+/* — Ortak renk tanımları — */
 :root {
-    --cp-bg: #fffef2;
-    --cp-card: rgba(255, 254, 242, 0.95);
-    --cp-primary: #ff5b5b;
-    --cp-secondary: #4caf50;
-    --cp-tertiary: #ececec;
-    --cp-text: #2c3e50;
-    --cp-shadow: rgba(0,0,0,0.1);
+    --clr-bg: #fff8f4;
+    --clr-card: #ffffff;
+    --clr-accent: #ff5b5b;
+    --clr-accent-light: rgba(255, 91, 91, 0.1);
+    --clr-primary-btn: #f05232;
+    --clr-primary-hover: #d74322;
+    --clr-secondary-btn: #ffe5e0;
+    --clr-secondary-hover: #ffd9bf;
+    --clr-text: #2c3e50;
     --cp-wrong: #f8d7da;
     --cp-correct: #d4edda;
 }
 
-.fullscreen-container {
-    display: flex;
-    flex-direction: column;
-    background: var(--cp-bg);
-    border-radius: 20px;
-    height: 85vh;
-    box-shadow: 0 8px 32px var(--cp-shadow);
+/* — Konteyner & Kart — */
+.gb-container {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     overflow: hidden;
 }
+.container-xl {
+    padding: 0;
+}
 
-.cp-header {
-    text-align: center;
+/* — Başlık, alt başlık ve progress — */
+.gb-header {
+    background: linear-gradient(130deg, #ffd9bf, #ffe5e0);
     padding: 1.5rem;
-    background: var(--cp-card);
+    text-align: center;
 }
-.cp-header h1 {
-    font-size: 2.4rem;
-    color: var(--cp-primary);
+.gb-header h2 {
     margin: 0;
+    color: var(--clr-accent);
+    font-size: 1.75rem;
+    font-weight: 700;
 }
-.cp-header p {
-    font-size: 1rem;
+.gb-subtitle {
+    margin: .5rem 0 0;
     color: #7f8c8d;
-    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+.gb-progress {
+    height: 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+.gb-progress-bar {
+    height: 100%;
+    background: var(--clr-accent);
+    transition: width .4s ease;
 }
 
+/* — Oyun içi bölüm (grid + sidebar) — */
 .cp-gamecard {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    background: var(--cp-card);
+    background: var(--clr-bg);
 }
-
-/* Main bölümü: grid + sidebar yan yana */
 .cp-main {
-    flex: 1;
     display: flex;
+    flex: 1;
     overflow: hidden;
 }
 
-/* Bulmaca ızgarası */
+/* — Bulmaca ızgarası — */
 .cp-grid {
     flex: 1;
     display: grid;
     gap: 2px;
-    padding: 1rem;
     background: #f4f4f4;
-    /* 7x7 dakika boyut hücreler */
-    grid-template-columns: repeat(7, 1fr);
-    grid-auto-rows: minmax(50px, 1fr);
-    overflow: auto;
-}
+    padding: 1rem;
 
-/* Hücreler */
+    /* Sabit hücre yüksekliği: */
+    grid-auto-rows: 70px;
+
+    /* JS ile dinamik sütun sayısı ayarlanacak:
+       grid-template-columns: repeat(N, 1fr); */
+}
 .cp-cell {
     position: relative;
     width: 100%;
-    height: 100%;
-    font-size: 1.2rem;
-    text-align: center;
     border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1.2rem;
     background: #fff;
     box-sizing: border-box;
+    height: 50px;
 }
 .cp-cell.blocked {
     background: #eaeaea;
@@ -81,82 +100,97 @@
     background: var(--cp-wrong);
     animation: shake 0.3s;
 }
-
-/* Hücrelerdeki numaralar */
 .cp-num {
     position: absolute;
-    top: 2px;
-    left: 4px;
-    font-size: 0.7rem;
-    color: var(--cp-text);
+    top: 2px; left: 4px;
+    font-size: .7rem;
+    color: var(--clr-text);
 }
 
-/* Yan panel: ipuçlar + butonlar */
+/* — Yan panel (ipuçları + kontroller) — */
 .cp-sidebar {
-    width: 280px;
+    width: 300px;
+    background: var(--clr-card);
+    border-left: 1px solid #ddd;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid #ddd;
-    background: #fff;
 }
-
-/* İpuçları */
-.cp-clues {
-    flex: 1;
+.cp-controls {
+    margin-top: auto;
+}
+.cp-clue-block {
     padding: 1rem;
-    overflow: auto;
+    overflow-y: auto;
 }
 .cp-clue-block h3 {
-    color: var(--cp-primary);
-    margin-bottom: 0.5rem;
+    margin: 0 0 .5rem;
+    color: var(--clr-accent);
+    font-size: 1.1rem;
 }
 .cp-clue-block ul {
     list-style: disc inside;
-    color: var(--cp-text);
-    font-size: 0.9rem;
-    margin: 0 0 1.5rem;
+    margin: 0;
     padding: 0;
+    color: var(--clr-text);
+    font-size: .95rem;
+    line-height: 1.4;
 }
 
-/* Kontroller */
-.cp-controls {
-    padding: 1rem;
+/* — Ortak buton stilleri — */
+.gb-controls {
     display: flex;
+    gap: .75rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
     justify-content: center;
-    background: var(--cp-tertiary);
+    padding: 1rem;
+    background: var(--clr-secondary-btn);
 }
-.cp-btn {
-    flex: 1;
-    padding: 0.6rem;
+.btn-primary {
+    background: var(--clr-primary-btn);
+    color: #fff;
+    padding: .65rem 1.2rem;
+    border-radius: .5rem;
     border: none;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: background .2s;
 }
-.cp-btn.primary {
-    background: var(--cp-primary);
+.btn-primary:hover {
+    background: var(--clr-primary-hover);
+}
+.btn-secondary {
+    background: var(--clr-secondary-btn);
+    color: var(--clr-text);
+    padding: .65rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-secondary:hover {
+    background: var(--clr-secondary-hover);
+}
+.btn-outline {
+    background: transparent;
+    color: var(--clr-primary-btn);
+    border: 2px solid var(--clr-primary-btn);
+    padding: .6rem 1.15rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.btn-outline:hover {
+    background: var(--clr-primary-btn);
     color: #fff;
-}
-.cp-btn.secondary {
-    background: var(--cp-secondary);
-    color: #fff;
-}
-.cp-btn.tertiary {
-    background: var(--cp-tertiary);
-    color: var(--cp-text);
-}
-.cp-btn:hover {
-    transform: scale(1.03);
 }
 
-/* Geri bildirim */
+/* — Feedback çubuğu — */
 .cp-feedback {
-    text-align: center;
     padding: 1rem;
-    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
 }
 .cp-feedback.correct {
     background: var(--cp-correct);
@@ -167,17 +201,14 @@
     color: #721c24;
 }
 
+/* — Animasyon & Responsive — */
 @keyframes shake {
-    0%,100% { transform: translateX(0); }
-    25%,75% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
+    0%,100% { transform: translateX(0) }
+    25%,75% { transform: translateX(-3px) }
+    50% { transform: translateX(3px) }
 }
-
-/* Responsive */
 @media (max-width: 1024px) {
-    .cp-main {
-        flex-direction: column;
-    }
+    .cp-main { flex-direction: column; }
     .cp-sidebar {
         width: 100%;
         border-left: none;

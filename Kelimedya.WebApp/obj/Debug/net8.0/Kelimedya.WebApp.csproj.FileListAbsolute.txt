@@ -514,14 +514,14 @@
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/bin/Debug/net8.0/Paragraph.WebApp.staticwebassets.endpoints.json
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/obj/Debug/net8.0/staticwebassets.build.endpoints.json
 /Users/enescigdem/RiderProjects/Paragraph/Paragraph.WebApp/obj/Debug/net8.0/staticwebassets/msbuild.Paragraph.WebApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/appsettings.Development.json
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/appsettings.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireDashboard.deps.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireDashboard.runtimeconfig.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireDashboard
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireServer.deps.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireServer.runtimeconfig.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireServer
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/appsettings.Development.json
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/appsettings.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.WebApp.staticwebassets.runtime.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.WebApp.staticwebassets.endpoints.json
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.WebApp
@@ -862,6 +862,8 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Identity.Client.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
@@ -995,8 +997,8 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.Core.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireDashboard.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.HangfireServer.pdb
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.Persistence.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.Services.pdb
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Kelimedya.Persistence.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.csproj.AssemblyReference.cache
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.GeneratedMSBuildEditorConfig.editorconfig
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.AssemblyInfoInputs.cache
@@ -1030,5 +1032,3 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/ref/Kelimedya.WebApp.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/bin/Debug/net8.0/Microsoft.Extensions.Options.dll

@@ -1,92 +1,141 @@
-/* KelimeBulmaca.css */
-:root {
-    --primary-color: #ff5b5b;
-    --background-page: #fffef2;
-    --btn-bg: #f05232;
-    --btn-hover: #d74322;
-    --accent-light: rgba(76, 175, 80, 0.1);
-    --text-color: #2c3e50;
+/* — BUTON STİLLERİ — */
+.btn-primary {
+    background: var(--clr-primary-btn);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+.btn-primary:hover {
+    background: var(--clr-primary-hover);
+    transform: scale(1.05);
 }
 
-.fullscreen-container {
-    width: 100%;
-    height: 80vh;
-    background: var(--background-page);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+/* — ORTAK RENGÂRLER — */
+:root {
+    --clr-bg:            #fff8f4;
+    --clr-card:          #ffffff;
+    --clr-accent:        #ff5b5b;
+    --clr-accent-light:  rgba(255,91,91,0.1);
+    --clr-primary-btn:   #f05232;
+    --clr-primary-hover: #d74322;
+    --clr-secondary-btn: #4caf50;
+    --clr-secondary-hover:#3b8c3d;
+    --clr-text:          #2c3e50;
+    --clr-shadow:        rgba(0,0,0,0.1);
+    --clr-correct:       #d4edda;
+    --clr-incorrect:     #f8d7da;
+    --clr-reveal:        #d1ecf1;
+}
+
+/* — Konteyner & Kart — */
+.gb-container {
+    width: 90vw; max-width: 1200px;
     margin: 2rem auto;
-    position: relative;
+    background: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     overflow: hidden;
 }
+.container-xl { padding: 0; }
 
-.kelime-header {
-    background: linear-gradient(130deg, #ffe5e0, #ffd9bf);
-    padding: 1rem;
-    border-radius: 12px 12px 0 0;
-    font-size: 1.5rem;
-    color: #c94a2c;
-    font-weight: 700;
+/* — Başlık & Progress — */
+.gb-header {
+    background: linear-gradient(130deg,#ffd9bf,#ffe5e0);
+    padding: 1.5rem;
     text-align: center;
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
+}
+.gb-header h2 {
+    margin: 0;
+    color: var(--clr-accent);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.gb-progress {
+    height: 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+.gb-progress-bar {
+    height: 100%;
+    background: var(--clr-accent);
+    transition: width .4s ease;
 }
 
-.game-area {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem;
-    height: calc(100% - 70px);
-    gap: 1.5rem;
-}
-
-.match-column {
+/* — Oyun Kartı — */
+.sm-gamecard {
+    background: var(--clr-bg);
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
 }
 
+/* — Match alanı: iki sütun — */
+.sm-game-area {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+/* Her sütun */
+.sm-column {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    align-items: center;
+}
+
+/* Eşleşme öğesi */
 .match-item {
-    background: #ffc2c2;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-weight: 700;
-    color: #333;
+    background: var(--clr-secondary-btn);
+    color: #fff;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background .2s, transform .2s;
     text-align: center;
-    transition: background 0.2s;
+    width: 100%;
+    max-width: 200px;
 }
-
+.match-item:hover {
+    background: var(--clr-secondary-hover);
+    transform: scale(1.03);
+}
 .match-item.active {
-    background: #ffb0a8;
+    background: var(--clr-accent);
 }
-
 .match-item.correct {
     animation: pop-out 0.3s forwards;
 }
 
+/* Çıkış animasyonu */
 @keyframes pop-out {
     to { transform: scale(0); opacity: 0; }
 }
 
-.simple-btn {
-    background: var(--btn-bg);
-    color: #fff;
-    padding: 0.8rem 1.6rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s, transform 0.2s;
+/* “Oyunu Sonlandır” butonu */
+.sm-endgame {
+    margin-top: 1.5rem;
+}
+.sm-endgame .btn-primary {
+    width: 200px;
 }
 
-.simple-btn:hover {
-    background: var(--btn-hover);
-    transform: scale(1.05);
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-    .game-area {
+    .sm-game-area {
         flex-direction: column;
-        padding: 1rem;
+        align-items: center;
     }
 }

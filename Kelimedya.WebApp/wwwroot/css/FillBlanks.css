@@ -1,135 +1,178 @@
+/*  — ortak renk tanımları —  */
 :root {
-    --primary-color: #ff5b5b;
-    --background-page: #fff8f4;
-    --btn-bg: #f05232;
-    --btn-hover: #d74322;
-    --accent-light: rgba(255,91,91,0.1);
-    --text-color: #2c3e50;
-    --fb-incorrect: #f8d7da;
-    --fb-correct: #d4edda;
-    --fb-reveal: #d1ecf1;
+    --clr-bg: #fff8f4;
+    --clr-card: #ffffff;
+    --clr-accent: #ff5b5b;
+    --clr-accent-light: rgba(255, 91, 91, 0.1);
+    --clr-primary-btn: #f05232;
+    --clr-primary-hover: #d74322;
+    --clr-secondary-btn: #ffe5e0;
+    --clr-secondary-hover: #ffd9bf;
+    --clr-text: #2c3e50;
+    --clr-success-bg: #d4edda;
+    --clr-error-bg: #f8d7da;
+    --clr-info-bg: #d1ecf1;
 }
 
-/* fullscreen-container: tam oyun dış çerçevesi */
-.fullscreen-container {
-    width: 100%;
-    height: 40vh;
-    background: var(--background-page);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
+/*  — Genel Konteyner & Card —  */
+/* — Güncellenmiş Konteyner — */
+.gb-container {
+    /* Önceki max-width: 800px; yerine */
+    width: 90vw;          /* Görünüm genişliğinin %90'ını kaplasın */
+    max-width: 1200px;    /* ama 1200px’den daha büyük olmasın */
+    margin: 2rem auto;    /* dikeyde 2rem boşluk, yatayda ortala */
+    background: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 0;           /* içeride ekstra padding yok */
+}
+
+.fullscreen-container { /* isteğe bağlı, zaten global’de varsa kaldırabilirsiniz */
+    background: var(--clr-bg);
+}
+
+/*  — Başlık ve Progress Bar —  */
+.gb-header {
+    background: linear-gradient(130deg, #ffd9bf, #ffe5e0);
+    padding: 1.5rem;
+    text-align: center;
+}
+.gb-header h2 {
+    margin: 0;
+    color: var(--clr-accent);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.gb-progress {
+    height: 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    margin-top: .75rem;
     overflow: hidden;
 }
-
-/* asmaca-header: ortak başlık stili */
-.asmaca-header {
-    background: linear-gradient(130deg, #ffd9bf, #ffe5e0);
-    padding: 1rem;
-    border-radius: 12px 12px 0 0;
-    font-size: 1.5rem;
-    color: #c94a2c;
-    font-weight: 700;
-    text-align: center;
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
+.gb-progress-bar {
+    height: 100%;
+    background: var(--clr-accent);
+    transition: width .4s ease;
 }
 
-/* oyun içi alan */
-.fb-gamecard {
-    flex: 1;
-    padding: 1.5rem;
+/*  — Oyun Kartı İçeriği —  */
+.gb-gamecard {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    background: var(--clr-bg);
 }
 
-/* cümle */
-.fb-sentence {
-    font-size: 1.2rem;
-    color: var(--text-color);
+/*  — Cümle (input’lu) —  */
+.gb-sentence {
+    font-size: 1.25rem;
+    color: var(--clr-text);
     text-align: center;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    line-height: 2rem;
+    margin-bottom: 2rem;
 }
-
-/* input */
-.fb-input {
-    width: 150px;
-    max-width: 40%;
-    padding: .4rem;
+.gb-sentence span {
+    display: inline-block;
     margin: 0 .25rem;
-    font-size: 1rem;
+}
+.gb-input {
+    width: 5ch;
+    padding: .4rem;
     border: 2px solid #ddd;
-    border-radius: 6px;
+    border-radius: .5rem;
     text-align: center;
+    font-size: 1rem;
     transition: border-color .2s, background .2s;
 }
-.fb-input:focus {
+.gb-input:focus {
     outline: none;
-    border-color: var(--primary-color);
+    border-color: var(--clr-accent);
     box-shadow: 0 0 0 2px rgba(255,91,91,0.2);
 }
-.fb-input.wrong {
+.gb-input.correct {
+    border-color: green;
+    background: var(--clr-success-bg);
+}
+.gb-input.wrong {
     border-color: #e74c3c;
-    background: var(--fb-incorrect);
-}
-.fb-input.correct {
-    border-color: var(--fb-secondary);
-    background: var(--fb-correct);
-}
-.fb-input.revealed {
-    border-color: var(--fb-secondary);
-    background: var(--fb-reveal);
+    background: var(--clr-error-bg);
 }
 
-/* butonlar */
-.fb-controls {
+/*  — Kontrol Butonları —  */
+.gb-controls {
     display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: .75rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
 }
-.simple-btn {
-    background: var(--btn-bg);
+.btn-primary {
+    background: var(--clr-primary-btn);
     color: #fff;
-    padding: .5rem 1rem;
+    padding: .65rem 1.2rem;
+    border-radius: .5rem;
     border: none;
-    border-radius: 6px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background .2s, transform .2s;
+    transition: background .2s;
 }
-.simple-btn:hover {
-    background: var(--btn-hover);
-    transform: scale(1.05);
+.btn-primary:hover {
+    background: var(--clr-primary-hover);
+}
+.btn-secondary {
+    background: var(--clr-secondary-btn);
+    color: var(--clr-text);
+    padding: .65rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-secondary:hover {
+    background: var(--clr-secondary-hover);
+}
+.btn-outline {
+    background: transparent;
+    color: var(--clr-primary-btn);
+    border: 2px solid var(--clr-primary-btn);
+    padding: .6rem 1.15rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.btn-outline:hover {
+    background: var(--clr-primary-btn);
+    color: #fff;
 }
 
-/* feedback */
-.fb-feedback {
+/*  — Geri Bildirim (Feedback) —  */
+.gb-feedback {
+    width: 100%;
     text-align: center;
-    font-size: 1rem;
-    padding: .5rem;
-    border-radius: 6px;
-    margin-top: .5rem;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    font-weight: 500;
 }
-.fb-feedback.correct {
-    background: var(--fb-correct);
+.gb-feedback.correct {
+    background: var(--clr-success-bg);
     color: #155724;
 }
-.fb-feedback.incorrect {
-    background: var(--fb-incorrect);
+.gb-feedback.incorrect {
+    background: var(--clr-error-bg);
     color: #721c24;
 }
-.fb-feedback.revealed {
-    background: var(--fb-reveal);
+.gb-feedback.revealed {
+    background: var(--clr-info-bg);
     color: #0c5460;
 }
 
-@media (max-width:768px) {
-    .fb-input {
-        width:100%; max-width:100%; margin:.5rem 0;
-    }
-    .fb-controls {
-        flex-direction: column;
-    }
+/*  — Responsive —  */
+@media (max-width: 600px) {
+    .gb-controls { flex-direction: column; }
+    .gb-input { width: 100%; max-width: 6ch; }
 }

@@ -2,48 +2,75 @@
 @{
     bool embed = Context.Request.Query.ContainsKey("embed");
     string singleWord = Context.Request.Query["word"];
-    string wordId = Context.Request.Query["id"];
-    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    string wordId     = Context.Request.Query["id"];
+    Layout = embed 
+      ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" 
+      : "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Adam Asmaca";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
-
 <link href="~/css/AdamAsmaca.css" rel="stylesheet"/>
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
-    <div class="fullscreen-container">
-        <div class="asmaca-header">
-            Adam Asmaca Oyunu
-        </div>
-        <div class="game-area">
-            
-            <div class="hangman-canvas" id="hangmanCanvas"><canvas id="hangmanBoard" width="300" height="300"></canvas></div>
-            <div id="hangmanQuestion" class="hangman-question"></div>
-            <div id="hangmanWord" class="hangman-word"></div>
-            <div>Hatalar: <span id="wrongCount">0</span></div>
-            <div>
-                <div class="letters">
-                    
-                    @foreach (var c in "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ".ToCharArray())
-                    {
-                        <button class="letter-btn">@c</button>
-                    }
-                </div>
-                @if(!embed)
-                {
-                    <div style="margin-top:1rem;">
-                        <button id="endGameBtn" class="simple-btn" data-home="@Url.Action("Index","Games", new {area="Student"})">Oyunu Sonlandır</button>
-                    </div>
-                }
-            </div>
-        </div>
+<div id="gameRoot" class="gb-container container-xl"
+     data-student-id="@studentId"
+     data-game-id="@ViewData["GameId"]"
+     data-word="@singleWord"
+     data-word-id="@wordId"
+     data-embed="@embed.ToString().ToLower()">
+
+  <header class="gb-header">
+    <h2>Adam Asmaca</h2>
+    <div class="gb-progress">
+      <div class="gb-progress-bar" style="width:100%"></div>
     </div>
+  </header>
+
+  <div class="gb-gamecard aa-gamecard">
+    <div class="aa-game-area">
+      <!-- Sol sütun: Canvas -->
+      <div class="hangman-canvas">
+        <canvas id="hangmanBoard" width="300" height="300"></canvas>
+      </div>
+
+      <!-- Sağ sütun: Kontroller -->
+      <div class="aa-controls">
+        <div id="hangmanQuestion" class="hangman-question"></div>
+        <div id="hangmanWord"     class="hangman-word"></div>
+        <div class="wrong-count">Hatalar: <span id="wrongCount">0</span></div>
+
+        <div class="aa-letters">
+          @foreach (var c in "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ".ToCharArray())
+          {
+              <button class="letter-btn">@c</button>
+          }
+        </div>
+
+        @if(!embed)
+        {
+          <div class="gb-controls endgame-controls">
+            <button id="endGameBtn"
+                    class="btn-primary"
+                    data-home="@Url.Action("Index","Games", new { area="Student" })">
+              Oyunu Sonlandır
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="gb-feedback aa-feedback" id="aaFeedback"></div>
+  </div>
 </div>
 
 @section Scripts {
-    <script type="module">
-        import {initHangman} from '@Url.Content("~/js/games/AdamAsmaca.js")';
-        const el = document.getElementById('gameRoot');
-        initHangman(el.dataset.studentId, el.dataset.gameId, el.dataset.word, el.dataset.wordId);
-    </script>
+  <script type="module">
+    import {initHangman} from '@Url.Content("~/js/games/AdamAsmaca.js")';
+    const root = document.getElementById('gameRoot');
+    initHangman(
+      root.dataset.studentId,
+      root.dataset.gameId,
+      root.dataset.word,
+      root.dataset.wordId
+    );
+  </script>
 }

@@ -1,148 +1,149 @@
-/* VisualPrompt.css */
-:root {
-    --vp-bg: #fff8f4;
-    --vp-card: rgba(255, 250, 249, 0.95);
-    --vp-primary: #ff5b5b;
-    --vp-secondary: #4caf50;
-    --vp-text: #2c3e50;
-    --vp-shadow: rgba(0,0,0,0.1);
-    --vp-correct: #d4edda;
-    --vp-incorrect: #f8d7da;
-    --vp-reveal: #d1ecf1;
+/* — BUTON STİLLERİ — */
+.btn-primary {
+    background: var(--clr-primary-btn);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+.btn-primary:hover {
+    background: var(--clr-primary-hover);
+    transform: scale(1.05);
 }
 
-.fullscreen-container {
-    background: var(--vp-bg);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px var(--vp-shadow);
+.btn-secondary {
+    background: var(--clr-secondary-btn);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+.btn-secondary:hover {
+    background: var(--clr-secondary-hover);
+    transform: scale(1.05);
+}
+
+/* — ORTAK RENGÂRLER — */
+:root {
+    --clr-bg: #fff8f4;
+    --clr-card: #ffffff;
+    --clr-accent: #ff5b5b;
+    --clr-accent-light: rgba(255,91,91,0.1);
+    --clr-primary-btn: #f05232;
+    --clr-primary-hover: #d74322;
+    --clr-secondary-btn: #4caf50;
+    --clr-secondary-hover: #3b8c3d;
+    --clr-text: #2c3e50;
+    --clr-shadow: rgba(0,0,0,0.1);
+    --clr-correct: #d4edda;
+    --clr-incorrect: #f8d7da;
+    --clr-reveal: #d1ecf1;
+}
+
+/* — Konteyner & Kart — */
+.gb-container {
+    width: 90vw; max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     overflow: hidden;
 }
+.container-xl { padding: 0; }
 
-.vp-header {
-    text-align: center;
+/* — Başlık & Progress — */
+.gb-header {
+    background: linear-gradient(130deg,#ffd9bf,#ffe5e0);
+    padding: 1.5rem; text-align: center;
+}
+.gb-header h2 {
+    margin: 0; color: var(--clr-accent);
+    font-size: 1.75rem; font-weight: 700;
+}
+.gb-subtitle {
+    margin: .5rem 0 0; color: #7f8c8d; font-size: 1rem;
+}
+.gb-progress {
+    height: 6px; background: rgba(0,0,0,0.05);
+    border-radius: 3px; overflow: hidden; margin-top: 1rem;
+}
+.gb-progress-bar {
+    height: 100%; background: var(--clr-accent);
+    transition: width .4s ease;
 }
 
-.vp-header h1 {
-    font-size: 2.2rem;
-    color: var(--vp-primary);
-    margin: 0;
-}
-
-.vp-header p {
-    font-size: 1rem;
-    color: #7f8c8d;
-    margin-top: 1rem;
-}
-
+/* — Oyun kartı içeriği — */
 .vp-gamecard {
-    background: var(--vp-card);
+    background: var(--clr-bg);
+    display: flex; flex-direction: column;
+    align-items: center; padding-bottom: 1rem;
 }
 
+/* — Görsel alanı — */
 .vp-image-area {
-    padding: 1rem;
-    text-align: center;
+    width: 100%; text-align: center; padding: 1rem;
 }
-
 .vp-image-area img {
-    max-width: 100%;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px var(--vp-shadow);
+    max-width: 100%; max-height: 400px;
+    object-fit: contain; border-radius: .75rem;
+    box-shadow: 0 4px 12px var(--clr-shadow);
 }
 
+/* — Soru metni — */
 .vp-question {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    color: var(--vp-text);
+    font-size: 1.1rem; color: var(--clr-text);
+    text-align: center; margin: .5rem 1rem;
 }
 
+/* — Kontroller — */
 .vp-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 1rem;
-    justify-content: center;
+    display: flex; flex-wrap: wrap;
+    gap: .75rem; justify-content: center;
+    margin: 1rem 0; width: 100%; padding: 0 1rem;
 }
-
 .vp-controls input {
-    flex: 1;
-    min-width: 180px;
-    padding: 0.8rem;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    font-size: 1rem;
+    flex: 1; min-width: 180px;
+    padding: .8rem; border: 2px solid #eee;
+    border-radius: .5rem; font-size: 1rem;
+    transition: border-color .2s, box-shadow .2s;
 }
 .vp-controls input:focus {
     outline: none;
-    border-color: var(--vp-primary);
-    box-shadow: 0 0 0 2px rgba(255,91,91,0.2);
+    border-color: var(--clr-primary-btn);
+    box-shadow: 0 0 0 2px rgba(240,82,50,0.2);
 }
 
-.vp-btn {
-    background: var(--vp-primary);
-    color: #fff;
-    padding: 0.8rem 1.4rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.vp-btn.secondary {
-    background: var(--vp-secondary);
-}
-.vp-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px var(--vp-shadow);
-}
-
+/* — Feedback — */
 .vp-feedback {
-    text-align: center;
-    font-size: 1.1rem;
-    padding: 0.75rem;
-    margin: 0 1rem;
-    border-radius: 8px;
-}
-.vp-feedback .icon {
-    margin-right: 0.5rem;
-    font-weight: bold;
+    width: calc(100% - 2rem); max-width: 600px;
+    text-align: center; margin: .5rem 1rem;
+    padding: .75rem; border-radius: .5rem;
+    font-size: 1rem;
 }
 .vp-feedback.correct {
-    background: var(--vp-correct);
-    color: #155724;
+    background: var(--clr-correct); color: #155724;
 }
 .vp-feedback.incorrect {
-    background: var(--vp-incorrect);
-    color: #721c24;
+    background: var(--clr-incorrect); color: #721c24;
 }
 .vp-feedback.revealed {
-    background: var(--vp-reveal);
-    color: #0c5460;
+    background: var(--clr-reveal); color: #0c5460;
 }
 
+/* — Footer — */
 .vp-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    border-top: 1px solid #eee;
+    display: flex; gap: 1rem;
+    justify-content: center; width: 100%; margin-top: 1rem;
 }
-.kelime-header {
-    background: linear-gradient(130deg, #ffe5e0, #ffd9bf);
-    padding: 1rem;
-    border-radius: 12px 12px 0 0;
-    font-size: 1.5rem;
-    color: #c94a2c;
-    font-weight: 700;
-    text-align: center;
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
-}
-@media (max-width: 600px) {
-    .vp-controls {
-        flex-direction: column;
-    }
-    .vp-footer {
-        flex-direction: column-reverse;
-        gap: 0.5rem;
-    }
+
+/* — Responsive — */
+@media(max-width:600px) {
+    .vp-controls { flex-direction: column; }
+    .vp-footer { flex-direction: column; }
 }

@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "1d1wAyJUprGiSlCK6yC9qOARLbirRq/z5RClybm2OwY=",
-=======
-  "Hash": "GiuA3pie8T8dRwajOjbJvwxB23Uup0K3qAlZ10TM8Ec=",
->>>>>>> codex/yeni-oyun-ekle-ve-düzenle2
+  "Hash": "XctcC3HTOmLclOEiD2XE43ViE3w+oP0FcoPf3yEYr+o=",
   "Source": "Kelimedya.WebApi",
   "BasePath": "_content/Kelimedya.WebApi",
   "Mode": "Default",
@@ -1119,7 +1115,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Jul 2025 18:20:12 GMT"
+          "Value": "Wed, 23 Jul 2025 17:03:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1164,7 +1160,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 12 Jul 2025 18:20:12 GMT"
+          "Value": "Wed, 23 Jul 2025 17:03:23 GMT"
         },
         {
           "Name": "Cache-Control",

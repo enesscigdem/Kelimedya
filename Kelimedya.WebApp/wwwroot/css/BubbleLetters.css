@@ -1,113 +1,242 @@
-/* BubbleLetters.css */
+/* — Ortak renk tanımları — */
 :root {
-    --bl-bg: #fffaf9;
-    --bl-card: rgba(255, 250, 249, 0.95);
-    --bl-primary: #ff5b5b;
-    --bl-secondary: #4caf50;
-    --bl-text: #2c3e50;
-    --bl-shadow: rgba(0,0,0,0.1);
-    --bl-correct: #d4edda;
-    --bl-incorrect: #f8d7da;
-    --bl-reveal: #d1ecf1;
+    --clr-bg: #fff8f4;
+    --clr-card: #ffffff;
+    --clr-accent: #ff5b5b;
+    --clr-accent-light: rgba(255, 91, 91, 0.1);
+    --clr-primary-btn: #f05232;
+    --clr-primary-hover: #d74322;
+    --clr-secondary-btn: #4caf50;
+    --clr-secondary-hover: #3b8c3d;
+    --clr-text: #2c3e50;
+    --clr-shadow: rgba(0,0,0,0.1);
+    --clr-correct: #d4edda;
+    --clr-incorrect: #f8d7da;
+    --clr-reveal: #d1ecf1;
 }
 
-.fullscreen-container {
-    background: var(--bl-bg);
-    border-radius:20px;
-    box-shadow:0 8px 32px var(--bl-shadow);
-    overflow:hidden;
+/* — Konteyner & Kart — */
+.gb-container {
+    width: 90vw; max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
-.bl-header { text-align:center; padding:1.5rem; }
-.bl-header h1 { font-size:2.2rem; color:var(--bl-primary); margin:0; }
-.bl-header p { font-size:1rem; color:#7f8c8d; }
-.bl-gamecard { background: var(--bl-card); }
+.container-xl { padding: 0; }
 
-/* Hint */
+/* — Başlık, alt başlık ve progress — */
+.gb-header {
+    background: linear-gradient(130deg, #ffd9bf, #ffe5e0);
+    padding: 1.5rem;
+    text-align: center;
+}
+.gb-header h2 {
+    margin: 0;
+    color: var(--clr-accent);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.gb-subtitle {
+    margin: .5rem 0 0;
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+.gb-progress {
+    height: 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+.gb-progress-bar {
+    height: 100%;
+    background: var(--clr-accent);
+    transition: width .4s ease;
+}
+
+/* — Oyun kartı içeriği — */
+.bl-gamecard {
+    background: var(--clr-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+/* — Hint kutusu — */
 .bl-hint {
     background: linear-gradient(135deg, #ffe5df 0%, #fffaf9 100%);
-    border-radius:15px;
-    padding:1.5rem;
-    margin:1rem;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    color:var(--bl-text);
-    line-height:1.5;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    width: calc(100% - 2rem);
 }
 .bl-hint .hint-line {
-    position:relative;
-    padding-left:1.8rem;
-    margin-bottom:0.75rem;
-    font-size:0.95rem;
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--clr-text);
 }
 .bl-hint .hint-line::before {
-    content:"💡";
-    position:absolute;
-    left:0; top:0;
-    font-size:1.2rem;
+    content: "💡";
+    position: absolute; left: 0; top: 0;
+    font-size: 1.2rem;
 }
-.bl-hint strong { color: var(--bl-primary); }
+.bl-hint strong { color: var(--clr-accent); }
 
-/* Slots */
+/* — Hedef slot’ları — */
 .bl-target {
-    display:flex; justify-content:center;
-    gap:0.5rem; padding:1rem; flex-wrap:wrap;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
 }
 .bl-letter {
-    width:2.5rem; height:2.5rem;
-    line-height:2.5rem; text-align:center;
-    border-bottom:2px solid #ccc;
-    font-size:1.2rem; color:var(--bl-text);
+    width: 2.5rem; height: 2.5rem;
+    line-height: 2.5rem; text-align: center;
+    border-bottom: 2px solid #ccc;
+    font-size: 1.2rem; color: var(--clr-text);
 }
 
-/* Bubbles */
+/* — Harf baloncukları — */
 .bl-bubbles {
-    display:flex; flex-wrap:wrap; justify-content:center;
-    gap:0.5rem; padding:0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem 1rem;
 }
 .bubble-btn {
-    width:3rem; height:3rem;
-    border-radius:50%;
-    background:var(--bl-primary);
-    color:#fff; border:none;
-    font-weight:700; cursor:pointer;
-    transition:transform .2s;
+    width: 3rem; height: 3rem;
+    border-radius: 50%;
+    background: var(--clr-accent);
+    color: #fff; border: none;
+    font-weight: 700; cursor: pointer;
+    transition: transform .2s;
 }
-.bubble-btn:disabled { background:#eee; color:#999; cursor:default; }
-.bubble-btn:hover:not(:disabled) { transform:scale(1.1); }
+.bubble-btn:disabled {
+    background: #eee; color: #999; cursor: default;
+}
+.bubble-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+}
 
-/* Controls */
+/* — Kontrol butonları — */
+/* — BUTON STİLLERİ — */
+.btn-primary {
+    background: var(--clr-primary-btn);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+.btn-primary:hover {
+    background: var(--clr-primary-hover);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: var(--clr-secondary-btn);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+.btn-secondary:hover {
+    background: var(--clr-secondary-hover);
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--clr-primary-btn);
+    border: 2px solid var(--clr-primary-btn);
+    padding: .55rem 1.15rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .2s;
+}
+.btn-outline:hover {
+    background: var(--clr-primary-btn);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* — Buraya kadar BUTONLAR */
 .bl-controls {
-    display:flex; justify-content:center;
-    gap:0.5rem; padding:1rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
 }
 .bl-btn {
-    padding:.6rem 1.2rem;
-    border:none; border-radius:8px;
-    font-weight:600; cursor:pointer;
-    background:var(--bl-primary); color:#fff;
-    transition:transform .2s;
+    padding: .6rem 1.2rem;
+    border: none; border-radius: .5rem;
+    font-weight: 600; cursor: pointer;
+    color: #fff;
+    transition: transform .2s;
 }
-.bl-btn.secondary { background:var(--bl-secondary); }
-.bl-btn:hover { transform:scale(1.05); }
+.bl-btn.btn-primary, .bl-btn:not(.secondary):not(.btn-outline) {
+    background: var(--clr-primary-btn);
+}
+.bl-btn.btn-secondary {
+    background: var(--clr-secondary-btn);
+}
+.btn-outline, .bl-btn.btn-outline {
+    background: transparent;
+    border: 2px solid var(--clr-primary-btn);
+    color: var(--clr-primary-btn);
+}
+.bl-btn:hover {
+    transform: scale(1.05);
+}
 
-/* Feedback */
+/* — Feedback çubuğu — */
 .bl-feedback {
-    text-align:center;
-    margin:.5rem 1rem;
-    padding:.75rem; border-radius:8px;
-    font-size:1rem;
+    width: calc(100% - 2rem);
+    text-align: center;
+    margin: .5rem 1rem;
+    padding: .75rem;
+    border-radius: .5rem;
 }
-.bl-feedback.correct { background:var(--bl-correct); color:#155724; }
-.bl-feedback.incorrect { background:var(--bl-incorrect); color:#721c24; }
-.bl-feedback.revealed { background:var(--bl-reveal); color:#0c5460; }
+.bl-feedback.correct {
+    background: var(--clr-correct);
+    color: #155724;
+}
+.bl-feedback.incorrect {
+    background: var(--clr-incorrect);
+    color: #721c24;
+}
+.bl-feedback.revealed {
+    background: var(--clr-reveal);
+    color: #0c5460;
+}
 
-/* Footer */
+/* — Footer (Sonraki/Geri Dön) — */
 .bl-footer {
-    display:flex; justify-content:space-between;
-    padding:1rem; border-top:1px solid #eee;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
 }
 
-@media(max-width:600px){
-    .bl-target { gap:0.2rem; }
-    .bubble-btn { width:2.5rem; height:2.5rem; }
-    .bl-footer { flex-direction:column-reverse; gap:0.5rem; }
+/* — Responsive — */
+@media (max-width: 600px) {
+    .bl-letter { width: 2rem; height: 2rem; line-height: 2rem; }
+    .bubble-btn { width: 2.5rem; height: 2.5rem; }
+    .bl-footer { flex-direction: column; }
 }

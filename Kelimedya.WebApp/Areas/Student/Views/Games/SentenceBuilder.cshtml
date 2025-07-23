@@ -10,22 +10,28 @@
 <link href="~/css/SentenceBuilder.css" rel="stylesheet" />
 
 <div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
-  <div class="fullscreen-container">
-    <div class="asmaca-header">Cümle Kurma Oyunu</div>
-    <div class="fb-gamecard">
-      <div class="fb-sentence" id="sbSentence"></div>
-      <div id="sbOptions" class="fb-sentence" style="margin-top:1rem;"></div>
-      <div class="fb-controls">
-        <button id="sbCheck" class="simple-btn">Kontrol Et</button>
-        <button id="sbReveal" class="simple-btn">Cevabı Göster</button>
-        @if(!embed)
-        {
-            <button id="sbNext" class="simple-btn">Sonraki</button>
-        }
+  <div class="fullscreen-container sb-container">
+    <header class="sb-header">
+      <h2>Cümle Kurma Oyunu</h2>
+      <div class="sb-progress">
+        <div class="sb-progress-bar" style="width: calc( ({{currentIndex+1}} / {{totalItems}}) * 100% );"></div>
       </div>
-      <div class="fb-feedback" id="sbFeedback"></div>
+    </header>
+  
+    <div class="sb-gamecard">
+      <div class="sb-sentence" id="sbSentence"></div>
+      <div id="sbOptions" class="sb-options"></div>
+  
+      <div class="sb-controls">
+        <button id="sbCheck" class="btn-primary">Kontrol Et</button>
+        <button id="sbReveal" class="btn-outline">Cevabı Göster</button>
+        <button id="sbNext" class="btn-secondary">Sonraki</button>
+      </div>
+  
+      <div class="sb-feedback" id="sbFeedback"></div>
     </div>
   </div>
+
 </div>
 
 @section Scripts {

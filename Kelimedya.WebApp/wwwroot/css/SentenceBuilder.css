@@ -1,135 +1,163 @@
+/* Temel renkler */
 :root {
-    --primary-color: #ff5b5b;
-    --background-page: #fff8f4;
-    --btn-bg: #f05232;
-    --btn-hover: #d74322;
-    --accent-light: rgba(255,91,91,0.1);
-    --text-color: #2c3e50;
-    --fb-incorrect: #f8d7da;
-    --fb-correct: #d4edda;
-    --fb-reveal: #d1ecf1;
+    --clr-bg: #fff8f4;
+    --clr-card: #ffffff;
+    --clr-accent: #ff5b5b;
+    --clr-accent-light: rgba(255, 91, 91, 0.1);
+    --clr-primary-btn: #f05232;
+    --clr-primary-hover: #d74322;
+    --clr-secondary-btn: #ffe5e0;
+    --clr-secondary-hover: #ffd9bf;
+    --clr-text: #2c3e50;
+    --clr-success-bg: #d4edda;
+    --clr-error-bg: #f8d7da;
+    --clr-info-bg: #d1ecf1;
 }
 
-/* fullscreen-container: tam oyun dış çerçevesi */
-.fullscreen-container {
-    width: 100%;
-    height: 40vh;
-    background: var(--background-page);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+/* Konteyner */
+.sb-container {
     margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
+    max-width: 800px;
+    background: var(--clr-card);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
 }
 
-/* asmaca-header: ortak başlık stili */
-.asmaca-header {
+/* Başlık ve progress */
+.sb-header {
     background: linear-gradient(130deg, #ffd9bf, #ffe5e0);
-    padding: 1rem;
-    border-radius: 12px 12px 0 0;
-    font-size: 1.5rem;
-    color: #c94a2c;
-    font-weight: 700;
+    padding: 1.5rem;
     text-align: center;
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.06);
+}
+.sb-header h2 {
+    margin: 0;
+    color: var(--clr-accent);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.sb-progress {
+    height: 6px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    margin-top: .75rem;
+    overflow: hidden;
+}
+.sb-progress-bar {
+    height: 100%;
+    background: var(--clr-accent);
+    transition: width .4s ease;
 }
 
-/* oyun içi alan */
-.fb-gamecard {
-    flex: 1;
-    padding: 1.5rem;
+/* Oyun kartı */
+.sb-gamecard {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    background: var(--clr-bg);
 }
 
-/* cümle */
-.fb-sentence {
-    font-size: 1.2rem;
-    color: var(--text-color);
+/* Cümle ve kelime seçenekleri */
+.sb-sentence {
+    min-height: 2.5rem;
+    font-size: 1.25rem;
+    color: var(--clr-text);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed var(--clr-accent-light);
+    padding-bottom: .75rem;
+    width: 100%;
     text-align: center;
-    line-height: 1.5;
-    margin-bottom: 1rem;
 }
-
-/* input */
-.fb-input {
-    width: 150px;
-    max-width: 40%;
-    padding: .4rem;
-    margin: 0 .25rem;
-    font-size: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    text-align: center;
-    transition: border-color .2s, background .2s;
-}
-.fb-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(255,91,91,0.2);
-}
-.fb-input.wrong {
-    border-color: #e74c3c;
-    background: var(--fb-incorrect);
-}
-.fb-input.correct {
-    border-color: var(--fb-secondary);
-    background: var(--fb-correct);
-}
-.fb-input.revealed {
-    border-color: var(--fb-secondary);
-    background: var(--fb-reveal);
-}
-
-/* butonlar */
-.fb-controls {
+.sb-options {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: .75rem;
-    margin-bottom: .5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
-.simple-btn {
-    background: var(--btn-bg);
-    color: #fff;
+.sb-options .sb-word {
+    background: var(--clr-secondary-btn);
+    color: var(--clr-text);
+    border: 1px solid var(--clr-accent);
+    border-radius: 999px;
     padding: .5rem 1rem;
-    border: none;
-    border-radius: 6px;
     cursor: pointer;
     transition: background .2s, transform .2s;
 }
-.simple-btn:hover {
-    background: var(--btn-hover);
-    transform: scale(1.05);
+.sb-options .sb-word:hover {
+    background: var(--clr-accent-light);
+    transform: translateY(-2px);
+}
+.sb-options .sb-word:disabled {
+    background: var(--clr-accent);
+    color: #fff;
+    cursor: default;
+    opacity: .8;
 }
 
-/* feedback */
-.fb-feedback {
+/* Buton stili */
+.sb-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn-primary {
+    background: var(--clr-primary-btn);
+    color: #fff;
+    padding: .65rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-primary:hover { background: var(--clr-primary-hover); }
+.btn-secondary {
+    background: var(--clr-secondary-btn);
+    color: var(--clr-text);
+    padding: .65rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-secondary:hover { background: var(--clr-secondary-hover); }
+.btn-outline {
+    background: transparent;
+    color: var(--clr-primary-btn);
+    border: 2px solid var(--clr-primary-btn);
+    padding: .6rem 1.15rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.btn-outline:hover {
+    background: var(--clr-primary-btn);
+    color: #fff;
+}
+
+/* Geri bildirim kutusu */
+.sb-feedback {
+    margin-top: 1rem;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    font-weight: 500;
     text-align: center;
-    font-size: 1rem;
-    padding: .5rem;
-    border-radius: 6px;
-    margin-top: .5rem;
+    width: 100%;
 }
-.fb-feedback.correct {
-    background: var(--fb-correct);
-    color: #155724;
-}
-.fb-feedback.incorrect {
-    background: var(--fb-incorrect);
-    color: #721c24;
-}
-.fb-feedback.revealed {
-    background: var(--fb-reveal);
-    color: #0c5460;
-}
+.sb-feedback.correct { background: var(--clr-success-bg); color: #155724; }
+.sb-feedback.incorrect { background: var(--clr-error-bg); color: #721c24; }
+.sb-feedback.revealed { background: var(--clr-info-bg); color: #0c5460; }
 
-@media (max-width:768px) {
-    .fb-input {
-        width:100%; max-width:100%; margin:.5rem 0;
-    }
-    .fb-controls {
-        flex-direction: column;
+/* Responsive */
+@media (max-width: 600px) {
+    .sb-options { gap: .5rem; }
+    .btn-primary, .btn-outline, .btn-secondary {
+        flex: 1 1 100%;
+        text-align: center;
     }
 }

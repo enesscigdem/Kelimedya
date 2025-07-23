@@ -105,6 +105,8 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.Identity.Client.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
@@ -168,5 +170,3 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/obj/Debug/net8.0/Kelimedya.HangfireServer.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/obj/Debug/net8.0/Kelimedya.HangfireServer.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/obj/Debug/net8.0/ref/Kelimedya.HangfireServer.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/bin/Debug/net8.0/Microsoft.Extensions.Options.dll

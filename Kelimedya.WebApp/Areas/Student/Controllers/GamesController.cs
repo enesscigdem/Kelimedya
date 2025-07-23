@@ -84,7 +84,6 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
 
         public async Task<IActionResult> FillBlanks()
         {
-        {
             ViewData["GameId"] = await GetGameIdAsync("Boşluk Doldurma");
             return View();
         }

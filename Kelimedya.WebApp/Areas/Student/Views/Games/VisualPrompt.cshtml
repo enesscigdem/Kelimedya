@@ -3,48 +3,60 @@
     bool embed = Context.Request.Query.ContainsKey("embed");
     string singleWord = Context.Request.Query["word"];
     string wordId = Context.Request.Query["id"];
-    Layout = embed ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    Layout = embed 
+      ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" 
+      : "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Görselden Soru";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 <link href="~/css/VisualPrompt.css" rel="stylesheet" />
 
-<div id="gameRoot" class="container-xl" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()" style="margin-top:1rem;">
-  <div class="fullscreen-container">
-    <header class="vp-header">
-      <div class="kelime-header">Görselden Soru</div>
-      <p>Bu görsel size hangi kelimeyi çağrıştırıyor?</p>
-    </header>
+<div id="gameRoot" class="gb-container container-xl"
+     data-student-id="@studentId"
+     data-game-id="@ViewData["GameId"]"
+     data-word="@singleWord"
+     data-word-id="@wordId"
+     data-embed="@embed.ToString().ToLower()">
 
-    <div class="vp-gamecard">
-      <div class="vp-image-area">
-        <img id="vpImage" src="" alt="Soru Görseli" />
-      </div>
-      <p id="vpQuestion" class="vp-question"></p>
+  <header class="gb-header">
+    <h2>Görselden Soru</h2>
+    <div class="gb-progress"><div class="gb-progress-bar" style="width:100%"></div></div>
+    <p class="gb-subtitle">Bu görsel size hangi kelimeyi çağrıştırıyor?</p>
+  </header>
 
-      <div class="vp-controls">
-        <input type="text" id="vpGuess" placeholder="Tahmininizi yazın..." />
-        <button id="vpSubmit" class="vp-btn">Tahmin Et</button>
-        <button id="vpReveal" class="vp-btn secondary">Cevabı Göster</button>
-      </div>
+  <div class="gb-gamecard vp-gamecard">
+    <div class="vp-image-area">
+      <img id="vpImage" src="" alt="Soru Görseli" />
+    </div>
 
-      <div class="vp-feedback" id="vpFeedback"></div>
+    <p id="vpQuestion" class="vp-question"></p>
 
-      <div class="vp-footer">
-        @if(!embed)
-        {
-            <button id="vpBack" data-home="@Url.Action("Index","Games", new { area = "Student" })" class="vp-btn secondary">Geri Dön</button>
-            <button id="vpNext" class="vp-btn">Sonraki</button>
-        }
-      </div>
+    <div class="gb-controls vp-controls">
+      <input type="text" id="vpGuess" placeholder="Tahmininizi yazın..." />
+      <button id="vpSubmit" class="btn-primary">Tahmin Et</button>
+      <button id="vpReveal" class="btn-secondary">Cevabı Göster</button>
+    </div>
+
+    <div class="gb-feedback vp-feedback" id="vpFeedback"></div>
+
+    <div class="gb-controls vp-footer">
+      @if(!embed) {
+        <button id="vpBack" class="btn-secondary">Geri Dön</button>
+        <button id="vpNext" class="btn-primary">Sonraki</button>
+      }
     </div>
   </div>
 </div>
 
 @section Scripts {
-  <script type="module">
-    import {initVisualPrompt} from '@Url.Content("~/js/games/VisualPrompt.js")';
-    const root=document.getElementById('gameRoot');
-    initVisualPrompt(root.dataset.studentId, root.dataset.gameId, root.dataset.word, root.dataset.wordId);
-  </script>
+<script type="module">
+import {initVisualPrompt} from '@Url.Content("~/js/games/VisualPrompt.js")';
+const root = document.getElementById('gameRoot');
+initVisualPrompt(
+  root.dataset.studentId,
+  root.dataset.gameId,
+  root.dataset.word,
+  root.dataset.wordId
+);
+</script>
 }

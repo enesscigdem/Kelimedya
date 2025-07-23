@@ -29,9 +29,9 @@
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedya.HangfireDashboard.AssemblyInfo.cs
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedya.HangfireDashboard.csproj.CoreCompileInputs.cache
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedya.HangfireDashboard.sourcelink.json
+/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedy.FEBFAE61.Up2Date
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedya.HangfireDashboard.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/refint/Kelimedya.HangfireDashboard.dll
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedya.HangfireDashboard.pdb
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedya.HangfireDashboard.genruntimeconfig.cache
 /Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/ref/Kelimedya.HangfireDashboard.dll
-/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/Debug/net8.0/Kelimedy.FEBFAE61.Up2Date

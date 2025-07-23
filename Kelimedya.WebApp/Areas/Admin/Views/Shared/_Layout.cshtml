@@ -526,24 +526,7 @@
 
                 </div>
 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
-                       aria-label="Open user menu">
-                        <span class="avatar avatar-sm"
-                              style="background-image: url('@Url.Content("~/theme/tabler/static/avatars/000m.jpg")')">
-                        </span>
-                        <div class="d-none d-xl-block ps-2">
-                            <div>Yönetici</div>
-                            <div class="mt-1 small text-secondary">Sistem Yöneticisi</div>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item">Siteye Git</a>
-                        <div class="dropdown-divider"></div>
-                        <a asp-area="Admin" asp-controller="Settings" asp-action="Index" class="dropdown-item">Ayarlar</a>
-                        <a asp-area="Admin" asp-controller="Logout" asp-action="Index" class="dropdown-item">Çıkış Yap</a>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("UserDropdown", new { area = "Admin" })
             </div>
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <div>

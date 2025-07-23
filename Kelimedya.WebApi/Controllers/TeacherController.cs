@@ -88,7 +88,10 @@ namespace Kelimedya.WebAPI.Controllers
                     r.CompletedLessons.Any() ? r.CompletedLessons.Average(l => (double)l.CompletionPercentage) : 0);
             }
 
-            var teacherName = "Ayşe Öğretmen";
+            var teacherUser = await _userManager.FindByIdAsync(teacherId.ToString());
+            var teacherName = teacherUser != null
+                ? $"{teacherUser.Name} {teacherUser.Surname}".Trim()
+                : "Yönetici";
 
             var dashboard = new TeacherDashboardViewModel
             {

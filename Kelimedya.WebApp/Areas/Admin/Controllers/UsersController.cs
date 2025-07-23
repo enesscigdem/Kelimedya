@@ -127,21 +127,20 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 return View(model);
             }
 
-            // Map ViewModel’i güncelleme DTO’suna dönüştürün
-            var dto = new
-            {
-                Id = model.Id,
-                UserName = model.UserName,
-                Email = model.Email,
-                Name = model.Name,
-                Surname = model.Surname,
-                Role = model.Role,
-                TeacherId = model.TeacherId,
-                PhoneNumber = model.PhoneNumber,
-                ClassGrade = model.ClassGrade
-            };
 
-            var response = await _httpClient.PutAsJsonAsync($"api/users/{model.Id}", dto);
+
+            using var form = new MultipartFormDataContent();
+            form.Add(new StringContent(model.Id), "Id");
+            form.Add(new StringContent(model.UserName), "UserName");
+            form.Add(new StringContent(model.Email), "Email");
+            form.Add(new StringContent(model.Name), "Name");
+            form.Add(new StringContent(model.Surname), "Surname");
+            form.Add(new StringContent(model.Role), "Role");
+            form.Add(new StringContent(model.TeacherId?.ToString() ?? string.Empty), "TeacherId");
+            form.Add(new StringContent(model.PhoneNumber), "PhoneNumber");
+            form.Add(new StringContent(model.ClassGrade?.ToString() ?? string.Empty), "ClassGrade");
+
+            var response = await _httpClient.PutAsync($"api/users/{model.Id}", form);
             if (response.IsSuccessStatusCode)
             {
                 TempData["Success"] = "Kullanıcı başarıyla güncellendi.";

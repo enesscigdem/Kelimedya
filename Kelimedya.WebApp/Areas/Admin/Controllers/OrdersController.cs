@@ -92,12 +92,18 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
             }
         }
 
-        // GET: /Admin/Orders/Delete/{id}
+        // DELETE: /Admin/Orders/Delete/{id}
         public async Task<IActionResult> Delete(int id)
         {
-            var order = await _httpClient.GetFromJsonAsync<OrderViewModel>($"api/orders/{id}");
-            if (order == null)
-                return NotFound();
+            var response = await _httpClient.DeleteAsync($"api/orders/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Success"] = "Sipariş başarıyla silindi.";
+            }
+            else
+            {
+                TempData["Error"] = await response.Content.ReadAsStringAsync();
+            }
             return RedirectToAction("Index");
 
         }

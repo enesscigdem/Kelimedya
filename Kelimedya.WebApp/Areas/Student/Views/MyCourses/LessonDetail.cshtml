@@ -210,11 +210,13 @@
         let gameOrder = [];
         let wordOrder = [];
         let gameIndex = 0;
+        let wordIndex = 0;
 
         function startGames(){
             gameOrder = shuffleArray(games.slice());
-            wordOrder = shuffleArray(lessonWords).slice(0, gameOrder.length);
+            wordOrder = shuffleArray(lessonWords);
             gameIndex = 0;
+            wordIndex = 0;
             showCurrentGame();
         }
 
@@ -224,7 +226,7 @@
                 return;
             }
             const game = gameOrder[gameIndex];
-            const wordCard = wordOrder[gameIndex];
+            const wordCard = wordOrder[wordIndex];
             document.getElementById('modalTitle').textContent = game.title;
             document.getElementById('gameWord').textContent = wordCard.word;
             document.getElementById('gameFrame').src = game.url + '?embed=1&word=' + encodeURIComponent(wordCard.word) + '&id=' + wordCard.id;
@@ -235,7 +237,11 @@
         function completeGame(){
             document.getElementById('modalOverlay').classList.remove('show');
             document.getElementById('gameModal').classList.remove('show');
-            gameIndex++;
+            wordIndex++;
+            if(wordIndex >= wordOrder.length){
+                wordIndex = 0;
+                gameIndex++;
+            }
             showCurrentGame();
         }
 

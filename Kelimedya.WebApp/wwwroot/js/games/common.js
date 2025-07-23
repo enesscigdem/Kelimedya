@@ -57,6 +57,11 @@ export async function awardScore(studentId, gameId, success, durationSeconds) {
     if (window.showIziToastSuccess) {
       window.showIziToastSuccess(`+${score} puan`);
     }
+    const applause = document.getElementById('applauseAudio');
+    if (applause) {
+      applause.currentTime = 0;
+      applause.play();
+    }
     incrementScore(score);
   }
 }

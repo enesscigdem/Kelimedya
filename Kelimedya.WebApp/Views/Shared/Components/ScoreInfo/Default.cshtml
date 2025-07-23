@@ -14,9 +14,12 @@
     <span class="score-icon">
   <i class="fa-solid fa-award"></i>
     </span>
-    <span id="scorePoints" class="score-text">@Model.TotalScore</span>
+  <span id="scorePoints" class="score-text">@Model.TotalScore</span>
   </span>
 </li>
+
+<!-- Alkış sesi -->
+<audio id="applauseAudio" src="~/audio/applause.mp3" preload="auto"></audio>
 
 <!-- Tam Ekran Kutlama Animasyonu -->
 <div id="leaguePromotion" class="promotion-overlay" style="display:none;">
@@ -220,6 +223,11 @@
       // İkonu güncelle
       const icon = container.querySelector('.league-icon i');
       icon.className = getLeagueIcon(newLeague);
+      const applause = document.getElementById('applauseAudio');
+      if (applause) {
+        applause.currentTime = 0;
+        applause.play();
+      }
       if (shownPromotionFor !== newLeague) {
         showPromotionAnimation(currentLeague, newLeague);
         shownPromotionFor = newLeague;

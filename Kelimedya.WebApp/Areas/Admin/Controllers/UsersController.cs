@@ -107,10 +107,10 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     ClassGrade = user.ClassGrade,
                 };
                 var all = await _httpClient.GetFromJsonAsync<List<UserViewModel>>("api/users");
-                model.Teachers = all
-                    .Where(u => u.Role == "Teacher")
-                    .Select(u => new SelectListItem(u.FullName, u.Id, u.Id == (model.TeacherId?.ToString() ?? ""))
-                    .ToList();
+               model.Teachers = all
+                        .Where(u => u.Role == "Teacher")
+                        .Select(u => new SelectListItem(u.FullName, u.Id, u.Id == (model.TeacherId?.ToString() ?? "")))
+                        .ToList();
                 return View(model);
             }
 

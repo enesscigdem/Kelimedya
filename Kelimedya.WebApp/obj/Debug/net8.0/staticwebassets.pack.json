@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Kelimedya.WebApp.4vnypyo54t.bundle.scp.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/audio/correct.mp3",
+      "PackagePath": "staticwebassets/audio/correct.mp3"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/AdamAsmaca.css",
       "PackagePath": "staticwebassets/css/AdamAsmaca.css"
     },

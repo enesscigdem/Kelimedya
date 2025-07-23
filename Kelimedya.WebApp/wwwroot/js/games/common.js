@@ -17,14 +17,7 @@ export async function fetchWordCardWithQuestions(id) {
 }
 
 export async function recordGameStat(stat) {
-  const payload = {
-    ...stat,
-    gameId: parseInt(stat.gameId, 10),
-  };
-
-  // Önceki skoru kaydet
-  const el = document.getElementById('scorePoints');
-  const previousScore = el ? parseInt(el.textContent || '0', 10) : 0;
+  const payload = { ...stat, gameId: parseInt(stat.gameId, 10) };
 
   const response = await fetch(`${API_BASE_URL}/api/gamestats/record`, {
     method: 'POST',
@@ -32,39 +25,46 @@ export async function recordGameStat(stat) {
     body: JSON.stringify(payload),
   });
 
-  if (response.ok) {
-    // Kayıt başarılıysa yeni skoru al
-    const scoreResponse = await fetch(`${API_BASE_URL}/api/gamestats/score/${stat.studentId}`);
-    if (scoreResponse.ok) {
-      const scoreInfo = await scoreResponse.json();
-      if (typeof updateScoreDisplay === 'function') {
-        updateScoreDisplay(scoreInfo.totalScore);
-      } else {
-        // Fallback
-        const el = document.getElementById('scorePoints');
-        if (el) el.textContent = scoreInfo.totalScore;
-        const leagueEl = document.getElementById('leagueLabel');
-        if (leagueEl) leagueEl.textContent = scoreInfo.league;
-      }
+  if (!response.ok) return null;
+
+  // Kayıt başarılıysa güncel skoru al ve UI'ı güncelle
+  const scoreResponse = await fetch(`${API_BASE_URL}/api/gamestats/score/${stat.studentId}`);
+  if (!scoreResponse.ok) return null;
+
+  const scoreInfo = await scoreResponse.json();
+  if (typeof updateScoreDisplay === 'function') {
+    updateScoreDisplay(scoreInfo.totalScore);
+  } else {
+    // fallback
+    document.getElementById('scorePoints').textContent = scoreInfo.totalScore;
+    document.getElementById('leagueLabel').textContent = scoreInfo.league;
+  }
+
+  return scoreInfo.totalScore;
+}
+
+
+export async function awardScore(studentId, gameId, success, durationSeconds) {
+  const score = success
+      ? Math.max(10, Math.floor(100 - durationSeconds * 5))
+      : 0;
+
+  const newTotal = await recordGameStat({ studentId, gameId, score, durationSeconds });
+
+  if (success) {
+    showIziToastSuccess(`+${score} puan`);
+
+    const correctAudio = document.getElementById('correctAudio');
+    if (correctAudio) {
+      correctAudio.currentTime = 0;
+      correctAudio.play().catch(() => {
+        console.warn('Doğru cevap sesi çalınamadı');
+      });
     }
   }
 }
 
-export async function awardScore(studentId, gameId, success, durationSeconds) {
-  const score = success ? Math.max(10, Math.floor(100 - durationSeconds * 5)) : 0;
-  await recordGameStat({ studentId, gameId, score, durationSeconds });
-  if (success) {
-    if (window.showIziToastSuccess) {
-      window.showIziToastSuccess(`+${score} puan`);
-    }
-    const applause = document.getElementById('applauseAudio');
-    if (applause) {
-      applause.currentTime = 0;
-      applause.play();
-    }
-    incrementScore(score);
-  }
-}
+
 
 export function incrementScore(amount) {
   const el = document.getElementById('scorePoints');

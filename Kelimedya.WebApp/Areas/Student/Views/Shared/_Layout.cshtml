@@ -6,25 +6,32 @@
 <html lang="tr">
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Student Panel</title>
-
-    
-    <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/tabler-flags.min.css" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet"/>
-    <link href="~/theme/tabler/dist/css/demo.min.css" rel="stylesheet"/>
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap"/>
-
-    
+   <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>@ViewData["Title"] - Student Panel</title>
+   
+     <!-- Tabler CSS’leri -->
+     <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet" />
+     <link href="~/theme/tabler/dist/css/tabler-flags.min.css" rel="stylesheet" />
+     <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet" />
+     <link href="~/theme/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet" />
+     <link href="~/theme/tabler/dist/css/demo.min.css" rel="stylesheet" />
+   
+     <!-- Font Awesome & Josefin Sans -->
+     <link
+       rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     />
+     <link
+       rel="stylesheet"
+       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap"
+     />
+   
+     <!-- iziToast CSS (MUTLAKA buraya!) -->
+     <link
+       rel="stylesheet"
+       href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css"
+     />
     
     <script src="~/theme/tabler/dist/js/demo-theme.min.js"></script>
 
@@ -55,7 +62,7 @@
             width: 220px;
             height: 220px;
             top: -50px;
-            right: -60px;
+            right: 0px;
             background: #ffc2c2;
         }
 
@@ -73,10 +80,10 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .navbar-brand {
-            margin-left: 20px;
+            margin-left: 150px;
         }
         .navbar-pastel .navbar-brand-image {
-            filter: sepia(1);
+            filter: sepia(0);
         }
 
         .navbar-pastel .navbar-nav .nav-link {
@@ -104,6 +111,7 @@
         .footer a {
             color: #f05232 !important;
         }
+        .iziToast-wrapper { z-index: 20000 !important; }
     </style>
 </head>
 
@@ -117,7 +125,7 @@
     <header class="navbar navbar-expand-md navbar-pastel d-print-none">
         <div class="container-xl">
             <a class="navbar-brand" href="@Url.Action("Index", "Dashboard", new { area = "Student" })">
-                <img src="~/theme/tabler/static/logo.svg" width="110" height="32" alt="Logo"
+                <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" alt="Logo"
                      class="navbar-brand-image ms-2">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"

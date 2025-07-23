@@ -16,72 +16,22 @@
     <div class="container-xl">
         <div class="card">
             <div class="card-body">
-                
+
                 <ul class="nav nav-tabs" data-bs-toggle="tabs">
                     <li class="nav-item">
                         <a href="#general" class="nav-link active" data-bs-toggle="tab">Genel Ayarlar</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#email" class="nav-link" data-bs-toggle="tab">E-posta Ayarları</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#security" class="nav-link" data-bs-toggle="tab">Güvenlik</a>
-                    </li>
                 </ul>
                 <div class="tab-content mt-3">
-                    
                     <div class="tab-pane active" id="general">
                         <form method="post" asp-action="SaveGeneralSettings">
                             <div class="mb-3">
-                                <label class="form-label">Site Adı</label>
-                                <input type="text" class="form-control" name="SiteName" value="MySite" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Logo URL</label>
-                                <input type="text" class="form-control" name="LogoUrl" />
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="tab-pane" id="email">
-                        <form method="post" asp-action="SaveEmailSettings">
-                            <div class="mb-3">
-                                <label class="form-label">SMTP Sunucu</label>
-                                <input type="text" class="form-control" name="SmtpServer" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">SMTP Port</label>
-                                <input type="number" class="form-control" name="SmtpPort" />
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Kullanıcı Adı</label>
-                                <input type="text" class="form-control" name="SmtpUser" />
+                                <input type="text" class="form-control" name="SmtpUser"/>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Şifre</label>
-                                <input type="password" class="form-control" name="SmtpPassword" />
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="tab-pane" id="security">
-                        <form method="post" asp-action="SaveSecuritySettings">
-                            <div class="mb-3">
-                                <label class="form-label">Şifre Min. Uzunluk</label>
-                                <input type="number" class="form-control" name="PasswordMinLength" value="8" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">2FA Zorunlu mu?</label>
-                                <select class="form-select" name="Require2FA">
-                                    <option value="false">Hayır</option>
-                                    <option value="true">Evet</option>
-                                </select>
+                                <input type="password" class="form-control" name="SmtpPassword"/>
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Kaydet</button>

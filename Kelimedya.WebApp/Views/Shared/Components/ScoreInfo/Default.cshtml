@@ -18,8 +18,13 @@
   </span>
 </li>
 
-<!-- Alkış sesi -->
-<audio id="applauseAudio" src="~/audio/applause.mp3" preload="auto"></audio>
+<!-- Doğru cevap sesi -->
+<audio
+  id="correctAudio"
+  src="@Url.Content("~/audio/correct.mp3")"
+  preload="auto">
+</audio>
+
 
 <!-- Tam Ekran Kutlama Animasyonu -->
 <div id="leaguePromotion" class="promotion-overlay" style="display:none;">

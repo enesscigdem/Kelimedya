@@ -7,7 +7,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
     [Area("Admin")]
     [Authorize(Roles = RoleNames.Admin)]
     [ApiExplorerSettings(IgnoreApi = true)]
-    public class SettingsController : Controller
+    public class ProfileController : Controller
     {
         public IActionResult Index()
         {

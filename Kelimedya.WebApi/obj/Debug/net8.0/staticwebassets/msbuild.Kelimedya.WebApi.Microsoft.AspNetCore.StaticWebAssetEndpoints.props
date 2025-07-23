@@ -108,6 +108,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xoscd8aays"},{"Name":"integrity","Value":"sha256-QYkyZlMcR5cGfXzraz\u002BQdsphhzcZiM9WL5kiyJ0AcFE="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"68544"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022QYkyZlMcR5cGfXzraz\u002BQdsphhzcZiM9WL5kiyJ0AcFE=\u0022"},{"Name":"Last-Modified","Value":"Mon, 07 Jul 2025 17:37:12 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6\u002Bj13M="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"136512"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6\u002Bj13M=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 21:49:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.wduyg40j0t.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wduyg40j0t"},{"Name":"integrity","Value":"sha256-rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6\u002Bj13M="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"136512"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6\u002Bj13M=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 21:49:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/b65ed37b-abe4-4b75-b2ea-a07016d868ef.1sm701pufy.jpeg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\b65ed37b-abe4-4b75-b2ea-a07016d868ef.jpeg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

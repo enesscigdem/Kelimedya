@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XctcC3HTOmLclOEiD2XE43ViE3w+oP0FcoPf3yEYr+o=",
+  "Hash": "LojRlyHwtjh6ustrYKJnI+YTrnuSz4E9ndjLuadyIyg=",
   "Source": "Kelimedya.WebApi",
   "BasePath": "_content/Kelimedya.WebApi",
   "Mode": "Default",
@@ -204,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wduyg40j0t",
+      "Integrity": "rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6+j13M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/b65ed37b-abe4-4b75-b2ea-a07016d868ef.jpeg",
@@ -1089,6 +1110,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-QYkyZlMcR5cGfXzraz+QdsphhzcZiM9WL5kiyJ0AcFE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "136512"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6+j13M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 21:49:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6+j13M="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.wduyg40j0t.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "136512"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6+j13M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 21:49:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wduyg40j0t"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rNEPlafpcXv5dQ4rO0UxbB1R/f0jlyUS5lLoJ6+j13M="
         }
       ]
     },

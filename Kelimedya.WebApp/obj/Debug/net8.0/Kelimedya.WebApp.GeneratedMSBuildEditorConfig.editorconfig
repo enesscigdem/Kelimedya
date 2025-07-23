@@ -146,6 +146,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZHVjdHMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Admin/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUHJvZmlsZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Admin/Views/Reports/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvUmVwb3J0cy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -172,10 +176,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Admin/Views/Sales/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2FsZXMvSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Admin/Views/Settings/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2V0dGluZ3MvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Admin/Views/Users/Create.cshtml]

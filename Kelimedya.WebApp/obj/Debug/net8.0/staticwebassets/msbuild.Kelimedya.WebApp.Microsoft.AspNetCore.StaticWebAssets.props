@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>rgzmzum3c4</Fingerprint>
-      <Integrity>C7iCicl2jKVOMhWyjKfzqiq4QndKQlY8UKkWJmV2Y30=</Integrity>
+      <Fingerprint>wxgvf2pyed</Fingerprint>
+      <Integrity>fNHkYh2pTQih441YEa7b+XP8DzACA5URKtDqbNxi0KI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdamAsmaca.css'))</OriginalItemSpec>
@@ -120,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>f6xx6d7x2a</Fingerprint>
-      <Integrity>N/B1fA4JiS0PypKVxsmGWBTfXHBNUl49SNCknmMp2/g=</Integrity>
+      <Fingerprint>k77wlc5w85</Fingerprint>
+      <Integrity>gCEgJuuXw2Flw8TukFoeu0ee+2WXK4DIg8MnsW5Dz8A=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\lessonDetail.css'))</OriginalItemSpec>
@@ -174,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>a9hyq8xab0</Fingerprint>
-      <Integrity>3pWSYgjcvxIyXTjDb81NSBilCWcvDO7mRUehwRmrv1s=</Integrity>
+      <Fingerprint>4o4pd0n6q4</Fingerprint>
+      <Integrity>HP/2+eFmo4+Psq+1xzNBieVOMCP0oZJQBvy1KaeK4GI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\myLessons.css'))</OriginalItemSpec>
@@ -216,6 +216,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\scoreInfo.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SentenceBuilder.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>css/SentenceBuilder.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>e0uh17wy2o</Fingerprint>
+      <Integrity>Lk+J86VKQTlvtFGr+525R7vdrPBrku+FH4VK7rk0XEs=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SentenceBuilder.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Kelimedya.WebApp</SourceId>
@@ -251,6 +269,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\studentDashboard.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SynonymMatch.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>css/SynonymMatch.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>w851qnh2uc</Fingerprint>
+      <Integrity>MIkVwlMsXByorZ+aE3PHXgh8Mgceg0+KP8OtMqrkJI8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SynonymMatch.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\teacherPerformance.css'))">
       <SourceType>Package</SourceType>
@@ -324,6 +360,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\VisualPrompt.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\WordImage.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>css/WordImage.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>fk0pod01cw</Fingerprint>
+      <Integrity>H3vdhOOCU2gCyce38n4zi8IAMD8jVZQXnr2yRkoUWPo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\WordImage.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))">
       <SourceType>Package</SourceType>
       <SourceId>Kelimedya.WebApp</SourceId>
@@ -372,8 +426,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ps1nlomnlo</Fingerprint>
-      <Integrity>2R3CiBHjgAJTXGBKpGIR0iB6kFWXC/Pb0e+t9NkC63M=</Integrity>
+      <Fingerprint>be3yoteg3f</Fingerprint>
+      <Integrity>s9Fppc4CHrNGMA2sFwv7+rrJhk9JpXlUUraXXKeV2sU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\AdamAsmaca.js'))</OriginalItemSpec>
@@ -390,8 +444,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zda9r7dru7</Fingerprint>
-      <Integrity>16MTK3R26u1dKYFhMYtzdZDJ5cyn9okI1aVpAXSSr+o=</Integrity>
+      <Fingerprint>eobibp0q82</Fingerprint>
+      <Integrity>nnpzYXOAbWFXQCHS2j9ra+E5Ha5cozhHX+WgUKmGaJ8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</OriginalItemSpec>
@@ -408,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ndbi3x8z53</Fingerprint>
-      <Integrity>5a7KaE4pW8SKm5TOBtM+Hx8IT1eIQ6Qo8WezG+JwBio=</Integrity>
+      <Fingerprint>4bcz4yp9qr</Fingerprint>
+      <Integrity>8LqnZwEBJ9O6E5asXkgrqIg+gRVKAyPycdnRnoEq2Ac=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</OriginalItemSpec>
@@ -426,8 +480,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>enuaau4opk</Fingerprint>
-      <Integrity>qnvSMkhBKnko5paPzAqAmraPqI1qS4XsBEVJA1Olnf8=</Integrity>
+      <Fingerprint>mgcxh27cf1</Fingerprint>
+      <Integrity>ViZYRtrgsOlB85AI+795s3d3FW4cvZ1XLmREr+Jn0XE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\CrossPuzzle.js'))</OriginalItemSpec>
@@ -444,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yvnvjhj3q9</Fingerprint>
-      <Integrity>Uq72oPlWvz6FkU3wpxN/UU0xVCPvVYwykNI1I/Fc6lw=</Integrity>
+      <Fingerprint>r94mu72sj6</Fingerprint>
+      <Integrity>4cYceMkc9c7u1SREUuINptdL6g/34ffigD7GEwSFLRQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\FillBlanks.js'))</OriginalItemSpec>
@@ -462,11 +516,47 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>d1w3q9mf9d</Fingerprint>
-      <Integrity>D/1k9LOIuB2rtJtVSCjM4W+J7KmaK44d3jkfguhScQw=</Integrity>
+      <Fingerprint>g7fe1zj9xk</Fingerprint>
+      <Integrity>hD5oOd5FhcLjlODyIoBvoSJmNw0996H5eTugYuXuakY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>js/games/SentenceBuilder.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>q052mu8n3b</Fingerprint>
+      <Integrity>6tMj1uiCwYpeFHTK+jL46TI14gZ8pc1J9n1VG9Fo9rw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SynonymMatch.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>js/games/SynonymMatch.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cs6ft2cb9a</Fingerprint>
+      <Integrity>HNW5k9wK8oYwOZ+oBB1zD/PBuLAKAgai4FTZCRyE4X8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SynonymMatch.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))">
       <SourceType>Package</SourceType>
@@ -480,11 +570,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mouivkc3td</Fingerprint>
-      <Integrity>1jq9oSW45xwwO57ekgTd8hwgd/nAlFYAZQKNtPl6kwk=</Integrity>
+      <Fingerprint>ndmgzfsli3</Fingerprint>
+      <Integrity>tYu0M6Ihnr724Fq+hHrx0cpy+tJ8UkfTIR/nqcQlIfQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\WordImage.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApp</BasePath>
+      <RelativePath>js/games/WordImage.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>wwstcf6xfm</Fingerprint>
+      <Integrity>YAAA8ZMFKamY0hb9pw+Vz+eQRqndWVIVWM/tQKOCvCY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\WordImage.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\scoreInfoAnimations.js'))">
       <SourceType>Package</SourceType>

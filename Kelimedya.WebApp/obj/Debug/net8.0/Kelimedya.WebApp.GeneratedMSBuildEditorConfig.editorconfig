@@ -242,8 +242,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9HYW1lcy9LZWxpbWVCdWxtYWNhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Games/SentenceBuilder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9HYW1lcy9TZW50ZW5jZUJ1aWxkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Games/SynonymMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9HYW1lcy9TeW5vbnltTWF0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Games/VisualPrompt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9HYW1lcy9WaXN1YWxQcm9tcHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Games/WordImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9HYW1lcy9Xb3JkSW1hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Logout/Index.cshtml]
@@ -264,6 +276,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Profile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9Qcm9maWxlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/Shared/_GameLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9TaGFyZWQvX0dhbWVMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/_ViewImports.cshtml]

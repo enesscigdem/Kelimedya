@@ -4337,7 +4337,7 @@ textarea.form-control-lg {
 
 .dropdown-divider {
     height: 0;
-    margin: var(--tblr-dropdown-divider-margin-y) 0;
+    margin: 5px;
     overflow: hidden;
     border-top: 1px solid var(--tblr-dropdown-divider-bg);
     opacity: 1

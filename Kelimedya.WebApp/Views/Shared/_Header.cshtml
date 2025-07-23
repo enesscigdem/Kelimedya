@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Kelimedya.Core.Enum
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -97,7 +98,7 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li>
-                                    @if (User.IsInRole("Student"))
+                                    @if (User.IsInRole(RoleNames.Student))
                                     {
                                         <a asp-area="Student" asp-controller="Dashboard" asp-action="Index"
                                            class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">

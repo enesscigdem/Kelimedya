@@ -25,8 +25,20 @@
       "PackagePath": "staticwebassets/css/KelimeBulmaca.css"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/SentenceBuilder.css",
+      "PackagePath": "staticwebassets/css/SentenceBuilder.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/SynonymMatch.css",
+      "PackagePath": "staticwebassets/css/SynonymMatch.css"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/VisualPrompt.css",
       "PackagePath": "staticwebassets/css/VisualPrompt.css"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/WordImage.css",
+      "PackagePath": "staticwebassets/css/WordImage.css"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/css/iziToastCustom.css",
@@ -105,8 +117,20 @@
       "PackagePath": "staticwebassets/js/games/KelimeBulmaca.js"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/SentenceBuilder.js",
+      "PackagePath": "staticwebassets/js/games/SentenceBuilder.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/SynonymMatch.js",
+      "PackagePath": "staticwebassets/js/games/SynonymMatch.js"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/VisualPrompt.js",
       "PackagePath": "staticwebassets/js/games/VisualPrompt.js"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/WordImage.js",
+      "PackagePath": "staticwebassets/js/games/WordImage.js"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/wwwroot/js/games/common.js",

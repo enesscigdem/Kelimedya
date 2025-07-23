@@ -9,6 +9,7 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using Kelimedya.Core.Enum;
+using Kelimedya.Persistence;
 using Microsoft.AspNetCore.Http;
 
 namespace Kelimedya.WebAPI.Controllers
@@ -210,6 +211,19 @@ namespace Kelimedya.WebAPI.Controllers
                 await file.CopyToAsync(stream);
             }
             return $"{Request.Scheme}://{Request.Host}/uploads/{folder}/{fileName}";
+        }
+        [HttpGet("{userId:int}/roles")]
+        public async Task<ActionResult<string[]>> GetUserRoles(int userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user == null)
+                return NotFound(new { Message = "User not found" });
+
+            var roles = await _userManager.GetRolesAsync(user);
+            if (!roles.Any())
+                return Ok(new[] { RoleNames.User });
+
+            return Ok(roles.ToArray());
         }
     }
 }

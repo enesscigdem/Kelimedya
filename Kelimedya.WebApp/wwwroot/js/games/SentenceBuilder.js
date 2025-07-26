@@ -1,76 +1,164 @@
-import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './common.js';
+import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions } from "./common.js"
 
-let items=[], idx=0, start;
-let selected=[], singleMode=false;
+let targetSentence = [],
+    currentSentence = [],
+    availableWords = []
+let cards = [],
+    idx = 0,
+    singleMode = false,
+    startTime
 
-function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } }
-
-function createItems(cards, gameId){
-  return cards.map(c=>{
-    const q=c.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
-    if(!q) return null;
-    const words=q.questionText.split('-');
-    const scrambled=[...words];
-    shuffle(scrambled);
-    return {words:scrambled, answer:q.answerText};
-  }).filter(Boolean);
-}
-
-function render(){
-  const item=items[idx];
-  const opts=document.getElementById('sbOptions');
-  opts.innerHTML='';
-  item.words.forEach((w,i)=>{
-    const b=document.createElement('button'); b.className='sb-word'; b.textContent=w; b.onclick=()=>selectWord(i,b); opts.appendChild(b);
-  });
-  document.getElementById('sbSentence').textContent='';
-  selected=[];
-  start=Date.now();
-}
-
-function selectWord(i,btn){
-  const item=items[idx];
-  selected.push(item.words[i]);
-  btn.disabled=true;
-  document.getElementById('sbSentence').textContent=selected.join(' ');
-}
-
-function check(studentId, gameId){
-  const item=items[idx];
-  const success=selected.join(' ').trim()===item.answer.trim();
-  document.getElementById('sbFeedback').textContent=success?'Doğru!':'Yanlış';
-  const duration=(Date.now()-start)/1000;
-  awardScore(studentId, gameId, success, duration);
-  if(success) items.splice(idx,1);
-  if(items.length===0){ notifyParent(); return; }
-}
-
-function reveal(){ document.getElementById('sbSentence').textContent=items[idx].answer; }
-
-function next(){ idx=(idx+1)%items.length; render(); }
-
-export async function initSentenceBuilder(studentId, gameId, single, wordId){
-  let cards;
-  if(single){
-    if(wordId){
-      const card=await fetchWordCardWithQuestions(wordId);
-      cards=card? [card] : [{gameQuestions:[{gameId:parseInt(gameId),questionText:single,answerText:single}]}];
-    }else{
-      cards=[{gameQuestions:[{gameId:parseInt(gameId),questionText:single,answerText:single}]}];
-    }
-    singleMode=true;
-  }else{
-    cards=await fetchLearnedWords(studentId);
-    singleMode=false;
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
-  items=createItems(cards, gameId);
-  if(items.length===0) items=[{words:['örnek','cümle'],answer:'örnek cümle'}];
-  document.getElementById('sbCheck').onclick=()=>check(studentId, gameId);
-  document.getElementById('sbReveal').onclick=reveal;
-  const nextBtn=document.getElementById('sbNext');
-  if(nextBtn){ nextBtn.onclick=next; if(singleMode) nextBtn.style.display='none'; }
-  if(singleMode){ const back=document.getElementById('sbBack'); if(back) back.style.display='none'; }
-  render();
 }
 
-function notifyParent(){ if(window.parent!==window) window.parent.postMessage('next-game','*'); }
+function render() {
+  const sentenceEl = document.getElementById("sbSentence")
+  const optionsEl = document.getElementById("sbOptions")
+
+  if (!sentenceEl || !optionsEl) return
+
+  // Render current sentence
+  sentenceEl.innerHTML =
+      currentSentence.length > 0
+          ? currentSentence.map((word) => `<span class="sentence-slot filled">${word}</span>`).join(" ")
+          : '<span class="text-gray-400">Kelimeleri seçerek cümle kurun...</span>'
+
+  // Render available words
+  optionsEl.innerHTML = ""
+  availableWords.forEach((word, index) => {
+    const btn = document.createElement("button")
+    btn.className = "sb-word"
+    btn.textContent = word
+    btn.onclick = () => selectWord(index)
+    optionsEl.appendChild(btn)
+  })
+}
+
+function selectWord(index) {
+  const word = availableWords[index]
+  currentSentence.push(word)
+  availableWords.splice(index, 1)
+  render()
+}
+
+function checkSentence() {
+  const isCorrect = JSON.stringify(currentSentence) === JSON.stringify(targetSentence)
+  const duration = (Date.now() - startTime) / 1000
+  const gid = document.getElementById("gameRoot").dataset.gameId
+  const sid = document.getElementById("gameRoot").dataset.studentId
+
+  awardScore(sid, gid, isCorrect, duration)
+
+  const feedbackEl = document.getElementById("sbFeedback")
+  if (feedbackEl) {
+    if (isCorrect) {
+      feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
+      setTimeout(() => {
+        if (window.parent !== window) {
+          window.parent.postMessage("next-game", "*")
+        } else {
+          nextSentence()
+        }
+      }, 2000)
+    } else {
+      feedbackEl.innerHTML = '<span class="text-red-600">❌ Yanlış! Tekrar dene.</span>'
+      setTimeout(() => {
+        feedbackEl.innerHTML = ""
+      }, 2000)
+    }
+  }
+}
+
+function revealAnswer() {
+  currentSentence = [...targetSentence]
+  availableWords = []
+  render()
+
+  const feedbackEl = document.getElementById("sbFeedback")
+  if (feedbackEl) {
+    feedbackEl.innerHTML = '<span class="text-blue-600">💡 Doğru cevap gösterildi!</span>'
+    setTimeout(() => {
+      if (window.parent !== window) {
+        window.parent.postMessage("next-game", "*")
+      } else {
+        nextSentence()
+      }
+    }, 2000)
+  }
+}
+
+function nextSentence() {
+  if (cards.length === 0) {
+    if (window.parent !== window) {
+      window.parent.postMessage("next-game", "*")
+    }
+    return
+  }
+
+  idx = (idx + 1) % cards.length
+  setupSentence()
+}
+
+function setupSentence() {
+  const card = cards[idx]
+  const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
+  const q = card.gameQuestions?.find((g) => g.gameId === gid)
+
+  // Create a simple sentence with the word
+  const word = q?.answerText || card.word
+  const sentences = [
+    ["Bu", "bir", word, "örneğidir"],
+    ["Kelime", word, "anlamına", "gelir"],
+    [word, "çok", "güzel", "bir", "kelimedir"],
+    ["Bugün", word, "kelimesini", "öğrendim"],
+  ]
+
+  targetSentence = sentences[Math.floor(Math.random() * sentences.length)]
+  currentSentence = []
+  availableWords = [...targetSentence]
+  shuffle(availableWords)
+
+  startTime = Date.now()
+  render()
+
+  const feedbackEl = document.getElementById("sbFeedback")
+  if (feedbackEl) {
+    feedbackEl.innerHTML = ""
+  }
+}
+
+export async function initSentenceBuilder(studentId, gameId, single, wordId) {
+  if (single) {
+    if (wordId) {
+      const card = await fetchWordCardWithQuestions(wordId)
+      cards = card ? [card] : [{ word: single, gameQuestions: [] }]
+    } else {
+      cards = [{ word: single, gameQuestions: [] }]
+    }
+    singleMode = true
+  } else {
+    cards = await fetchLearnedWords(studentId)
+    if (cards.length === 0) cards = [{ word: "örnek", gameQuestions: [] }]
+    singleMode = false
+  }
+
+  idx = 0
+  setupSentence()
+
+  // Setup buttons
+  const checkBtn = document.getElementById("sbCheck")
+  const revealBtn = document.getElementById("sbReveal")
+  const nextBtn = document.getElementById("sbNext")
+
+  if (checkBtn) checkBtn.onclick = checkSentence
+  if (revealBtn) revealBtn.onclick = revealAnswer
+  if (nextBtn) nextBtn.onclick = nextSentence
+
+  if (singleMode && nextBtn) {
+    nextBtn.style.display = "none"
+  }
+}

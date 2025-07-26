@@ -96,6 +96,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ycsucv33cx"},{"Name":"integrity","Value":"sha256-7rz0kS\u002BaWZ/O1XN2iJY66YTJzj3cZx8HUBEZQfOsd8E="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"102363"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00227rz0kS\u002BaWZ/O1XN2iJY66YTJzj3cZx8HUBEZQfOsd8E=\u0022"},{"Name":"Last-Modified","Value":"Sat, 12 Apr 2025 14:41:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-K3TRfyOSNdQ\u002Bu1aZIUHuohUvV5e9i8RTJoMXu80KCx8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"887931"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022K3TRfyOSNdQ\u002Bu1aZIUHuohUvV5e9i8RTJoMXu80KCx8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 22:06:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.vze5xq7bxh.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vze5xq7bxh"},{"Name":"integrity","Value":"sha256-K3TRfyOSNdQ\u002Bu1aZIUHuohUvV5e9i8RTJoMXu80KCx8="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"887931"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022K3TRfyOSNdQ\u002Bu1aZIUHuohUvV5e9i8RTJoMXu80KCx8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 22:06:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\90d00279-3d4f-4ed9-8353-68d307232a7f.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -107,6 +119,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xoscd8aays"},{"Name":"integrity","Value":"sha256-QYkyZlMcR5cGfXzraz\u002BQdsphhzcZiM9WL5kiyJ0AcFE="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"68544"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022QYkyZlMcR5cGfXzraz\u002BQdsphhzcZiM9WL5kiyJ0AcFE=\u0022"},{"Name":"Last-Modified","Value":"Mon, 07 Jul 2025 17:37:12 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.1tywdfnpw8.HEIC">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\94451c93-de40-4bc2-8694-de923ea954f1.HEIC'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1tywdfnpw8"},{"Name":"integrity","Value":"sha256-yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1128453"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 22:06:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\94451c93-de40-4bc2-8694-de923ea954f1.HEIC'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1128453"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 22:06:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg'))</AssetFile>

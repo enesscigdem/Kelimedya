@@ -1,26 +1,109 @@
 @model Kelimedya.WebApp.Models.UserInfoViewModel
-<div class="nav-item dropdown">
-    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-        <span class="avatar avatar-sm" style="background-image: url('@(string.IsNullOrEmpty(Model.ProfilePicture) ? Url.Content("~/theme/tabler/static/avatars/000m.jpg") : Model.ProfilePicture)')"></span>
-        @if(Model.Area == "Admin")
-        {
-            <div class="d-none d-xl-block ps-2">
-                <div>Yönetici</div>
-                <div class="mt-1 small text-secondary">Sistem Yöneticisi</div>
+
+<div class="relative">
+    <!-- User Button -->
+    <button class="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-custom focus:ring-opacity-50" 
+            onclick="toggleUserDropdown()">
+        <!-- Avatar -->
+        <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200 shadow-sm">
+            <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? "/placeholder.svg?height=40&width=40" : Model.ProfilePicture)" 
+                 alt="@Model.FullName" 
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <!-- User Info -->
+        <div class="hidden md:block text-left">
+            <div class="text-sm font-semibold text-gray-900">@Model.FullName</div>
+            <div class="text-xs text-gray-500">@Model.Role</div>
+        </div>
+        
+        <!-- Dropdown Arrow -->
+        <div class="text-gray-400">
+            <i class="fas fa-chevron-down text-xs transition-transform duration-200" id="dropdownArrow"></i>
+        </div>
+    </button>
+    
+    <!-- Dropdown Menu -->
+    <div id="userDropdownMenu" 
+         class="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible transform scale-95 transition-all duration-200 origin-top-right">
+        
+        <!-- User Info Header -->
+        <div class="px-4 py-3 border-b border-gray-100">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200">
+                    <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? "/placeholder.svg?height=48&width=48" : Model.ProfilePicture)" 
+                         alt="@Model.FullName" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="font-semibold text-gray-900 text-sm">@Model.FullName</div>
+                    <div class="text-xs text-gray-500">@Model.Role</div>
+                </div>
             </div>
-        }
-        else
-        {
-            <div class="d-none d-xl-block ps-2">
-                <div>@Model.FullName</div>
-                <div class="mt-1 small text-secondary">@Model.Role</div>
-            </div>
-        }
-    </a>
-    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item">Siteye Git</a>
-        <a asp-area="@Model.Area" asp-controller="Profile" asp-action="Index" class="dropdown-item">Profil</a>
-        <div class="dropdown-divider"></div>
-        <a asp-area="@Model.Area" asp-controller="Logout" asp-action="Index" class="dropdown-item">Çıkış Yap</a>
+        </div>
+        
+        <!-- Menu Items -->
+        <div class="py-2">
+            <a href="@Url.Action("Index", "Home", new { area = "" })" 
+               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
+                <i class="fas fa-home w-5 text-gray-400 mr-3"></i>
+                Siteye Git
+            </a>
+            
+            <a href="@Url.Action("Index", "Profile", new { area = Model.Area })" 
+               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
+                <i class="fas fa-user w-5 text-gray-400 mr-3"></i>
+                Profil
+            </a>
+            
+            <a href="@Url.Action("Index", "Dashboard", new { area = Model.Area })" 
+               class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
+                <i class="fas fa-chart-line w-5 text-gray-400 mr-3"></i>
+                Dashboard
+            </a>
+        </div>
+        
+        <!-- Divider -->
+        <div class="border-t border-gray-100 my-2"></div>
+        
+        <!-- Logout -->
+        <div class="py-2">
+            <a href="@Url.Action("Index", "Logout", new { area = Model.Area })" 
+               class="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors duration-150">
+                <i class="fas fa-sign-out-alt w-5 text-red-500 mr-3"></i>
+                Çıkış Yap
+            </a>
+        </div>
     </div>
 </div>
+
+<script>
+function toggleUserDropdown() {
+    const menu = document.getElementById('userDropdownMenu');
+    const arrow = document.getElementById('dropdownArrow');
+    
+    if (menu.classList.contains('opacity-0')) {
+        // Show dropdown
+        menu.classList.remove('opacity-0', 'invisible', 'scale-95');
+        menu.classList.add('opacity-100', 'visible', 'scale-100');
+        arrow.classList.add('rotate-180');
+    } else {
+        // Hide dropdown
+        menu.classList.add('opacity-0', 'invisible', 'scale-95');
+        menu.classList.remove('opacity-100', 'visible', 'scale-100');
+        arrow.classList.remove('rotate-180');
+    }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const dropdown = event.target.closest('[onclick="toggleUserDropdown()"]');
+    const menu = document.getElementById('userDropdownMenu');
+    
+    if (!dropdown && menu && !menu.classList.contains('opacity-0')) {
+        menu.classList.add('opacity-0', 'invisible', 'scale-95');
+        menu.classList.remove('opacity-100', 'visible', 'scale-100');
+        document.getElementById('dropdownArrow').classList.remove('rotate-180');
+    }
+});
+</script>

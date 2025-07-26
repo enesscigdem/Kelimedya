@@ -4,59 +4,215 @@
     string singleWord = Context.Request.Query["word"];
     string wordId = Context.Request.Query["id"];
     Layout = embed 
-      ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" 
-      : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+        ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml"
+        : "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Görselden Soru";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
-<link href="~/css/VisualPrompt.css" rel="stylesheet" />
 
-<div id="gameRoot" class="gb-container container-xl"
-     data-student-id="@studentId"
-     data-game-id="@ViewData["GameId"]"
-     data-word="@singleWord"
-     data-word-id="@wordId"
-     data-embed="@embed.ToString().ToLower()">
-
-  <header class="gb-header">
-    <h2>Görselden Soru</h2>
-    <div class="gb-progress"><div class="gb-progress-bar" style="width:100%"></div></div>
-    <p class="gb-subtitle">Bu görsel size hangi kelimeyi çağrıştırıyor?</p>
-  </header>
-
-  <div class="gb-gamecard vp-gamecard">
-    <div class="vp-image-area">
-      <img id="vpImage" src="" alt="Soru Görseli" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @@if (embed) {
+            .game-container {
+                height: 100vh;
+                max-height: 500px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .game-header {
+                flex-shrink: 0;
+                padding: 12px;
+                text-align: center;
+            }
+            
+            .game-content {
+                flex: 1;
+                padding: 16px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .image-area {
+                flex-shrink: 0;
+                margin-bottom: 16px;
+            }
+            
+            .question-area {
+                flex-shrink: 0;
+                margin-bottom: 16px;
+            }
+            
+            .input-area {
+                flex-shrink: 0;
+                margin-bottom: 16px;
+            }
+            
+            .controls-area {
+                flex-shrink: 0;
+                margin-top: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="@(embed ? "game-container bg-gradient-to-br from-orange-50 to-yellow-50" : "relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50")">
+        @if (!embed)
+        {
+            <!-- Decorative Circles for non-embed -->
+            <div class="absolute top-0 left-0 w-80 h-80 bg-orange-300 rounded-full opacity-10 -translate-x-32 -translate-y-32" style="filter: blur(60px);"></div>
+            <div class="absolute top-20 right-0 w-60 h-60 bg-yellow-300 rounded-full opacity-10 translate-x-20" style="filter: blur(60px);"></div>
+        }
+        
+        @if (embed)
+        {
+            <!-- Compact Header for Embed -->
+            <div class="game-header">
+                <h2 class="text-xl font-bold text-orange-600 mb-2">Görselden Soru</h2>
+                <div class="w-full bg-gray-200 rounded-full h-2 max-w-xs mx-auto">
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 100%;"></div>
+                </div>
+            </div>
+            
+            <!-- Compact Game Content -->
+            <div class="game-content">
+                <div id="gameRoot" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()">
+                    
+                    <!-- Image Area -->
+                    <div class="image-area bg-white/90 rounded-xl p-4 border border-orange-200 flex justify-center">
+                        <div class="w-48 h-32 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                            <img id="vpImage"
+                                 src="/placeholder.svg"
+                                 alt="Soru Görseli"
+                                 class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    
+                    <!-- Question -->
+                    <div class="question-area text-center">
+                        <p id="vpQuestion" class="text-lg text-gray-800 font-medium"></p>
+                    </div>
+                    
+                    <!-- Input Controls -->
+                    <div class="input-area">
+                        <div class="flex gap-2">
+                            <input type="text"
+                                   id="vpGuess"
+                                   placeholder="Tahmininizi yazın..."
+                                   class="flex-1 px-4 py-2 border border-orange-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            <button id="vpSubmit"
+                                    class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-lg font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 text-sm whitespace-nowrap">
+                                Tahmin Et
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls Area -->
+                    <div class="controls-area">
+                        <div class="flex justify-center gap-2 mb-3">
+                            <button id="vpReveal"
+                                    class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-4 py-2 rounded-lg font-bold hover:from-gray-600 hover:to-gray-700 transition-all duration-200 text-sm">
+                                Cevabı Göster
+                            </button>
+                        </div>
+                        
+                        <!-- Feedback Area -->
+                        <div id="vpFeedback" class="text-center text-lg font-bold"></div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <!-- Full Page Layout -->
+            <div id="gameRoot" class="relative z-10 max-w-4xl mx-auto px-4 py-8"
+                 data-student-id="@studentId"
+                 data-game-id="@ViewData["GameId"]"
+                 data-word="@singleWord"
+                 data-word-id="@wordId"
+                 data-embed="@embed.ToString().ToLower()">
+                
+                <!-- Game Header -->
+                <header class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-orange-600 mb-2">Görselden Soru</h2>
+                    <p class="text-lg text-gray-600 mb-4">Bu görsel size hangi kelimeyi çağrıştırıyor?</p>
+                    <div class="w-full bg-gray-200 rounded-full h-3 max-w-md mx-auto">
+                        <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full transition-all duration-300" style="width: 100%"></div>
+                    </div>
+                </header>
+                
+                <!-- Game Card -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-orange-100 p-8">
+                    <!-- Image Area -->
+                    <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 mb-8 flex justify-center border border-orange-200">
+                        <div class="w-80 h-80 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                            <img id="vpImage"
+                                 src="/placeholder.svg"
+                                 alt="Soru Görseli"
+                                 class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    
+                    <!-- Question -->
+                    <div class="text-center mb-8">
+                        <p id="vpQuestion" class="text-xl text-gray-800 font-medium"></p>
+                    </div>
+                    
+                    <!-- Input Controls -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                        <input type="text"
+                               id="vpGuess"
+                               placeholder="Tahmininizi yazın..."
+                               class="flex-1 max-w-md px-6 py-3 border border-orange-300 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                        <button id="vpSubmit"
+                                class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 whitespace-nowrap">
+                            Tahmin Et
+                        </button>
+                        <button id="vpReveal"
+                                class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-8 py-3 rounded-xl font-bold hover:from-gray-600 hover:to-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 whitespace-nowrap">
+                            Cevabı Göster
+                        </button>
+                    </div>
+                    
+                    <!-- Feedback Area -->
+                    <div id="vpFeedback" class="text-center mb-8 text-xl font-bold"></div>
+                    
+                    <!-- Footer Controls -->
+                    <div class="flex justify-center gap-4 pt-6 border-t border-orange-200">
+                        <button id="vpBack"
+                                class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-8 py-3 rounded-xl font-bold hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Geri Dön
+                        </button>
+                        <button id="vpNext"
+                                class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Sonraki
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
-    <p id="vpQuestion" class="vp-question"></p>
-
-    <div class="gb-controls vp-controls">
-      <input type="text" id="vpGuess" placeholder="Tahmininizi yazın..." />
-      <button id="vpSubmit" class="btn-primary">Tahmin Et</button>
-      <button id="vpReveal" class="btn-secondary">Cevabı Göster</button>
-    </div>
-
-    <div class="gb-feedback vp-feedback" id="vpFeedback"></div>
-
-    <div class="gb-controls vp-footer">
-      @if(!embed) {
-        <button id="vpBack" class="btn-secondary">Geri Dön</button>
-        <button id="vpNext" class="btn-primary">Sonraki</button>
-      }
-    </div>
-  </div>
-</div>
-
-@section Scripts {
-<script type="module">
-import {initVisualPrompt} from '@Url.Content("~/js/games/VisualPrompt.js")';
-const root = document.getElementById('gameRoot');
-initVisualPrompt(
-  root.dataset.studentId,
-  root.dataset.gameId,
-  root.dataset.word,
-  root.dataset.wordId
-);
-</script>
-}
+    @section Scripts {
+        <script type="module">
+            import {initVisualPrompt} from '@Url.Content("~/js/games/VisualPrompt.js")';
+            const root = document.getElementById('gameRoot');
+            initVisualPrompt(
+                root.dataset.studentId,
+                root.dataset.gameId,
+                root.dataset.word,
+                root.dataset.wordId
+            );
+        </script>
+    }
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LojRlyHwtjh6ustrYKJnI+YTrnuSz4E9ndjLuadyIyg=",
+  "Hash": "GnZuRv4+6tw67352z0jUcmgCwdmR/QCvCZCn+QqotfY=",
   "Source": "Kelimedya.WebApi",
   "BasePath": "_content/Kelimedya.WebApi",
   "Mode": "Default",
@@ -185,6 +185,27 @@
       "OriginalItemSpec": "wwwroot/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png"
     },
     {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vze5xq7bxh",
+      "Integrity": "K3TRfyOSNdQ+u1aZIUHuohUvV5e9i8RTJoMXu80KCx8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg"
+    },
+    {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg",
       "SourceId": "Kelimedya.WebApi",
       "SourceType": "Discovered",
@@ -204,6 +225,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1#[.{fingerprint}]?.HEIC",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1tywdfnpw8",
+      "Integrity": "yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg",
@@ -1032,6 +1074,88 @@
       ]
     },
     {
+      "Route": "uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "887931"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"K3TRfyOSNdQ+u1aZIUHuohUvV5e9i8RTJoMXu80KCx8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 22:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-K3TRfyOSNdQ+u1aZIUHuohUvV5e9i8RTJoMXu80KCx8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.vze5xq7bxh.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "887931"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"K3TRfyOSNdQ+u1aZIUHuohUvV5e9i8RTJoMXu80KCx8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 22:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vze5xq7bxh"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-K3TRfyOSNdQ+u1aZIUHuohUvV5e9i8RTJoMXu80KCx8="
+        }
+      ]
+    },
+    {
       "Route": "uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg",
       "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/90d00279-3d4f-4ed9-8353-68d307232a7f.jpg",
       "Selectors": [],
@@ -1110,6 +1234,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-QYkyZlMcR5cGfXzraz+QdsphhzcZiM9WL5kiyJ0AcFE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.1tywdfnpw8.HEIC",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1128453"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 22:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1tywdfnpw8"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1128453"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Jul 2025 22:06:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k="
         }
       ]
     },

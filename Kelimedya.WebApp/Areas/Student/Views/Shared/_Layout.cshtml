@@ -1,227 +1,125 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
-   <meta charset="utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>@ViewData["Title"] - Student Panel</title>
-   
-     <!-- Tabler CSS’leri -->
-     <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet" />
-     <link href="~/theme/tabler/dist/css/tabler-flags.min.css" rel="stylesheet" />
-     <link href="~/theme/tabler/dist/css/tabler-payments.min.css" rel="stylesheet" />
-     <link href="~/theme/tabler/dist/css/tabler-vendors.min.css" rel="stylesheet" />
-     <link href="~/theme/tabler/dist/css/demo.min.css" rel="stylesheet" />
-   
-     <!-- Font Awesome & Josefin Sans -->
-     <link
-       rel="stylesheet"
-       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-     />
-     <link
-       rel="stylesheet"
-       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap"
-     />
-   
-     <!-- iziToast CSS (MUTLAKA buraya!) -->
-     <link
-       rel="stylesheet"
-       href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css"
-     />
-    
-    <script src="~/theme/tabler/dist/js/demo-theme.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Kelimedya</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
+
+    <!-- iziToast CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'orange-custom': '#ff6b35',
+                        'orange-light': '#fef2f2',
+                        'green-custom': '#10b981',
+                        'green-light': '#d1fae5',
+                        'blue-custom': '#2563eb',
+                        'blue-light': '#eff6ff',
+                        'yellow-custom': '#f59e0b',
+                        'yellow-light': '#fef3c7',
+                        'pink-custom': '#ec4899',
+                        'pink-light': '#fdf2f8',
+                        'cream': '#fef7f0',
+                        'cream-dark': '#fdf2e9'
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        :root {
-            --tblr-font-sans-serif: 'Josefin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-
         body {
-            background: linear-gradient(120deg, #fffaf9 0%, #ffe5df 100%);
-            color: #333;
-            font-family: var(--tblr-font-sans-serif);
+            font-family: 'Inter', sans-serif;
         }
-
-        /* Dekoratif pastel daireler */
-        .page {
-            position: relative;
-        }
-
-        .pastel-circle {
-            position: absolute;
-            border-radius: 50%;
+        
+        .decorative-circle {
+            filter: blur(60px);
             opacity: 0.3;
-            z-index: 0;
         }
-
-        .pastel-circle.circle1 {
-            width: 220px;
-            height: 220px;
-            top: -50px;
-            right: 0px;
-            background: #ffc2c2;
-        }
-
-        .pastel-circle.circle2 {
-            width: 180px;
-            height: 180px;
-            bottom: -40px;
-            left: 10%;
-            background: #ffded2;
-        }
-
-        /* Top Navbar pastel degrade */
-        .navbar-pastel {
-            background: linear-gradient(130deg, #ffe5e0 0%, #ffd9bf 100%) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-brand {
-            margin-left: 150px;
-        }
-        .navbar-pastel .navbar-brand-image {
-            filter: sepia(0);
-        }
-
-        .navbar-pastel .navbar-nav .nav-link {
-            color: #333 !important;
-            font-weight: 600;
-            margin-left: 1rem;
-        }
-
-        .navbar-pastel .navbar-nav .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #000 !important;
-        }
-
-        .navbar-pastel .navbar-nav .nav-link.active {
-            background-color: rgba(0, 0, 0, 0.15);
-            color: #000 !important;
-        }
-
-        /* Footer pastel */
-        .footer {
-            background: rgba(255, 217, 191, 0.2) !important;
-            border-top: none !important;
-        }
-
-        .footer a {
-            color: #f05232 !important;
-        }
-        .iziToast-wrapper { z-index: 20000 !important; }
     </style>
 </head>
+<body class="bg-gradient-to-br from-cream to-cream-dark min-h-screen">
+<!-- Header -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between h-16">
+            <a href="@Url.Action("Index", "Dashboard", new { area = "Student" })">
+                 <!-- Logo Section -->
+                            <div class="flex items-center space-x-3">
+                                <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" width="150px" alt="Logo">
+                            </div>
 
-<body class="theme-light">
-<script src="~/theme/tabler/dist/js/demo-theme.min.js?1692870487"></script>
-<div class="page">
-    <div class="pastel-circle circle1"></div>
-    <div class="pastel-circle circle2"></div>
-
-    
-    <header class="navbar navbar-expand-md navbar-pastel d-print-none">
-        <div class="container-xl">
-            <a class="navbar-brand" href="@Url.Action("Index", "Dashboard", new { area = "Student" })">
-                <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" alt="Logo"
-                     class="navbar-brand-image ms-2">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
-                    aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="navbar-nav me-auto">
-                    @* Mükemmel "active" detection example *@
-                    <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")"
-                           asp-area="Student" asp-controller="Dashboard" asp-action="Index">
-                            Anasayfa
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "MyCourses" ? "active" : "")"
-                           asp-area="Student" asp-controller="MyCourses" asp-action="Index">
-                            Eğitimlerim
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "MyWords" ? "active" : "")"
-                           asp-area="Student" asp-controller="MyWords" asp-action="Index">
-                            Kelime Kartlarım
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Games" ? "active" : "")"
-                           asp-area="Student" asp-controller="Games" asp-action="Index">
-                            Oyunlar
-                        </a>
-                    </li>
-                </ul>
-                
-                <ul class="navbar-nav ms-auto">
-                    @await Component.InvokeAsync("ScoreInfo")
-                    @await Component.InvokeAsync("UserDropdown", new { area = "Student" })
-                </ul>
+           
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="@Url.Action("Index", "Dashboard", new { area = "Student" })"
+                   class="text-gray-900 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "border-green-custom" : "border-transparent hover:text-gray-700")">
+                    Anasayfa
+                </a>
+                <a href="@Url.Action("Index", "MyCourses", new { area = "Student" })"
+                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "MyCourses" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
+                    Eğitimlerim
+                </a>
+                <a href="@Url.Action("Index", "MyWords", new { area = "Student" })"
+                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "MyWords" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
+                    Kelime Kartlarım
+                </a>
+                <a href="@Url.Action("Index", "Games", new { area = "Student" })"
+                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Games" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
+                    Oyunlar
+                </a>
+            </nav>
+
+            <!-- Right Section -->
+            <div class="flex items-center space-x-4">
+                <!-- Score Info -->
+                @await Component.InvokeAsync("ScoreInfo")
+
+                <!-- User Dropdown -->
+                @await Component.InvokeAsync("UserDropdown", new { area = "Student" })
             </div>
         </div>
-    </header>
-
-    
-    <div class="page-wrapper">
-        <main class="page-body">
-            <div class="container-xl">
-                @RenderBody()
-            </div>
-        </main>
-        
-        <footer class="footer footer-transparent d-print-none">
-            <div class="container-xl">
-                <div class="row text-center align-items-center flex-row-reverse">
-                    <div class="col-lg-auto ms-lg-auto">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                <a href="#" class="link-secondary">Dokümantasyon</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="link-secondary">Destek</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                &copy; 2025 Kelimedya. Tüm hakları saklıdır.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
-</div>
+</header>
 
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-6 py-8">
+    @RenderBody()
+</main>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
-<script src="~/js/CustomIziToast.js"></script>
-<script src="~/theme/tabler/dist/libs/apexcharts/dist/apexcharts.min.js" defer></script>
-<script src="~/theme/tabler/dist/libs/jsvectormap/dist/js/jsvectormap.min.js" defer></script>
-<script src="~/theme/tabler/dist/libs/jsvectormap/dist/maps/world.js" defer></script>
-<script src="~/theme/tabler/dist/libs/jsvectormap/dist/maps/world-merc.js" defer></script>
-<script src="~/theme/tabler/dist/js/tabler.min.js" defer></script>
-<script src="~/theme/tabler/dist/js/demo.min.js" defer></script>
-<script src="~/theme/tabler/dist/libs/tinymce/tinymce.min.js"></script>
-<script src="~/js/scoreInfoAnimations.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded',function(){
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.forEach(function (tooltipTriggerEl) { new bootstrap.Tooltip(tooltipTriggerEl); });
-    });
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            const searchInput = document.querySelector('input[type="text"]');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        console.log('Search:', this.value);
+                    }
+                });
+            }
+        });
+    </script>
 
 @RenderSection("Scripts", required: false)
 </body>
-
 </html>

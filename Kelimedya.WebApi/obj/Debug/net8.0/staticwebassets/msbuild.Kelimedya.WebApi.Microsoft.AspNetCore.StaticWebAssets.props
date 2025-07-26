@@ -144,6 +144,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\6c3928c5-257e-47d8-b014-06d09c46ef57.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApi</BasePath>
+      <RelativePath>uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vze5xq7bxh</Fingerprint>
+      <Integrity>K3TRfyOSNdQ+u1aZIUHuohUvV5e9i8RTJoMXu80KCx8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\90d00279-3d4f-4ed9-8353-68d307232a7f.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Kelimedya.WebApi</SourceId>
@@ -161,6 +179,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\90d00279-3d4f-4ed9-8353-68d307232a7f.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\94451c93-de40-4bc2-8694-de923ea954f1.HEIC'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Kelimedya.WebApi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Kelimedya.WebApi</BasePath>
+      <RelativePath>uploads/profiles/94451c93-de40-4bc2-8694-de923ea954f1.HEIC</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>1tywdfnpw8</Fingerprint>
+      <Integrity>yw7d/k/YNM66nMnAzOja1oBQYb2BQNR1i9kDGUhBb7k=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\94451c93-de40-4bc2-8694-de923ea954f1.HEIC'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\b2eb036d-3e70-4c60-9234-3b11e50e2b82.jpg'))">
       <SourceType>Package</SourceType>

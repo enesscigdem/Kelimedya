@@ -1,71 +1,138 @@
-﻿
-@model List<Kelimedya.WebApp.Areas.Student.Models.CourseWithProgressViewModel>
+﻿@model List<Kelimedya.WebApp.Areas.Student.Models.CourseWithProgressViewModel>
 @{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Eğitimlerim - Profesyonel Görünüm";
+    ViewData["Title"] = "Eğitimlerim";
 }
 
-<link href="~/css/myCourses.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<div class="courses-container">
+<div class="relative">
+    <!-- Decorative Circles -->
+    <div class="absolute top-0 left-0 w-80 h-80 bg-pink-300 rounded-full opacity-10 -translate-x-32 -translate-y-32" style="filter: blur(60px);"></div>
+    <div class="absolute top-20 right-0 w-60 h-60 bg-orange-300 rounded-full opacity-10 translate-x-20" style="filter: blur(60px);"></div>
+    <div class="absolute bottom-0 right-1/2 w-40 h-40 bg-yellow-300 rounded-full opacity-10 translate-x-1/2 translate-y-20" style="filter: blur(60px);"></div>
     
-    <header class="header-area">
-        <div class="header-content">
-            <h1 class="courses-hero">Eğitimlerim</h1>
-            <p class="courses-sub">Kayıtlı eğitimlerinizi profesyonel şekilde yönetin</p>
-        </div>
-        <div class="tools">
-            <div class="search-box">
-                <input type="text" placeholder="Kurs ara..." id="searchInput">
-                <i class="fas fa-search"></i>
-            </div>
-            <button class="ultra-btn" id="filterBtn">
-                <i class="fas fa-filter"></i>
-                Filtrele
-            </button>
-        </div>
-    </header>
-
-    
-    <section class="cards-grid" id="cardsGrid">
-        @if (Model?.Any() == true)
-        {
-            @foreach (var item in Model)
-            {
-                <div class="course-card">
-                    <div class="card-header">
-                        <img src="@(item.Course.ImageUrl ?? "/images/course-placeholder.jpg")" 
-                             alt="@item.Course.Title"
-                             class="card-image">
+    <div class="relative z-10">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div>
+                    <h1 class="text-4xl font-bold text-orange-custom mb-2">Eğitimlerim</h1>
+                    <p class="text-lg text-gray-600">Kayıtlı eğitimlerinizi profesyonel şekilde yönetin</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- Search Box -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" 
+                               id="searchInput"
+                               class="w-full sm:w-80 pl-10 pr-4 py-3 border border-gray-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-custom focus:border-transparent shadow-sm" 
+                               placeholder="Kurs ara...">
                     </div>
                     
-                    <div class="card-body">
-                        <h3 class="course-title">@item.Course.Title</h3>
-                        <p class="course-description">@item.Course.Description</p>
+                    <!-- Filter Button -->
+                    <button id="filterBtn" 
+                            class="px-6 py-3 bg-orange-custom text-white rounded-xl font-medium hover:bg-orange-600 transition-colors duration-200 flex items-center gap-2 shadow-sm">
+                        <i class="fas fa-filter"></i>
+                        Filtrele
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Courses Grid -->
+        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @if (Model?.Any() == true)
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="course-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <!-- Course Image -->
+                        <div class="relative h-48 bg-gradient-to-br from-orange-100 to-orange-50">
+                            @if (!string.IsNullOrEmpty(item.Course.ImageUrl))
+                            {
+                                <img src="@item.Course.ImageUrl" 
+                                     alt="@item.Course.Title" 
+                                     class="w-full h-full object-cover">
+                            }
+                            else
+                            {
+                                <div class="w-full h-full flex items-center justify-center">
+                                    <div class="w-20 h-20 bg-orange-custom rounded-full flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                                    </div>
+                                </div>
+                            }
+                            
+                            <!-- Progress Badge -->
+                            @if (item.Progress != null)
+                            {
+                                <div class="absolute top-4 right-4">
+                                    <div class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                                        <span class="text-sm font-semibold text-orange-custom">@string.Format("{0:0}%", 50)</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                         
-                        <a class="ultra-btn course-action" 
-                           asp-controller="MyCourses" 
-                           asp-action="MyLessons" 
-                           asp-route-id="@item.Course.Id">
-                            <i class="fas fa-graduation-cap"></i>
-                            Eğitime Git
-                        </a>
+                        <!-- Course Content -->
+                        <div class="p-6">
+                            <h3 class="course-title text-lg font-semibold text-gray-900 mb-2 line-clamp-2">@item.Course.Title</h3>
+                            <p class="course-description text-gray-600 text-sm mb-4 line-clamp-3">@item.Course.Description</p>
+                            
+                            <!-- Course Stats -->
+                            <div class="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                                <div class="flex items-center gap-1">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>3Ders</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="fas fa-clock"></i>
+                                    <span>12 dk</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Progress Bar -->
+                            @if (item.Progress != null)
+                            {
+                                <div class="mb-4">
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-orange-custom h-2 rounded-full transition-all duration-300" 
+                                             style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            }
+                            
+                            <!-- Action Button -->
+                            <a class="course-action w-full bg-orange-custom text-white py-3 px-4 rounded-xl font-medium hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center gap-2"
+                               asp-controller="MyCourses"
+                               asp-action="MyLessons"
+                               asp-route-id="@item.Course.Id">
+                                <i class="fas fa-graduation-cap"></i>
+                                Evet
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-span-full">
+                    <div class="text-center py-16">
+                        <div class="w-32 h-32 mx-auto mb-6 text-gray-300">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
+                                <path d="M2 4h8a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H2z"/>
+                                <path d="M22 4h-8a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Henüz kayıtlı eğitiminiz bulunmamaktadır</h3>
+                        <p class="text-gray-500">Yeni eğitimlere katılmak için kurs kataloğunu inceleyin</p>
                     </div>
                 </div>
             }
-        }
-        else
-        {
-            <div class="no-courses">
-                <svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="#b0bec5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 4h8a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H2z"/>
-                    <path d="M22 4h-8a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h8z"/>
-                </svg>
-                <h3>Henüz kayıtlı eğitiminiz bulunmamaktadır</h3>
-            </div>
-        }
-    </section>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
@@ -79,7 +146,7 @@
                     const title = card.querySelector('.course-title').textContent.toLowerCase();
                     const desc = card.querySelector('.course-description')?.textContent.toLowerCase() || '';
                     card.style.display = (title.includes(searchTerm) || desc.includes(searchTerm)) 
-                        ? 'flex' 
+                        ? 'block' 
                         : 'none';
                 });
             });

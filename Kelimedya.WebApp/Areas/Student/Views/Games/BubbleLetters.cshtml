@@ -4,64 +4,284 @@
     string singleWord = Context.Request.Query["word"];
     string wordId = Context.Request.Query["id"];
     Layout = embed 
-      ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml" 
-      : "~/Areas/Student/Views/Shared/_Layout.cshtml";
+        ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml"
+        : "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Kabarcık Harfler";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
-<link href="~/css/BubbleLetters.css" rel="stylesheet" />
 
-<div id="gameRoot" class="gb-container container-xl"
-     data-student-id="@studentId"
-     data-game-id="@ViewData["GameId"]"
-     data-word="@singleWord"
-     data-word-id="@wordId"
-     data-embed="@embed.ToString().ToLower()">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bl-letter {
+            width: @(embed ? "32px" : "48px");
+            height: @(embed ? "32px" : "48px");
+            background: white;
+            border: 2px solid #fdba74;
+            border-radius: @(embed ? "6px" : "12px");
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: @(embed ? "16px" : "24px");
+            font-weight: bold;
+            color: #ea580c;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
 
-  <header class="gb-header">
-    <h2>Kabarcık Harfler</h2>
-    <div class="gb-progress">
-      <div class="gb-progress-bar" style="width:100%"></div>
+        .bl-letter.filled {
+            background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+            border-color: #fb923c;
+            transform: scale(1.05);
+        }
+
+        .bubble-btn {
+            width: @(embed ? "32px" : "48px");
+            height: @(embed ? "32px" : "48px");
+            background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+            color: #ea580c;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #fb923c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: @(embed ? "12px" : "16px");
+        }
+
+        .bubble-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #fdba74 0%, #fb923c 100%);
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .bubble-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+            background: #d1d5db;
+            color: #6b7280;
+            border-color: #9ca3af;
+        }
+
+        @@if (embed) {
+            .game-container {
+                height: 100vh;
+                max-height: 500px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .game-header {
+                flex-shrink: 0;
+                padding: 8px;
+                text-align: center;
+            }
+            
+            .game-content {
+                flex: 1;
+                padding: 12px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hint-area {
+                flex-shrink: 0;
+                background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+                border: 1px solid #fdba74;
+                border-radius: 8px;
+                padding: 8px;
+            }
+            
+            .target-area {
+                flex-shrink: 0;
+                background: white;
+                border: 2px dashed #fdba74;
+                border-radius: 8px;
+                padding: 12px;
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .bubbles-area {
+                flex: 1;
+                background: linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%);
+                border: 1px solid #fdba74;
+                border-radius: 8px;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100px;
+            }
+            
+            .controls-area {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="@(embed ? "game-container bg-gradient-to-br from-orange-50 to-yellow-50" : "relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50")">
+        @if (!embed)
+        {
+            <!-- Decorative Circles for non-embed -->
+            <div class="absolute top-0 left-0 w-80 h-80 bg-orange-300 rounded-full opacity-10 -translate-x-32 -translate-y-32" style="filter: blur(60px);"></div>
+            <div class="absolute top-20 right-0 w-60 h-60 bg-yellow-300 rounded-full opacity-10 translate-x-20" style="filter: blur(60px);"></div>
+        }
+        
+        @if (embed)
+        {
+            <!-- Compact Header for Embed -->
+            <div class="game-header">
+                <h2 class="text-lg font-bold text-orange-600 mb-1">Kabarcık Harfler</h2>
+                <div class="w-full bg-gray-200 rounded-full h-1.5 max-w-xs mx-auto">
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-1.5 rounded-full" style="width: 100%;"></div>
+                </div>
+            </div>
+            
+            <!-- Compact Game Content -->
+            <div class="game-content">
+                <div id="gameRoot" data-student-id="@studentId" data-game-id="@ViewData["GameId"]" data-word="@singleWord" data-word-id="@wordId" data-embed="@embed.ToString().ToLower()">
+                    
+                    <!-- Hint Section -->
+                    <div class="hint-area">
+                        <div class="text-xs text-orange-800 text-center">
+                            <span class="font-bold">İpucu:</span>
+                            <span id="hintText" class="ml-1"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Target Slots -->
+                    <div class="target-area">
+                        <div id="targetSlots" class="flex gap-1 flex-wrap justify-center"></div>
+                    </div>
+                    
+                    <!-- Bubbles Area -->
+                    <div class="bubbles-area">
+                        <div id="bubblesArea" class="flex gap-2 flex-wrap justify-center"></div>
+                    </div>
+                    
+                    <!-- Game Controls -->
+                    <div class="controls-area">
+                        <div class="flex justify-center gap-2 mb-2">
+                            <button id="blClear" class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-3 py-1 rounded-md font-bold hover:from-gray-200 hover:to-gray-300 transition-all duration-200 text-xs">
+                                Temizle
+                            </button>
+                            <button id="blSubmit" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-md font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 text-xs">
+                                Kontrol Et
+                            </button>
+                            <button id="blReveal" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-3 py-1 rounded-md font-bold hover:from-gray-600 hover:to-gray-700 transition-all duration-200 text-xs">
+                                Cevabı Göster
+                            </button>
+                        </div>
+                        
+                        <!-- Feedback Area -->
+                        <div id="blFeedback" class="text-center text-sm font-bold min-h-[20px]"></div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <!-- Full Page Layout -->
+            <div id="gameRoot" class="relative z-10 max-w-6xl mx-auto px-4 py-8"
+                 data-student-id="@studentId"
+                 data-game-id="@ViewData["GameId"]"
+                 data-word="@singleWord"
+                 data-word-id="@wordId"
+                 data-embed="@embed.ToString().ToLower()">
+                
+                <!-- Game Header -->
+                <header class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-orange-600 mb-2">Kabarcık Harfler</h2>
+                    <p class="text-lg text-gray-600 mb-4">Doğru kelimeyi oluşturmak için baloncuklara tıklayın veya klavyenizle yazın.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-3 max-w-md mx-auto">
+                        <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full transition-all duration-300" style="width: 100%"></div>
+                    </div>
+                </header>
+                
+                <!-- Game Card -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-orange-100 p-8 max-w-5xl mx-auto">
+                    <!-- Hint Section -->
+                    <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 mb-8 space-y-3 border border-orange-200">
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex-1 min-w-0">
+                                <span class="font-bold text-orange-800">Eş anlamı:</span>
+                                <span id="hintSynonym" class="ml-2 text-orange-700 font-medium"></span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="font-bold text-orange-800">Anlamı:</span>
+                                <span id="hintDefinition" class="ml-2 text-orange-700 font-medium"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="font-bold text-orange-800">Cümle:</span>
+                            <em id="hintSentence" class="ml-2 text-orange-700 font-medium"></em>
+                        </div>
+                    </div>
+                    
+                    <!-- Target Slots -->
+                    <div id="targetSlots" class="flex justify-center gap-2 mb-8 flex-wrap"></div>
+                    
+                    <!-- Bubbles Area -->
+                    <div id="bubblesArea" class="flex justify-center gap-3 mb-8 flex-wrap"></div>
+                    
+                    <!-- Game Controls -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-6">
+                        <button id="blClear" class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-6 py-3 rounded-xl font-bold hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Temizle
+                        </button>
+                        <button id="blSubmit" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Kontrol Et
+                        </button>
+                        <button id="blReveal" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-3 rounded-xl font-bold hover:from-gray-600 hover:to-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Cevabı Göster
+                        </button>
+                    </div>
+                    
+                    <!-- Feedback Area -->
+                    <div id="blFeedback" class="text-center mb-6 text-xl font-bold"></div>
+                    
+                    <!-- Footer Controls -->
+                    <div class="flex justify-center gap-4 pt-4 border-t border-orange-200">
+                        <button id="blBack" class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-6 py-3 rounded-xl font-bold hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Geri Dön
+                        </button>
+                        <button id="blNext" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            Sonraki
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-    <p class="gb-subtitle">Doğru kelimeyi oluşturmak için baloncuklara tıklayın veya klavyenizle yazın.</p>
-  </header>
 
-  <div class="gb-gamecard bl-gamecard">
-    <div class="bl-hint">
-      <div class="hint-line"><strong>Eş anlamı:</strong> <span id="hintSynonym"></span></div>
-      <div class="hint-line"><strong>Anlamı:</strong> <span id="hintDefinition"></span></div>
-      <div class="hint-line"><strong>Cümle:</strong> <em id="hintSentence"></em></div>
-    </div>
-
-    <div class="bl-target" id="targetSlots"></div>
-    <div class="bl-bubbles" id="bubblesArea"></div>
-
-    <div class="gb-controls bl-controls">
-      <button id="blClear"  class="btn-secondary">Temizle</button>
-      <button id="blSubmit" class="btn-primary">Kontrol Et</button>
-      <button id="blReveal" class="btn-outline">Cevabı Göster</button>
-    </div>
-
-    <div class="gb-feedback bl-feedback" id="blFeedback"></div>
-
-    <div class="bl-footer gb-controls">
-      @if(!embed) {
-        <button id="blBack" class="btn-secondary">Geri Dön</button>
-        <button id="blNext" class="btn-primary">Sonraki</button>
-      }
-    </div>
-  </div>
-</div>
-
-@section Scripts {
-<script type="module">
-import {initBubbleLetters} from '@Url.Content("~/js/games/BubbleLetters.js")';
-const root = document.getElementById('gameRoot');
-initBubbleLetters(
-  root.dataset.studentId,
-  root.dataset.gameId,
-  root.dataset.word,
-  root.dataset.wordId
-);
-</script>
-}
+    @section Scripts {
+        <script type="module">
+            import {initBubbleLetters} from '@Url.Content("~/js/games/BubbleLetters.js")';
+            const root = document.getElementById('gameRoot');
+            initBubbleLetters(
+                root.dataset.studentId,
+                root.dataset.gameId,
+                root.dataset.word,
+                root.dataset.wordId
+            );
+        </script>
+    }
+</body>
+</html>

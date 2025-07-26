@@ -4,20 +4,75 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <link href="~/theme/tabler/dist/css/tabler.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" />
-    @RenderSection("Head", required: false)
-</head>
-<body class="theme-light" style="background:#fff;">
-    @RenderBody()
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Kelimedya</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
-    <script src="~/js/CustomIziToast.js"></script>
-    <script src="~/theme/tabler/dist/js/tabler.min.js" defer></script>
-    @RenderSection("Scripts", required: false)
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'orange-custom': '#ff6b35',
+                        'orange-light': '#fef2f2',
+                        'green-custom': '#10b981',
+                        'green-light': '#d1fae5',
+                        'blue-custom': '#2563eb',
+                        'blue-light': '#eff6ff',
+                        'yellow-custom': '#f59e0b',
+                        'yellow-light': '#fef3c7',
+                        'pink-custom': '#ec4899',
+                        'pink-light': '#fdf2f8',
+                        'cream': '#fef7f0',
+                        'cream-dark': '#fdf2e9'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .decorative-circle {
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-cream to-cream-dark min-h-screen">
+
+<main class="max-w-7xl mx-auto px-6 py-8">
+    @RenderBody()
+</main>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            const searchInput = document.querySelector('input[type="text"]');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        console.log('Search:', this.value);
+                    }
+                });
+            }
+        });
+    </script>
+
+@RenderSection("Scripts", required: false)
 </body>
 </html>

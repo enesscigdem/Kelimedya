@@ -4,113 +4,173 @@
     ViewData["Title"] = "Eğitimlerim";
 }
 
-<div class="relative">
-    <!-- Decorative Circles -->
-    <div class="absolute top-0 left-0 w-80 h-80 bg-pink-300 rounded-full opacity-10 -translate-x-32 -translate-y-32" style="filter: blur(60px);"></div>
-    <div class="absolute top-20 right-0 w-60 h-60 bg-orange-300 rounded-full opacity-10 translate-x-20" style="filter: blur(60px);"></div>
-    <div class="absolute bottom-0 right-1/2 w-40 h-40 bg-yellow-300 rounded-full opacity-10 translate-x-1/2 translate-y-20" style="filter: blur(60px);"></div>
-    
-    <div class="relative z-10">
-        <!-- Header Section -->
-        <div class="mb-8">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                <div>
-                    <h1 class="text-4xl font-bold text-orange-custom mb-2">Eğitimlerim</h1>
-                    <p class="text-lg text-gray-600">Kayıtlı eğitimlerinizi profesyonel şekilde yönetin</p>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <!-- Search Box -->
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <i class="fas fa-search text-gray-400"></i>
+<div class="relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50">
+    <!-- Simplified background elements - no heavy blur -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-orange-200 rounded-full opacity-10 -translate-x-48 -translate-y-48"></div>
+    <div class="absolute top-32 right-0 w-80 h-80 bg-yellow-200 rounded-full opacity-8 translate-x-32"></div>
+    <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-orange-300 rounded-full opacity-12 translate-y-32"></div>
+
+    <div class="relative z-10 p-6">
+        <div class="mb-12">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+                <div class="flex-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-xl">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-star text-white text-xs"></i>
+                            </div>
                         </div>
-                        <input type="text" 
+                        <div>
+                            <h1 class="text-3xl font-bold bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-500 bg-clip-text text-transparent mb-2">Eğitim Yolculuğum</h1>
+                            <p class="text-xl text-gray-600">Kayıtlı eğitimlerinizi profesyonel şekilde yönetin ✨</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 lg:min-w-[400px]">
+                    <div class="relative flex-1">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-orange-400"></i>
+                        </div>
+                        <input type="text"
                                id="searchInput"
-                               class="w-full sm:w-80 pl-10 pr-4 py-3 border border-gray-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-custom focus:border-transparent shadow-sm" 
+                               class="w-full pl-12 pr-4 py-4 border-2 border-orange-200 rounded-2xl text-sm bg-white focus:outline-none focus:ring-4 focus:ring-orange-200 focus:border-orange-400 transition: transform 0.3s ease, opacity 0.3s ease shadow-lg"
                                placeholder="Kurs ara...">
                     </div>
-                    
-                    <!-- Filter Button -->
-                    <button id="filterBtn" 
-                            class="px-6 py-3 bg-orange-custom text-white rounded-xl font-medium hover:bg-orange-600 transition-colors duration-200 flex items-center gap-2 shadow-sm">
+                    <button id="filterBtn"
+                            class="px-6 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition: transform 0.3s ease, opacity 0.3s ease flex items-center gap-3 shadow-lg">
                         <i class="fas fa-filter"></i>
                         Filtrele
                     </button>
                 </div>
             </div>
         </div>
-        
-        <!-- Courses Grid -->
-        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Stats cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="group stats-card bg-white rounded-3xl p-6 shadow-xl border border-orange-100 text-center">
+                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i class="fas fa-book text-white"></i>
+                </div>
+                <div class="text-3xl font-bold text-gray-900 mb-2">@(Model?.Count ?? 0)</div>
+                <div class="text-sm text-gray-600 font-medium">Toplam Kurs</div>
+            </div>
+            <div class="group stats-card bg-white rounded-3xl p-6 shadow-xl border border-orange-100 text-center">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i class="fas fa-check-circle text-white"></i>
+                </div>
+                <div class="text-3xl font-bold text-green-600 mb-2">@(Model?.Count(x => x.Progress != null) ?? 0)</div>
+                <div class="text-sm text-gray-600 font-medium">Başlanan Kurs</div>
+            </div>
+            <div class="group stats-card bg-white rounded-3xl p-6 shadow-xl border border-orange-100 text-center">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i class="fas fa-clock text-white"></i>
+                </div>
+                <div class="text-3xl font-bold text-blue-600 mb-2">24</div>
+                <div class="text-sm text-gray-600 font-medium">Toplam Saat</div>
+            </div>
+            <div class="group stats-card bg-white rounded-3xl p-6 shadow-xl border border-orange-100 text-center">
+                <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i class="fas fa-trophy text-white"></i>
+                </div>
+                <div class="text-3xl font-bold text-yellow-600 mb-2">85%</div>
+                <div class="text-sm text-gray-600 font-medium">Ortalama İlerleme</div>
+            </div>
+        </div>
+
+        <!-- Course cards grid -->
+        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @if (Model?.Any() == true)
             {
-                @foreach (var item in Model)
+                @for (int i = 0; i < Model.Count; i++)
                 {
-                    <div class="course-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                        <!-- Course Image -->
-                        <div class="relative h-48 bg-gradient-to-br from-orange-100 to-orange-50">
+                    var item = Model[i];
+                    <div class="group course-card bg-white rounded-3xl shadow-xl border border-orange-100 overflow-hidden"
+                         style="transition-delay: @(i * 50)ms">
+                        
+                        <!-- Image section -->
+                        <div class="relative h-48 bg-gradient-to-br from-orange-100 to-orange-50 overflow-hidden">
                             @if (!string.IsNullOrEmpty(item.Course.ImageUrl))
                             {
-                                <img src="@item.Course.ImageUrl" 
-                                     alt="@item.Course.Title" 
-                                     class="w-full h-full object-cover">
+                                <img src="@item.Course.ImageUrl"
+                                     alt="@item.Course.Title"
+                                     class="w-full h-full object-cover course-image">
                             }
                             else
                             {
-                                <div class="w-full h-full flex items-center justify-center">
-                                    <div class="w-20 h-20 bg-orange-custom rounded-full flex items-center justify-center">
+                                <div class="w-full h-full flex items-center justify-center relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center shadow-xl course-icon">
                                         <i class="fas fa-graduation-cap text-white text-2xl"></i>
                                     </div>
+                                    <div class="absolute top-4 left-4 w-3 h-3 bg-orange-300 rounded-full opacity-60"></div>
+                                    <div class="absolute bottom-4 right-4 w-2 h-2 bg-yellow-400 rounded-full opacity-80"></div>
                                 </div>
                             }
-                            
-                            <!-- Progress Badge -->
                             @if (item.Progress != null)
                             {
                                 <div class="absolute top-4 right-4">
-                                    <div class="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                                        <span class="text-sm font-semibold text-orange-custom">@string.Format("{0:0}%", 50)</span>
+                                    <div class="bg-white rounded-full px-3 py-1 shadow-lg">
+                                        <span class="text-sm font-semibold text-orange-600">@string.Format("{0:0}%", 50)</span>
                                     </div>
                                 </div>
                             }
-                        </div>
-                        
-                        <!-- Course Content -->
-                        <div class="p-6">
-                            <h3 class="course-title text-lg font-semibold text-gray-900 mb-2 line-clamp-2">@item.Course.Title</h3>
-                            <p class="course-description text-gray-600 text-sm mb-4 line-clamp-3">@item.Course.Description</p>
-                            
-                            <!-- Course Stats -->
-                            <div class="flex items-center gap-4 mb-4 text-sm text-gray-500">
-                                <div class="flex items-center gap-1">
-                                    <i class="fas fa-book-open"></i>
-                                    <span>3Ders</span>
-                                </div>
-                                <div class="flex items-center gap-1">
-                                    <i class="fas fa-clock"></i>
-                                    <span>12 dk</span>
+                            <div class="absolute top-4 left-4">
+                                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full px-3 py-1 text-xs font-bold shadow-lg">
+                                    <i class="fas fa-star mr-1"></i>Orta Seviye
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Content section -->
+                        <div class="relative z-10 p-6">
+                            <h3 class="course-title text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition: transform 0.3s ease, opacity 0.3s ease line-clamp-2">@item.Course.Title</h3>
+                            <p class="course-description text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">@item.Course.Description</p>
                             
-                            <!-- Progress Bar -->
+                            <div class="flex items-center gap-4 mb-4 text-sm">
+                                <div class="flex items-center gap-2 bg-orange-100 rounded-full px-3 py-2">
+                                    <i class="fas fa-book-open text-orange-600"></i>
+                                    <span class="text-orange-700 font-medium">3 Ders</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-blue-100 rounded-full px-3 py-2">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                    <span class="text-blue-700 font-medium">12 dk</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-green-100 rounded-full px-3 py-2">
+                                    <i class="fas fa-users text-green-600"></i>
+                                    <span class="text-green-700 font-medium">1.2k</span>
+                                </div>
+                            </div>
+
                             @if (item.Progress != null)
                             {
-                                <div class="mb-4">
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-orange-custom h-2 rounded-full transition-all duration-300" 
-                                             style="width: 50%"></div>
+                                <div class="mb-6">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-gray-700">İlerleme</span>
+                                        <span class="text-sm font-bold text-orange-600">@string.Format("{0:0}%", 50)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-3 shadow-inner">
+                                        <div class="bg-gradient-to-r from-orange-500 to-orange-400 h-3 rounded-full transition: transform 0.3s ease, opacity 0.3s ease shadow-sm"
+                                             style="width: 50%">
+                                        </div>
                                     </div>
                                 </div>
                             }
-                            
-                            <!-- Action Button -->
-                            <a class="course-action w-full bg-orange-custom text-white py-3 px-4 rounded-xl font-medium hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center gap-2"
+
+                            <a class="course-action w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4 px-6 rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition: transform 0.3s ease, opacity 0.3s ease flex items-center justify-center gap-3 shadow-lg"
                                asp-controller="MyCourses"
                                asp-action="MyLessons"
                                asp-route-id="@item.Course.Id">
-                                <i class="fas fa-graduation-cap"></i>
-                                Evet
+                                <i class="fas fa-play text-lg"></i>
+                                @if (item.Progress != null)
+                                {
+                                    <span>Devam Et</span>
+                                }
+                                else
+                                {
+                                    <span>Başla</span>
+                                }
                             </a>
                         </div>
                     </div>
@@ -119,15 +179,15 @@
             else
             {
                 <div class="col-span-full">
-                    <div class="text-center py-16">
-                        <div class="w-32 h-32 mx-auto mb-6 text-gray-300">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
-                                <path d="M2 4h8a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H2z"/>
-                                <path d="M22 4h-8a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h8z"/>
-                            </svg>
+                    <div class="text-center py-20">
+                        <div class="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center shadow-xl">
+                            <i class="fas fa-graduation-cap text-6xl text-orange-400"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Henüz kayıtlı eğitiminiz bulunmamaktadır</h3>
-                        <p class="text-gray-500">Yeni eğitimlere katılmak için kurs kataloğunu inceleyin</p>
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Henüz kayıtlı eğitiminiz bulunmamaktadır</h3>
+                        <p class="text-gray-500 text-lg mb-8">Yeni eğitimlere katılmak için kurs kataloğunu inceleyin</p>
+                        <button class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition: transform 0.3s ease, opacity 0.3s ease shadow-lg">
+                            Kurslara Göz At
+                        </button>
                     </div>
                 </div>
             }
@@ -139,17 +199,117 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
-            
+
+            // Optimized search with requestAnimationFrame
             searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
-                document.querySelectorAll('.course-card').forEach(card => {
-                    const title = card.querySelector('.course-title').textContent.toLowerCase();
-                    const desc = card.querySelector('.course-description')?.textContent.toLowerCase() || '';
-                    card.style.display = (title.includes(searchTerm) || desc.includes(searchTerm)) 
-                        ? 'block' 
-                        : 'none';
+                const cards = document.querySelectorAll('.course-card');
+                
+                requestAnimationFrame(() => {
+                    cards.forEach((card) => {
+                        const title = card.querySelector('.course-title').textContent.toLowerCase();
+                        const desc = card.querySelector('.course-description')?.textContent.toLowerCase() || '';
+                        const shouldShow = title.includes(searchTerm) || desc.includes(searchTerm);
+                        
+                        if (shouldShow) {
+                            card.style.display = 'block';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px) scale(0.95)';
+                            setTimeout(() => {
+                                if (card.style.opacity === '0') {
+                                    card.style.display = 'none';
+                                }
+                            }, 300);
+                        }
+                    });
                 });
             });
         });
     </script>
 }
+
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* GPU-optimized card animations */
+    .course-card {
+        will-change: transform, opacity;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideInUp 0.6s ease forwards;
+    }
+
+    .course-card:hover {
+        transform: translateY(-8px) scale(1.02) translateZ(0);
+    }
+
+    .stats-card {
+        will-change: transform, opacity;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    .stats-card:hover {
+        transform: translateY(-4px) translateZ(0);
+    }
+
+    .course-image {
+        will-change: transform;
+        transition: transform 0.3s ease;
+        transform: translateZ(0);
+    }
+
+    .course-card:hover .course-image {
+        transform: scale(1.05) translateZ(0);
+    }
+
+    .course-icon {
+        will-change: transform;
+        transition: transform 0.3s ease;
+        transform: translateZ(0);
+    }
+
+    .course-card:hover .course-icon {
+        transform: scale(1.1) rotate(3deg) translateZ(0);
+    }
+
+    @@keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0) translateZ(0);
+        }
+    }
+
+    /* CSS-only staggered animation using nth-child */
+    .course-card:nth-child(1) { animation-delay: 0ms; }
+    .course-card:nth-child(2) { animation-delay: 50ms; }
+    .course-card:nth-child(3) { animation-delay: 100ms; }
+    .course-card:nth-child(4) { animation-delay: 150ms; }
+    .course-card:nth-child(5) { animation-delay: 200ms; }
+    .course-card:nth-child(6) { animation-delay: 250ms; }
+    .course-card:nth-child(n+7) { animation-delay: 300ms; }
+
+    .stats-card:nth-child(1) { animation-delay: 0ms; }
+    .stats-card:nth-child(2) { animation-delay: 100ms; }
+    .stats-card:nth-child(3) { animation-delay: 200ms; }
+    .stats-card:nth-child(4) { animation-delay: 300ms; }
+</style>

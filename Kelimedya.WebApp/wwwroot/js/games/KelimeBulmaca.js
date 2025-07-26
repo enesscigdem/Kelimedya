@@ -36,7 +36,8 @@ function load() {
 
   answers.forEach(ans => {
     const b = document.createElement("button");
-    b.className = "option-btn";
+    // Düzeltilmiş buton stilleri - daha okunabilir
+    b.className = "option-btn bg-gradient-to-r from-orange-100 to-orange-200 text-orange-800 font-bold py-4 px-6 rounded-xl border-2 border-orange-300 hover:from-orange-200 hover:to-orange-300 hover:border-orange-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 w-full text-left";
     b.textContent = ans;
     b.onclick = () => select(b, ans, correct);
     opts.appendChild(b);
@@ -45,13 +46,34 @@ function load() {
   start = Date.now()
 }
 
-  function select(buttonEl, ans, correct) {
-    const ok = ans === correct;
-    // butona doğru/yanlış sınıfını ekle:
-    buttonEl.classList.add(ok ? "correct" : "incorrect");
+function select(buttonEl, ans, correct) {
+  const ok = ans === correct;
 
-    // geri bildirimi göster
-    document.getElementById("kbFeedback").textContent = ok ? "Doğru!" : "Yanlış";
+  // Tüm butonları devre dışı bırak
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.disabled = true;
+    btn.classList.add('opacity-50', 'cursor-not-allowed');
+  });
+
+  // Seçilen butona uygun stil ekle
+  if (ok) {
+    buttonEl.className = "option-btn bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-xl border-2 border-green-400 shadow-lg transform scale-105 w-full text-left";
+  } else {
+    buttonEl.className = "option-btn bg-gradient-to-r from-red-500 to-red-600 text-white font-bold py-4 px-6 rounded-xl border-2 border-red-400 shadow-lg transform scale-105 w-full text-left";
+
+    // Doğru cevabı göster
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      if (btn.textContent === correct) {
+        btn.className = "option-btn bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-xl border-2 border-green-400 shadow-lg transform scale-105 w-full text-left";
+      }
+    });
+  }
+
+  // Geri bildirimi göster
+  document.getElementById("kbFeedback").innerHTML = ok
+      ? '<span class="text-green-600">🎉 Tebrikler! Doğru cevap!</span>'
+      : '<span class="text-red-600">❌ Yanlış! Doğru cevap gösterildi.</span>';
+
   const duration = (Date.now() - start) / 1000
   const gid = document.getElementById("gameRoot").dataset.gameId
   awardScore(document.getElementById("gameRoot").dataset.studentId, gid, ok, duration)
@@ -62,7 +84,7 @@ function load() {
     return
   }
   idx = (idx + 1) % cards.length
-  setTimeout(load, 500)
+  setTimeout(load, 2000)
 }
 
 export async function initWordQuiz(studentId, gameId, single, wordId) {

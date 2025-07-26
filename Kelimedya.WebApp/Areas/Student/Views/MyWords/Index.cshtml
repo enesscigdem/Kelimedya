@@ -5,21 +5,19 @@
 }
 
 <div class="relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50">
-    <!-- Premium Decorative Elements -->
-    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full opacity-15 -translate-x-48 -translate-y-48 blur-3xl"></div>
-    <div class="absolute top-32 right-0 w-80 h-80 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-10 translate-x-32 blur-3xl"></div>
-    <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-gradient-to-tr from-orange-300 to-yellow-300 rounded-full opacity-20 translate-y-32 blur-3xl"></div>
-    
-    <!-- Animated Floating Elements -->
+    <!-- Simplified background elements - reduced blur for performance -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full opacity-12 -translate-x-48 -translate-y-48 blur-2xl"></div>
+    <div class="absolute top-32 right-0 w-80 h-80 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-8 translate-x-32 blur-2xl"></div>
+    <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-gradient-to-tr from-orange-300 to-yellow-300 rounded-full opacity-15 translate-y-32 blur-2xl"></div>
+
+    <!-- Small decorative elements -->
     <div class="absolute top-20 left-20 w-3 h-3 bg-orange-400 rounded-full opacity-40 animate-bounce" style="animation-delay: 0s;"></div>
     <div class="absolute top-40 right-32 w-2 h-2 bg-yellow-500 rounded-full opacity-50 animate-pulse" style="animation-delay: 1s;"></div>
     <div class="absolute bottom-32 left-1/4 w-4 h-4 bg-orange-300 rounded-full opacity-30 animate-ping" style="animation-delay: 2s;"></div>
-    
+
     <div class="relative z-10 p-6">
-        <!-- Ultra Premium Header -->
         <div class="mb-12">
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-                <!-- Title Section -->
                 <div class="flex-1">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="relative">
@@ -31,42 +29,35 @@
                             </div>
                         </div>
                         <div>
-                            <h1 class="text-5xl font-bold bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-500 bg-clip-text text-transparent mb-2">
-                                Kelime Koleksiyonum
-                            </h1>
+                            <h1 class="text-5xl font-bold bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-500 bg-clip-text text-transparent mb-2">Kelime Koleksiyonum</h1>
                             <p class="text-xl text-gray-600">Öğrendiğin kelimelerin muhteşem arşivi ✨</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Advanced Search & Controls -->
                 <div class="flex flex-col sm:flex-row gap-4 lg:min-w-[400px]">
-                    <!-- Premium Search Box -->
                     <div class="relative flex-1">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                             <i class="fas fa-search text-orange-400"></i>
                         </div>
-                        <input type="text" 
+                        <input type="text"
                                id="searchInput"
-                               class="w-full pl-12 pr-4 py-4 border-2 border-orange-200 rounded-2xl text-sm bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-orange-200 focus:border-orange-400 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                               class="w-full pl-12 pr-4 py-4 border-2 border-orange-200 rounded-2xl text-sm bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-orange-200 focus:border-orange-400 transition: transform 0.3s ease, opacity 0.3s ease shadow-lg hover:shadow-xl transform hover:scale-105"
                                placeholder="Kelime ara...">
-                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-2xl opacity-0 hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease pointer-events-none"></div>
                     </div>
-                    
-                    <!-- Premium Sort Button -->
-                    <button id="sortBtn" 
-                            class="px-6 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <button id="sortBtn"
+                            class="px-6 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition: transform 0.3s ease, opacity 0.3s ease flex items-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105">
                         <i class="fas fa-sort-alpha-down"></i>
                         Sırala
                     </button>
                 </div>
             </div>
         </div>
-        
-        <!-- Premium Stats Dashboard -->
+
+        <!-- Stats cards -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div class="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-orange-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="group stats-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition: transform 0.3s ease, opacity 0.3s ease hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-orange-600/5 opacity-0 group-hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease"></div>
                 <div class="relative z-10">
                     <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-layer-group text-white"></i>
@@ -75,9 +66,8 @@
                     <div class="text-sm text-gray-600 font-medium">Toplam Kart</div>
                 </div>
             </div>
-            
-            <div class="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-green-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="group stats-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition: transform 0.3s ease, opacity 0.3s ease hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-green-600/5 opacity-0 group-hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease"></div>
                 <div class="relative z-10">
                     <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-check-circle text-white"></i>
@@ -86,9 +76,8 @@
                     <div class="text-sm text-gray-600 font-medium">Öğrenilenler</div>
                 </div>
             </div>
-            
-            <div class="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-yellow-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="group stats-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition: transform 0.3s ease, opacity 0.3s ease hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-yellow-600/5 opacity-0 group-hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease"></div>
                 <div class="relative z-10">
                     <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-calendar-day text-white"></i>
@@ -97,9 +86,8 @@
                     <div class="text-sm text-gray-600 font-medium">Bugün Çalışılan</div>
                 </div>
             </div>
-            
-            <div class="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="group stats-card bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-orange-100 text-center hover:shadow-2xl transition: transform 0.3s ease, opacity 0.3s ease hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease"></div>
                 <div class="relative z-10">
                     <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <i class="fas fa-eye text-white"></i>
@@ -109,18 +97,19 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Ultra Premium Words Grid -->
+
+        <!-- Word cards grid -->
         <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            @if(Model.LearnedWords?.Any() == true)
+            @if (Model.LearnedWords?.Any() == true)
             {
                 @foreach (var item in Model.LearnedWords)
                 {
-                    <div class="group word-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 relative">
-                        <!-- Card Background Effects -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-yellow-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="group word-card bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100 overflow-hidden hover:shadow-2xl transition: transform 0.3s ease, opacity 0.3s ease hover:-translate-y-2 hover:scale-105 relative cursor-pointer"
+                         onclick='openWordDetail(@Html.Raw(System.Text.Json.JsonSerializer.Serialize(new { word = item.WordCard.Word, definition = item.WordCard.Definition, synonym = item.WordCard.Synonym, exampleSentence = item.WordCard.ExampleSentence, imageUrl = item.WordCard.ImageUrl, viewCount = item.Progress.ViewCount, lastSeen = item.Progress.LastSeenDate?.ToString("dd MMMM yyyy"), isLearned = item.Progress.IsLearned })))'>
                         
-                        <!-- Premium Progress Header -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-yellow-50/30 opacity-0 group-hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease"></div>
+                        
+                        <!-- Header section -->
                         <div class="relative bg-gradient-to-r from-orange-500 to-orange-600 p-6 text-white overflow-hidden">
                             <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
                             <div class="absolute bottom-0 left-0 w-16 h-16 bg-white/5 rounded-full translate-y-8 -translate-x-8"></div>
@@ -134,64 +123,52 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Enhanced Word Visual -->
+
+                        <!-- Image section -->
                         <div class="relative h-40 bg-gradient-to-br from-orange-50 to-orange-100 overflow-hidden">
                             @if (!string.IsNullOrEmpty(item.WordCard.ImageUrl))
                             {
-                                <img src="@item.WordCard.ImageUrl" 
-                                     alt="@item.WordCard.Word" 
-                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <img src="@item.WordCard.ImageUrl"
+                                     alt="@item.WordCard.Word"
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-400">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                             }
                             else
                             {
                                 <div class="w-full h-full flex items-center justify-center relative">
-                                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition: transform 0.3s ease, opacity 0.3s ease">
                                         <span class="text-white text-2xl font-bold">@item.WordCard.Word.Substring(0, 1).ToUpper()</span>
                                     </div>
-                                    <!-- Decorative Elements -->
                                     <div class="absolute top-4 left-4 w-3 h-3 bg-orange-300 rounded-full opacity-60"></div>
                                     <div class="absolute bottom-4 right-4 w-2 h-2 bg-yellow-400 rounded-full opacity-80"></div>
                                 </div>
                             }
-                            
-                            <!-- Learned Badge -->
-                            @if(item.Progress.IsLearned)
+                            @if (item.Progress.IsLearned)
                             {
                                 <div class="absolute top-4 right-4">
                                     <div class="bg-green-500 text-white rounded-full px-3 py-1 text-xs font-bold flex items-center gap-2 shadow-lg backdrop-blur-sm">
-                                        <i class="fas fa-trophy"></i>
-                                        Öğrenildi
+                                        <i class="fas fa-trophy"></i>Öğrenildi
                                     </div>
                                 </div>
                             }
                         </div>
-                        
-                        <!-- Premium Content -->
+
+                        <!-- Content section -->
                         <div class="relative z-10 p-6">
-                            <h3 class="word-title text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                                @item.WordCard.Word
-                            </h3>
-                            <p class="word-definition text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
-                                @item.WordCard.Definition
-                            </p>
+                            <h3 class="word-title text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition: transform 0.3s ease, opacity 0.3s ease">@item.WordCard.Word</h3>
+                            <p class="word-definition text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">@item.WordCard.Definition</p>
                             
-                            <!-- Enhanced Meta Info -->
                             <div class="flex items-center justify-between text-xs mb-4">
                                 <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-2">
                                     <i class="fas fa-history text-gray-500"></i>
-                                    <span class="text-gray-700 font-medium">
-                                        @(item.Progress.LastSeenDate?.ToString("dd MMM") ?? "Henüz görülmedi")
-                                    </span>
+                                    <span class="text-gray-700 font-medium">@(item.Progress.LastSeenDate?.ToString("dd MMM") ?? "Henüz görülmedi")</span>
                                 </div>
                                 <div class="flex items-center gap-2 bg-orange-100 rounded-full px-3 py-2">
                                     <i class="fas fa-eye text-orange-600"></i>
                                     <span class="text-orange-700 font-bold">@item.Progress.ViewCount</span>
                                 </div>
                             </div>
-                            
-                            <!-- Premium Example Sentence -->
+
                             @if (!string.IsNullOrEmpty(item.WordCard.ExampleSentence))
                             {
                                 <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-4 border border-orange-100">
@@ -199,16 +176,13 @@
                                         <div class="w-8 h-8 bg-orange-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                             <i class="fas fa-quote-left text-orange-600 text-xs"></i>
                                         </div>
-                                        <p class="text-xs text-gray-700 italic line-clamp-2 leading-relaxed">
-                                            @item.WordCard.ExampleSentence
-                                        </p>
+                                        <p class="text-xs text-gray-700 italic line-clamp-2 leading-relaxed">@item.WordCard.ExampleSentence</p>
                                     </div>
                                 </div>
                             }
                         </div>
                         
-                        <!-- Hover Effect Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition: transform 0.3s ease, opacity 0.3s ease pointer-events-none"></div>
                     </div>
                 }
             }
@@ -221,12 +195,126 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-700 mb-4">Henüz kelime kartınız bulunmamaktadır</h3>
                         <p class="text-gray-500 text-lg mb-8">Eğitimlere katılarak kelime dağarcığınızı genişletin</p>
-                        <button class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <button class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition: transform 0.3s ease, opacity 0.3s ease shadow-lg hover:shadow-xl transform hover:scale-105">
                             Eğitimlere Başla
                         </button>
                     </div>
                 </div>
             }
+        </div>
+    </div>
+</div>
+
+<!-- Word Detail Modal -->
+<div id="wordDetailOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition: transform 0.3s ease, opacity 0.3s ease"></div>
+<div id="wordDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition: transform 0.3s ease, opacity 0.3s ease transform scale-95">
+    <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-orange-100 overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <!-- Modal Header -->
+        <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+            <div class="relative z-10 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-book-open text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 id="modalWordTitle" class="text-2xl font-bold"></h3>
+                        <p class="text-orange-100">Kelime Detayları</p>
+                    </div>
+                </div>
+                <button onclick="closeWordDetail()" class="w-10 h-10 bg-white/20 rounded-2xl flex items-center justify-center hover:bg-white/30 transition: transform 0.3s ease, opacity 0.3s ease">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Content -->
+        <div class="p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Left Column -->
+                <div class="space-y-6">
+                    <!-- Word Image -->
+                    <div class="relative">
+                        <div id="modalWordImage" class="w-full h-64 bg-gradient-to-br from-orange-50 to-orange-100 rounded-3xl overflow-hidden shadow-lg"></div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-4 text-center border border-blue-200">
+                            <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-eye text-white text-sm"></i>
+                            </div>
+                            <div id="modalViewCount" class="text-lg font-bold text-blue-600">0</div>
+                            <div class="text-xs text-gray-600">Görüntülenme</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-4 text-center border border-green-200">
+                            <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-calendar text-white text-sm"></i>
+                            </div>
+                            <div id="modalLastSeen" class="text-xs font-bold text-green-600">-</div>
+                            <div class="text-xs text-gray-600">Son Görülme</div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Status -->
+                    <div id="modalLearningStatus" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-4 border border-yellow-200">
+                        <div class="flex items-center gap-3">
+                            <div id="modalStatusIcon" class="w-10 h-10 bg-yellow-500 rounded-2xl flex items-center justify-center">
+                                <i id="modalStatusIconImg" class="fas fa-graduation-cap text-white"></i>
+                            </div>
+                            <div>
+                                <div id="modalStatusTitle" class="font-bold text-yellow-800">Öğrenme Durumu</div>
+                                <div id="modalStatusText" class="text-sm text-yellow-700">Öğreniliyor</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-6">
+                    <!-- Definition -->
+                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 border border-gray-200">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-white text-sm"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-700">Anlamı</h4>
+                        </div>
+                        <p id="modalDefinition" class="text-gray-800 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Synonym -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-6 border border-purple-200">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-equals text-white text-sm"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-700">Eş Anlamı</h4>
+                        </div>
+                        <p id="modalSynonym" class="text-gray-800 font-semibold"></p>
+                    </div>
+
+                    <!-- Example Sentence -->
+                    <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-3xl p-6 border border-orange-200">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-quote-left text-white text-sm"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-700">Örnek Cümle</h4>
+                        </div>
+                        <p id="modalExampleSentence" class="text-gray-800 italic leading-relaxed"></p>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="flex gap-4">
+                        <a asp-controller="Games" asp-action="Index" class="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition: transform 0.3s ease, opacity 0.3s ease shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="fas fa-gamepad"></i>
+                            Oyunlarla Çalış
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -237,76 +325,78 @@
             const searchInput = document.getElementById('searchInput');
             const sortBtn = document.getElementById('sortBtn');
             let sortAsc = true;
-            
-            // Enhanced Search Function with Animation
+
+            // Optimized search with requestAnimationFrame
             searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
                 const cards = document.querySelectorAll('.word-card');
                 
-                cards.forEach((card, index) => {
-                    const word = card.querySelector('.word-title').textContent.toLowerCase();
-                    const definition = card.querySelector('.word-definition').textContent.toLowerCase();
-                    const shouldShow = word.includes(searchTerm) || definition.includes(searchTerm);
-                    
-                    if (shouldShow) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
+                requestAnimationFrame(() => {
+                    cards.forEach((card, index) => {
+                        const word = card.querySelector('.word-title').textContent.toLowerCase();
+                        const definition = card.querySelector('.word-definition').textContent.toLowerCase();
+                        const shouldShow = word.includes(searchTerm) || definition.includes(searchTerm);
+                        
+                        if (shouldShow) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, index * 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                if (card.style.opacity === '0') {
+                                    card.style.display = 'none';
+                                }
+                            }, 300);
+                        }
+                    });
                 });
             });
-            
-            // Enhanced Sort Function with Animation
+
+            // Optimized sort function
             sortBtn.addEventListener('click', () => {
                 const container = document.getElementById('cardsGrid');
                 const cards = Array.from(container.children);
                 
-                // Add loading state
                 sortBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sıralanıyor...';
                 sortBtn.disabled = true;
-                
+
                 setTimeout(() => {
-                    cards.sort((a, b) => {
-                        const wordA = a.querySelector('.word-title').textContent.trim();
-                        const wordB = b.querySelector('.word-title').textContent.trim();
-                        return sortAsc ? 
-                            wordA.localeCompare(wordB, 'tr') : 
-                            wordB.localeCompare(wordA, 'tr');
-                    });
-                    
-                    // Animate cards out
-                    cards.forEach((card, index) => {
-                        card.style.transform = 'translateY(-20px)';
-                        card.style.opacity = '0';
-                    });
-                    
-                    setTimeout(() => {
-                        cards.forEach(card => container.appendChild(card));
-                        
-                        // Animate cards back in
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.style.transform = 'translateY(0)';
-                                card.style.opacity = '1';
-                            }, index * 50);
+                    requestAnimationFrame(() => {
+                        cards.sort((a, b) => {
+                            const wordA = a.querySelector('.word-title').textContent.trim();
+                            const wordB = b.querySelector('.word-title').textContent.trim();
+                            return sortAsc ? 
+                                wordA.localeCompare(wordB, 'tr') : 
+                                wordB.localeCompare(wordA, 'tr');
                         });
-                        
-                        sortAsc = !sortAsc;
-                        sortBtn.innerHTML = `<i class="fas fa-sort-alpha-${sortAsc ? 'down' : 'up'}"></i> Sırala`;
-                        sortBtn.disabled = false;
-                    }, 300);
+
+                        cards.forEach((card, index) => {
+                            card.style.transform = 'translateY(-20px)';
+                            card.style.opacity = '0';
+                        });
+
+                        setTimeout(() => {
+                            cards.forEach(card => container.appendChild(card));
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.style.transform = 'translateY(0)';
+                                    card.style.opacity = '1';
+                                }, index * 50);
+                            });
+
+                            sortAsc = !sortAsc;
+                            sortBtn.innerHTML = `<i class="fas fa-sort-alpha-${sortAsc ? 'down' : 'up'}"></i> Sırala`;
+                            sortBtn.disabled = false;
+                        }, 300);
+                    });
                 }, 500);
             });
-            
-            // Add stagger animation on load
+
+            // Initial card animation
             const cards = document.querySelectorAll('.word-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
@@ -318,31 +408,121 @@
                 }, index * 100);
             });
         });
+
+        // Modal functions
+        function openWordDetail(wordData) {
+            const overlay = document.getElementById('wordDetailOverlay');
+            const modal = document.getElementById('wordDetailModal');
+            const titleEl = document.getElementById('modalWordTitle');
+            const defEl = document.getElementById('modalDefinition');
+            const synEl = document.getElementById('modalSynonym');
+            const exSentEl = document.getElementById('modalExampleSentence');
+            const viewCountEl = document.getElementById('modalViewCount');
+            const lastSeenEl = document.getElementById('modalLastSeen');
+            const imgContainer = document.getElementById('modalWordImage');
+            const statusContainer = document.getElementById('modalLearningStatus');
+            const iconWrapper = document.getElementById('modalStatusIcon');
+            const iconImg = document.getElementById('modalStatusIconImg');
+            const statusTitle = document.getElementById('modalStatusTitle');
+            const statusText = document.getElementById('modalStatusText');
+
+            // Fill modal content
+            titleEl.textContent = wordData.word;
+            defEl.textContent = wordData.definition || 'Tanım belirtilmemiş';
+            synEl.textContent = wordData.synonym || 'Eş anlamı belirtilmemiş';
+            exSentEl.textContent = wordData.exampleSentence || 'Örnek cümle belirtilmemiş';
+            viewCountEl.textContent = wordData.viewCount != null ? wordData.viewCount : '0';
+            lastSeenEl.textContent = wordData.lastSeen || 'Henüz görülmedi';
+
+            // Set image
+            if (wordData.imageUrl) {
+                imgContainer.innerHTML = `<img src="${wordData.imageUrl}" alt="${wordData.word}" class="w-full h-full object-cover">`;
+            } else {
+                imgContainer.innerHTML = `
+                    <div class="w-full h-full flex items-center justify-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center shadow-xl">
+                            <span class="text-white text-3xl font-bold">${wordData.word.charAt(0).toUpperCase()}</span>
+                        </div>
+                    </div>`;
+            }
+
+            // Set learning status
+            statusContainer.className = 'bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-4 border border-yellow-200';
+            iconWrapper.className = 'w-10 h-10 bg-yellow-500 rounded-2xl flex items-center justify-center';
+            iconImg.className = 'fas fa-graduation-cap text-white';
+            statusTitle.className = 'font-bold text-yellow-800';
+            statusText.className = 'text-sm text-yellow-700';
+            statusText.textContent = 'Öğreniliyor';
+
+            if (wordData.isLearned) {
+                statusContainer.classList.replace('from-yellow-50', 'from-green-50');
+                statusContainer.classList.replace('to-yellow-100', 'to-green-100');
+                statusContainer.classList.replace('border-yellow-200', 'border-green-200');
+                iconWrapper.classList.replace('bg-yellow-500', 'bg-green-500');
+                iconImg.classList.replace('fa-graduation-cap', 'fa-trophy');
+                statusTitle.classList.replace('text-yellow-800', 'text-green-800');
+                statusText.textContent = 'Öğrenildi ✓';
+            }
+
+            // Show modal
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+            modal.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+            modal.classList.add('opacity-100', 'scale-100');
+        }
+
+        function closeWordDetail() {
+            const overlay = document.getElementById('wordDetailOverlay');
+            const modal = document.getElementById('wordDetailModal');
+            
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+            modal.classList.remove('opacity-100', 'scale-100');
+        }
+
+        // Close modal when clicking overlay
+        document.getElementById('wordDetailOverlay').addEventListener('click', closeWordDetail);
     </script>
 }
 
 <style>
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 
-.word-card {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    /* GPU-optimized card animations */
+    .word-card {
+        will-change: transform, opacity;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
 
-.word-card:hover {
-    transform: translateY(-8px) scale(1.02);
-}
+    .word-card:hover {
+        transform: translateY(-8px) scale(1.02) translateZ(0);
+    }
 
-@@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
+    .stats-card {
+        will-change: transform, opacity;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
 
-.group:hover .shimmer {
-    animation: shimmer 1s ease-in-out;
-}
+    .stats-card:hover {
+        transform: translateY(-4px) translateZ(0);
+    }
+
+    @@keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    .group:hover .shimmer {
+        animation: shimmer 1s ease-in-out;
+    }
 </style>

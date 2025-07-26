@@ -5,13 +5,11 @@
 }
 
 <div class="relative">
-    <!-- Decorative Circles -->
     <div class="absolute top-0 left-0 w-80 h-80 bg-pink-300 rounded-full decorative-circle -translate-x-32 -translate-y-32"></div>
     <div class="absolute top-20 right-0 w-60 h-60 bg-orange-300 rounded-full decorative-circle translate-x-20"></div>
     <div class="absolute bottom-0 right-1/2 w-40 h-40 bg-yellow-300 rounded-full decorative-circle translate-x-1/2 translate-y-20"></div>
     
     <div class="relative z-10">
-        <!-- Hero Section -->
         <div class="text-center mb-12">
             <h1 class="text-5xl font-bold text-orange-custom mb-4">Merhaba, Ali!</h1>
             <p class="text-lg text-gray-600">Güne başlamak için harika bir zaman. Kelime dağarcığını genişletmeye hazır mısın?</p>
@@ -19,9 +17,7 @@
         
         @if (Model.TotalCourses > 0)
         {
-            <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <!-- Toplam Eğitim -->
                 <div class="bg-pink-light border border-pink-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="absolute top-4 right-4">
                         <div class="w-10 h-10 bg-orange-custom rounded-lg flex items-center justify-center">
@@ -35,7 +31,6 @@
                     </div>
                 </div>
                 
-                <!-- Tamamlanan Dersler -->
                 <div class="bg-green-light border border-green-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="absolute top-4 right-4">
                         <div class="w-10 h-10 bg-green-custom rounded-lg flex items-center justify-center">
@@ -49,7 +44,6 @@
                     </div>
                 </div>
                 
-                <!-- Öğrenilen Kelimeler -->
                 <div class="bg-yellow-light border border-yellow-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="absolute top-4 right-4">
                         <div class="w-10 h-10 bg-yellow-custom rounded-lg flex items-center justify-center">
@@ -64,9 +58,7 @@
                 </div>
             </div>
             
-            <!-- Progress Sections -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <!-- Course Progress -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-lg font-semibold text-gray-900">Kurs İlerlemelerim</h2>
@@ -107,7 +99,6 @@
                     </div>
                 </div>
                 
-                <!-- Lesson Progress -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="mb-6">
                         <h2 class="text-lg font-semibold text-gray-900">Ders İlerlemelerim</h2>
@@ -200,9 +191,7 @@
                 </div>
             </div>
             
-            <!-- Statistics Section -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Game Statistics -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-12 h-12 bg-orange-light rounded-xl flex items-center justify-center">
@@ -277,7 +266,6 @@
                     </div>
                 </div>
                 
-                <!-- Test Statistics -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-12 h-12 bg-blue-light rounded-xl flex items-center justify-center">

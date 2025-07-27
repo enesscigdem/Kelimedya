@@ -65,9 +65,6 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CourseViewModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
-
             using (var content = new MultipartFormDataContent())
             {
                 content.Add(new StringContent(model.Title), "Title");
@@ -114,8 +111,6 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             if (id != model.Id)
                 return BadRequest();
-            if (!ModelState.IsValid)
-                return View(model);
 
             // Multipart form-data olarak gönderim yapmak için:
             using (var content = new MultipartFormDataContent())

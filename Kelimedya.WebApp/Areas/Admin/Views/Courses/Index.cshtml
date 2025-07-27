@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Kelimedya.WebApp.Areas.Admin.Models.CourseAggregateViewModel>
+﻿@using System.Text.RegularExpressions
+@model IEnumerable<Kelimedya.WebApp.Areas.Admin.Models.CourseAggregateViewModel>
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -300,11 +301,22 @@
                                 <td>@card.Definition</td>
                                 <td>@card.ExampleSentence</td>
                                 <td>
-                                  @if(!string.IsNullOrEmpty(card.ImageUrl))
+                                  @if (!string.IsNullOrEmpty(card.ImageUrl))
                                   {
-                                    <img src="@card.ImageUrl" alt="Kelime Kartı Resmi" class="thumb" />
+                                      var match = Regex.Match(card.ImageUrl, @"/d/([^/]+)");
+                                      if (match.Success)
+                                      {
+                                          var fileId = match.Groups[1].Value;
+                                          var thumbUrl = $"https://drive.google.com/thumbnail?authuser=0&sz=w320&id={fileId}";
+                                          <img src="@thumbUrl" alt="Kelime Kartı Resmi" class="thumb" />
+                                      }
+                                      else
+                                      {
+                                          <span class="text-muted">Resim bulunamadı</span>
+                                      }
                                   }
                                 </td>
+
                                 <td class="text-end">
                                   <a href="@Url.Action("Edit", "WordCards", new { area = "Admin", id = card.Id })" class="btn btn-primary btn-sm me-1" data-bs-toggle="tooltip" title="Kartı Düzenle">
                                     <i class="fa fa-edit"></i>

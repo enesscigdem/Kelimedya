@@ -1,8 +1,24 @@
 {
   "Files": [
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ad44dc70-2e76-4739-8fcd-d629dd760c7c.avif",
+      "PackagePath": "staticwebassets/uploads/courses/ad44dc70-2e76-4739-8fcd-d629dd760c7c.avif"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.avif",
+      "PackagePath": "staticwebassets/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.avif"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png",
+      "PackagePath": "staticwebassets/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/1163e846-cd87-4c8a-a08b-5ea195b9a1ef.jpeg",
       "PackagePath": "staticwebassets/uploads/lessons/1163e846-cd87-4c8a-a08b-5ea195b9a1ef.jpeg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif",
+      "PackagePath": "staticwebassets/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/44725d31-42a2-4305-b617-21e3854ecfee.jpeg",
@@ -33,6 +49,10 @@
       "PackagePath": "staticwebassets/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/products/90f919f9-9ef3-43ca-92c9-3ace8edc7505.png",
+      "PackagePath": "staticwebassets/uploads/products/90f919f9-9ef3-43ca-92c9-3ace8edc7505.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg",
       "PackagePath": "staticwebassets/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg"
     },
@@ -59,6 +79,10 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg",
       "PackagePath": "staticwebassets/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg",

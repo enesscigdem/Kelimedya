@@ -300,17 +300,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3qg6HswEzaSn3KHKNAN5Pt83VmL44a88L/hUmhlAH7M="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"9679"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223qg6HswEzaSn3KHKNAN5Pt83VmL44a88L/hUmhlAH7M=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 12:42:40 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/BubbleLetters.dheic00ni8.js">
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/BubbleLetters.9sfkmzehr9.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"dheic00ni8"},{"Name":"integrity","Value":"sha256-0WX6EXl\u002BgH9leDv3DllAgNJRQSnFaGRWlr/jxYGBua0="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/BubbleLetters.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6588"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220WX6EXl\u002BgH9leDv3DllAgNJRQSnFaGRWlr/jxYGBua0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 12:42:40 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9sfkmzehr9"},{"Name":"integrity","Value":"sha256-6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/BubbleLetters.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6191"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00226e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 16:57:13 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/BubbleLetters.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0WX6EXl\u002BgH9leDv3DllAgNJRQSnFaGRWlr/jxYGBua0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6588"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220WX6EXl\u002BgH9leDv3DllAgNJRQSnFaGRWlr/jxYGBua0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 12:42:40 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6191"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00226e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 16:57:13 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/common.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</AssetFile>
@@ -360,17 +360,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kcgg79n3rm"},{"Name":"integrity","Value":"sha256-xBEH11NeCvkThbrGy\u002B7tNWwgZO5AsEGwGe4u1h40gkk="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/KelimeBulmaca.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4336"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022xBEH11NeCvkThbrGy\u002B7tNWwgZO5AsEGwGe4u1h40gkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 12:42:40 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/SentenceBuilder.9kudlgftxy.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9kudlgftxy"},{"Name":"integrity","Value":"sha256-B3\u002B5ve4ysamb6MBNLNq9JRtlLENgHsm3C6Y\u002BvRKzcBE="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/SentenceBuilder.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4715"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022B3\u002B5ve4ysamb6MBNLNq9JRtlLENgHsm3C6Y\u002BvRKzcBE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 16:53:09 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/SentenceBuilder.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-CBSQyI9U2LXsfSUPorx0RXGgEB7QnyHDe3UPaZSUlgs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4617"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022CBSQyI9U2LXsfSUPorx0RXGgEB7QnyHDe3UPaZSUlgs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 12:42:40 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/SentenceBuilder.k14m6uzo2w.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k14m6uzo2w"},{"Name":"integrity","Value":"sha256-CBSQyI9U2LXsfSUPorx0RXGgEB7QnyHDe3UPaZSUlgs="},{"Name":"label","Value":"_content/Kelimedya.WebApp/js/games/SentenceBuilder.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4617"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022CBSQyI9U2LXsfSUPorx0RXGgEB7QnyHDe3UPaZSUlgs=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 12:42:40 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-B3\u002B5ve4ysamb6MBNLNq9JRtlLENgHsm3C6Y\u002BvRKzcBE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4715"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022B3\u002B5ve4ysamb6MBNLNq9JRtlLENgHsm3C6Y\u002BvRKzcBE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 16:53:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApp/js/games/SynonymMatch.bkmryvrrar.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SynonymMatch.js'))</AssetFile>

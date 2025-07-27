@@ -1,5 +1,41 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/courses/ad44dc70-2e76-4739-8fcd-d629dd760c7c.avif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\courses\ad44dc70-2e76-4739-8fcd-d629dd760c7c.avif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"124845"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:10:43 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/courses/ad44dc70-2e76-4739-8fcd-d629dd760c7c.cj68cakk6s.avif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\courses\ad44dc70-2e76-4739-8fcd-d629dd760c7c.avif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cj68cakk6s"},{"Name":"integrity","Value":"sha256-GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/courses/ad44dc70-2e76-4739-8fcd-d629dd760c7c.avif"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"124845"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:10:43 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.avif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\courses\bc9a21d6-00e5-4881-8273-8787ce082068.avif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"124845"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:23:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.cj68cakk6s.avif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\courses\bc9a21d6-00e5-4881-8273-8787ce082068.avif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cj68cakk6s"},{"Name":"integrity","Value":"sha256-GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.avif"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"124845"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:23:41 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.f23ackgio5.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\courses\ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f23ackgio5"},{"Name":"integrity","Value":"sha256-\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"19707"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:11:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\courses\ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"19707"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:11:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/lessons/1163e846-cd87-4c8a-a08b-5ea195b9a1ef.jpeg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\lessons\1163e846-cd87-4c8a-a08b-5ea195b9a1ef.jpeg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -11,6 +47,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"q1ks0repui"},{"Name":"integrity","Value":"sha256-gj/PqSidVxmKTxZqJlzw7awHVtiSHaBdz3HjO\u002BIew6A="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/lessons/1163e846-cd87-4c8a-a08b-5ea195b9a1ef.jpeg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3366"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022gj/PqSidVxmKTxZqJlzw7awHVtiSHaBdz3HjO\u002BIew6A=\u0022"},{"Name":"Last-Modified","Value":"Sun, 16 Feb 2025 14:24:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\lessons\1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"124845"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:12:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.cj68cakk6s.avif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\lessons\1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cj68cakk6s"},{"Name":"integrity","Value":"sha256-GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"124845"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022GAe05ZwDdd5t\u002B5KfPqA5PaGz6O88a6W9gCcC5WZ\u002Bkkk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:12:32 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/lessons/44725d31-42a2-4305-b617-21e3854ecfee.jpeg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\lessons\44725d31-42a2-4305-b617-21e3854ecfee.jpeg'))</AssetFile>
@@ -96,6 +144,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ycsucv33cx"},{"Name":"integrity","Value":"sha256-7rz0kS\u002BaWZ/O1XN2iJY66YTJzj3cZx8HUBEZQfOsd8E="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/products/6c3928c5-257e-47d8-b014-06d09c46ef57.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"102363"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00227rz0kS\u002BaWZ/O1XN2iJY66YTJzj3cZx8HUBEZQfOsd8E=\u0022"},{"Name":"Last-Modified","Value":"Sat, 12 Apr 2025 14:41:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/products/90f919f9-9ef3-43ca-92c9-3ace8edc7505.f23ackgio5.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\90f919f9-9ef3-43ca-92c9-3ace8edc7505.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f23ackgio5"},{"Name":"integrity","Value":"sha256-\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/products/90f919f9-9ef3-43ca-92c9-3ace8edc7505.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"19707"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:26:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/products/90f919f9-9ef3-43ca-92c9-3ace8edc7505.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\products\90f919f9-9ef3-43ca-92c9-3ace8edc7505.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"19707"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002BfUS17ITgGGahOu6WIu7ZvL/M6xZ44On155WsWb/M9g=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:26:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\profiles\87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -179,6 +239,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"l35mz946y1"},{"Name":"integrity","Value":"sha256-UUpYieoPg2RDqkAVo2geWESFaIJVQQS/YfbVc07hNjg="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8785"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022UUpYieoPg2RDqkAVo2geWESFaIJVQQS/YfbVc07hNjg=\u0022"},{"Name":"Last-Modified","Value":"Sun, 16 Feb 2025 14:27:16 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.g3seffg80n.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\wordcards\5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"g3seffg80n"},{"Name":"integrity","Value":"sha256-vJAJMnR/VahfI8uKDIWZFu67VRqHX6QvFi0LDQhKa0I="},{"Name":"label","Value":"_content/Kelimedya.WebApi/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"280628"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022vJAJMnR/VahfI8uKDIWZFu67VRqHX6QvFi0LDQhKa0I=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:18:02 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\wordcards\5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-vJAJMnR/VahfI8uKDIWZFu67VRqHX6QvFi0LDQhKa0I="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"280628"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022vJAJMnR/VahfI8uKDIWZFu67VRqHX6QvFi0LDQhKa0I=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Jul 2025 15:18:02 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Kelimedya.WebApi/uploads/wordcards/ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\wordcards\ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg'))</AssetFile>

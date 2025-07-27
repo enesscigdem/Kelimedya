@@ -18,14 +18,28 @@ function shuffle(arr) {
 function render() {
   const sentenceEl = document.getElementById("sbSentence")
   const optionsEl = document.getElementById("sbOptions")
-
   if (!sentenceEl || !optionsEl) return
 
-  // Render current sentence
-  sentenceEl.innerHTML =
-      currentSentence.length > 0
-          ? currentSentence.map((word) => `<span class="sentence-slot filled">${word}</span>`).join(" ")
-          : '<span class="text-gray-400">Kelimeleri seçerek cümle kurun...</span>'
+  // Render current sentence slots (click to remove)
+  let html = ""
+  if (currentSentence.length > 0) {
+    html = currentSentence.map((word, i) =>
+        `<span class=\"sentence-slot filled cursor-pointer\" data-index=\"${i}\">${word}</span>`
+    ).join(" ")
+  } else {
+    html = '<span class=\"text-gray-400\">Kelimeleri seçerek cümle kurun...</span>'
+  }
+  sentenceEl.innerHTML = html
+
+  // Attach click handler to slots for removal
+  sentenceEl.querySelectorAll('.sentence-slot.filled').forEach(el => {
+    el.onclick = () => {
+      const i = parseInt(el.dataset.index)
+      const word = currentSentence.splice(i, 1)[0]
+      availableWords.push(word)
+      render()
+    }
+  })
 
   // Render available words
   optionsEl.innerHTML = ""
@@ -39,126 +53,103 @@ function render() {
 }
 
 function selectWord(index) {
-  const word = availableWords[index]
+  const word = availableWords.splice(index, 1)[0]
   currentSentence.push(word)
-  availableWords.splice(index, 1)
   render()
 }
 
-function checkSentence() {
-  const isCorrect = JSON.stringify(currentSentence) === JSON.stringify(targetSentence)
-  const duration = (Date.now() - startTime) / 1000
-  const gid = document.getElementById("gameRoot").dataset.gameId
-  const sid = document.getElementById("gameRoot").dataset.studentId
+function normalizeWord(w) {
+  return w
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/\p{M}/gu, '')
+      .replace(/[^\p{L}\p{N}]/gu, '')
+}
 
-  awardScore(sid, gid, isCorrect, duration)
+function checkSentence() {
+  // Compare length first
+  const lengthMatch = currentSentence.length === targetSentence.length
+  // Compare words ignoring case, punctuation, diacritics
+  const orderMatch = currentSentence.every((w, i) =>
+      normalizeWord(w) === normalizeWord(targetSentence[i])
+  )
+  const isCorrect = lengthMatch && orderMatch
+
+  awardScore(
+      document.getElementById("gameRoot").dataset.studentId,
+      document.getElementById("gameRoot").dataset.gameId,
+      isCorrect,
+      (Date.now() - startTime) / 1000
+  )
 
   const feedbackEl = document.getElementById("sbFeedback")
-  if (feedbackEl) {
-    if (isCorrect) {
-      feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
-      setTimeout(() => {
-        if (window.parent !== window) {
-          window.parent.postMessage("next-game", "*")
-        } else {
-          nextSentence()
-        }
-      }, 2000)
-    } else {
-      feedbackEl.innerHTML = '<span class="text-red-600">❌ Yanlış! Tekrar dene.</span>'
-      setTimeout(() => {
-        feedbackEl.innerHTML = ""
-      }, 2000)
-    }
-  }
+  if (!feedbackEl) return
+  feedbackEl.innerHTML = isCorrect
+      ? '<span class=\"text-green-600\">🎉 Tebrikler! Doğru cümle kurdun!</span>'
+      : '<span class=\"text-red-600\">❌ Yanlış! Tekrar dene.</span>'
+  setTimeout(() => { feedbackEl.innerHTML = "" }, 2000)
 }
 
 function revealAnswer() {
   currentSentence = [...targetSentence]
   availableWords = []
   render()
-
   const feedbackEl = document.getElementById("sbFeedback")
-  if (feedbackEl) {
-    feedbackEl.innerHTML = '<span class="text-blue-600">💡 Doğru cevap gösterildi!</span>'
-    setTimeout(() => {
-      if (window.parent !== window) {
-        window.parent.postMessage("next-game", "*")
-      } else {
-        nextSentence()
-      }
-    }, 2000)
-  }
+  if (feedbackEl) feedbackEl.innerHTML = '<span class=\"text-blue-600\">💡 Doğru cevap gösterildi!</span>'
+  setTimeout(() => {
+    if (window.parent !== window) window.parent.postMessage("next-game", "*")
+    else nextSentence()
+  }, 2000)
 }
 
 function nextSentence() {
-  if (cards.length === 0) {
-    if (window.parent !== window) {
-      window.parent.postMessage("next-game", "*")
-    }
+  if (!cards.length) {
+    if (window.parent !== window) window.parent.postMessage("next-game", "*")
     return
   }
-
   idx = (idx + 1) % cards.length
   setupSentence()
 }
 
 function setupSentence() {
+  const gid = parseInt(document.getElementById("gameRoot").dataset.gameId)
   const card = cards[idx]
-  const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
-  const q = card.gameQuestions?.find((g) => g.gameId === gid)
+  const q = card.gameQuestions?.find(g => g.gameId === gid) || {}
 
-  // Create a simple sentence with the word
-  const word = q?.answerText || card.word
-  const sentences = [
-    ["Bu", "bir", word, "örneğidir"],
-    ["Kelime", word, "anlamına", "gelir"],
-    [word, "çok", "güzel", "bir", "kelimedir"],
-    ["Bugün", word, "kelimesini", "öğrendim"],
-  ]
+  // Build target from answerText words
+  const rawAnswer = q.answerText || card.word
+  targetSentence = rawAnswer
+      .replace(/[\p{P}]/gu, '')
+      .split(/\s+/)
+      .map(w => w.trim())
 
-  targetSentence = sentences[Math.floor(Math.random() * sentences.length)]
+  // Available options from questionText
+  const rawQuestion = q.questionText || card.word
+  availableWords = rawQuestion.split("-").map(w => w.trim())
+
   currentSentence = []
-  availableWords = [...targetSentence]
   shuffle(availableWords)
 
   startTime = Date.now()
   render()
-
-  const feedbackEl = document.getElementById("sbFeedback")
-  if (feedbackEl) {
-    feedbackEl.innerHTML = ""
-  }
+  const fb = document.getElementById("sbFeedback")
+  if (fb) fb.innerHTML = ""
 }
 
 export async function initSentenceBuilder(studentId, gameId, single, wordId) {
-  if (single) {
-    if (wordId) {
-      const card = await fetchWordCardWithQuestions(wordId)
-      cards = card ? [card] : [{ word: single, gameQuestions: [] }]
-    } else {
-      cards = [{ word: single, gameQuestions: [] }]
-    }
+  if (single && wordId) {
+    const card = await fetchWordCardWithQuestions(wordId)
+    cards = card ? [card] : [{ word: single, gameQuestions: [] }]
     singleMode = true
-  } else {
+  } else if (!single) {
     cards = await fetchLearnedWords(studentId)
-    if (cards.length === 0) cards = [{ word: "örnek", gameQuestions: [] }]
-    singleMode = false
+    if (!cards.length) cards = [{ word: "örnek-örnek-örnek", gameQuestions: [] }]
   }
-
   idx = 0
   setupSentence()
 
-  // Setup buttons
-  const checkBtn = document.getElementById("sbCheck")
-  const revealBtn = document.getElementById("sbReveal")
-  const nextBtn = document.getElementById("sbNext")
-
-  if (checkBtn) checkBtn.onclick = checkSentence
-  if (revealBtn) revealBtn.onclick = revealAnswer
-  if (nextBtn) nextBtn.onclick = nextSentence
-
-  if (singleMode && nextBtn) {
-    nextBtn.style.display = "none"
-  }
+  document.getElementById("sbCheck").onclick = checkSentence
+  document.getElementById("sbReveal").onclick = revealAnswer
+  document.getElementById("sbNext").onclick = nextSentence
+  if (singleMode) document.getElementById("sbNext").style.display = "none"
 }

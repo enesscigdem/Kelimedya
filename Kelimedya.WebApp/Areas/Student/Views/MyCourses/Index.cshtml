@@ -2,6 +2,9 @@
 @{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Eğitimlerim";
+    var totalWords = Model?.Sum(x => x.Course.WordCount) ?? 0;
+    var progressVals = Model?.Where(x => x.Progress != null).Select(x => (double)x.Progress.CompletionPercentage).ToList() ?? new List<double>();
+    var avgProgress = progressVals.Any() ? progressVals.Average() : 0;
 }
 
 <div class="relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50">
@@ -68,14 +71,14 @@
                 <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <i class="fas fa-clock text-white"></i>
                 </div>
-                <div class="text-3xl font-bold text-blue-600 mb-2">24</div>
-                <div class="text-sm text-gray-600 font-medium">Toplam Saat</div>
+                <div class="text-3xl font-bold text-blue-600 mb-2">@totalWords</div>
+                <div class="text-sm text-gray-600 font-medium">Toplam Kelime</div>
             </div>
             <div class="group stats-card bg-white rounded-3xl p-6 shadow-xl border border-orange-100 text-center">
                 <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <i class="fas fa-trophy text-white"></i>
                 </div>
-                <div class="text-3xl font-bold text-yellow-600 mb-2">85%</div>
+                <div class="text-3xl font-bold text-yellow-600 mb-2">@string.Format("{0:0}%", avgProgress)</div>
                 <div class="text-sm text-gray-600 font-medium">Ortalama İlerleme</div>
             </div>
         </div>
@@ -112,13 +115,13 @@
                             {
                                 <div class="absolute top-4 right-4">
                                     <div class="bg-white rounded-full px-3 py-1 shadow-lg">
-                                        <span class="text-sm font-semibold text-orange-600">@string.Format("{0:0}%", 50)</span>
+                                        <span class="text-sm font-semibold text-orange-600">@string.Format("{0:0}%", item.Progress.CompletionPercentage)</span>
                                     </div>
                                 </div>
                             }
                             <div class="absolute top-4 left-4">
                                 <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full px-3 py-1 text-xs font-bold shadow-lg">
-                                    <i class="fas fa-star mr-1"></i>Orta Seviye
+                                    <i class="fas fa-star mr-1"></i>Genel
                                 </div>
                             </div>
                         </div>
@@ -131,15 +134,15 @@
                             <div class="flex items-center gap-4 mb-4 text-sm">
                                 <div class="flex items-center gap-2 bg-orange-100 rounded-full px-3 py-2">
                                     <i class="fas fa-book-open text-orange-600"></i>
-                                    <span class="text-orange-700 font-medium">3 Ders</span>
+                                    <span class="text-orange-700 font-medium">@item.Course.LessonCount Ders</span>
                                 </div>
                                 <div class="flex items-center gap-2 bg-blue-100 rounded-full px-3 py-2">
-                                    <i class="fas fa-clock text-blue-600"></i>
-                                    <span class="text-blue-700 font-medium">12 dk</span>
+                                    <i class="fas fa-book text-blue-600"></i>
+                                    <span class="text-blue-700 font-medium">@item.Course.WordCount Kelime</span>
                                 </div>
                                 <div class="flex items-center gap-2 bg-green-100 rounded-full px-3 py-2">
-                                    <i class="fas fa-users text-green-600"></i>
-                                    <span class="text-green-700 font-medium">1.2k</span>
+                                    <i class="fas fa-percent text-green-600"></i>
+                                    <span class="text-green-700 font-medium">@string.Format("{0:0}%", item.Progress?.CompletionPercentage ?? 0)</span>
                                 </div>
                             </div>
 
@@ -148,11 +151,11 @@
                                 <div class="mb-6">
                                     <div class="flex justify-between items-center mb-2">
                                         <span class="text-sm font-medium text-gray-700">İlerleme</span>
-                                        <span class="text-sm font-bold text-orange-600">@string.Format("{0:0}%", 50)</span>
+                                        <span class="text-sm font-bold text-orange-600">@string.Format("{0:0}%", item.Progress.CompletionPercentage)</span>
                                     </div>
                                     <div class="w-full bg-gray-200 rounded-full h-3 shadow-inner">
                                         <div class="bg-gradient-to-r from-orange-500 to-orange-400 h-3 rounded-full transition: transform 0.3s ease, opacity 0.3s ease shadow-sm"
-                                             style="width: 50%">
+                                             style="width: @(item.Progress.CompletionPercentage)%">
                                         </div>
                                     </div>
                                 </div>

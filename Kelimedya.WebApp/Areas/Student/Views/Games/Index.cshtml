@@ -13,280 +13,280 @@
 </style>
 
 <div class="relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50">
-    <div class="absolute top-32 right-0 w-80 h-80 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-8 translate-x-32 blur-[150px]"></div>
-    <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-gradient-to-tr from-orange-300 to-yellow-300 rounded-full opacity-15 translate-y-32 blur-[150px]"></div>
-    <div class="max-w-7xl mx-auto px-4 py-8">
-        
-        <!-- Page Header -->
-        <div class="mb-8">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <i class="fas fa-gamepad text-2xl text-white"></i>
-                </div>
-                <div>
-                    <h1 class="text-3xl font-bold text-gray-900">Eğlenceli Oyunlar</h1>
-                    <p class="text-gray-600">Öğrenirken eğlen, eğlenirken öğren! 🎮</p>
-                </div>
-            </div>
+<div class="absolute top-32 right-0 w-80 h-80 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-8 translate-x-32 blur-[150px]"></div>
+<div class="absolute bottom-0 left-1/3 w-64 h-64 bg-gradient-to-tr from-orange-300 to-yellow-300 rounded-full opacity-15 translate-y-32 blur-[150px]"></div>
+<div class="max-w-7xl mx-auto px-4 py-8">
+
+<!-- Page Header -->
+<div class="mb-8">
+    <div class="flex items-center gap-4 mb-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+            <i class="fas fa-gamepad text-2xl text-white"></i>
         </div>
-
-        @{ bool disabled = !(ViewBag.HasCourses as bool? ?? false); }
-        
-        @if (disabled)
-        {
-            <div class="bg-orange-50 border border-orange-200 rounded-2xl p-6 mb-8">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-lock text-white text-lg"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-orange-800 text-lg">Oyunlara Erişim</h3>
-                        <p class="text-orange-700">Oyunlara erişmek için önce bir eğitime kaydolmalısınız.</p>
-                    </div>
-                </div>
-            </div>
-        }
-
-        <!-- Stats Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-gamepad text-white text-lg"></i>
-                    </div>
-                </div>
-                <div class="text-3xl font-bold text-gray-900 mb-1">@ViewBag.TotalGames</div>
-                <div class="text-gray-600 text-sm">Toplam Oyun</div>
-            </div>
-            
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-trophy text-white text-lg"></i>
-                    </div>
-                </div>
-                <div class="text-3xl font-bold text-green-600 mb-1">@ViewBag.CompletedGames</div>
-                <div class="text-gray-600 text-sm">Tamamlanan</div>
-            </div>
-            
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-star text-white text-lg"></i>
-                    </div>
-                </div>
-                <div class="text-3xl font-bold text-blue-600 mb-1">@ViewBag.TotalScore</div>
-                <div class="text-gray-600 text-sm">Toplam Puan</div>
-            </div>
-            
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-clock text-white text-lg"></i>
-                    </div>
-                </div>
-                <div class="text-3xl font-bold text-yellow-600 mb-1">@ViewBag.TotalMinutes</div>
-                <div class="text-gray-600 text-sm">Dakika Oynadı</div>
-            </div>
-        </div>
-
-        <!-- Games Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    
-    <!-- Adam Asmaca -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-user-secret text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Adam Asmaca</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Harfleri tahmin ederek kelimeleri bul!</p>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Kolay</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
-            </div>
-            
-            <a href="/Student/Games/AdamAsmaca" 
-               class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900">Eğlenceli Oyunlar</h1>
+            <p class="text-gray-600">Öğrenirken eğlen, eğlenirken öğren! 🎮</p>
         </div>
     </div>
+</div>
 
-    <!-- Kelime Bulmaca -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-search text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Kelime Bulmaca</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Karışık harflerden doğru kelimeyi oluştur!</p>
-                </div>
+@{ bool disabled = !(ViewBag.HasCourses as bool? ?? false); }
+
+@if (disabled)
+{
+    <div class="bg-orange-50 border border-orange-200 rounded-2xl p-6 mb-8">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-lock text-white text-lg"></i>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Orta</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
+            <div>
+                <h3 class="font-semibold text-orange-800 text-lg">Oyunlara Erişim</h3>
+                <p class="text-orange-700">Oyunlara erişmek için önce bir eğitime kaydolmalısınız.</p>
             </div>
-            
-            <a href="/Student/Games/KelimeBulmaca" 
-               class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
     </div>
+}
 
-    <!-- Görselden Soru -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-image text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Görselden Soru</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Görsellere bakarak soruları yanıtla!</p>
-                </div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                <i class="fas fa-gamepad text-white text-lg"></i>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Kolay</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
-            </div>
-            
-            <a href="/Student/Games/VisualPrompt" 
-               class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
+        <div class="text-3xl font-bold text-gray-900 mb-1">@ViewBag.TotalGames</div>
+        <div class="text-gray-600 text-sm">Toplam Oyun</div>
     </div>
 
-    <!-- Kelimeden Görsel -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-images text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Kelimeden Görsel</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Kelimeye uygun görseli seçin!</p>
-                </div>
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                <i class="fas fa-trophy text-white text-lg"></i>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Kolay</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
-            </div>
-            
-            <a href="/Student/Games/WordImage" 
-               class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
+        <div class="text-3xl font-bold text-green-600 mb-1">@ViewBag.CompletedGames</div>
+        <div class="text-gray-600 text-sm">Tamamlanan</div>
     </div>
 
-    <!-- Kabarcık Harfler -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-circle text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Kabarcık Harfler</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Kabarcıkları patlatarak kelimeleri oluştur!</p>
-                </div>
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+                <i class="fas fa-star text-white text-lg"></i>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Eğlenceli</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
-            </div>
-            
-            <a href="/Student/Games/BubbleLetters" 
-               class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
+        <div class="text-3xl font-bold text-blue-600 mb-1">@ViewBag.TotalScore</div>
+        <div class="text-gray-600 text-sm">Toplam Puan</div>
     </div>
 
-    <!-- Çengel Bulmaca -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-puzzle-piece text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Çengel Bulmaca</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Çapraz bulmacayı çözerek kelimeleri bul!</p>
-                </div>
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center">
+                <i class="fas fa-clock text-white text-lg"></i>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Zor</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
-            </div>
-            
-            <a href="/Student/Games/CrossPuzzle" 
-               class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
+        <div class="text-3xl font-bold text-yellow-600 mb-1">@ViewBag.TotalMinutes</div>
+        <div class="text-gray-600 text-sm">Dakika Oynadı</div>
     </div>
+</div>
 
-    <!-- Boşluk Doldurma -->
-    @*<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+<!-- Games Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+<!-- Adam Asmaca -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-user-secret text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Adam Asmaca</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Harfleri tahmin ederek kelimeleri bul!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Kolay</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/AdamAsmaca"
+           class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
+
+<!-- Kelime Bulmaca -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-search text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Boşluk Doldurma</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Cümledeki eksik kelimeleri tamamlayarak boşlukları doldurun!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Orta</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/KelimeBulmaca"
+           class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
+
+<!-- Görselden Soru -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-image text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Görselden Soru</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Görsellere bakarak soruları yanıtla!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Kolay</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/VisualPrompt"
+           class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
+
+<!-- Kelimeden Görsel -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-images text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Kelimeden Görsel</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Kelimeye uygun görseli seçin!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Kolay</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/WordImage"
+           class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
+
+<!-- Kabarcık Harfler -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-circle text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Kabarcık Harfler</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Kabarcıkları patlatarak kelimeleri oluştur!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Eğlenceli</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/BubbleLetters"
+           class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
+
+<!-- Çengel Bulmaca -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-puzzle-piece text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Çengel Bulmaca</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Çapraz bulmacayı çözerek kelimeleri bul!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Zor</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/CrossPuzzle"
+           class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
+
+<!-- Boşluk Doldurma -->
+@*<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
         <div class="p-6 flex-1 flex flex-col">
             <div class="flex items-center gap-4 mb-4">
                 <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -317,70 +317,70 @@
         </div>
     </div>*@
 
-    <!-- Eş Yakın Eşleştirme -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-link text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Eş Yakın Eşleştirme</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Kelimeleri eş anlamlarıyla eşleştir!</p>
-                </div>
+<!-- Eş Yakın Eşleştirme -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-link text-white text-lg"></i>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Orta</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Eş Yakın Eşleştirme</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Kelimeleri eş anlamlarıyla eşleştir!</p>
             </div>
-            
-            <a href="/Student/Games/SynonymMatch" 
-               class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
-    </div>
 
-    <!-- Cümle Kurma -->
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-align-left text-white text-lg"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 text-lg leading-tight">Cümle Kurma</h3>
-                    <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Verilen kelimelerle anlamlı cümleler kur!</p>
-                </div>
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Orta</span>
             </div>
-            
-            <div class="flex items-center gap-4 mb-6 mt-auto">
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-signal text-xs"></i>
-                    <span>Orta</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-xs"></i>
-                    <span>Tek Kişi</span>
-                </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
             </div>
-            
-            <a href="/Student/Games/SentenceBuilder" 
-               class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
-                <i class="fas fa-play text-sm"></i>
-                <span>Oyna</span>
-            </a>
         </div>
+
+        <a href="/Student/Games/SynonymMatch"
+           class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
     </div>
+</div>
+
+<!-- Cümle Kurma -->
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-md @(disabled ? "opacity-60" : "") flex flex-col h-full">
+    <div class="p-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-align-left text-white text-lg"></i>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-lg leading-tight">Cümle Kurma</h3>
+                <p class="text-gray-600 text-sm mt-1 line-clamp-2 h-10">Verilen kelimelerle anlamlı cümleler kur!</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 mt-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-signal text-xs"></i>
+                <span>Orta</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+                <i class="fas fa-user text-xs"></i>
+                <span>Tek Kişi</span>
+            </div>
+        </div>
+
+        <a href="/Student/Games/SentenceBuilder"
+           class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200 flex items-center justify-center gap-2 @(disabled ? "opacity-50 pointer-events-none" : "")">
+            <i class="fas fa-play text-sm"></i>
+            <span>Oyna</span>
+        </a>
+    </div>
+</div>
 
 </div>
-    </div>
+</div>
 </div>

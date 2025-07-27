@@ -588,8 +588,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>29rfttesg8</Fingerprint>
-      <Integrity>ShfXGidHSHf4Yo/Jv9di1SCQTyHZP3XBoF97NoxBKwQ=</Integrity>
+      <Fingerprint>g760uz02h6</Fingerprint>
+      <Integrity>bOkaet4Y109w9nIbaj7elGoIxdyvKgF+kWh6uR+LbVo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</OriginalItemSpec>

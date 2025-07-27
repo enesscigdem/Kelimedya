@@ -1,87 +1,120 @@
-import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions } from "./common.js"
+import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions } from "./common.js";
 
-let cards = [],
-    idx = 0,
-    start
-let singleMode = false
-let imgEl, guessEl, feedbackEl, questionEl
+let cards = [], idx = 0, start;
+let singleMode = false;
+let imgEl, feedbackEl, questionEl, optionsContainer;
 
-function loadCard() {
-  const card = cards[idx]
-  const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
-  const q = card.gameQuestions?.find((g) => g.gameId === gid)
+// 1→"A", 2→"B", 3→"C", 4→"D"
+const letters = ["A", "B", "C", "D"];
 
-  imgEl.src = q?.imageUrl || card.imageUrl || "/placeholder.svg"
-  questionEl.textContent = q?.questionText || "Bu görsel hangi kelimeyi ifade ediyor?"
-  guessEl.value = ""
-  feedbackEl.textContent = ""
-  start = Date.now()
+function loadCard(studentId, gameId) {
+  const card = cards[idx];
+  const q = card.gameQuestions?.find(g => g.gameId === Number(gameId)) || {};
+
+  // Resim ve soru
+  imgEl.src = q.imageUrl || card.imageUrl || "/placeholder.svg";
+  questionEl.textContent = q.questionText || card.questionText || "Bu görsel hangi kelimeyi ifade ediyor?";
+
+  // Temizlik
+  feedbackEl.textContent = "";
+  optionsContainer.innerHTML = "";
+
+  // Seçenek butonları
+  letters.forEach((letter, i) => {
+    const optKey = `option${letter}`;
+    const text   = q[optKey] || card[optKey] || `Şık ${letter}`;
+    const btn    = document.createElement("button");
+    btn.textContent = text;
+    btn.className = [
+      "bg-gradient-to-r","from-orange-500","to-orange-600",
+      "text-white","px-6","py-2","rounded-xl","font-bold",
+      "hover:from-orange-600","hover:to-orange-700",
+      "transition-all","duration-200","shadow-lg",
+      "hover:shadow-xl","transform","hover:scale-105",
+      "text-center","whitespace-normal"
+    ].join(" ");
+    btn.onclick = () => submit(studentId, gameId, i + 1);
+    optionsContainer.append(btn);
+  });
+
+  start = Date.now();
 }
 
-function submit(studentId, gameId) {
-  const user = guessEl.value.trim().toLowerCase()
-  const card = cards[idx]
-  const q = card.gameQuestions?.find((g) => g.gameId === Number.parseInt(gameId))
-  const answer = (q?.answerText || card.word).toLowerCase()
-  const success = user === answer
+function submit(studentId, gameId, selectedOption) {
+  const card = cards[idx];
+  const q = card.gameQuestions?.find(g => g.gameId === Number(gameId)) || {};
+  const correctOption = q.correctOption ?? card.correctOption;
+  const success = selectedOption === correctOption;
+  const duration = (Date.now() - start) / 1000;
 
-  feedbackEl.textContent = success ? "Doğru!" : "Yanlış"
-  const duration = (Date.now() - start) / 1000
-  awardScore(studentId, gameId, success, duration)
+  // Geri bildirim metni
+  feedbackEl.textContent = success
+      ? "🎉 Tebrikler, doğru bildiniz!"
+      : "❌ Maalesef, yanlış bildiniz.";
 
-  if (success) cards.splice(idx, 1)
-  if (cards.length === 0) {
-    notifyParent()
-    return
+  awardScore(studentId, gameId, success, duration);
+
+  if (success) {
+    cards.splice(idx, 1);
+    if (cards.length === 0) {
+      notifyParent();
+      return;
+    }
   }
-}
-
-function reveal() {
-  const card = cards[idx]
-  const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
-  const q = card.gameQuestions?.find((g) => g.gameId === gid)
-  guessEl.value = q?.answerText || card.word
 }
 
 export async function initVisualPrompt(studentId, gameId, single, wordId) {
   if (single) {
     if (wordId) {
-      const card = await fetchWordCardWithQuestions(wordId)
-      cards = card ? [card] : [{ word: single, imageUrl: "", definition: "", exampleSentence: "" }]
+      const card = await fetchWordCardWithQuestions(wordId);
+      cards = card ? [card] : [{
+        optionA:"",optionB:"",optionC:"",optionD:"",
+        correctOption:1,gameQuestions:[]
+      }];
     } else {
-      cards = [{ word: single, imageUrl: "", definition: "", exampleSentence: "" }]
+      cards = [{
+        optionA:"",optionB:"",optionC:"",optionD:"",
+        correctOption:1,gameQuestions:[]
+      }];
     }
-    singleMode = true
+    singleMode = true;
   } else {
-    cards = await fetchLearnedWords(studentId)
-    if (cards.length === 0) cards = [{ word: "örnek", imageUrl: "", definition: "", exampleSentence: "" }]
-    singleMode = false
-  }
-
-  imgEl = document.getElementById("vpImage")
-  questionEl = document.getElementById("vpQuestion")
-  guessEl = document.getElementById("vpGuess")
-  feedbackEl = document.getElementById("vpFeedback")
-
-  document.getElementById("vpSubmit").onclick = () => submit(studentId, gameId)
-  const nextBtn = document.getElementById("vpNext")
-  if (nextBtn) {
-    nextBtn.onclick = () => {
-      idx = (idx + 1) % cards.length
-      loadCard()
+    cards = await fetchLearnedWords(studentId) || [];
+    if (!cards.length) {
+      cards = [{
+        optionA:"",optionB:"",optionC:"",optionD:"",
+        correctOption:1,gameQuestions:[]
+      }];
     }
-    if (singleMode) nextBtn.style.display = "none"
+    singleMode = false;
   }
-  document.getElementById("vpReveal").onclick = reveal
+
+  // DOM elemanları
+  imgEl = document.getElementById("vpImage");
+  questionEl = document.getElementById("vpQuestion");
+  feedbackEl = document.getElementById("vpFeedback");
+  optionsContainer = document.getElementById("vpOptions");
+
+  // Geri Dön / Sonraki
+  const nextBtn = document.getElementById("vpNext");
+  const backBtn = document.getElementById("vpBack");
+  nextBtn.onclick = () => {
+    idx = (idx + 1) % cards.length;
+    loadCard(studentId, gameId);
+  };
+  backBtn.onclick = () => {
+    idx = (idx - 1 + cards.length) % cards.length;
+    loadCard(studentId, gameId);
+  };
 
   if (singleMode) {
-    const back = document.getElementById("vpBack")
-    if (back) back.style.display = "none"
+    nextBtn.style.display = "none";
+    backBtn.style.display = "none";
   }
 
-  loadCard()
+  loadCard(studentId, gameId);
 }
 
 function notifyParent() {
-  if (window.parent !== window) window.parent.postMessage("next-game", "*")
+  if (window.parent !== window) window.parent.postMessage("next-game", "*");
 }

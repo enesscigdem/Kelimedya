@@ -73,7 +73,7 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
 
         public async Task<IActionResult> KelimeBulmaca()
         {
-            ViewData["GameId"] = await GetGameIdAsync("Kelime Bulmaca");
+            ViewData["GameId"] = await GetGameIdAsync("Boşluk Doldurma");
             return View();
         }
 

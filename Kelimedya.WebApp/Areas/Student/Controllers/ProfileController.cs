@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Kelimedya.WebApp.Areas.Student.Models;
+using Kelimedya.WebApp.Models;
 
 namespace Kelimedya.WebApp.Areas.Student.Controllers
 {
@@ -27,6 +28,20 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
             var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             var model = await client.GetFromJsonAsync<StudentProfileViewModel>($"api/users/{userId}")
                         ?? new StudentProfileViewModel { Id = userId };
+
+            try
+            {
+                var score = await client.GetFromJsonAsync<ScoreInfoViewModel>($"api/gamestats/score/{userId}");
+                var learned = await client.GetFromJsonAsync<List<object>>($"api/progress/wordcards/learned/{userId}");
+                ViewBag.TotalScore = score?.TotalScore ?? 0;
+                ViewBag.LearnedWords = learned?.Count ?? 0;
+            }
+            catch (HttpRequestException)
+            {
+                ViewBag.TotalScore = 0;
+                ViewBag.LearnedWords = 0;
+            }
+
             return View(model);
         }
 

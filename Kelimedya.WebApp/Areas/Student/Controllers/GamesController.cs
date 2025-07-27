@@ -43,6 +43,25 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
                 hasCourses = false;
             }
             ViewBag.HasCourses = hasCourses;
+
+            try
+            {
+                var games = await _httpClient.GetFromJsonAsync<List<Game>>("api/games");
+                var stats = await _httpClient.GetFromJsonAsync<List<StudentGameStatistic>>($"api/gamestats/{studentId}");
+
+                ViewBag.TotalGames = games?.Count ?? 0;
+                ViewBag.CompletedGames = stats?.Count ?? 0;
+                ViewBag.TotalScore = stats?.Sum(s => s.Score) ?? 0;
+                ViewBag.TotalMinutes = stats != null ? (int)(stats.Sum(s => s.DurationSeconds) / 60) : 0;
+            }
+            catch (HttpRequestException)
+            {
+                ViewBag.TotalGames = 0;
+                ViewBag.CompletedGames = 0;
+                ViewBag.TotalScore = 0;
+                ViewBag.TotalMinutes = 0;
+            }
+
             return View();
         }
 

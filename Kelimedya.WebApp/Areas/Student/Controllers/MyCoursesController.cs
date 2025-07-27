@@ -50,7 +50,15 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
                         lessonProgresses = new List<StudentLessonProgressViewModel>();
                     }
 
-                    var completion = lessonProgresses.Any() ? lessonProgresses.Average(p => p.CompletionPercentage) : 0;
+                    var lessons = await _httpClient.GetFromJsonAsync<List<LessonViewModel>>($"api/lessons/bycourse/{course.Id}");
+                    var totalLessons = lessons?.Count ?? 0;
+                    decimal completion = 0;
+
+                    if (totalLessons > 0)
+                    {
+                        var progressMap = lessonProgresses.ToDictionary(p => p.LessonId, p => p.CompletionPercentage);
+                        completion = lessons.Average(l => progressMap.TryGetValue(l.Id, out var pct) ? pct : 0);
+                    }
 
                     coursesWithProgress.Add(new CourseWithProgressViewModel
                     {
@@ -121,6 +129,18 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
             if (lesson == null)
                 return NotFound();
 
+            var lessonProgress = await GetOrCreateLessonProgress(studentId, id);
+
+            if (lessonProgress.IsCompleted)
+            {
+                var completedViewModel = new LessonDetailViewModel
+                {
+                    Lesson = lesson,
+                    LessonProgress = lessonProgress
+                };
+                return View("LessonCompleted", completedViewModel);
+            }
+
             List<WordCardViewModel> wordCards;
             try
             {
@@ -141,8 +161,6 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
                 cardProgresses = new List<StudentWordCardProgressViewModel>();
             }
 
-            var lessonProgress = await GetOrCreateLessonProgress(studentId, id);
-
             var viewModel = new LessonDetailViewModel
             {
                 Lesson = lesson,
@@ -152,7 +170,7 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
                     return new WordCardWithProgressViewModel
                     {
                         WordCard = card,
-                        Progress = progress ?? new StudentWordCardProgressViewModel()
+                        Progress = progress ?? new StudentWordCardProgressViewModel(),
                     };
                 }).ToList() ?? new List<WordCardWithProgressViewModel>(),
                 LessonProgress = lessonProgress

@@ -1,0 +1,14 @@
+@model Kelimedya.WebApp.Areas.Student.Models.LessonDetailViewModel
+@{
+    Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Ders Tamamlandı";
+}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-yellow-50">
+    <div class="text-center p-8 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100">
+        <div class="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center shadow-xl">
+            <i class="fas fa-check text-6xl text-green-600"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-700 mb-4">Bu dersi zaten tamamladınız</h2>
+        <a asp-action="MyLessons" asp-route-id="@Model.Lesson.CourseId" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-orange-700 transition shadow-lg">Derslere Dön</a>
+    </div>
+</div>

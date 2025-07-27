@@ -9,8 +9,8 @@
 }
 
 <div class="relative min-h-screen bg-gradient-to-br from-orange-50 via-white to-yellow-50">
-<div class="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full opacity-15 -translate-x-36 -translate-y-36 blur-3xl"></div>
-<div class="absolute top-20 right-0 w-56 h-56 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full opacity-10 translate-x-28 blur-3xl"></div>
+<div class="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full -translate-x-36 -translate-y-36 blur-3xl"></div>
+<div class="absolute top-20 right-0 w-56 h-56 bg-gradient-to-bl from-yellow-200 to-orange-200 rounded-full translate-x-28 blur-3xl"></div>
 
 @if (Model.Lesson == null)
 {
@@ -63,7 +63,7 @@ else
                     var card = Model.WordCards[i].WordCard;
                     var indexDisplay = $"{i + 1} / {totalCards}";
 
-                    <div class="kelime-card absolute inset-0 opacity-0 transform translate-x-full transition-all duration-200"
+                    <div class="kelime-card absolute inset-0 opacity-0 transform transition-all duration-200"
                          id="card@(i)"
                          data-wordcard-id="@card.Id">
                         <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100 p-8 relative overflow-hidden">
@@ -520,11 +520,9 @@ else
         function showCard(index) {
             cardEls.forEach((card, i) => {
                 card.classList.remove('opacity-100', 'translate-x-0');
-                card.classList.add('opacity-0', 'translate-x-full');
             });
             
             setTimeout(() => {
-                cardEls[index].classList.remove('opacity-0', 'translate-x-full');
                 cardEls[index].classList.add('opacity-100', 'translate-x-0');
             }, 150);
             

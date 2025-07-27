@@ -14,8 +14,8 @@ public class WordCardGameQuestion : IIntEntity, IActivateableEntity, IIsDeletedE
 
     public int WordCardId { get; set; }
     public int GameId { get; set; }
-    public string QuestionText { get; set; } = string.Empty;
-    public string AnswerText { get; set; } = string.Empty;
+    public string? QuestionText { get; set; } = string.Empty;
+    public string? AnswerText { get; set; } = string.Empty;
     public string? ImageUrl { get; set; }
     public string? ImageUrl2 { get; set; }
     public string? ImageUrl3 { get; set; }

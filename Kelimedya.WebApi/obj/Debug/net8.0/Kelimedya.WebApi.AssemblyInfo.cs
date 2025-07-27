@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90204e692f47a05a60ea2fce2a77211b307152a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16dbeb29085ba5b4e092fe7d6d73ef2c23c4440a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

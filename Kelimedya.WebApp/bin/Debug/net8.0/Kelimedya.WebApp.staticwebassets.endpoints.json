@@ -2053,7 +2053,7 @@
       ]
     },
     {
-      "Route": "js/games/AdamAsmaca.isaulcm61p.js",
+      "Route": "js/games/AdamAsmaca.06gumbrx4g.js",
       "AssetFile": "js/games/AdamAsmaca.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2067,7 +2067,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9679"
+          "Value": "6451"
         },
         {
           "Name": "Content-Type",
@@ -2075,21 +2075,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3qg6HswEzaSn3KHKNAN5Pt83VmL44a88L/hUmhlAH7M=\""
+          "Value": "\"qIBgKDB8jFvn78JZUL68moWUxwEgm8WvukVUFeoQwPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 12:42:40 GMT"
+          "Value": "Sun, 27 Jul 2025 17:31:16 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "isaulcm61p"
+          "Value": "06gumbrx4g"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3qg6HswEzaSn3KHKNAN5Pt83VmL44a88L/hUmhlAH7M="
+          "Value": "sha256-qIBgKDB8jFvn78JZUL68moWUxwEgm8WvukVUFeoQwPc="
         },
         {
           "Name": "label",
@@ -2112,7 +2112,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9679"
+          "Value": "6451"
         },
         {
           "Name": "Content-Type",
@@ -2120,17 +2120,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3qg6HswEzaSn3KHKNAN5Pt83VmL44a88L/hUmhlAH7M=\""
+          "Value": "\"qIBgKDB8jFvn78JZUL68moWUxwEgm8WvukVUFeoQwPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 12:42:40 GMT"
+          "Value": "Sun, 27 Jul 2025 17:31:16 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3qg6HswEzaSn3KHKNAN5Pt83VmL44a88L/hUmhlAH7M="
+          "Value": "sha256-qIBgKDB8jFvn78JZUL68moWUxwEgm8WvukVUFeoQwPc="
         }
       ]
     },
@@ -2653,7 +2653,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 17:21:37 GMT"
+          "Value": "Sun, 27 Jul 2025 17:36:13 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2698,7 +2698,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 17:21:37 GMT"
+          "Value": "Sun, 27 Jul 2025 17:36:13 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2709,7 +2709,7 @@
       ]
     },
     {
-      "Route": "js/games/WordImage.8e26at9isb.js",
+      "Route": "js/games/WordImage.ilachb3qj0.js",
       "AssetFile": "js/games/WordImage.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2723,7 +2723,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2824"
+          "Value": "2856"
         },
         {
           "Name": "Content-Type",
@@ -2731,21 +2731,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oD9pFjTALW0WAuG7Z4uRTNdcfAGlOaScstLAZlh9MhE=\""
+          "Value": "\"pi2kQLybyxQDKyKP0wTeJNkGEewNHP1/x99EgHYnXNk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 12:42:40 GMT"
+          "Value": "Sun, 27 Jul 2025 17:31:25 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8e26at9isb"
+          "Value": "ilachb3qj0"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oD9pFjTALW0WAuG7Z4uRTNdcfAGlOaScstLAZlh9MhE="
+          "Value": "sha256-pi2kQLybyxQDKyKP0wTeJNkGEewNHP1/x99EgHYnXNk="
         },
         {
           "Name": "label",
@@ -2768,7 +2768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2824"
+          "Value": "2856"
         },
         {
           "Name": "Content-Type",
@@ -2776,17 +2776,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oD9pFjTALW0WAuG7Z4uRTNdcfAGlOaScstLAZlh9MhE=\""
+          "Value": "\"pi2kQLybyxQDKyKP0wTeJNkGEewNHP1/x99EgHYnXNk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 12:42:40 GMT"
+          "Value": "Sun, 27 Jul 2025 17:31:25 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oD9pFjTALW0WAuG7Z4uRTNdcfAGlOaScstLAZlh9MhE="
+          "Value": "sha256-pi2kQLybyxQDKyKP0wTeJNkGEewNHP1/x99EgHYnXNk="
+        }
+      ]
+    },
+    {
+      "Route": "js/games/common.f97xtziqha.js",
+      "AssetFile": "js/games/common.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4103"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/ROiBBBGP5TcRCeVuIEn77OkebuFxF5dWJ7PVEj6CSE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 27 Jul 2025 17:31:25 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f97xtziqha"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/ROiBBBGP5TcRCeVuIEn77OkebuFxF5dWJ7PVEj6CSE="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/common.js"
         }
       ]
     },
@@ -2805,7 +2850,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3912"
+          "Value": "4103"
         },
         {
           "Name": "Content-Type",
@@ -2813,62 +2858,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2os4zZ9VxLqdwSF+qxi+3UG43iiRdJNSSAAsMilhm7Y=\""
+          "Value": "\"/ROiBBBGP5TcRCeVuIEn77OkebuFxF5dWJ7PVEj6CSE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 12:42:40 GMT"
+          "Value": "Sun, 27 Jul 2025 17:31:25 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2os4zZ9VxLqdwSF+qxi+3UG43iiRdJNSSAAsMilhm7Y="
-        }
-      ]
-    },
-    {
-      "Route": "js/games/common.mc21qe6o7o.js",
-      "AssetFile": "js/games/common.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3912"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2os4zZ9VxLqdwSF+qxi+3UG43iiRdJNSSAAsMilhm7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 12:42:40 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "mc21qe6o7o"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-2os4zZ9VxLqdwSF+qxi+3UG43iiRdJNSSAAsMilhm7Y="
-        },
-        {
-          "Name": "label",
-          "Value": "js/games/common.js"
+          "Value": "sha256-/ROiBBBGP5TcRCeVuIEn77OkebuFxF5dWJ7PVEj6CSE="
         }
       ]
     },

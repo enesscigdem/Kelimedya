@@ -43,7 +43,7 @@
                         <label class="form-label">Mevcut Resim</label>
                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                         {
-                            <img src="@Model.ImageUrl" alt="Kelime Kartı Resmi" style="max-height:50px;"/>
+                            <img src="@Model.ImageUrl.ToDriveThumbnail()" alt="Kelime Kartı Resmi" style="max-height:50px;"/>
                         }
                     </div>
                     <div class="mb-3">

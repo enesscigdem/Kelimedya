@@ -118,8 +118,8 @@
                             <div class="space-y-6">
                                 <div class="text-center">
                                     <div class="relative inline-block">
-                                        <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? Url.Content("~/theme/tabler/static/avatars/000m.jpg") : Model.ProfilePicture)" 
-                                             class="w-48 h-48 rounded-3xl object-cover shadow-xl border-4 border-orange-200 mx-auto" 
+                                        <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? Url.Content("~/theme/tabler/static/avatars/000m.jpg") : Model.ProfilePicture.ToDriveThumbnail())"
+                                             class="w-48 h-48 rounded-3xl object-cover shadow-xl border-4 border-orange-200 mx-auto"
                                              alt="Profil Resmi" />
                                         <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
                                             <i class="fas fa-camera text-white text-lg"></i>

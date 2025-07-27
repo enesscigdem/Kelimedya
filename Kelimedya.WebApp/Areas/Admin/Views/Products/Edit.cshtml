@@ -50,7 +50,7 @@
                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                         {
                             <div class="mb-1">
-                                <img src="@Model.ImageUrl" alt="Ürün Fotoğrafı" style="max-width: 200px;"/>
+                                <img src="@Model.ImageUrl.ToDriveThumbnail()" alt="Ürün Fotoğrafı" style="max-width: 200px;"/>
                             </div>
                         }
                         <input type="file" name="ImageFile" class="form-control"/>

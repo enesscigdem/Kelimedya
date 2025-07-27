@@ -28,7 +28,7 @@
                             <tr>
                                 <td>
                                     <div class="td_table_meta d-flex align-items-center">
-                                        <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? Url.Content("~/theme/web_UI/assets/img/no_image.png") : item.ImageUrl)"
+                                        <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? Url.Content("~/theme/web_UI/assets/img/no_image.png") : item.ImageUrl.ToDriveThumbnail())"
                                              alt="@item.ProductName"
                                              class="img-thumbnail"
                                              style="width: 60px; height: 60px; object-fit: cover;" />

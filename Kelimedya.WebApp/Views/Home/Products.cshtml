@@ -45,7 +45,7 @@
                             <a asp-controller="Home" asp-action="Product" asp-route-id="@product.Id" class="td_card_thumb">
                                 @if (!string.IsNullOrEmpty(product.ImageUrl))
                                 {
-                                    <img src="@product.ImageUrl" alt="@product.Name"/>
+                                    <img src="@product.ImageUrl.ToDriveThumbnail()" alt="@product.Name"/>
                                 }
                                 else
                                 {

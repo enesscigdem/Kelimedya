@@ -1,4 +1,4 @@
-import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions } from "./common.js"
+import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions, toThumbnailUrl } from "./common.js"
 
 let cards = [],
     idx = 0,
@@ -29,7 +29,7 @@ function loadCard() {
   optionsEl.innerHTML = ""
   opts.forEach((img) => {
     const i = document.createElement("img")
-    i.src = img
+    i.src = toThumbnailUrl(img)
     i.className = "wti-option"
     i.alt = card.word
     i.onclick = () => select(img === correct)

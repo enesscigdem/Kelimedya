@@ -118,7 +118,7 @@
                                 <td>
                                     @if (!string.IsNullOrEmpty(product.ImageUrl))
                                     {
-                                        <img src="@product.ImageUrl" alt="@product.Name" style="max-width:80px; max-height:80px;" />
+                                        <img src="@product.ImageUrl.ToDriveThumbnail()" alt="@product.Name" style="max-width:80px; max-height:80px;" />
                                     }
                                     else { <span>Fotoğraf Yok</span> }
                                 </td>

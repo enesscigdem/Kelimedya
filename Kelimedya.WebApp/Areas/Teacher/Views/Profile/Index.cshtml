@@ -107,7 +107,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Mevcut Resim</label><br />
-                <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? Url.Content("~/theme/tabler/static/avatars/000m.jpg") : Model.ProfilePicture)" style="width:120px;" class="img-thumbnail" />
+                <img src="@(string.IsNullOrEmpty(Model.ProfilePicture) ? Url.Content("~/theme/tabler/static/avatars/000m.jpg") : Model.ProfilePicture.ToDriveThumbnail())" style="width:120px;" class="img-thumbnail" />
             </div>
             <div class="mb-3">
                 <label asp-for="ImageFile" class="form-label">Profil Resmi</label>

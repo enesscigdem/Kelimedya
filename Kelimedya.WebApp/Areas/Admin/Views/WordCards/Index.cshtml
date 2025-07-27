@@ -67,7 +67,7 @@
                                 <td>
                                     @if (!string.IsNullOrEmpty(card.ImageUrl))
                                     {
-                                        <img src="@card.ImageUrl" alt="WordCard Image" style="max-height:50px;" />
+                                        <img src="@card.ImageUrl.ToDriveThumbnail()" alt="WordCard Image" style="max-height:50px;" />
                                     }
                                 </td>
                                 <td class="text-end">

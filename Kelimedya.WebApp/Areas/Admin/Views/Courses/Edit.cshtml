@@ -47,7 +47,7 @@
                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                         {
                             <div class="mt-2">
-                                <img src="@Model.ImageUrl" alt="Kurs Resmi" class="thumb" style="max-width:150px;"/>
+                                <img src="@Model.ImageUrl.ToDriveThumbnail()" alt="Kurs Resmi" class="thumb" style="max-width:150px;"/>
                             </div>
                         }
                     </div>

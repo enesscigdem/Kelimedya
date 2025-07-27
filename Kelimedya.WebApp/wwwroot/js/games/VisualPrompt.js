@@ -1,4 +1,4 @@
-import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions } from "./common.js"
+import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions, toThumbnailUrl } from "./common.js"
 
 let cards = [],
     idx = 0,
@@ -11,7 +11,8 @@ function loadCard() {
   const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
   const q = card.gameQuestions?.find((g) => g.gameId === gid)
 
-  imgEl.src = q?.imageUrl || card.imageUrl || "/placeholder.svg"
+  const src = q?.imageUrl || card.imageUrl || "/placeholder.svg"
+  imgEl.src = toThumbnailUrl(src)
   questionEl.textContent = q?.questionText || "Bu görsel hangi kelimeyi ifade ediyor?"
   guessEl.value = ""
   feedbackEl.textContent = ""

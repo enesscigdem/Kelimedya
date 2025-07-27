@@ -84,7 +84,7 @@ else
                                             @if (!string.IsNullOrEmpty(card.ImageUrl))
                                             {
                                                 <div class="relative inline-block">
-                                                    <img src="@card.ImageUrl"
+                                                    <img src="@card.ImageUrl.ToDriveThumbnail()"
                                                          alt="@card.Word"
                                                          class="w-56 h-56 rounded-3xl mx-auto object-cover shadow-lg border-2 border-orange-200">
                                                     <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-3xl"></div>

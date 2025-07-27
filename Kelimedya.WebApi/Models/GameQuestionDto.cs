@@ -4,7 +4,7 @@ public class GameQuestionDto
 {
     public int GameId { get; set; }
     public string? QuestionText { get; set; } = string.Empty;
-    public string? AnswerText { get; set; } = string.Empty;
+    public string? AnswerText { get; set; }
     public string? ImageUrl { get; set; }
     public string? ImageUrl2 { get; set; }
     public string? ImageUrl3 { get; set; }

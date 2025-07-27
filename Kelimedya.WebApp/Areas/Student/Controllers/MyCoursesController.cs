@@ -34,25 +34,35 @@ namespace Kelimedya.WebApp.Areas.Student.Controllers
 
             var courses = await _httpClient.GetFromJsonAsync<List<CourseViewModel>>($"api/orders/courses/{studentId}");
 
-            List<StudentCourseProgressViewModel> progresses;
-            try
-            {
-                progresses = await _httpClient.GetFromJsonAsync<List<StudentCourseProgressViewModel>>($"api/progress/courses/{studentId}");
-            }
-            catch (HttpRequestException)
-            {
-                progresses = new List<StudentCourseProgressViewModel>();
-            }
+            var coursesWithProgress = new List<CourseWithProgressViewModel>();
 
-            var coursesWithProgress = courses?.Select(course =>
+            if (courses != null)
             {
-                var progress = progresses?.FirstOrDefault(p => p.CourseId == course.Id);
-                return new CourseWithProgressViewModel
+                foreach (var course in courses)
                 {
-                    Course = course,
-                    Progress = progress ?? new StudentCourseProgressViewModel()
-                };
-            }).ToList() ?? new List<CourseWithProgressViewModel>();
+                    List<StudentLessonProgressViewModel> lessonProgresses;
+                    try
+                    {
+                        lessonProgresses = await _httpClient.GetFromJsonAsync<List<StudentLessonProgressViewModel>>($"api/progress/lessons/{studentId}/course/{course.Id}");
+                    }
+                    catch (HttpRequestException)
+                    {
+                        lessonProgresses = new List<StudentLessonProgressViewModel>();
+                    }
+
+                    var completion = lessonProgresses.Any() ? lessonProgresses.Average(p => p.CompletionPercentage) : 0;
+
+                    coursesWithProgress.Add(new CourseWithProgressViewModel
+                    {
+                        Course = course,
+                        Progress = new StudentCourseProgressViewModel
+                        {
+                            CourseId = course.Id,
+                            CompletionPercentage = completion
+                        }
+                    });
+                }
+            }
 
             return View(coursesWithProgress);
         }

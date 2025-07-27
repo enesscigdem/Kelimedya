@@ -40,7 +40,7 @@
                     <div class="product-img-wrapper shadow-sm">
                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                         {
-                            <img id="mainProductImage" src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded product-main-img"/>
+                            <img id="mainProductImage" src="@Model.ImageUrl.ToDriveThumbnail()" alt="@Model.Name" class="img-fluid rounded product-main-img"/>
                         }
                         else
                         {
@@ -51,7 +51,7 @@
                         @* Eğer çoklu resim varsa buradan seçilecek; şu anda ana resim gösteriliyor *@
                         @if (!string.IsNullOrEmpty(Model.ImageUrl))
                         {
-                            <img src="@Model.ImageUrl" alt="@Model.Name" class="img-thumbnail thumbnail-img active" onclick="changeMainImage('@Model.ImageUrl')"/>
+                            <img src="@Model.ImageUrl.ToDriveThumbnail()" alt="@Model.Name" class="img-thumbnail thumbnail-img active" onclick="changeMainImage('@Model.ImageUrl.ToDriveThumbnail()')"/>
                         }
                     </div>
                 </div>

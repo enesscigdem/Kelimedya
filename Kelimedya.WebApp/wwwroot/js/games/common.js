@@ -13,6 +13,12 @@ const updateScoreDisplay = (score) => {
   }
 }
 
+export function toThumbnailUrl(url) {
+  if (!url) return url;
+  const m = url.match(/\/d\/([^/]+)/);
+  return m ? `https://drive.google.com/thumbnail?authuser=0&sz=w320&id=${m[1]}` : url;
+}
+
 // Declare iziToast object if not already declared
 window.iziToast = window.iziToast || {
   show: (options) => {

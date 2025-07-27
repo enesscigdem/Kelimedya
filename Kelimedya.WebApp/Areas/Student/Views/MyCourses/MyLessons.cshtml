@@ -104,7 +104,7 @@
                                     <div class="w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg relative overflow-hidden lesson-icon">
                                         @if (!string.IsNullOrEmpty(lesson.Lesson.ImageUrl))
                                         {
-                                            <img src="@lesson.Lesson.ImageUrl"
+                                            <img src="@lesson.Lesson.ImageUrl.ToDriveThumbnail()"
                                                  alt="@lesson.Lesson.Title"
                                                  class="w-full h-full object-cover rounded-2xl">
                                         }

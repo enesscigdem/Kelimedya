@@ -128,7 +128,7 @@
                         <div class="relative h-40 bg-gradient-to-br from-orange-50 to-orange-100 overflow-hidden">
                             @if (!string.IsNullOrEmpty(item.WordCard.ImageUrl))
                             {
-                                <img src="@item.WordCard.ImageUrl"
+                                <img src="@item.WordCard.ImageUrl.ToDriveThumbnail()"
                                      alt="@item.WordCard.Word"
                                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-400">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -436,7 +436,9 @@
 
             // Set image
             if (wordData.imageUrl) {
-                imgContainer.innerHTML = `<img src="${wordData.imageUrl}" alt="${wordData.word}" class="w-full h-full object-cover">`;
+                const m = wordData.imageUrl.match(/\/d\/([^/]+)/);
+                const src = m ? `https://drive.google.com/thumbnail?authuser=0&sz=w320&id=${m[1]}` : wordData.imageUrl;
+                imgContainer.innerHTML = `<img src="${src}" alt="${wordData.word}" class="w-full h-full object-cover">`;
             } else {
                 imgContainer.innerHTML = `
                     <div class="w-full h-full flex items-center justify-center">

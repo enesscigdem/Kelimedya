@@ -64,7 +64,7 @@
                 <td>
                   @if (!string.IsNullOrEmpty(lesson.ImageUrl))
                   {
-                    <img src="@lesson.ImageUrl" alt="Lesson Image" style="max-height:50px;" />
+                    <img src="@lesson.ImageUrl.ToDriveThumbnail()" alt="Lesson Image" style="max-height:50px;" />
                   }
                 </td>
                 <td class="text-end">

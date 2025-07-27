@@ -229,7 +229,7 @@
             </h4>
             @if(!string.IsNullOrEmpty(course.ImageUrl))
             {
-              <img src="@course.ImageUrl" alt="Kurs Resmi" class="thumb" />
+              <img src="@course.ImageUrl.ToDriveThumbnail()" alt="Kurs Resmi" class="thumb" />
             }
           </div>
           <div>
@@ -259,7 +259,7 @@
                       <h5 class="mb-0">@lesson.Title <small class="text-muted">(Sıra: @lesson.SequenceNo)</small></h5>
                       @if(!string.IsNullOrEmpty(lesson.ImageUrl))
                       {
-                        <img src="@lesson.ImageUrl" alt="Ders Resmi" class="thumb" />
+                        <img src="@lesson.ImageUrl.ToDriveThumbnail()" alt="Ders Resmi" class="thumb" />
                       }
                     </div>
                     <div>
@@ -303,17 +303,11 @@
                                 <td>
                                   @if (!string.IsNullOrEmpty(card.ImageUrl))
                                   {
-                                      var match = Regex.Match(card.ImageUrl, @"/d/([^/]+)");
-                                      if (match.Success)
-                                      {
-                                          var fileId = match.Groups[1].Value;
-                                          var thumbUrl = $"https://drive.google.com/thumbnail?authuser=0&sz=w320&id={fileId}";
-                                          <img src="@thumbUrl" alt="Kelime Kartı Resmi" class="thumb" />
-                                      }
-                                      else
-                                      {
-                                          <span class="text-muted">Resim bulunamadı</span>
-                                      }
+                                      <img src="@card.ImageUrl.ToDriveThumbnail()" alt="Kelime Kartı Resmi" class="thumb" />
+                                  }
+                                  else
+                                  {
+                                      <span class="text-muted">Resim bulunamadı</span>
                                   }
                                 </td>
 

@@ -1,4 +1,27 @@
+<<<<<<< HEAD
 import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions } from "./common.js";
+=======
+import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions, toThumbnailUrl } from "./common.js"
+
+let cards = [],
+    idx = 0,
+    start
+let singleMode = false
+let imgEl, guessEl, feedbackEl, questionEl
+
+function loadCard() {
+  const card = cards[idx]
+  const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
+  const q = card.gameQuestions?.find((g) => g.gameId === gid)
+
+  const src = q?.imageUrl || card.imageUrl || "/placeholder.svg"
+  imgEl.src = toThumbnailUrl(src)
+  questionEl.textContent = q?.questionText || "Bu görsel hangi kelimeyi ifade ediyor?"
+  guessEl.value = ""
+  feedbackEl.textContent = ""
+  start = Date.now()
+}
+>>>>>>> codex/convert-google-drive-image-links
 
 let cards = [], idx = 0, start;
 let singleMode = false;

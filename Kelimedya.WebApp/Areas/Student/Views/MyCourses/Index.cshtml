@@ -97,7 +97,7 @@
                         <div class="relative h-48 bg-gradient-to-br from-orange-100 to-orange-50 overflow-hidden">
                             @if (!string.IsNullOrEmpty(item.Course.ImageUrl))
                             {
-                                <img src="@item.Course.ImageUrl"
+                                <img src="@item.Course.ImageUrl.ToDriveThumbnail()"
                                      alt="@item.Course.Title"
                                      class="w-full h-full object-cover course-image">
                             }

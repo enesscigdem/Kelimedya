@@ -262,6 +262,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9Mb2dvdXQvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/MyCourses/LessonCompleted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9NeUNvdXJzZXMvTGVzc29uQ29tcGxldGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Areas/Student/Views/MyCourses/LessonDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvU3R1ZGVudC9WaWV3cy9NeUNvdXJzZXMvTGVzc29uRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -55,7 +55,7 @@ else
             </div>
         </div>
 
-        <div class="relative max-w-6xl mx-auto" id="kartSahne">
+        <div  class="relative max-w-6xl mx-auto overflow-x-clip" id="kartSahne">
             @if (Model.WordCards != null && Model.WordCards.Any())
             {
                 @for (int i = 0; i < Model.WordCards.Count; i++)
@@ -63,7 +63,7 @@ else
                     var card = Model.WordCards[i].WordCard;
                     var indexDisplay = $"{i + 1} / {totalCards}";
 
-                    <div class="kelime-card absolute inset-0 opacity-0 transform transition-all duration-200"
+                    <div class="kelime-card absolute inset-0 opacity-0 transform translate-x-full transition-all duration-200"
                          id="card@(i)"
                          data-wordcard-id="@card.Id">
                         <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl border border-orange-100 p-8 relative overflow-hidden">
@@ -517,19 +517,20 @@ else
             }
         }
         
-        function showCard(index) {
-            cardEls.forEach((card, i) => {
-                card.classList.remove('opacity-100', 'translate-x-0');
-            });
-            
-            setTimeout(() => {
-                cardEls[index].classList.add('opacity-100', 'translate-x-0');
-            }, 150);
-            
-            updateProgress(index);
-            currentIndex = index;
-        }
-        
+       function showCard(index) {
+                   cardEls.forEach((card, i) => {
+                       card.classList.remove('opacity-100', 'translate-x-0');
+                       card.classList.add('opacity-0', 'translate-x-full');
+                   });
+                   
+                   setTimeout(() => {
+                       cardEls[index].classList.remove('opacity-0', 'translate-x-full');
+                       cardEls[index].classList.add('opacity-100', 'translate-x-0');
+                   }, 150);
+                   
+                   updateProgress(index);
+                   currentIndex = index;
+                   }
         function updateProgress(idx){
             let percent = ((idx + 1) / totalCards) * 100;
             document.getElementById("progressFill").style.width = percent + "%";
@@ -537,15 +538,15 @@ else
         }
         
         function nextCard(){
-            if (currentIndex === totalCards - 1){
-                startGames();
-                return;
-            }
-            if (currentIndex < totalCards - 1){
-                showCard(currentIndex + 1);
-                updateLessonProgress(currentIndex + 1);
-                updateWordCardProgress(currentIndex + 1);
-            }
+          if (currentIndex < totalCards - 1){
+            const newIndex = currentIndex + 1;
+            showCard(newIndex);
+            // sadece burda çağır:
+            updateLessonProgress(newIndex);
+            updateWordCardProgress(newIndex);
+          } else {
+            startGames();
+          }
         }
         
         function prevCard(){

@@ -144,7 +144,13 @@ function startNext(studentId, gameId) {
   idx = (idx + 1) % cards.length;
   setup(studentId, gameId);
 }
-
+function normalizeWord(s) {
+  return (s || "")
+      .toLocaleLowerCase("tr")
+      .replace(/\s+/g, "");               // sadece boşlukları at
+  // İstersen noktalama da gitsin:
+  // .replace(/[^a-zçğıöşü]/gi, "")
+}
 function setup(studentId, gameId) {
   // reset
   guessed.clear();
@@ -155,13 +161,26 @@ function setup(studentId, gameId) {
   // pick word
   const card = cards[idx];
   const q = card.gameQuestions?.find(g => g.gameId === Number(gameId));
-  word = (q?.answerText || card.word).toLocaleLowerCase('tr');
+  word = normalizeWord(q?.answerText || card.word);
 
   updateDisplay();
   updateHints();
   createLetterButtons();
 
   // reveal button
+
+  const nextBtn = document.getElementById("aaNext");
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      // eski dinleyiciyi kaldır, tam sıfırla
+      if (keyListener) {
+        document.removeEventListener("keydown", keyListener);
+        keyListener = null;
+      }
+      startNext(studentId, gameId);
+    };
+  }
+  
   const revealBtn = document.getElementById("aaReveal");
   revealBtn.onclick = () => {
     document.getElementById("aaFeedback").innerHTML =

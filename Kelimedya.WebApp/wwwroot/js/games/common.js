@@ -80,13 +80,17 @@ export async function awardScore(studentId, gameId, success, durationSeconds) {
   }
 
   if (success) {
-    showIziToastSuccess(`+${score} puan`)
-    const correctAudio = document.getElementById("correctAudio")
+    // Toast içeriği: embed modda +puan, normal sayfada sadece "Başarılı!"
+    if (embedded) {
+      showIziToastSuccess(`+${score} puan`);
+    } else {
+      showIziToastSuccess("Başarılı!");
+    }
+
+    const correctAudio = document.getElementById("correctAudio");
     if (correctAudio) {
-      correctAudio.currentTime = 0
-      correctAudio.play().catch(() => {
-        console.warn("Doğru cevap sesi çalınamadı")
-      })
+      correctAudio.currentTime = 0;
+      correctAudio.play().catch(() => console.warn("Doğru cevap sesi çalınamadı"));
     }
   }
 }

@@ -51,11 +51,15 @@ function submit(studentId, gameId, selectedOption) {
     const correctOption = q.correctOption ?? card.correctOption;
     const success = selectedOption === correctOption;
     const duration = (Date.now() - start) / 1000;
-
+    
     feedbackEl.textContent = success
         ? "🎉 Tebrikler, doğru bildiniz!"
         : "❌ Maalesef, yanlış bildiniz.";
 
+    // Remove any previous success/failure classes and add the new one
+    feedbackEl.classList.remove("text-green-600", "text-red-600");
+    feedbackEl.classList.add(success ? "text-green-600" : "text-red-600");
+    
     awardScore(studentId, gameId, success, duration);
 
     if (success) {

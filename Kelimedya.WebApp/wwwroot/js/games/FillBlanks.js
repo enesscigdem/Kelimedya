@@ -6,7 +6,7 @@ let singleMode=false;
 function createItems(words, gameId){
   return words.map(w=>{
     const q=w.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
-    const ans=(q?.answerText||w.word).toLowerCase();
+    const ans=(q?.answerText||w.word).toLocaleLowerCase('tr');
     const sentence=q?.questionText||w.exampleSentence||`${w.word} cümle içinde`;
     const regex=new RegExp(ans,'i');
     const parts=sentence.split(regex);
@@ -26,7 +26,7 @@ function renderCard(){
 }
 
 function check(studentId, gameId){
-  let all=true;items[idx].answers.forEach((a,i)=>{const inp=document.querySelector(`.fb-input[data-index="${i}"]`);if(inp.value.trim().toLowerCase()===a){inp.classList.add('correct');}else{inp.classList.add('wrong');all=false;}});
+  let all=true;items[idx].answers.forEach((a,i)=>{const inp=document.querySelector(`.fb-input[data-index="${i}"]`);if(inp.value.trim().toLocaleLowerCase('tr')===a){inp.classList.add('correct');}else{inp.classList.add('wrong');all=false;}});
   document.getElementById('fbFeedback').textContent=all?'Doğru!':'Yanlış';
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, all, duration);

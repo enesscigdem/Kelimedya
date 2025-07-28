@@ -70,9 +70,14 @@ export async function recordGameStat(stat) {
 }
 
 export async function awardScore(studentId, gameId, success, durationSeconds) {
+  const root = document.getElementById('gameRoot');
+  const embedded = root && root.dataset.embed === 'true';
   const score = success ? Math.max(10, Math.floor(100 - durationSeconds * 5)) : 0
 
-  const newTotal = await recordGameStat({ studentId, gameId, score, durationSeconds })
+  let newTotal = null;
+  if (embedded) {
+    newTotal = await recordGameStat({ studentId, gameId, score, durationSeconds })
+  }
 
   if (success) {
     showIziToastSuccess(`+${score} puan`)

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 namespace Kelimedya.WebAPI.Models;
 
 public class GameQuestionDto
@@ -9,6 +10,11 @@ public class GameQuestionDto
     public string? ImageUrl2 { get; set; }
     public string? ImageUrl3 { get; set; }
     public string? ImageUrl4 { get; set; }
+
+    public IFormFile? ImageFile { get; set; }
+    public IFormFile? ImageFile2 { get; set; }
+    public IFormFile? ImageFile3 { get; set; }
+    public IFormFile? ImageFile4 { get; set; }
 
     public string? QuestionType { get; set; }
     public string? OptionA { get; set; }

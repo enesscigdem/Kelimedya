@@ -559,30 +559,36 @@ else
         
         const lessonWords = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.WordCards.Select(w => new { id = w.WordCard.Id, word = w.WordCard.Word })));
         const games = [
-            {title:"🎯 Adam Asmaca", url:"/Student/Games/AdamAsmaca"},
-            {title:"🧩 Kelime Bulmaca", url:"/Student/Games/KelimeBulmaca"},
-            {title:"🖼️ Görselden Soru", url:"/Student/Games/VisualPrompt"},
-            {title:"📷 Kelimeden Görsel", url:"/Student/Games/WordImage"},
-            {title:"🫧 Kabarcık Harfler", url:"/Student/Games/BubbleLetters"},
-            {title:"🔗 Çengel Bulmaca", url:"/Student/Games/CrossPuzzle"},
-            {title:"🔄 Eş Yakın Eşleştirme", url:"/Student/Games/SynonymMatch"},
-            {title:"📖 Cümle Kurma", url:"/Student/Games/SentenceBuilder"}
+            {title:"🎯 Adam Asmaca", url:"/Student/Games/AdamAsmaca", perWord:true},
+            {title:"🧩 Kelime Bulmaca", url:"/Student/Games/KelimeBulmaca", perWord:true},
+            {title:"🖼️ Görselden Soru", url:"/Student/Games/VisualPrompt", perWord:true},
+            {title:"📷 Kelimeden Görsel", url:"/Student/Games/WordImage", perWord:true},
+            {title:"🫧 Kabarcık Harfler", url:"/Student/Games/BubbleLetters", perWord:true},
+            {title:"🔗 Çengel Bulmaca", url:"/Student/Games/CrossPuzzle", perWord:false, repeat:2},
+            {title:"🔄 Eş Yakın Eşleştirme", url:"/Student/Games/SynonymMatch", perWord:false, repeat:1},
+            {title:"📖 Cümle Kurma", url:"/Student/Games/SentenceBuilder", perWord:true}
         ];
-        let gameOrder = [];
+        let playList = [];
         let wordOrder = [];
         let gameIndex = 0;
-        let wordIndex = 0;
         
         function startGames(){
-            gameOrder = shuffleArray(games.slice());
             wordOrder = shuffleArray(lessonWords);
+            playList = [];
+            games.forEach(g => {
+                if(g.perWord !== false){
+                    wordOrder.forEach(w => playList.push({game:g, word:w}));
+                }else{
+                    const rep = g.repeat || 1;
+                    for(let i=0;i<rep;i++) playList.push({game:g});
+                }
+            });
             gameIndex = 0;
-            wordIndex = 0;
             showCurrentGame();
         }
         
         function showCurrentGame(){
-            if(gameIndex >= gameOrder.length){
+            if(gameIndex >= playList.length){
                 openQuiz();
                 return;
             }
@@ -605,15 +611,16 @@ else
             loading.style.opacity = '1';
             loading.style.transform = 'scale(1)';
             
-            const game     = gameOrder[gameIndex];
-            const wordCard = wordOrder[wordIndex];
+            const entry    = playList[gameIndex];
+            const game     = entry.game;
+            const wordCard = entry.word;
             document.getElementById('modalTitle').textContent = game.title;
-            document.getElementById('gameWord').textContent   = wordCard.word;
-            
-            console.log('🎮 Loading game:', game.title, 'with word:', wordCard.word);
-            
+            document.getElementById('gameWord').textContent   = wordCard ? wordCard.word : '';
+
+            console.log('🎮 Loading game:', game.title, wordCard ? 'with word:' + wordCard.word : '');
+
             const gameFrame = document.getElementById('gameFrame');
-            const gameUrl = `${game.url}?popUp=1&word=${encodeURIComponent(wordCard.word)}&id=${wordCard.id}&theme=premium`;
+            const gameUrl = wordCard ? `${game.url}?popUp=1&word=${encodeURIComponent(wordCard.word)}&id=${wordCard.id}&theme=premium` : `${game.url}?popUp=1&theme=premium`;
             
             gameFrame.onload = function() {
                 console.log('✅ Game iframe loaded successfully');
@@ -634,12 +641,7 @@ else
         
         function completeGame(){
             console.log('🎉 Game completed, moving to next...');
-            wordIndex++;
-            if(wordIndex >= wordOrder.length){
-                wordIndex = 0;
-                gameIndex++;
-            }
-            
+            gameIndex++;
             setTimeout(() => {
                 showCurrentGame();
             }, 800);

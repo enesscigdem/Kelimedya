@@ -60,7 +60,7 @@ function selectWord(index) {
 
 function normalizeWord(w) {
   return w
-      .toLowerCase()
+      .toLocaleLowerCase('tr')
       .normalize('NFD')
       .replace(/\p{M}/gu, '')
       .replace(/[^\p{L}\p{N}]/gu, '')

@@ -27,7 +27,7 @@ function createLetterButtons() {
     btn.setAttribute("data-letter", letter);
     btn.onclick = () =>
         handleGuess(
-            letter.toLowerCase(),
+            letter.toLocaleLowerCase('tr'),
             document.getElementById("gameRoot").dataset.studentId,
             document.getElementById("gameRoot").dataset.gameId,
             btn
@@ -71,13 +71,13 @@ function drawHangman() {
 function updateDisplay() {
   const display = word
       .split("")
-      .map(ch => (guessed.has(ch) ? ch.toUpperCase() : "_"))
+      .map(ch => (guessed.has(ch) ? ch.toLocaleUpperCase('tr') : "_"))
       .join(" ");
   document.getElementById("wordDisplay").textContent = display;
 
   const wrongLetters = Array.from(guessed)
       .filter(ch => !word.includes(ch))
-      .map(ch => ch.toUpperCase())
+      .map(ch => ch.toLocaleUpperCase('tr'))
       .join(" ");
   document.getElementById("wrongLetters").textContent = wrongLetters;
 
@@ -120,7 +120,7 @@ function handleGuess(ch, studentId, gameId, btn) {
     const duration = (Date.now() - startTime) / 1000;
     awardScore(studentId, gameId, false, duration);
     document.getElementById("aaFeedback").innerHTML =
-        `<span class="text-red-600">😞 Kaybettin! Kelime: <strong>${word.toUpperCase()}</strong></span>`;
+        `<span class="text-red-600">😞 Kaybettin! Kelime: <strong>${word.toLocaleUpperCase('tr')}</strong></span>`;
     cleanupAndNext(studentId, gameId);
   }
 }
@@ -155,7 +155,7 @@ function setup(studentId, gameId) {
   // pick word
   const card = cards[idx];
   const q = card.gameQuestions?.find(g => g.gameId === Number(gameId));
-  word = (q?.answerText || card.word).toLowerCase();
+  word = (q?.answerText || card.word).toLocaleLowerCase('tr');
 
   updateDisplay();
   updateHints();
@@ -165,7 +165,7 @@ function setup(studentId, gameId) {
   const revealBtn = document.getElementById("aaReveal");
   revealBtn.onclick = () => {
     document.getElementById("aaFeedback").innerHTML =
-        `<span class="text-blue-600">💡 Cevap: <strong>${word.toUpperCase()}</strong></span>`;
+        `<span class="text-blue-600">💡 Cevap: <strong>${word.toLocaleUpperCase('tr')}</strong></span>`;
     cleanupAndNext(studentId, gameId);
   };
 
@@ -174,12 +174,12 @@ function setup(studentId, gameId) {
     document.removeEventListener("keydown", keyListener);
   }
   keyListener = e => {
-    const k = e.key.toUpperCase();
+    const k = e.key.toLocaleUpperCase('tr');
     if (TURKISH_ALPHABET.includes(k)) {
       const btn = document.querySelector(
           `#letterButtons button[data-letter="${k}"]`
       );
-      handleGuess(k.toLowerCase(), studentId, gameId, btn);
+      handleGuess(k.toLocaleLowerCase('tr'), studentId, gameId, btn);
     }
   };
   document.addEventListener("keydown", keyListener);

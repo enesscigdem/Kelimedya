@@ -87,6 +87,72 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                         content.Add(new StringContent(q.ImageUrl2 ?? string.Empty), $"GameQuestions[{i}].ImageUrl2");
                         content.Add(new StringContent(q.ImageUrl3 ?? string.Empty), $"GameQuestions[{i}].ImageUrl3");
                         content.Add(new StringContent(q.ImageUrl4 ?? string.Empty), $"GameQuestions[{i}].ImageUrl4");
+
+                        if (q.ImageFile != null)
+                        {
+                            using var ms = new MemoryStream();
+                            await q.ImageFile.CopyToAsync(ms);
+                            var fc = new ByteArrayContent(ms.ToArray());
+                            fc.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile.ContentType);
+                            content.Add(fc, $"GameQuestions[{i}].ImageFile", q.ImageFile.FileName);
+                        }
+                        if (q.ImageFile2 != null)
+                        {
+                            using var ms2 = new MemoryStream();
+                            await q.ImageFile2.CopyToAsync(ms2);
+                            var fc2 = new ByteArrayContent(ms2.ToArray());
+                            fc2.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile2.ContentType);
+                            content.Add(fc2, $"GameQuestions[{i}].ImageFile2", q.ImageFile2.FileName);
+                        }
+                        if (q.ImageFile3 != null)
+                        {
+                            using var ms3 = new MemoryStream();
+                            await q.ImageFile3.CopyToAsync(ms3);
+                            var fc3 = new ByteArrayContent(ms3.ToArray());
+                            fc3.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile3.ContentType);
+                            content.Add(fc3, $"GameQuestions[{i}].ImageFile3", q.ImageFile3.FileName);
+                        }
+                        if (q.ImageFile4 != null)
+                        {
+                            using var ms4 = new MemoryStream();
+                            await q.ImageFile4.CopyToAsync(ms4);
+                            var fc4 = new ByteArrayContent(ms4.ToArray());
+                            fc4.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile4.ContentType);
+                            content.Add(fc4, $"GameQuestions[{i}].ImageFile4", q.ImageFile4.FileName);
+                        }
+
+                        if (q.ImageFile != null)
+                        {
+                            using var ms = new MemoryStream();
+                            await q.ImageFile.CopyToAsync(ms);
+                            var fc = new ByteArrayContent(ms.ToArray());
+                            fc.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile.ContentType);
+                            content.Add(fc, $"GameQuestions[{i}].ImageFile", q.ImageFile.FileName);
+                        }
+                        if (q.ImageFile2 != null)
+                        {
+                            using var ms2 = new MemoryStream();
+                            await q.ImageFile2.CopyToAsync(ms2);
+                            var fc2 = new ByteArrayContent(ms2.ToArray());
+                            fc2.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile2.ContentType);
+                            content.Add(fc2, $"GameQuestions[{i}].ImageFile2", q.ImageFile2.FileName);
+                        }
+                        if (q.ImageFile3 != null)
+                        {
+                            using var ms3 = new MemoryStream();
+                            await q.ImageFile3.CopyToAsync(ms3);
+                            var fc3 = new ByteArrayContent(ms3.ToArray());
+                            fc3.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile3.ContentType);
+                            content.Add(fc3, $"GameQuestions[{i}].ImageFile3", q.ImageFile3.FileName);
+                        }
+                        if (q.ImageFile4 != null)
+                        {
+                            using var ms4 = new MemoryStream();
+                            await q.ImageFile4.CopyToAsync(ms4);
+                            var fc4 = new ByteArrayContent(ms4.ToArray());
+                            fc4.Headers.ContentType = new MediaTypeHeaderValue(q.ImageFile4.ContentType);
+                            content.Add(fc4, $"GameQuestions[{i}].ImageFile4", q.ImageFile4.FileName);
+                        }
                         content.Add(new StringContent(q.OptionA ?? string.Empty), $"GameQuestions[{i}].OptionA");
                         content.Add(new StringContent(q.OptionB ?? string.Empty), $"GameQuestions[{i}].OptionB");
                         content.Add(new StringContent(q.OptionC ?? string.Empty), $"GameQuestions[{i}].OptionC");

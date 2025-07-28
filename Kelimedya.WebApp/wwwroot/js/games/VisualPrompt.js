@@ -18,7 +18,7 @@ function loadCard(studentId, gameId) {
 
     // Resim ve soru
     imgEl.src = q.imageUrl || card.imageUrl || "/placeholder.svg";
-    questionEl.textContent = q.questionText || card.questionText || "Bu görsel hangi kelimeyi ifade ediyor?";
+    questionEl.innerHTML = q.questionText || card.questionText || "Bu görsel hangi kelimeyi ifade ediyor?";
 
     // Temizlik
     feedbackEl.textContent = "";

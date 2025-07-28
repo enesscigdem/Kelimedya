@@ -15,8 +15,8 @@ async function buildPuzzle(studentId, gameId){
   const b = cards[1];
   const qa = a.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
   const qb = b.gameQuestions?.find(g=>g.gameId===parseInt(gameId));
-  const ansA = (qa?.answerText||a.word).toUpperCase();
-  const ansB = (qb?.answerText||b.word).toUpperCase();
+  const ansA = (qa?.answerText||a.word).toLocaleUpperCase('tr');
+  const ansB = (qb?.answerText||b.word).toLocaleUpperCase('tr');
   const clueA = qa?.questionText || a.definition || '';
   const clueB = qb?.questionText || b.definition || '';
   let col = ansA.indexOf(ansB[0]);
@@ -59,7 +59,7 @@ function buildGrid(){
 }
 
 function check(studentId, gameId){
-  let correct=true;document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c=>{if(c.value.toUpperCase()!==c.dataset.answer){correct=false;c.classList.add('wrong');}else c.classList.remove('wrong');});
+  let correct=true;document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c=>{if(c.value.toLocaleUpperCase('tr')!==c.dataset.answer){correct=false;c.classList.add('wrong');}else c.classList.remove('wrong');});
   document.getElementById('cpFeedback').textContent=correct?'Tebrikler':'Yanlışlıklar var';
   const duration=(Date.now()-start)/1000;
   awardScore(studentId, gameId, correct, duration);

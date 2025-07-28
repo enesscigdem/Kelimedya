@@ -43,7 +43,7 @@ export async function initBubbleLetters(studentId, gameId, single, wordId) {
 
   document.addEventListener("keydown", (e) => {
     if (/^[a-zA-Z]$/.test(e.key)) {
-      selectLetter(e.key.toLowerCase());
+      selectLetter(e.key.toLocaleLowerCase('tr'));
     } else if (e.key === "Backspace") {
       e.preventDefault();
       removeLastLetter();
@@ -60,7 +60,7 @@ function setupWord() {
   const q = card.gameQuestions?.find((g) => g.gameId === gid);
 
   // Hedef kelime
-  targetWord = (q?.answerText || card.word).toLowerCase();
+  targetWord = (q?.answerText || card.word).toLocaleLowerCase('tr');
   currentWord = Array(targetWord.length).fill("");
   availableLetters = alphabet.map((l) => ({ letter: l, used: false }));
   shuffle(availableLetters);
@@ -108,7 +108,7 @@ function createBubbles() {
   availableLetters.forEach((obj) => {
     const btn = document.createElement("button");
     btn.className = "bubble-btn" + (obj.used ? " used" : "");
-    btn.textContent = obj.letter.toUpperCase();
+    btn.textContent = obj.letter.toLocaleUpperCase('tr');
     btn.onclick = () => selectLetter(obj.letter);
     container.appendChild(btn);
   });
@@ -149,7 +149,7 @@ function clearWord() {
 
 function checkWord() {
   const guess = currentWord.join("");
-  const correct = guess.toLowerCase() === targetWord;
+  const correct = guess.toLocaleLowerCase('tr') === targetWord;
   const duration = (Date.now() - startTime) / 1000;
   const gid = Number(
       document.getElementById("gameRoot").dataset.gameId

@@ -19,7 +19,7 @@ function loadCard() {
   const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
   const q = findQuestion(card, gid)
 
-  wordEl.textContent = q?.questionText || card.word
+  wordEl.innerHTML = q?.questionText || card.word
 
   let opts = [q?.imageUrl, q?.imageUrl2, q?.imageUrl3, q?.imageUrl4].filter(Boolean)
   if (opts.length === 0 && card.imageUrl) opts = [card.imageUrl]

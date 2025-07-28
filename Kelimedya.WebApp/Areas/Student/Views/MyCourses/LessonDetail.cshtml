@@ -150,9 +150,9 @@ else
                                                     </div>
                                                     <p class="text-xl font-semibold ml-11">
                                                         <span class="inline-flex items-center gap-1 group cursor-pointer speakable">
-                                                            <span class="group-hover:text-green-600 transition-colors">
-                                                                @card.Definition
-                                                            </span>
+                                                                <span class="group-hover:text-green-600 transition-colors">
+                                                                    @Html.Raw(card.Definition)
+                                                                </span>
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  class="w-4 h-4 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity"
                                                                  fill="currentColor" viewBox="0 0 20 20">

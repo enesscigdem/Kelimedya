@@ -298,7 +298,7 @@
                               <tr class="wordcard-row" data-word="@card.Word.ToLower()" data-definition="@card.Definition.ToLower()">
                                 <td>@card.Word</td>
                                 <td>@card.Synonym</td>
-                                <td>@card.Definition</td>
+                                <td>@Html.Raw(card.Definition)</td>
                                 <td>@card.ExampleSentence</td>
                                 <td>
                                   @if (!string.IsNullOrEmpty(card.ImageUrl))

@@ -52,7 +52,6 @@ function submit(studentId, gameId, selectedOption) {
     const success = selectedOption === correctOption;
     const duration = (Date.now() - start) / 1000;
 
-    // Geri bildirim metni
     feedbackEl.textContent = success
         ? "🎉 Tebrikler, doğru bildiniz!"
         : "❌ Maalesef, yanlış bildiniz.";
@@ -61,12 +60,24 @@ function submit(studentId, gameId, selectedOption) {
 
     if (success) {
         cards.splice(idx, 1);
-        if (cards.length === 0) {
-            notifyParent();
-            return;
-        }
     }
+
+    if (cards.length === 0) {
+        notifyParent();
+        return;
+    }
+
+    setTimeout(() => {
+        if (!success) {
+            idx = (idx + 1) % cards.length;
+        } else {
+            if (idx >= cards.length) idx = 0;
+        }
+
+        loadCard(studentId, gameId);
+    }, 800); // 0.8 saniye gecikme, istersen 0ms de yapabilirsin
 }
+
 
 export async function initVisualPrompt(studentId, gameId, single, wordId) {
     if (single) {

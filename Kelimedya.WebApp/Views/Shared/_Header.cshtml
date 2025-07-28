@@ -106,12 +106,20 @@
                                             <span>Panele Git</span>
                                         </a>
                                     }
-                                    else
+                                    @if(User.IsInRole(RoleNames.Teacher))
                                     {
-                                        <a asp-controller="Account" asp-action="Profile"
+                                        <a asp-area="Teacher" asp-controller="Dashboard" asp-action="Index"
                                            class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
                                             <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
-                                            <span>Bilgilerim</span>
+                                            <span>Panele Git</span>
+                                        </a>
+                                    }
+                                    @if(User.IsInRole(RoleNames.Admin))
+                                    {
+                                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                                           class="td_hero_text_btn td_fs_18 td_medium td_heading_color td_opacity_9">
+                                            <img src="~/theme/web_UI/assets/img/icons/user.svg" alt="">
+                                            <span>Yönetim Paneli</span>
                                         </a>
                                     }
                                 </li>

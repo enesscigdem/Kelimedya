@@ -12,60 +12,44 @@
 
 <style>
     .bl-letter {
-        width: 48px;
-        height: 48px;
-        background: white;
-        border: 2px solid #fdba74;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
-        color: #ea580c;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 48px; height: 48px;
+        background: white; border: 2px solid #fdba74;
+        border-radius: 12px; display: flex;
+        align-items: center; justify-content: center;
+        font-size: 24px; font-weight: bold;
+        color: #ea580c; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         transition: all 0.2s ease;
     }
     .bl-letter.filled {
         background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
-        border-color: #fb923c;
-        transform: scale(1.05);
+        border-color: #fb923c; transform: scale(1.05);
     }
+    .bl-letter.filled-clickable { cursor: pointer; }
+
     .bubble-btn {
-        width: 48px;
-        height: 48px;
+        width: 48px; height: 48px;
         background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
-        color: #ea580c;
-        font-weight: bold;
-        border-radius: 50%;
-        cursor: pointer;
+        color: #ea580c; font-weight: bold;
+        border-radius: 50%; cursor: pointer;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         border: 2px solid #fb923c;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
+        display: flex; align-items: center;
+        justify-content: center; font-size: 16px;
     }
     .bubble-btn:hover:not(:disabled) {
         background: linear-gradient(135deg, #fdba74 0%, #fb923c 100%);
         transform: translateY(-2px) scale(1.1);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
     .bubble-btn:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-        transform: none;
-        background: #d1d5db;
-        color: #6b7280;
+        opacity: 0.3; cursor: not-allowed;
+        background: #d1d5db; color: #6b7280;
         border-color: #9ca3af;
     }
     .bubble-btn.used {
-      background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
-      color: #ffffff;
-    }
-    .bl-letter.filled-clickable {
-      cursor: pointer;
+        background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+        color: white;
     }
 </style>
 
@@ -75,33 +59,35 @@
      data-word="@singleWord"
      data-word-id="@wordId"
      data-embed="@popUp.ToString().ToLower()">
-    
+
     @if (!popUp)
     {
         <header class="text-center mb-8">
             <h2 class="text-4xl font-bold text-orange-600 mb-2">Kabarcık Harfler</h2>
-            <p class="text-lg text-gray-600 mb-4">Doğru kelimeyi oluşturmak için baloncuklara tıklayın veya klavyenizle yazın.</p>
+            <p class="text-lg text-gray-600 mb-4">
+                Doğru kelimeyi oluşturmak için baloncuklara tıklayın veya klavyenizle yazın.
+            </p>
             <div class="w-full bg-gray-200 rounded-full h-3 max-w-md mx-auto">
-                <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full transition-all duration-300" style="width: 100%"></div>
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full transition-all duration-300"
+                     style="width: 100%"></div>
             </div>
         </header>
     }
-    
+
     <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-orange-100 p-8 max-w-5xl mx-auto">
-        <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 mb-8 space-y-3 border border-orange-200">
-            <div class="flex flex-wrap gap-4">
-                <div class="flex-1 min-w-0">
-                    <span class="font-bold text-orange-800">Eş anlamı:</span>
-                    <span id="hintSynonym" class="ml-2 text-orange-700 font-medium"></span>
-                </div>
-            </div>
-            <div>
-                <span class="font-bold text-orange-800">Cümle:</span>
-                <em id="hintSentence" class="ml-2 text-orange-700 font-medium"></em>
-            </div>
+
+        <!-- Soru ve görsel artık burada -->
+        <div class="mb-6 text-center">
+            <img id="questionImage"
+                 src=""
+                 alt="Soru Görseli"
+                 class="mx-auto mb-2 max-h-48 rounded-lg shadow" />
+            <p id="questionText" class="text-lg font-medium text-gray-800"></p>
         </div>
+
         <div id="targetSlots" class="flex justify-center gap-2 mb-8 flex-wrap"></div>
-        <div id="bubblesArea" class="flex justify-center gap-3 mb-8 flex-wrap"></div>
+        <div id="bubblesArea"  class="flex justify-center gap-3 mb-8 flex-wrap"></div>
+
         <div class="flex flex-wrap justify-center gap-4 mb-6">
             <button id="blClear" class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-6 py-3 rounded-xl font-bold hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Temizle
@@ -113,7 +99,9 @@
                 Cevabı Göster
             </button>
         </div>
+
         <div id="blFeedback" class="text-center mb-6 text-xl font-bold"></div>
+
         <div class="flex justify-center gap-4 pt-4 border-t border-orange-200">
             <button id="blBack" class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 px-6 py-3 rounded-xl font-bold hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Geri Dön
@@ -127,7 +115,7 @@
 
 @section Scripts {
     <script type="module">
-        import {initBubbleLetters} from '@Url.Content("~/js/games/BubbleLetters.js")';
+        import { initBubbleLetters } from '@Url.Content("~/js/games/BubbleLetters.js")';
         const root = document.getElementById('gameRoot');
         initBubbleLetters(
             root.dataset.studentId,

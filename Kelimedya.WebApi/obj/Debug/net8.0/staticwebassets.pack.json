@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.avif"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png",
+      "PackagePath": "staticwebassets/uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png",
       "PackagePath": "staticwebassets/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif",
       "PackagePath": "staticwebassets/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png",
+      "PackagePath": "staticwebassets/uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/44725d31-42a2-4305-b617-21e3854ecfee.jpeg",
@@ -81,6 +89,134 @@
       "PackagePath": "staticwebassets/uploads/profiles/fc11ea09-3159-4c1a-9838-3bed77981b64.jpg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png",
+      "PackagePath": "staticwebassets/uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png",
+      "PackagePath": "staticwebassets/uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png",
+      "PackagePath": "staticwebassets/uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70f93112-720c-4739-8deb-80496822aeab",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png",
+      "PackagePath": "staticwebassets/uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg",
+      "PackagePath": "staticwebassets/uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f",
+      "PackagePath": "staticwebassets/uploads/question-images"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.jpg",
       "PackagePath": "staticwebassets/uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.jpg"
     },
@@ -99,6 +235,14 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg",
       "PackagePath": "staticwebassets/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png",
+      "PackagePath": "staticwebassets/uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg",

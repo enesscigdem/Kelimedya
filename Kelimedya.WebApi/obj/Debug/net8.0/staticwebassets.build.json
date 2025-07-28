@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CM903znork8tjJYei7KXXpIj8fGaWa9gsyFrhsbv7ZA=",
+  "Hash": "YnmoLtAPNlACd1ObbaxkwP+naavA3miQRCH7ysV4m98=",
   "Source": "Kelimedya.WebApi",
   "BasePath": "_content/Kelimedya.WebApi",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/courses/bc9a21d6-00e5-4881-8273-8787ce082068.avif"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f5v9r53pvo",
+      "Integrity": "86Qg9/6x8d5PUas/3dnrHR9BLWU5JAcizp/9kJ9xvM4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png",
@@ -120,6 +141,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/lessons/1b82ebe8-a89e-4bbd-8ef0-a9632dea12e8.avif"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qn4gd0juik",
+      "Integrity": "lljkUGpUO3BwiZ7algPyX4SSlFGzmg9r8JiqoJgd29Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/44725d31-42a2-4305-b617-21e3854ecfee.jpeg",
@@ -437,6 +479,678 @@
       "OriginalItemSpec": "wwwroot/uploads/profiles/fc11ea09-3159-4c1a-9838-3bed77981b64.jpg"
     },
     {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0otiiflwd7",
+      "Integrity": "UFso6pIapbTyzzN7WzSF20LAr2aI5Fcv6HlNJaaCOv4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2tnjzuid08",
+      "Integrity": "umUpp4mLJWScA5ClZvUlvBPTxF5m6EFPAzNA+r57q70=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iehf7mblhp",
+      "Integrity": "2nQODJMRzyU/hf6IuGdafGxC9qlaWLVnPYQLMID3uPY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ru7dsstzz4",
+      "Integrity": "A4Ubgn2G8xpkACSe99t+1PO1LZ53O7lKaCPlmxKX+o8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2lx0vzj190",
+      "Integrity": "+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jgvwj3q6g3",
+      "Integrity": "Q2ZXb2jJcIIdeKyXB89PjqKEE+5MEKjflNcjwCyWQg0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m0b2q72yjt",
+      "Integrity": "uuUPKcw3GHP9ODmJYWZkC9qmW9JJzgnjzaO3SrKJAgI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q42e712w47",
+      "Integrity": "ttJxJN29bqat1s4zWS1splA1biOMTx5tdWYBYBPxqIU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mj1tob7mba",
+      "Integrity": "7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uo4ahltk8f",
+      "Integrity": "wtRPVgRmPAW0Vo5Bi0EF9Xu78SGvXJbBHkVCwHehyys=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "a2hxh202xc",
+      "Integrity": "ok0uW5+0/4xtZs8fuHSJ8F0rO6SZie3eZFb3mJhnWhk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mj1tob7mba",
+      "Integrity": "7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mw1j82r0uw",
+      "Integrity": "ZpAURWT+WCt1AXStES22iRsth2TEvCPT1QHNsJpSHoo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mj1tob7mba",
+      "Integrity": "7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kgw5n53mqz",
+      "Integrity": "bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s4j26zkue6",
+      "Integrity": "XL++bT0iTO0BB9KQw6CZZgc3ctJAujEx+K5tiUBEIjc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2lx0vzj190",
+      "Integrity": "+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70f93112-720c-4739-8deb-80496822aeab",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/70f93112-720c-4739-8deb-80496822aeab#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gk1dlwcahz",
+      "Integrity": "0MGXXTVqVd2HfBkdlfJJDed3fQ/iFEq+xEC/5fgB/s8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/70f93112-720c-4739-8deb-80496822aeab"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wwphbk7pfc",
+      "Integrity": "kPdX/tfui2jaRYK+4Zg1TsuOyh907OV3sO+GpaNg40M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q7rtqfe5l1",
+      "Integrity": "+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mj1tob7mba",
+      "Integrity": "7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "twc43y5lvj",
+      "Integrity": "o6rUJDI9rpbeF3gO35M64o3/5LSlWy+z4kpWMvZLXlA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53d6u2saim",
+      "Integrity": "we1IGR2OpIVCQ1CGxnHvFqamX/9feFHeNcoT3SctzcM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q7rtqfe5l1",
+      "Integrity": "+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rb1milmk3l",
+      "Integrity": "N9bb1avYsxNGCuYJ+4FOuPcYTZrh8dbu9kIEHBZsXHU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q7rtqfe5l1",
+      "Integrity": "+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kgw5n53mqz",
+      "Integrity": "bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q7rtqfe5l1",
+      "Integrity": "+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lz5im88bo5",
+      "Integrity": "L9toBl/IHKDnTepOc6iuIVEwwSoCXKhKoF/md0n8JnM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pcjthoecu2",
+      "Integrity": "xwekEH2KUVaoMHnwNUOcps6z3k3BS1JiCTu9cGnh5Ek=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "y5nz23jqt4",
+      "Integrity": "+sF1rv3GB3++B31ENVfwjosqfk2QmpjDQgRWXbP2pVw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f#[.{fingerprint}]?",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ju4higl3wm",
+      "Integrity": "y9SS1PByqygxhWZ+27M5ijxWGPQ0Wbv+iAWLg2JDEnk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f"
+    },
+    {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.jpg",
       "SourceId": "Kelimedya.WebApi",
       "SourceType": "Discovered",
@@ -540,6 +1254,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mj1tob7mba",
+      "Integrity": "7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png"
+    },
+    {
+      "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg",
+      "SourceId": "Kelimedya.WebApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/",
+      "BasePath": "_content/Kelimedya.WebApi",
+      "RelativePath": "uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q7rtqfe5l1",
+      "Integrity": "+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg"
     },
     {
       "Identity": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/ae68d92b-6914-478c-aab6-cc26ca777d14.jpeg",
@@ -813,6 +1569,88 @@
       ]
     },
     {
+      "Route": "uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.f5v9r53pvo.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1486591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"86Qg9/6x8d5PUas/3dnrHR9BLWU5JAcizp/9kJ9xvM4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 22:35:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f5v9r53pvo"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-86Qg9/6x8d5PUas/3dnrHR9BLWU5JAcizp/9kJ9xvM4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ca8a355a-8b4e-4e2b-985b-567d60e4250f.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1486591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"86Qg9/6x8d5PUas/3dnrHR9BLWU5JAcizp/9kJ9xvM4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 22:35:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-86Qg9/6x8d5PUas/3dnrHR9BLWU5JAcizp/9kJ9xvM4="
+        }
+      ]
+    },
+    {
       "Route": "uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.f23ackgio5.png",
       "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/courses/ce13e099-7be1-41cc-9ba6-69cd4e6fc334.png",
       "Selectors": [],
@@ -1055,6 +1893,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-GAe05ZwDdd5t+5KfPqA5PaGz6O88a6W9gCcC5WZ+kkk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1800612"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lljkUGpUO3BwiZ7algPyX4SSlFGzmg9r8JiqoJgd29Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 22:48:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lljkUGpUO3BwiZ7algPyX4SSlFGzmg9r8JiqoJgd29Y="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.qn4gd0juik.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1800612"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lljkUGpUO3BwiZ7algPyX4SSlFGzmg9r8JiqoJgd29Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 22:48:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qn4gd0juik"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/lessons/27da77ce-3466-4fe2-a1b8-16321b25f4db.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lljkUGpUO3BwiZ7algPyX4SSlFGzmg9r8JiqoJgd29Y="
         }
       ]
     },
@@ -2289,6 +3209,2630 @@
       ]
     },
     {
+      "Route": "uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103765"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UFso6pIapbTyzzN7WzSF20LAr2aI5Fcv6HlNJaaCOv4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UFso6pIapbTyzzN7WzSF20LAr2aI5Fcv6HlNJaaCOv4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60.0otiiflwd7",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103765"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UFso6pIapbTyzzN7WzSF20LAr2aI5Fcv6HlNJaaCOv4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0otiiflwd7"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/036bd92e-05de-4c86-90ff-23825bbfeb60"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UFso6pIapbTyzzN7WzSF20LAr2aI5Fcv6HlNJaaCOv4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103914"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"umUpp4mLJWScA5ClZvUlvBPTxF5m6EFPAzNA+r57q70=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-umUpp4mLJWScA5ClZvUlvBPTxF5m6EFPAzNA+r57q70="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1.2tnjzuid08",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103914"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"umUpp4mLJWScA5ClZvUlvBPTxF5m6EFPAzNA+r57q70=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2tnjzuid08"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/05a44d7a-de53-4e99-b7e5-8cb83622f9c1"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-umUpp4mLJWScA5ClZvUlvBPTxF5m6EFPAzNA+r57q70="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103802"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2nQODJMRzyU/hf6IuGdafGxC9qlaWLVnPYQLMID3uPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2nQODJMRzyU/hf6IuGdafGxC9qlaWLVnPYQLMID3uPY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d.iehf7mblhp",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103802"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2nQODJMRzyU/hf6IuGdafGxC9qlaWLVnPYQLMID3uPY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iehf7mblhp"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/206f90b6-e995-4d6c-8b76-b639bbecc87d"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2nQODJMRzyU/hf6IuGdafGxC9qlaWLVnPYQLMID3uPY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103993"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A4Ubgn2G8xpkACSe99t+1PO1LZ53O7lKaCPlmxKX+o8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-A4Ubgn2G8xpkACSe99t+1PO1LZ53O7lKaCPlmxKX+o8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129.ru7dsstzz4",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103993"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A4Ubgn2G8xpkACSe99t+1PO1LZ53O7lKaCPlmxKX+o8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ru7dsstzz4"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/22f522fd-36a0-430c-acdd-76cf3d07a129"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-A4Ubgn2G8xpkACSe99t+1PO1LZ53O7lKaCPlmxKX+o8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.2lx0vzj190.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2lx0vzj190"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/233d00aa-298a-48ff-898b-9efa8640cb7e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103995"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Q2ZXb2jJcIIdeKyXB89PjqKEE+5MEKjflNcjwCyWQg0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Q2ZXb2jJcIIdeKyXB89PjqKEE+5MEKjflNcjwCyWQg0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b.jgvwj3q6g3",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103995"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Q2ZXb2jJcIIdeKyXB89PjqKEE+5MEKjflNcjwCyWQg0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jgvwj3q6g3"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/3471743e-a3f0-4abf-be03-7072e984a79b"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Q2ZXb2jJcIIdeKyXB89PjqKEE+5MEKjflNcjwCyWQg0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uuUPKcw3GHP9ODmJYWZkC9qmW9JJzgnjzaO3SrKJAgI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uuUPKcw3GHP9ODmJYWZkC9qmW9JJzgnjzaO3SrKJAgI="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5.m0b2q72yjt",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uuUPKcw3GHP9ODmJYWZkC9qmW9JJzgnjzaO3SrKJAgI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0b2q72yjt"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/3dba154d-4461-4a2f-b756-d538d4a7f8a5"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uuUPKcw3GHP9ODmJYWZkC9qmW9JJzgnjzaO3SrKJAgI="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103713"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ttJxJN29bqat1s4zWS1splA1biOMTx5tdWYBYBPxqIU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ttJxJN29bqat1s4zWS1splA1biOMTx5tdWYBYBPxqIU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a.q42e712w47",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103713"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ttJxJN29bqat1s4zWS1splA1biOMTx5tdWYBYBPxqIU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q42e712w47"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/416c9787-c9fa-4ffc-949d-7007aecda05a"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ttJxJN29bqat1s4zWS1splA1biOMTx5tdWYBYBPxqIU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.mj1tob7mba.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mj1tob7mba"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/499f49f6-d9eb-4d2f-8d41-8456ae943f4d.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104323"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wtRPVgRmPAW0Vo5Bi0EF9Xu78SGvXJbBHkVCwHehyys=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wtRPVgRmPAW0Vo5Bi0EF9Xu78SGvXJbBHkVCwHehyys="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e.uo4ahltk8f",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104323"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wtRPVgRmPAW0Vo5Bi0EF9Xu78SGvXJbBHkVCwHehyys=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uo4ahltk8f"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/4f4ef63a-1727-4a55-8adf-b50cf0cb2b4e"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wtRPVgRmPAW0Vo5Bi0EF9Xu78SGvXJbBHkVCwHehyys="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103949"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ok0uW5+0/4xtZs8fuHSJ8F0rO6SZie3eZFb3mJhnWhk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ok0uW5+0/4xtZs8fuHSJ8F0rO6SZie3eZFb3mJhnWhk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041.a2hxh202xc",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103949"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ok0uW5+0/4xtZs8fuHSJ8F0rO6SZie3eZFb3mJhnWhk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "a2hxh202xc"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/5f2aa9dc-1d2f-4fbc-82c2-de15a37e7041"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ok0uW5+0/4xtZs8fuHSJ8F0rO6SZie3eZFb3mJhnWhk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.mj1tob7mba.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mj1tob7mba"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/5f72699a-e07f-4900-b9b8-ce0ee5b95a8c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZpAURWT+WCt1AXStES22iRsth2TEvCPT1QHNsJpSHoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZpAURWT+WCt1AXStES22iRsth2TEvCPT1QHNsJpSHoo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34.mw1j82r0uw",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZpAURWT+WCt1AXStES22iRsth2TEvCPT1QHNsJpSHoo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mw1j82r0uw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/62404615-f578-4a55-99b8-a9bc00d06a34"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZpAURWT+WCt1AXStES22iRsth2TEvCPT1QHNsJpSHoo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.mj1tob7mba.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mj1tob7mba"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/66c3e398-5fef-466f-aeaf-9d59fe50d1ae.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "198614"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.kgw5n53mqz.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "198614"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kgw5n53mqz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/67999992-b5bc-4303-af35-61f7cbb15e4c.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XL++bT0iTO0BB9KQw6CZZgc3ctJAujEx+K5tiUBEIjc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XL++bT0iTO0BB9KQw6CZZgc3ctJAujEx+K5tiUBEIjc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9.s4j26zkue6",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XL++bT0iTO0BB9KQw6CZZgc3ctJAujEx+K5tiUBEIjc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s4j26zkue6"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/6f37e969-f706-48ff-8f96-5adadf9bc5a9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XL++bT0iTO0BB9KQw6CZZgc3ctJAujEx+K5tiUBEIjc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.2lx0vzj190.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2lx0vzj190"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70cc114b-f167-4601-82b9-46ac5040c295.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "273316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+voKJEGOuRzmMeAfQaC/w72QmTm7Gsh/3m3xXIkDufo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/70f93112-720c-4739-8deb-80496822aeab",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70f93112-720c-4739-8deb-80496822aeab",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104274"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0MGXXTVqVd2HfBkdlfJJDed3fQ/iFEq+xEC/5fgB/s8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0MGXXTVqVd2HfBkdlfJJDed3fQ/iFEq+xEC/5fgB/s8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/70f93112-720c-4739-8deb-80496822aeab.gk1dlwcahz",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/70f93112-720c-4739-8deb-80496822aeab",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104274"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0MGXXTVqVd2HfBkdlfJJDed3fQ/iFEq+xEC/5fgB/s8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gk1dlwcahz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/70f93112-720c-4739-8deb-80496822aeab"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0MGXXTVqVd2HfBkdlfJJDed3fQ/iFEq+xEC/5fgB/s8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103999"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kPdX/tfui2jaRYK+4Zg1TsuOyh907OV3sO+GpaNg40M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kPdX/tfui2jaRYK+4Zg1TsuOyh907OV3sO+GpaNg40M="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f.wwphbk7pfc",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103999"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kPdX/tfui2jaRYK+4Zg1TsuOyh907OV3sO+GpaNg40M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wwphbk7pfc"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/7366bcee-5d4a-49f3-a5f6-220be188467f"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kPdX/tfui2jaRYK+4Zg1TsuOyh907OV3sO+GpaNg40M="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.q7rtqfe5l1.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q7rtqfe5l1"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/8383545f-a5b5-4d09-bdcc-c482382ed283.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.mj1tob7mba.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mj1tob7mba"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8dc987d7-b1a5-4031-ae59-1a95c1a7f40a.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103900"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o6rUJDI9rpbeF3gO35M64o3/5LSlWy+z4kpWMvZLXlA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-o6rUJDI9rpbeF3gO35M64o3/5LSlWy+z4kpWMvZLXlA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43.twc43y5lvj",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103900"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o6rUJDI9rpbeF3gO35M64o3/5LSlWy+z4kpWMvZLXlA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "twc43y5lvj"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/8ed2fb1b-f935-4645-b1ec-989193768e43"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-o6rUJDI9rpbeF3gO35M64o3/5LSlWy+z4kpWMvZLXlA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103804"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"we1IGR2OpIVCQ1CGxnHvFqamX/9feFHeNcoT3SctzcM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-we1IGR2OpIVCQ1CGxnHvFqamX/9feFHeNcoT3SctzcM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1.53d6u2saim",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103804"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"we1IGR2OpIVCQ1CGxnHvFqamX/9feFHeNcoT3SctzcM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "53d6u2saim"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/a20f6caa-0fd1-4dab-a53f-e69fe90a83f1"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-we1IGR2OpIVCQ1CGxnHvFqamX/9feFHeNcoT3SctzcM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.q7rtqfe5l1.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q7rtqfe5l1"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/b0f2cdde-d86e-4d6b-850d-ec0aa048c555.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N9bb1avYsxNGCuYJ+4FOuPcYTZrh8dbu9kIEHBZsXHU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-N9bb1avYsxNGCuYJ+4FOuPcYTZrh8dbu9kIEHBZsXHU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd.rb1milmk3l",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N9bb1avYsxNGCuYJ+4FOuPcYTZrh8dbu9kIEHBZsXHU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rb1milmk3l"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/b33eca9e-04e8-4fab-8ce7-9ef949ef2bfd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-N9bb1avYsxNGCuYJ+4FOuPcYTZrh8dbu9kIEHBZsXHU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.q7rtqfe5l1.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q7rtqfe5l1"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/b71089d2-7a70-4157-9358-ef7ba9badab6.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "198614"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.kgw5n53mqz.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "198614"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kgw5n53mqz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/ba7e81cd-d07f-405b-9ec6-99ca3c51e264.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bHGMnnCy5s+OLP2r6wIztVPDS2Zg/c2LapMepgMGbr8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.q7rtqfe5l1.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q7rtqfe5l1"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/c38a89d2-8c87-4147-baa8-1863ae5d195d.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103727"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L9toBl/IHKDnTepOc6iuIVEwwSoCXKhKoF/md0n8JnM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-L9toBl/IHKDnTepOc6iuIVEwwSoCXKhKoF/md0n8JnM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071.lz5im88bo5",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103727"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L9toBl/IHKDnTepOc6iuIVEwwSoCXKhKoF/md0n8JnM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lz5im88bo5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/cddd28d9-043e-4cbc-b64a-768df1142071"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-L9toBl/IHKDnTepOc6iuIVEwwSoCXKhKoF/md0n8JnM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103781"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xwekEH2KUVaoMHnwNUOcps6z3k3BS1JiCTu9cGnh5Ek=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xwekEH2KUVaoMHnwNUOcps6z3k3BS1JiCTu9cGnh5Ek="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa.pcjthoecu2",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103781"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xwekEH2KUVaoMHnwNUOcps6z3k3BS1JiCTu9cGnh5Ek=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pcjthoecu2"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/d29cb2f0-a3a6-46c8-870a-64f44c0ff6fa"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xwekEH2KUVaoMHnwNUOcps6z3k3BS1JiCTu9cGnh5Ek="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103940"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+sF1rv3GB3++B31ENVfwjosqfk2QmpjDQgRWXbP2pVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+sF1rv3GB3++B31ENVfwjosqfk2QmpjDQgRWXbP2pVw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3.y5nz23jqt4",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "103940"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+sF1rv3GB3++B31ENVfwjosqfk2QmpjDQgRWXbP2pVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "y5nz23jqt4"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/dcaa0ab8-4276-4a97-adb2-79c251121cc3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+sF1rv3GB3++B31ENVfwjosqfk2QmpjDQgRWXbP2pVw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104274"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y9SS1PByqygxhWZ+27M5ijxWGPQ0Wbv+iAWLg2JDEnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y9SS1PByqygxhWZ+27M5ijxWGPQ0Wbv+iAWLg2JDEnk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f.ju4higl3wm",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "104274"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y9SS1PByqygxhWZ+27M5ijxWGPQ0Wbv+iAWLg2JDEnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 23:10:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ju4higl3wm"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/question-images/f67850a1-fdc9-4b60-a36a-731ea40cf52f"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-y9SS1PByqygxhWZ+27M5ijxWGPQ0Wbv+iAWLg2JDEnk="
+        }
+      ]
+    },
+    {
       "Route": "uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.2lx0vzj190.jpg",
       "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.jpg",
       "Selectors": [],
@@ -2695,6 +6239,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-vJAJMnR/VahfI8uKDIWZFu67VRqHX6QvFi0LDQhKa0I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.mj1tob7mba.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mj1tob7mba"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/6b6d488d-7e4a-4b08-9a23-622c84257c8c.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "854867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:34:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7j6JvWsaWxnuwrR3HCBx4tWtVHG1ctCZv+XRXy4x2CA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.q7rtqfe5l1.jpg",
+      "AssetFile": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q7rtqfe5l1"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/wordcards/a41c8eb3-3c8b-411c-bf77-ec5ff9685a34.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+rrd++dMBei2kjQo2vVoHQzMSH3Od728sQOUODfivyw="
         }
       ]
     },

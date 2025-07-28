@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kelimedya.HangfireServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bd60996a4ca97ec7a61d6c61707498b86ec29f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3eef995ee33c9873bb5569fb7c1a997ec54c679e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kelimedya.HangfireServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kelimedya.HangfireServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

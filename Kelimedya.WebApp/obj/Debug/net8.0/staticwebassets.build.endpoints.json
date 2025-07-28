@@ -2053,51 +2053,6 @@
       ]
     },
     {
-      "Route": "js/games/AdamAsmaca.8p0zgfhuel.js",
-      "AssetFile": "js/games/AdamAsmaca.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6531"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"TCowvvd5X4NyoXBOm1OAduHnhuE7ln32h0VNdrF+D6o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8p0zgfhuel"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-TCowvvd5X4NyoXBOm1OAduHnhuE7ln32h0VNdrF+D6o="
-        },
-        {
-          "Name": "label",
-          "Value": "js/games/AdamAsmaca.js"
-        }
-      ]
-    },
-    {
       "Route": "js/games/AdamAsmaca.js",
       "AssetFile": "js/games/AdamAsmaca.js",
       "Selectors": [],
@@ -2112,7 +2067,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6531"
+          "Value": "7068"
         },
         {
           "Name": "Content-Type",
@@ -2120,17 +2075,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TCowvvd5X4NyoXBOm1OAduHnhuE7ln32h0VNdrF+D6o=\""
+          "Value": "\"sm1JyoCaVQYxjFc7DrZs8IfilzhZVOTxKuDzwwDSIDU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 17:36:10 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TCowvvd5X4NyoXBOm1OAduHnhuE7ln32h0VNdrF+D6o="
+          "Value": "sha256-sm1JyoCaVQYxjFc7DrZs8IfilzhZVOTxKuDzwwDSIDU="
+        }
+      ]
+    },
+    {
+      "Route": "js/games/AdamAsmaca.udc8h3i7px.js",
+      "AssetFile": "js/games/AdamAsmaca.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7068"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sm1JyoCaVQYxjFc7DrZs8IfilzhZVOTxKuDzwwDSIDU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 17:36:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "udc8h3i7px"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sm1JyoCaVQYxjFc7DrZs8IfilzhZVOTxKuDzwwDSIDU="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/AdamAsmaca.js"
         }
       ]
     },
@@ -2149,7 +2149,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5305"
+          "Value": "7621"
         },
         {
           "Name": "Content-Type",
@@ -2157,22 +2157,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"L0AqgmhGL2OmVVPVjV4qP0WMpJlHxb+VaADMKWZRoH4=\""
+          "Value": "\"8B2gMqY4jVRCTvVqPi7S08nGluxMXEW9daFjG5hHjvQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:26:33 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-L0AqgmhGL2OmVVPVjV4qP0WMpJlHxb+VaADMKWZRoH4="
+          "Value": "sha256-8B2gMqY4jVRCTvVqPi7S08nGluxMXEW9daFjG5hHjvQ="
         }
       ]
     },
     {
-      "Route": "js/games/BubbleLetters.lfy2lkak9a.js",
+      "Route": "js/games/BubbleLetters.kvo04j37y3.js",
       "AssetFile": "js/games/BubbleLetters.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2186,7 +2186,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5305"
+          "Value": "7621"
         },
         {
           "Name": "Content-Type",
@@ -2194,70 +2194,25 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"L0AqgmhGL2OmVVPVjV4qP0WMpJlHxb+VaADMKWZRoH4=\""
+          "Value": "\"8B2gMqY4jVRCTvVqPi7S08nGluxMXEW9daFjG5hHjvQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:26:33 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "lfy2lkak9a"
+          "Value": "kvo04j37y3"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-L0AqgmhGL2OmVVPVjV4qP0WMpJlHxb+VaADMKWZRoH4="
+          "Value": "sha256-8B2gMqY4jVRCTvVqPi7S08nGluxMXEW9daFjG5hHjvQ="
         },
         {
           "Name": "label",
           "Value": "js/games/BubbleLetters.js"
-        }
-      ]
-    },
-    {
-      "Route": "js/games/CrossPuzzle.97se5wk6or.js",
-      "AssetFile": "js/games/CrossPuzzle.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3921"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"uxQ672vXQXa3l4d3B6UR0zVKrc07fvD+AnXToUj8qJc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "97se5wk6or"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-uxQ672vXQXa3l4d3B6UR0zVKrc07fvD+AnXToUj8qJc="
-        },
-        {
-          "Name": "label",
-          "Value": "js/games/CrossPuzzle.js"
         }
       ]
     },
@@ -2276,7 +2231,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3921"
+          "Value": "11483"
         },
         {
           "Name": "Content-Type",
@@ -2284,17 +2239,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uxQ672vXQXa3l4d3B6UR0zVKrc07fvD+AnXToUj8qJc=\""
+          "Value": "\"nGVxQHaA22twIMG26gwetj7U9gBwIoN4VwPSydhaVKc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:27:22 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uxQ672vXQXa3l4d3B6UR0zVKrc07fvD+AnXToUj8qJc="
+          "Value": "sha256-nGVxQHaA22twIMG26gwetj7U9gBwIoN4VwPSydhaVKc="
+        }
+      ]
+    },
+    {
+      "Route": "js/games/CrossPuzzle.kygfquliwc.js",
+      "AssetFile": "js/games/CrossPuzzle.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11483"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nGVxQHaA22twIMG26gwetj7U9gBwIoN4VwPSydhaVKc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Jul 2025 18:27:22 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kygfquliwc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nGVxQHaA22twIMG26gwetj7U9gBwIoN4VwPSydhaVKc="
+        },
+        {
+          "Name": "label",
+          "Value": "js/games/CrossPuzzle.js"
         }
       ]
     },
@@ -2325,7 +2325,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2370,7 +2370,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2489,7 +2489,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2534,7 +2534,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2627,7 +2627,7 @@
       ]
     },
     {
-      "Route": "js/games/VisualPrompt.faomh3do1w.js",
+      "Route": "js/games/VisualPrompt.44xbnmsiww.js",
       "AssetFile": "js/games/VisualPrompt.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2641,7 +2641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3999"
+          "Value": "4448"
         },
         {
           "Name": "Content-Type",
@@ -2649,21 +2649,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iW6Rx3RHEJPjYjtWLRPhjZMJvjCR+PQmFRaOeN3IakU=\""
+          "Value": "\"ZEt2ZV+pHdYAYXm4uB02jtIVXZDUvTX1e/8AmF/7ElI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:25:24 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "faomh3do1w"
+          "Value": "44xbnmsiww"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iW6Rx3RHEJPjYjtWLRPhjZMJvjCR+PQmFRaOeN3IakU="
+          "Value": "sha256-ZEt2ZV+pHdYAYXm4uB02jtIVXZDUvTX1e/8AmF/7ElI="
         },
         {
           "Name": "label",
@@ -2686,7 +2686,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3999"
+          "Value": "4448"
         },
         {
           "Name": "Content-Type",
@@ -2694,17 +2694,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iW6Rx3RHEJPjYjtWLRPhjZMJvjCR+PQmFRaOeN3IakU=\""
+          "Value": "\"ZEt2ZV+pHdYAYXm4uB02jtIVXZDUvTX1e/8AmF/7ElI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:25:24 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iW6Rx3RHEJPjYjtWLRPhjZMJvjCR+PQmFRaOeN3IakU="
+          "Value": "sha256-ZEt2ZV+pHdYAYXm4uB02jtIVXZDUvTX1e/8AmF/7ElI="
         }
       ]
     },
@@ -2735,7 +2735,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2780,7 +2780,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 16:28:26 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2791,7 +2791,7 @@
       ]
     },
     {
-      "Route": "js/games/common.a545ff7ghx.js",
+      "Route": "js/games/common.9gcs7ms4ed.js",
       "AssetFile": "js/games/common.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2805,7 +2805,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4254"
+          "Value": "4405"
         },
         {
           "Name": "Content-Type",
@@ -2813,21 +2813,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ph8Wf7rzM3NJj8dU6Z284mpp13eOZLNA6OQ/MVJZEnM=\""
+          "Value": "\"95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:04:02 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a545ff7ghx"
+          "Value": "9gcs7ms4ed"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Ph8Wf7rzM3NJj8dU6Z284mpp13eOZLNA6OQ/MVJZEnM="
+          "Value": "sha256-95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs="
         },
         {
           "Name": "label",
@@ -2850,7 +2850,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4254"
+          "Value": "4405"
         },
         {
           "Name": "Content-Type",
@@ -2858,17 +2858,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ph8Wf7rzM3NJj8dU6Z284mpp13eOZLNA6OQ/MVJZEnM=\""
+          "Value": "\"95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Jul 2025 16:14:15 GMT"
+          "Value": "Mon, 28 Jul 2025 18:04:02 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Ph8Wf7rzM3NJj8dU6Z284mpp13eOZLNA6OQ/MVJZEnM="
+          "Value": "sha256-95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs="
         }
       ]
     },

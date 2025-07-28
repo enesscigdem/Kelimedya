@@ -16,118 +16,420 @@
     <div class="container-xl">
         <div class="card">
             <div class="card-body">
-                <form method="post" asp-area="Admin" asp-controller="WordCards" asp-action="Create" enctype="multipart/form-data">
+                <form method="post"
+                      asp-area="Admin"
+                      asp-controller="WordCards"
+                      asp-action="Create"
+                      enctype="multipart/form-data">
                     <input type="hidden" asp-for="LessonId" value="@ViewBag.LessonId"/>
+
+                    <!-- Genel Alanlar -->
                     <div class="mb-3">
                         <label class="form-label">Kelime</label>
-                        <input type="text" class="form-control" asp-for="Word" placeholder="Kelime"/>
+                        <input type="text"
+                               class="form-control"
+                               asp-for="Word"
+                               placeholder="Kelime"
+                               required
+                               data-val="true"
+                               data-val-required="Bu alan zorunludur." />
                         <span asp-validation-for="Word" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Eş Anlam</label>
-                        <input type="text" class="form-control" asp-for="Synonym" placeholder="Eş Anlam"/>
+                        <input type="text"
+                               class="form-control"
+                               asp-for="Synonym"
+                               placeholder="Eş Anlam"
+                               required
+                               data-val="true"
+                               data-val-required="Bu alan zorunludur." />
                         <span asp-validation-for="Synonym" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tanım</label>
-                        <input type="text" class="form-control" asp-for="Definition" placeholder="Tanım"/>
+                        <input type="text"
+                               class="form-control"
+                               asp-for="Definition"
+                               placeholder="Tanım"
+                               required
+                               data-val="true"
+                               data-val-required="Bu alan zorunludur." />
                         <span asp-validation-for="Definition" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Örnek Cümle</label>
-                        <textarea class="form-control" asp-for="ExampleSentence" rows="3" placeholder="Örnek cümle"></textarea>
+                        <textarea class="form-control"
+                                  asp-for="ExampleSentence"
+                                  rows="3"
+                                  placeholder="Örnek cümle"
+                                  required
+                                  data-val="true"
+                                  data-val-required="Bu alan zorunludur."></textarea>
                         <span asp-validation-for="ExampleSentence" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Resim Yükle</label>
-                        <input type="file" class="form-control" asp-for="ImageFile"/>
-                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                              <input type="file" class="form-control" asp-for="ImageFile"/>
+                               <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
 
+                    <!-- Oyun Soruları -->
                     @for (int i = 0; i < Model.GameQuestions.Count; i++)
                     {
+                        var q = Model.GameQuestions[i];
                         <div class="border rounded p-3 mb-3">
-                            <h5 class="mb-2">@Model.GameQuestions[i].GameTitle</h5>
+                            <h5 class="mb-2">@q.GameTitle</h5>
                             <input type="hidden" asp-for="GameQuestions[i].GameId" />
+
                             <div class="mb-2">
                                 <label class="form-label">Soru</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].QuestionText" />
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="GameQuestions[i].QuestionText"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="GameQuestions[i].QuestionText" class="text-danger"></span>
                             </div>
-                            <div class="mb-2">
-                                <label class="form-label">Cevap</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 1</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 2</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl2" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 3</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl3" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 4</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl4" />
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek A</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionA" />
+
+                            @* Adam Asmaca *@
+                            @if (q.GameTitle == "Adam Asmaca")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Cevap</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].AnswerText"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].AnswerText" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek B</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionB" />
+                            }
+                            @* Boşluk Doldurma *@
+                            else if (q.GameTitle == "Boşluk Doldurma")
+                            {
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek A</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionA"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionA" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek B</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionB"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionB" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek C</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionC"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionC" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek D</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionD"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionD" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Doğru Seçenek</label>
+                                        <input type="number"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].CorrectOption"
+                                               min="1"
+                                               max="4"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].CorrectOption" class="text-danger"></span>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek C</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionC" />
+                            }
+                            @* Görselden Soru *@
+                            else if (q.GameTitle == "Görselden Soru")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Resim URL 1</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].ImageUrl"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].ImageUrl" class="text-danger"></span>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek D</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionD" />
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek A</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionA"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionA" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek B</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionB"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionB" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek C</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionC"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionC" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Seçenek D</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].OptionD"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].OptionD" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Doğru Seçenek</label>
+                                        <input type="number"
+                                               class="form-control"
+                                               asp-for="GameQuestions[i].CorrectOption"
+                                               min="1"
+                                               max="4"
+                                               required
+                                               data-val="true"
+                                               data-val-required="Bu alan zorunludur." />
+                                        <span asp-validation-for="GameQuestions[i].CorrectOption" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            }
+                            @* Kelimeden Görsel *@
+                            else if (q.GameTitle == "Kelimeden Görsel")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Resim URL 1</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].ImageUrl"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].ImageUrl" class="text-danger"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Resim URL 2</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].ImageUrl2"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].ImageUrl2" class="text-danger"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Resim URL 3</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].ImageUrl3"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].ImageUrl3" class="text-danger"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Resim URL 4</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].ImageUrl4"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].ImageUrl4" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">Doğru Seçenek</label>
-                                    <input type="number" class="form-control" asp-for="GameQuestions[i].CorrectOption" />
+                                    <input type="number"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].CorrectOption"
+                                           min="1"
+                                           max="4"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].CorrectOption" class="text-danger"></span>
                                 </div>
+                            }
+                            @* Kabarcık Harfler *@
+                            else if (q.GameTitle == "Kabarcık Harfler")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Cevap</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].AnswerText"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].AnswerText" class="text-danger"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Resim URL 1</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].ImageUrl"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].ImageUrl" class="text-danger"></span>
+                                </div>
+                            }
+                            @* Çengel Bulmaca *@
+                            else if (q.GameTitle == "Çengel Bulmaca")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Cevap</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].AnswerText"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].AnswerText" class="text-danger"></span>
+                                </div>
+                            }
+                            @* Cümle Kurma *@
+                            else if (q.GameTitle == "Cümle Kurma")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Cevap</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].AnswerText"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].AnswerText" class="text-danger"></span>
+                                </div>
+                            }
+                            @* Eş Yakın Eşleştirme *@
+                            else if (q.GameTitle == "Eş Yakın Eşleştirme")
+                            {
+                                <div class="mb-2">
+                                    <label class="form-label">Cevap</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="GameQuestions[i].AnswerText"
+                                           required
+                                           data-val="true"
+                                           data-val-required="Bu alan zorunludur." />
+                                    <span asp-validation-for="GameQuestions[i].AnswerText" class="text-danger"></span>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <!-- Test Soruları -->
+                    @for (int t = 0; t < Model.TestQuestions.Count; t++)
+                    {
+                        <div class="border rounded p-3 mb-3">
+                            <h5 class="mb-2">Test Sorusu @(t + 1)</h5>
+                            <input type="hidden" asp-for="TestQuestions[t].Id" />
+
+                            <div class="mb-2">
+                                <label class="form-label">Soru</label>
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="TestQuestions[t].QuestionText"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="TestQuestions[t].QuestionText" class="text-danger"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Seçenek A</label>
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="TestQuestions[t].OptionA"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="TestQuestions[t].OptionA" class="text-danger"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Seçenek B</label>
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="TestQuestions[t].OptionB"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="TestQuestions[t].OptionB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Seçenek C</label>
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="TestQuestions[t].OptionC"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="TestQuestions[t].OptionC" class="text-danger"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Seçenek D</label>
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="TestQuestions[t].OptionD"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="TestQuestions[t].OptionD" class="text-danger"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Doğru Seçenek (1-4)</label>
+                                <input type="number"
+                                       class="form-control"
+                                       asp-for="TestQuestions[t].CorrectOption"
+                                       min="1"
+                                       max="4"
+                                       required
+                                       data-val="true"
+                                       data-val-required="Bu alan zorunludur." />
+                                <span asp-validation-for="TestQuestions[t].CorrectOption" class="text-danger"></span>
                             </div>
                         </div>
                     }
 
-                    @for (int i = 0; i < 1; i++)
-                    {
-                        <div class="border rounded p-3 mb-3">
-                            <h5 class="mb-2">Test Sorusu @(i + 1)</h5>
-                            <div class="mb-2">
-                                <label class="form-label">Soru</label>
-                                <input type="text" class="form-control" asp-for="TestQuestions[i].QuestionText" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">A</label>
-                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionA" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">B</label>
-                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionB" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">C</label>
-                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionC" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">D</label>
-                                <input type="text" class="form-control" asp-for="TestQuestions[i].OptionD" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Doğru Seçenek (1-4)</label>
-                                <input type="number" class="form-control" asp-for="TestQuestions[i].CorrectOption" />
-                            </div>
-                        </div>
-                    }
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                         <a asp-action="Index" asp-route-lessonId="@ViewBag.LessonId" class="btn btn-link link-secondary">Vazgeç</a>

@@ -137,8 +137,7 @@ function updateHints() {
     if (hintEl) hintEl.textContent = card.synonym || card.meaning || "İpucu yok";
   } else {
     document.getElementById("hintSynonym").textContent = card.synonym || "Belirtilmemiş";
-    document.getElementById("hintDefinition").textContent = card.meaning || "Belirtilmemiş";
-    document.getElementById("hintSentence").textContent = card.exampleSentence || "Belirtilmemiş";
+    document.getElementById("hintSentence").textContent = card.definition || "Belirtilmemiş";
   }
 }
 

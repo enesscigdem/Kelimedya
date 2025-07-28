@@ -462,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9sfkmzehr9</Fingerprint>
-      <Integrity>6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog=</Integrity>
+      <Fingerprint>b4ckep111f</Fingerprint>
+      <Integrity>pWO2ucacjYqCqdxW25wraPhnGsrDPBuR51HPz4PD8ts=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\BubbleLetters.js'))</OriginalItemSpec>
@@ -588,8 +588,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>g760uz02h6</Fingerprint>
-      <Integrity>bOkaet4Y109w9nIbaj7elGoIxdyvKgF+kWh6uR+LbVo=</Integrity>
+      <Fingerprint>7lvl472hq1</Fingerprint>
+      <Integrity>K/N+YYAyVgMLPtctE2NXbBj3hB4sDXQNqUEF7jPFf84=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</OriginalItemSpec>

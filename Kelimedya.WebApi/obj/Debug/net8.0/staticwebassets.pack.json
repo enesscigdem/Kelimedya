@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets/uploads/products/90f919f9-9ef3-43ca-92c9-3ace8edc7505.png"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/18e4832b-908c-47bd-83d7-5b57c6349ac5.JPG",
+      "PackagePath": "staticwebassets/uploads/profiles/18e4832b-908c-47bd-83d7-5b57c6349ac5.JPG"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg",
       "PackagePath": "staticwebassets/uploads/profiles/87f32120-dc99-4bd1-a5c3-160dcbe3782a.jpg"
     },
@@ -77,8 +81,20 @@
       "PackagePath": "staticwebassets/uploads/profiles/fc11ea09-3159-4c1a-9838-3bed77981b64.jpg"
     },
     {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/1245bcd0-cfd2-4802-8939-6beee47dc78f.jpg"
+    },
+    {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg",
       "PackagePath": "staticwebassets/uploads/wordcards/29fcb1b0-9337-47c3-9540-0d2091a5ba33.jpeg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/35f2e312-9e5a-4a07-a315-04776b2da821.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/35f2e312-9e5a-4a07-a315-04776b2da821.jpg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/46568739-6d3b-406a-b938-5b681f498cd8.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/46568739-6d3b-406a-b938-5b681f498cd8.jpg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/5af1ffd9-6f0a-4493-94fe-71e69710ca5c.jpg",
@@ -91,6 +107,10 @@
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/c94b7a20-f4ce-48a1-aa66-6c2761e2bc60.jpeg",
       "PackagePath": "staticwebassets/uploads/wordcards/c94b7a20-f4ce-48a1-aa66-6c2761e2bc60.jpeg"
+    },
+    {
+      "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/e294b340-230d-4ef9-bed6-a4b74eeace92.jpg",
+      "PackagePath": "staticwebassets/uploads/wordcards/e294b340-230d-4ef9-bed6-a4b74eeace92.jpg"
     },
     {
       "Id": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/wwwroot/uploads/wordcards/e2a33ee6-1d80-4c16-8d53-1b759ad0e22e.jpg",

@@ -2135,7 +2135,7 @@
       ]
     },
     {
-      "Route": "js/games/BubbleLetters.9sfkmzehr9.js",
+      "Route": "js/games/BubbleLetters.b4ckep111f.js",
       "AssetFile": "js/games/BubbleLetters.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2149,7 +2149,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6191"
+          "Value": "6092"
         },
         {
           "Name": "Content-Type",
@@ -2157,21 +2157,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog=\""
+          "Value": "\"pWO2ucacjYqCqdxW25wraPhnGsrDPBuR51HPz4PD8ts=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 16:57:13 GMT"
+          "Value": "Sun, 27 Jul 2025 19:28:37 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9sfkmzehr9"
+          "Value": "b4ckep111f"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog="
+          "Value": "sha256-pWO2ucacjYqCqdxW25wraPhnGsrDPBuR51HPz4PD8ts="
         },
         {
           "Name": "label",
@@ -2194,7 +2194,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6191"
+          "Value": "6092"
         },
         {
           "Name": "Content-Type",
@@ -2202,17 +2202,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog=\""
+          "Value": "\"pWO2ucacjYqCqdxW25wraPhnGsrDPBuR51HPz4PD8ts=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 16:57:13 GMT"
+          "Value": "Sun, 27 Jul 2025 19:28:37 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6e6K2SCjJAEZYSAKp7VvSc8TH4vf8k9qlJjKfL2EEog="
+          "Value": "sha256-pWO2ucacjYqCqdxW25wraPhnGsrDPBuR51HPz4PD8ts="
         }
       ]
     },
@@ -2627,7 +2627,7 @@
       ]
     },
     {
-      "Route": "js/games/VisualPrompt.g760uz02h6.js",
+      "Route": "js/games/VisualPrompt.7lvl472hq1.js",
       "AssetFile": "js/games/VisualPrompt.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2641,7 +2641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3608"
+          "Value": "4001"
         },
         {
           "Name": "Content-Type",
@@ -2649,21 +2649,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bOkaet4Y109w9nIbaj7elGoIxdyvKgF+kWh6uR+LbVo=\""
+          "Value": "\"K/N+YYAyVgMLPtctE2NXbBj3hB4sDXQNqUEF7jPFf84=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 17:36:13 GMT"
+          "Value": "Sun, 27 Jul 2025 18:28:10 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g760uz02h6"
+          "Value": "7lvl472hq1"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-bOkaet4Y109w9nIbaj7elGoIxdyvKgF+kWh6uR+LbVo="
+          "Value": "sha256-K/N+YYAyVgMLPtctE2NXbBj3hB4sDXQNqUEF7jPFf84="
         },
         {
           "Name": "label",
@@ -2686,7 +2686,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3608"
+          "Value": "4001"
         },
         {
           "Name": "Content-Type",
@@ -2694,17 +2694,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bOkaet4Y109w9nIbaj7elGoIxdyvKgF+kWh6uR+LbVo=\""
+          "Value": "\"K/N+YYAyVgMLPtctE2NXbBj3hB4sDXQNqUEF7jPFf84=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 17:36:13 GMT"
+          "Value": "Sun, 27 Jul 2025 18:28:10 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-bOkaet4Y109w9nIbaj7elGoIxdyvKgF+kWh6uR+LbVo="
+          "Value": "sha256-K/N+YYAyVgMLPtctE2NXbBj3hB4sDXQNqUEF7jPFf84="
         }
       ]
     },
@@ -2817,7 +2817,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 17:31:25 GMT"
+          "Value": "Sun, 27 Jul 2025 18:20:33 GMT"
         }
       ],
       "EndpointProperties": [
@@ -2862,7 +2862,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 17:31:25 GMT"
+          "Value": "Sun, 27 Jul 2025 18:20:33 GMT"
         }
       ],
       "EndpointProperties": [

@@ -52,59 +52,145 @@
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
 
-                    @for (int i = 0; i < Model.GameQuestions.Count; i++)
-                    {
-                        <div class="border rounded p-3 mb-3">
-                            <h5 class="mb-2">@Model.GameQuestions[i].GameTitle</h5>
-                            <input type="hidden" asp-for="GameQuestions[i].GameId" />
-                            <div class="mb-2">
-                                <label class="form-label">Soru</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].QuestionText" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Cevap</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 1</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 2</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl2" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 3</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl3" />
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-label">Resim URL 4</label>
-                                <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl4" />
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek A</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionA" />
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek B</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionB" />
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek C</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionC" />
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Seçenek D</label>
-                                    <input type="text" class="form-control" asp-for="GameQuestions[i].OptionD" />
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label">Doğru Seçenek</label>
-                                    <input type="number" class="form-control" asp-for="GameQuestions[i].CorrectOption" />
-                                </div>
-                            </div>
-                        </div>
-                    }
+                   @for (int i = 0; i < Model.GameQuestions.Count; i++)
+                   {
+                       var q = Model.GameQuestions[i];
+                       <div class="border rounded p-3 mb-3">
+                           <h5 class="mb-2">@q.GameTitle</h5>
+                           <input type="hidden" asp-for="GameQuestions[i].GameId" />
+                   
+                           <div class="mb-2">
+                               <label class="form-label">Soru</label>
+                               <input type="text" class="form-control" asp-for="GameQuestions[i].QuestionText" />
+                           </div>
+                   
+                           @* 1. Adam Asmaca *@
+                           @if (q.GameTitle == "Adam Asmaca")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Cevap</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
+                               </div>
+                           }
+                           @* 2. Boşluk Doldurma *@
+                           else if (q.GameTitle == "Boşluk Doldurma")
+                           {
+                               <div class="row g-2">
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek A</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionA" />
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek B</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionB" />
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek C</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionC" />
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek D</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionD" />
+                                   </div>
+                                   <div class="col-md-4">
+                                       <label class="form-label">Doğru Seçenek</label>
+                                       <input type="number" class="form-control" asp-for="GameQuestions[i].CorrectOption" />
+                                   </div>
+                               </div>
+                           }
+                           @* 3. Görselden Soru *@
+                           else if (q.GameTitle == "Görselden Soru")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Resim URL 1</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
+                               </div>
+                               <div class="row g-2">
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek A</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionA" />
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek B</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionB" />
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek C</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionC" />
+                                   </div>
+                                   <div class="col-md-6">
+                                       <label class="form-label">Seçenek D</label>
+                                       <input type="text" class="form-control" asp-for="GameQuestions[i].OptionD" />
+                                   </div>
+                                   <div class="col-md-4">
+                                       <label class="form-label">Doğru Seçenek</label>
+                                       <input type="number" class="form-control" asp-for="GameQuestions[i].CorrectOption" />
+                                   </div>
+                               </div>
+                           }
+                           @* 4. Kelimeden Görsel *@
+                           else if (q.GameTitle == "Kelimeden Görsel")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Resim URL 1</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
+                               </div>
+                               <div class="mb-2">
+                                   <label class="form-label">Resim URL 2</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl2" />
+                               </div>
+                               <div class="mb-2">
+                                   <label class="form-label">Resim URL 3</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl3" />
+                               </div>
+                               <div class="mb-2">
+                                   <label class="form-label">Resim URL 4</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl4" />
+                               </div>
+                               <div class="col-md-4">
+                                   <label class="form-label">Doğru Seçenek</label>
+                                   <input type="number" class="form-control" asp-for="GameQuestions[i].CorrectOption" />
+                               </div>
+                           }
+                           @* 5. Kabarcık Harfler *@
+                           else if (q.GameTitle == "Kabarcık Harfler")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Cevap</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
+                               </div>
+                               <div class="mb-2">
+                                   <label class="form-label">Resim URL 1</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].ImageUrl" />
+                               </div>
+                           }
+                           @* 6. Çengel Bulmaca *@
+                           else if (q.GameTitle == "Çengel Bulmaca")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Cevap</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
+                               </div>
+                           }
+                           @* 7. Cümle Kurma *@
+                           else if (q.GameTitle == "Cümle Kurma")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Cevap</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
+                               </div>
+                           }
+                           @* 8. Eş Yakın Eşleştirme *@
+                           else if (q.GameTitle == "Eş Yakın Eşleştirme")
+                           {
+                               <div class="mb-2">
+                                   <label class="form-label">Cevap</label>
+                                   <input type="text" class="form-control" asp-for="GameQuestions[i].AnswerText" />
+                               </div>
+                           }
+                       </div>
+                   }
+
 
                     @for (int i = 0; i < 1; i++)
                     {

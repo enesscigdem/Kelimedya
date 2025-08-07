@@ -400,6 +400,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvU2NvcmVJbmZvL0RlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/enescigdem/Kelimedya/Kelimedya.WebApp/Views/Shared/Components/TeacherDropdown/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvVGVhY2hlckRyb3Bkb3duL0RlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/enescigdem/Kelimedya/Kelimedya.WebApp/Views/Shared/Components/UserDropdown/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvVXNlckRyb3Bkb3duL0RlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

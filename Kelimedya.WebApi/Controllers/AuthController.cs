@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Kelimedya.WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kelimedya.WebAPI.Controllers
 {
@@ -70,6 +71,22 @@ namespace Kelimedya.WebAPI.Controllers
             if (!result)
                 return BadRequest(new { Message = "Şifre güncellenemedi." });
             return Ok(new { Message = "Şifre güncellendi." });
+        }
+
+        [Authorize]
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var token = await _authService.GenerateTokenForUserAsync(userId);
+            if (string.IsNullOrEmpty(token))
+                return BadRequest(new { Message = "Token oluşturulamadı." });
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+            var role = jwtToken?.Claims.FirstOrDefault(claim => claim.Type == "role")?.Value;
+
+            return Ok(new { Token = token, Role = role });
         }
     }
 }

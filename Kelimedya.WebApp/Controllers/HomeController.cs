@@ -5,6 +5,8 @@ using Kelimedya.Core.Entities;
 using Kelimedya.Core.Interfaces.Business;
 using Kelimedya.WebApp.Areas.Admin.Models;
 using Kelimedya.WebApp.Models;
+using Microsoft.AspNetCore.Http;
+using Kelimedya.Core.Models;
 
 namespace Kelimedya.WebApp.Controllers;
 
@@ -313,6 +315,23 @@ public class HomeController : Controller
         {
             ModelState.AddModelError(string.Empty, "Sipariş oluşturulamadı.");
             return View(model);
+        }
+
+        var refreshResponse = await client.PostAsync("api/auth/refresh-token", null);
+        if (refreshResponse.IsSuccessStatusCode)
+        {
+            var tokenResponse = await refreshResponse.Content.ReadFromJsonAsync<TokenResponseViewModel>();
+            if (!string.IsNullOrEmpty(tokenResponse?.Token))
+            {
+                Response.Cookies.Append("AuthToken", tokenResponse.Token, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.Lax,
+                    Path = "/",
+                    Expires = DateTime.UtcNow.AddDays(2)
+                });
+            }
         }
 
         return RedirectToAction("OrderConfirmation");

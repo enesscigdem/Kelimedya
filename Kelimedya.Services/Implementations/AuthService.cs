@@ -114,6 +114,18 @@ namespace Kelimedya.Services.Implementations
             return users;
         }
 
+        public async Task<string?> GenerateTokenForUserAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return null;
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var role = roles?.FirstOrDefault() ?? RoleNames.User;
+
+            return GenerateJwtToken(user, role);
+        }
+
         /// <summary>
         /// JWT oluşturur ve string olarak döner.
         /// </summary>

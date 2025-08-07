@@ -7,6 +7,8 @@ using Kelimedya.Core.Enum;
 using System.Linq;
 using System.Threading.Tasks;
 using Kelimedya.Core.Enum;
+using Microsoft.AspNetCore.Identity;
+using Kelimedya.Core.IdentityEntities;
 
 namespace Kelimedya.WebAPI.Controllers
 {
@@ -15,9 +17,11 @@ namespace Kelimedya.WebAPI.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly KelimedyaDbContext _context;
-        public OrdersController(KelimedyaDbContext context)
+        private readonly UserManager<CustomUser> _userManager;
+        public OrdersController(KelimedyaDbContext context, UserManager<CustomUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/orders
@@ -116,6 +120,16 @@ namespace Kelimedya.WebAPI.Controllers
             }
 
             _context.Orders.Add(order);
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                if (!await _userManager.IsInRoleAsync(user, RoleNames.Student))
+                    await _userManager.AddToRoleAsync(user, RoleNames.Student);
+
+                if (await _userManager.IsInRoleAsync(user, RoleNames.User))
+                    await _userManager.RemoveFromRoleAsync(user, RoleNames.User);
+            }
 
             // Sepeti temizle
             cart.Items.Clear();

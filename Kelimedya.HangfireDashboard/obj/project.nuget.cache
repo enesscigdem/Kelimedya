@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "42a1Bf0GLHk=",
+  "dgSpecHash": "CA8i1sgHhz8=",
   "success": true,
-  "projectFilePath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj",
+  "projectFilePath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj",
   "expectedPackageFiles": [
     "/Users/enescigdem/.nuget/packages/hangfire.aspnetcore/1.8.15/hangfire.aspnetcore.1.8.15.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/hangfire.core/1.8.15/hangfire.core.1.8.15.nupkg.sha512",

@@ -29046,8 +29046,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>gieg37282r</Fingerprint>
-      <Integrity>eCwxN3Tln38OL6zmgBN60LV4giuhWCFg8wyzM88x9+A=</Integrity>
+      <Fingerprint>xwd3njskjx</Fingerprint>
+      <Integrity>Mcyz9azYs2Zzd7zJli9uaNC56d5x6gipZX3vHaNDnEI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\fonts\fredoka\OFL.txt'))</OriginalItemSpec>

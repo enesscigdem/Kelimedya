@@ -1087,11 +1087,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj",
+      "projectUniqueName": "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj",
       "projectName": "Kelimedya.Core",
-      "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj",
+      "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj",
       "packagesPath": "/Users/enescigdem/.nuget/packages/",
-      "outputPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/obj/",
+      "outputPath": "/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/enescigdem/.nuget/NuGet/NuGet.Config"

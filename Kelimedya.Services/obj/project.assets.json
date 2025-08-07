@@ -3531,11 +3531,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj",
+      "projectUniqueName": "/Users/enescigdem/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj",
       "projectName": "Kelimedya.Services",
-      "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj",
+      "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj",
       "packagesPath": "/Users/enescigdem/.nuget/packages/",
-      "outputPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/obj/",
+      "outputPath": "/Users/enescigdem/Kelimedya/Kelimedya.Services/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
@@ -3550,11 +3550,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj"
             },
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Persistence/Kelimedya.Persistence.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Persistence/Kelimedya.Persistence.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.Persistence/Kelimedya.Persistence.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Persistence/Kelimedya.Persistence.csproj"
             }
           }
         }

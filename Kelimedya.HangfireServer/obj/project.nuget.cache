@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eMvzwqEOaiw=",
+  "dgSpecHash": "TZhjY4j0TLw=",
   "success": true,
-  "projectFilePath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj",
+  "projectFilePath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj",
   "expectedPackageFiles": [
     "/Users/enescigdem/.nuget/packages/automapper/13.0.0/automapper.13.0.0.nupkg.sha512",
     "/Users/enescigdem/.nuget/packages/automapper.collection/10.0.0/automapper.collection.10.0.0.nupkg.sha512",

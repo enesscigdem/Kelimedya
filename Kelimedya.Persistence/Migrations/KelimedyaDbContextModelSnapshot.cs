@@ -180,36 +180,6 @@ namespace Kelimedya.Persistence.Migrations
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl2")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl3")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl4")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl2")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl3")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl4")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl2")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl3")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl4")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl2")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl3")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl4")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl2")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl3")
-                        .HasColumnType("nvarchar(max)");
-                    b.Property<string>("ImageUrl4")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -1007,8 +977,10 @@ namespace Kelimedya.Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AnswerText")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CorrectOption")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -1020,6 +992,15 @@ namespace Kelimedya.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl4")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -1034,8 +1015,22 @@ namespace Kelimedya.Persistence.Migrations
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
 
+                    b.Property<string>("OptionA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionB")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionC")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionD")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("QuestionText")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QuestionType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WordCardId")

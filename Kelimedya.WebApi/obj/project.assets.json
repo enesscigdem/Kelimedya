@@ -5535,11 +5535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/Kelimedya.WebApi.csproj",
+      "projectUniqueName": "/Users/enescigdem/Kelimedya/Kelimedya.WebApi/Kelimedya.WebApi.csproj",
       "projectName": "Kelimedya.WebApi",
-      "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/Kelimedya.WebApi.csproj",
+      "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.WebApi/Kelimedya.WebApi.csproj",
       "packagesPath": "/Users/enescigdem/.nuget/packages/",
-      "outputPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApi/obj/",
+      "outputPath": "/Users/enescigdem/Kelimedya/Kelimedya.WebApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
@@ -5554,14 +5554,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj"
             },
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj"
             },
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj"
             }
           }
         }

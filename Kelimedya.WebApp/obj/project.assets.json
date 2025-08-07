@@ -6221,11 +6221,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Kelimedya.WebApp.csproj",
+      "projectUniqueName": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/Kelimedya.WebApp.csproj",
       "projectName": "Kelimedya.WebApp",
-      "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/Kelimedya.WebApp.csproj",
+      "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/Kelimedya.WebApp.csproj",
       "packagesPath": "/Users/enescigdem/.nuget/packages/",
-      "outputPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.WebApp/obj/",
+      "outputPath": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/enescigdem/.nuget/NuGet/NuGet.Config"
@@ -6240,17 +6240,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Core/Kelimedya.Core.csproj"
             },
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj"
             },
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireServer/Kelimedya.HangfireServer.csproj"
             },
-            "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj": {
-              "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj"
+            "/Users/enescigdem/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj": {
+              "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.Services/Kelimedya.Services.csproj"
             }
           }
         }

@@ -620,11 +620,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj",
+      "projectUniqueName": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj",
       "projectName": "Kelimedya.HangfireDashboard",
-      "projectPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj",
+      "projectPath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireDashboard/Kelimedya.HangfireDashboard.csproj",
       "packagesPath": "/Users/enescigdem/.nuget/packages/",
-      "outputPath": "/Users/enescigdem/RiderProjects/Kelimedya/Kelimedya.HangfireDashboard/obj/",
+      "outputPath": "/Users/enescigdem/Kelimedya/Kelimedya.HangfireDashboard/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/enescigdem/.nuget/NuGet/NuGet.Config"

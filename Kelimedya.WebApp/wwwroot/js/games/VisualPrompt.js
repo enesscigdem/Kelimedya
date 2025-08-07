@@ -59,25 +59,20 @@ function submit(studentId, gameId, selectedOption) {
     // Remove any previous success/failure classes and add the new one
     feedbackEl.classList.remove("text-green-600", "text-red-600");
     feedbackEl.classList.add(success ? "text-green-600" : "text-red-600");
-    
+
     awardScore(studentId, gameId, success, duration);
 
-    if (success) {
-        cards.splice(idx, 1);
-    }
+    // Yanlış cevapta da kartı listeden çıkar
+    cards.splice(idx, 1);
 
     if (cards.length === 0) {
         notifyParent();
         return;
     }
 
-    setTimeout(() => {
-        if (!success) {
-            idx = (idx + 1) % cards.length;
-        } else {
-            if (idx >= cards.length) idx = 0;
-        }
+    if (idx >= cards.length) idx = 0;
 
+    setTimeout(() => {
         loadCard(studentId, gameId);
     }, 800); // 0.8 saniye gecikme, istersen 0ms de yapabilirsin
 }

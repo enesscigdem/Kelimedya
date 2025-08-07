@@ -48,12 +48,13 @@ function select(success) {
   const duration = (Date.now() - start) / 1000
   awardScore(studentId, gameId, success, duration)
 
-  if (success) cards.splice(idx, 1)
+  // Yanlış cevapta da kartı çıkarıp sonraki soruya geç
+  cards.splice(idx, 1)
   if (cards.length === 0) {
     notifyParent()
     return
   }
-  idx = (idx + 1) % cards.length
+  if (idx >= cards.length) idx = 0
   loadCard()
 }
 

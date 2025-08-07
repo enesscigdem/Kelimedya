@@ -116,16 +116,16 @@ function setupSentence() {
   const card = cards[idx]
   const q = card.gameQuestions?.find(g => g.gameId === gid) || {}
 
-  // Build target from answerText words
+  // Build target from answerText using '-' separated blocks (supports multi-word parts)
   const rawAnswer = q.answerText || card.word
   targetSentence = rawAnswer
-      .replace(/[\p{P}]/gu, '')
-      .split(/\s+/)
-      .map(w => w.trim())
+      .split('-')
+      .map(w => w.replace(/[\p{P}]/gu, '').trim())
+      .filter(Boolean)
 
   // Available options from questionText
   const rawQuestion = q.questionText || card.word
-  availableWords = rawQuestion.split("-").map(w => w.trim())
+  availableWords = rawQuestion.split('-').map(w => w.trim())
 
   currentSentence = []
   shuffle(availableWords)

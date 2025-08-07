@@ -78,12 +78,13 @@ function select(buttonEl, ans, correct) {
   const gid = document.getElementById("gameRoot").dataset.gameId
   awardScore(document.getElementById("gameRoot").dataset.studentId, gid, ok, duration)
 
-  if (ok) cards.splice(idx, 1)
+  // Yanlış cevapta da mevcut kartı listeden çıkarıp bir sonrakine geç
+  cards.splice(idx, 1)
   if (cards.length === 0) {
     notifyParent()
     return
   }
-  idx = (idx + 1) % cards.length
+  if (idx >= cards.length) idx = 0
   setTimeout(load, 2000)
 }
 

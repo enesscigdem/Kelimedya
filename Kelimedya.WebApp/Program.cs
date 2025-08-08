@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Kelimedya.Core;
 using Kelimedya.Core.Interfaces.Business;
-using Kelimedya.HangfireServer.Services;
 using Kelimedya.Persistence;
 using System.Text;
 using System.Text.Json.Serialization;

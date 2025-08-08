@@ -534,8 +534,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kcgg79n3rm</Fingerprint>
-      <Integrity>xBEH11NeCvkThbrGy+7tNWwgZO5AsEGwGe4u1h40gkk=</Integrity>
+      <Fingerprint>2gjkkepk96</Fingerprint>
+      <Integrity>jkTVw861WefV+HJmHwAL0Hw+Y7wQkFw7Tb3jcgFVSw8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</OriginalItemSpec>
@@ -552,8 +552,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0a302idwm3</Fingerprint>
-      <Integrity>mKrwfYkiB/swUJLAeXbhFFTyShU6uk/34665PeiUkAQ=</Integrity>
+      <Fingerprint>dxjxey719q</Fingerprint>
+      <Integrity>ISlRCI/uuhxEQmUgywYOe3jmwIklglck7+hXWaOKM9c=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</OriginalItemSpec>
@@ -588,8 +588,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>44xbnmsiww</Fingerprint>
-      <Integrity>ZEt2ZV+pHdYAYXm4uB02jtIVXZDUvTX1e/8AmF/7ElI=</Integrity>
+      <Fingerprint>wgkhmeqnzm</Fingerprint>
+      <Integrity>IFDAWCzsHV+RWVvjmSc5QdjgZoc9PBavH6gbXAO7+94=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\VisualPrompt.js'))</OriginalItemSpec>
@@ -606,8 +606,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dv6k4xmgzb</Fingerprint>
-      <Integrity>yWfCDHSc6tEVGEww2idskj3bypJua3AFvn0iGWVtWfQ=</Integrity>
+      <Fingerprint>xn5fil9074</Fingerprint>
+      <Integrity>bSAWjE4ZB2IaaJBz9ZJisJGGz8V+L5XBcBIpAXsAoR8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\WordImage.js'))</OriginalItemSpec>

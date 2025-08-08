@@ -37,8 +37,6 @@
       "Kelimedya.WebApp/1.0.0": {
         "dependencies": {
           "Kelimedya.Core": "1.0.0",
-          "Kelimedya.HangfireDashboard": "1.0.0",
-          "Kelimedya.HangfireServer": "1.0.0",
           "Kelimedya.Services": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
@@ -155,7 +153,7 @@
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.0.0",
           "Microsoft.Extensions.FileProviders.Physical.Reference": "8.0.0.0",
           "Microsoft.Extensions.FileSystemGlobbing.Reference": "8.0.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions.Reference": "8.0.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0.0",
           "Microsoft.Extensions.Http.Reference": "8.0.0.0",
           "Microsoft.Extensions.Identity.Core.Reference": "8.0.0.0",
@@ -449,126 +447,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Azure.Identity.dll": {}
-        }
-      },
-      "Hangfire.AspNetCore/1.8.15": {
-        "dependencies": {
-          "Hangfire.NetCore": "1.8.15"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/Hangfire.AspNetCore.dll": {
-            "assemblyVersion": "1.8.15.0",
-            "fileVersion": "0.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netcoreapp3.0/Hangfire.AspNetCore.dll": {}
-        }
-      },
-      "Hangfire.Core/1.8.15": {
-        "dependencies": {
-          "Newtonsoft.Json": "11.0.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Hangfire.Core.dll": {
-            "assemblyVersion": "1.8.15.0",
-            "fileVersion": "0.0.0.0"
-          }
-        },
-        "resources": {
-          "lib/netstandard2.0/ca/Hangfire.Core.resources.dll": {
-            "locale": "ca"
-          },
-          "lib/netstandard2.0/de/Hangfire.Core.resources.dll": {
-            "locale": "de"
-          },
-          "lib/netstandard2.0/es/Hangfire.Core.resources.dll": {
-            "locale": "es"
-          },
-          "lib/netstandard2.0/fa/Hangfire.Core.resources.dll": {
-            "locale": "fa"
-          },
-          "lib/netstandard2.0/fr/Hangfire.Core.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/netstandard2.0/nb/Hangfire.Core.resources.dll": {
-            "locale": "nb"
-          },
-          "lib/netstandard2.0/nl/Hangfire.Core.resources.dll": {
-            "locale": "nl"
-          },
-          "lib/netstandard2.0/pt-BR/Hangfire.Core.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/netstandard2.0/pt-PT/Hangfire.Core.resources.dll": {
-            "locale": "pt-PT"
-          },
-          "lib/netstandard2.0/pt/Hangfire.Core.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/netstandard2.0/sv/Hangfire.Core.resources.dll": {
-            "locale": "sv"
-          },
-          "lib/netstandard2.0/tr-TR/Hangfire.Core.resources.dll": {
-            "locale": "tr-TR"
-          },
-          "lib/netstandard2.0/zh-TW/Hangfire.Core.resources.dll": {
-            "locale": "zh-TW"
-          },
-          "lib/netstandard2.0/zh/Hangfire.Core.resources.dll": {
-            "locale": "zh"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Hangfire.Core.dll": {}
-        }
-      },
-      "Hangfire.Dashboard.Basic.Authentication/7.0.1": {
-        "dependencies": {
-          "Hangfire.AspNetCore": "1.8.15",
-          "Hangfire.Core": "1.8.15",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Primitives": "8.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/HangfireBasicAuthenticationFilter.dll": {
-            "assemblyVersion": "7.0.1.0",
-            "fileVersion": "7.0.1.0"
-          }
-        },
-        "compile": {
-          "lib/net7.0/HangfireBasicAuthenticationFilter.dll": {}
-        }
-      },
-      "Hangfire.NetCore/1.8.15": {
-        "dependencies": {
-          "Hangfire.Core": "1.8.15",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Hangfire.NetCore.dll": {
-            "assemblyVersion": "1.8.15.0",
-            "fileVersion": "0.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.1/Hangfire.NetCore.dll": {}
-        }
-      },
-      "Hangfire.SqlServer/1.8.15": {
-        "dependencies": {
-          "Hangfire.Core": "1.8.15"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Hangfire.SqlServer.dll": {
-            "assemblyVersion": "1.8.15.0",
-            "fileVersion": "0.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Hangfire.SqlServer.dll": {}
         }
       },
       "Humanizer.Core/2.14.1": {
@@ -1196,14 +1074,6 @@
         }
       },
       "Microsoft.Extensions.FileSystemGlobbing/8.0.0": {},
-      "Microsoft.Extensions.Hosting.Abstractions/3.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
-        }
-      },
       "Microsoft.Extensions.Http/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
@@ -1743,17 +1613,6 @@
           "lib/net8.0/MyTested.AspNetCore.Mvc.ViewFeatures.dll": {}
         }
       },
-      "Newtonsoft.Json/11.0.1": {
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.1.21818"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
       "System.Buffers/4.6.0": {},
       "System.CodeDom/4.4.0": {
         "runtime": {
@@ -2008,42 +1867,6 @@
         },
         "compile": {
           "Kelimedya.Core.dll": {}
-        }
-      },
-      "Kelimedya.HangfireDashboard/1.0.0": {
-        "dependencies": {
-          "Hangfire.AspNetCore": "1.8.15",
-          "Hangfire.Core": "1.8.15",
-          "Hangfire.Dashboard.Basic.Authentication": "7.0.1",
-          "Hangfire.SqlServer": "1.8.15"
-        },
-        "runtime": {
-          "Kelimedya.HangfireDashboard.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "Kelimedya.HangfireDashboard.dll": {}
-        }
-      },
-      "Kelimedya.HangfireServer/1.0.0": {
-        "dependencies": {
-          "Hangfire.AspNetCore": "1.8.15",
-          "Hangfire.Core": "1.8.15",
-          "Hangfire.SqlServer": "1.8.15",
-          "Kelimedya.Core": "1.0.0",
-          "Kelimedya.Persistence": "1.0.0",
-          "Kelimedya.Services": "1.0.0"
-        },
-        "runtime": {
-          "Kelimedya.HangfireServer.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "Kelimedya.HangfireServer.dll": {}
         }
       },
       "Kelimedya.Persistence/1.0.0": {
@@ -2751,7 +2574,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Hosting.Abstractions.Reference/8.0.0.0": {
+      "Microsoft.Extensions.Hosting.Abstractions/8.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Hosting.Abstractions.dll": {}
         },
@@ -3935,41 +3758,6 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
-    "Hangfire.AspNetCore/1.8.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-o85rtOYvhbWpNUGT4YrZE62lugShfdL3EMCqX2QoTC6eXVwpqtWOYfSeiTXAxlbF0CXNJJsuSCISKLmzbngWAA==",
-      "path": "hangfire.aspnetcore/1.8.15",
-      "hashPath": "hangfire.aspnetcore.1.8.15.nupkg.sha512"
-    },
-    "Hangfire.Core/1.8.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+w8gT6CFH4jicVEsJ8WlMRJMNV2MG52JNtvKoXPFHFs6nkDTND6iDeCjydyHgp+85lZPRXc+s9/vkxD2vbPrLg==",
-      "path": "hangfire.core/1.8.15",
-      "hashPath": "hangfire.core.1.8.15.nupkg.sha512"
-    },
-    "Hangfire.Dashboard.Basic.Authentication/7.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SsWDM/FcgNOiZaG9RbOZzg9ZbAw2NJUzZY2V4ChnGaHFI3yT7CXE+LB9EshqE/MX/jT55QTtmnZ2JYy6atSJWA==",
-      "path": "hangfire.dashboard.basic.authentication/7.0.1",
-      "hashPath": "hangfire.dashboard.basic.authentication.7.0.1.nupkg.sha512"
-    },
-    "Hangfire.NetCore/1.8.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-HNACpklY1FGcsCr/xlPvmh5R5JqH2eEBxOp63Dwph6H6LdGWWqHoMpxjxkpYkZXM2mNpmk+j0Dk8lizadfnD+A==",
-      "path": "hangfire.netcore/1.8.15",
-      "hashPath": "hangfire.netcore.1.8.15.nupkg.sha512"
-    },
-    "Hangfire.SqlServer/1.8.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bNN0jpw+RdUlFK5UaXz+VhfSIV1Os264XDettv9t6nY9hP2afDzRXWYAuFNamKH6s+oFThGCZXbULZTDAPjASQ==",
-      "path": "hangfire.sqlserver/1.8.15",
-      "hashPath": "hangfire.sqlserver.1.8.15.nupkg.sha512"
-    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -4285,13 +4073,6 @@
       "path": "microsoft.extensions.filesystemglobbing/8.0.0",
       "hashPath": "microsoft.extensions.filesystemglobbing.8.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Hosting.Abstractions/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qeDWS5ErmkUN96BdQqpmeCmLk5HJWQ/SPw3ux5v5/Qb0hKZS5wojBMulnBC7JUEiBwg7Ir71Yjf1lFiRT5MdtQ==",
-      "path": "microsoft.extensions.hosting.abstractions/3.0.0",
-      "hashPath": "microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512"
-    },
     "Microsoft.Extensions.Http/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -4586,13 +4367,6 @@
       "path": "mytested.aspnetcore.mvc.viewfeatures/8.0.0",
       "hashPath": "mytested.aspnetcore.mvc.viewfeatures.8.0.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
-      "path": "newtonsoft.json/11.0.1",
-      "hashPath": "newtonsoft.json.11.0.1.nupkg.sha512"
-    },
     "System.Buffers/4.6.0": {
       "type": "package",
       "serviceable": true,
@@ -4818,16 +4592,6 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "Kelimedya.Core/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Kelimedya.HangfireDashboard/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Kelimedya.HangfireServer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5402,7 +5166,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Hosting.Abstractions.Reference/8.0.0.0": {
+    "Microsoft.Extensions.Hosting.Abstractions/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

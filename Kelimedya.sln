@@ -4,10 +4,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kelimedya.Core", "Kelimedya.Core\Kelimedya.Core.csproj", "{2A49A792-EB98-4B99-8A75-8EA61290E304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kelimedya.HangfireDashboard", "Kelimedya.HangfireDashboard\Kelimedya.HangfireDashboard.csproj", "{E9B51D6E-F6BF-48CB-81E8-27D344AEE1EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kelimedya.HangfireServer", "Kelimedya.HangfireServer\Kelimedya.HangfireServer.csproj", "{25368698-6399-463D-91C1-801B15ED6A7F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kelimedya.Persistence", "Kelimedya.Persistence\Kelimedya.Persistence.csproj", "{5F73AC3B-1516-476C-B5D9-B2C3CE7640F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kelimedya.Services", "Kelimedya.Services\Kelimedya.Services.csproj", "{D74755C3-4D09-449B-AE8A-C5999BE75241}"
@@ -30,14 +26,6 @@ Global
 		{2A49A792-EB98-4B99-8A75-8EA61290E304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A49A792-EB98-4B99-8A75-8EA61290E304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A49A792-EB98-4B99-8A75-8EA61290E304}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9B51D6E-F6BF-48CB-81E8-27D344AEE1EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9B51D6E-F6BF-48CB-81E8-27D344AEE1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9B51D6E-F6BF-48CB-81E8-27D344AEE1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9B51D6E-F6BF-48CB-81E8-27D344AEE1EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25368698-6399-463D-91C1-801B15ED6A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25368698-6399-463D-91C1-801B15ED6A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25368698-6399-463D-91C1-801B15ED6A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25368698-6399-463D-91C1-801B15ED6A7F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F73AC3B-1516-476C-B5D9-B2C3CE7640F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F73AC3B-1516-476C-B5D9-B2C3CE7640F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F73AC3B-1516-476C-B5D9-B2C3CE7640F3}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -6,6 +6,7 @@ let cards = [],
 let singleMode = false
 
 function load() {
+  document.getElementById("kbFeedback").innerHTML = "";
   const card = cards[idx]
   const gid = Number.parseInt(document.getElementById("gameRoot").dataset.gameId)
   const q = card.gameQuestions?.find((g) => g.gameId === gid)
@@ -55,38 +56,47 @@ function select(buttonEl, ans, correct) {
     btn.classList.add('opacity-50', 'cursor-not-allowed');
   });
 
-  // Seçilen butona uygun stil ekle
   if (ok) {
-    buttonEl.className = "option-btn bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-xl border-2 border-green-400 shadow-lg transform scale-105 w-full text-left";
+    // Doğruysa seçilen butona correct sınıfını ekle
+    buttonEl.classList.add('correct');
   } else {
-    buttonEl.className = "option-btn bg-gradient-to-r from-red-500 to-red-600 text-white font-bold py-4 px-6 rounded-xl border-2 border-red-400 shadow-lg transform scale-105 w-full text-left";
+    // Yanlışsa seçilen butona wrong sınıfını ekle
+    buttonEl.classList.add('wrong');
 
-    // Doğru cevabı göster
+    // Doğru cevabı gösterirken correct sınıfını ekle
     document.querySelectorAll('.option-btn').forEach(btn => {
       if (btn.textContent === correct) {
-        btn.className = "option-btn bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-xl border-2 border-green-400 shadow-lg transform scale-105 w-full text-left";
+        btn.disabled = false;   // istersen kaldırabilirsin
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+        btn.classList.add('correct');
       }
     });
   }
 
   // Geri bildirimi göster
-  document.getElementById("kbFeedback").innerHTML = ok
+  const fb = document.getElementById("kbFeedback");
+  fb.innerHTML = ok
       ? '<span class="text-green-600">🎉 Tebrikler! Doğru cevap!</span>'
       : '<span class="text-red-600">❌ Yanlış! Doğru cevap gösterildi.</span>';
 
-  const duration = (Date.now() - start) / 1000
-  const gid = document.getElementById("gameRoot").dataset.gameId
-  awardScore(document.getElementById("gameRoot").dataset.studentId, gid, ok, duration)
+  setTimeout(() => {
+        fb.innerHTML = "";
+      }, 2000);
+  
+  const duration = (Date.now() - start) / 1000;
+  const gid = document.getElementById("gameRoot").dataset.gameId;
+  awardScore(document.getElementById("gameRoot").dataset.studentId, gid, ok, duration);
 
-  // Yanlış cevapta da mevcut kartı listeden çıkarıp bir sonrakine geç
-  cards.splice(idx, 1)
+  // Kartı listeden çıkar ve sonraki karta geç
+  cards.splice(idx, 1);
   if (cards.length === 0) {
-    notifyParent()
-    return
+    notifyParent();
+    return;
   }
-  if (idx >= cards.length) idx = 0
-  setTimeout(load, 2000)
+  if (idx >= cards.length) idx = 0;
+  setTimeout(load, 2000);
 }
+
 
 export async function initWordQuiz(studentId, gameId, single, wordId) {
   if (single) {

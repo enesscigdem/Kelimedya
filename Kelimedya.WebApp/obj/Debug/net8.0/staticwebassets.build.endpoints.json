@@ -167,6 +167,88 @@
       ]
     },
     {
+      "Route": "audio/wrong.mp3",
+      "AssetFile": "audio/wrong.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17934"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WqMTMa/7V1bg57orIOUAg0y+yQEQE+goKwH+SYzf/BE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 08 Aug 2025 12:34:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WqMTMa/7V1bg57orIOUAg0y+yQEQE+goKwH+SYzf/BE="
+        }
+      ]
+    },
+    {
+      "Route": "audio/wrong.umzlh1ixdr.mp3",
+      "AssetFile": "audio/wrong.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17934"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WqMTMa/7V1bg57orIOUAg0y+yQEQE+goKwH+SYzf/BE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 08 Aug 2025 12:34:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "umzlh1ixdr"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WqMTMa/7V1bg57orIOUAg0y+yQEQE+goKwH+SYzf/BE="
+        },
+        {
+          "Name": "label",
+          "Value": "audio/wrong.mp3"
+        }
+      ]
+    },
+    {
       "Route": "css/AdamAsmaca.64w8h6isre.css",
       "AssetFile": "css/AdamAsmaca.css",
       "Selectors": [],
@@ -2791,7 +2873,7 @@
       ]
     },
     {
-      "Route": "js/games/common.9gcs7ms4ed.js",
+      "Route": "js/games/common.0bvrskykor.js",
       "AssetFile": "js/games/common.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2805,7 +2887,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4405"
+          "Value": "4642"
         },
         {
           "Name": "Content-Type",
@@ -2813,21 +2895,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs=\""
+          "Value": "\"xJwoo0nig4KPMFGiCB/PFb0V2DIq/x9TFYSwOM61njM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 17:10:58 GMT"
+          "Value": "Fri, 08 Aug 2025 12:36:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9gcs7ms4ed"
+          "Value": "0bvrskykor"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs="
+          "Value": "sha256-xJwoo0nig4KPMFGiCB/PFb0V2DIq/x9TFYSwOM61njM="
         },
         {
           "Name": "label",
@@ -2850,7 +2932,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4405"
+          "Value": "4642"
         },
         {
           "Name": "Content-Type",
@@ -2858,17 +2940,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs=\""
+          "Value": "\"xJwoo0nig4KPMFGiCB/PFb0V2DIq/x9TFYSwOM61njM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 17:10:58 GMT"
+          "Value": "Fri, 08 Aug 2025 12:36:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-95KNFtiv8TajSex2lpyDEsS36784EyxGG5N+XwcCHhs="
+          "Value": "sha256-xJwoo0nig4KPMFGiCB/PFb0V2DIq/x9TFYSwOM61njM="
         }
       ]
     },

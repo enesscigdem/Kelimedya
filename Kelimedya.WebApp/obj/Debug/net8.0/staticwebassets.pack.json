@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/audio/correct.mp3"
     },
     {
+      "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/audio/wrong.mp3",
+      "PackagePath": "staticwebassets/audio/wrong.mp3"
+    },
+    {
       "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/css/AdamAsmaca.css",
       "PackagePath": "staticwebassets/css/AdamAsmaca.css"
     },

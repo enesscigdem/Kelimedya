@@ -1,0 +1,13 @@
+/Users/enescigdem/Kelimedya/Kelimedya.Core/bin/Release/net8.0/Kelimedya.Core.deps.json
+/Users/enescigdem/Kelimedya/Kelimedya.Core/bin/Release/net8.0/Kelimedya.Core.dll
+/Users/enescigdem/Kelimedya/Kelimedya.Core/bin/Release/net8.0/Kelimedya.Core.pdb
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.csproj.AssemblyReference.cache
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.AssemblyInfoInputs.cache
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.AssemblyInfo.cs
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.csproj.CoreCompileInputs.cache
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.sourcelink.json
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.dll
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/refint/Kelimedya.Core.dll
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/Kelimedya.Core.pdb
+/Users/enescigdem/Kelimedya/Kelimedya.Core/obj/Release/net8.0/ref/Kelimedya.Core.dll

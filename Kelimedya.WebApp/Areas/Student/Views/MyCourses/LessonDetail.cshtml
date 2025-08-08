@@ -1,5 +1,7 @@
 @using System.Security.Claims
 @model Kelimedya.WebApp.Areas.Student.Models.LessonDetailViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 @{
     Layout = "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Kelime Kartları";
@@ -414,6 +416,7 @@ else
     <link href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
     <script>
+        const API_BASE_URL = '@Configuration["AppSettings:ApiUrl"]';
         const studentId = '@studentId';
         const totalCards = @totalCards;
         const lessonId = @Model.Lesson.Id;
@@ -651,7 +654,7 @@ else
         
         async function openQuiz(){
             try {
-                const res = await fetch(`http://localhost:5001/api/wordcards/lessons/${lessonId}/testquestions`);
+                const res = await fetch(`http://${API_BASE_URL}/api/wordcards/lessons/${lessonId}/testquestions`);
                 if(!res.ok){ finishCourse(); return; }
                 const qs = await res.json();
                 if(!qs || qs.length === 0){ finishCourse(); return; }
@@ -700,12 +703,12 @@ else
             
             const payload = {studentId, lessonId, totalQuestions: quizQuestions.length, correctAnswers: quizCorrect, score: quizCorrect * 10};
             Promise.all([
-                fetch('http://localhost:5001/api/gamestats/record', {
+                fetch(`http://${API_BASE_URL}/api/gamestats/record`, {
                     method:'POST',
                     headers:{'Content-Type':'application/json'},
                     body: JSON.stringify({studentId, gameId:-1, score: quizCorrect*10, durationSeconds:0})
                 }),
-                fetch('http://localhost:5001/api/quizresults/record', {
+                fetch(`http://${API_BASE_URL}/api/quizresults/record`, {
                     method:'POST',
                     headers:{'Content-Type':'application/json'},
                     body: JSON.stringify(payload)
@@ -739,14 +742,14 @@ else
                 IsLearned: true,
                 ResponseTimeSeconds: 2.5
             };
-            fetch('http://localhost:5001/api/progress/wordcards/update', {
+            fetch(`http://${API_BASE_URL}/api/progress/wordcards/update`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
             .then(response => {
                 if (response.status === 404) {
-                    return fetch('http://localhost:5001/api/progress/wordcards/create', {
+                    return fetch(`http://${API_BASE_URL}/api/progress/wordcards/create`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
@@ -774,14 +777,14 @@ else
                 TotalAttempts: cardIndex + 1,
                 TotalTimeSpentSeconds: (cardIndex + 1) * 3
             };
-            fetch('http://localhost:5001/api/progress/lessons/update', {
+            fetch(`http://${API_BASE_URL}/api/progress/lessons/update`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
             .then(response => {
                 if (response.status === 404) {
-                    return fetch('http://localhost:5001/api/progress/lessons/create', {
+                    return fetch(`http://${API_BASE_URL}/api/progress/lessons/create`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)

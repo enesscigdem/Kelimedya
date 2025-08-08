@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5001"
+const API_BASE_URL = window.API_BASE_URL;
 
 // Declare updateScoreDisplay function if not already declared
 const updateScoreDisplay = (score) => {

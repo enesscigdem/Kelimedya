@@ -1,4 +1,5 @@
-﻿@{
+﻿@inject IConfiguration Configuration
+@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Satış Grafiği";
 }
@@ -67,10 +68,9 @@
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
+      const API_BASE_URL = '@Configuration["AppSettings:ApiUrl"]';
       document.addEventListener("DOMContentLoaded", function () {
-        const api = 'http://localhost:5001/api/sales';
-
-        fetch(`${api}/monthly`).then(r => r.json()).then(data => {
+        fetch(`${API_BASE_URL}/monthly`).then(r => r.json()).then(data => {
           var categories = data.map(d => `${d.month}.${d.year}`);
           var totals = data.map(d => d.total);
           var options1 = { chart:{ type:'line', height:300 }, series:[{ name:'Satış', data: totals }], xaxis:{ categories: categories } };

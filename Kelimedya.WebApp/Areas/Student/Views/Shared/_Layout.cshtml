@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -105,6 +107,9 @@
 </main>
 
 <!-- Scripts -->
+<script>
+  window.API_BASE_URL = '@Configuration["AppSettings:ApiUrl"]';
+</script>
 <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {

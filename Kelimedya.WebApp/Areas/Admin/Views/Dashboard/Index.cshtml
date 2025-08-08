@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Kelimedya.Core.Enum
 @model Kelimedya.WebApp.Areas.Admin.Models.DashboardViewModel
-
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Yönetim Paneli";
@@ -517,7 +518,7 @@
 </div>
 
 <script>
-const API_BASE_URL = 'http://localhost:5001';
+const API_BASE_URL = '@Configuration["AppSettings:ApiUrl"]';
 document.addEventListener("DOMContentLoaded", function() {
     fetch(`${API_BASE_URL}/api/sales/monthly`)
         .then(r => r.json())

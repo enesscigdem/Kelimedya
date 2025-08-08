@@ -498,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0bvrskykor</Fingerprint>
-      <Integrity>xJwoo0nig4KPMFGiCB/PFb0V2DIq/x9TFYSwOM61njM=</Integrity>
+      <Fingerprint>zizn0r07oa</Fingerprint>
+      <Integrity>ZeALQO2lfNvz9Idc75ihP2nFUQatW9CcLI1h49lnEng=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</OriginalItemSpec>
@@ -552,8 +552,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>2gjkkepk96</Fingerprint>
-      <Integrity>jkTVw861WefV+HJmHwAL0Hw+Y7wQkFw7Tb3jcgFVSw8=</Integrity>
+      <Fingerprint>1yxnk2dshg</Fingerprint>
+      <Integrity>mbcqcCamPTpMO0XywDEJPAZpE84v+JIMlvhSvSbn/rg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\KelimeBulmaca.js'))</OriginalItemSpec>
@@ -570,8 +570,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>dxjxey719q</Fingerprint>
-      <Integrity>ISlRCI/uuhxEQmUgywYOe3jmwIklglck7+hXWaOKM9c=</Integrity>
+      <Fingerprint>6dzilv8hx3</Fingerprint>
+      <Integrity>ilRZBrOZPgQOagCWnNErAhqyAMMLg0R7Ty9OrR8S2vc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</OriginalItemSpec>

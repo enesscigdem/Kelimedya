@@ -39,8 +39,7 @@ builder.Services.AddHttpClient("DefaultApi", (provider, client) =>
     .AddHttpMessageHandler<AuthenticationDelegatingHandler>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-var dbPassword = builder.Configuration["ConnectionStrings:DefaultConnection:Password"];
-connectionString += $"Password={dbPassword}";
+
 builder.Services.AddDbContext<KelimedyaDbContext>(options =>
     options.UseSqlServer(connectionString));
 

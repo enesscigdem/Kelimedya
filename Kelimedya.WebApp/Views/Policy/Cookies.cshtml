@@ -1,0 +1,25 @@
+﻿@* Views/Policy/Cookies.cshtml *@
+@{
+    ViewData["Title"] = "Çerez Politikası";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>1) Çerez Nedir?</h2>
+<p>Tarayıcınıza kaydedilen küçük metin dosyalarıdır. Oturumun sürdürülmesi, tercihlerin hatırlanması ve performans ölçümü için kullanılır.</p>
+
+<h2>2) Kullandığımız Çerezler</h2>
+<ul>
+  <li><strong>Zorunlu:</strong> Oturum açma, güvenlik, sayfa gezinmesi.</li>
+  <li><strong>İşlevsel:</strong> Dil/tercih hatırlama.</li>
+  <li><strong>Performans/Analitik:</strong> Anonim kullanım istatistikleri.</li>
+</ul>
+
+<h2>3) Üçüncü Taraflar</h2>
+<p>İstatistik, hata izleme veya bildirim sağlayıcıları sınırlı çerez yerleştirebilir.</p>
+
+<h2>4) Çerezleri Yönetme</h2>
+<p>Tarayıcınızdan çerezleri silebilir/engelleyebilirsiniz. Zorunlu çerezler kapatılırsa bazı özellikler çalışmayabilir.</p>
+
+<h2>5) İletişim</h2>
+<p>Sorularınız için: <a href="mailto:@L.Email">@L.Email</a> • Tel: <a href="@telHref">@L.Phone</a></p>

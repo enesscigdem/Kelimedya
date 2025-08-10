@@ -1,0 +1,121 @@
+﻿@using Kelimedya.WebApp.Options
+@inject Microsoft.Extensions.Options.IOptionsSnapshot<LegalOptions> Legal
+
+@{
+    Layout = "_Layout";
+    var L = Legal.Value ?? new LegalOptions();
+
+    var pageTitle = ViewData["Title"] as string ?? string.Empty;
+    var telHref = "tel:" + System.Text.RegularExpressions.Regex
+        .Replace(L.Phone ?? "", "[^+0-9]", "");
+
+    var updatedText = !string.IsNullOrWhiteSpace(L.LastUpdated)
+        ? L.LastUpdated
+        : DateTime.Now.ToString("dd.MM.yyyy");
+}
+
+@section Styles{
+<style>
+.legal-wrap{
+  padding:56px 16px;
+  background: linear-gradient(180deg,#f6f8ff 0%, #fbfcff 100%);
+}
+.legal-card{
+  width:100%;
+  max-width:960px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid rgba(24,39,75,.08);
+  border-radius:20px;
+  box-shadow:0 14px 38px rgba(24,39,75,.08);
+  padding:40px 32px;
+  margin-top: 100px;
+}
+.legal-card h1{
+  font-size:28px; font-weight:800; margin:0 0 6px 0;
+}
+.legal-card .updated{
+  font-size:14px; color:#6b7280; margin-bottom:20px;
+}
+.legal-card h2{
+  font-size:20px; font-weight:700; margin:24px 0 8px;
+}
+.legal-card p, .legal-card li{
+  font-size:16px; line-height:1.7; color:#2b2f3b;
+}
+.legal-card ul{ padding-left:18px; margin-bottom:6px; }
+.legal-card address{
+  font-style:normal; background:#f8fafc; border:1px solid #e6ebf2;
+  border-radius:12px; padding:12px 14px; margin-bottom:10px;
+}
+@@media (max-width: 576px){
+  .legal-card{ padding:28px 18px; border-radius:16px; }
+  .legal-card h1{ font-size:24px; }
+  .legal-card h2{ font-size:18px; }
+}
+</style>
+}
+
+<div class="legal-wrap">
+  <article class="legal-card">
+    @if (!string.IsNullOrWhiteSpace(pageTitle))
+    {
+        <h1>@pageTitle</h1>
+        <p class="updated">Son güncelleme: @updatedText</p>
+    }
+
+    @RenderBody()
+
+    <hr class="my-4" />
+
+    <address class="mb-0">
+        @if (!string.IsNullOrWhiteSpace(L.CompanyName))
+        {
+            <strong>@L.CompanyName</strong><br />
+        }
+
+        @if (!string.IsNullOrWhiteSpace(L.Address))
+        {
+            @L.Address<br />
+        }
+
+        @if (!string.IsNullOrWhiteSpace(L.Phone) || !string.IsNullOrWhiteSpace(L.Email))
+        {
+            <span>
+                @if (!string.IsNullOrWhiteSpace(L.Phone))
+                {
+                    <text>Tel: <a href="@telHref">@L.Phone</a></text>
+                }
+                @if (!string.IsNullOrWhiteSpace(L.Phone) && !string.IsNullOrWhiteSpace(L.Email))
+                {
+                    @: &nbsp;•&nbsp;
+                }
+                @if (!string.IsNullOrWhiteSpace(L.Email))
+                {
+                    <text>E-posta: <a href="mailto:@L.Email">@L.Email</a></text>
+                }
+            </span>
+            <br />
+        }
+
+        @if (!string.IsNullOrWhiteSpace(L.TaxOffice) || !string.IsNullOrWhiteSpace(L.TaxNo) || !string.IsNullOrWhiteSpace(L.Mersis))
+        {
+            <span>
+                V.D./No: @L.TaxOffice
+                @if (!string.IsNullOrWhiteSpace(L.TaxOffice) && !string.IsNullOrWhiteSpace(L.TaxNo))
+                {
+                    @: /
+                }
+                @L.TaxNo
+                @if (!string.IsNullOrWhiteSpace(L.Mersis))
+                {
+                    @: &nbsp;•&nbsp; MERSİS: @L.Mersis
+                }
+            </span>
+        }
+    </address>
+  </article>
+</div>
+
+@RenderSection("LegalExtraHead", required: false)
+@RenderSection("LegalExtraScripts", required: false)

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Kelimedya.Services.Implementations;
 using Kelimedya.Services.Interfaces;
+using Kelimedya.WebApp.Options;
 using CurrentUserService = Kelimedya.WebApp.CurrentUserService;
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
@@ -28,6 +29,7 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation().AddJsonO
 });;
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.Configure<LegalOptions>(builder.Configuration.GetSection("Legal"));
 builder.Services.AddSingleton(cfg => cfg.GetService<IOptions<AppSettings>>()?.Value);
 
 builder.Services.AddHttpClient("DefaultApi", (provider, client) =>

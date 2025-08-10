@@ -1,0 +1,48 @@
+﻿@* Views/Policy/Privacy.cshtml *@
+@{
+    ViewData["Title"] = "Gizlilik Politikası";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>1) Veri Sorumlusu</h2>
+<address>
+    <strong>@L.CompanyName</strong><br/>
+    Vergi Dairesi/No: @L.TaxOffice / @L.TaxNo &nbsp;•&nbsp; MERSİS: @L.Mersis<br/>
+    @L.Address<br/>
+    Tel: <a href="@telHref">@L.Phone</a> &nbsp;•&nbsp; E-posta: <a href="mailto:@L.Email">@L.Email</a>
+</address>
+
+<h2>2) İşlenen Kişisel Veriler</h2>
+<ul>
+    <li>Hesap/veri: ad-soyad (veya kurum), e-posta, sınıf/okul (varsa)</li>
+    <li>İşlem güvenliği: IP, oturum çerezleri, loglar</li>
+    <li>Kullanım: etkinlik/oyun ilerlemeleri, rozetler, hatırlatmalar</li>
+    <li>İletişim: destek talepleri, bildirim tercihleri</li>
+</ul>
+
+<h2>3) Amaçlar</h2>
+<ul>
+    <li>Eğitsel içerik ve oyunlaştırma hizmetini sunmak</li>
+    <li>Hesap yönetimi, destek ve güvenlik</li>
+    <li>Performans/analitik ölçüm ve geliştirme</li>
+    <li>Hukuki yükümlülüklerin yerine getirilmesi</li>
+</ul>
+
+<h2>4) Hukuki Sebep</h2>
+<p>KVKK m.5/2 (a),(c),(ç),(f); gerekli hallerde açık rıza.</p>
+
+<h2>5) Aktarım</h2>
+<p>Barındırma, güvenlik, log ve bildirim hizmeti aldığımız tedarikçilerle sınırlı paylaşım; yasal taleplerde yetkili kurumlara aktarım.</p>
+
+<h2>6) Saklama</h2>
+<p>Hesap kapatıldıktan sonra kanuni süreler sonunda silme/yok etme/anonimleştirme uygulanır.</p>
+
+<h2>7) Çocukların Gizliliği</h2>
+<p>18 yaş altı kullanım veli/vasî veya okul yetkilisinin bilgisi ve sorumluluğundadır.</p>
+
+<h2>8) Haklar ve Başvuru (KVKK m.11)</h2>
+<p><a href="mailto:@L.Email">@L.Email</a> adresine yazabilirsiniz. Başvurular 30 gün içinde yanıtlanır.</p>
+
+<h2>9) Değişiklik</h2>
+<p>Politika güncellenebilir; en güncel sürüm bu sayfada yayınlanır.</p>

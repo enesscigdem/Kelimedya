@@ -1,0 +1,24 @@
+﻿@* Views/Policy/PreInformation.cshtml *@
+@{
+    ViewData["Title"] = "Ön Bilgilendirme Formu";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>Satıcı Bilgileri</h2>
+<p><strong>@L.CompanyName</strong> — @L.Address — Tel: <a href="@telHref">@L.Phone</a> — E-posta: <a href="mailto:@L.Email">@L.Email</a></p>
+
+<h2>Hizmetin Temel Nitelikleri</h2>
+<p>Dijital eğitim içerikleri, kelime oyunları, raporlama ve (varsa) öğretmen/veli modülleri.</p>
+
+<h2>Toplam Fiyat</h2>
+<p>Tüm vergiler dâhil toplam bedel ve varsa taksit/vade farkı, ödeme sayfasında açıkça gösterilir.</p>
+
+<h2>Ödeme ve İfa</h2>
+<p>Ödeme sağlayıcı onayını takiben hizmet erişimi hesabınıza tanımlanır.</p>
+
+<h2>Cayma Hakkı</h2>
+<p>14 gün kuralı; dijital içerik/hizmetlerde ifaya başlandıysa istisnalar olabilir. Cayma bildirimi için <a href="mailto:@L.Email">@L.Email</a>.</p>
+
+<h2>Şikâyet ve Başvuru</h2>
+<p><a href="mailto:@L.Email">@L.Email</a> — Tel: <a href="@telHref">@L.Phone</a></p>

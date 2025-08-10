@@ -1,0 +1,47 @@
+﻿@* Views/Policy/Kvkk.cshtml *@
+@{
+    ViewData["Title"] = "KVKK Aydınlatma Metni";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>1) Veri Sorumlusu</h2>
+<address>
+    <strong>@L.CompanyName</strong><br />
+    Vergi Dairesi/No: @L.TaxOffice / @L.TaxNo &nbsp;•&nbsp; MERSİS: @L.Mersis<br />
+    @L.Address<br />
+    Tel: <a href="@telHref">@L.Phone</a> &nbsp;•&nbsp; E-posta: <a href="mailto:@L.Email">@L.Email</a>
+</address>
+
+<h2>2) Amaçlar</h2>
+<ul>
+    <li>Platform hizmetlerinin sunulması ve geliştirilmesi</li>
+    <li>Hesap yönetimi, güvenlik ve destek</li>
+    <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+</ul>
+
+<h2>3) İşlenen Veri Kategorileri</h2>
+<ul>
+    <li>Kimlik ve iletişim verileri</li>
+    <li>İşlem güvenliği (IP, log, çerez)</li>
+    <li>Kullanım verileri (etkinlik ilerlemeleri, rozetler)</li>
+</ul>
+
+<h2>4) Toplama Yöntemi ve Hukuki Sebep</h2>
+<p>Elektronik ortam (formlar, hesap işlemleri, kullanım logları); KVKK m.5/2 (a),(c),(ç),(f) ve gerektiğinde açık rıza.</p>
+
+<h2>5) Aktarım</h2>
+<p>Barındırma, güvenlik, log vb. tedarikçilere ve mevzuat gereği yetkili kurumlara.</p>
+
+<h2>6) Saklama Süreleri</h2>
+<p>Amaç için gerekli süre ve mevzuattaki zamanaşımı süreleri sonunda silme/yok etme/anonimleştirme.</p>
+
+<h2>7) Haklarınız (KVKK m.11)</h2>
+<ul>
+    <li>Bilgi talebi, erişim, düzeltme</li>
+    <li>Silme/yok etme, aktarım yapılanların bildirilmesi</li>
+    <li>İtiraz ve zararların giderilmesini talep</li>
+</ul>
+
+<h2>8) Başvuru</h2>
+<p><a href="mailto:@L.Email">@L.Email</a> adresine “KVKK Başvuru” konusu ile iletebilirsiniz. Başvurular 30 gün içinde sonuçlandırılır.</p>

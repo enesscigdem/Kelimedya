@@ -1,0 +1,31 @@
+﻿@* Views/Policy/DistanceSales.cshtml *@
+@{
+    ViewData["Title"] = "Mesafeli Satış Sözleşmesi";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>1) Taraflar</h2>
+<address>
+  <strong>Satıcı:</strong> @L.CompanyName — Vergi Dairesi/No: @L.TaxOffice / @L.TaxNo — MERSİS: @L.Mersis<br />
+  @L.Address — Tel: <a href="@telHref">@L.Phone</a> — E-posta: <a href="mailto:@L.Email">@L.Email</a>
+</address>
+<p><strong>Alıcı:</strong> Sipariş esnasında beyan edilen ad-soyad/ünvan ve iletişim bilgileri.</p>
+
+<h2>2) Konu</h2>
+<p>Dijital eğitim içerikleri/aboneliklerinin satışı ve ifasına ilişkin hak ve yükümlülükler.</p>
+
+<h2>3) Ürün/Hizmet, Bedel ve Ödeme</h2>
+<p>Vergiler dâhil toplam bedel ve ödeme yöntemi sipariş özetinde yer alır.</p>
+
+<h2>4) Teslim/İfa</h2>
+<p>Fizikî teslimat yoktur. Ödeme onayından sonra hizmet, alıcı hesabına erişim tanımlanması ile ifa edilir.</p>
+
+<h2>5) Cayma Hakkı</h2>
+<p>Tüketicinin cayma hakkı kural olarak 14 gündür. Ancak dijital içerik/hizmetlerde, alıcının açık onayı ile ifaya başlanmışsa istisnalar doğabilir.</p>
+
+<h2>6) İade Süreci</h2>
+<p>Geçerli cayma/iade durumunda bedel, bildirimin ulaşmasından sonra mevzuata uygun sürelerde ödemenin yapıldığı kanala iade edilir.</p>
+
+<h2>7) Uyuşmazlık</h2>
+<p>Tüketici Hakem Heyetleri/Tüketici Mahkemeleri yetkilidir.</p>

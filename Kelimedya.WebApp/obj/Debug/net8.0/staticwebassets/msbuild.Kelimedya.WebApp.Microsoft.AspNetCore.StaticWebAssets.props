@@ -282,8 +282,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>m8n5gg1sno</Fingerprint>
-      <Integrity>GpsCtJB0j13voM2d6mN+0MDcZz4YgaGSwfbiddPyhO4=</Integrity>
+      <Fingerprint>vxb8n24io9</Fingerprint>
+      <Integrity>c22harAE79JaSvhayTtvB+KnGis7ZkZQvnqhxmIlsdA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -28614,8 +28614,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>p53zo6roob</Fingerprint>
-      <Integrity>vZpw6dw1u7R3hYaje0M9r3yHVCuV+HRhu9ttTlyc0ss=</Integrity>
+      <Fingerprint>smlenhrs8f</Fingerprint>
+      <Integrity>/I+ZNQUmr42N35RleoGIhgIqVxEGQBDoK5O9/DGGc38=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\css\style.css'))</OriginalItemSpec>
@@ -30528,24 +30528,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\hero_shape_5.svg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\home_contact.jpg'))">
-      <SourceType>Package</SourceType>
-      <SourceId>Kelimedya.WebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Kelimedya.WebApp</BasePath>
-      <RelativePath>theme/web_UI/assets/img/home_5/home_contact.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q1fpk7sxz8</Fingerprint>
-      <Integrity>biisglvPp5UrZsbVV6/om2x68i/9liDXq1dlVr1/wuk=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\home_contact.jpg'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\kelimedya-logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>Kelimedya.WebApp</SourceId>
@@ -31368,8 +31350,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5i8k3nq9qd</Fingerprint>
-      <Integrity>8xh6jRNIVpnJk3L2tyTm9gTpnubP8AmJTFLkps5STrI=</Integrity>
+      <Fingerprint>szapvnm7j5</Fingerprint>
+      <Integrity>GKHoiOSz5PCN6odrMzEkogN+E5U5zwzlNt5JFV8Gme0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\sass\shortcode\_hero.scss'))</OriginalItemSpec>

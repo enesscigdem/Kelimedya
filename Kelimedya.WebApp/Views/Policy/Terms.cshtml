@@ -1,0 +1,40 @@
+﻿@* Views/Policy/Terms.cshtml *@
+@{
+    ViewData["Title"] = "Kullanım Koşulları";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>1) Tanımlar</h2>
+<p>“Platform”: @L.CompanyName tarafından sunulan web uygulaması ve servisler.</p>
+
+<h2>2) Hizmet Kapsamı</h2>
+<p>Kelime hazinesi ve okuduğunu anlama gelişimine yönelik dijital içerikler, oyunlaştırma ve (varsa) öğretmen/veli modülleri.</p>
+
+<h2>3) Hesap ve Sorumluluk</h2>
+<ul>
+    <li>18 yaş altı kullanım veli/okul izniyle yapılır.</li>
+    <li>Hesap bilgilerinin gizliliği kullanıcı/veliye aittir.</li>
+    <li>Hile, güvenlik ihlali veya kötüye kullanımda erişim sınırlandırılabilir.</li>
+</ul>
+
+<h2>4) Kabul Edilebilir Kullanım</h2>
+<ul>
+    <li>Hukuka aykırı, zararlı içerik paylaşımı yasaktır.</li>
+    <li>Otomatik sorgu/bot ile hizmeti bozucu kullanım yasaktır.</li>
+</ul>
+
+<h2>5) Ücretlendirme ve Ödeme</h2>
+<p>Ücretli modüller (varsa) sipariş özetinde açıkça belirtilir; ödeme onayıyla hizmet erişimi tanımlanır.</p>
+
+<h2>6) Fikri Mülkiyet</h2>
+<p>Platformdaki tüm içerik, tasarım ve yazılım @L.CompanyName veya lisans verenlerine aittir; izinsiz kopyalanamaz.</p>
+
+<h2>7) Sorumluluğun Sınırı</h2>
+<p>Hizmet “olduğu gibi” sunulur; makul özen gösterilse de kesinti/üçüncü taraf aksaklıklarından doğrudan/dolaylı zararlardan sorumlu olunmaz.</p>
+
+<h2>8) Fesih</h2>
+<p>Kullanıcı dilediğinde hesabını kapatabilir; kurallara aykırılıkta erişim sonlandırılabilir.</p>
+
+<h2>9) İletişim</h2>
+<p>@L.CompanyName — @L.Address • Tel: <a href="@telHref">@L.Phone</a> • E-posta: <a href="mailto:@L.Email">@L.Email</a></p>

@@ -1,0 +1,16 @@
+﻿@* Views/Policy/Refund.cshtml *@
+@{
+    ViewData["Title"] = "Teslimat & İptal-İade Koşulları";
+    Layout = "_Legal";
+    var L = Legal.Value;
+    var telHref = "tel:" + (L.Phone ?? "").Replace(" ", "");
+}
+<h2>Dijital Hizmetlerin Teslimi</h2>
+<p>Satın alma onayı ardından hesap erişimi tanımlanır; fizikî gönderim yoktur.</p>
+
+<h2>İptal-İade Süreci</h2>
+<ul>
+  <li>Cayma hakkı kapsamındaki iadeler, mevzuata uygun sürelerde ödemenin yapıldığı kanala iade edilir.</li>
+  <li>Dijital hizmetlerde ifaya başlanmışsa cayma hakkına ilişkin istisnalar uygulanabilir.</li>
+  <li>Başvuru için: <a href="mailto:@L.Email">@L.Email</a> • Tel: <a href="@telHref">@L.Phone</a></li>
+</ul>

@@ -17,15 +17,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
 
-    <!-- iziToast CSS -->
+    <!-- iziToast -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css"/>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { inter: ['Inter','sans-serif'] },
                     colors: {
                         'orange-custom': '#ff6b35',
                         'orange-light': '#fef2f2',
@@ -39,6 +38,9 @@
                         'pink-light': '#fdf2f8',
                         'cream': '#fef7f0',
                         'cream-dark': '#fdf2e9'
+                    },
+                    boxShadow: {
+                        'elev': '0 20px 50px rgba(24,39,75,.08)'
                     }
                 }
             }
@@ -46,14 +48,8 @@
     </script>
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .decorative-circle {
-            filter: blur(60px);
-            opacity: 0.3;
-        }
+        body{ font-family:'Inter',sans-serif; }
+        .decorative-circle{ filter:blur(60px); opacity:.3; }
     </style>
 </head>
 <body class="bg-gradient-to-br from-cream to-cream-dark min-h-screen">
@@ -61,69 +57,155 @@
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-16">
-            <a href="@Url.Action("Index", "Dashboard", new { area = "Student" })">
-                 <!-- Logo Section -->
-                            <div class="flex items-center space-x-3">
-                                <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" width="150px" alt="Logo">
-                            </div>
-
+            <!-- Logo -->
+            <a href="@Url.Action("Index","Dashboard", new { area="Student" })" class="flex items-center space-x-3">
+                <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" width="150" height="40" alt="Kelimedya">
             </a>
-           
-            <!-- Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="@Url.Action("Index", "Dashboard", new { area = "Student" })"
-                   class="text-gray-900 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "border-green-custom" : "border-transparent hover:text-gray-700")">
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="@Url.Action("Index","Dashboard", new { area="Student" })"
+                   class="text-gray-900 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString()=="Dashboard" ? "border-green-custom" : "border-transparent hover:text-gray-700")">
                     Anasayfa
                 </a>
-                <a href="@Url.Action("Index", "MyCourses", new { area = "Student" })"
-                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "MyCourses" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
+                <a href="@Url.Action("Index","MyCourses", new { area="Student" })"
+                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString()=="MyCourses" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
                     Eğitimlerim
                 </a>
-                <a href="@Url.Action("Index", "MyWords", new { area = "Student" })"
-                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "MyWords" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
+                <a href="@Url.Action("Index","MyWords", new { area="Student" })"
+                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString()=="MyWords" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
                     Kelime Kartlarım
                 </a>
-                <a href="@Url.Action("Index", "Games", new { area = "Student" })"
-                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Games" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
+                <a href="@Url.Action("Index","Games", new { area="Student" })"
+                   class="text-gray-600 font-medium py-2 border-b-2 @(ViewContext.RouteData.Values["controller"]?.ToString()=="Games" ? "border-green-custom" : "border-transparent hover:text-gray-900")">
                     Oyunlar
                 </a>
             </nav>
 
-            <!-- Right Section -->
+            <!-- Sağ taraf -->
             <div class="flex items-center space-x-4">
-                <!-- Score Info -->
-                @await Component.InvokeAsync("ScoreInfo")
+                <!-- ScoreInfo hedefi (desktop) -->
+                <div id="scoreinfo-desktop" class="hidden md:block"></div>
 
-                <!-- User Dropdown -->
+                <!-- User dropdown (her iki boyutta da görünür) -->
                 @await Component.InvokeAsync("UserDropdown", new { area = "Student" })
+
+                <!-- Hamburger (sadece mobil) -->
+                <button id="mobile-menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Menüyü aç">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- Mobil overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 hidden opacity-0 transition-opacity duration-300 z-40"></div>
+
+    <!-- Mobil Slide-in Menü -->
+    <aside id="mobile-menu"
+           class="fixed top-0 right-0 w-72 max-w-[85%] h-full bg-white shadow-elev transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6 space-y-6 h-full flex flex-col">
+            <div class="flex items-center justify-between">
+                <span class="text-lg font-semibold text-gray-900">Menü</span>
+                <button id="close-mobile-menu" class="text-gray-500 hover:text-gray-700" aria-label="Menüyü kapat">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- ScoreInfo hedefi (mobil) -->
+            <div id="scoreinfo-mobile" class="mb-1"></div>
+
+            <nav class="flex flex-col space-y-2">
+                <a href="@Url.Action("Index","Dashboard", new { area="Student" })" class="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-900 font-medium">Anasayfa</a>
+                <a href="@Url.Action("Index","MyCourses", new { area="Student" })" class="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-900 font-medium">Eğitimlerim</a>
+                <a href="@Url.Action("Index","MyWords", new { area="Student" })" class="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-900 font-medium">Kelime Kartlarım</a>
+                <a href="@Url.Action("Index","Games", new { area="Student" })" class="px-3 py-2 rounded-lg hover:bg-gray-50 text-gray-900 font-medium">Oyunlar</a>
+            </nav>
+
+            <div class="mt-auto pt-4 border-t border-gray-100 text-xs text-gray-500">
+                Kelimedya © @DateTime.Now.Year
+            </div>
+        </div>
+    </aside>
 </header>
 
-<!-- Main Content -->
+<!-- ScoreInfo: TEK KEZ render (gizli kaynak); JS ile uygun yere taşınır -->
+<div id="scoreinfo-source" class="hidden">
+    @await Component.InvokeAsync("ScoreInfo")
+</div>
+
+<!-- Main -->
 <main class="max-w-7xl mx-auto px-6 py-8">
     @RenderBody()
 </main>
 
-<!-- Scripts -->
+<!-- Globals -->
 <script>
   window.API_BASE_URL = '@Configuration["AppSettings:ApiUrl"]';
 </script>
 <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
+<!-- Menü & ScoreInfo yerleştirme -->
 <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Search functionality
-            const searchInput = document.querySelector('input[type="text"]');
-            if (searchInput) {
-                searchInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        console.log('Search:', this.value);
-                    }
-                });
+(function () {
+    // Elemanlar
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu  = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const closeMenuBtn  = document.getElementById('close-mobile-menu');
+
+    // Aç/Kapat
+    function openMenu(){
+        mobileMenu.classList.remove('translate-x-full');
+        mobileOverlay.classList.remove('hidden');
+        requestAnimationFrame(()=> mobileOverlay.classList.add('opacity-100'));
+        // body scroll kilidi
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+        mobileMenu.classList.add('translate-x-full');
+        mobileOverlay.classList.remove('opacity-100');
+        setTimeout(()=> mobileOverlay.classList.add('hidden'), 300);
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+    }
+
+    menuToggle?.addEventListener('click', openMenu);
+    closeMenuBtn?.addEventListener('click', closeMenu);
+    mobileOverlay?.addEventListener('click', closeMenu);
+
+    // SCOREINFO: tek instance’ı ekrana göre taşı
+    const src = document.getElementById('scoreinfo-source');
+    const mobileHost = document.getElementById('scoreinfo-mobile');
+    const desktopHost = document.getElementById('scoreinfo-desktop');
+    if (src && mobileHost && desktopHost) {
+        const mq = window.matchMedia('(min-width: 768px)');
+        let placed = null; // 'mobile' | 'desktop'
+
+        function place() {
+            const el = src.firstElementChild; // ScoreInfo kök düğüm
+            if (!el) return;
+
+            if (mq.matches) {
+                if (placed !== 'desktop') {
+                    desktopHost.appendChild(el); // taşır (kopyalamaz!)
+                    placed = 'desktop';
+                }
+            } else {
+                if (placed !== 'mobile') {
+                    mobileHost.appendChild(el);
+                    placed = 'mobile';
+                }
             }
-        });
-    </script>
+        }
+
+        place();
+        if (mq.addEventListener) mq.addEventListener('change', place);
+        else mq.addListener(place);
+    }
+})();
+</script>
 
 @RenderSection("Scripts", required: false)
 </body>

@@ -1520,3 +1520,4 @@
 /Users/enescigdem/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.pdb
 /Users/enescigdem/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/Kelimedya.WebApp.genruntimeconfig.cache
 /Users/enescigdem/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/ref/Kelimedya.WebApp.dll
+/Users/enescigdem/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/scopedcss/Views/Shared/_Legal.cshtml.rz.scp.css

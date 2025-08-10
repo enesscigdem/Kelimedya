@@ -3308,7 +3308,7 @@ label {
 }
 
 .td_video_block.td_style_2 {
-  min-height: 850px;
+  min-height: 750px;
 }
 @media (max-width: 991px) {
   .td_video_block.td_style_2 {
@@ -10367,7 +10367,7 @@ html .ui-button.ui-state-disabled:active {
 }
 @media (max-width: 991px) {
   .td_hero.td_style_5 {
-    padding: 150px 0 80px;
+    padding: 100px 0 80px;
     height: initial;
     min-height: 700px;
   }
@@ -14694,7 +14694,7 @@ button.td_icon_btn:hover {
 }
 
 .td_video_block.td_style_2 + .td_contact.td_style_1 {
-  margin-top: -270px;
+  margin-top: -500px;
   position: relative;
   z-index: 2;
   margin-bottom: 100px;

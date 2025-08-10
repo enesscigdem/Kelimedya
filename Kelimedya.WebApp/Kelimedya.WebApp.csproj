@@ -102,6 +102,8 @@
       <AdditionalFiles Include="Areas\Student\Views\MyCourses\Index.cshtml" />
       <AdditionalFiles Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
       <AdditionalFiles Include="Areas\Teacher\Views\Students\Index.cshtml" />
+      <AdditionalFiles Include="Views\Policy\Login.cshtml" />
+      <AdditionalFiles Include="Views\Policy\Register.cshtml" />
       <AdditionalFiles Include="Views\Shared\Components\AdminDropdown\Default.cshtml" />
     </ItemGroup>
 

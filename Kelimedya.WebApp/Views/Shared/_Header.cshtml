@@ -22,6 +22,16 @@
     <link rel="stylesheet" href="~/theme/web_UI/assets/css/animate.css">
     <link rel="stylesheet" href="~/theme/web_UI/assets/css/jquery-ui.min.css">
     <link rel="stylesheet" href="~/theme/web_UI/assets/css/style.css">
+    <style>
+    .td_site_header.td_style_1 .td_main_header_right {
+                display: flex !important;
+              }
+        @@media (max-width: 991.98px){
+          .td_site_header.td_style_1 .td_main_header_right {
+            display: none !important;
+          }
+        }
+    </style>
 </head>
 
 <body class="td_theme_2">
@@ -83,12 +93,60 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    @* --- Mobil Aksiyonlar: sadece mobilde görünür --- *@
+                                    <li class="d-lg-none td_mobile_actions_in_nav" style="padding:12px 0; border-top:1px solid rgba(0,0,0,.06);">
+                                      <div style="display:flex;">
+                                        <a asp-controller="Home" asp-action="Cart"
+                                           class="td_btn td_style_1 td_radius_10 td_medium w-100" aria-label="Sepet">
+                                          <span class="td_btn_in td_accent_color td_white_bg">
+                                            <span>Sepet</span>
+                                          </span>
+                                        </a>
+                                    
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            @* Rolüne göre panele git *@
+                                            <a asp-area="@(User.IsInRole(Kelimedya.Core.Enum.RoleNames.Admin) ? "Admin" :
+                                                           User.IsInRole(Kelimedya.Core.Enum.RoleNames.Teacher) ? "Teacher" : "Student")"
+                                               asp-controller="Dashboard" asp-action="Index"
+                                               class="td_btn td_style_1 td_radius_10 td_medium w-100">
+                                              <span class="td_btn_in td_white_color td_accent_bg">
+                                                <span>Panele Git</span>
+                                              </span>
+                                            </a>
+                                    
+                                            <form asp-controller="Auth" asp-action="Logout" method="post" class="w-100">
+                                              <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium w-100">
+                                                <span class="td_btn_in td_white_bg td_accent_color">
+                                                  <span>Çıkış Yap</span>
+                                                </span>
+                                              </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Auth" asp-action="Login"
+                                               class="td_btn td_style_1 td_radius_10 td_medium w-100">
+                                              <span class="td_btn_in td_white_color td_accent_bg">
+                                                <span>Giriş Yap</span>
+                                              </span>
+                                            </a>
+                                            <a asp-controller="Auth" asp-action="Register"
+                                               class="td_btn td_style_1 td_radius_10 td_medium w-100">
+                                              <span class="td_btn_in td_accent_color td_white_bg">
+                                                <span>Kayıt Ol</span>
+                                              </span>
+                                            </a>
+                                        }
+                                      </div>
+                                    </li>
+
                                 </ul>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <div class="td_main_header_right">
+               <div class="td_main_header_right d-none d-lg-block">
                     <div class="td_hero_toolbox_wrap">
                         <a asp-controller="Home" asp-action="Cart" class="td_circle_btn td_center" type="button">
                             <img src="~/theme/web_UI/assets/img/home_5/cart.svg" alt="">

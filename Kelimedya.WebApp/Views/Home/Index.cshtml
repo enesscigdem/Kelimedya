@@ -4,6 +4,33 @@
 @{
     Layout = "_Layout";
 }
+
+<style>
+@@media (max-width: 991.98px) {
+  main img { display: none !important; }
+
+  .td_shape,
+  .td_hero_shape_1,
+  .td_hero_shape_2,
+  .td_hero_shape_3,
+  .td_hero_shape_4,
+  .td_hero_shape_5 { display: none !important; }
+
+  .td_hero_img_wrap { display: none !important; }
+
+  #about .td_image_box,
+  #faq .td_image_box.td_style_10 { display: none !important; }
+
+  .td_video_block.td_bg_filed { background-image: none !important; min-height: 0px; }
+  
+  .td_accordions.td_style_1.td_color_1.td_type_1{
+    margin-top: 50px;
+  }
+  .td_height_100.td_height_lg_50 { height: 0px;}
+  .td_height_120.td_height_lg_80 { height: 0px; }
+}
+</style>
+
 <main>
     <section class="td_hero td_style_5 td_center td_hobble">
         <div class="container">
@@ -457,155 +484,10 @@
         </div>
     </section>
 
-    <section id="pricing">
-        <div class="td_height_120 td_height_lg_80"></div>
-        <div class="container">
-            <div class="td_section_heading td_style_1 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-                <p class="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing_Subtitle"))
-                </p>
-                <h2 class="td_section_title td_fs_48 mb-0">
-                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing_Title"))
-                </h2>
-            </div>
-            <div class="td_height_50 td_height_lg_50"></div>
-            <div class="row td_gap_y_30 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.35s">
-                <div class="col-lg-4">
-                    <div class="td_pricing td_style_1 td_type_1 td_radius_10">
-                        <h2 class="td_pricing_package_name td_fs_24">
-                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_PackageName"))
-                        </h2>
-                        <p class="td_heading_color td_opacity_8 td_mb_20">
-                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Description"))
-                        </p>
-                        <div class="td_pricing_in">
-                            <h2 class="td_fs_64 td_mb_20 td_accent_color">
-                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Price"))
-                            </h2>
-                            <h3 class="td_pricing_title td_fs_32 td_mb_20">
-                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Included_Title"))
-                            </h3>
-                            <ul class="td_pricing_feature td_mp_0 td_medium td_heading_color">
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature1"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature2"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature3"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Feature4"))
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <a href="contact.html" class="td_btn td_style_1 td_radius_10 td_medium w-100">
-                                    <span class="td_btn_in td_white_color td_accent_bg">
-                                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing1_Button"))</span>
-                                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="td_pricing td_style_1 td_type_1 td_radius_10">
-                        <h2 class="td_pricing_package_name td_fs_24">
-                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_PackageName"))
-                        </h2>
-                        <p class="td_heading_color td_opacity_8 td_mb_20">
-                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Description"))
-                        </p>
-                        <div class="td_pricing_in">
-                            <h2 class="td_fs_64 td_mb_20 td_accent_color">
-                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Price"))
-                            </h2>
-                            <h3 class="td_pricing_title td_fs_32 td_mb_20">
-                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Included_Title"))
-                            </h3>
-                            <ul class="td_pricing_feature td_mp_0 td_medium td_heading_color">
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature1"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature2"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature3"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Feature4"))
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <a href="contact.html" class="td_btn td_style_1 td_radius_10 td_medium w-100">
-                                    <span class="td_btn_in td_white_color td_accent_bg">
-                                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing2_Button"))</span>
-                                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="td_pricing td_style_1 td_type_1 td_radius_10">
-                        <h2 class="td_pricing_package_name td_fs_24">
-                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_PackageName"))
-                        </h2>
-                        <p class="td_heading_color td_opacity_8 td_mb_20">
-                            @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Description"))
-                        </p>
-                        <div class="td_pricing_in">
-                            <h2 class="td_fs_64 td_mb_20 td_accent_color">
-                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Price"))
-                            </h2>
-                            <h3 class="td_pricing_title td_fs_32 td_mb_20">
-                                @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Included_Title"))
-                            </h3>
-                            <ul class="td_pricing_feature td_mp_0 td_medium td_heading_color">
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature1"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature2"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature3"))
-                                </li>
-                                <li>
-                                    @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Feature4"))
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <a href="contact.html" class="td_btn td_style_1 td_radius_10 td_medium w-100">
-                                    <span class="td_btn_in td_white_color td_accent_bg">
-                                        <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Pricing3_Button"))</span>
-                                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="td_height_120 td_height_lg_80"></div>
-    </section>
+    @* Pricing bölümü kapalı *@
 
     <section id="contact">
-        <div class="td_video_block td_style_2 td_center td_bg_filed" data-src="/theme/web_UI/assets/img/home_5/video_block.jpg">
+        <div class="td_video_block td_style_2 td_center td_bg_filed" data-src="/theme/web_UI/assets/img/home_5/home_contact.jpg">
         </div>
         <div class="td_contact td_style_1">
             <div class="container">

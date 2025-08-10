@@ -3,7 +3,7 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Kelimedya.WebApp.4vnypyo54t.styles.css",
+      "Route": "Kelimedya.WebApp.6xngs22vk5.styles.css",
       "AssetFile": "Kelimedya.WebApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6550"
+          "Value": "7634"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UO6L9hjV1flpnE5FBXUvqoorMgocEVqLKlA/rSw75ms=\""
+          "Value": "\"GqFeBtGRRcsXD+Pldw5iChV+eIeTLLCy9B3qsyz5BX0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 17:10:58 GMT"
+          "Value": "Sun, 10 Aug 2025 15:35:16 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4vnypyo54t"
+          "Value": "6xngs22vk5"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-UO6L9hjV1flpnE5FBXUvqoorMgocEVqLKlA/rSw75ms="
+          "Value": "sha256-GqFeBtGRRcsXD+Pldw5iChV+eIeTLLCy9B3qsyz5BX0="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6550"
+          "Value": "7634"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UO6L9hjV1flpnE5FBXUvqoorMgocEVqLKlA/rSw75ms=\""
+          "Value": "\"GqFeBtGRRcsXD+Pldw5iChV+eIeTLLCy9B3qsyz5BX0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 17:10:58 GMT"
+          "Value": "Sun, 10 Aug 2025 15:35:16 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UO6L9hjV1flpnE5FBXUvqoorMgocEVqLKlA/rSw75ms="
+          "Value": "sha256-GqFeBtGRRcsXD+Pldw5iChV+eIeTLLCy9B3qsyz5BX0="
         }
       ]
     },
@@ -130323,17 +130323,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"e7Ta2MUPeIV/DPdfw+m70oA8/hMrNszm8qlVGn7WEgc=\""
+          "Value": "\"vZpw6dw1u7R3hYaje0M9r3yHVCuV+HRhu9ttTlyc0ss=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 17:11:01 GMT"
+          "Value": "Sun, 10 Aug 2025 15:14:27 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-e7Ta2MUPeIV/DPdfw+m70oA8/hMrNszm8qlVGn7WEgc="
+          "Value": "sha256-vZpw6dw1u7R3hYaje0M9r3yHVCuV+HRhu9ttTlyc0ss="
         }
       ]
     },
@@ -130420,7 +130420,7 @@
       ]
     },
     {
-      "Route": "theme/web_UI/assets/css/style.f7zlvkwrxy.css",
+      "Route": "theme/web_UI/assets/css/style.p53zo6roob.css",
       "AssetFile": "theme/web_UI/assets/css/style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -130442,21 +130442,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"e7Ta2MUPeIV/DPdfw+m70oA8/hMrNszm8qlVGn7WEgc=\""
+          "Value": "\"vZpw6dw1u7R3hYaje0M9r3yHVCuV+HRhu9ttTlyc0ss=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 17:11:01 GMT"
+          "Value": "Sun, 10 Aug 2025 15:14:27 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f7zlvkwrxy"
+          "Value": "p53zo6roob"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-e7Ta2MUPeIV/DPdfw+m70oA8/hMrNszm8qlVGn7WEgc="
+          "Value": "sha256-vZpw6dw1u7R3hYaje0M9r3yHVCuV+HRhu9ttTlyc0ss="
         },
         {
           "Name": "label",
@@ -139071,6 +139071,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-q4wP9nzHd73x0A99c9Kd5jLs+RjWO+WLvl0llb691n0="
+        }
+      ]
+    },
+    {
+      "Route": "theme/web_UI/assets/img/home_5/home_contact.jpg",
+      "AssetFile": "theme/web_UI/assets/img/home_5/home_contact.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "48020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"biisglvPp5UrZsbVV6/om2x68i/9liDXq1dlVr1/wuk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:15:05 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-biisglvPp5UrZsbVV6/om2x68i/9liDXq1dlVr1/wuk="
+        }
+      ]
+    },
+    {
+      "Route": "theme/web_UI/assets/img/home_5/home_contact.q1fpk7sxz8.jpg",
+      "AssetFile": "theme/web_UI/assets/img/home_5/home_contact.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "48020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"biisglvPp5UrZsbVV6/om2x68i/9liDXq1dlVr1/wuk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:15:05 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q1fpk7sxz8"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-biisglvPp5UrZsbVV6/om2x68i/9liDXq1dlVr1/wuk="
+        },
+        {
+          "Name": "label",
+          "Value": "theme/web_UI/assets/img/home_5/home_contact.jpg"
         }
       ]
     },

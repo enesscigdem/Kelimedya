@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/obj/Debug/net8.0/scopedcss/projectbundle/Kelimedya.WebApp.bundle.scp.css",
-      "PackagePath": "staticwebassets/Kelimedya.WebApp.4vnypyo54t.bundle.scp.css"
+      "PackagePath": "staticwebassets/Kelimedya.WebApp.6xngs22vk5.bundle.scp.css"
     },
     {
       "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/audio/correct.mp3",
@@ -6783,6 +6783,10 @@
     {
       "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/hero_shape_5.svg",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_shape_5.svg"
+    },
+    {
+      "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/home_contact.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/home_contact.jpg"
     },
     {
       "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/kelimedya-logo.png",

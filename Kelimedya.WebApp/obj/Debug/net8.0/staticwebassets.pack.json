@@ -6785,6 +6785,10 @@
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/hero_shape_5.svg"
     },
     {
+      "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/home_contact.jpg",
+      "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/home_contact.jpg"
+    },
+    {
       "Id": "/Users/enescigdem/Kelimedya/Kelimedya.WebApp/wwwroot/theme/web_UI/assets/img/home_5/kelimedya-logo.png",
       "PackagePath": "staticwebassets/theme/web_UI/assets/img/home_5/kelimedya-logo.png"
     },

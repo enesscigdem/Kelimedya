@@ -2,9 +2,9 @@
 {
     public enum OrderStatus
     {
-        Pending = 0,
-        Paid = 1, 
-        Completed = 2,
-        Cancelled = 3 
+        Beklemede = 0,
+        Ödendi = 1, 
+        Tamamlandı = 2,
+        İptalEdildi = 3 
     }
 }

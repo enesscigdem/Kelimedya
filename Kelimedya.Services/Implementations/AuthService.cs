@@ -112,7 +112,7 @@ namespace Kelimedya.Services.Implementations
             if (role == RoleNames.Student)
             {
                 var latestOrder = await _context.Orders
-                    .Where(o => o.UserId == user.Id.ToString() && !o.IsDeleted && o.Status == OrderStatus.Completed)
+                    .Where(o => o.UserId == user.Id.ToString() && !o.IsDeleted && o.Status == OrderStatus.Tamamlandı)
                     .OrderByDescending(o => o.OrderDate)
                     .FirstOrDefaultAsync();
 

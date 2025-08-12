@@ -5,9 +5,9 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Kelimedya.Core.Enum;
-using Kelimedya.Core.Models;
+using Kelimedya.Core.Models; // UserDto, ProductViewModel burada
 using Microsoft.AspNetCore.Authorization;
-using Kelimedya.Core.Entities;
+using Kelimedya.Core.Entities; // Order, OrderItem
 using System;
 using System.Linq;
 
@@ -19,9 +19,23 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
     public class OrdersController : Controller
     {
         private readonly HttpClient _httpClient;
+
         public OrdersController(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient("DefaultApi");
+        }
+        private static string GenerateShortOrderNumber()
+            => Guid.NewGuid().ToString("N")[..8].ToUpper(); // örn: 7D3A9C10
+
+        private async Task PopulateSelectionsAsync()
+        {
+            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users") ?? new List<UserDto>();
+            ViewBag.Users = users
+                .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
+                .ToList();
+
+            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products") ?? new List<ProductViewModel>();
+            ViewBag.Products = products;
         }
 
         // GET: /Admin/Orders
@@ -34,22 +48,15 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         // GET: /Admin/Orders/Create
         public async Task<IActionResult> Create()
         {
-            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
-                        ?? new List<UserDto>();
-            ViewBag.Users = users
-                .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
-                .ToList();
-
-            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
-                           ?? new List<ProductViewModel>();
-            ViewBag.Products = products;
-
+            await PopulateSelectionsAsync();
             var model = new OrderViewModel
             {
-                OrderDate = DateTime.Now.Date
+                OrderDate = DateTime.Now.Date,
+                OrderNumber = GenerateShortOrderNumber()
             };
             return View(model);
         }
+
 
         // POST: /Admin/Orders/Create
         [HttpPost]
@@ -58,18 +65,13 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
-                            ?? new List<UserDto>();
-                ViewBag.Users = users
-                    .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
-                    .ToList();
-
-                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
-                               ?? new List<ProductViewModel>();
-                ViewBag.Products = products;
-
+                await PopulateSelectionsAsync();
                 return View(model);
             }
+
+            // Server-side güvence: boş gelirse yeniden üret
+            if (string.IsNullOrWhiteSpace(model.OrderNumber))
+                model.OrderNumber = GenerateShortOrderNumber();
 
             var order = new Order
             {
@@ -93,7 +95,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     {
                         ProductId = model.ProductId,
                         Quantity = 1,
-                        UnitPrice = model.TotalAmount,
+                        // Ürün birim fiyatı: SubTotal varsa onu, yoksa TotalAmount
+                        UnitPrice = model.SubTotal > 0 ? model.SubTotal : model.TotalAmount,
                         CreatedAt = DateTime.UtcNow,
                         ModifiedAt = DateTime.UtcNow
                     }
@@ -106,32 +109,46 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 TempData["Success"] = "Sipariş başarıyla oluşturuldu.";
                 return RedirectToAction("Index");
             }
-            else
-            {
-                ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-                return View(model);
-            }
+
+            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+            await PopulateSelectionsAsync();
+            return View(model);
         }
 
         // GET: /Admin/Orders/Edit/{id}
+        // GET: /Admin/Orders/Edit/{id}
         public async Task<IActionResult> Edit(int id)
         {
-            var order = await _httpClient.GetFromJsonAsync<OrderViewModel>($"api/orders/{id}");
-            if (order == null)
+            // API'den doğrudan Order (entity) çekelim ki Items'a erişelim
+            var orderEntity = await _httpClient.GetFromJsonAsync<Order>($"api/orders/{id}");
+            if (orderEntity == null)
                 return NotFound();
 
-            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
-                        ?? new List<UserDto>();
-            ViewBag.Users = users
-                .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
-                .ToList();
+            // İlk (ve tek) kalemden ProductId'yi al
+            var firstItem = orderEntity.Items?.FirstOrDefault();
 
-            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
-                           ?? new List<ProductViewModel>();
-            ViewBag.Products = products;
+            var vm = new OrderViewModel
+            {
+                Id = orderEntity.Id,
+                OrderNumber = orderEntity.OrderNumber,
+                OrderDate = orderEntity.OrderDate,
+                CustomerName = orderEntity.CustomerName,
+                CustomerEmail = orderEntity.CustomerEmail,
+                CouponCode = orderEntity.CouponCode,
+                DiscountAmount = orderEntity.DiscountAmount,
+                SubTotal = orderEntity.SubTotal,
+                TotalAmount = orderEntity.TotalAmount,
+                IsActive = orderEntity.IsActive,
+                IsDeleted = orderEntity.IsDeleted,
+                UserId = orderEntity.UserId,
+                Status = orderEntity.Status,
+                ProductId = firstItem?.ProductId ?? 0   // <<< kritik satır
+            };
 
-            return View(order);
+            await PopulateSelectionsAsync();
+            return View(vm);
         }
+
 
         // POST: /Admin/Orders/Edit/{id}
         [HttpPost]
@@ -140,25 +157,17 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             if (id != model.Id)
                 return BadRequest();
+
             if (!ModelState.IsValid)
             {
-                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
-                            ?? new List<UserDto>();
-                ViewBag.Users = users
-                    .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
-                    .ToList();
-
-                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
-                               ?? new List<ProductViewModel>();
-                ViewBag.Products = products;
-
+                await PopulateSelectionsAsync();
                 return View(model);
             }
 
             var order = new Order
             {
                 Id = model.Id,
-                OrderNumber = model.OrderNumber,
+                OrderNumber = model.OrderNumber, // readonly ama server'a da gidiyor
                 CustomerName = model.CustomerName,
                 CustomerEmail = model.CustomerEmail,
                 OrderDate = model.OrderDate,
@@ -170,7 +179,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 IsDeleted = model.IsDeleted,
                 UserId = model.UserId,
                 Status = model.Status,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.UtcNow,   // (İsteğe bağlı: API tarafı set edebilir)
                 ModifiedAt = DateTime.UtcNow,
                 Items = new List<OrderItem>
                 {
@@ -178,7 +187,7 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                     {
                         ProductId = model.ProductId,
                         Quantity = 1,
-                        UnitPrice = model.TotalAmount,
+                        UnitPrice = model.SubTotal > 0 ? model.SubTotal : model.TotalAmount,
                         CreatedAt = DateTime.UtcNow,
                         ModifiedAt = DateTime.UtcNow
                     }
@@ -191,11 +200,10 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 TempData["Success"] = "Sipariş başarıyla güncellendi.";
                 return RedirectToAction("Index");
             }
-            else
-            {
-                ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-                return View(model);
-            }
+
+            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+            await PopulateSelectionsAsync();
+            return View(model);
         }
 
         // DELETE: /Admin/Orders/Delete/{id}
@@ -211,7 +219,6 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 TempData["Error"] = await response.Content.ReadAsStringAsync();
             }
             return RedirectToAction("Index");
-
         }
     }
 }

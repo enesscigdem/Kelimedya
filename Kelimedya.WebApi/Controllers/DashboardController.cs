@@ -29,12 +29,12 @@ namespace Kelimedya.WebAPI.Controllers
 
             int totalOrders = await _context.Orders.CountAsync(o => o.IsActive && !o.IsDeleted);
             decimal totalRevenue = await _context.Orders
-                .Where(o => o.IsActive && !o.IsDeleted && o.Status == OrderStatus.Completed)
+                .Where(o => o.IsActive && !o.IsDeleted && o.Status == OrderStatus.Tamamlandı)
                 .SumAsync(o => o.TotalAmount);
             int educationSales = await _context.Orders
-                .CountAsync(o => o.IsActive && !o.IsDeleted && o.Status == OrderStatus.Completed);
+                .CountAsync(o => o.IsActive && !o.IsDeleted && o.Status == OrderStatus.Tamamlandı);
             int pendingPayments = await _context.Orders
-                .CountAsync(o => o.IsActive && !o.IsDeleted && o.Status == OrderStatus.Pending);
+                .CountAsync(o => o.IsActive && !o.IsDeleted && o.Status == OrderStatus.Beklemede);
 
             int incomingMessages = await _context.Messages
                 .CountAsync(m => m.IsActive && !m.IsDeleted && !m.IsRead);

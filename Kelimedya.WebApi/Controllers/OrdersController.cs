@@ -50,6 +50,8 @@ namespace Kelimedya.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder(Order order)
         {
+            order.Items ??= new List<OrderItem>();
+            
             foreach (var item in order.Items)
             {
                 item.CreatedAt = DateTime.UtcNow;
@@ -139,7 +141,7 @@ namespace Kelimedya.WebAPI.Controllers
                 TotalAmount = cart.Items.Sum(i => i.Quantity * i.Product.Price) - cart.CouponDiscount,
                 CouponCode = cart.Coupon?.Code,
                 UserId = userId,
-                Status = OrderStatus.Completed
+                Status = OrderStatus.Tamamlandı
             };
 
             foreach (var item in cart.Items.Where(i => !i.IsDeleted))

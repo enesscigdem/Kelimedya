@@ -94,7 +94,7 @@ export async function awardScore(studentId, gameId, success, durationSeconds) {
         }
     } else {
         showIziToastError("Yanlış cevap!");
-        
+
         const incorrectAudio = document.getElementById("incorrectAudio");
         if (incorrectAudio) {
             incorrectAudio.currentTime = 0;

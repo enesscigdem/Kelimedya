@@ -1,3 +1,5 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 @{
     Layout = null;
 }
@@ -60,6 +62,9 @@
 <audio id="incorrectAudio" src="@Url.Content("~/audio/wrong.mp3")" preload="auto"></audio>
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+<script>
+  window.API_BASE_URL = '@Configuration["AppSettings:ApiUrl"]';
+</script>
 <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Search functionality

@@ -104,7 +104,7 @@ else
 
                                         <!-- Kelime örneği -->
                                         <h2 class="text-4xl font-bold …">
-                                            <span class="inline-flex items-center gap-1 group cursor-pointer speakable">
+                                            <span class="inline-flex items-center gap-1 group cursor-pointer">
                                                 <span class="text-gray-900 group-hover:text-orange-600 transition-colors">
                                                     @card.Word
                                                 </span>
@@ -130,7 +130,7 @@ else
                                                         <h4 class="text-base font-bold text-gray-700">Eş Anlamı</h4>
                                                     </div>
                                                     <p class="text-xl font-semibold ml-11">
-                                                        <span class="inline-flex items-center gap-1 group cursor-pointer speakable">
+                                                        <span class="inline-flex items-center gap-1 group cursor-pointer">
                                                             <span class="group-hover:text-blue-600 transition-colors">
                                                                 @card.Synonym
                                                             </span>
@@ -150,8 +150,8 @@ else
                                                         </div>
                                                         <h4 class="text-base font-bold text-gray-700">Anlamı</h4>
                                                     </div>
-                                                        <span class="inline-flex items-center gap-1 group cursor-pointer speakable">
-                                                                <span class="text-xl font-semibold ml-11 speakable">
+                                                        <span class="inline-flex items-center gap-1 group cursor-pointer">
+                                                                <span class="text-xl font-semibold ml-11">
                                                                     @Html.Raw(card.Definition)
                                                                 </span>
                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +173,7 @@ else
                                                 <div>
                                                     <h4 class="text-base font-bold text-orange-700 mb-3">Örnek Cümle</h4>
                                                     <p class="text-lg text-gray-800 italic leading-relaxed">
-                                                        <span class="inline-flex items-center gap-1 group cursor-pointer speakable">
+                                                        <span class="inline-flex items-center gap-1 group cursor-pointer">
                                                             <span class="group-hover:text-orange-700 transition-colors">
                                                                 @(string.IsNullOrEmpty(card.ExampleSentence)
                                                                     ? card.Definition
@@ -422,17 +422,6 @@ else
         const lessonId = @Model.Lesson.Id;
         let cardEls = [];
         let currentIndex = 0;
-        
-        document.querySelectorAll('.speakable').forEach(el => {
-            el.addEventListener('click', () => {
-              const text = el.textContent.trim();
-              if (!window.speechSynthesis) return;
-              window.speechSynthesis.cancel();
-              const u = new SpeechSynthesisUtterance(text);
-              u.lang = 'tr-TR';
-              window.speechSynthesis.speak(u);
-            });
-          });
         
         function hideGameLoading() {
             console.log('🎮 Game loaded successfully!');
@@ -955,31 +944,6 @@ else
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-2px) scale(1.05);
 }
-
-/* style bloğunuzun en altına ekleyin */
-.speakable {
-  position: relative;
-  cursor: pointer;
-  /* Altı çizgi yerine hover’da ikon görünür olsun */
-  text-decoration: none;
-}
-
-.speakable .icon-sound {
-  position: absolute;
-  right: -1.5rem;   /* metinden hafif uzağa */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.speakable:hover .icon-sound {
-  opacity: 1;
-}
-
 
 @@media (max-width: 768px) {
     #gameModal {

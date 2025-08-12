@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Kelimedya.Core.Enum
+@using System.Text.Json
 @model Kelimedya.WebApp.Areas.Admin.Models.OrderViewModel
 
 @{
@@ -105,3 +106,26 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        const users = @Html.Raw(JsonSerializer.Serialize(ViewBag.Users));
+        const products = @Html.Raw(JsonSerializer.Serialize(ViewBag.Products));
+
+        document.getElementById('UserId').addEventListener('change', function () {
+            const user = users.find(u => u.id === this.value);
+            document.getElementById('CustomerName').value = user ? (user.fullName || user.userName) : '';
+            document.getElementById('CustomerEmail').value = user ? user.email : '';
+        });
+
+        document.getElementById('ProductId').addEventListener('change', function () {
+            const product = products.find(p => p.id === parseInt(this.value));
+            const price = product ? product.price : '';
+            document.getElementById('TotalAmount').value = price;
+            document.getElementById('SubTotal').value = price;
+        });
+
+        document.getElementById('UserId').dispatchEvent(new Event('change'));
+        document.getElementById('ProductId').dispatchEvent(new Event('change'));
+    </script>
+}

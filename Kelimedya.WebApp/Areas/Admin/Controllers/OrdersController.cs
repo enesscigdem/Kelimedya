@@ -9,6 +9,7 @@ using Kelimedya.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Kelimedya.Core.Entities;
 using System;
+using System.Linq;
 
 namespace Kelimedya.WebApp.Areas.Admin.Controllers
 {
@@ -33,11 +34,21 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         // GET: /Admin/Orders/Create
         public async Task<IActionResult> Create()
         {
-            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
-            ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
-            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
+                        ?? new List<UserDto>();
+            ViewBag.Users = users
+                .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
+                .ToList();
+
+            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
+                           ?? new List<ProductViewModel>();
             ViewBag.Products = products;
-            return View();
+
+            var model = new OrderViewModel
+            {
+                OrderDate = DateTime.Now.Date
+            };
+            return View(model);
         }
 
         // POST: /Admin/Orders/Create
@@ -47,10 +58,16 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
-                ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
-                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
+                            ?? new List<UserDto>();
+                ViewBag.Users = users
+                    .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
+                    .ToList();
+
+                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
+                               ?? new List<ProductViewModel>();
                 ViewBag.Products = products;
+
                 return View(model);
             }
 
@@ -102,10 +119,17 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
             var order = await _httpClient.GetFromJsonAsync<OrderViewModel>($"api/orders/{id}");
             if (order == null)
                 return NotFound();
-            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
-            ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
-            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+
+            var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
+                        ?? new List<UserDto>();
+            ViewBag.Users = users
+                .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
+                .ToList();
+
+            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
+                           ?? new List<ProductViewModel>();
             ViewBag.Products = products;
+
             return View(order);
         }
 
@@ -118,10 +142,16 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 return BadRequest();
             if (!ModelState.IsValid)
             {
-                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
-                ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
-                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users")
+                            ?? new List<UserDto>();
+                ViewBag.Users = users
+                    .Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student)
+                    .ToList();
+
+                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products")
+                               ?? new List<ProductViewModel>();
                 ViewBag.Products = products;
+
                 return View(model);
             }
 

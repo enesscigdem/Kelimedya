@@ -462,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>udc8h3i7px</Fingerprint>
-      <Integrity>sm1JyoCaVQYxjFc7DrZs8IfilzhZVOTxKuDzwwDSIDU=</Integrity>
+      <Fingerprint>ri9qe0q3q6</Fingerprint>
+      <Integrity>s+BN9NsIPcIkc8/ZAQ5GZ4radMPLoqvGwMg70rzRg9U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\AdamAsmaca.js'))</OriginalItemSpec>
@@ -498,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zizn0r07oa</Fingerprint>
-      <Integrity>ZeALQO2lfNvz9Idc75ihP2nFUQatW9CcLI1h49lnEng=</Integrity>
+      <Fingerprint>rhl7c1sfzl</Fingerprint>
+      <Integrity>ced5S6w9JpiRnXCrlvp0qkx0X6ZF4EZx/ShO/y9CVRY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\common.js'))</OriginalItemSpec>
@@ -570,8 +570,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6dzilv8hx3</Fingerprint>
-      <Integrity>ilRZBrOZPgQOagCWnNErAhqyAMMLg0R7Ty9OrR8S2vc=</Integrity>
+      <Fingerprint>sx477gp7dx</Fingerprint>
+      <Integrity>QPRvceLixYTiQXWAKVRHqs3PKGDizCA3sVqEY2BkwQI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\games\SentenceBuilder.js'))</OriginalItemSpec>
@@ -30378,8 +30378,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jnszh8kal3</Fingerprint>
-      <Integrity>zww/QIatyOR+l9poJ4NVwg2p2eLdpHLXWto24vJVv6w=</Integrity>
+      <Fingerprint>zc7f8eyorj</Fingerprint>
+      <Integrity>A/MZHMC7TDgXT76MVzat6H9jlz05yquhU7dlnebLEt0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\theme\web_UI\assets\img\home_5\hero_img_1.jpg'))</OriginalItemSpec>

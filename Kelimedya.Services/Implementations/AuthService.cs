@@ -6,6 +6,7 @@ using Kelimedya.Core.Enum;
 using Kelimedya.Core.IdentityEntities;
 using Kelimedya.Core.Models;
 using Kelimedya.Services.Interfaces;
+using Kelimedya.Persistence;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -20,12 +21,15 @@ namespace Kelimedya.Services.Implementations
     {
         private readonly UserManager<CustomUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly KelimedyaDbContext _context;
 
         public AuthService(UserManager<CustomUser> userManager,
-                           IConfiguration configuration)
+                           IConfiguration configuration,
+                           KelimedyaDbContext context)
         {
             _userManager = userManager;
             _configuration = configuration;
+            _context = context;
         }
 
         /// <summary>
@@ -92,20 +96,34 @@ namespace Kelimedya.Services.Implementations
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public async Task<string> LoginAsync(LoginDto dto)
+        public async Task<LoginResultViewModel> LoginAsync(LoginDto dto)
         {
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null)
-                return null;
+                return new LoginResultViewModel { Success = false, Message = "Geçersiz e-posta veya şifre." };
 
             var passwordCheck = await _userManager.CheckPasswordAsync(user, dto.Password);
             if (!passwordCheck)
-                return null;
+                return new LoginResultViewModel { Success = false, Message = "Geçersiz e-posta veya şifre." };
 
             var roles = await _userManager.GetRolesAsync(user);
             var role = roles?.FirstOrDefault() ?? RoleNames.User;
 
-            return GenerateJwtToken(user, role);
+            if (role == RoleNames.Student)
+            {
+                var latestOrder = await _context.Orders
+                    .Where(o => o.UserId == user.Id.ToString() && !o.IsDeleted && o.Status == OrderStatus.Completed)
+                    .OrderByDescending(o => o.OrderDate)
+                    .FirstOrDefaultAsync();
+
+                if (latestOrder == null || latestOrder.OrderDate.AddMonths(6) < DateTime.UtcNow)
+                {
+                    return new LoginResultViewModel { Success = false, Message = "Erişim süreniz dolmuştur." };
+                }
+            }
+
+            var token = GenerateJwtToken(user, role);
+            return new LoginResultViewModel { Success = true, Token = token, Role = role };
         }
 
         public async Task<List<CustomUser>> GetAllUsersAsync()

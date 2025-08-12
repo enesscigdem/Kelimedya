@@ -8,7 +8,7 @@ namespace Kelimedya.Services.Interfaces
     public interface IAuthService
     {
         Task<AuthResultViewModel> RegisterAsync(RegisterDto dto);
-        Task<string> LoginAsync(LoginDto dto);
+        Task<LoginResultViewModel> LoginAsync(LoginDto dto);
         Task<string?> GenerateTokenForUserAsync(string userId);
         Task<List<CustomUser>> GetAllUsersAsync();
         Task<bool> ChangePasswordAsync(string userId, string currentPassword, string newPassword);

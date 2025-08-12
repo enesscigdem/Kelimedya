@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Kelimedya.Core.Enum;
 using Kelimedya.Core.Models;
 using Microsoft.AspNetCore.Authorization;
+using Kelimedya.Core.Entities;
+using System;
 
 namespace Kelimedya.WebApp.Areas.Admin.Controllers
 {
@@ -33,6 +35,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
             ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
+            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+            ViewBag.Products = products;
             return View();
         }
 
@@ -43,9 +47,43 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
+                ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
+                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+                ViewBag.Products = products;
                 return View(model);
             }
-            var response = await _httpClient.PostAsJsonAsync("api/orders", model);
+
+            var order = new Order
+            {
+                OrderNumber = model.OrderNumber,
+                CustomerName = model.CustomerName,
+                CustomerEmail = model.CustomerEmail,
+                OrderDate = model.OrderDate,
+                CouponCode = model.CouponCode,
+                DiscountAmount = model.DiscountAmount,
+                SubTotal = model.SubTotal,
+                TotalAmount = model.TotalAmount,
+                IsActive = model.IsActive,
+                IsDeleted = model.IsDeleted,
+                UserId = model.UserId,
+                Status = model.Status,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow,
+                Items = new List<OrderItem>
+                {
+                    new OrderItem
+                    {
+                        ProductId = model.ProductId,
+                        Quantity = 1,
+                        UnitPrice = model.TotalAmount,
+                        CreatedAt = DateTime.UtcNow,
+                        ModifiedAt = DateTime.UtcNow
+                    }
+                }
+            };
+
+            var response = await _httpClient.PostAsJsonAsync("api/orders", order);
             if (response.IsSuccessStatusCode)
             {
                 TempData["Success"] = "Sipariş başarıyla oluşturuldu.";
@@ -66,6 +104,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
                 return NotFound();
             var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
             ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
+            var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+            ViewBag.Products = products;
             return View(order);
         }
 
@@ -77,9 +117,45 @@ namespace Kelimedya.WebApp.Areas.Admin.Controllers
             if (id != model.Id)
                 return BadRequest();
             if (!ModelState.IsValid)
+            {
+                var users = await _httpClient.GetFromJsonAsync<List<UserDto>>("api/users");
+                ViewBag.Users = users?.Where(u => u.Role == RoleNames.User || u.Role == RoleNames.Student).ToList();
+                var products = await _httpClient.GetFromJsonAsync<List<ProductViewModel>>("api/products");
+                ViewBag.Products = products;
                 return View(model);
+            }
 
-            var response = await _httpClient.PutAsJsonAsync($"api/orders/{id}", model);
+            var order = new Order
+            {
+                Id = model.Id,
+                OrderNumber = model.OrderNumber,
+                CustomerName = model.CustomerName,
+                CustomerEmail = model.CustomerEmail,
+                OrderDate = model.OrderDate,
+                CouponCode = model.CouponCode,
+                DiscountAmount = model.DiscountAmount,
+                SubTotal = model.SubTotal,
+                TotalAmount = model.TotalAmount,
+                IsActive = model.IsActive,
+                IsDeleted = model.IsDeleted,
+                UserId = model.UserId,
+                Status = model.Status,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow,
+                Items = new List<OrderItem>
+                {
+                    new OrderItem
+                    {
+                        ProductId = model.ProductId,
+                        Quantity = 1,
+                        UnitPrice = model.TotalAmount,
+                        CreatedAt = DateTime.UtcNow,
+                        ModifiedAt = DateTime.UtcNow
+                    }
+                }
+            };
+
+            var response = await _httpClient.PutAsJsonAsync($"api/orders/{id}", order);
             if (response.IsSuccessStatusCode)
             {
                 TempData["Success"] = "Sipariş başarıyla güncellendi.";

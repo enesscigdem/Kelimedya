@@ -34,7 +34,8 @@ namespace Kelimedya.WebApp.Controllers
 
             if (!response.IsSuccessStatusCode)
             {
-                return Unauthorized(new { success = false, message = "Geçersiz giriş bilgileri." });
+                var error = await response.Content.ReadFromJsonAsync<ApiErrorResponse>();
+                return Unauthorized(new { success = false, message = error?.Message ?? "Geçersiz giriş bilgileri." });
             }
 
             var tokenResponse = await response.Content.ReadFromJsonAsync<TokenResponseViewModel>();
@@ -108,5 +109,10 @@ namespace Kelimedya.WebApp.Controllers
             var users = await response.Content.ReadFromJsonAsync<List<UserViewModel>>();
             return Ok(new { success = true, users });
         }
+    }
+
+    public class ApiErrorResponse
+    {
+        public string? Message { get; set; }
     }
 }

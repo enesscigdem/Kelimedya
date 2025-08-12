@@ -41,20 +41,15 @@ namespace Kelimedya.WebAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var token = await _authService.LoginAsync(dto);
+            var result = await _authService.LoginAsync(dto);
 
-            if (string.IsNullOrEmpty(token))
-                return Unauthorized(new { Message = "Geçersiz e-posta veya şifre." });
-
-            var handler = new JwtSecurityTokenHandler();
-            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
-            var role = jwtToken?.Claims
-                .FirstOrDefault(claim => claim.Type == "role")?.Value;
+            if (!result.Success || string.IsNullOrEmpty(result.Token))
+                return Unauthorized(new { Message = result.Message ?? "Geçersiz e-posta veya şifre." });
 
             return Ok(new
             {
-                Token = token,
-                Role = role
+                Token = result.Token,
+                Role = result.Role
             });
         }
         [HttpGet("users")]

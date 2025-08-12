@@ -35,5 +35,8 @@ namespace Kelimedya.WebApp.Areas.Admin.Models
         public OrderStatus Status { get; set; }
 
         public string? UserId { get; set; }
+
+        [Required(ErrorMessage = "Ürün seçilmelidir.")]
+        public int ProductId { get; set; }
     }
 }

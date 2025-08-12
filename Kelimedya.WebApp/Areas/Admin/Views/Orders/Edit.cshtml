@@ -55,6 +55,13 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Ürün</label>
+                        <select class="form-select" asp-for="ProductId" asp-items="@(new SelectList(ViewBag.Products, "Id", "Name"))">
+                            <option value="">Seçiniz</option>
+                        </select>
+                        <span asp-validation-for="ProductId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Kupon Kodu</label>
                         <input class="form-control" asp-for="CouponCode" />
                     </div>

@@ -50,7 +50,64 @@ namespace Kelimedya.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder(Order order)
         {
+            foreach (var item in order.Items)
+            {
+                item.CreatedAt = DateTime.UtcNow;
+                item.ModifiedAt = DateTime.UtcNow;
+                var product = await _context.Products
+                    .Include(p => p.ProductCourses)
+                    .FirstOrDefaultAsync(p => p.Id == item.ProductId);
+
+                if (product != null && !string.IsNullOrEmpty(order.UserId))
+                {
+                    foreach (var pc in product.ProductCourses)
+                    {
+                        var lessons = await _context.Lessons
+                            .Where(l => l.CourseId == pc.CourseId && !l.IsDeleted)
+                            .ToListAsync();
+
+                        foreach (var lesson in lessons)
+                        {
+                            if (!await _context.StudentLessonProgresses.AnyAsync(p => p.StudentId == order.UserId && p.LessonId == lesson.Id))
+                            {
+                                _context.StudentLessonProgresses.Add(new StudentLessonProgress
+                                {
+                                    StudentId = order.UserId,
+                                    LessonId = lesson.Id,
+                                    StartDate = DateTime.UtcNow,
+                                    CreatedAt = DateTime.UtcNow,
+                                    ModifiedAt = DateTime.UtcNow,
+                                    IsActive = true
+                                });
+                            }
+                        }
+                    }
+
+                    if (item.UnitPrice == 0)
+                    {
+                        item.UnitPrice = product.Price;
+                    }
+                }
+            }
+
+            order.CreatedAt = DateTime.UtcNow;
+            order.ModifiedAt = DateTime.UtcNow;
+
             _context.Orders.Add(order);
+
+            if (!string.IsNullOrEmpty(order.UserId))
+            {
+                var user = await _userManager.FindByIdAsync(order.UserId);
+                if (user != null)
+                {
+                    if (!await _userManager.IsInRoleAsync(user, RoleNames.Student))
+                        await _userManager.AddToRoleAsync(user, RoleNames.Student);
+
+                    if (await _userManager.IsInRoleAsync(user, RoleNames.User))
+                        await _userManager.RemoveFromRoleAsync(user, RoleNames.User);
+                }
+            }
+
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
         }

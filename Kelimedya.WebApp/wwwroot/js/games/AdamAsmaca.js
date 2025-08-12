@@ -86,10 +86,12 @@ function updateDisplay() {
 
 function updateHints() {
   const card = cards[idx];
-  document.getElementById("hintSynonym").textContent = card.synonym || "Belirtilmemiş";
-  document.getElementById("hintDefinition").textContent = card.meaning || "Belirtilmemiş";
-  document.getElementById("hintSentence").textContent = card.exampleSentence || "Belirtilmemiş";
+  const q = card.gameQuestions?.find(g => g.gameId === Number(document.getElementById("gameRoot").dataset.gameId));
+
+  // questionText'i kullanıyoruz, yoksa "Belirtilmemiş" yazsın
+  document.getElementById("hintDefinition").textContent = q?.questionText || "Belirtilmemiş";
 }
+
 
 function handleGuess(ch, studentId, gameId, btn) {
   if (guessed.has(ch)) return;

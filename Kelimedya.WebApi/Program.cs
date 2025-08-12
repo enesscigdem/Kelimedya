@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -11,9 +12,22 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Kelimedya.Core.Entities;
 using Kelimedya.Core.Interfaces.Business;
+using Microsoft.AspNetCore.ResponseCompression;
 using CurrentUserService = Kelimedya.WebApi.CurrentUserService;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddResponseCompression(opts =>
+{
+    opts.EnableForHttps = true;
+    opts.Providers.Add<BrotliCompressionProvider>();
+    opts.Providers.Add<GzipCompressionProvider>();
+});
+builder.Services.Configure<BrotliCompressionProviderOptions>(o => 
+    o.Level = CompressionLevel.Fastest);
+builder.Services.Configure<GzipCompressionProviderOptions>(o => 
+    o.Level = CompressionLevel.SmallestSize);
+
 
 builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 {
@@ -111,6 +125,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddAuthorization();
 var app = builder.Build();
+app.UseResponseCompression();
 
 if (app.Environment.IsDevelopment())
 {
@@ -123,7 +138,13 @@ app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseStaticFiles();
+var cacheMaxAge = (60 * 60 * 24 * 30).ToString(); // 30 gün
+app.UseStaticFiles(new StaticFileOptions {
+    OnPrepareResponse = ctx => {
+        ctx.Context.Response.Headers.Append(
+            "Cache-Control", $"public, max-age={cacheMaxAge}");
+    }
+});
 
 app.MapControllers();
 

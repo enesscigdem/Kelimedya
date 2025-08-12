@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.IO.Compression;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +13,23 @@ using System.Text.Json.Serialization;
 using Kelimedya.Services.Implementations;
 using Kelimedya.Services.Interfaces;
 using Kelimedya.WebApp.Options;
+using Microsoft.AspNetCore.ResponseCompression;
 using CurrentUserService = Kelimedya.WebApp.CurrentUserService;
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddResponseCompression(opts =>
+{
+    opts.EnableForHttps = true;
+    opts.Providers.Add<BrotliCompressionProvider>();
+    opts.Providers.Add<GzipCompressionProvider>();
+});
+builder.Services.Configure<BrotliCompressionProviderOptions>(o => 
+    o.Level = CompressionLevel.Fastest);
+builder.Services.Configure<GzipCompressionProviderOptions>(o => 
+    o.Level = CompressionLevel.SmallestSize);
 
 builder.Services.AddHttpContextAccessor();
 
@@ -98,6 +111,7 @@ builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IWidgetService, WidgetService>();
 
 var app = builder.Build();
+app.UseResponseCompression();
 
 if (!app.Environment.IsDevelopment())
 {
@@ -106,7 +120,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+var cacheMaxAge = (60 * 60 * 24 * 30).ToString(); // 30 gün
+app.UseStaticFiles(new StaticFileOptions {
+    OnPrepareResponse = ctx => {
+        ctx.Context.Response.Headers.Append(
+            "Cache-Control", $"public, max-age={cacheMaxAge}");
+    }
+});
 
 app.UseRouting();
 

@@ -1222,4 +1222,12 @@
       <Content Remove="wwwroot\theme\web_UI\assets\img\home_5\login2.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\theme\tabler\dist\libs\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\theme\tabler\dist\libs\tinymce\tinymce.d.ts" />
+    </ItemGroup>
+
 </Project>

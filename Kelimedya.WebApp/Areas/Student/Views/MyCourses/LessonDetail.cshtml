@@ -247,7 +247,7 @@ else
     <div id="modalOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-all duration-200"></div>
 
     <div id="gameModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-200 transform scale-90">
-        <div class="bg-gradient-to-br from-white via-orange-50/30 to-yellow-50/20 backdrop-blur-xl rounded-4xl shadow-2xl border border-orange-200/50 w-full max-w-7xl h-[95vh] flex flex-col overflow-hidden relative">
+        <div class="bg-gradient-to-br from-white via-orange-50/30 to-yellow-50/20 backdrop-blur-xl rounded-4xl shadow-2xl border border-orange-200/50 w-full max-w-7xl h-[100vh] flex flex-col overflow-hidden relative">
 
             <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-orange-300/20 to-transparent rounded-full -translate-y-32 translate-x-32 blur-3xl"></div>
             <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-yellow-300/20 to-transparent rounded-full translate-y-24 -translate-x-24 blur-3xl"></div>
@@ -268,7 +268,7 @@ else
                                 <p class="text-orange-100 text-sm font-medium">🎮 Kelime ile oyna ve öğren!</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-4">
+                        @*<div class="flex items-center gap-4">
                             <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-3 border border-white/30 shadow-lg">
                                 <div class="flex items-center gap-3 text-sm font-medium">
                                     <i class="fas fa-target text-lg"></i>
@@ -279,12 +279,12 @@ else
                             <button onclick="closeGameModal()" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center hover:bg-white/30 transition-all duration-300 border border-white/30 shadow-lg hover:scale-110">
                                 <i class="fas fa-times text-lg"></i>
                             </button>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
 
-            <div class="flex-1 p-6 bg-gradient-to-br from-gray-50/80 to-orange-50/40 backdrop-blur-sm overflow-hidden relative">
+            <div class="flex-1 p-3 bg-gradient-to-br from-gray-50/80 to-orange-50/40 backdrop-blur-sm overflow-hidden relative">
                 <div class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden h-full border-2 border-orange-200/50 relative">
 
                     <div id="gameLoadingOverlay" style="display: none;" class="absolute inset-0 bg-gradient-to-br from-white/95 to-orange-50/90 backdrop-blur-md flex items-center justify-center z-20 transition-all duration-200">
@@ -323,7 +323,7 @@ else
                 </div>
             </div>
 
-            <div class="p-6 bg-gradient-to-r from-white via-orange-50/50 to-yellow-50/30 backdrop-blur-sm border-t border-orange-200/50 flex-shrink-0 relative">
+            <div class="p-4 bg-gradient-to-r from-white via-orange-50/50 to-yellow-50/30 backdrop-blur-sm border-t border-orange-200/50 flex-shrink-0 relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-orange-100/20 to-yellow-100/20"></div>
                 <div class="relative z-10 flex items-center justify-between">
                     <div class="flex items-center gap-3 text-gray-700">
@@ -605,7 +605,7 @@ else
             const game     = entry.game;
             const wordCard = entry.word;
             document.getElementById('modalTitle').textContent = game.title;
-            document.getElementById('gameWord').textContent   = wordCard ? wordCard.word : '';
+            /*document.getElementById('gameWord').textContent   = wordCard ? wordCard.word : '';*/
 
             console.log('🎮 Loading game:', game.title, wordCard ? 'with word:' + wordCard.word : '');
 
@@ -626,7 +626,7 @@ else
             
             setTimeout(() => {
                 hideGameLoading();
-            }, 8000);
+            }, 3000);
         }
         
         function completeGame(){

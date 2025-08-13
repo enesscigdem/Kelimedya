@@ -1,0 +1,6 @@
+# Build çıktıları
+bin/
+obj/
+*.dll
+*.pdb
+*.cache

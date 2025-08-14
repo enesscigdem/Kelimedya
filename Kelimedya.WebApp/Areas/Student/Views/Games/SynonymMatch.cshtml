@@ -3,6 +3,7 @@
     bool popUp = Context.Request.Query.ContainsKey("popUp");
     string singleWord = Context.Request.Query["word"];
     string wordId = Context.Request.Query["id"];
+    string lessonId = Context.Request.Query["lessonId"];
     Layout = popUp
         ? "~/Areas/Student/Views/Shared/_GameLayout.cshtml"
         : "~/Areas/Student/Views/Shared/_Layout.cshtml";
@@ -82,6 +83,7 @@
          data-game-id="@ViewData["GameId"]"
          data-word="@singleWord"
          data-word-id="@wordId"
+         data-lesson-id="@lessonId"
          data-embed="@popUp.ToString().ToLower()">
 
         @if (!popUp)
@@ -136,10 +138,11 @@
                 root.dataset.studentId,
                 root.dataset.gameId,
                 root.dataset.word,
-                root.dataset.wordId
+                root.dataset.wordId,
+                root.dataset.lessonId
             );
         </script>
-}
+    }
 
 </body>
 </html>

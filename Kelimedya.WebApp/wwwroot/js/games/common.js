@@ -26,8 +26,11 @@ window.iziToast = window.iziToast || {
     },
 }
 
-export async function fetchLearnedWords(studentId) {
-    const res = await fetch(`${API_BASE_URL}/api/progress/wordcards/learned/${studentId}`)
+export async function fetchLearnedWords(studentId, lessonId) {
+    const url = lessonId
+        ? `${API_BASE_URL}/api/progress/wordcards/learned/${studentId}?lessonId=${lessonId}`
+        : `${API_BASE_URL}/api/progress/wordcards/learned/${studentId}`
+    const res = await fetch(url)
     if (!res.ok) return []
     const data = await res.json()
     return data.map((x) => ({...x.wordCard, gameQuestions: x.gameQuestions}))

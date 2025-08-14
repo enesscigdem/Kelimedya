@@ -6,6 +6,8 @@
         : "~/Areas/Student/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Çengel Bulmaca";
     var studentId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    string lessonId = Context.Request.Query["lessonId"];
+    int.TryParse(Context.Request.Query["batch"], out var batch);
 }
 
 <!DOCTYPE html>
@@ -192,9 +194,11 @@
   <div class="absolute inset-0 -z-10 [background:radial-gradient(600px_200px_at_20%_0%,rgba(253,186,116,.25),transparent_60%),radial-gradient(600px_200px_at_100%_20%,rgba(254,240,138,.25),transparent_60%)]"></div>
 
   <div id="gameRoot" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
-       data-student-id="@studentId"
-       data-game-id="@ViewData["GameId"]"
-       data-embed="@popUp.ToString().ToLower()">
+         data-student-id="@studentId"
+         data-game-id="@ViewData["GameId"]"
+         data-lesson-id="@lessonId"
+         data-batch="@batch"
+         data-embed="@popUp.ToString().ToLower()">
 
     @if (!popUp)
     {
@@ -265,9 +269,9 @@
 
 @section Scripts {
 <script type="module">
-  import { initCrossPuzzle } from '@Url.Content("~/js/games/CrossPuzzle.js")';
-  const root = document.getElementById('gameRoot');
-  initCrossPuzzle(root.dataset.studentId, root.dataset.gameId);
+    import { initCrossPuzzle } from '@Url.Content("~/js/games/CrossPuzzle.js")';
+    const root = document.getElementById('gameRoot');
+    initCrossPuzzle(root.dataset.studentId, root.dataset.gameId, root.dataset.lessonId, Number(root.dataset.batch || 0));
 
     // küçük bilgi çiplerini doldur (opsiyonel)
     window.__updatePuzzleChips = function(size, acrossCount, downCount){

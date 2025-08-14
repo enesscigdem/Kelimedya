@@ -167,7 +167,7 @@ function refill() {
   render()
 }
 
-export async function initSynonymMatch(studentId, gameId, single, wordId) {
+export async function initSynonymMatch(studentId, gameId, single, wordId, lessonId) {
   let cards
   if (single) {
     if (wordId) {
@@ -178,7 +178,7 @@ export async function initSynonymMatch(studentId, gameId, single, wordId) {
     }
     singleMode = true
   } else {
-    cards = await fetchLearnedWords(studentId)
+    cards = await fetchLearnedWords(studentId, lessonId)
     if (cards.length === 0) {
       cards = [
         { word: "güzel", synonym: "hoş", gameQuestions: [] },

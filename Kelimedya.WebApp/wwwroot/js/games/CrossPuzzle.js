@@ -35,8 +35,8 @@ function shuffleInPlace(arr){
 }
 function pickRandom(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
 
-async function loadBatch(studentId, gameId){
-    const cards = await fetchLearnedWords(studentId);
+async function loadBatch(studentId, gameId, lessonId){
+    const cards = await fetchLearnedWords(studentId, lessonId);
     if (cards.length === 0) {
         currentBatch = [];
     } else {
@@ -417,7 +417,7 @@ function addBadge(row, col, num, N, cells){
     if (!cur || num < cur) badge.textContent = num;
 }
 
-function check(studentId, gameId){
+function check(studentId, gameId, lessonId){
     let correct = true;
     document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c => {
         if (c.value.toLocaleUpperCase('tr') !== c.dataset.answer) {
@@ -442,15 +442,15 @@ function check(studentId, gameId){
         if (embedded) {
             setTimeout(() => {
                 if (window.parent !== window) window.parent.postMessage('next-game', '*');
-                else refreshPuzzle(studentId, gameId);
+                else refreshPuzzle(studentId, gameId, lessonId);
             }, 1200);
         } else {
-            setTimeout(() => refreshPuzzle(studentId, gameId), 1000);
+            setTimeout(() => refreshPuzzle(studentId, gameId, lessonId), 1000);
         }
     }
 }
 
-async function reveal(studentId, gameId){
+async function reveal(studentId, gameId, lessonId){
     document.querySelectorAll('.cp-cell:not(.blocked)')
         .forEach(c => c.value = c.dataset.answer);
 
@@ -461,17 +461,18 @@ async function reveal(studentId, gameId){
     }
 }
 
-async function refreshPuzzle(studentId, gameId){
+async function refreshPuzzle(studentId, gameId, lessonId){
     offset += PAGE_SIZE;
-    await loadBatch(studentId, gameId);
+    await loadBatch(studentId, gameId, lessonId);
     placeCrosswords();
     buildGrid();
     buildClues();
     start = Date.now();
 }
 
-async function initCrossPuzzle(studentId, gameId){
-    await loadBatch(studentId, gameId);
+async function initCrossPuzzle(studentId, gameId, lessonId, batch = 0){
+    offset = (Number(batch) || 0) * PAGE_SIZE;
+    await loadBatch(studentId, gameId, lessonId);
     placeCrosswords();
     buildGrid();
     buildClues();
@@ -481,8 +482,8 @@ async function initCrossPuzzle(studentId, gameId){
     const revealBtn = document.getElementById('cpReveal');
     const backBtn   = document.getElementById('cpBack');
 
-    if (checkBtn)  checkBtn.onclick  = () => check(studentId, gameId);
-    if (revealBtn) revealBtn.onclick = () => reveal(studentId, gameId);
+    if (checkBtn)  checkBtn.onclick  = () => check(studentId, gameId, lessonId);
+    if (revealBtn) revealBtn.onclick = () => reveal(studentId, gameId, lessonId);
 
     const embedded = document.getElementById('gameRoot')?.dataset.embed === 'true';
     if (backBtn) {

@@ -170,12 +170,17 @@ namespace Kelimedya.WebAPI.Controllers
         // Yeni Endpoint: Öğrencinin öğrendiği kelime kartlarını döndürür
         // GET: api/progress/wordcards/learned/{studentId}
         [HttpGet("wordcards/learned/{studentId}")]
-        public async Task<IActionResult> GetLearnedWordCards(string studentId)
+        public async Task<IActionResult> GetLearnedWordCards(string studentId, [FromQuery] int? lessonId)
         {
-            // İlgili öğrenci için IsLearned true olan StudentWordCardProgress kayıtlarını alıyoruz
-            var progresses = await _context.StudentWordCardProgresses
-                .Where(p => p.StudentId == studentId && p.IsLearned)
-                .ToListAsync();
+            var query = _context.StudentWordCardProgresses
+                .Where(p => p.StudentId == studentId && p.IsLearned);
+
+            if (lessonId.HasValue)
+            {
+                query = query.Where(p => p.LessonId == lessonId.Value);
+            }
+
+            var progresses = await query.ToListAsync();
 
             var cardIds = progresses.Select(p => p.WordCardId).ToList();
             var cards = await _context.WordCards.Where(w => cardIds.Contains(w.Id)).ToListAsync();

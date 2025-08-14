@@ -19,7 +19,7 @@ namespace Kelimedya.WebApp.Controllers
             _httpClient = httpClientFactory.CreateClient("DefaultApi");
         }
 
-        [HttpGet]
+        [HttpGet, Route("giris-yap")]
         public IActionResult Login() => View();
 
         [HttpPost]
@@ -58,7 +58,7 @@ namespace Kelimedya.WebApp.Controllers
             return Ok(new { success = true, message = "Giriş başarılı!", redirectUrl });
         }
 
-        [HttpGet]
+        [HttpGet, Route("kayit-ol")]
         public IActionResult Register() => View();
 
         [HttpPost]

@@ -90,6 +90,9 @@ builder.Services
             OnAuthenticationFailed = ctx =>
             {
                 Console.WriteLine($"[WebApp JWT] AuthFailed: {ctx.Exception.GetType().Name} — {ctx.Exception.Message}");
+                ctx.NoResult();
+                ctx.Response.Cookies.Delete("AuthToken");
+                ctx.Response.Redirect("/");
                 return Task.CompletedTask;
             },
             OnTokenValidated = ctx =>

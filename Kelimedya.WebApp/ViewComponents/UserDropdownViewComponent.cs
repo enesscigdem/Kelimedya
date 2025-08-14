@@ -19,11 +19,23 @@ public class UserDropdownViewComponent : ViewComponent
 
     public async Task<IViewComponentResult> InvokeAsync(string area)
     {
-        var client = _factory.CreateClient("DefaultApi");
         var id = _user.GetUserId();
-        var info = await client.GetFromJsonAsync<UserInfoViewModel>($"api/users/{id}")
-                   ?? new UserInfoViewModel();
-        info.Area = area;
-        return View(info);
+        if (id <= 0)
+        {
+            return View(new UserInfoViewModel { Area = area });
+        }
+
+        var client = _factory.CreateClient("DefaultApi");
+        try
+        {
+            var info = await client.GetFromJsonAsync<UserInfoViewModel>($"api/users/{id}")
+                       ?? new UserInfoViewModel();
+            info.Area = area;
+            return View(info);
+        }
+        catch (HttpRequestException)
+        {
+            return View(new UserInfoViewModel { Area = area });
+        }
     }
 }

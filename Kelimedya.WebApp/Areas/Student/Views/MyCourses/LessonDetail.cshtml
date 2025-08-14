@@ -584,20 +584,29 @@ else
         let wordOrder = [];
         let gameIndex = 0;
 
-        function startGames(){
-            wordOrder = shuffleArray(lessonWords);
-            playList = [];
-            games.forEach(g => {
-                if(g.perWord !== false){
-                    wordOrder.forEach(w => playList.push({game:g, word:w}));
-                }else{
-                    const rep = g.repeat || 1;
-                    for(let i=0;i<rep;i++) playList.push({game:g, batch:i});
-                }
-            });
-            gameIndex = 0;
-            showCurrentGame();
-        }
+       function startGames(){
+           wordOrder = shuffleArray([...lessonWords]);
+       
+           playList = [];
+       
+           const shuffledGames = shuffleArray([...games]);
+       
+           shuffledGames.forEach(g => {
+               if (g.perWord !== false){
+                   wordOrder.forEach(w => playList.push({ game: g, word: w }));
+               } else {
+                   const rep = g.repeat || 1;
+                   for (let i = 0; i < rep; i++) playList.push({ game: g, batch: i });
+               }
+           });
+       
+           // (Opsiyonel) Tüm playlist’i de karıştırmak istersen aç:
+           // playList = shuffleArray(playList);
+       
+           gameIndex = 0;
+           showCurrentGame();
+       }
+
         
         function showCurrentGame(){
             if(gameIndex >= playList.length){
@@ -633,7 +642,10 @@ else
 
             const gameFrame = document.getElementById('gameFrame');
 
-            const batchParam = (entry.batch !== undefined) ? `&batch=${entry.batch}` : '';
+           const batchParam = (entry.batch !== undefined)
+             ? `&batch=${entry.batch}&batches=${entry.game.repeat || 1}`
+             : '';
+
             const gameUrl = wordCard
                 ? `${game.url}?popUp=1&word=${encodeURIComponent(wordCard.word)}&id=${wordCard.id}&theme=premium`
                 : `${game.url}?popUp=1&lessonId=${lessonId}${batchParam}&theme=premium`;

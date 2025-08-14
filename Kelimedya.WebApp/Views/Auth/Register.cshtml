@@ -40,7 +40,11 @@
                                 <input type="text" id="UserName" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Kullanıcı Adı *">
                                 <span class="text-danger" id="UserNameError"></span>
 
-                                <input type="email" id="Email" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Eposta Adresin *">
+                                <input type="email"
+                                       id="Email"
+                                       class="td_form_field td_mb_10 td_medium td_white_bg"
+                                       placeholder="Eposta Adresin *"
+                                       value="@(ViewBag.PrefillEmail ?? "")">
                                 <span class="text-danger" id="EmailError"></span>
 
                                 <input type="password" id="Password" class="td_form_field td_mb_10 td_medium td_white_bg" placeholder="Şifren *">

@@ -59,7 +59,12 @@ namespace Kelimedya.WebApp.Controllers
         }
 
         [HttpGet, Route("kayit-ol")]
-        public IActionResult Register() => View();
+        public IActionResult Register(string? email)
+        {
+            ViewBag.PrefillEmail = email;
+            return View();
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel dto)

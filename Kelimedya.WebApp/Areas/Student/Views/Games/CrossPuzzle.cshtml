@@ -270,9 +270,11 @@
 <script type="module">
   import { initCrossPuzzle } from '@Url.Content("~/js/games/CrossPuzzle.js")';
   const root = document.getElementById('gameRoot');
-  const qs = new URLSearchParams(window.location.search);
-  const batch = Number(qs.get('batch') || 0);
-  initCrossPuzzle(root.dataset.studentId, root.dataset.gameId, root.dataset.lessonId, batch);
+ const qs = new URLSearchParams(window.location.search);
+ const batch = Number(qs.get('batch') || 0);
+ const batches = Number(qs.get('batches') || 1);
+ initCrossPuzzle(root.dataset.studentId, root.dataset.gameId, root.dataset.lessonId, batch, batches);
+
 
     window.__updatePuzzleChips = function(size, acrossCount, downCount){
       const sizeEl = document.getElementById('cpSizeChip');

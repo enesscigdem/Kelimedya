@@ -1,7 +1,10 @@
 // CrossPuzzle.js
 import { awardScore, fetchLearnedWords } from './common.js';
 
-const PAGE_SIZE = 5;
+const DEFAULT_PAGE_SIZE = 5;
+let PAGE_SIZE = DEFAULT_PAGE_SIZE;
+let TOTAL_BATCHES = 1;
+let BATCH_INDEX = 0;
 const BASE_SIZE = 15;      // minimum grid
 const MAX_LIMIT = 15;      // yatay genişlik tabanı (en uzun kelime bunu aşarsa genişlik büyür)
 const MAX_ROWS  = BASE_SIZE; // dikey satır tavanı (yükseklik büyümesin diye)
@@ -35,22 +38,40 @@ function shuffleInPlace(arr){
 }
 function pickRandom(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
 
-async function loadBatch(studentId, gameId, lessonId){
+async function loadBatch(studentId, gameId, lessonId, { recalc = true } = {}) {
     const cards = await fetchLearnedWords(studentId, lessonId);
-    if (cards.length === 0) {
+
+    if (!cards || cards.length === 0) {
         currentBatch = [];
-    } else {
-        const slice = cards.slice(offset, offset + PAGE_SIZE);
-        if (slice.length < PAGE_SIZE) slice.push(...cards.slice(0, PAGE_SIZE - slice.length));
-        currentBatch = slice.map(card => {
-            const qa  = card.gameQuestions?.find(g => g.gameId === Number(gameId));
-            const raw = (qa?.answerText || card.word || '').toUpperCase('tr');
-            return { ...card, answerRaw: raw.replace(/\s+/g, '') };
-        });
-        shuffleInPlace(currentBatch);
+        return;
     }
+
+    // batch sayısına göre sayfa boyutunu ayarla
+    if (recalc) {
+        // en az 3, en fazla 5; iki bulmaca toplamı tüm kelimeleri kaplasın
+        const needPerBatch = Math.ceil(cards.length / Math.max(1, TOTAL_BATCHES));
+        PAGE_SIZE = Math.min(DEFAULT_PAGE_SIZE, Math.max(3, needPerBatch));
+        // bu batch'in başlangıç index'i
+        BATCH_INDEX = Math.max(0, BATCH_INDEX);
+        offset = BATCH_INDEX * PAGE_SIZE;
+    }
+
+    const start = Math.min(offset, Math.max(0, cards.length - 1));
+    const end = Math.min(start + PAGE_SIZE, cards.length);
+
+    // 👇 wrap YOK — ikinci batch, birincinin kaldığı yerden farklı parça alır
+    const slice = cards.slice(start, end);
+
+    currentBatch = slice.map(card => {
+        const qa  = card.gameQuestions?.find(g => g.gameId === Number(gameId));
+        const raw = (qa?.answerText || card.word || '').toUpperCase('tr');
+        return { ...card, answerRaw: raw.replace(/\s+/g, '') };
+    });
+
+    shuffleInPlace(currentBatch);
     currentBatch.sort((a,b)=> b.answerRaw.length - a.answerRaw.length);
 }
+
 
 function placeCrosswords(){
     puzzle.across = [];
@@ -463,7 +484,7 @@ async function reveal(studentId, gameId, lessonId){
 
 async function refreshPuzzle(studentId, gameId, lessonId){
     offset += PAGE_SIZE;
-    await loadBatch(studentId, gameId, lessonId);
+    await loadBatch(studentId, gameId, lessonId, { recalc: false });
     placeCrosswords();
     buildGrid();
     buildClues();
@@ -471,9 +492,12 @@ async function refreshPuzzle(studentId, gameId, lessonId){
 }
 
 
-async function initCrossPuzzle(studentId, gameId, lessonId, batch = 0){
-    offset = (Number(batch) || 0) * PAGE_SIZE;
-    await loadBatch(studentId, gameId, lessonId);
+
+async function initCrossPuzzle(studentId, gameId, lessonId, batch = 0, batches = 1){
+    BATCH_INDEX = Number(batch) || 0;
+    TOTAL_BATCHES = Number(batches) || 1;
+
+    await loadBatch(studentId, gameId, lessonId, { recalc: true });
     placeCrosswords();
     buildGrid();
     buildClues();
@@ -492,6 +516,7 @@ async function initCrossPuzzle(studentId, gameId, lessonId, batch = 0){
         else backBtn.onclick = () => history.back();
     }
 }
+
 
 export {
     loadBatch,

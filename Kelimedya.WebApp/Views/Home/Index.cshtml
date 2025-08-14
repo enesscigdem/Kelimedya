@@ -44,26 +44,25 @@
                 <p class="td_hero_subtitle td_fs_18 td_heading_color td_opacity_8 td_mb_40">
                     @Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Slider_Text"))
                 </p>
-                <div class="td_newsletter td_style_1">
-                    <form action="#" class="td_newsletter_form">
-                        <input type="email" class="td_newsletter_input" placeholder="@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Newsletter_Placeholder"))">
-                        <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium td_fs_18">
-                            <span class="td_btn_in td_white_color td_accent_bg">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_34_3978)">
-                                        <path d="M19.8102 18.9119L14.6466 13.8308C15.9988 12.3616 16.8296 10.4187 16.8296 8.28068C16.8289 3.7071 13.0618 0 8.41447 0C3.76713 0 0 3.7071 0 8.28068C0 12.8543 3.76713 16.5614 8.41447 16.5614C10.4224 16.5614 12.2641 15.8668 13.7107 14.7122L18.8944 19.8134C19.147 20.0622 19.5571 20.0622 19.8096 19.8134C20.0628 19.5646 20.0628 19.1607 19.8102 18.9119ZM8.41447 15.2873C4.48231 15.2873 1.29468 12.1504 1.29468 8.28068C1.29468 4.41101 4.48231 1.27403 8.41447 1.27403C12.3467 1.27403 15.5343 4.41101 15.5343 8.28068C15.5343 12.1504 12.3467 15.2873 8.41447 15.2873Z" fill="currentColor"></path>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_34_3978">
-                                            <rect width="20" height="20" fill="currentColor"></rect>
-                                        </clipPath>
-                                    </defs>
-                                </svg>                    
-                                <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Newsletter_Button"))</span>
-                            </span>             
-                        </button>
-                    </form>
-                </div>
+             @if (!User.Identity.IsAuthenticated)
+             {
+                 <!-- Newsletter formu: giriş yapılmamışsa -->
+                 <div class="td_newsletter td_style_1">
+                     <form asp-controller="Auth" asp-action="Register" method="get" class="td_newsletter_form">
+                         <input type="email"
+                                name="email"
+                                class="td_newsletter_input"
+                                placeholder='@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Newsletter_Placeholder"))'
+                                required>
+                         <button type="submit" class="td_btn td_style_1 td_radius_10 td_medium td_fs_18">
+                             <span class="td_btn_in td_white_color td_accent_bg">
+                                 <!-- svg -->
+                                 <span>@Html.Raw(await WidgetService.GetWidgetContentAsync("HomePage_Newsletter_Button"))</span>
+                             </span>
+                         </button>
+                     </form>
+                 </div>
+             }
             </div>
         </div>
         <div class="td_hero_img_wrap wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">

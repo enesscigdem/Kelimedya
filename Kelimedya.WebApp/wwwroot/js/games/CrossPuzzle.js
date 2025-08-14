@@ -470,7 +470,9 @@ async function refreshPuzzle(studentId, gameId, lessonId){
     start = Date.now();
 }
 
-async function initCrossPuzzle(studentId, gameId, lessonId){
+
+async function initCrossPuzzle(studentId, gameId, lessonId, batch = 0){
+    offset = (Number(batch) || 0) * PAGE_SIZE;
     await loadBatch(studentId, gameId, lessonId);
     placeCrosswords();
     buildGrid();

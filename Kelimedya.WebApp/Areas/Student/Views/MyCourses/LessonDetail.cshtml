@@ -583,7 +583,7 @@ else
         let playList = [];
         let wordOrder = [];
         let gameIndex = 0;
-        
+
         function startGames(){
             wordOrder = shuffleArray(lessonWords);
             playList = [];
@@ -592,7 +592,7 @@ else
                     wordOrder.forEach(w => playList.push({game:g, word:w}));
                 }else{
                     const rep = g.repeat || 1;
-                    for(let i=0;i<rep;i++) playList.push({game:g});
+                    for(let i=0;i<rep;i++) playList.push({game:g, batch:i});
                 }
             });
             gameIndex = 0;
@@ -632,9 +632,11 @@ else
             console.log('🎮 Loading game:', game.title, wordCard ? 'with word:' + wordCard.word : '');
 
             const gameFrame = document.getElementById('gameFrame');
+
+            const batchParam = (entry.batch !== undefined) ? `&batch=${entry.batch}` : '';
             const gameUrl = wordCard
                 ? `${game.url}?popUp=1&word=${encodeURIComponent(wordCard.word)}&id=${wordCard.id}&theme=premium`
-                : `${game.url}?popUp=1&lessonId=${lessonId}&theme=premium`;
+                : `${game.url}?popUp=1&lessonId=${lessonId}${batchParam}&theme=premium`;
             
             gameFrame.onload = function() {
                 console.log('✅ Game iframe loaded successfully');

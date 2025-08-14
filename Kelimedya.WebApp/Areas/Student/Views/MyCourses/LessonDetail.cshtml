@@ -491,6 +491,28 @@ else
             });
         });
         
+        // Klavye ile kart gezme: → sonraki, ← önceki
+        document.addEventListener('keydown', (e) => {
+          // yazı yazarken tetiklenmesin
+          const a = document.activeElement;
+          const isTyping = a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.isContentEditable);
+          if (isTyping) return;
+        
+          // modal/oyun/quiz açıksa tetiklenmesin
+          const overlay = document.getElementById('modalOverlay');
+          const overlayVisible = overlay && overlay.classList.contains('opacity-100') && !overlay.classList.contains('pointer-events-none');
+          if (overlayVisible) return;
+        
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextCard();   // butonla aynı davranış: son kartta oyunları başlatır
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevCard();
+          }
+        });
+
+        
         function initCards(){
             for (let i = 0; i < totalCards; i++){
                 let cardEl = document.getElementById("card" + i);
@@ -713,12 +735,15 @@ else
             return arr;
         }
         
+        const MYCOURSES_URL = '@Url.Action("Index","MyCourses", new { area = "Student" })';
+
         function finishCourse(){
             showIziToastSuccess("🎉 Tebrikler, dersi başarıyla tamamladınız!");
             setTimeout(() => {
-                window.location = 'http://localhost:5015/Student/MyCourses';
+                window.location.assign(MYCOURSES_URL);
             }, 2000);
         }
+
         
         function updateWordCardProgress(cardIndex) {
             if(cardIndex < 0 || cardIndex >= totalCards) return;

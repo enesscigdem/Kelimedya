@@ -264,10 +264,10 @@
 </div>
 
 @section Scripts {
-  <script type="module">
-    import { initCrossPuzzle } from '@Url.Content("~/js/games/CrossPuzzle.js")';
-    const root = document.getElementById('gameRoot');
-    initCrossPuzzle(root.dataset.studentId, root.dataset.gameId);
+<script type="module">
+  import { initCrossPuzzle } from '@Url.Content("~/js/games/CrossPuzzle.js")';
+  const root = document.getElementById('gameRoot');
+  initCrossPuzzle(root.dataset.studentId, root.dataset.gameId);
 
     // küçük bilgi çiplerini doldur (opsiyonel)
     window.__updatePuzzleChips = function(size, acrossCount, downCount){

@@ -43,4 +43,52 @@ body {
   -o-object-fit: contain !important;
   object-fit: contain !important;
 }
+.td_footer_bottom_in--grid{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:16px;
+  min-height:64px;
+}
 
+.td_footer_menu--inline{
+  display:flex;
+  justify-content:flex-end;
+  gap:18px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  white-space:nowrap;
+}
+
+.td_footer_payment{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.td_footer_payment .pay{
+  height: clamp(26px, 3.2vw, 36px);
+  object-fit:contain;
+  image-rendering:auto;
+  opacity:.98;
+}
+.pay-mcvisa{
+  height: clamp(34px, 4.4vw, 50px) !important; /* 50px’e kadar büyüsün */
+}
+.td_footer_payment .pay-iyzico{
+  height: clamp(28px, 3.6vw, 40px);
+}
+
+@media (max-width: 768px){
+  .td_footer_bottom_in--grid{
+    grid-template-columns: 1fr;
+    gap:10px;
+    text-align:center;
+  }
+  .td_footer_menu--inline{
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    white-space:normal;
+  }
+}

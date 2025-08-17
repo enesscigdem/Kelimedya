@@ -57,11 +57,11 @@
                                     <ul class="td_card_meta td_mp_0 td_fs_18 td_medium td_heading_color">
                                         <li>
                                             <img src="~/theme/web_UI/assets/img/icons/user_3.svg" alt="">
-                                            <span class="td_opacity_7">150 Adet</span>
+                                            <span class="td_opacity_7">@product.ProductCourses.Count() Kurs</span>
                                         </li>
                                         <li>
                                             <img src="~/theme/web_UI/assets/img/icons/book.svg" alt="">
-                                            <span class="td_opacity_7">12 Ay</span>
+                                            <span class="td_opacity_7">@product.ProductCourses.Sum(pc => pc.Course.LessonCount) Ders</span>
                                         </li>
                                     </ul>
                                     @if (product.Courses != null && product.Courses.Any())

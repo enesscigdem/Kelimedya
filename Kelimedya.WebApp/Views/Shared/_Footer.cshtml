@@ -1,111 +1,157 @@
 ﻿<footer class="td_footer td_style_1 td_color_1">
-  <div class="container">
-    <div class="td_footer_row">
-      <!-- Hakkında / İletişim Kısa -->
-      <div class="td_footer_col">
-        <div class="td_footer_widget">
-          <div class="td_footer_text_widget td_fs_18">
-            @* <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" alt="Kelimedya" /> *@
-            <p>
-              Kelimedya; kelime hazinesi ve okuma-anlama becerilerini oyunlaştırılmış içeriklerle geliştirmeyi hedefleyen bir eğitim platformudur.
-              Okullar ve aileler için sade, güvenli ve etkili çözümler sunar.
-            </p>
-          </div>
+    <div class="container">
+        <div class="td_footer_row">
+            <!-- Hakkında / İletişim Kısa -->
+            <div class="td_footer_col">
+                <div class="td_footer_widget">
+                    <div class="td_footer_text_widget td_fs_18">
+                        @* <img src="~/theme/web_UI/assets/img/home_5/kelimedya-logo.png" alt="Kelimedya" /> *@
+                        <p>
+                            Kelimedya; kelime hazinesi ve okuma-anlama becerilerini oyunlaştırılmış içeriklerle geliştirmeyi hedefleyen bir eğitim platformudur.
+                            Okullar ve aileler için sade, güvenli ve etkili çözümler sunar.
+                        </p>
+                    </div>
 
-          <ul class="td_footer_address_widget td_medium td_mp_0">
-            <li>
-              <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
-              <a href="tel:+905533589168" aria-label="Telefon ile ara">0553 358 91 68</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@kelimedya.com" aria-label="E-posta gönder">info@kelimedya.com</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              Atakent Mah. 804. Cad. 2/10 No:14 Etimesgut/ANKARA
-            </li>
-          </ul>
+                    <ul class="td_footer_address_widget td_medium td_mp_0">
+                        <li>
+                            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+                            <a href="tel:+905533589168" aria-label="Telefon ile ara">0553 358 91 68</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:info@kelimedya.com" aria-label="E-posta gönder">info@kelimedya.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            Atakent Mah. 804. Cad. 2/10 No:14 Etimesgut/ANKARA
+                        </li>
+                    </ul>
 
-          <div class="td_footer_social_btns td_fs_20">
-            <a href="#" class="td_center" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="td_center" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="td_center" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
+                    <div class="td_footer_social_btns td_fs_20">
+                        <a href="#" class="td_center" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="td_center" aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="td_center" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Hızlı Erişim -->
-      <div class="td_footer_col">
-        <div class="td_footer_widget">
-          <h2 class="td_footer_widget_title td_fs_32 td_white_color td_medium td_mb_30">Hızlı Erişim</h2>
-          <ul class="td_footer_widget_menu">
-            <li><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
-            <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
-            <li><a asp-controller="Products" asp-action="Index">Ürünlerimiz</a></li>
-            <!-- Aşağıdaki iki link için önerilen yönlendirme -->
-            <li><a asp-controller="Home" asp-action="ContactFamilies">Aileler için İletişim</a></li>
-            <li><a asp-controller="Home" asp-action="ContactSchools">Okullar için İletişim</a></li>
-            @* Eğer ayrı Contact controller yoksa:
+            <!-- Hızlı Erişim -->
+            <div class="td_footer_col">
+                <div class="td_footer_widget">
+                    <h2 class="td_footer_widget_title td_fs_32 td_white_color td_medium td_mb_30">Hızlı Erişim</h2>
+                    <ul class="td_footer_widget_menu">
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="About">Hakkımızda</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Products" asp-action="Index">Ürünlerimiz</a>
+                        </li>
+                        <!-- Aşağıdaki iki link için önerilen yönlendirme -->
+                        <li>
+                            <a asp-controller="Home" asp-action="ContactFamilies">Aileler için İletişim</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="ContactSchools">Okullar için İletişim</a>
+                        </li>
+                        @* Eğer ayrı Contact controller yoksa:
                <li><a asp-controller="Home" asp-action="Contact" asp-route-type="aile">Aileler için İletişim</a></li>
                <li><a asp-controller="Home" asp-action="Contact" asp-route-type="okul">Okullar için İletişim</a></li> *@
-          </ul>
-        </div>
-      </div>
+                    </ul>
+                </div>
+            </div>
 
-      <!-- Politikalar -->
-      <div class="td_footer_col">
-        <div class="td_footer_widget">
-          <h2 class="td_footer_widget_title td_fs_32 td_white_color td_medium td_mb_30">Politikalar</h2>
-          <ul class="td_footer_widget_menu">
-            <li><a asp-controller="Policy" asp-action="Privacy">Gizlilik Politikası</a></li>
-            <li><a asp-controller="Policy" asp-action="Terms">Kullanım Koşulları</a></li>
-            <li><a asp-controller="Policy" asp-action="Cookies">Çerez Politikası</a></li>
-            <li><a asp-controller="Policy" asp-action="Kvkk">KVKK Aydınlatma Metni</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Sözleşmeler -->
-      <div class="td_footer_col">
-        <div class="td_footer_widget">
-          <h2 class="td_footer_widget_title td_fs_32 td_white_color td_medium td_mb_30">Sözleşmeler</h2>
-          <ul class="td_footer_widget_menu">
-            <li><a asp-controller="Policy" asp-action="PreInformation">Ön Bilgilendirme Formu</a></li>
-            <li><a asp-controller="Policy" asp-action="DistanceSales">Mesafeli Satış Sözleşmesi</a></li>
-            <li><a asp-controller="Policy" asp-action="Refund">Teslimat &amp; İptal-İade</a></li>
-          </ul>
-        </div>
-      </div>
+            <!-- Politikalar -->
+            <div class="td_footer_col">
+                <div class="td_footer_widget">
+                    <h2 class="td_footer_widget_title td_fs_32 td_white_color td_medium td_mb_30">Politikalar</h2>
+                    <ul class="td_footer_widget_menu">
+                        <li>
+                            <a asp-controller="Policy" asp-action="Privacy">Gizlilik Politikası</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Policy" asp-action="Terms">Kullanım Koşulları</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Policy" asp-action="Cookies">Çerez Politikası</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Policy" asp-action="Kvkk">KVKK Aydınlatma Metni</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sözleşmeler -->
+            <div class="td_footer_col">
+                <div class="td_footer_widget">
+                    <h2 class="td_footer_widget_title td_fs_32 td_white_color td_medium td_mb_30">Sözleşmeler</h2>
+                    <ul class="td_footer_widget_menu">
+                        <li>
+                            <a asp-controller="Policy" asp-action="PreInformation">Ön Bilgilendirme Formu</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Policy" asp-action="DistanceSales">Mesafeli Satış Sözleşmesi</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Policy" asp-action="Refund">Teslimat &amp; İptal-İade</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
 
-      @* BÜLTEN BLOĞU KALDIRILDI *@
+            @* BÜLTEN BLOĞU KALDIRILDI *@
+        </div>
     </div>
-  </div>
 
-  <div class="td_footer_bottom td_fs_18">
-    <div class="container">
-      <div class="td_footer_bottom_in">
-        <p class="td_copyright mb-0">
-          Copyright © @DateTime.Now.Year Kelimedya | Tüm Hakları Saklıdır
-        </p>
-        <ul class="td_footer_widget_menu">
-          <li><a asp-controller="Policy" asp-action="Terms">Kullanım Koşulları</a></li>
-          <li><a asp-controller="Policy" asp-action="Privacy">Gizlilik Politikası</a></li>
-        </ul>
-      </div>
+    <div class="td_footer_bottom td_fs_18">
+        <div class="container">
+            <div class="td_footer_bottom_in td_footer_bottom_in--grid">
+                <!-- Sol -->
+                <p class="td_copyright mb-0">
+                    Copyright © @DateTime.Now.Year Kelimedya | Tüm Hakları Saklıdır
+                </p>
+
+                <!-- Orta: Ödeme Logoları -->
+                <div class="td_footer_payment" aria-label="Ödeme Yöntemleri">
+                    <img src="~/theme/web_UI/assets/img/home_5/iyzico_ile_ode_colored_horizontal.png"
+                         alt="iyzico ile öde" class="pay pay-iyzico"/>
+                    <img src="~/theme/web_UI/assets/img/home_5/mastercard-visa.png"
+                         alt="Mastercard ve Visa" class="pay pay-mcvisa"/>
+                </div>
+
+                <!-- Sağ -->
+                <ul class="td_footer_widget_menu td_footer_menu--inline">
+                    <li>
+                        <a asp-controller="Policy" asp-action="Terms">Kullanım Koşulları</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Policy" asp-action="Privacy">Gizlilik Politikası</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
+
 </footer>
 
 <!-- WhatsApp & ScrollUp aynı kalsın -->
 <div class="td_whatsappup">
-  <a href="https://wa.me/905533589168?text=Kelimedya%20sitesinden%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
-     target="_blank" rel="noopener">
-    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    <span class="sr-only">WhatsApp ile yazın</span>
-  </a>
+    <a href="https://wa.me/905533589168?text=Kelimedya%20sitesinden%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
+       target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        <span class="sr-only">WhatsApp ile yazın</span>
+    </a>
 </div>
 <div class="td_scrollup" role="button" aria-label="Sayfanın başına dön">
-  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
 </div>

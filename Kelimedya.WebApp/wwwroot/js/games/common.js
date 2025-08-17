@@ -26,15 +26,34 @@ window.iziToast = window.iziToast || {
     },
 }
 
+function shuffleArray(array) {
+    const a = [...(array || [])];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
 export async function fetchLearnedWords(studentId, lessonId) {
     const url = lessonId
         ? `${API_BASE_URL}/api/progress/wordcards/learned/${studentId}?lessonId=${lessonId}`
-        : `${API_BASE_URL}/api/progress/wordcards/learned/${studentId}`
-    const res = await fetch(url)
-    if (!res.ok) return []
-    const data = await res.json()
-    return data.map((x) => ({...x.wordCard, gameQuestions: x.gameQuestions}))
+        : `${API_BASE_URL}/api/progress/wordcards/learned/${studentId}`;
+
+    const res = await fetch(url);
+    if (!res.ok) return [];
+
+    const data = await res.json();
+
+    const mapped = data.map((x) => ({
+        ...x.wordCard,
+        gameQuestions: shuffleArray(x.gameQuestions),
+    }));
+
+    return shuffleArray(mapped);
 }
+
+
 
 export async function fetchWordCardWithQuestions(id) {
     const cardRes = await fetch(`${API_BASE_URL}/api/wordcards/${id}`)

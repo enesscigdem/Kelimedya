@@ -58,7 +58,7 @@ public class GameStatisticsController : ControllerBase
             .Where(s => s.StudentId == studentId)
             .SumAsync(s => s.Score);
 
-        var league = total < 2500 ? "Bronz" : total < 6000 ? "Gümüş" : "Altın";
+        var league = total < 50000 ? "Bronz" : total < 120000 ? "Gümüş" : "Altın";
 
         return Ok(new ScoreInfoDto { TotalScore = total, League = league });
     }

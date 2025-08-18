@@ -8,6 +8,18 @@ let cards = [],
     singleMode = false,
     startTime
 let locked = false
+let roundFinished = false;
+let scoredThisRound = false;   // ✅ eklendi
+let revealedThisRound = false; // ✅ eklendi
+
+function setControlsDisabled(disabled) {
+    const chk = document.getElementById("sbCheck");
+    const rev = document.getElementById("sbReveal");
+    const nxt = document.getElementById("sbNext");
+    if (chk) chk.disabled = disabled;
+    if (rev) rev.disabled = disabled;
+    if (nxt) nxt.disabled = disabled;
+}
 
 function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -73,38 +85,37 @@ function normalizeWord(w) {
 }
 
 function checkSentence() {
-    if (locked) return
+    if (locked || roundFinished) return
+    if (revealedThisRound) return       // ✅ önce cevap gösterildiyse buton etkisiz
     locked = true
-
-    const chk = document.getElementById("sbCheck")
-    const rev = document.getElementById("sbReveal")
-    const nxt = document.getElementById("sbNext")
-    if (chk) chk.disabled = true
-    if (rev) rev.disabled = true
-    if (nxt) nxt.disabled = true
+    setControlsDisabled(true)
 
     const lengthMatch = currentSentence.length === targetSentence.length
-    const orderMatch =
-        lengthMatch && currentSentence.every((w, i) => normalizeChunk(w) === normalizeChunk(targetSentence[i]))
+    const orderMatch = lengthMatch && currentSentence.every((w, i) => normalizeChunk(w) === normalizeChunk(targetSentence[i]))
     const isCorrect = lengthMatch && orderMatch
 
-    awardScore(
-        document.getElementById("gameRoot").dataset.studentId,
-        document.getElementById("gameRoot").dataset.gameId,
-        isCorrect,
-        (Date.now() - startTime) / 1000
-    )
-
+    // ✅ sadece doğruysa ve ilk kezse puan ver
+    if (isCorrect) {
+        tryScore(true) // puanı tek yerden, idempotent
+    } else {
+        // ❌ yanlış: skor yazma, sadece “yanlış” bildirimi / ses için
+        awardScore(
+            document.getElementById("gameRoot").dataset.studentId,
+            document.getElementById("gameRoot").dataset.gameId,
+            false, // <<<<<< yanlış
+            (Date.now() - startTime) / 1000
+        )
+    }
+    roundFinished = true
+    
     const feedbackEl = document.getElementById("sbFeedback")
-    if (!feedbackEl) return
-
     document.querySelectorAll(".sb-word").forEach(btn => (btn.disabled = true))
     document.querySelectorAll(".sentence-slot.filled").forEach(el => (el.style.pointerEvents = "none"))
 
     if (isCorrect) {
-        feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
+        if (feedbackEl) feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
     } else {
-        feedbackEl.innerHTML = '<span class="text-red-600">❌ Yanlış! Doğru cevap gösterildi.</span>'
+        if (feedbackEl) feedbackEl.innerHTML = '<span class="text-red-600">❌ Yanlış! Doğru cevap gösterildi.</span>'
         const sentenceContainer = document.getElementById("sbSentence")
         sentenceContainer.innerHTML = targetSentence
             .map(word => `<button class="sb-word correct" disabled>${word}</button>`)
@@ -112,25 +123,24 @@ function checkSentence() {
     }
 
     setTimeout(() => {
-        feedbackEl.innerHTML = ""
+        if (feedbackEl) feedbackEl.innerHTML = ""
         nextSentence()
     }, 2000)
 }
 
+
 function revealAnswer() {
-    if (locked) return
+    if (locked || roundFinished) return; // ✅
     locked = true
+    revealedThisRound = true    // ✅ bu elde puan kilitlensin
+    roundFinished = true // ✅ puanlama kapanır
+
     currentSentence = [...targetSentence]
     availableWords = []
     render()
 
     document.querySelectorAll(".sb-word").forEach(btn => (btn.disabled = true))
-    const chk = document.getElementById("sbCheck")
-    const rev = document.getElementById("sbReveal")
-    const nxt = document.getElementById("sbNext")
-    if (chk) chk.disabled = true
-    if (rev) rev.disabled = true
-    if (nxt) nxt.disabled = true
+    setControlsDisabled(true)
 
     const feedbackEl = document.getElementById("sbFeedback")
     if (feedbackEl) feedbackEl.innerHTML = '<span class="text-blue-600">💡 Doğru cevap gösterildi!</span>'
@@ -140,6 +150,7 @@ function revealAnswer() {
         else nextSentence()
     }, 2000)
 }
+
 
 function nextSentence() {
     if (!cards.length) {
@@ -178,73 +189,61 @@ function enableControls() {
     if (rev) rev.disabled = false;
     if (nxt) nxt.disabled = false;
 }
+function tryScore(isCorrect) {
+    if (!isCorrect) return;            // yanlışsa asla puan yok
+    if (revealedThisRound) return;     // cevap gösterildiyse puan yok
+    if (scoredThisRound) return;       // zaten puanlandıysa tekrar yok
 
-function setupSentence() {
-    const gid = parseInt(document.getElementById("gameRoot").dataset.gameId)
-    const card = cards[idx]
-    const q = card.gameQuestions?.find(g => g.gameId === gid) || {}
-
-    // 1) Parçaları (chunk) soru metninden al
-    const chunks = (q.questionText || card.word || "")
-        .split("-")
-        .map(w => w.trim())
-        .filter(Boolean)
-
-    // 2) Doğru sıralamayı answerText’e göre oluştur
-    const ansNorm = normalizeText(q.answerText || card.word || "")
-    const withPos = chunks.map(ch => ({
-        ch,
-        pos: ansNorm.indexOf(normalizeChunk(ch))
-    }))
-
-    // eşleşmeyen varsa (pos === -1) stabil kalması için sona at
-    withPos.sort((a, b) => {
-        if (a.pos === -1 && b.pos === -1) return 0
-        if (a.pos === -1) return 1
-        if (b.pos === -1) return -1
-        return a.pos - b.pos
-    })
-
-    // target ve seçenekler chunk bazlı
-    targetSentence = withPos.map(x => x.ch)
-    availableWords = [...chunks]
-
-    currentSentence = []
-    shuffle(availableWords)
-
-    locked = false;
-    enableControls();
-    startTime = Date.now()
-    render()
-    const feedbackEl = document.getElementById("sbFeedback")
-    if (feedbackEl) feedbackEl.innerHTML = ""
-}
-
-function autoSuccess() {
-    if (locked) return
-    locked = true
-
+    scoredThisRound = true;            // 👈 idempotent kilit
     awardScore(
         document.getElementById("gameRoot").dataset.studentId,
         document.getElementById("gameRoot").dataset.gameId,
         true,
         (Date.now() - startTime) / 1000
     )
+}
 
-    // UI kilitle
+function setupSentence() {
+    const gid = parseInt(document.getElementById("gameRoot").dataset.gameId)
+    const card = cards[idx]
+    const q = card.gameQuestions?.find(g => g.gameId === gid) || {}
+
+    const chunks = (q.questionText || card.word || "")
+        .split("-").map(w => w.trim()).filter(Boolean)
+
+    const ansNorm = normalizeText(q.answerText || card.word || "")
+    const withPos = chunks.map(ch => ({ ch, pos: ansNorm.indexOf(normalizeChunk(ch)) }))
+    withPos.sort((a, b) => (a.pos === -1) - (b.pos === -1) || a.pos - b.pos)
+
+    targetSentence = withPos.map(x => x.ch)
+    availableWords = [...chunks]
+    currentSentence = []
+    shuffle(availableWords)
+
+    locked = false
+    roundFinished = false // ✅ tur sıfırlandı
+    scoredThisRound = false        // ✅
+    revealedThisRound = false      // ✅
+    setControlsDisabled(false) // ✅ aç
+    startTime = Date.now()
+    render()
+    const feedbackEl = document.getElementById("sbFeedback")
+    if (feedbackEl) feedbackEl.innerHTML = ""
+}
+
+
+function autoSuccess() {
+    if (locked || roundFinished) return; // ✅
+    locked = true
+    tryScore(true)   // yeterli
+    roundFinished = true
+    
     document.querySelectorAll(".sb-word").forEach(btn => (btn.disabled = true))
     document.querySelectorAll(".sentence-slot.filled").forEach(el => (el.style.pointerEvents = "none"))
-    const chk = document.getElementById("sbCheck")
-    const rev = document.getElementById("sbReveal")
-    const nxt = document.getElementById("sbNext")
-    if (chk) chk.disabled = true
-    if (rev) rev.disabled = true
-    if (nxt) nxt.disabled = true
+    setControlsDisabled(true)
 
     const feedbackEl = document.getElementById("sbFeedback")
-    if (feedbackEl) {
-        feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
-    }
+    if (feedbackEl) feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
 
     setTimeout(() => {
         if (feedbackEl) feedbackEl.innerHTML = ""
@@ -255,6 +254,7 @@ function autoSuccess() {
         nextSentence()
     }, 1200)
 }
+
 
 export async function initSentenceBuilder(studentId, gameId, single, wordId) {
     if (single && wordId) {

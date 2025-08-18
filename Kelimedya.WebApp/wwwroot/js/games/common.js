@@ -1,4 +1,5 @@
 const API_BASE_URL = window.API_BASE_URL;
+const recentAwards = new Map();
 
 // Declare updateScoreDisplay function if not already declared
 const updateScoreDisplay = (score) => {
@@ -45,7 +46,9 @@ export async function fetchLearnedWords(studentId, lessonId) {
 
     const data = await res.json();
 
-    const mapped = data.map((x) => ({
+    const filtered = lessonId ? data.filter(x => x.progress?.lessonId == lessonId) : data;
+
+    const mapped = filtered.map((x) => ({
         ...x.wordCard,
         gameQuestions: shuffleArray(x.gameQuestions),
     }));
@@ -96,9 +99,24 @@ export async function awardScore(studentId, gameId, success, durationSeconds, co
     const embedded = root && root.dataset.embed === 'true';
     const score = success && allowScore ? Math.max(10, Math.floor(100 - durationSeconds * 5)) : 0;
 
+    const key = `${gameId}-${correctAnswer}`;
+    const now = Date.now();
+    if (success && allowScore) {
+        const last = recentAwards.get(key);
+        if (last && now - last < 1000) {
+            return; // prevent double scoring
+        }
+        recentAwards.set(key, now);
+    }
+
     let newTotal = null;
     if (embedded) {
         newTotal = await recordGameStat({studentId, gameId, score, durationSeconds});
+        if (newTotal === null && success && allowScore) {
+            incrementScore(score);
+        }
+    } else if (success && allowScore) {
+        incrementScore(score);
     }
 
     if (success && allowScore) {

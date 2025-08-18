@@ -27,8 +27,8 @@ public class QuizResultsController : ControllerBase
         var result = new StudentQuizResult
         {
             StudentId = dto.StudentId,
-            LessonId = dto.LessonId,
-            CourseId = dto.CourseId,
+            LessonId = dto.LessonId ?? 0,
+            CourseId = dto.CourseId ?? 0,
             TotalQuestions = dto.TotalQuestions,
             CorrectAnswers = dto.CorrectAnswers,
             Score = dto.Score,
@@ -40,6 +40,38 @@ public class QuizResultsController : ControllerBase
         };
 
         _context.StudentQuizResults.Add(result);
+
+        // Mark lesson progress as completed when quiz is recorded
+        var progress = await _context.StudentLessonProgresses
+            .FirstOrDefaultAsync(p => p.StudentId == dto.StudentId && p.LessonId == dto.LessonId);
+
+        if (progress != null)
+        {
+            progress.IsCompleted = true;
+            progress.CompletionPercentage = 100;
+            progress.LastAccessDate = DateTime.UtcNow;
+            progress.ModifiedAt = DateTime.UtcNow;
+            _context.StudentLessonProgresses.Update(progress);
+        }
+        else
+        {
+            var newProgress = new StudentLessonProgress
+            {
+                StudentId = dto.StudentId,
+                LessonId = dto.LessonId ?? 0,
+                LearnedWordCardsCount = 0,
+                CompletionPercentage = 100,
+                StartDate = DateTime.UtcNow,
+                LastAccessDate = DateTime.UtcNow,
+                IsCompleted = true,
+                TotalAttempts = 0,
+                TotalTimeSpentSeconds = 0,
+                CreatedAt = DateTime.UtcNow,
+                ModifiedAt = DateTime.UtcNow
+            };
+            _context.StudentLessonProgresses.Add(newProgress);
+        }
+
         await _context.SaveChangesAsync();
         return Ok(result);
     }

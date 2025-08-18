@@ -1,186 +1,464 @@
-﻿@model IEnumerable<Kelimedya.WebApp.Areas.Teacher.Models.StudentReportViewModel>
-
+﻿@model Kelimedya.WebApp.Areas.Teacher.Models.StudentReportsPageViewModel
 @{
     Layout = "~/Areas/Teacher/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Öğrenci Raporları";
+    ViewData["Title"] = "Öğrenci Performans Takip";
 }
-
 <link href="~/css/teacherReports.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-<div class="teacher-reports-container container-xl">
-       <div class="reports-header mb-5">
-           <div class="d-flex align-items-center justify-content-between border-bottom pb-3">
-               <div>
-                   <h1 class="reports-title mb-1">Öğrenci Performans Takip</h1>
-                   <div class="d-flex align-items-center gap-2">
-                       <span class="badge bg-primary">@Model.Count() Öğrenci</span>
-                       <span class="text-muted fs-7"><i class="bi bi-info-circle"></i> Son güncelleme: @DateTime.Now.ToString("dd MMM yyyy")</span>
-                   </div>
-               </div>
-               <div class="header-actions">
-                   <button class="btn btn-sm btn-light">
-                       <i class="bi bi-printer"></i> Yazdır
-                   </button>
-               </div>
-           </div>
-       </div>
+<style>
+  /* ——— Filtre barı (tek satır) ——— */
+  .filters-card .card-body{ padding:.5rem .75rem; }
+  .filters-toolbar{ display:flex; align-items:center; gap:.5rem; flex-wrap:nowrap; }
+  .filters-toolbar .search{ min-width:220px; max-width:320px; }
+  .filter-chip{
+    display:flex; align-items:center; gap:.5rem;
+    background:#fff; border:1px solid #e9ecef; border-radius:999px;
+    padding:.25rem .6rem; box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .filter-chip .chip-range{ width:140px; height:2px; }
+  .filter-chip .chip-number{ width:90px; }
+  .filter-chip .chip-label{ font-size:.8rem; color:#6c757d; }
+  .filter-chip .chip-badge{
+    font-size:.75rem; background:#f1f3f5; color:#212529;
+    border-radius:999px; padding:.15rem .45rem;
+  }
+  @@media (max-width:768px){
+    .filters-toolbar{ flex-wrap:wrap; }
+    .filters-toolbar .search{ flex:1; max-width:none; }
+  }
 
-    @if (Model != null && Model.Any())
-    {
-        <div class="student-report-list row g-4">
-            @foreach(var report in Model)
-            {
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="student-report-card">
-                        <div class="student-info d-flex align-items-center mb-3">
-                            <div class="avatar me-3">
-                                <div class="avatar-initials bg-primary text-white">@report.FullName?.Substring(0,1)</div>
-                            </div>
-                            <div>
-                                <h3 class="mb-0">@report.FullName</h3>
-                                <p class="student-meta text-muted mb-0">ID: @report.StudentId</p>
-                            </div>
-                        </div>
-                        
-                        <div class="report-stats mb-3">
-                            <div class="stat-item">
-                                <div class="d-flex justify-content-between">
-                                    <span class="stat-label">Tamamlanan Ders</span>
-                                    <span class="stat-value">@report.CompletedLessons?.Count()</span>
-                                </div>
-                                <div class="progress mt-1" style="height: 4px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 75%"></div>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="d-flex justify-content-between">
-                                    <span class="stat-label">Öğrenilen Kelime</span>
-                                    <span class="stat-value">@report.LearnedWords?.Count()</span>
-                                </div>
-                                <div class="progress mt-1" style="height: 4px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 60%"></div>
-                                </div>
-                            </div>
-                        </div>
+  /* ——— Modal içi kelime tablosu (scroll + yapışkan başlık) ——— */
+  .words-table-wrapper{ max-height:55vh; overflow:auto; }
+  .words-table-wrapper thead th{
+    position:sticky; top:0; background:#fff; z-index:1; box-shadow:0 1px 0 #eee;
+  }
+  /* “Detayları gizle” modunda açıklama sütununu kapat */
+  .compact-words td:nth-child(2),
+  .compact-words th:nth-child(2){ display:none; }
+</style>
 
-                        <div class="report-actions d-grid gap-2">
-                            <button class="btn btn-primary btn-report" 
-                                    data-student="@report.StudentId" 
-                                    data-type="transcript">
-                                <i class="bi bi-file-text me-2"></i>Karne Görüntüle
-                            </button>
-                            <button class="btn btn-outline-primary btn-report" 
-                                    data-student="@report.StudentId" 
-                                    data-type="detailed">
-                                <i class="bi bi-bar-chart-line me-2"></i>Detaylı Rapor
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="no-reports text-center py-5">
-            <div class="empty-state">
-                <img src="~/images/empty-report.svg" alt="Boş Rapor" class="mb-4" width="200">
-                <h4 class="mb-3">Henüz rapor verisi bulunmamaktadır</h4>
-                <p class="text-muted">Öğrenciler ders tamamladıkça burada görüntülenecektir</p>
-            </div>
-        </div>
-    }
-
-    
-    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header bg-gradient-primary text-white">
-                    <h2 class="modal-title fs-4" id="reportModalLabel"></h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Kapat"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="modalContent" class="report-content-container"></div>
-                </div>
-                <div class="modal-footer">
-                    <a id="modalDownload" href="#" class="btn btn-success">
-                        <i class="bi bi-file-earmark-pdf me-2"></i>PDF Olarak İndir
-                    </a>
-                    <button id="modalDownloadPng" type="button" class="btn btn-primary">
-                        <i class="bi bi-image me-2"></i>PNG Olarak İndir
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-                </div>
-            </div>
-        </div>
+<div class="container-xl py-3">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+      <h1 class="reports-title mb-1">Öğrenci Performans Takip</h1>
+      <div class="text-muted small">
+        <i class="bi bi-clock-history me-1"></i>Son güncelleme: @DateTime.Now.ToString("dd MMM yyyy HH:mm")
+      </div>
     </div>
+    <div class="d-flex gap-2">
+      <button id="btnPrint" class="btn btn-light"><i class="bi bi-printer me-1"></i>Yazdır</button>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="row g-3 mb-4" id="kpiRow">
+    <div class="col-12 col-md-6 col-xl-2">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="bi bi-people-fill"></i></div>
+        <div class="kpi-label">Öğrenci</div>
+        <div class="kpi-value">@Model.Overview.TotalStudents</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-2">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="kpi-label">Ort. Tamamlama</div>
+        <div class="kpi-value">@Math.Round(Model.Overview.AvgLessonCompletion)%</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-2">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="bi bi-bookmarks-fill"></i></div>
+        <div class="kpi-label">Öğrenilen Kelime</div>
+        <div class="kpi-value">@Model.Overview.TotalLearnedWords</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-2">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="bi bi-patch-question-fill"></i></div>
+        <div class="kpi-label">Quiz Denemesi</div>
+        <div class="kpi-value">@Model.Overview.TotalQuizAttempts</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-2">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="bi bi-stars"></i></div>
+        <div class="kpi-label">Ort. Quiz Skoru</div>
+        <div class="kpi-value">@Math.Round(Model.Overview.AvgQuizScore)</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xl-2">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="bi bi-trophy-fill"></i></div>
+        <div class="kpi-label">Toplam Puan</div>
+        <div class="kpi-value">@Model.Overview.TotalGamePoints</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtre/Sıralama (tek satır şık toolbar) -->
+  <div class="card shadow-sm border-0 mb-3 filters-card">
+    <div class="card-body py-2">
+      <div class="filters-toolbar">
+        <div class="input-group input-group-sm search">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input id="txtSearch" type="search" class="form-control" placeholder="Öğrenci ara... (ad, ID)">
+        </div>
+
+        <div class="filter-chip">
+          <span class="chip-label">Min Tamamlama</span>
+          <input id="rngCompletion" type="range" min="0" max="100" step="5" value="0" class="form-range chip-range">
+          <span id="lblCompletion" class="chip-badge">0%</span>
+        </div>
+
+        <div class="filter-chip">
+          <span class="chip-label">Min Kelime</span>
+          <input id="numWords" type="number" class="form-control form-control-sm chip-number" min="0" value="0">
+        </div>
+
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <select id="selSort" class="form-select form-select-sm w-auto">
+            <option value="name">Ada göre</option>
+            <option value="completion">Tamamlama</option>
+            <option value="words">Öğrenilen kelime</option>
+          </select>
+          <button id="btnResetFilters" type="button" class="btn btn-outline-secondary btn-sm">Sıfırla</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Öğrenci listesi -->
+  <div class="row g-3" id="studentGrid">
+    @foreach (var report in Model.Students)
+    {
+      var comp = (report?.CompletedLessons?.Count() ?? 0) == 0 ? 0
+                 : (int)Math.Round(report.CompletedLessons.Average(x => (double)x.CompletionPercentage));
+      <div class="col-12 col-md-6 col-xl-4 student-card"
+           data-name="@report.FullName"
+           data-words="@report.LearnedWords?.Count()"
+           data-completion="@comp"
+           data-id="@report.StudentId">
+        <div class="student-report-card">
+          <div class="d-flex align-items-center gap-3">
+            <div class="avatar-circle">@report.FullName?.FirstOrDefault()</div>
+            <div class="flex-grow-1">
+              <div class="fw-bold">@report.FullName</div>
+              <div class="text-muted small">ID: @report.StudentId</div>
+            </div>
+            <div class="mini-ring" data-value="@comp">
+              <span>@comp%</span>
+            </div>
+          </div>
+
+          <div class="mt-3 small">
+            <div class="d-flex justify-content-between"><span>Tamamlanan Ders</span><strong>@(report.CompletedLessons?.Count() ?? 0)</strong></div>
+            <div class="progress mt-1" style="height:5px;">
+              <div class="progress-bar" style="width:@comp%"></div>
+            </div>
+            <div class="d-flex justify-content-between mt-2"><span>Öğrenilen Kelime</span><strong>@(report.LearnedWords?.Count() ?? 0)</strong></div>
+          </div>
+
+          <div class="d-grid mt-3 gap-2">
+            <button class="btn btn-primary btn-report" data-type="transcript" data-student="@report.StudentId">
+              <i class="bi bi-file-earmark-text me-1"></i> Karne
+            </button>
+            <button class="btn btn-outline-primary btn-report" data-type="detailed" data-student="@report.StudentId">
+              <i class="bi bi-graph-up me-1"></i> Detaylı Rapor
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content beautiful-modal">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="reportModalLabel"></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+      </div>
+      <div class="modal-body">
+        <div id="modalContent"></div>
+
+        <!-- Detaylı rapor grafik alanı -->
+        <div id="detailCharts" class="d-none">
+          <div class="row g-3 mt-2">
+            <div class="col-12 col-xl-4">
+              <div class="chart-card">
+                <div class="chart-title">Quiz Skorları (Son 10)</div>
+                <canvas id="chartQuiz"></canvas>
+              </div>
+            </div>
+            <div class="col-12 col-xl-4">
+              <div class="chart-card">
+                <div class="chart-title">Oyun Puanları (Son 10)</div>
+                <canvas id="chartGame"></canvas>
+              </div>
+            </div>
+            <div class="col-12 col-xl-4">
+              <div class="chart-card">
+                <div class="chart-title">Özet</div>
+                <canvas id="chartSummary"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer gap-2">
+        <a id="modalDownload" href="#" class="btn btn-success"><i class="bi bi-file-earmark-pdf me-1"></i> PDF İndir</a>
+        <button id="modalDownloadPng" type="button" class="btn btn-primary"><i class="bi bi-image me-1"></i> PNG İndir</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 @section Scripts {
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-    <script>
-$(function() {
-            $(".btn-report").click(function(e) {
-                e.preventDefault();
-                
-                var studentId = $(this).data("student");
-                var reportType = $(this).data("type"); // "transcript" veya "detailed"
+  <script>
+    // --- Grafik instance'larını tek yerde tut
+    let KCharts = { quiz:null, game:null, summary:null };
 
-                // AJAX ile ilgili raporu çekmek için URL'yi belirleyelim
-                var url = reportType === "transcript"
-                    ? "@Url.Action("Transcript", "Reports", new { area = "Teacher" })"
-                    : "@Url.Action("DetailedReport", "Reports", new { area = "Teacher" })";
-                url += "?studentId=" + studentId;
+    function resetCharts() {
+      // varsa yok et
+      for (const k in KCharts) {
+        if (KCharts[k]) { try { KCharts[k].destroy(); } catch(e){} KCharts[k] = null; }
+      }
+      // canvas'ları tazeleyelim (Chart.js bazen eski context'i cache'leyebiliyor)
+      $('#chartQuiz').replaceWith('<canvas id="chartQuiz"></canvas>');
+      $('#chartGame').replaceWith('<canvas id="chartGame"></canvas>');
+      $('#chartSummary').replaceWith('<canvas id="chartSummary"></canvas>');
+    }
 
-                $.ajax({
-                    url: url,
-                    type: "GET",
-                    success: function(data) {
-                        var title = (reportType === "transcript" ? "Karne" : "Detaylı Rapor");
-                        $("#reportModalLabel").text(data.studentName + " - " + title);
+    // Modal kapanırken her şeyi sıfırla
+    $('#reportModal').on('hidden.bs.modal', function(){
+      resetCharts();
+      $('#modalContent').empty();
+      $('#detailCharts').addClass('d-none');
+    });
 
-                        // İçeriği modal gövdesine bas
-                        $("#modalContent").html(data.htmlContent || "<p>İçerik bulunamadı.</p>");
+    $(function(){
+      // mini progress ring
+      $('.mini-ring').each(function(){ $(this).attr('title', ($(this).data('value')||0) + '%'); });
 
-                        // İndirilecek PDF linkini ayarla
-                        var downloadUrl = reportType === "transcript"
-                            ? "@Url.Action("DownloadTranscript", "Reports", new { area = "Teacher" })"
-                            : "@Url.Action("DownloadDetailedReport", "Reports", new { area = "Teacher" })";
-                        downloadUrl += "?studentId=" + studentId;
-                        $("#modalDownload").attr("href", downloadUrl);
+      // --- Filtreler
+      function applyFilters(){
+        const q = $('#txtSearch').val().toLowerCase().trim();
+        const minComp  = Number($('#rngCompletion').val() || 0);
+        const minWords = Number($('#numWords').val() || 0);
 
-                        $("#modalDownloadPng").off('click').on('click', function() {
-                            html2canvas(document.getElementById('modalContent')).then(function(canvas) {
-                                var link = document.createElement('a');
-                                link.download = data.studentName + '-' + title + '.png';
-                                link.href = canvas.toDataURL();
-                                link.click();
-                            });
-                        });
+        $('#studentGrid .student-card').each(function(){
+          const name  = (String($(this).data('name')||'')).toLowerCase();
+          const id    = (String($(this).data('id')||'')).toLowerCase();
+          const comp  = Number($(this).data('completion')||0);
+          const words = Number($(this).data('words')||0);
+          const match = (name.includes(q) || id.includes(q)) && comp >= minComp && words >= minWords;
+          $(this).toggle(match);
+        });
+      }
+      $('#txtSearch').on('input', applyFilters);
+      $('#rngCompletion, #numWords').on('input change', function(){
+        $('#lblCompletion').text(($('#rngCompletion').val()||0) + '%');
+        applyFilters();
+      });
+      $('#btnResetFilters').on('click', function(){
+        $('#txtSearch').val('');
+        $('#rngCompletion').val(0); $('#lblCompletion').text('0%');
+        $('#numWords').val(0);
+        $('#selSort').val('name');
+        applyFilters();
+      });
 
-                        // Bootstrap 5 modalını aç
-                        var modalElement = document.getElementById('reportModal');
-                        var reportModal = new bootstrap.Modal(modalElement);
-                        reportModal.show();
-                    },
-                    error: function(xhr, status, error) {
-                        alert("Rapor yüklenirken hata oluştu: " + error);
-                    }
-                });
+      // --- Sıralama
+      $('#selSort').on('change', function(){
+        const val = this.value;
+        const $grid = $('#studentGrid');
+        const cards = $grid.children().get();
+        cards.sort((a,b)=>{
+          const $a=$(a), $b=$(b);
+          if (val==='name') return (String($a.data('name')||'')).localeCompare(String($b.data('name')||''),'tr');
+          if (val==='words') return Number($b.data('words')||0) - Number($a.data('words')||0);
+          if (val==='completion') return Number($b.data('completion')||0) - Number($a.data('completion')||0);
+          return 0;
+        });
+        $grid.append(cards);
+      });
+
+      // --- Modal aksiyonları (MVC controller üzerinden)
+      $(".btn-report").click(async function(e){
+        e.preventDefault();
+        const studentId = $(this).data("student");
+        const type = $(this).data("type");
+
+        const url = type === "transcript"
+          ? "@Url.Action("Transcript","Reports", new { area="Teacher" })" + "?studentId=" + studentId
+          : "@Url.Action("DetailedReport","Reports", new { area="Teacher" })" + "?studentId=" + studentId;
+
+        try{
+          const data = await $.getJSON(url);
+          $("#reportModalLabel").text(data.studentName + " - " + (type==='transcript' ? 'Karne' : 'Detaylı Rapor'));
+          $("#modalDownload").attr("href", type==='transcript'
+            ? "@Url.Action("DownloadTranscript","Reports", new { area="Teacher" })?studentId="+studentId
+            : "@Url.Action("DownloadDetailedReport","Reports", new { area="Teacher" })?studentId="+studentId);
+
+          if (type==='transcript'){
+            $("#detailCharts").addClass('d-none');
+            $("#modalContent").html(data.htmlContent || "<p>İçerik bulunamadı.</p>");
+          } else {
+            $("#detailCharts").removeClass('d-none');
+
+            const wordsRows = (data.topWords||[]).map(w => `
+              <tr>
+                <td>${w.word}</td>
+                <td class="text-muted small">${w.definition||''}</td>
+                <td class="text-end">${w.viewCount}</td>
+                <td class="text-end">${(w.timeSpentSeconds||0).toFixed(0)} sn</td>
+                <td class="text-end">${(w.avgResponseTimeSeconds||0).toFixed(1)} sn/cevap</td>
+              </tr>`).join('') || `<tr><td colspan="5" class="text-center text-muted">Henüz veri yok</td></tr>`;
+
+            const wrongRows = (data.wrongAnswers||[]).map(a => `
+              <tr>
+                <td>${new Date(a.date).toLocaleString('tr-TR')}</td>
+                <td>${a.lessonTitle||'-'}</td>
+                <td>${a.question||'-'}</td>
+                <td class="text-danger">${a.givenAnswer||'-'}</td>
+                <td class="text-success">${a.correctAnswer||'-'}</td>
+              </tr>`).join('') || `<tr><td colspan="5" class="text-center text-muted">Henüz veri yok</td></tr>`;
+
+            const html = `
+              <div class="detail-grid">
+                <div class="d-tile"><div>Bitirilen Ders</div><strong>${data.completedLessonCount}</strong></div>
+                <div class="d-tile"><div>Öğrenilen Kelime</div><strong>${data.learnedWordCount}</strong></div>
+                <div class="d-tile"><div>Ort. Tamamlama</div><strong>${Math.round(data.avgLessonCompletion||0)}%</strong></div>
+                <div class="d-tile"><div>Quiz Denemesi</div><strong>${data.totalQuizAttempts}</strong></div>
+                <div class="d-tile"><div>Ort. Quiz Skoru</div><strong>${Math.round(data.avgQuizScore||0)}</strong></div>
+                <div class="d-tile"><div>Toplam Puan</div><strong>${data.totalGamePoints}</strong></div>
+              </div>
+
+              <div class="row g-3 mt-2">
+                <div class="col-12 col-xl-7">
+                  <div class="card shadow-sm">
+                    <div class="card-header py-2 d-flex align-items-center justify-content-between">
+                      <strong>Kelimeler (Görüntüleme/Süre)</strong>
+                      <div class="d-flex align-items-center gap-2">
+                        <input id="filterWords" class="form-control form-control-sm" placeholder="Kelime ara" style="width:160px">
+                        <button id="toggleWordDetails" class="btn btn-sm btn-outline-secondary">Detayları gizle</button>
+                      </div>
+                    </div>
+                    <div class="card-body p-0">
+                      <div class="table-responsive words-table-wrapper">
+                        <table class="table table-sm mb-0">
+                          <thead>
+                            <tr>
+                              <th>Kelime</th>
+                              <th>Açıklama</th>
+                              <th class="text-end">Gör. Sayısı</th>
+                              <th class="text-end">Toplam Süre</th>
+                              <th class="text-end">Ort. Süre</th>
+                            </tr>
+                          </thead>
+                          <tbody>${wordsRows}</tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-xl-5">
+                  <div class="card shadow-sm">
+                    <div class="card-header py-2"><strong>Yanlış Sorular</strong></div>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table table-sm mb-0">
+                          <thead><tr><th>Tarih</th><th>Ders</th><th>Soru</th><th>Öğr. Cevap</th><th>Doğru</th></tr></thead>
+                          <tbody>${wrongRows}</tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+            $("#modalContent").html(html);
+
+            // Kelime tablosu: detay göster/gizle + arama
+            let showWordDetails = true;
+            $('#toggleWordDetails').off('click').on('click', function(){
+              showWordDetails = !showWordDetails;
+              $(this).text(showWordDetails ? 'Detayları gizle' : 'Detayları göster');
+              $('#modalContent').toggleClass('compact-words', !showWordDetails);
+            });
+            $('#filterWords').off('input').on('input', function(){
+              const q = this.value.toLowerCase().trim();
+              $('#modalContent table tbody tr').each(function(){
+                $(this).toggle($(this).text().toLowerCase().includes(q));
+              });
             });
 
-            var selectedId = '@ViewData["SelectedStudentId"]';
-            if (selectedId) {
-                var btn = $('.btn-report[data-student="' + selectedId + '"][data-type="transcript"]');
-                if (btn.length) btn.trigger('click');
-            }
-        });
-    </script>
-}
+            // Grafikler
+            drawCharts(data);
+          }
 
+          // PNG indirme
+          $("#modalDownloadPng").off('click').on('click', function() {
+            html2canvas(document.getElementById('modalContent')).then(function(canvas) {
+              const link = document.createElement('a');
+              link.download = (data.studentName + '-' + (type==='transcript'?'Karne':'DetayliRapor') + '.png').replace(/\s+/g,'_');
+              link.href = canvas.toDataURL();
+              link.click();
+            });
+          });
+
+          new bootstrap.Modal(document.getElementById('reportModal')).show();
+        }catch(err){
+          alert("Rapor yüklenirken hata: " + (err?.responseText || err?.statusText || err));
+        }
+      });
+
+      $("#btnPrint").on('click', ()=> window.print());
+    });
+
+    function drawCharts(data){
+      resetCharts(); // tekrar açılışlarda hatayı engeller
+
+      const qLabels = (data.lastQuizAttempts||[]).map(x => new Date(x.date).toLocaleDateString('tr-TR'));
+      const qValues = (data.lastQuizAttempts||[]).map(x => x.score);
+      KCharts.quiz = new Chart(document.getElementById('chartQuiz'), {
+        type:'line',
+        data:{ labels:qLabels, datasets:[{ label:'Skor', data:qValues, tension:.3 }]},
+        options:{ responsive:true, plugins:{ legend:{display:false} } }
+      });
+
+      const gLabels = (data.lastGamePoints||[]).map(x => x.gameName || new Date(x.date).toLocaleDateString('tr-TR'));
+      const gValues = (data.lastGamePoints||[]).map(x => x.score);
+      KCharts.game = new Chart(document.getElementById('chartGame'), {
+        type:'bar',
+        data:{ labels:gLabels, datasets:[{ label:'Puan', data:gValues }]},
+        options:{ responsive:true, plugins:{ legend:{display:false} } }
+      });
+
+      KCharts.summary = new Chart(document.getElementById('chartSummary'), {
+        type:'doughnut',
+        data:{
+          labels:['Tamamlama(%)','Ort. Quiz','Toplam Puan/1000'],
+          datasets:[{
+            data:[
+              Math.round(data.avgLessonCompletion||0),
+              Math.round(data.avgQuizScore||0),
+              Math.min(100, Math.round(((data.totalGamePoints||0)/1000)*100))
+            ]
+          }]
+        },
+        options:{ responsive:true, plugins:{ legend:{ position:'bottom' } } }
+      });
+    }
+  </script>
+}

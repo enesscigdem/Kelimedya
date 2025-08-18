@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Kelimedya.Core.Enum;
 using Kelimedya.WebApp.Areas.Teacher.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -14,56 +14,54 @@ namespace Kelimedya.WebApp.Areas.Teacher.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ReportsController : Controller
     {
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient _http;
         public ReportsController(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClientFactory.CreateClient("DefaultApi");
+            _http = httpClientFactory.CreateClient("DefaultApi"); // BaseAddress API'yi göstermeli
         }
 
-        // GET: /Teacher/Reports/StudentReports
+        // Sayfa: Öğrenci Performans Takip (overview + öğrenciler)
         public async Task<IActionResult> StudentReports(string? studentId)
         {
-            var studentReports = await _httpClient.GetFromJsonAsync<List<StudentReportViewModel>>("api/teacher/reports/students");
+            var students = await _http.GetFromJsonAsync<List<StudentReportViewModel>>(
+                "api/teacher/reports/students") ?? new();
+
+            var overview = await _http.GetFromJsonAsync<TeacherOverviewViewModel>(
+                "api/teacher/reports/overview") ?? new();
+
+            var vm = new StudentReportsPageViewModel
+            {
+                Students = students,
+                Overview = overview
+            };
+
             ViewData["SelectedStudentId"] = studentId;
-            return View(studentReports);
+            return View(vm);
         }
 
-        // GET: /Teacher/Reports/PerformanceReports
-        public async Task<IActionResult> PerformanceReports()
-        {
-            var performanceData = await _httpClient.GetFromJsonAsync<IEnumerable<CoursePerformanceViewModel>>("api/teacher/reports/performance");
-            return View(performanceData);
-        }
-
-        // AJAX: Get Transcript (Student Report Card)
+        // AJAX: Karne
         [HttpGet]
         public async Task<IActionResult> Transcript(string studentId)
         {
-            var transcript = await _httpClient.GetFromJsonAsync<TranscriptDto>($"api/teacher/reports/transcript/{studentId}");
-            return Json(transcript);
+            var dto = await _http.GetFromJsonAsync<object>($"api/teacher/reports/transcript/{studentId}");
+            return Json(dto);
         }
 
-        // AJAX: Get Detailed Report
+        // AJAX: Detaylı Rapor
         [HttpGet]
         public async Task<IActionResult> DetailedReport(string studentId)
         {
-            var detailedReport = await _httpClient.GetFromJsonAsync<DetailedReportDto>($"api/teacher/reports/detailed/{studentId}");
-            return Json(detailedReport);
+            var dto = await _http.GetFromJsonAsync<object>($"api/teacher/reports/detailed/{studentId}");
+            return Json(dto);
         }
 
-        // PDF Download Redirects
+        // PDF köprüleri
         [HttpGet]
         public IActionResult DownloadTranscript(string studentId)
-        {
-            var downloadUrl = $"api/teacher/reports/download/transcript/{studentId}";
-            return Redirect(downloadUrl);
-        }
+            => Redirect($"/api/teacher/reports/download/transcript/{studentId}");
 
         [HttpGet]
         public IActionResult DownloadDetailedReport(string studentId)
-        {
-            var downloadUrl = $"api/teacher/reports/download/detailed/{studentId}";
-            return Redirect(downloadUrl);
-        }
+            => Redirect($"/api/teacher/reports/download/detailed/{studentId}");
     }
 }

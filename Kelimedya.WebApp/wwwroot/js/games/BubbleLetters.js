@@ -264,7 +264,7 @@ function checkWord() {
   } else {
     currentWord = targetWord.split("");
     createTargetSlots();
-    if (fb) fb.innerHTML = `<span class="text-red-600">❌ Yanlış! Doğru: ${targetWord}</span>`;
+    if (fb) fb.innerHTML = '<span class="text-red-600">❌ Yanlış!</span>';
     setTimeout(() => { proceedNext(); }, 2000);
   }
 }

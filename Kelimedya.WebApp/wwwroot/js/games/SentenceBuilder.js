@@ -74,6 +74,7 @@ function normalizeWord(w) {
 
 function checkSentence() {
     if (locked) return
+    locked = true
 
     const lengthMatch = currentSentence.length === targetSentence.length
     const orderMatch =
@@ -92,9 +93,14 @@ function checkSentence() {
 
     document.querySelectorAll(".sb-word").forEach(btn => (btn.disabled = true))
     document.querySelectorAll(".sentence-slot.filled").forEach(el => (el.style.pointerEvents = "none"))
+    const chk = document.getElementById("sbCheck")
+    const rev = document.getElementById("sbReveal")
+    const nxt = document.getElementById("sbNext")
+    if (chk) chk.disabled = true
+    if (rev) rev.disabled = true
+    if (nxt) nxt.disabled = true
 
     if (isCorrect) {
-        locked = true
         feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
     } else {
         feedbackEl.innerHTML = '<span class="text-red-600">❌ Yanlış! Doğru cevap gösterildi.</span>'

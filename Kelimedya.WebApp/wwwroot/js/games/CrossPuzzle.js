@@ -1,5 +1,5 @@
 // CrossPuzzle.js
-import { awardScore, fetchLearnedWords, disableTemporary } from './common.js';
+import { awardScore, fetchLearnedWords } from './common.js';
 
 const DEFAULT_PAGE_SIZE = 5;
 let PAGE_SIZE = DEFAULT_PAGE_SIZE;
@@ -439,6 +439,11 @@ function addBadge(row, col, num, N, cells){
 }
 
 function check(studentId, gameId, lessonId){
+    const checkBtn  = document.getElementById('cpCheck');
+    const revealBtn = document.getElementById('cpReveal');
+    if (checkBtn) checkBtn.disabled = true;
+    if (revealBtn) revealBtn.disabled = true;
+
     let correct = true;
     const cells = document.querySelectorAll('.cp-cell:not(.blocked)');
     cells.forEach(c => {
@@ -459,12 +464,8 @@ function check(studentId, gameId, lessonId){
     const duration = (Date.now() - start) / 1000;
     awardScore(studentId, gameId, correct, duration);
 
-    const checkBtn  = document.getElementById('cpCheck');
-    const revealBtn = document.getElementById('cpReveal');
-
     if (!correct) {
         cells.forEach(c => { c.value = c.dataset.answer; c.disabled = true; });
-        disableTemporary([checkBtn, revealBtn], 2500);
     }
 
     const embedded = document.getElementById('gameRoot')?.dataset.embed === 'true';
@@ -477,11 +478,7 @@ function check(studentId, gameId, lessonId){
         }
     };
 
-    if (correct) {
-        setTimeout(proceed, 1200);
-    } else {
-        setTimeout(proceed, 2000);
-    }
+    setTimeout(proceed, 2500);
 }
 
 async function reveal(studentId, gameId, lessonId){

@@ -67,7 +67,7 @@ function submit(studentId, gameId, selectedOption, btn) {
     } else {
         if (btn) btn.style.backgroundColor = '#f87171';
         if (correctBtn) correctBtn.style.backgroundColor = '#4ade80';
-        feedbackEl.textContent = `Yanlış! Doğru: ${correctText}`;
+        feedbackEl.textContent = 'Yanlış!';
     }
 
     cards.splice(idx, 1);

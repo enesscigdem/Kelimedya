@@ -76,6 +76,13 @@ function checkSentence() {
     if (locked) return
     locked = true
 
+    const chk = document.getElementById("sbCheck")
+    const rev = document.getElementById("sbReveal")
+    const nxt = document.getElementById("sbNext")
+    if (chk) chk.disabled = true
+    if (rev) rev.disabled = true
+    if (nxt) nxt.disabled = true
+
     const lengthMatch = currentSentence.length === targetSentence.length
     const orderMatch =
         lengthMatch && currentSentence.every((w, i) => normalizeChunk(w) === normalizeChunk(targetSentence[i]))
@@ -93,12 +100,6 @@ function checkSentence() {
 
     document.querySelectorAll(".sb-word").forEach(btn => (btn.disabled = true))
     document.querySelectorAll(".sentence-slot.filled").forEach(el => (el.style.pointerEvents = "none"))
-    const chk = document.getElementById("sbCheck")
-    const rev = document.getElementById("sbReveal")
-    const nxt = document.getElementById("sbNext")
-    if (chk) chk.disabled = true
-    if (rev) rev.disabled = true
-    if (nxt) nxt.disabled = true
 
     if (isCorrect) {
         feedbackEl.innerHTML = '<span class="text-green-600">🎉 Tebrikler! Doğru cümle kurdun!</span>'
@@ -118,9 +119,18 @@ function checkSentence() {
 
 function revealAnswer() {
     if (locked) return
+    locked = true
     currentSentence = [...targetSentence]
     availableWords = []
     render()
+
+    document.querySelectorAll(".sb-word").forEach(btn => (btn.disabled = true))
+    const chk = document.getElementById("sbCheck")
+    const rev = document.getElementById("sbReveal")
+    const nxt = document.getElementById("sbNext")
+    if (chk) chk.disabled = true
+    if (rev) rev.disabled = true
+    if (nxt) nxt.disabled = true
 
     const feedbackEl = document.getElementById("sbFeedback")
     if (feedbackEl) feedbackEl.innerHTML = '<span class="text-blue-600">💡 Doğru cevap gösterildi!</span>'

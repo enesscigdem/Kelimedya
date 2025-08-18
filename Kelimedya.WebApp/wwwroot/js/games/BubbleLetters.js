@@ -70,7 +70,6 @@ export async function initBubbleLetters(studentId, gameId, single, wordId) {
   const submitBtn = document.getElementById("blSubmit");
   const revealBtn = document.getElementById("blReveal");
   const nextBtn   = document.getElementById("blNext");
-  const backBtn   = document.getElementById("blBack");
 
   if (clearBtn)  clearBtn.onclick  = clearWord;
   if (submitBtn) submitBtn.onclick = checkWord;
@@ -81,7 +80,6 @@ export async function initBubbleLetters(studentId, gameId, single, wordId) {
     if (isEmbedded()) nextBtn.style.display = "none";
     else nextBtn.onclick = nextWord;
   }
-  if (backBtn) backBtn.onclick = () => window.history.back();
 }
 
 // === Yardımcılar ===
@@ -162,6 +160,13 @@ function autoAdvanceIfCorrect() {
 
   const guess = currentWord.join("");
   if (guess.toLocaleLowerCase("tr") !== targetWord) return;
+
+  answered = true;
+  disableButtons();
+  if (keyListener) {
+    document.removeEventListener("keydown", keyListener);
+    keyListener = null;
+  }
 
   const gid = Number(document.getElementById("gameRoot").dataset.gameId);
   const sid = document.getElementById("gameRoot").dataset.studentId;

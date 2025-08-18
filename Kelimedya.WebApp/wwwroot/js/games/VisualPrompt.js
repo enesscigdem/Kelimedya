@@ -5,7 +5,7 @@ import {
     toThumbnailUrl
 } from "./common.js";
 
-let cards = [], idx = 0, start;
+let cards = [], idx = 0, start, currentCorrect = 1;
 let singleMode = false;
 let imgEl, feedbackEl, questionEl, optionsContainer;
 
@@ -24,6 +24,8 @@ function loadCard(studentId, gameId) {
     feedbackEl.textContent = "";
     optionsContainer.innerHTML = "";
 
+    currentCorrect = q.correctOption ?? card.correctOption ?? 1;
+
     // Seçenek butonları
     letters.forEach((letter, i) => {
         const optKey = `option${letter}`;
@@ -38,43 +40,48 @@ function loadCard(studentId, gameId) {
             "hover:shadow-xl", "transform", "hover:scale-105",
             "text-center", "whitespace-normal"
         ].join(" ");
-        btn.onclick = () => submit(studentId, gameId, i + 1);
+        btn.onclick = () => submit(studentId, gameId, i + 1, btn);
         optionsContainer.append(btn);
     });
 
     start = Date.now();
 }
 
-function submit(studentId, gameId, selectedOption) {
+function submit(studentId, gameId, selectedOption, btn) {
     const card = cards[idx];
     const q = card.gameQuestions?.find(g => g.gameId === Number(gameId)) || {};
-    const correctOption = q.correctOption ?? card.correctOption;
+    const buttons = optionsContainer.querySelectorAll('button');
+    buttons.forEach(b => b.disabled = true);
+
+    const correctOption = currentCorrect;
     const success = selectedOption === correctOption;
     const duration = (Date.now() - start) / 1000;
-    
-    feedbackEl.textContent = success
-        ? "🎉 Tebrikler, doğru bildiniz!"
-        : "❌ Maalesef, yanlış bildiniz.";
+    const correctBtn = buttons[correctOption - 1];
+    const correctText = correctBtn ? correctBtn.textContent : '';
 
-    // Remove any previous success/failure classes and add the new one
-    feedbackEl.classList.remove("text-green-600", "text-red-600");
-    feedbackEl.classList.add(success ? "text-green-600" : "text-red-600");
+    awardScore(studentId, gameId, success, duration, correctText);
 
-    awardScore(studentId, gameId, success, duration);
-
-    // Yanlış cevapta da kartı listeden çıkar
-    cards.splice(idx, 1);
-
-    if (cards.length === 0) {
-        notifyParent();
-        return;
+    if (success) {
+        if (btn) btn.style.backgroundColor = '#4ade80';
+        feedbackEl.textContent = 'Doğru!';
+    } else {
+        if (btn) btn.style.backgroundColor = '#f87171';
+        if (correctBtn) correctBtn.style.backgroundColor = '#4ade80';
+        feedbackEl.textContent = `Yanlış! Doğru: ${correctText}`;
     }
 
-    if (idx >= cards.length) idx = 0;
+    cards.splice(idx, 1);
 
-    setTimeout(() => {
-        loadCard(studentId, gameId);
-    }, 800); // 0.8 saniye gecikme, istersen 0ms de yapabilirsin
+    const proceed = () => {
+        if (cards.length === 0) {
+            notifyParent();
+        } else {
+            if (idx >= cards.length) idx = 0;
+            loadCard(studentId, gameId);
+        }
+    };
+
+    setTimeout(proceed, 2000);
 }
 
 

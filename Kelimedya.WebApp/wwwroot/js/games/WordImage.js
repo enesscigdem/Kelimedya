@@ -2,7 +2,8 @@ import { fetchLearnedWords, awardScore, fetchWordCardWithQuestions, toThumbnailU
 
 let cards = [],
     idx = 0,
-    start
+    start,
+    correctIdx = 0
 let singleMode = false
 let wordEl, optionsEl, feedbackEl
 
@@ -24,38 +25,55 @@ function loadCard() {
   let opts = [q?.imageUrl, q?.imageUrl2, q?.imageUrl3, q?.imageUrl4].filter(Boolean)
   if (opts.length === 0 && card.imageUrl) opts = [card.imageUrl]
 
-  const correct = q?.correctOption ? opts[q.correctOption - 1] : opts[0]
+  correctIdx = q?.correctOption ? q.correctOption - 1 : 0
+  const correct = opts[correctIdx]
 
   optionsEl.innerHTML = ""
-  opts.forEach((img) => {
-    const i = document.createElement("img")
-    i.src = toThumbnailUrl(img)
-    i.className = "wti-option"
-    i.alt = card.word
-    i.onclick = () => select(img === correct)
-    optionsEl.appendChild(i)
+  opts.forEach((img, i) => {
+    const el = document.createElement("img")
+    el.src = toThumbnailUrl(img)
+    el.className = "wti-option"
+    el.alt = card.word
+    el.onclick = () => select(el, i === correctIdx, card.word)
+    optionsEl.appendChild(el)
   })
 
   feedbackEl.textContent = ""
   start = Date.now()
 }
 
-function select(success) {
+function select(el, success, correctWord) {
   const studentId = document.getElementById("gameRoot").dataset.studentId
   const gameId = document.getElementById("gameRoot").dataset.gameId
-  feedbackEl.textContent = success ? "Doğru!" : "Yanlış"
+
+  // tıklamaları kilitle
+  optionsEl.querySelectorAll(".wti-option").forEach(o => o.onclick = null)
 
   const duration = (Date.now() - start) / 1000
-  awardScore(studentId, gameId, success, duration)
+  awardScore(studentId, gameId, success, duration, correctWord)
 
-  // Yanlış cevapta da kartı çıkarıp sonraki soruya geç
-  cards.splice(idx, 1)
-  if (cards.length === 0) {
-    notifyParent()
-    return
+  if (success) {
+    el.classList.add("correct")
+    feedbackEl.textContent = "Doğru!"
+  } else {
+    el.classList.add("incorrect")
+    const correctEl = optionsEl.querySelectorAll(".wti-option")[correctIdx]
+    if (correctEl) correctEl.classList.add("correct")
+    feedbackEl.textContent = `Yanlış! Doğru: ${correctWord}`
   }
-  if (idx >= cards.length) idx = 0
-  loadCard()
+
+  cards.splice(idx, 1)
+
+  const proceed = () => {
+    if (cards.length === 0) {
+      notifyParent()
+    } else {
+      if (idx >= cards.length) idx = 0
+      loadCard()
+    }
+  }
+
+  setTimeout(proceed, 2000)
 }
 
 export async function initWordImage(studentId, gameId, single, wordId) {

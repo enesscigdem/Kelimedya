@@ -1,5 +1,5 @@
 // CrossPuzzle.js
-import { awardScore, fetchLearnedWords } from './common.js';
+import { awardScore, fetchLearnedWords, disableTemporary } from './common.js';
 
 const DEFAULT_PAGE_SIZE = 5;
 let PAGE_SIZE = DEFAULT_PAGE_SIZE;
@@ -440,7 +440,8 @@ function addBadge(row, col, num, N, cells){
 
 function check(studentId, gameId, lessonId){
     let correct = true;
-    document.querySelectorAll('.cp-cell:not(.blocked)').forEach(c => {
+    const cells = document.querySelectorAll('.cp-cell:not(.blocked)');
+    cells.forEach(c => {
         if (c.value.toLocaleUpperCase('tr') !== c.dataset.answer) {
             correct = false; c.classList.add('wrong');
         } else c.classList.remove('wrong');
@@ -458,16 +459,28 @@ function check(studentId, gameId, lessonId){
     const duration = (Date.now() - start) / 1000;
     awardScore(studentId, gameId, correct, duration);
 
+    const checkBtn  = document.getElementById('cpCheck');
+    const revealBtn = document.getElementById('cpReveal');
+
+    if (!correct) {
+        cells.forEach(c => { c.value = c.dataset.answer; c.disabled = true; });
+        disableTemporary([checkBtn, revealBtn], 2500);
+    }
+
     const embedded = document.getElementById('gameRoot')?.dataset.embed === 'true';
-    if (correct) {
+    const proceed = () => {
         if (embedded) {
-            setTimeout(() => {
-                if (window.parent !== window) window.parent.postMessage('next-game', '*');
-                else refreshPuzzle(studentId, gameId, lessonId);
-            }, 1200);
+            if (window.parent !== window) window.parent.postMessage('next-game', '*');
+            else refreshPuzzle(studentId, gameId, lessonId);
         } else {
-            setTimeout(() => refreshPuzzle(studentId, gameId, lessonId), 1000);
+            refreshPuzzle(studentId, gameId, lessonId);
         }
+    };
+
+    if (correct) {
+        setTimeout(proceed, 1200);
+    } else {
+        setTimeout(proceed, 2000);
     }
 }
 

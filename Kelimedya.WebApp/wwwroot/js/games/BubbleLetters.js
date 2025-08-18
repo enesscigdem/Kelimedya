@@ -149,11 +149,11 @@ function setupWord() {
 }
 
 function enableButtons() {
-  document.querySelectorAll('#blClear,#blSubmit,#blReveal').forEach(b => { if (b) b.disabled = false; });
+  document.querySelectorAll('#blClear,#blSubmit,#blReveal,#bubblesArea button').forEach(b => { if (b) b.disabled = false; });
 }
 
 function disableButtons() {
-  document.querySelectorAll('#blClear,#blSubmit,#blReveal').forEach(b => { if (b) b.disabled = true; });
+  document.querySelectorAll('#blClear,#blSubmit,#blReveal,#bubblesArea button').forEach(b => { if (b) b.disabled = true; });
 }
 
 function autoAdvanceIfCorrect() {

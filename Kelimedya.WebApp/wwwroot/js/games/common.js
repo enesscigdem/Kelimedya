@@ -91,17 +91,17 @@ export async function recordGameStat(stat) {
     return scoreInfo.totalScore
 }
 
-export async function awardScore(studentId, gameId, success, durationSeconds) {
+export async function awardScore(studentId, gameId, success, durationSeconds, correctAnswer = "", allowScore = true) {
     const root = document.getElementById('gameRoot');
     const embedded = root && root.dataset.embed === 'true';
-    const score = success ? Math.max(10, Math.floor(100 - durationSeconds * 5)) : 0
+    const score = success && allowScore ? Math.max(10, Math.floor(100 - durationSeconds * 5)) : 0;
 
     let newTotal = null;
     if (embedded) {
-        newTotal = await recordGameStat({studentId, gameId, score, durationSeconds})
+        newTotal = await recordGameStat({studentId, gameId, score, durationSeconds});
     }
 
-    if (success) {
+    if (success && allowScore) {
         // Toast içeriği: embed modda +puan, normal sayfada sadece "Başarılı!"
         if (embedded) {
             showIziToastSuccess(`+${score} puan`);
@@ -115,7 +115,8 @@ export async function awardScore(studentId, gameId, success, durationSeconds) {
             correctAudio.play().catch(() => console.warn("Doğru cevap sesi çalınamadı"));
         }
     } else {
-        showIziToastError("Yanlış cevap!");
+        const message = correctAnswer ? `Yanlış cevap! Doğrusu: ${correctAnswer}` : "Yanlış cevap!";
+        showIziToastError(message);
 
         const incorrectAudio = document.getElementById("incorrectAudio");
         if (incorrectAudio) {
@@ -123,6 +124,14 @@ export async function awardScore(studentId, gameId, success, durationSeconds) {
             incorrectAudio.play().catch(() => console.warn("Yanlış cevap sesi çalınamadı"));
         }
     }
+}
+
+// Utility to temporarily disable a set of buttons/elements
+export function disableTemporary(elements = [], ms = 2000) {
+    (elements || []).forEach(el => { if (el) el.disabled = true; });
+    setTimeout(() => {
+        (elements || []).forEach(el => { if (el) el.disabled = false; });
+    }, ms);
 }
 
 export function incrementScore(amount) {

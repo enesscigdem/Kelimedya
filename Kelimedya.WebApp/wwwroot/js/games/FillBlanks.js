@@ -2,6 +2,8 @@ import {fetchLearnedWords, awardScore, fetchWordCardWithQuestions} from './commo
 
 let items=[], idx=0, start;
 let singleMode=false;
+let revealUsed=false;
+let checking=false;
 
 function createItems(words, gameId){
   return words.map(w=>{
@@ -15,6 +17,7 @@ function createItems(words, gameId){
 }
 
 function renderCard(){
+  revealUsed=false;
   const fb=document.getElementById('fbFeedback');fb.textContent='';fb.className='fb-feedback';
   document.querySelectorAll('.fb-input').forEach(i=>i.remove());
   const card=items[idx], cont=document.getElementById('fbSentence');
@@ -25,19 +28,33 @@ function renderCard(){
   start=Date.now();
 }
 
+function disableButtons(disabled){
+  document.querySelectorAll('#fbCheck,#fbNext,#fbReveal').forEach(btn=>{ if(btn) btn.disabled=disabled; });
+}
+
 function check(studentId, gameId){
+  if(checking) return; checking=true;
+  disableButtons(true);
   let all=true;items[idx].answers.forEach((a,i)=>{const inp=document.querySelector(`.fb-input[data-index="${i}"]`);if(inp.value.trim().toLocaleLowerCase('tr')===a){inp.classList.add('correct');}else{inp.classList.add('wrong');all=false;}});
-  document.getElementById('fbFeedback').textContent=all?'Doğru!':'Yanlış';
+  const correctText=items[idx].answers.join(', ');
+  document.getElementById('fbFeedback').textContent=all? 'Doğru!' : `Yanlış! Doğru: ${correctText}`;
   const duration=(Date.now()-start)/1000;
-  awardScore(studentId, gameId, all, duration);
-  if(all) items.splice(idx,1);
-  if(items.length===0){
-    notifyParent();
-    return;
-  }
+  awardScore(studentId, gameId, all && !revealUsed, duration, correctText, !revealUsed);
+  if(all && !revealUsed) items.splice(idx,1);
+  setTimeout(()=>{
+    if(items.length===0){
+      notifyParent();
+      return;
+    }
+    idx = idx % items.length;
+    checking=false;
+    disableButtons(false);
+    renderCard();
+  },2000);
 }
 
 function reveal(){
+  revealUsed=true;
   items[idx].answers.forEach((a,i)=>{
     const inp=document.querySelector(`.fb-input[data-index="${i}"]`);
     if(inp) inp.value=a;

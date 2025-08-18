@@ -20,6 +20,7 @@ let cards = [],
     startTime = 0;
 
 let keyListener = null; // 👈 Adam Asmaca’daki gibi tek noktadan yönetilecek
+let answered   = false; // aynı sorudan tekrar puan alınmasını engelle
 
 // === Embed (popup) tespiti ve tek çıkış noktası ===
 function isEmbedded() {
@@ -111,6 +112,8 @@ function setupWord() {
   availableLetters = shuffle(alphabet.slice());
 
   startTime = Date.now();
+  answered = false;
+  enableButtons();
 
   // Soru & görsel
   const imgEl = document.getElementById("questionImage");
@@ -143,6 +146,14 @@ function setupWord() {
     }
   };
   document.addEventListener("keydown", keyListener);
+}
+
+function enableButtons() {
+  document.querySelectorAll('#blClear,#blSubmit,#blReveal').forEach(b => { if (b) b.disabled = false; });
+}
+
+function disableButtons() {
+  document.querySelectorAll('#blClear,#blSubmit,#blReveal').forEach(b => { if (b) b.disabled = true; });
 }
 
 function autoAdvanceIfCorrect() {
@@ -230,25 +241,47 @@ function clearWord() {
 }
 
 function checkWord() {
+  if (answered) return;
+  answered = true;
+  disableButtons();
+  if (keyListener) {
+    document.removeEventListener("keydown", keyListener);
+    keyListener = null;
+  }
+
   const guess = currentWord.join("");
   const correct = guess.toLocaleLowerCase("tr") === targetWord;
   const duration = (Date.now() - startTime) / 1000;
   const gid = Number(document.getElementById("gameRoot").dataset.gameId);
   const sid = document.getElementById("gameRoot").dataset.studentId;
 
-  awardScore(sid, gid, correct, duration);
+  awardScore(sid, gid, correct, duration, targetWord, true);
 
   const fb = document.getElementById("blFeedback");
   if (correct) {
     if (fb) fb.innerHTML = '<span class="text-green-600">🎉 Doğru!</span>';
-    proceedNext(800); // ✅ Adam Asmaca ile aynı davranış
+    proceedNext(800);
   } else {
-    if (fb) fb.innerHTML = '<span class="text-red-600">❌ Maalesef, yanlış bildiniz!!</span>';
-    setTimeout(() => { if (fb) fb.innerHTML = ""; }, 1500);
+    currentWord = targetWord.split("");
+    createTargetSlots();
+    if (fb) fb.innerHTML = `<span class="text-red-600">❌ Yanlış! Doğru: ${targetWord}</span>`;
+    setTimeout(() => { proceedNext(); }, 2000);
   }
 }
 
 function revealAnswer() {
+  if (answered) return;
+  answered = true;
+  disableButtons();
+  if (keyListener) {
+    document.removeEventListener("keydown", keyListener);
+    keyListener = null;
+  }
+  const gid = Number(document.getElementById("gameRoot").dataset.gameId);
+  const sid = document.getElementById("gameRoot").dataset.studentId;
+  const duration = (Date.now() - startTime) / 1000;
+  awardScore(sid, gid, false, duration, targetWord, false);
+
   currentWord = targetWord.split("");
   createTargetSlots();
   createBubbles();
@@ -256,5 +289,5 @@ function revealAnswer() {
   const fb = document.getElementById("blFeedback");
   if (fb) fb.innerHTML = '<span class="text-blue-600">💡 Cevap gösterildi!</span>';
 
-  proceedNext(1200); // ✅ Adam Asmaca ile aynı davranış
+  setTimeout(() => { proceedNext(); }, 2000);
 }

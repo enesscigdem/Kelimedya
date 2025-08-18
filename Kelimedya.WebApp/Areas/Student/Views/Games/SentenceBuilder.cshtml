@@ -98,7 +98,7 @@
     <div class="absolute top-0 left-0 w-80 h-80 bg-orange-300 rounded-full opacity-10 -translate-x-32 -translate-y-32" style="filter: blur(60px);"></div>
     <div class="absolute top-20 right-0 w-60 h-60 bg-yellow-300 rounded-full opacity-10 translate-x-20" style="filter: blur(60px);"></div>
 
-    <div id="gameRoot" class="relative z-10 max-w-5xl mx-auto px-4 py-8"
+    <div id="gameRoot" class="relative z-10 max-w-5xl mx-auto px-2 py-4"
          data-student-id="@studentId"
          data-game-id="@ViewData["GameId"]"
          data-word="@singleWord"
@@ -116,7 +116,25 @@
                 </div>
             </header>
         }
-        <p class="text-center text-gray-700 mb-4">Sevgili öğrencimiz aşağıdaki kelimeleri kullanarak düz (kurallı) bir cümle oluşturunuz.</p>
+        <div class="relative max-w-3xl mx-auto mb-5">
+            <div class="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-200/70 rounded-2xl shadow-lg">
+                <div class="h-1 w-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-t-2xl"></div>
+                <div class="p-4 sm:p-5 flex items-start gap-3 sm:gap-4">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 text-white flex items-center justify-center shadow-md flex-shrink-0">
+                        <i class="fa-solid fa-lightbulb text-lg"></i>
+                    </div>
+                    <div class="text-gray-800">
+                        <div class="font-semibold text-orange-700 mb-1">Görev</div>
+                        <p class="leading-relaxed">
+                            Sevgili öğrencimiz, aşağıdaki kelimeleri kullanarak <strong>düz (kurallı)</strong> bir cümle oluşturunuz.
+                        </p>
+                        <div class="mt-2 text-sm text-gray-600">
+                            İpucu: Önce özne → yüklem sırası iyi bir başlangıçtır.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-orange-100 p-8">
             <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 mb-8 min-h-[120px] flex items-center justify-center border border-orange-200">
                 <div id="sbSentence" class="text-2xl text-orange-800 text-center leading-relaxed font-medium">

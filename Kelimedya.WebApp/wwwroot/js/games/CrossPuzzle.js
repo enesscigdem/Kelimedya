@@ -15,6 +15,19 @@ let offset = 0;
 let currentBatch = [];
 const puzzle = { size: 0, across: [], down: [] };
 
+// ——— Butonları topluca aç/kapat ———
+function setActionsEnabled(enabled) {
+    ['cpCheck', 'cpReveal'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.disabled = !enabled;
+
+        // (Opsiyonel) görsel durum
+        el.classList.toggle('opacity-50', !enabled);
+        el.classList.toggle('cursor-not-allowed', !enabled);
+    });
+}
+
 function preferAcross(word){ return word.length >= 10; }
 
 function longestLen(){
@@ -441,8 +454,7 @@ function addBadge(row, col, num, N, cells){
 function check(studentId, gameId, lessonId){
     const checkBtn  = document.getElementById('cpCheck');
     const revealBtn = document.getElementById('cpReveal');
-    if (checkBtn) checkBtn.disabled = true;
-    if (revealBtn) revealBtn.disabled = true;
+    setActionsEnabled(false);
 
     let correct = true;
     const cells = document.querySelectorAll('.cp-cell:not(.blocked)');
@@ -499,6 +511,14 @@ async function refreshPuzzle(studentId, gameId, lessonId){
     buildGrid();
     buildClues();
     start = Date.now();
+    setActionsEnabled(true);
+
+    const feedbackEl = document.getElementById('cpFeedback');
+    if (feedbackEl) {
+        feedbackEl.textContent = '';
+        feedbackEl.classList.remove('text-green-600','text-red-600');
+    }
+    document.querySelectorAll('.cp-cell').forEach(c => c.classList.remove('wrong'));
 }
 
 
@@ -512,6 +532,7 @@ async function initCrossPuzzle(studentId, gameId, lessonId, batch = 0, batches =
     buildGrid();
     buildClues();
     start = Date.now();
+    setActionsEnabled(true);
 
     const checkBtn  = document.getElementById('cpCheck');
     const revealBtn = document.getElementById('cpReveal');
